@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Stack,
   Box,
@@ -13,7 +13,7 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import { BiCheck } from 'react-icons/bi';
-import ApplyForm from '../landing-page/ApplyForm';
+import ApplyForm from '../components/ApplyForm';
 import NosServices from '../landing-page/NosServices';
 import ReviewsDrawer from '../landing-page/ReviewsDrawer';
 import FloatingReviewBadge from '../landing-page/FloatingReviewBadge';
@@ -34,6 +34,10 @@ export default function LandingPage({ lang }) {
   } = useDisclosure();
 
   const isMobile = useBreakpointValue({ base: true, md: false });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <Flex
@@ -59,7 +63,9 @@ export default function LandingPage({ lang }) {
           src={
             isMobile
               ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerSm.png'
-              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop.png'
+              : lang === 'fr'
+              ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop.png'
+              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/sdsd.png'
           }
         />
       </Stack>

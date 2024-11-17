@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
   Stack,
   Text,
@@ -9,10 +9,11 @@ import {
 } from '@chakra-ui/react';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { Outlet } from 'react-router-dom';
-import NavBar from './WebsiteNavBar';
-import logo from '../img/logo_dark.jpg';
-
+import NavBar from './navigation/WebsiteNavBar';
+import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
+import appContext from '../AppProvider';
 export default function WebsiteLayout() {
+  const { currentLang, setCurrentLang } = useContext(appContext);
   return (
     <Flex
       direction="column"
@@ -50,24 +51,31 @@ export default function WebsiteLayout() {
         bottom="0"
         w="100%"
         spacing={{ base: '4', md: '5' }}
-        bg="#061729"
+        bg="#004BA8"
         py={{ base: '12', md: '10' }}
         px={{ base: '10%', md: '30px' }}
       >
         <Stack justify="space-between" direction="row" align="center">
-          <Image src={logo} h="60px" />
+          <Image
+            src={
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
+            }
+            h="60px"
+          />
           <ButtonGroup variant="tertiary.accent">
             <IconButton
               as="a"
               textColor="white"
               href="https://www.instagram.com/leleverdupinceau/"
               aria-label="Instagram"
+              fontSize="20px"
               icon={<FaInstagram />}
             />
             <IconButton
               as="a"
               href="#"
               textColor="white"
+              fontSize="20px"
               aria-label="Facebook"
               icon={<FaFacebook />}
             />
@@ -78,6 +86,10 @@ export default function WebsiteLayout() {
           réservés
         </Text>
       </Stack>
+      <FloatingLanguageToggle
+        currentLang={currentLang}
+        onToggleLang={setCurrentLang}
+      />
     </Flex>
   );
 }

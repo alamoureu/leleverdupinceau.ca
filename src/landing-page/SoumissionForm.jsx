@@ -325,7 +325,13 @@ export default function SoumissionForm() {
             />
           </FormControl>
 
-          <Button bg="#0056D2" color="white" w="100%" type="submit">
+          <Button
+            bg="#0056D2"
+            color="white"
+            w="100%"
+            type="submit"
+            borderRadius="md"
+          >
             {currentLang === 'fr' ? 'Envoyer' : 'Send'}
           </Button>
         </Stack>

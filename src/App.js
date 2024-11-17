@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainPage from './pages/WebSiteLandingPage';
-import PeintureExt from './PeintureExterieur';
-import PeintureInt from './PeintureInterieur';
-import Nousjoindre from './Nousjoindre';
-import AboutUs from './AboutUs';
-import Emplois from './Emplois';
+import PeintureExt from './pages/PeintureExterieur';
+import PeintureInt from './pages/PeintureInterieur';
+import Nousjoindre from './pages/Nousjoindre';
+import AboutUs from './pages/AboutUs';
+import Emplois from './pages/Emplois';
 import { AppProvider } from './AppProvider';
-import FreeQuotationPage from './FreeQuotationPage';
+import FreeQuotationPage from './pages/SoumissionPage';
 import LandingPageLayout from './layout/LandingPageLayout';
 import LandingPage from './pages/LandingPage';
 import WebsiteLayout from './layout/WebsiteLayout';
