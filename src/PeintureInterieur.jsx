@@ -15,7 +15,7 @@ export default function PeintureInt() {
   const { currentLang } = useContext(appContext);
 
   return (
-    <Stack h="100%" w="100%" pt="110px" gap="4" bg="white" color="black">
+    <Stack h="100%" w="100%" pt="80px" gap="4" bg="white" color="black">
       <Stack
         spacing={{ base: '4', xl: '12' }}
         px={{ base: '4', md: '20%' }}

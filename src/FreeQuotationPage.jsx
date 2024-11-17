@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Flex } from '@chakra-ui/react';
-import FreeQuotationForm from './FreeQuotationForm';
 import SoumissionForm from './landing-page/SoumissionForm';
 
 export default function FreeQuotationPage() {

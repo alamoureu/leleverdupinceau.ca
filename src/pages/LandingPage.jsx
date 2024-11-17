@@ -59,7 +59,7 @@ export default function LandingPage({ lang }) {
           src={
             isMobile
               ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerSm.png'
-              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerlg.png'
+              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop.png'
           }
         />
       </Stack>

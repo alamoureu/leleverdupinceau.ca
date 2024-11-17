@@ -49,6 +49,12 @@ export default function BeforeNAfter({ lang }) {
           },
           {
             leftImage:
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before1interiorr.jpg',
+            rightImage:
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after1interior.jpg',
+          },
+          {
+            leftImage:
               'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67204865.JPG',
             rightImage:
               'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67212545.JPG',

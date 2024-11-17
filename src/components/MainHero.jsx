@@ -87,7 +87,13 @@ export default function MainHero({ onSubmissionFormOpen, lang }) {
         justifyContent="center"
         w={{ base: '80px', md: '125px' }}
       >
-        <Image src="https://harbor-file-system.s3.ca-central-1.amazonaws.com/SSSS.png" />
+        <Image
+          src={
+            lang === 'fr'
+              ? 'https://harbor-file-system.s3.ca-central-1.amazonaws.com/SSSS.png'
+              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/ratinnnggs.png'
+          }
+        />
       </Box>
     </Stack>
   );
