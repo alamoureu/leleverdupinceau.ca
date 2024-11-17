@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Layout from './layout/Layout';
-import MainPage from './MainPage';
+import MainPage from './pages/WebSiteLandingPage';
 import PeintureExt from './PeintureExterieur';
 import PeintureInt from './PeintureInterieur';
 import Nousjoindre from './Nousjoindre';
@@ -8,15 +7,16 @@ import AboutUs from './AboutUs';
 import Emplois from './Emplois';
 import { AppProvider } from './AppProvider';
 import FreeQuotationPage from './FreeQuotationPage';
-import LandingPageLayout from './landing-page/LandingPageLayout';
-import LandingPage from './landing-page/LandingPage';
+import LandingPageLayout from './layout/LandingPageLayout';
+import LandingPage from './pages/LandingPage';
+import WebsiteLayout from './layout/WebsiteLayout';
 
 export default function App() {
   return (
     <Router>
       <AppProvider>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<WebsiteLayout />}>
             <Route path="/" element={<MainPage />} />
             <Route path="/soumission" element={<FreeQuotationPage />} />
             <Route path="/contact" element={<Nousjoindre />} />

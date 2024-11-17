@@ -9,11 +9,10 @@ import {
 } from '@chakra-ui/react';
 import { FaInstagram, FaFacebook } from 'react-icons/fa';
 import { Outlet } from 'react-router-dom';
-import NavBar from '../navbar/NavBar';
-import TopNavBar from '../navbar/TopNavBar';
-import logo from '../navbar/logo_dark.jpg';
+import NavBar from './WebsiteNavBar';
+import logo from '../img/logo_dark.jpg';
 
-export default function Layout() {
+export default function WebsiteLayout() {
   return (
     <Flex
       direction="column"
@@ -23,8 +22,7 @@ export default function Layout() {
       spacing="0"
       flex="1"
     >
-      <Stack pos="fixed" gap="0" w="100%" top="0" zIndex="tooltip" bg="black">
-        <TopNavBar />
+      <Stack pos="fixed" gap="0" w="100%" top="0" bg="black" zIndex={3}>
         <NavBar />
       </Stack>
 

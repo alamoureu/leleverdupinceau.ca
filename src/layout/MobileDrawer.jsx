@@ -3,15 +3,19 @@ import {
   Drawer,
   DrawerBody,
   DrawerContent,
+  DrawerHeader,
   Stack,
   useDisclosure,
+  Image,
+  Flex,
 } from '@chakra-ui/react';
-import { DocumentCollapse } from './DocumentCollapse';
+import { DocumentCollapse } from '../navbar/DocumentCollapse';
 import { ToggleButton } from './ToggleButton';
 import { useNavigate } from 'react-router-dom';
 import { FiFile, FiHome, FiPhone, FiTool, FiUser } from 'react-icons/fi';
-import { useContext } from 'react';
+import { Fragment, useContext } from 'react';
 import appContext from '../AppProvider';
+import logo from '../img/logo_jpeg.jpg';
 
 export const MobileDrawer = ({ navColor, navSize }) => {
   const navigate = useNavigate();
@@ -23,8 +27,9 @@ export const MobileDrawer = ({ navColor, navSize }) => {
     navigate(location);
     onClose();
   }
+
   return (
-    <>
+    <Fragment>
       <ToggleButton
         isOpen={isOpen}
         onClick={onToggle}
@@ -39,11 +44,17 @@ export const MobileDrawer = ({ navColor, navSize }) => {
           color: navSize === '0rem' ? 'transparent' : 'white',
           transition: 'all 1s',
         }}
-        color="white"
+        bg="red"
       />
       <Drawer placement="left" isOpen={isOpen} onClose={onClose}>
         <DrawerContent>
-          <DrawerBody mt="120px" p="4" bg="white" textColor="black">
+          {/* Drawer Header with Logo */}
+          <DrawerHeader bg="white">
+            <Flex justify="center" align="center">
+              <Image src={logo} h="100px" alt="Company Logo" />
+            </Flex>
+          </DrawerHeader>
+          <DrawerBody p="4" bg="white" textColor="black">
             <Stack spacing="1">
               <Button
                 size="md"
@@ -52,7 +63,7 @@ export const MobileDrawer = ({ navColor, navSize }) => {
                 onClick={() => handleNav('/')}
                 leftIcon={<FiHome />}
               >
-                {currentLang === 'fr' ? 'Acceuil' : 'Home'}
+                {currentLang === 'fr' ? 'Accueil' : 'Home'}
               </Button>
               <DocumentCollapse onClose={onClose} />
               <Button
@@ -97,6 +108,6 @@ export const MobileDrawer = ({ navColor, navSize }) => {
           </DrawerBody>
         </DrawerContent>
       </Drawer>
-    </>
+    </Fragment>
   );
 };

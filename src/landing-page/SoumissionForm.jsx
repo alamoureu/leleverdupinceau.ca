@@ -186,7 +186,7 @@ export default function SoumissionForm() {
   }
 
   return (
-    <Stack h="100%" justifyContent="center" minW="300px">
+    <Stack h="100%" justifyContent="center" maxW="375px" px="0px">
       <form onSubmit={onSubmit}>
         <Stack alignItems="center" gap="4">
           <FormControl textColor="black" isRequired>

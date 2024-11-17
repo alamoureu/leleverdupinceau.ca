@@ -7,6 +7,7 @@ export const ToggleButton = (props) => {
       variant="unstyled"
       display="inline-flex"
       size="xs"
+      zIndex={9999999}
       icon={<ToggleIcon active={isOpen} />}
       {...iconButtonProps}
     />
@@ -23,9 +24,10 @@ const ToggleIcon = (props) => {
       display="block"
       w="1.5rem"
       h="1.5rem"
-      pos="relative"
+      pos="absolute"
       aria-hidden
       pointerEvents="none"
+      zIndex={'tooltip'}
     >
       <Bar
         top="0.4375rem"

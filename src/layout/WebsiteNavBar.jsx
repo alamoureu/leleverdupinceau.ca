@@ -1,50 +1,60 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useContext } from 'react';
-import { HStack, ButtonGroup, Button, Stack, Image } from '@chakra-ui/react';
-import { DocumentPopover } from './DocumentPopover';
+import {
+  HStack,
+  ButtonGroup,
+  Button,
+  Stack,
+  Image,
+  Text,
+  Spacer,
+  Box,
+} from '@chakra-ui/react';
+import { DocumentPopover } from '../navbar/DocumentPopover';
 import { MobileDrawer } from './MobileDrawer';
 import { useNavigate } from 'react-router-dom';
 import appContext from '../AppProvider';
-import './styles.css';
-import logo from './logo_dark.jpg';
+import '../css/navBar.css';
+import logo from '../img/logo_dark.jpg';
 
-export default function NavBar() {
+export default function WebsiteNavBar() {
   const navigate = useNavigate();
-
   const { currentLang } = useContext(appContext);
 
-  const [navSize, setnavSize] = useState('6rem');
-  const [navColor, setnavColor] = useState('#061729');
-
+  const [navSize, setNavSize] = useState('6rem');
+  const [navColor, setNavColor] = useState('#061729');
   const [className, setClassName] = useState('');
+  let lastScrollTop = 0;
 
-  var lastScrollTop = 0;
+  const [logoFadeClass, setLogoFadeClass] = useState('fade-int-slow');
 
   useEffect(() => {
-    window.addEventListener(
-      'scroll',
-      function () {
-        var st = window.pageYOffset || document.documentElement.scrollTop;
-        if (st > lastScrollTop) {
-          setnavColor('transparent');
-          setnavSize('0rem');
-          setClassName('fade-in-image');
-        } else if (st < lastScrollTop) {
-          setnavColor('#061729');
-          setnavSize('6rem');
-          setClassName('fade-out-image');
-        }
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
 
-        lastScrollTop = st <= 0 ? 0 : st;
-      },
-      false
-    );
+      if (scrollTop > lastScrollTop) {
+        setNavColor('transparent');
+        setNavSize('0rem');
+        setLogoFadeClass('fade-out');
+      } else if (scrollTop < lastScrollTop) {
+        setNavColor('#061729');
+        setNavSize('6rem');
+        setClassName('fade-out-image');
+        setLogoFadeClass('fade-int-slow');
+      }
+
+      lastScrollTop = Math.max(scrollTop, 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <HStack
       justify="space-between"
       w="100%"
-      zIndex="tooltip"
       px={{ base: '2%', lg: '10%' }}
       shadow="md"
       style={{
@@ -54,22 +64,34 @@ export default function NavBar() {
         transition: 'all 1s',
       }}
     >
-      <HStack spacing="4" alignItems="center">
+      <HStack spacing="4" alignItems="center" w="100%">
         <MobileDrawer navColor={navColor} navSize={navSize} />
-
         <Stack className={className} pl="10px">
           <Image
             src={logo}
             h={{ base: '50px', lg: '60px' }}
             onClick={() => navigate('/')}
+            className={logoFadeClass}
           />
         </Stack>
+        <Spacer />
+        <Box display={{ base: 'initial', md: 'none' }}>
+          <a href="tel:4388680772">
+            <Stack
+              cursor="pointer"
+              className={navSize === '0rem' ? 'fade-out' : 'fade-int'}
+            >
+              <Text fontSize="md" color="white" fontWeight="semibold">
+                (438) 868-0772
+              </Text>
+            </Stack>
+          </a>
+        </Box>
       </HStack>
 
       <ButtonGroup
         size="lg"
         variant="text.accent"
-        color="white"
         spacing="2"
         display={{ base: 'none', lg: 'flex' }}
         style={{
@@ -80,9 +102,7 @@ export default function NavBar() {
         <Button onClick={() => navigate('/')}>
           {currentLang === 'fr' ? 'Accueil' : 'Home'}
         </Button>
-        <Stack>
-          <DocumentPopover />
-        </Stack>
+        <DocumentPopover />
         <Button onClick={() => navigate('/soumission')}>
           {currentLang === 'fr' ? 'Soumission Gratuite' : 'Free Quotation'}
         </Button>

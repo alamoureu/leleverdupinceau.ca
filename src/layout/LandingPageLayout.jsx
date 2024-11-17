@@ -9,8 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { FaInstagram, FaFacebook, FaPhone, FaEnvelope } from 'react-icons/fa6';
 import { Outlet } from 'react-router-dom';
-
-import Header from './Header';
+import Header from './LandingPageHeader';
 
 export default function LandingPageLayout({ lang }) {
   return (
