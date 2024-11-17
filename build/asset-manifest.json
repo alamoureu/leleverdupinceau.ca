@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/static/css/main.32b140d6.css",
+    "main.js": "/static/js/main.45a6124d.js",
+    "static/media/photo_lever_1.jpg": "/static/media/photo_lever_1.6a113003045f5cd38b3a.jpg",
+    "static/media/photo_lever_4.jpg": "/static/media/photo_lever_4.55f3dab042759c479908.jpg",
+    "static/media/logo_dark.jpg": "/static/media/logo_dark.2bf7a86b9f3ad3cb522e.jpg",
+    "static/media/logo_jpeg.jpg": "/static/media/logo_jpeg.3b10a1d073ad20ddfd15.jpg",
+    "static/media/bgMain2.JPG": "/static/media/bgMain2.9e0f6d637adbd46ca65f.JPG",
+    "index.html": "/index.html",
+    "main.32b140d6.css.map": "/static/css/main.32b140d6.css.map",
+    "main.45a6124d.js.map": "/static/js/main.45a6124d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.32b140d6.css",
+    "static/js/main.45a6124d.js"
+  ]
+}

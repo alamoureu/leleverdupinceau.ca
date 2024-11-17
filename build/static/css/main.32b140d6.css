@@ -1,0 +1,2 @@
+.fade-int,.fade-out{animation:fadeIn 10s ease;-webkit-animation:fadeIn 10s ease;-moz-animation:fadeIn 10s ease;-o-animation:fadeIn 10s ease;-ms-animation:fadeIn 10s ease}@keyframes fadeIn{0%{opacity:1}to{opacity:0}}@keyframes fadeOut{0%{opacity:0}to{opacity:1}}.fade-in-image{animation:fadeIn .4s;height:50px;opacity:0}.fade-out-image{animation:fadeOut 2s;height:50px}
+/*# sourceMappingURL=main.32b140d6.css.map*/
