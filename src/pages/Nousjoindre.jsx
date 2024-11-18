@@ -13,21 +13,26 @@ export default function Nousjoindre() {
   }, []);
 
   return (
-    <Stack w="100%" h="100%" bg="white" gap="0" pt="150px">
+    <Stack w="100%" h="100%" bg="white" gap="0" pt="110px" alignItems="center">
       <Stack
         w="100%"
+        justifyContent="center"
+        maxW="container.xl"
         h={{ base: '100%', lg: '100%' }}
-        gap="4"
+        gap="2"
         px={{ base: '8', md: '10%' }}
-        pb="2"
       >
         <Stack gap="1">
-          <Text fontSize={{ base: '23px', lg: 'xx-large' }} fontWeight="bold">
+          <Text
+            fontSize={{ base: '23px', lg: 'xx-large' }}
+            fontWeight="bold"
+            textColor="#53514E"
+          >
             {currentLang === 'fr'
               ? 'Joindre Le Lever Du Pinceau'
               : 'Join Le Lever Du Pinceau'}
           </Text>
-          <Text fontSize="md" fontWeight="normal">
+          <Text fontSize="md" fontWeight="normal" textColor="#53514E">
             {currentLang === 'fr'
               ? 'Des travaux réalisés professionnellement par des professionnels'
               : 'Work carried out professionally by professionals'}
@@ -36,7 +41,7 @@ export default function Nousjoindre() {
         <Stack
           w="100%"
           minH="100px"
-          bg="#0056D2"
+          bg="#2D72D2"
           borderRadius="xl"
           gap="4"
           py={{ base: '25px', lg: '10px' }}
@@ -75,12 +80,11 @@ export default function Nousjoindre() {
           </Stack>
         </Stack>
         <Stack
-          pt={{ base: '10px', md: '20px' }}
           direction={{ base: 'column', lg: 'row' }}
           justifyContent="space-between"
           px={{ base: '0', lg: '0%' }}
         >
-          <Text maxW={{ base: '400px', lg: '600px' }}>
+          <Text maxW={{ base: '400px', sm: '900px' }} textColor="#53514E">
             {currentLang === 'fr'
               ? "Peu importe l'envergure de votre projet de peinture résidentielle ou commerciale, nous nous déplaçons partout sur la Rive-Sud, Rive-Nord, Montréal, Estrie et Gatineau. Afin de vous donner l'heure juste, nous offrons la soumission gratuite et sans engagement de votre part. Durant cette rencontre, nous allons évaluer l'étendue de votre projet pour vous donner un échéancier qui sera respecté. Vous n'aurez ainsi aucune mauvaise surprise."
               : 'No matter the size of your residential or commercial painting project, we travel anywhere on the South Shore, North Shore, Montreal, Estrie and Gatineau. In order to give you the facts, we offer a free quote with no obligation on your part. During this meeting, we will assess the scope of your project to give you a schedule that will be respected. You will therefore have no unpleasant surprises.'}{' '}
@@ -93,7 +97,7 @@ export default function Nousjoindre() {
             src={
               'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg'
             }
-            w={{ base: '100%', lg: '550px' }}
+            w={{ base: '100%', lg: '450px' }}
             borderRadius="xl"
           />
         </Stack>
@@ -104,7 +108,7 @@ export default function Nousjoindre() {
         w="100%"
         alignItems="center"
         justifyContent="center"
-        py={{ base: '25px', md: '50px' }}
+        py={{ base: '0px', md: '50px' }}
         gap="2"
       >
         <Stack w="100%" alignItems="center" pt="50px">
@@ -112,7 +116,7 @@ export default function Nousjoindre() {
             fontSize={{ base: '25px', md: '40px' }}
             fontWeight="bold"
             borderRadius="md"
-            color="#0056D2"
+            color="#012A68"
           >
             {currentLang === 'fr'
               ? 'COMMUNIQUEZ AVEC NOUS DÈS MAINTENANT'

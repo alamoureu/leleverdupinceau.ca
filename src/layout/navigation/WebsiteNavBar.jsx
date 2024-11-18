@@ -21,7 +21,7 @@ export default function WebsiteNavBar() {
   const { currentLang } = useContext(appContext);
 
   const [navSize, setNavSize] = useState('6rem');
-  const [navColor, setNavColor] = useState('#004BA8');
+  const [navColor, setNavColor] = useState('#022A68');
   const [className, setClassName] = useState('');
   let lastScrollTop = 0;
 
@@ -37,7 +37,7 @@ export default function WebsiteNavBar() {
         setNavSize('0rem');
         setLogoFadeClass('fade-out');
       } else if (scrollTop < lastScrollTop) {
-        setNavColor('#004BA8');
+        setNavColor('#022A68');
         setNavSize('6rem');
         setClassName('fade-out-image');
         setLogoFadeClass('fade-int-slow');
@@ -54,7 +54,7 @@ export default function WebsiteNavBar() {
     <HStack
       justify="space-between"
       w="100%"
-      px={{ base: '2%', lg: '10%' }}
+      px={{ base: '5', lg: '4' }}
       shadow="md"
       style={{
         backgroundColor: navColor,
@@ -65,12 +65,12 @@ export default function WebsiteNavBar() {
     >
       <HStack spacing="4" alignItems="center" w="100%">
         <MobileDrawer navColor={navColor} navSize={navSize} />
-        <Stack className={className} pl="10px">
+        <Stack className={className}>
           <Image
             src={
               'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
             }
-            h={{ base: '50px', lg: '60px' }}
+            h={{ base: '60px', lg: '60px' }}
             onClick={() => navigate('/')}
             className={logoFadeClass}
           />

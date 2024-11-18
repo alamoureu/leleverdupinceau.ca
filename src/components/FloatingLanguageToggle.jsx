@@ -7,7 +7,7 @@ export default function FloatingLanguageToggle({ currentLang, onToggleLang }) {
       position="fixed"
       bottom={{ base: '7px', md: '7px' }}
       right={{ base: '7px', md: '7px' }}
-      bg="gray.200"
+      bg="gray.800"
       p={3}
       borderRadius="md"
       boxShadow="lg"
@@ -19,7 +19,7 @@ export default function FloatingLanguageToggle({ currentLang, onToggleLang }) {
       _hover={{ boxShadow: 'xl' }}
       onClick={() => onToggleLang(currentLang === 'fr' ? 'en' : 'fr')}
     >
-      <Text fontSize="xs" fontWeight="bold" color="black">
+      <Text fontSize="xs" fontWeight="bold" color="white">
         {currentLang === 'fr' ? 'EN' : 'FR'}
       </Text>
     </Box>

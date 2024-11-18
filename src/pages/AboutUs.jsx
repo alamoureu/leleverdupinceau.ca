@@ -10,7 +10,7 @@ export default function AboutUs() {
   }, []);
 
   return (
-    <Stack pt="110px" h="100%" bg="white">
+    <Stack pt="100px" h="100%" bg="white">
       <Stack
         px={{ base: '15px', md: '50px' }}
         pb={{ base: '15px', md: '50px' }}
@@ -19,7 +19,7 @@ export default function AboutUs() {
       >
         <Stack
           maxW={{ base: '100%', md: '800px' }}
-          bg="#0056D2"
+          bg="#2D72D2"
           borderRadius="xl"
           gap="4"
           py={{ base: '25px', lg: '50px' }}
@@ -55,7 +55,7 @@ export default function AboutUs() {
             py={{ base: '25px', lg: '25px' }}
             px={{ base: '15px', lg: '10%' }}
           >
-            <Text maxW="650px">
+            <Text maxW="650px" textColor="#53514E">
               {currentLang === 'fr'
                 ? "Que vous ayez besoin d'une nouvelle couche de peinture dans votre salon ou d'un renouveau extérieur complet, notre équipe de peintres talentueux est là pour vous livrer des résultats à la hauteur de nos standards."
                 : 'Whether you need a new coat of paint in your living room or a complete exterior renovation, our team of talented painters is here to deliver results that meet our standards.'}
@@ -67,7 +67,7 @@ export default function AboutUs() {
               <br />
               <br />
             </Text>
-            <Text fontWeight="semibold">
+            <Text fontWeight="semibold" textColor="#53514E">
               Philippe Beaudoin {currentLang === 'fr' ? 'et' : 'and'} Louis
               Rivest
             </Text>

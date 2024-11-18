@@ -52,7 +52,7 @@ export const DocumentPopover = () => {
               textColor="black"
               size="sm"
               borderRadius="sm"
-              _hover={{ bg: 'gray.700', color: 'white' }}
+              _hover={{ bg: 'blue.700', color: 'white' }}
               onClick={() => handleNav(item.fr)}
             >
               {currentLang === 'fr' ? item.fr : item.en}

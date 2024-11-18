@@ -4,7 +4,11 @@ import { FaStar } from 'react-icons/fa6';
 
 export default function WhyUsHero({ lang, onSubmissionOpen }) {
   return (
-    <Stack py={{ base: '0px', md: '25px' }} pt={{ base: '10px', md: '40px' }}>
+    <Stack
+      py={{ base: '0px', md: '25px' }}
+      pt={{ base: '10px', md: '40px' }}
+      textColor="#53514E"
+    >
       <Text
         textAlign="center"
         fontSize={{ base: 'xl', md: '4xl' }}

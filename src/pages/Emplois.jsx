@@ -11,16 +11,19 @@ export default function Emplois() {
   }, []);
 
   return (
-    <Stack w="100%" h="100%" gap="0" pt="125px" bg="white">
+    <Stack w="100%" h="100%" gap="0" pt="90px" bg="white">
       <Stack
         direction="column"
         h={{ base: 'fit-content', lg: '400px' }}
         pt="30px"
         px={{ base: '20px', md: '10%' }}
+        w="100%"
+        alignItems="center"
         justifyContent="center"
       >
         <Stack
-          bg="#0056D2"
+          bg="#2D72D2"
+          maxW="800px"
           p="25px"
           textColor="white"
           py="40px"
@@ -35,7 +38,11 @@ export default function Emplois() {
               ? "Rejoignez l'équipe de Peinture"
               : 'Join the Painting team'}
           </Text>
-          <Text fontSize={{ base: 'sm', md: 'md' }} fontWeight="semibold">
+          <Text
+            fontSize={{ base: 'sm', md: 'md' }}
+            fontWeight="semibold"
+            textColor="white"
+          >
             {currentLang === 'fr'
               ? 'Vous souhaitez rejoindre une équipe dynamique, jeune et formée de peintres professionnels ?'
               : 'You would like to join a dynamic, young team made up of professional painters ?'}
@@ -44,10 +51,11 @@ export default function Emplois() {
             fontSize={{ base: 'sm', md: 'md' }}
             fontWeight="semibold"
             maxW="750px"
+            textColor="white"
           >
             {currentLang === 'fr'
-              ? "Envoyez votre candidature au Lever Du Pinceau ! Nous cherchons des employés motivés et travaillants qui souhaitent intervenir sur des projets résidentiels et commerciaux sur l'île de Montréal."
-              : 'Send your application to Lever Du Pinceau! We are looking for motivated and hardworking employees who wish to intervene on residential and commercial projects on the island of Montreal.'}
+              ? "Envoyez votre candidature au Lever Du Pinceau ! Nous cherchons des employés motivés et travaillants qui souhaitent intervenir sur des projets résidentiels sur l'île de Montréal."
+              : 'Send your application to Lever Du Pinceau! We are looking for motivated and hardworking employees who wish to intervene on residential projects on the island of Montreal.'}
           </Text>
         </Stack>
       </Stack>
@@ -61,14 +69,14 @@ export default function Emplois() {
         <Stack
           gap="4"
           maxW="500px"
-          pb="100px"
+          pb="125px"
           alignItems="center"
-          pt="75px"
+          pt="25px"
           w={{ base: '325px', md: '500px' }}
         >
           <Text
             fontSize={{ base: '23px', lg: 'x-large' }}
-            color="#0056D2"
+            color="#012A68"
             fontWeight="semibold"
           >
             {currentLang === 'fr'

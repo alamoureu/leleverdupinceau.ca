@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, GridItem, Stack, Text } from '@chakra-ui/react';
 import ReactCompareImage from 'react-compare-image';
 
 export default function BeforeNAfter({ lang }) {
+  const [isInteracting, setIsInteracting] = useState(false);
+
+  const lockScroll = () => {
+    document.body.style.overflow = 'hidden';
+  };
+
+  const unlockScroll = () => {
+    document.body.style.overflow = '';
+  };
+
+  const handleInteractionStart = () => {
+    if (!isInteracting) {
+      setIsInteracting(true);
+      lockScroll();
+    }
+  };
+
+  const handleInteractionEnd = () => {
+    if (isInteracting) {
+      setIsInteracting(false);
+      unlockScroll();
+    }
+  };
   return (
     <Stack w="100%" alignItems="center">
       <Box
@@ -106,6 +129,10 @@ export default function BeforeNAfter({ lang }) {
               justifyContent="center"
               gap="1"
               w="250px"
+              onMouseDown={handleInteractionStart}
+              onTouchStart={handleInteractionStart}
+              onMouseUp={handleInteractionEnd}
+              onTouchEnd={handleInteractionEnd}
             >
               <ReactCompareImage
                 leftImage={pair.leftImage}

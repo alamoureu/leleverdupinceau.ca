@@ -32,6 +32,7 @@ export default function SoumissionForm() {
   const toast = useToast();
 
   const tags = [
+    { label: 'Murs', value: 'Murs', category: 'Peinture Intérieur' },
     { label: 'Plinthes', value: 'Plinthes', category: 'Peinture Intérieur' },
     { label: 'Portes', value: 'Portes', category: 'Peinture Intérieur' },
     { label: 'Plafonds', value: 'Plafonds', category: 'Peinture Intérieur' },
@@ -53,6 +54,7 @@ export default function SoumissionForm() {
     },
     { label: 'Planchers', value: 'Planchers', category: 'Peinture Intérieur' },
     { label: 'Armoires', value: 'Armoires', category: 'Peinture Intérieur' },
+
     { label: 'Balcon', value: 'Balcon', category: 'Peinture Extérieur' },
     {
       label: 'Portes d’entrée et de garage',
@@ -80,6 +82,16 @@ export default function SoumissionForm() {
     {
       label: 'Cadres de fenêtres',
       value: 'Cadres de fenêtres',
+      category: 'Peinture Extérieur',
+    },
+    {
+      label: 'Autre',
+      value: 'Autre',
+      category: 'Peinture Intérieur',
+    },
+    {
+      label: 'Autre',
+      value: 'Autre',
       category: 'Peinture Extérieur',
     },
   ];
@@ -163,26 +175,39 @@ export default function SoumissionForm() {
       return;
     }
 
-    sendEmail();
-    toast({
-      title: currentLang === 'fr' ? 'Soumission envoyée' : 'Submission sent',
-      description:
-        currentLang === 'fr'
-          ? 'Nous allons vous contacter sous peu.'
-          : 'We will contact you shortly.',
-      status: 'success',
-      duration: 4000,
-      isClosable: true,
-      position: 'top-right',
-    });
+    if (besoinPeinture.includes('Autre') && !message.trim()) {
+      toast({
+        title: currentLang === 'fr' ? 'Attention' : 'Warning',
+        description:
+          currentLang === 'fr'
+            ? 'Veuillez expliquer votre situation dans la description.'
+            : 'Please explain your situation in the description.',
+        status: 'warning',
+        duration: 4000,
+        isClosable: true,
+      });
+    } else {
+      sendEmail();
+      toast({
+        title: currentLang === 'fr' ? 'Soumission envoyée' : 'Submission sent',
+        description:
+          currentLang === 'fr'
+            ? 'Nous allons vous contacter sous peu.'
+            : 'We will contact you shortly.',
+        status: 'success',
+        duration: 4000,
+        isClosable: true,
+        position: 'top-right',
+      });
 
-    setName('');
-    setAddress('');
-    setEmail('');
-    setTel('');
-    setTypePeinture('');
-    setBesoinPeinture([]);
-    setMessage('');
+      setName('');
+      setAddress('');
+      setEmail('');
+      setTel('');
+      setTypePeinture('');
+      setBesoinPeinture([]);
+      setMessage('');
+    }
   }
 
   return (
@@ -263,14 +288,14 @@ export default function SoumissionForm() {
             <RadioGroup value={typePeinture} onChange={setTypePeinture}>
               <Stack direction="row">
                 <Radio value="Peinture Intérieur" borderColor="gray.200">
-                  <Text fontWeight="semibold">
+                  <Text fontWeight="semibold" textColor="#53514E">
                     {currentLang === 'fr'
                       ? 'Peinture Intérieure'
                       : 'Interior Painting'}
                   </Text>
                 </Radio>
                 <Radio value="Peinture Extérieur" borderColor="gray.200">
-                  <Text fontWeight="semibold">
+                  <Text fontWeight="semibold" textColor="#53514E">
                     {currentLang === 'fr'
                       ? 'Peinture Extérieure'
                       : 'Exterior Painting'}
@@ -282,7 +307,7 @@ export default function SoumissionForm() {
 
           {typePeinture && (
             <Stack direction="column" w="100%" gap="1">
-              <Text fontWeight="semibold" textColor="black">
+              <Text fontWeight="semibold" textColor="#53514E">
                 {currentLang === 'fr'
                   ? 'Quelle situation vous décris le mieux ?'
                   : 'Which situation best describes you?'}
@@ -303,14 +328,18 @@ export default function SoumissionForm() {
                       }
                       onClick={() => addBesoin(tag.value)}
                     >
-                      <Text color="blue.900">{tag.label}</Text>
+                      <Text color="blue.900">
+                        {currentLang === 'fr'
+                          ? tag.label
+                          : translateTag(tag.label)}
+                      </Text>
                     </Tag>
                   ))}
               </Flex>
             </Stack>
           )}
 
-          <FormControl textColor="black">
+          <FormControl textColor="#53514E">
             <FormLabel>
               {currentLang === 'fr'
                 ? 'Description du projet'
@@ -338,4 +367,31 @@ export default function SoumissionForm() {
       </form>
     </Stack>
   );
+}
+
+function translateTag(label) {
+  const translations = {
+    Plinthes: 'Baseboards',
+    Portes: 'Doors',
+    Plafonds: 'Ceilings',
+    Moulures: 'Moldings',
+    'Rampes d’escalier': 'Stair Railings',
+    'Marches et contremarches': 'Steps and Risers',
+    'Planchers et escaliers': 'Floors and Stairs',
+    Planchers: 'Floors',
+    Armoires: 'Cabinets',
+    Murs: 'Walls',
+    Balcon: 'Balcony',
+    'Portes d’entrée et de garage': 'Entry and Garage Doors',
+    Volets: 'Shutters',
+    Soffites: 'Soffits',
+    'Revêtements extérieure': 'Exterior Sidings',
+    Fondations: 'Foundations',
+    'Treillis d’intimité': 'Privacy Lattice',
+    Clôtures: 'Fences',
+    'Cadres de fenêtres': 'Window Frames',
+    Autre: 'Other',
+  };
+
+  return translations[label] || label;
 }

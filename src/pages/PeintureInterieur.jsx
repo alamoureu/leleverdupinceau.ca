@@ -2,14 +2,12 @@ import {
   Divider,
   Grid,
   GridItem,
-  Flex,
   Icon,
   Image,
   Stack,
-  Tag,
   Text,
 } from '@chakra-ui/react';
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AiOutlineFileDone } from 'react-icons/ai';
 import { BiPaintRoll } from 'react-icons/bi';
 import { MdCleaningServices } from 'react-icons/md';
@@ -28,7 +26,7 @@ export default function PeintureInt() {
     <Stack
       h="100%"
       w="100%"
-      pt={{ base: '80px', md: '0px' }}
+      pt={{ base: '90px', md: '0px' }}
       gap="4"
       bg="white"
       color="black"
@@ -52,7 +50,7 @@ export default function PeintureInt() {
               <Text
                 fontWeight="semibold"
                 fontSize={{ base: '15px', md: 'lg' }}
-                color="#0056D2"
+                color="#578FDB"
               >
                 {currentLang === 'fr' ? 'Résidentiel' : 'Residential'}
               </Text>
@@ -60,6 +58,7 @@ export default function PeintureInt() {
                 fontWeight="bold"
                 fontSize={{ base: '25px', md: 'xx-large' }}
                 pl="5px"
+                textColor="#53514E"
               >
                 {currentLang === 'fr'
                   ? 'Peinture Intérieure'
@@ -72,6 +71,7 @@ export default function PeintureInt() {
               fontWeight="normal"
               maxW="600px"
               whiteSpace="break-spaces"
+              textColor="#53514E"
             >
               {currentLang === 'fr'
                 ? 'Votre maison a besoin d’un renouveau de peinture? Notre équipe dynamique et professionnelle s’appliquera à vous offrir un service exceptionnel. Nous incluons dans notre service préparatif à la peinture, la protection ainsi que le déplacement des meubles et objets encombrants.'
@@ -80,7 +80,12 @@ export default function PeintureInt() {
           </Stack>
 
           <Stack gap="0">
-            <Stack direction="row" alignItems="center" gap="1">
+            <Stack
+              direction="row"
+              alignItems="center"
+              gap="1"
+              textColor="#53514E"
+            >
               <Icon as={MdCleaningServices} fontSize="20px" />
               <Text fontWeight="semibold" fontSize="md">
                 {currentLang === 'fr'
@@ -88,7 +93,12 @@ export default function PeintureInt() {
                   : 'Clean and efficient'}
               </Text>
             </Stack>
-            <Stack direction="row" alignItems="center" gap="1">
+            <Stack
+              direction="row"
+              alignItems="center"
+              gap="1"
+              textColor="#53514E"
+            >
               <Icon as={BiPaintRoll} fontSize="20px" />
               <Text fontWeight="semibold" fontSize="md">
                 {currentLang === 'fr'
@@ -96,7 +106,12 @@ export default function PeintureInt() {
                   : 'High quality materials'}
               </Text>
             </Stack>
-            <Stack direction="row" alignItems="center" gap="1">
+            <Stack
+              direction="row"
+              alignItems="center"
+              gap="1"
+              textColor="#53514E"
+            >
               <Icon as={AiOutlineFileDone} fontSize="20px" />
               <Text fontWeight="semibold" fontSize="md">
                 {currentLang === 'fr'
@@ -105,72 +120,12 @@ export default function PeintureInt() {
               </Text>
             </Stack>
           </Stack>
-
-          <Stack>
-            <Text fontWeight="semibold" color="gray.700" fontSize="md">
-              {currentLang === 'fr'
-                ? 'Nos services de peinture intérieure'
-                : 'Our interior painting services'}
-            </Text>
-            <Flex direction="row" flexWrap="wrap" gap="1">
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Plinthes' : 'Skirting boards'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Portes' : 'Doors'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Plafonds' : 'Ceilings'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Moulures' : 'Moldings'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Rampes d’escalier' : 'Stair rails'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr'
-                    ? 'Marches et contremarches'
-                    : 'Treads and risers'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr'
-                    ? 'Planchers et escaliers'
-                    : 'Floors and stairs'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Planchers' : 'Floors'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Armoires' : 'Cabinets'}
-                </Text>
-              </Tag>
-            </Flex>
-          </Stack>
         </Stack>
 
         <Image
           borderRadius="xl"
-          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/Peinture-15-idees-pour-personnaliser-son-interieur.jpg"
-          objectFit="cover"
-          h={{ base: '300px', md: '350px' }}
+          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1.jpg"
+          w={{ base: '100%', md: '350px' }}
         />
       </Stack>
 
@@ -179,7 +134,7 @@ export default function PeintureInt() {
         bg="gray.200"
         h="100%"
         w="100%"
-        p="16"
+        p={{ base: '8', md: '16' }}
         px={{ base: '20px', md: '20%' }}
         justifyContent="center"
         textColor="black"
@@ -188,7 +143,7 @@ export default function PeintureInt() {
           <Text
             fontWeight="semibold"
             fontSize={{ base: 'md', md: 'lg' }}
-            color="#0056D2"
+            color="#578FDB"
           >
             {currentLang === 'fr'
               ? 'Service de Peinture Intérieure'
@@ -198,6 +153,7 @@ export default function PeintureInt() {
             fontWeight="bold"
             fontSize={{ base: '27px', md: '25px' }}
             pl="5px"
+            textColor="#53514E"
           >
             {currentLang === 'fr' ? 'TRAVAIL EXCEPTIONNEL' : 'EXCEPTIONAL WORK'}
           </Text>
@@ -220,7 +176,7 @@ export default function PeintureInt() {
             <Text
               fontWeight="semibold"
               fontSize={{ base: 'md', md: 'lg' }}
-              color="#0056D2"
+              color="#578FDB"
             >
               {currentLang === 'fr'
                 ? 'Services de qualités'
@@ -230,6 +186,7 @@ export default function PeintureInt() {
               fontWeight="bold"
               fontSize={{ base: '27px', md: '25px' }}
               pl="5px"
+              textColor="#53514E"
             >
               {currentLang === 'fr'
                 ? 'Résultats exceptionnels'
@@ -270,6 +227,8 @@ export default function PeintureInt() {
 }
 
 function InteriorBeforeAfter({ lang }) {
+  const [isInteracting, setIsInteracting] = useState(false);
+
   const interiorPhotos = [
     {
       leftImage:
@@ -283,21 +242,29 @@ function InteriorBeforeAfter({ lang }) {
       rightImage:
         'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after1interior.jpg',
     },
-    {
-      leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67204865.JPG',
-      rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67212545.JPG',
-      vertical: false,
-    },
-    {
-      leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67209217.JPG',
-      rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67231745.JPG',
-      vertical: true,
-    },
   ];
+
+  const lockScroll = () => {
+    document.body.style.overflow = 'hidden';
+  };
+
+  const unlockScroll = () => {
+    document.body.style.overflow = '';
+  };
+
+  const handleInteractionStart = () => {
+    if (!isInteracting) {
+      setIsInteracting(true);
+      lockScroll();
+    }
+  };
+
+  const handleInteractionEnd = () => {
+    if (isInteracting) {
+      setIsInteracting(false);
+      unlockScroll();
+    }
+  };
 
   return (
     <Stack w="100%" alignItems="center">
@@ -317,6 +284,10 @@ function InteriorBeforeAfter({ lang }) {
               justifyContent="center"
               gap="1"
               w="250px"
+              onMouseDown={handleInteractionStart}
+              onTouchStart={handleInteractionStart}
+              onMouseUp={handleInteractionEnd}
+              onTouchEnd={handleInteractionEnd}
             >
               <ReactCompareImage
                 leftImage={pair.leftImage}

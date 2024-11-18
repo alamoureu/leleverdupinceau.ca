@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { Flex, Stack, Text } from '@chakra-ui/react';
-import SoumissionForm from '../landing-page/SoumissionForm';
+import SoumissionForm from '../components/SoumissionForm';
 import appContext from '../AppProvider';
 
 export default function SoumissionPage() {
@@ -12,7 +12,7 @@ export default function SoumissionPage() {
 
   return (
     <Flex
-      pt={{ base: '150px', md: '50px' }}
+      pt={{ base: '10px', md: '50px' }}
       pb={{ base: '80px', md: '50px' }}
       direction="column"
       w="100%"
@@ -34,7 +34,7 @@ export default function SoumissionPage() {
           fontSize={{ base: '25px', md: '40px' }}
           fontWeight="bold"
           borderRadius="md"
-          color="#0056D2"
+          color="#1A365D"
           pb="4"
         >
           {currentLang === 'fr'

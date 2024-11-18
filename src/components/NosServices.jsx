@@ -96,8 +96,8 @@ export default function NosServices({ lang }) {
                   p={6}
                   display="flex"
                   flexDirection="column"
-                  justifyContent="flex-start"
                   alignItems="flex-start"
+                  textAlign="left"
                   borderRadius="2xl"
                 >
                   <Text
@@ -105,12 +105,13 @@ export default function NosServices({ lang }) {
                     fontWeight="extrabold"
                     mb={4}
                     lineHeight="1.2"
+                    textAlign="left"
                   >
                     {lang === 'fr'
                       ? 'Peinture intérieure'
                       : 'Interior Painting'}
                   </Text>
-                  <List spacing={2} fontSize="lg">
+                  <List spacing={2} fontSize="lg" textAlign="left" w="100%">
                     <ListItem display="flex" alignItems="center">
                       <ListIcon
                         as={FiCheckCircle}
@@ -171,8 +172,8 @@ export default function NosServices({ lang }) {
                   p={6}
                   display="flex"
                   flexDirection="column"
-                  justifyContent="flex-start"
                   alignItems="flex-start"
+                  textAlign="left"
                   borderRadius="2xl"
                 >
                   <Text
@@ -186,7 +187,7 @@ export default function NosServices({ lang }) {
                       ? 'Peinture et Teinture extérieure'
                       : 'Exterior Painting and Staining'}
                   </Text>
-                  <List spacing={2} fontSize="lg">
+                  <List spacing={2} fontSize="lg" textAlign="left" w="100%">
                     <ListItem display="flex" alignItems="center">
                       <ListIcon
                         as={FiCheckCircle}

@@ -1,7 +1,7 @@
 import { Box, Button, Heading, Image, Stack } from '@chakra-ui/react';
 import React from 'react';
 
-export default function MainHero({ onSubmissionFormOpen, lang }) {
+export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
   return (
     <Stack
       w="100%"
@@ -21,7 +21,7 @@ export default function MainHero({ onSubmissionFormOpen, lang }) {
         zIndex="0"
       >
         <Image
-          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/mainImage.jpg"
+          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/dsdsd.png"
           alt="Background Image"
           objectFit={{ base: 'cover', md: 'cover' }}
           objectPosition="center"
@@ -66,7 +66,7 @@ export default function MainHero({ onSubmissionFormOpen, lang }) {
         </Heading>
 
         <Button
-          bg="#0056D2"
+          bg={buttonColor}
           textColor="white"
           _hover={{ bg: '#0056D2' }}
           shadow="xl"

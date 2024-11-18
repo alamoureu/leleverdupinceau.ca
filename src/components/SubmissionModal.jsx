@@ -9,7 +9,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import React from 'react';
-import SoumissionForm from '../landing-page/SoumissionForm';
+import SoumissionForm from './SoumissionForm';
 
 export default function SubmissionModal({ isOpen, onClose, lang }) {
   return (

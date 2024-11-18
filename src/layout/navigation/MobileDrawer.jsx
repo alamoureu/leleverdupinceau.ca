@@ -8,11 +8,12 @@ import {
   useDisclosure,
   Image,
   Flex,
+  IconButton,
 } from '@chakra-ui/react';
 import { DocumentCollapse } from './DocumentCollapse';
 import { ToggleButton } from './ToggleButton';
 import { useNavigate } from 'react-router-dom';
-import { FiFile, FiHome, FiPhone, FiTool, FiUser } from 'react-icons/fi';
+import { FiFile, FiHome, FiPhone, FiTool, FiUser, FiX } from 'react-icons/fi';
 import { Fragment, useContext } from 'react';
 import appContext from '../../AppProvider';
 
@@ -45,12 +46,23 @@ export const MobileDrawer = ({ navColor, navSize }) => {
       <Drawer placement="left" isOpen={isOpen} onClose={onClose}>
         <DrawerContent>
           <DrawerHeader bg="white">
-            <Flex justify="center" align="center">
+            <IconButton
+              icon={<FiX />}
+              aria-label="Close menu"
+              onClick={onClose}
+              fontSize="2xl"
+              mt="15px"
+              left="15px"
+              variant="ghost"
+              position="absolute"
+            />
+            <Flex w="100%" justifyContent="center">
               <Image
                 src={
                   'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/logo-pinceau.png'
                 }
                 h="150px"
+                alignSelf="center"
                 alt="Company Logo"
               />
             </Flex>

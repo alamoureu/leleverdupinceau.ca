@@ -1,9 +1,8 @@
-import React, { useContext, useEffect } from 'react';
-import { Divider, Flex, Icon, Image, Stack, Tag, Text } from '@chakra-ui/react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Divider, Flex, Icon, Image, Stack, Text } from '@chakra-ui/react';
 import { AiOutlineFileDone } from 'react-icons/ai';
 import { BiPaintRoll } from 'react-icons/bi';
 import { MdCleaningServices } from 'react-icons/md';
-import { FiMapPin } from 'react-icons/fi';
 import ReactCompareImage from 'react-compare-image';
 import appContext from '../AppProvider';
 
@@ -15,7 +14,14 @@ export default function PeintureExt() {
   }, []);
 
   return (
-    <Stack h="100%" w="100%" pt="80px" gap="4" bg="white" color="black">
+    <Stack
+      h="100%"
+      w="100%"
+      pt={{ base: '90px', md: '0px' }}
+      gap="4"
+      bg="white"
+      color="black"
+    >
       <Stack
         spacing={{ base: '4', xl: '12' }}
         px={{ base: '4', md: '20%' }}
@@ -35,7 +41,7 @@ export default function PeintureExt() {
               <Text
                 fontWeight="semibold"
                 fontSize={{ base: '15px', md: 'lg' }}
-                color="#0056D2"
+                color="#578FDB"
               >
                 {currentLang === 'fr' ? 'Résidentiel' : 'Residential'}
               </Text>
@@ -43,6 +49,7 @@ export default function PeintureExt() {
                 fontWeight="bold"
                 fontSize={{ base: '25px', md: 'xx-large' }}
                 pl="5px"
+                textColor="#53514E"
               >
                 {currentLang === 'fr'
                   ? 'Peinture et Teinture Extérieure'
@@ -55,6 +62,7 @@ export default function PeintureExt() {
               fontSize={{ base: 'sm', md: 'md' }}
               fontWeight="normal"
               maxW="600px"
+              textColor="#53514E"
             >
               {currentLang === 'fr'
                 ? 'Votre revêtement ou votre balcon a durement été abîmé par les intempéries Québécoises? Que ce soit pour un renouveau de son apparence, ou pour sa protection, on s’en occupe.'
@@ -62,7 +70,12 @@ export default function PeintureExt() {
             </Text>
           </Stack>
           <Stack gap="0">
-            <Stack direction="row" alignItems="center" gap="1">
+            <Stack
+              direction="row"
+              alignItems="center"
+              gap="1"
+              textColor="#53514E"
+            >
               <Icon as={MdCleaningServices} fontSize="20px" />
               <Text fontWeight="semibold" fontSize="md">
                 {currentLang === 'fr'
@@ -70,7 +83,12 @@ export default function PeintureExt() {
                   : 'Clean and efficient'}
               </Text>
             </Stack>
-            <Stack direction="row" alignItems="center" gap="1">
+            <Stack
+              direction="row"
+              alignItems="center"
+              gap="1"
+              textColor="#53514E"
+            >
               <Icon as={BiPaintRoll} fontSize="20px" />
               <Text fontWeight="semibold" fontSize="md">
                 {currentLang === 'fr'
@@ -78,7 +96,12 @@ export default function PeintureExt() {
                   : 'High quality materials'}
               </Text>
             </Stack>
-            <Stack direction="row" alignItems="center" gap="1">
+            <Stack
+              direction="row"
+              alignItems="center"
+              gap="1"
+              textColor="#53514E"
+            >
               <Icon as={AiOutlineFileDone} fontSize="20px" />
               <Text fontWeight="semibold" fontSize="md">
                 {currentLang === 'fr'
@@ -87,82 +110,12 @@ export default function PeintureExt() {
               </Text>
             </Stack>
           </Stack>
-
-          <Stack>
-            <Text fontWeight="semibold" color="gray.700" fontSize="md">
-              {currentLang === 'fr'
-                ? 'Nos services de peinture extérieure'
-                : 'Our exterior painting services'}
-            </Text>
-            <Flex direction="row" flexWrap="wrap" gap="1">
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Balcon' : 'Balcony'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr'
-                    ? 'Portes d’entrée et de garage'
-                    : 'Entrance and garage doors'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Volets' : 'Shutters'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Soffites' : 'Soffits'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr'
-                    ? 'Revêtements extérieur'
-                    : 'Exterior coverings'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Fondations' : 'Foundations'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr'
-                    ? 'Planchers et escaliers'
-                    : 'Floors and stairs'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr'
-                    ? 'Treillis d’intimité'
-                    : 'Privacy trellis'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr' ? 'Clôtures' : 'Fences'}
-                </Text>
-              </Tag>
-              <Tag bg="#0056D2" size="md" borderRadius="sm">
-                <Text color="white">
-                  {currentLang === 'fr'
-                    ? 'Cadres de fenêtres'
-                    : 'Window frames'}
-                </Text>
-              </Tag>
-            </Flex>
-          </Stack>
         </Stack>
 
         <Image
           borderRadius="xl"
-          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/Spray-Net-two-story-home-revamp_Now-e1610757510912.jpg"
-          h={{ base: '300px', md: '400px' }}
+          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service2.jpg"
+          w={{ base: '100%', md: '350px' }}
         />
       </Stack>
 
@@ -180,7 +133,7 @@ export default function PeintureExt() {
           <Text
             fontWeight="semibold"
             fontSize={{ base: 'md', md: 'lg' }}
-            color="#0056D2"
+            color="#578FDB"
           >
             {currentLang === 'fr'
               ? 'Service de Peinture Extérieure'
@@ -190,6 +143,7 @@ export default function PeintureExt() {
             fontWeight="bold"
             fontSize={{ base: '27px', md: '25px' }}
             pl="5px"
+            textColor="#53514E"
           >
             {currentLang === 'fr' ? 'TRAVAIL EXCEPTIONNEL' : 'EXCEPTIONAL WORK'}
           </Text>
@@ -199,6 +153,7 @@ export default function PeintureExt() {
           fontSize={{ base: 'sm', md: '16px' }}
           textAlign="justify"
           pb="10px"
+          textColor="#53514E"
         >
           {currentLang === 'fr'
             ? 'Le Lever Du Pinceau se concentre sur la fourniture de services de peinture extérieure de qualité à des tarifs très compétitifs.'
@@ -251,6 +206,30 @@ function ExteriorBeforeAfter({ currentLang }) {
     },
   ];
 
+  const [isInteracting, setIsInteracting] = useState(false);
+
+  const lockScroll = () => {
+    document.body.style.overflow = 'hidden';
+  };
+
+  const unlockScroll = () => {
+    document.body.style.overflow = '';
+  };
+
+  const handleInteractionStart = () => {
+    if (!isInteracting) {
+      setIsInteracting(true);
+      lockScroll();
+    }
+  };
+
+  const handleInteractionEnd = () => {
+    if (isInteracting) {
+      setIsInteracting(false);
+      unlockScroll();
+    }
+  };
+
   return (
     <Flex
       py="10px"
@@ -261,7 +240,7 @@ function ExteriorBeforeAfter({ currentLang }) {
       justifyContent={{ base: 'center', md: 'center' }}
     >
       <Stack
-        gap="4"
+        gap="8"
         flexWrap="wrap"
         flexDir={{ base: 'column', md: 'row' }}
         display="flex"
@@ -274,6 +253,10 @@ function ExteriorBeforeAfter({ currentLang }) {
             gap="1"
             style={{ touchAction: 'none' }}
             w="250px"
+            onMouseDown={handleInteractionStart}
+            onTouchStart={handleInteractionStart}
+            onMouseUp={handleInteractionEnd}
+            onTouchEnd={handleInteractionEnd}
           >
             <ReactCompareImage
               leftImage={photo.leftImage}
@@ -283,21 +266,6 @@ function ExteriorBeforeAfter({ currentLang }) {
               leftImageLabel={currentLang === 'fr' ? 'AVANT' : 'BEFORE'}
               rightImageLabel={currentLang === 'fr' ? 'APRÈS' : 'AFTER'}
             />
-            <Stack alignItems="center" justifyContent="center" w="100%" gap="0">
-              <Stack direction="row">
-                <Stack
-                  direction="row"
-                  fontWeight="semibold"
-                  alignItems="center"
-                  gap="1"
-                >
-                  <FiMapPin fontSize={{ base: 'sm', md: 'normal' }} />
-                  <Text fontSize={{ base: 'sm', md: 'normal' }}>
-                    {currentLang === 'fr' ? 'Montréal' : 'Montreal'}
-                  </Text>
-                </Stack>
-              </Stack>
-            </Stack>
           </Stack>
         ))}
       </Stack>
@@ -307,7 +275,7 @@ function ExteriorBeforeAfter({ currentLang }) {
           <Text
             fontWeight="semibold"
             fontSize={{ base: 'md', md: 'lg' }}
-            color="#0056D2"
+            color="#578FDB"
           >
             {currentLang === 'fr' ? 'Services de qualités' : 'Quality Services'}
           </Text>
@@ -315,6 +283,7 @@ function ExteriorBeforeAfter({ currentLang }) {
             fontWeight="bold"
             fontSize={{ base: '27px', md: '25px' }}
             pl="5px"
+            textColor="#53514E"
           >
             {currentLang === 'fr'
               ? 'Résultats exceptionnels'
@@ -336,6 +305,7 @@ function ExteriorBeforeAfter({ currentLang }) {
             fontSize={{ base: 'sm', md: '16px' }}
             textAlign="justify"
             maxW={{ base: '400px', lg: '500px' }}
+            textColor="#53514E"
           >
             {currentLang === 'fr'
               ? 'Chez Le Lever du Pinceau, nous offrons des services de peinture qui sont toujours à la hauteur de nos standards à des prix très compétitifs.'

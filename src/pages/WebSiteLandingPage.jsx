@@ -1,17 +1,26 @@
 import React, { useContext } from 'react';
-import { Stack, Text, Flex, useDisclosure } from '@chakra-ui/react';
+import {
+  Stack,
+  Text,
+  Flex,
+  useDisclosure,
+  useBreakpointValue,
+} from '@chakra-ui/react';
 import appContext from '../AppProvider';
 import MainHero from '../components/MainHero';
 import SubmissionModal from '../components/SubmissionModal';
-import SoumissionForm from '../landing-page/SoumissionForm';
-import NosServices from '../landing-page/NosServices';
+import SoumissionForm from '../components/SoumissionForm';
+import NosServices from '../components/NosServices';
 import AddValueHero from '../components/AddValueHero';
 import WhyUsHero from '../components/WhyUsHero';
 import ClientReviewsHero from '../components/ClientReviewsHero';
 import ReviewsDrawer from '../landing-page/ReviewsDrawer';
+import BestSolutionHero from '../components/BestSolutionHero';
+import BetonelBanerHero from '../components/BetonelBanerHero';
 
 export default function WebSiteLandingPage() {
   const { currentLang } = useContext(appContext);
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -31,7 +40,11 @@ export default function WebSiteLandingPage() {
       gap="0"
     >
       <Stack pt="90px">
-        <MainHero onSubmissionFormOpen={onOpen} lang={currentLang} />
+        <MainHero
+          onSubmissionFormOpen={onOpen}
+          lang={currentLang}
+          buttonColor="#0056D2"
+        />
       </Stack>
 
       <AddValueHero lang={currentLang} />
@@ -44,7 +57,9 @@ export default function WebSiteLandingPage() {
       >
         <NosServices lang={currentLang} />
       </Stack>
+      <BetonelBanerHero isMobile={isMobile} lang={currentLang} />
 
+      <BestSolutionHero lang={currentLang} />
       <Stack
         w="100%"
         alignItems="center"
@@ -55,7 +70,8 @@ export default function WebSiteLandingPage() {
           fontSize={{ base: '25px', md: '40px' }}
           fontWeight="bold"
           borderRadius="md"
-          color="#0056D2"
+          color="#1A365D"
+          pb="4"
         >
           {currentLang === 'fr'
             ? 'OBTENIR UNE SOUMISSION GRATUITE'

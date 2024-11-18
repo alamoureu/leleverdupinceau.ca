@@ -51,7 +51,7 @@ export default function WebsiteLayout() {
         bottom="0"
         w="100%"
         spacing={{ base: '4', md: '5' }}
-        bg="#004BA8"
+        bg="#022A68"
         py={{ base: '12', md: '10' }}
         px={{ base: '10%', md: '30px' }}
       >
