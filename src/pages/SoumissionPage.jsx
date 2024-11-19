@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { Flex, Stack, Text } from '@chakra-ui/react';
 import SoumissionForm from '../components/SoumissionForm';
 import appContext from '../AppProvider';
+import { Helmet } from 'react-helmet';
 
 export default function SoumissionPage() {
   const { currentLang } = useContext(appContext);
@@ -11,41 +12,57 @@ export default function SoumissionPage() {
   }, []);
 
   return (
-    <Flex
-      pt={{ base: '10px', md: '50px' }}
-      pb={{ base: '80px', md: '50px' }}
-      direction="column"
-      w="100%"
-      display="flex"
-      spacing="0px"
-      gap="0"
-      bg="white"
-      minH="100vh"
-      justifyContent="center"
-      alignItems="center"
-    >
-      <Stack
+    <Fragment>
+      <Helmet>
+        <title>
+          Obtenez une Soumission Gratuite pour vos Travaux de Peinture à
+          Montréal | Le Lever du Pinceau
+        </title>
+        <meta
+          name="description"
+          content="Demandez une soumission gratuite pour vos projets de peinture intérieure ou extérieure à Montréal avec Le Lever du Pinceau. Profitez de services professionnels, d'une estimation rapide et sans engagement pour transformer votre espace."
+        />
+        <meta
+          name="keywords"
+          content="Soumission gratuite peinture Montréal, Devis peinture résidentielle, Estimation travaux de peinture, Peintres professionnels Montréal, Services de peinture sans engagement"
+        />
+      </Helmet>
+      <Flex
+        pt={{ base: '10px', md: '50px' }}
+        pb={{ base: '80px', md: '50px' }}
+        direction="column"
         w="100%"
+        display="flex"
+        spacing="0px"
+        gap="0"
+        bg="white"
+        minH="100vh"
+        justifyContent="center"
         alignItems="center"
-        id="soumission"
-        px={{ base: '20px', md: '30px' }}
       >
-        <Text
-          fontSize={{ base: '25px', md: '40px' }}
-          fontWeight="bold"
-          borderRadius="md"
-          color="#1A365D"
-          pb="4"
+        <Stack
+          w="100%"
+          alignItems="center"
+          id="soumission"
+          px={{ base: '20px', md: '30px' }}
         >
-          {currentLang === 'fr'
-            ? 'OBTENIR UNE SOUMISSION GRATUITE'
-            : 'GET A FREE QUOTE'}
-        </Text>
+          <Text
+            fontSize={{ base: '25px', md: '40px' }}
+            fontWeight="bold"
+            borderRadius="md"
+            color="#1A365D"
+            pb="4"
+          >
+            {currentLang === 'fr'
+              ? 'OBTENIR UNE SOUMISSION GRATUITE'
+              : 'GET A FREE QUOTE'}
+          </Text>
 
-        <Stack w={{ base: '100%', md: '400px' }}>
-          <SoumissionForm />
+          <Stack w={{ base: '100%', md: '400px' }}>
+            <SoumissionForm />
+          </Stack>
         </Stack>
-      </Stack>
-    </Flex>
+      </Flex>
+    </Fragment>
   );
 }

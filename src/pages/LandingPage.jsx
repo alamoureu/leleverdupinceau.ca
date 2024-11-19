@@ -22,6 +22,7 @@ import WhyUsHero from '../components/WhyUsHero';
 import ClientReviewsHero from '../components/ClientReviewsHero';
 import BestSolutionHero from '../components/BestSolutionHero';
 import BetonelBanerHero from '../components/BetonelBanerHero';
+import { Helmet } from 'react-helmet';
 
 export default function LandingPage({ lang }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -69,6 +70,18 @@ export default function LandingPage({ lang }) {
           style={{ display: 'none', visibility: 'hidden' }}
         ></iframe>
       </noscript>
+
+      <Helmet>
+        <title>Entreprise de Peinture à Montréal | Le Lever du Pinceau</title>
+        <meta
+          name="description"
+          content="Obtenez des services de peinture de haute qualité à Montréal avec Le Lever du Pinceau. Satisfaction garantie, prix compétitifs et résultats exceptionnels. Demandez une soumission gratuite dès aujourd'hui."
+        />
+        <meta
+          name="keywords"
+          content="Peinture intérieure Montréal, Peinture extérieure Montréal, Services de peinture, Devis peinture Montréal, Peintres professionnels Montréal"
+        />
+      </Helmet>
 
       <Flex
         direction="column"
