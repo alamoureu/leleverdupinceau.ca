@@ -44,9 +44,9 @@ export const DocumentPopover = () => {
               fr: 'Peinture et Teinture Extérieure',
               en: 'Exterior Painting and Staining',
             },
-          ].map((item) => (
+          ].map((item, id) => (
             <Button
-              key={item}
+              key={id}
               variant="tertiary"
               justifyContent="start"
               textColor="black"

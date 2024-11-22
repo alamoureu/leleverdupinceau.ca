@@ -31,8 +31,8 @@ export default function Emplois() {
         <Stack
           direction="column"
           h={{ base: 'fit-content', lg: '400px' }}
-          pt="30px"
           px={{ base: '20px', md: '10%' }}
+          pt={{ base: '40px', md: '90px' }}
           w="100%"
           alignItems="center"
           justifyContent="center"
@@ -84,16 +84,17 @@ export default function Emplois() {
         >
           <Stack
             gap="4"
-            maxW="500px"
             pb="125px"
             alignItems="center"
             pt="25px"
-            w={{ base: '325px', md: '500px' }}
+            w={{ base: '325px', md: '100%' }}
           >
             <Text
-              fontSize={{ base: '23px', lg: 'x-large' }}
-              color="#012A68"
-              fontWeight="semibold"
+              fontSize={{ base: '25px', md: '40px' }}
+              fontWeight="bold"
+              borderRadius="md"
+              color="#1A365D"
+              pb="4"
             >
               {currentLang === 'fr'
                 ? 'Envoyez-nous votre candidature'

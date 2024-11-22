@@ -54,7 +54,7 @@ export default function WebsiteNavBar() {
     <HStack
       justify="space-between"
       w="100%"
-      px={{ base: '5', lg: '4' }}
+      px={{ base: '5', xl: '4' }}
       shadow="md"
       style={{
         backgroundColor: navColor,
@@ -76,7 +76,7 @@ export default function WebsiteNavBar() {
           />
         </Stack>
         <Spacer />
-        <Box display={{ base: 'initial', md: 'none' }}>
+        <Box display={{ base: 'initial', xl: 'none' }}>
           <a href="tel:4388680772">
             <Stack
               cursor="pointer"
@@ -94,7 +94,7 @@ export default function WebsiteNavBar() {
         size="lg"
         variant="text.accent"
         spacing="2"
-        display={{ base: 'none', lg: 'flex' }}
+        display={{ base: 'none', xl: 'flex' }}
         style={{
           color: navSize === '0rem' ? 'transparent' : 'white',
           transition: 'all 1s',

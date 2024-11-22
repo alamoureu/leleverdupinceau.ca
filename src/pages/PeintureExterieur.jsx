@@ -33,7 +33,7 @@ export default function PeintureExt() {
       <Stack
         h="100%"
         w="100%"
-        pt={{ base: '90px', md: '0px' }}
+        pt={{ base: '90px', md: '80px', xl: '0px' }}
         gap="4"
         bg="white"
         color="black"
@@ -131,7 +131,7 @@ export default function PeintureExt() {
           <Image
             borderRadius="xl"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service2.jpg"
-            w={{ base: '100%', md: '350px' }}
+            w={{ base: '100%', md: '550px' }}
           />
         </Stack>
 

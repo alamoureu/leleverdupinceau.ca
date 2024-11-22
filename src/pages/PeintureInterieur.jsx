@@ -42,7 +42,7 @@ export default function PeintureInt() {
       <Stack
         h="100%"
         w="100%"
-        pt={{ base: '90px', md: '0px' }}
+        pt={{ base: '90px', md: '80px', xl: '0px' }}
         gap="4"
         bg="white"
         color="black"
@@ -141,7 +141,10 @@ export default function PeintureInt() {
           <Image
             borderRadius="xl"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1.jpg"
-            w={{ base: '100%', md: '350px' }}
+            objectFit="cover"
+            objectPosition="center-top"
+            h={{ base: '250px', lg: '400px', xl: '550px' }}
+            w={{ base: '100%', lg: '80%', xl: '550px' }}
           />
         </Stack>
 

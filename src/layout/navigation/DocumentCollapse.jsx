@@ -42,14 +42,14 @@ export const DocumentCollapse = ({ onClose }) => {
               fr: 'Peinture et Teinture Extérieure',
               en: 'Exterior Painting and Staining',
             },
-          ].map((item) => (
+          ].map((item, id) => (
             <Button
-              onClick={() => handleNav(item.fr)}
-              key={item}
+              key={id}
               variant="tertiary"
               size="md"
               justifyContent="start"
               textColor="black"
+              onClick={() => handleNav(item.fr)}
             >
               {currentLang === 'fr' ? item.fr : item.en}
             </Button>

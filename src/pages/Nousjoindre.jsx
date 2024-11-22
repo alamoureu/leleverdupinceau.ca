@@ -35,7 +35,7 @@ export default function Nousjoindre() {
         h="100%"
         bg="white"
         gap="0"
-        pt="110px"
+        pt={{ base: '110px', md: '150px' }}
         alignItems="center"
       >
         <Stack
@@ -43,7 +43,7 @@ export default function Nousjoindre() {
           justifyContent="center"
           maxW="container.xl"
           h={{ base: '100%', lg: '100%' }}
-          gap="2"
+          gap="4"
           px={{ base: '8', md: '10%' }}
         >
           <Stack gap="1">

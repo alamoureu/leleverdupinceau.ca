@@ -36,7 +36,7 @@ export const MobileDrawer = ({ navColor, navSize }) => {
         aria-label="Open menu"
         display={{
           base: 'inline-flex',
-          lg: 'none',
+          xl: 'none',
         }}
         style={{
           color: navSize === '0rem' ? 'transparent' : 'white',

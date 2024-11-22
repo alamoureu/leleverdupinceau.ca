@@ -28,15 +28,15 @@ export default function SoumissionPage() {
         />
       </Helmet>
       <Flex
-        pt={{ base: '10px', md: '50px' }}
-        pb={{ base: '80px', md: '50px' }}
+        pt={{ base: '10px', md: '155px' }}
+        pb={{ base: '80px', md: '100px' }}
         direction="column"
         w="100%"
         display="flex"
         spacing="0px"
         gap="0"
         bg="white"
-        minH="100vh"
+        minH={{ base: '100vh', md: '100%' }}
         justifyContent="center"
         alignItems="center"
       >

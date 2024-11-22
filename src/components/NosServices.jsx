@@ -70,6 +70,7 @@ export default function NosServices({ lang }) {
                 borderRadius="2xl"
                 boxShadow="xl"
                 overflow="hidden"
+                cursor="pointer"
                 w={{ base: '95%', md: '350px' }}
                 h={{ base: '300px', md: '400px' }}
                 onClick={() => navigate('/services/peinture-interieure')}
@@ -146,6 +147,7 @@ export default function NosServices({ lang }) {
                 borderRadius="2xl"
                 boxShadow="xl"
                 overflow="hidden"
+                cursor="pointer"
                 w={{ base: '95%', md: '500px' }}
                 h="400px"
                 onClick={() => navigate('/services/peinture-exterieure')}
