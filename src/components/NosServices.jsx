@@ -76,6 +76,7 @@ export default function NosServices({ lang }) {
                 onClick={() => navigate('/services/peinture-interieure')}
               >
                 <Image
+                  loading="lazy"
                   src={
                     'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1.jpg'
                   }
@@ -153,6 +154,7 @@ export default function NosServices({ lang }) {
                 onClick={() => navigate('/services/peinture-exterieure')}
               >
                 <Image
+                  loading="lazy"
                   src={
                     'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service2.jpg'
                   }

@@ -67,6 +67,7 @@ export default function WebsiteNavBar() {
         <MobileDrawer navColor={navColor} navSize={navSize} />
         <Stack className={className}>
           <Image
+            loading="lazy"
             src={
               'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
             }

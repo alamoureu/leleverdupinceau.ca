@@ -5,6 +5,7 @@ import {
   Flex,
   useDisclosure,
   useBreakpointValue,
+  Center,
 } from '@chakra-ui/react';
 import appContext from '../AppProvider';
 import MainHero from '../components/MainHero';
@@ -94,10 +95,11 @@ export default function WebSiteLandingPage() {
               ? 'OBTENIR UNE SOUMISSION GRATUITE'
               : 'GET A FREE QUOTE'}
           </Text>
-
-          <Stack w={{ base: '100%', md: '400px' }}>
-            <SoumissionForm />
-          </Stack>
+          <Center>
+            <Stack w={{ base: '100%', md: '400px' }}>
+              <SoumissionForm />
+            </Stack>
+          </Center>
         </Stack>
 
         <Stack

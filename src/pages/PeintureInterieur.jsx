@@ -13,7 +13,6 @@ import { BiPaintRoll } from 'react-icons/bi';
 import { MdCleaningServices } from 'react-icons/md';
 import ReactCompareImage from 'react-compare-image';
 import appContext from '../AppProvider';
-import imgBg from '../bgMain2.JPG';
 import { Helmet } from 'react-helmet';
 
 export default function PeintureInt() {
@@ -139,6 +138,7 @@ export default function PeintureInt() {
           </Stack>
 
           <Image
+            loading="lazy"
             borderRadius="xl"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1.jpg"
             objectFit="cover"
@@ -236,7 +236,10 @@ export default function PeintureInt() {
                   : 'Le Lever du Pinceau offers painting services that are always at our standards at very competitive prices.'}
               </Text>
               <Image
-                src={imgBg}
+                loading="lazy"
+                src={
+                  'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bgMain2.JPG'
+                }
                 w={{ base: '350px', md: '400px' }}
                 borderRadius="xl"
               />

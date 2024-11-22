@@ -40,6 +40,7 @@ export default function FloatingReviewBadge({ onOpen, lang }) {
       </Box>
       <Stack direction="column" align="center">
         <Image
+          loading="lazy"
           src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/dssdds.jpg"
           alt="Google logo"
           boxSize="20px"
@@ -55,7 +56,9 @@ export default function FloatingReviewBadge({ onOpen, lang }) {
           ))}
         </Stack>
         <Text fontSize="xs" color="gray.500">
-          {lang === 'fr' ? 'Lire nos autres ommentaires' : 'Read our other reviews'}
+          {lang === 'fr'
+            ? 'Lire nos autres ommentaires'
+            : 'Read our other reviews'}
         </Text>
       </Stack>
     </Box>

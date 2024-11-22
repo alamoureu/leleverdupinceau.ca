@@ -41,6 +41,7 @@ export const MobileDrawer = ({ navColor, navSize }) => {
         style={{
           color: navSize === '0rem' ? 'transparent' : 'white',
           transition: 'all 0.5s',
+          cursor: 'pointer',
         }}
       />
       <Drawer placement="left" isOpen={isOpen} onClose={onClose}>
@@ -58,6 +59,7 @@ export const MobileDrawer = ({ navColor, navSize }) => {
             />
             <Flex w="100%" justifyContent="center">
               <Image
+                loading="lazy"
                 src={
                   'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/logo-pinceau.png'
                 }

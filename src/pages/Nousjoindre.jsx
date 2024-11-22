@@ -118,6 +118,7 @@ export default function Nousjoindre() {
                 : 'Treat yourself to a top quality turnkey project at the best price on the market. This is the promise that Lever Du Pinceau makes to you!'}
             </Text>
             <Image
+              loading="lazy"
               src={
                 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg'
               }

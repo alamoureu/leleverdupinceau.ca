@@ -55,6 +55,7 @@ export default function AboutUs() {
             </Stack>
             <Stack>
               <Image
+                loading="lazy"
                 src={
                   'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_4.jpg'
                 }

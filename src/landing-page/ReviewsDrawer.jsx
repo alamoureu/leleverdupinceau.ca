@@ -102,7 +102,7 @@ export default function ReviewsDrawer({ isOpen, onClose, lang }) {
           {reviews.map((review, index) => (
             <Box bg="#F5F6F8" p={4} borderRadius="md" mb={4} key={index}>
               <Stack direction="row" align="center" mb={2}>
-                  <Box>
+                <Box>
                   <Text fontWeight="bold">{review.name}</Text>
                   <Text fontSize="sm" color="gray.500">
                     {review.time}
@@ -134,6 +134,7 @@ export default function ReviewsDrawer({ isOpen, onClose, lang }) {
                 {lang === 'fr' ? 'Avis' : 'Reviews'}
               </Heading>
               <Image
+                loading="lazy"
                 src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/images.png"
                 fontWeight="bold"
                 mt="5px"

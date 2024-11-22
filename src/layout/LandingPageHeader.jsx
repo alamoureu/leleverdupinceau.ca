@@ -5,6 +5,7 @@ export default function LandingPageHeader() {
   return (
     <HStack gap="0" w="100%" top="0" bg="white" px="25px" maxH="90px">
       <Image
+        loading="lazy"
         src={
           'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/logo-pinceau.png'
         }

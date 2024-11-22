@@ -129,6 +129,7 @@ export default function PeintureExt() {
           </Stack>
 
           <Image
+            loading="lazy"
             borderRadius="xl"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service2.jpg"
             w={{ base: '100%', md: '550px' }}
@@ -331,6 +332,7 @@ function ExteriorBeforeAfter({ currentLang }) {
               : 'At Le Lever du Pinceau, we offer painting services that always meet our standards at very competitive prices.'}
           </Text>
           <Image
+            loading="lazy"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/1920X1080_conseil_conseils_peindre_teindre_terrasse.jpg"
             w={{ base: '350px', md: '450px' }}
             borderRadius="xl"

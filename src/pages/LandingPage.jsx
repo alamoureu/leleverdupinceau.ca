@@ -118,6 +118,7 @@ export default function LandingPage({ lang }) {
           spacing="0px"
         >
           <Image
+            loading="lazy"
             src={
               'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/11.png'
             }

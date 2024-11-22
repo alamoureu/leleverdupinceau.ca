@@ -5,6 +5,7 @@ export default function BetonelBanerHero({ isMobile, lang }) {
   return (
     <Stack pb={{ base: '50px', md: '100px' }} mt="20px">
       <Image
+        loading="lazy"
         src={
           isMobile
             ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerSm.png'

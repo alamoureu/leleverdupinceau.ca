@@ -83,6 +83,7 @@ export default function ClientReviewsHero({ lang, onDrawerOpen }) {
         bottom={{ base: '70px', md: '60px' }}
       >
         <Image
+          loading="lazy"
           src="https://harbor-file-system.s3.ca-central-1.amazonaws.com/SSSS.png"
           alt={lang === 'fr' ? 'Logo Google' : 'Google Logo'}
           w={{ base: '100px', md: '100px' }}
@@ -103,6 +104,7 @@ export default function ClientReviewsHero({ lang, onDrawerOpen }) {
           transform="translateY(-50%)"
         >
           <Image
+            loading="lazy"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/nicearrow+(1)2.png"
             alt={
               lang === 'fr'

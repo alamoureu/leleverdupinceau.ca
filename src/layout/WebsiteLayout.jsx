@@ -95,6 +95,7 @@ export default function WebsiteLayout() {
         >
           <Stack justify="space-between" direction="row" align="center">
             <Image
+              loading="lazy"
               src={
                 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
               }

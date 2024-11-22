@@ -53,6 +53,7 @@ export default function LandingPageLayout({ lang }) {
       >
         <Stack justify="space-between" direction="row" align="center">
           <Image
+            loading="lazy"
             h="60px"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
           />
