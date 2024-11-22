@@ -14,10 +14,7 @@ export default function SoumissionPage() {
   return (
     <Fragment>
       <Helmet>
-        <title>
-          Obtenez une Soumission Gratuite pour vos Travaux de Peinture à
-          Montréal | Le Lever du Pinceau
-        </title>
+        <title>Soumission Gratuite</title>
         <meta
           name="description"
           content="Demandez une soumission gratuite pour vos projets de peinture intérieure ou extérieure à Montréal avec Le Lever du Pinceau. Profitez de services professionnels, d'une estimation rapide et sans engagement pour transformer votre espace."
@@ -28,7 +25,7 @@ export default function SoumissionPage() {
         />
       </Helmet>
       <Flex
-        pt={{ base: '10px', md: '155px' }}
+        pt={{ base: '90px', md: '155px' }}
         pb={{ base: '80px', md: '100px' }}
         direction="column"
         w="100%"

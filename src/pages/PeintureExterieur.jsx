@@ -17,9 +17,7 @@ export default function PeintureExt() {
   return (
     <Fragment>
       <Helmet>
-        <title>
-          Services de Peinture Extérieure à Montréal | Le Lever du Pinceau
-        </title>
+        <title>Peinture et Teinture Extérieure</title>
         <meta
           name="description"
           content="Découvrez des services de peinture extérieure de qualité à Montréal avec Le Lever du Pinceau. Propreté, efficacité et matériaux haut de gamme pour protéger et embellir votre propriété. Demandez une estimation gratuite dès aujourd'hui."

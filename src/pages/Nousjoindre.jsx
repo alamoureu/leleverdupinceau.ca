@@ -16,10 +16,7 @@ export default function Nousjoindre() {
   return (
     <Fragment>
       <Helmet>
-        <title>
-          Contactez Le Lever du Pinceau | Peinture Résidentielle et Commerciale
-          à Montréal
-        </title>
+        <title>Contactez Le Lever du Pinceau</title>
         <meta
           name="description"
           content="Contactez Le Lever du Pinceau pour vos projets de peinture à Montréal et ses environs. Soumission gratuite, service professionnel, et résultats exceptionnels pour tous vos besoins en peinture résidentielle et commerciale."

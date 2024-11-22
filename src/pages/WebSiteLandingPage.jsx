@@ -35,10 +35,7 @@ export default function WebSiteLandingPage() {
   return (
     <Fragment>
       <Helmet>
-        <title>
-          Entreprise de Peinture à Montréal | Peinture Intérieure et Extérieure
-          | Le Lever du Pinceau
-        </title>
+        <title>Entreprise de Peinture à Montréal | Le Lever du Pinceau</title>
         <meta
           name="description"
           content="Découvrez les meilleurs services de peinture intérieure et extérieure à Montréal avec Le Lever du Pinceau. Travail professionnel, matériaux de qualité et prix compétitifs. Demandez votre soumission gratuite dès aujourd'hui."

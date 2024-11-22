@@ -25,9 +25,7 @@ export default function PeintureInt() {
   return (
     <Fragment>
       <Helmet>
-        <title>
-          Services de Peinture Intérieure à Montréal | Le Lever du Pinceau
-        </title>
+        <title>Peinture Intérieure</title>
         <meta
           name="description"
           content="Découvrez des services de peinture intérieure de qualité à Montréal avec Le Lever du Pinceau. Propreté, efficacité et matériaux haut de gamme pour transformer et embellir votre intérieur. Demandez une estimation gratuite dès aujourd'hui."
