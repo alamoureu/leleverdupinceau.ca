@@ -3,7 +3,7 @@
   "name": "Le Lever Du Pinceau",
   "icons": [
     {
-      "src": "/logo.jpeg",
+      "src": "./logo.png",
       "type": "image/png",
       "sizes": "512x512"
     }

@@ -10,6 +10,7 @@ import FreeQuotationPage from './pages/SoumissionPage';
 import LandingPageLayout from './layout/LandingPageLayout';
 import LandingPage from './pages/LandingPage';
 import WebsiteLayout from './layout/WebsiteLayout';
+import NosServices from './components/NosServices';
 
 export default function App() {
   return (
@@ -42,6 +43,9 @@ export default function App() {
               path="painter-montreal"
               element={<LandingPage lang="en" />}
             />
+          </Route>
+          <Route path="/en" element={<LandingPageLayout lang="en" />}>
+            <Route path="nos-services" element={<NosServices lang="en" />} />
           </Route>
         </Routes>
       </AppProvider>
