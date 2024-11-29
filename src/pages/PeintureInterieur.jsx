@@ -138,7 +138,7 @@ export default function PeintureInt() {
           <Image
             loading="lazy"
             borderRadius="xl"
-            src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1.jpg"
+            src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1+(1).jpg"
             objectFit="cover"
             objectPosition="center-top"
             h={{ base: '250px', lg: '400px', xl: '550px' }}
@@ -236,7 +236,7 @@ export default function PeintureInt() {
               <Image
                 loading="lazy"
                 src={
-                  'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bgMain2.JPG'
+                  'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bgMain2+(1).jpg'
                 }
                 w={{ base: '350px', md: '400px' }}
                 borderRadius="xl"
@@ -255,15 +255,15 @@ function InteriorBeforeAfter({ lang }) {
   const interiorPhotos = [
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/iteriorbefore.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/iteriorbefore+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/interior1.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/interior1+(1).jpg',
     },
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before1interiorr.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before1interiorr+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after1interior.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after1interior+(1).jpg',
     },
   ];
 

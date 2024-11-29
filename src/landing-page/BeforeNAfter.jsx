@@ -66,61 +66,55 @@ export default function BeforeNAfter({ lang }) {
         {[
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/iteriorbefore.jpg',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/iteriorbefore+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/interior1.jpg',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/interior1+(1).jpg',
           },
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before1interiorr.jpg',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before1interiorr+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after1interior.jpg',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after1interior+(1).jpg',
           },
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67204865.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67204865+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67212545.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67212545+(1).jpg',
             vertical: false,
           },
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67225601.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67225601+(2)+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67206657.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67206657+(2)+(1).jpg',
             vertical: true,
           },
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67209217.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67209217+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67231745.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67231745+(1).jpg',
             vertical: true,
           },
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67209217.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after%2B1+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67231745.JPG',
-          },
-          {
-            leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after+1.jpg',
-            rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/beffore1.jpg',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/beffore1+(1).jpg',
             vertical: true,
           },
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before+2.jpg',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before%2B2+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after+2.jpg',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after%2B2+(1).jpg',
           },
           {
             leftImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67513345.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67513345%2B(1)+(1).jpg',
             rightImage:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67237633.JPG',
+              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67237633%2B(1)+(1).jpg',
           },
         ].map((pair, index) => (
           <GridItem key={index}>

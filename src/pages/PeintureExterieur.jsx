@@ -188,39 +188,40 @@ function ExteriorBeforeAfter({ currentLang }) {
   const exteriorPhotos = [
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67225601.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67225601+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67206657.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67206657+(1).jpg',
+      vertical: true,
     },
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67513345.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67513345%2B(1)+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67237633.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67237633%2B(1)+(1).jpg',
     },
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67204865.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67204865+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67212545.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67212545+(1).jpg',
     },
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67209217.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67209217+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67231745.JPG',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/image_67231745+(1).jpg',
     },
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after+1.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after%2B1+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/beffore1.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/beffore1+(1).jpg',
     },
     {
       leftImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before+2.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/before%2B2+(1).jpg',
       rightImage:
-        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after+2.jpg',
+        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/after%2B2+(1).jpg',
     },
   ];
 
@@ -331,7 +332,7 @@ function ExteriorBeforeAfter({ currentLang }) {
           </Text>
           <Image
             loading="lazy"
-            src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/1920X1080_conseil_conseils_peindre_teindre_terrasse.jpg"
+            src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/1920X1080_conseil_conseils_peindre_teindre_terrasse+(1).jpg"
             w={{ base: '350px', md: '450px' }}
             borderRadius="xl"
           />

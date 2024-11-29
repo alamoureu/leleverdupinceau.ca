@@ -22,7 +22,7 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
       >
         <Image
           loading="lazy"
-          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/dsdsd.png"
+          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/main-background.png"
           alt="Background Image"
           objectFit={{ base: 'cover', md: 'cover' }}
           objectPosition="center"
@@ -92,8 +92,8 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
           loading="lazy"
           src={
             lang === 'fr'
-              ? 'https://harbor-file-system.s3.ca-central-1.amazonaws.com/SSSS.png'
-              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/ratinnnggs.png'
+              ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/SSSS+(1).png'
+              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/ratinnnggs+(1).png'
           }
         />
       </Box>

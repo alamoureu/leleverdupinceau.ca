@@ -77,7 +77,7 @@ export default function NosServices({ lang }) {
               >
                 <Image
                   src={
-                    'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1.jpg'
+                    'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1+(1).jpg'
                   }
                   alt={
                     lang === 'fr' ? 'Peinture intérieure' : 'Interior Painting'
@@ -154,7 +154,7 @@ export default function NosServices({ lang }) {
               >
                 <Image
                   src={
-                    'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service2.jpg'
+                    'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service2+(1).jpg'
                   }
                   alt={
                     lang === 'fr' ? 'Peinture extérieure' : 'Exterior Painting'

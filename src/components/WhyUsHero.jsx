@@ -62,7 +62,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
             </Text>
             <Image
               loading="lazy"
-              src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/images.png"
+              src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/images+(1).png"
               fontWeight="bold"
               mt="4px"
               ml="5px"
@@ -110,7 +110,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
           >
             <Image
               loading="lazy"
-              src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/nicearrow.png"
+              src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/nicearrow+(1).png"
               alt="Arrow pointing to button"
               w={{ base: '80px', md: '125px' }}
             />
@@ -143,7 +143,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
             </Text>
             <Image
               loading="lazy"
-              src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/IMG_1089.JPG"
+              src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/IMG_1089+(1)+(1).jpg"
               h={{ base: '70px', md: '120px' }}
             />
           </Box>

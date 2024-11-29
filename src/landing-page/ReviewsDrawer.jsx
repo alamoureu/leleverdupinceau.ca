@@ -135,7 +135,7 @@ export default function ReviewsDrawer({ isOpen, onClose, lang }) {
               </Heading>
               <Image
                 loading="lazy"
-                src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/images.png"
+                src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/images+(2)+(1).png"
                 fontWeight="bold"
                 mt="5px"
                 ml="5px"

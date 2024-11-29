@@ -84,7 +84,7 @@ export default function ClientReviewsHero({ lang, onDrawerOpen }) {
       >
         <Image
           loading="lazy"
-          src="https://harbor-file-system.s3.ca-central-1.amazonaws.com/SSSS.png"
+          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/SSSS+(1).png"
           alt={lang === 'fr' ? 'Logo Google' : 'Google Logo'}
           w={{ base: '100px', md: '100px' }}
         />
@@ -105,7 +105,7 @@ export default function ClientReviewsHero({ lang, onDrawerOpen }) {
         >
           <Image
             loading="lazy"
-            src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/nicearrow+(1)2.png"
+            src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/nicearrow%2B(1)2+(1).png"
             alt={
               lang === 'fr'
                 ? 'Flèche pointant vers Voir plus de commentaires'

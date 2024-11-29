@@ -8,10 +8,10 @@ export default function BetonelBanerHero({ isMobile, lang }) {
         loading="lazy"
         src={
           isMobile
-            ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerSm.png'
+            ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerSm+(1).png'
             : lang === 'fr'
-            ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop.png'
-            : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/sdsd.png'
+            ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop+(1).png'
+            : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/sdsd+(1).png'
         }
       />
     </Stack>
