@@ -23,7 +23,7 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
         <Image
           loading="lazy"
           src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/main-background.png"
-          alt="Background Image"
+          alt="Le lever du pinceau"
           objectFit={{ base: 'cover', md: 'cover' }}
           objectPosition="center"
           w="100%"

@@ -1,17 +1,3 @@
 {
-  "short_name": "Lever Du Pinceau",
-  "name": "Le Lever Du Pinceau",
-  "icons": [
-    {
-      "src": "./logo.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": "/",
-  "scope": "/",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff",
-  "lang": "fr"
+  "name": "Le Lever Du Pinceau"
 }

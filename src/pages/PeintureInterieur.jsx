@@ -306,7 +306,8 @@ function InteriorBeforeAfter({ lang }) {
               alignItems="center"
               justifyContent="center"
               gap="1"
-              w="250px"
+              width="250px"
+              height="350px"
               onMouseDown={handleInteractionStart}
               onTouchStart={handleInteractionStart}
               onMouseUp={handleInteractionEnd}

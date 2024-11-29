@@ -1,5 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import React, { useContext, useEffect } from 'react';
+import React from 'react';
 import {
   Box,
   Center,
@@ -14,25 +13,12 @@ import {
 } from '@chakra-ui/react';
 import { FiCheckCircle } from 'react-icons/fi';
 import { useNavigate } from 'react-router-dom';
-import appContext from '../AppProvider';
 
-export default function NosServices({ lang }) {
+export default function NosServices({ lang = 'fr' }) {
   const navigate = useNavigate();
-  const { setCurrentLang } = useContext(appContext);
-
-  useEffect(() => {
-    setCurrentLang(lang);
-  }, []);
 
   return (
-    <Stack
-      position="relative"
-      bgPosition="center"
-      bgRepeat="no-repeat"
-      display="flex"
-      alignItems="center"
-      px={{ base: '0px', md: '100px' }}
-    >
+    <Stack w="100%" alignItems="center" px={{ base: '0px', md: '100px' }}>
       <Box textAlign="center" my={4} px={{ base: 4, md: 0 }}>
         <Heading
           as="h2"
@@ -63,7 +49,7 @@ export default function NosServices({ lang }) {
       </Box>
       <Flex direction="column" align="center" p={4}>
         <Box align="center">
-          <Flex direction={{ base: 'column', md: 'row' }} gap={6} mb={6}>
+          <Flex flexDir={{ base: 'column', md: 'row' }} gap={6} mb={6}>
             <Center>
               <Box
                 position="relative"
@@ -71,7 +57,7 @@ export default function NosServices({ lang }) {
                 boxShadow="xl"
                 overflow="hidden"
                 cursor="pointer"
-                w={{ base: '95%', md: '350px' }}
+                w={{ base: '325px', md: '350px' }}
                 h={{ base: '300px', md: '400px' }}
                 onClick={() => navigate('/services/peinture-interieure')}
               >
@@ -79,12 +65,11 @@ export default function NosServices({ lang }) {
                   src={
                     'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service1+(1).jpg'
                   }
-                  alt={
-                    lang === 'fr' ? 'Peinture intérieure' : 'Interior Painting'
-                  }
+                  alt={'Peinture intérieure'}
                   objectFit="cover"
                   w="100%"
                   h="100%"
+                  loading="lazy"
                 />
                 <Box
                   position="absolute"
@@ -148,7 +133,7 @@ export default function NosServices({ lang }) {
                 boxShadow="xl"
                 overflow="hidden"
                 cursor="pointer"
-                w={{ base: '95%', md: '500px' }}
+                w={{ base: '325px', md: '500px' }}
                 h="400px"
                 onClick={() => navigate('/services/peinture-exterieure')}
               >
@@ -156,12 +141,11 @@ export default function NosServices({ lang }) {
                   src={
                     'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/service2+(1).jpg'
                   }
-                  alt={
-                    lang === 'fr' ? 'Peinture extérieure' : 'Exterior Painting'
-                  }
+                  alt={'Peinture extérieure'}
                   objectFit="cover"
                   w="100%"
                   h="100%"
+                  loading="lazy"
                 />
                 <Box
                   position="absolute"

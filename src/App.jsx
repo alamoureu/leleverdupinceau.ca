@@ -44,9 +44,6 @@ export default function App() {
               element={<LandingPage lang="en" />}
             />
           </Route>
-          <Route path="/en" element={<LandingPageLayout lang="en" />}>
-            <Route path="nos-services" element={<NosServices lang="en" />} />
-          </Route>
         </Routes>
       </AppProvider>
     </Router>

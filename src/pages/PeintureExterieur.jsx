@@ -271,7 +271,8 @@ function ExteriorBeforeAfter({ currentLang }) {
             justifyContent="center"
             gap="1"
             style={{ touchAction: 'none' }}
-            w="250px"
+            width="250px"
+            height="350px"
             onMouseDown={handleInteractionStart}
             onTouchStart={handleInteractionStart}
             onMouseUp={handleInteractionEnd}
