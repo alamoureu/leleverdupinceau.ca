@@ -12,7 +12,7 @@ import { FiUser, FiHome, FiPhone, FiMail } from 'react-icons/fi';
 import axios from 'axios';
 import appContext from '../AppProvider';
 import { db } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 export default function ContactForm() {
   const toast = useToast();
@@ -34,6 +34,7 @@ export default function ContactForm() {
       telephone: phoneNumber,
       courriel: email,
       message,
+      date: Timestamp.now(),
     };
 
     const options = {

@@ -13,7 +13,7 @@ import {
 import { FiHome, FiMail, FiPhone, FiUser } from 'react-icons/fi';
 import axios from 'axios';
 import { db } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 export default function ApplyForm({ lang }) {
   const [name, setName] = useState('');
@@ -78,6 +78,7 @@ export default function ApplyForm({ lang }) {
       phoneNumber,
       email,
       message,
+      date: Timestamp.now(),
     };
 
     await addDoc(collection(db, 'Apply'), formData);

@@ -20,7 +20,7 @@ import { FiHome, FiMail, FiPhone, FiUser } from 'react-icons/fi';
 import appContext from '../AppProvider';
 import axios from 'axios';
 import { db } from '../firebase';
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
 export default function SoumissionForm() {
   const { currentLang } = useContext(appContext);
@@ -176,6 +176,7 @@ export default function SoumissionForm() {
       typePeinture,
       besoinPeinture,
       message,
+      date: Timestamp.now(),
     };
 
     if (besoinPeinture.includes('Autre') && !message.trim()) {
