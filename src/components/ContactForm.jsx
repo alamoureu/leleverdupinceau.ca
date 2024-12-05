@@ -11,6 +11,8 @@ import {
 import { FiUser, FiHome, FiPhone, FiMail } from 'react-icons/fi';
 import axios from 'axios';
 import appContext from '../AppProvider';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 export default function ContactForm() {
   const toast = useToast();
@@ -89,8 +91,15 @@ export default function ContactForm() {
     setMessage('');
   }
 
-  function handleClick() {
+  async function handleClick() {
+    const formData = {
+      name,
+      email,
+      phoneNumber,
+      message,
+    };
     if (name && address && phoneNumber && email && message) {
+      await addDoc(collection(db, 'Contact'), formData);
       sendEmail();
     } else {
       toast({

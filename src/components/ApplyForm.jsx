@@ -12,6 +12,8 @@ import {
 } from '@chakra-ui/react';
 import { FiHome, FiMail, FiPhone, FiUser } from 'react-icons/fi';
 import axios from 'axios';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 export default function ApplyForm({ lang }) {
   const [name, setName] = useState('');
@@ -55,7 +57,7 @@ export default function ApplyForm({ lang }) {
     await axios.request(options);
   }
 
-  function handleClick() {
+  async function handleClick() {
     if (!name || !address || !phoneNumber || !email) {
       toast({
         title: lang === 'fr' ? 'Erreur' : 'Error',
@@ -70,7 +72,15 @@ export default function ApplyForm({ lang }) {
       });
       return;
     }
+    const formData = {
+      name,
+      address,
+      phoneNumber,
+      email,
+      message,
+    };
 
+    await addDoc(collection(db, 'Apply'), formData);
     sendEmail();
     toast({
       title: lang === 'fr' ? 'Candidature envoyée' : 'Candidacy sent',

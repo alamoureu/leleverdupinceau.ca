@@ -19,6 +19,8 @@ import {
 import { FiHome, FiMail, FiPhone, FiUser } from 'react-icons/fi';
 import appContext from '../AppProvider';
 import axios from 'axios';
+import { db } from '../firebase';
+import { collection, addDoc } from 'firebase/firestore';
 
 export default function SoumissionForm() {
   const { currentLang } = useContext(appContext);
@@ -115,16 +117,7 @@ export default function SoumissionForm() {
     setBesoinPeinture([]);
   }, [typePeinture]);
 
-  async function sendEmail() {
-    const stringBody = JSON.stringify({
-      name,
-      address,
-      email,
-      tel,
-      typePeinture,
-      besoinPeinture,
-      message,
-    });
+  async function sendEmail(formData) {
     const options = {
       method: 'POST',
       url: 'https://mail-sender-api1.p.rapidapi.com/',
@@ -140,7 +133,7 @@ export default function SoumissionForm() {
         replyTo: 'leleverdupinceau@gmail.com',
         ishtml: 'false',
         title: 'Nouvelle soumission pour ' + name,
-        body: stringBody,
+        body: JSON.stringify(formData),
       },
     };
 
@@ -151,7 +144,7 @@ export default function SoumissionForm() {
     }
   }
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
     if (
       !name ||
@@ -175,6 +168,16 @@ export default function SoumissionForm() {
       return;
     }
 
+    const formData = {
+      name,
+      address,
+      email,
+      tel,
+      typePeinture,
+      besoinPeinture,
+      message,
+    };
+
     if (besoinPeinture.includes('Autre') && !message.trim()) {
       toast({
         title: currentLang === 'fr' ? 'Attention' : 'Warning',
@@ -187,7 +190,8 @@ export default function SoumissionForm() {
         isClosable: true,
       });
     } else {
-      sendEmail();
+      await addDoc(collection(db, 'Soumission'), formData);
+      sendEmail(formData);
       toast({
         title: currentLang === 'fr' ? 'Soumission envoyée' : 'Submission sent',
         description:
