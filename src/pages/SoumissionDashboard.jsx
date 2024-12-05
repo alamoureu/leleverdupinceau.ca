@@ -84,7 +84,7 @@ export default function SoumissionDashboard() {
                   {soumission.name}
                 </Text>
                 <Text>
-                  <strong>Address:</strong> <br />
+                  <strong>Address</strong> <br />
                   <a
                     href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                       soumission.address
@@ -96,26 +96,15 @@ export default function SoumissionDashboard() {
                   </a>
                 </Text>
                 <Text>
-                  <strong>Email:</strong> <br />
+                  <strong>Email</strong> <br />
                   <a href={`mailto:${soumission.email}`}>{soumission.email}</a>
                 </Text>
                 <Text>
-                  <strong>Phone:</strong> <br />
+                  <strong>Phone</strong> <br />
                   <a href={`tel:${soumission.tel}`}>{soumission.tel}</a>
                 </Text>
-                <Text>
-                  <strong>Besoins</strong> <br />
-                  {soumission.besoinPeinture.join(', ')}
-                </Text>
-                <Text>
-                  <strong>Description</strong> {soumission.message}
-                </Text>
-              </Stack>
-              <VStack alignSelf="start" w="100%">
-                <Tag size="sm" colorScheme="blue">
-                  {soumission.typePeinture}
-                </Tag>
-                <Text fontSize="sm" fontWeight="semibold">
+                <Text size="sm" colorScheme="blue">
+                  <strong>Date</strong> <br />
                   {soumission.date.toDate().toLocaleDateString('en-US', {
                     day: 'numeric',
                     month: 'short',
@@ -126,7 +115,18 @@ export default function SoumissionDashboard() {
                     minute: '2-digit',
                   })}
                 </Text>
-              </VStack>
+                <Text size="sm" colorScheme="blue">
+                  <strong>Type de peinture</strong> <br />
+                  {soumission.typePeinture}
+                </Text>
+                <Text>
+                  <strong>Besoins</strong> <br />
+                  {soumission.besoinPeinture.join(', ')}
+                </Text>
+                <Text>
+                  <strong>Description</strong> {soumission.message}
+                </Text>
+              </Stack>
             </Flex>
           </ListItem>
         ))}
