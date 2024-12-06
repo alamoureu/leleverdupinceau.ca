@@ -7,7 +7,6 @@ import {
   Text,
   Heading,
   Stack,
-  Tag,
   Flex,
   VStack,
   Button,
@@ -23,7 +22,7 @@ export default function SoumissionDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   useEffect(() => {
-    const storedPassword = localStorage.getItem('soumissionPassword');
+    const storedPassword = localStorage.getItem('leverDuPinceauPassword');
     if (storedPassword === '111tbel') {
       setIsAuthenticated(true);
     }
