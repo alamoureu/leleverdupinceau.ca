@@ -1,9 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, Heading, Text, Stack, Container } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import { PasswordProtection } from './SoumissionDashboard';
 
 export default function AdminDashboard() {
   const navigate = useNavigate();
+
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    const storedPassword = localStorage.getItem('leverDuPinceauPassword');
+    if (storedPassword === '111tbel') {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  if (!isAuthenticated) {
+    return (
+      <PasswordProtection onPasswordCorrect={() => setIsAuthenticated(true)} />
+    );
+  }
+
   return (
     <Box bg="gray.50" minH="100vh" p={4}>
       <Container maxW="container.md">
