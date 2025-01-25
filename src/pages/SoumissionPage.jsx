@@ -33,16 +33,11 @@ export default function SoumissionPage() {
         spacing="0px"
         gap="0"
         bg="white"
-        minH={{ base: '100vh', md: '100%' }}
-        justifyContent="center"
-        alignItems="center"
+        minH={{ base: '100vh', md: '100vh' }}
+        align="center"
+        mt="30px"
       >
-        <Stack
-          w="100%"
-          alignItems="center"
-          id="soumission"
-          px={{ base: '20px', md: '30px' }}
-        >
+        <Stack id="soumission" px={{ base: '20px', md: '30px' }}>
           <Text
             fontSize={{ base: '25px', md: '40px' }}
             fontWeight="bold"
@@ -55,7 +50,7 @@ export default function SoumissionPage() {
               : 'GET A FREE QUOTE'}
           </Text>
 
-          <Stack w={{ base: '100%', md: '400px' }}>
+          <Stack align="center">
             <SoumissionForm />
           </Stack>
         </Stack>

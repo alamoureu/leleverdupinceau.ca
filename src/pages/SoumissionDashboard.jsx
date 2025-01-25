@@ -36,6 +36,7 @@ export default function SoumissionDashboard() {
           id: doc.id,
           ...doc.data(),
         }));
+        soumissionList.sort((a, b) => b.date.toDate() - a.date.toDate());
         setSoumissions(soumissionList);
       };
 

@@ -15,10 +15,13 @@ import {
   Flex,
   Tag,
   useToast,
+  Spinner,
+  HStack,
+  VStack,
 } from '@chakra-ui/react';
 import { FiHome, FiMail, FiPhone, FiUser } from 'react-icons/fi';
 import appContext from '../AppProvider';
-import axios from 'axios';
+
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
@@ -30,6 +33,8 @@ export default function SoumissionForm() {
   const [tel, setTel] = useState('');
   const [typePeinture, setTypePeinture] = useState('');
   const [besoinPeinture, setBesoinPeinture] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [confirmationVisible, setConfirmationVisible] = useState(false);
   const [message, setMessage] = useState('');
   const toast = useToast();
 
@@ -117,33 +122,6 @@ export default function SoumissionForm() {
     setBesoinPeinture([]);
   }, [typePeinture]);
 
-  async function sendEmail(formData) {
-    const options = {
-      method: 'POST',
-      url: 'https://mail-sender-api1.p.rapidapi.com/',
-      headers: {
-        'x-rapidapi-key': '4bee346de9msh5ed1f6bb9bcc083p1cef0ejsn71c1549fb036',
-        'x-rapidapi-host': 'mail-sender-api1.p.rapidapi.com',
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      data: {
-        sendto: 'leleverdupinceau@gmail.com',
-        name: 'Nouvelle soumission',
-        replyTo: 'leleverdupinceau@gmail.com',
-        ishtml: 'false',
-        title: 'Nouvelle soumission pour ' + name,
-        body: JSON.stringify(formData),
-      },
-    };
-
-    try {
-      await axios.request(options);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   async function onSubmit(e) {
     e.preventDefault();
     if (
@@ -168,6 +146,8 @@ export default function SoumissionForm() {
       return;
     }
 
+    setLoading(true);
+
     const formData = {
       name,
       address,
@@ -179,197 +159,219 @@ export default function SoumissionForm() {
       date: Timestamp.now(),
     };
 
-    if (besoinPeinture.includes('Autre') && !message.trim()) {
-      toast({
-        title: currentLang === 'fr' ? 'Attention' : 'Warning',
-        description:
-          currentLang === 'fr'
-            ? 'Veuillez expliquer votre situation dans la description.'
-            : 'Please explain your situation in the description.',
-        status: 'warning',
-        duration: 4000,
-        isClosable: true,
-      });
-    } else {
-      await addDoc(collection(db, 'Soumission'), formData);
-      sendEmail(formData);
-      toast({
-        title: currentLang === 'fr' ? 'Soumission envoyée' : 'Submission sent',
-        description:
-          currentLang === 'fr'
-            ? 'Nous allons vous contacter sous peu.'
-            : 'We will contact you shortly.',
-        status: 'success',
-        duration: 4000,
-        isClosable: true,
-        position: 'top-right',
-      });
+    await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setName('');
-      setAddress('');
-      setEmail('');
-      setTel('');
-      setTypePeinture('');
-      setBesoinPeinture([]);
-      setMessage('');
+    try {
+      await addDoc(collection(db, 'Soumission'), formData);
+      setLoading(false);
+      setConfirmationVisible(true);
+    } catch (error) {
+      setLoading(false);
+      toast({
+        title: currentLang === 'fr' ? 'Erreur' : 'Error',
+        description:
+          currentLang === 'fr'
+            ? 'Une erreur est survenue. Veuillez réessayer.'
+            : 'An error occurred. Please try again.',
+        status: 'error',
+        duration: 4000,
+        isClosable: true,
+      });
     }
   }
 
   return (
     <Stack h="100%" justifyContent="center" maxW="375px" px="0px">
-      <form onSubmit={onSubmit}>
-        <Stack alignItems="center" gap="4">
-          <FormControl textColor="black" isRequired>
-            <InputGroup textColor="black">
-              <InputLeftElement pointerEvents="none">
-                <Icon as={FiUser} color="gray.700" />
-              </InputLeftElement>
-              <Input
-                type="text"
-                borderRadius="sm"
-                borderColor="gray.200"
-                value={name}
-                placeholder={currentLang === 'fr' ? 'Nom, Prénom' : 'Full Name'}
-                onChange={(e) => handleChange(e.target.value, setName)}
-              />
-            </InputGroup>
-          </FormControl>
-
-          <FormControl textColor="black" isRequired>
-            <InputGroup textColor="black">
-              <InputLeftElement pointerEvents="none">
-                <Icon as={FiHome} color="gray.700" />
-              </InputLeftElement>
-              <Input
-                type="text"
-                borderRadius="sm"
-                borderColor="gray.200"
-                value={address}
-                placeholder={
-                  currentLang === 'fr'
-                    ? 'Adresse, Code Postal'
-                    : 'Address, Postal Code'
-                }
-                onChange={(e) => handleChange(e.target.value, setAddress)}
-              />
-            </InputGroup>
-          </FormControl>
-
-          <FormControl textColor="black" isRequired>
-            <InputGroup textColor="black">
-              <InputLeftElement pointerEvents="none">
-                <Icon as={FiPhone} color="gray.700" />
-              </InputLeftElement>
-              <Input
-                type="tel"
-                borderRadius="sm"
-                borderColor="gray.200"
-                value={tel}
-                placeholder={
-                  currentLang === 'fr' ? 'Numéro de téléphone' : 'Phone number'
-                }
-                onChange={(e) => handleChange(e.target.value, setTel)}
-              />
-            </InputGroup>
-          </FormControl>
-
-          <FormControl textColor="black" isRequired>
-            <InputGroup textColor="black">
-              <InputLeftElement pointerEvents="none">
-                <Icon as={FiMail} color="gray.700" />
-              </InputLeftElement>
-              <Input
-                type="email"
-                borderRadius="sm"
-                borderColor="gray.200"
-                value={email}
-                placeholder={currentLang === 'fr' ? 'Courriel' : 'Email'}
-                onChange={(e) => handleChange(e.target.value, setEmail)}
-              />
-            </InputGroup>
-          </FormControl>
-
-          <FormControl textColor="black" isRequired>
-            <RadioGroup value={typePeinture} onChange={setTypePeinture}>
-              <Stack direction="row">
-                <Radio value="Peinture Intérieur" borderColor="gray.200">
-                  <Text fontWeight="semibold" textColor="#53514E">
-                    {currentLang === 'fr'
-                      ? 'Peinture Intérieure'
-                      : 'Interior Painting'}
-                  </Text>
-                </Radio>
-                <Radio value="Peinture Extérieur" borderColor="gray.200">
-                  <Text fontWeight="semibold" textColor="#53514E">
-                    {currentLang === 'fr'
-                      ? 'Peinture Extérieure'
-                      : 'Exterior Painting'}
-                  </Text>
-                </Radio>
-              </Stack>
-            </RadioGroup>
-          </FormControl>
-
-          {typePeinture && (
-            <Stack direction="column" w="100%" gap="1">
-              <Text fontWeight="semibold" textColor="#53514E">
-                {currentLang === 'fr'
-                  ? 'Quelle situation vous décris le mieux ?'
-                  : 'Which situation best describes you?'}
-              </Text>
-              <Flex direction="row" gap="2" flexWrap="wrap">
-                {tags
-                  .filter((tag) => tag.category === typePeinture)
-                  .map((tag) => (
-                    <Tag
-                      key={tag.value}
-                      colorScheme="blue"
-                      cursor="pointer"
-                      borderWidth="2px"
-                      borderColor={
-                        besoinPeinture.includes(tag.value)
-                          ? 'blue.700'
-                          : 'transparent'
-                      }
-                      onClick={() => addBesoin(tag.value)}
-                    >
-                      <Text color="blue.900">
-                        {currentLang === 'fr'
-                          ? tag.label
-                          : translateTag(tag.label)}
-                      </Text>
-                    </Tag>
-                  ))}
-              </Flex>
-            </Stack>
-          )}
-
-          <FormControl textColor="#53514E">
-            <FormLabel>
-              {currentLang === 'fr'
-                ? 'Description du projet'
-                : 'Project Description'}
-            </FormLabel>
-            <Textarea
-              value={message}
-              w="100%"
-              borderColor="gray.200"
-              placeholder="Décrivez votre projet."
-              onChange={(e) => handleChange(e.target.value, setMessage)}
-            />
-          </FormControl>
-
-          <Button
-            bg="#0056D2"
-            color="white"
-            w="100%"
-            type="submit"
-            borderRadius="md"
-          >
-            {currentLang === 'fr' ? 'Envoyer' : 'Send'}
-          </Button>
+      {loading ? (
+        <Stack align="center" justify="center" h="100%">
+          <Spinner size="xl" color="black" />
+          <Text mt="4">
+            {currentLang === 'fr' ? 'Envoi en cours...' : 'Sending...'}
+          </Text>
         </Stack>
-      </form>
+      ) : confirmationVisible ? (
+        <Stack
+          align="center"
+          justify="center"
+          h="100%"
+          spacing="2"
+          bg="gray.100"
+          borderRadius="md"
+          px="4"
+          py="6"
+        >
+          <HStack spacing="2">
+            <Text fontSize="2xl" fontWeight="bold">
+              {currentLang === 'fr' ? 'Merci!' : 'Thank You!'}
+            </Text>
+          </HStack>
+          <VStack spacing={0}>
+            <Text textAlign="center">
+              {currentLang === 'fr'
+                ? 'Votre soumission a été envoyée avec succès. Nous vous contacterons sous peu.'
+                : 'Your submission was sent successfully. We will contact you shortly.'}
+            </Text>
+          </VStack>
+        </Stack>
+      ) : (
+        <form onSubmit={onSubmit}>
+          <Stack alignItems="center" gap="4">
+            <FormControl textColor="black" isRequired>
+              <InputGroup textColor="black">
+                <InputLeftElement pointerEvents="none">
+                  <Icon as={FiUser} color="gray.700" />
+                </InputLeftElement>
+                <Input
+                  type="text"
+                  borderRadius="sm"
+                  borderColor="gray.200"
+                  value={name}
+                  placeholder={
+                    currentLang === 'fr' ? 'Nom, Prénom' : 'Full Name'
+                  }
+                  onChange={(e) => handleChange(e.target.value, setName)}
+                />
+              </InputGroup>
+            </FormControl>
+
+            <FormControl textColor="black" isRequired>
+              <InputGroup textColor="black">
+                <InputLeftElement pointerEvents="none">
+                  <Icon as={FiHome} color="gray.700" />
+                </InputLeftElement>
+                <Input
+                  type="text"
+                  borderRadius="sm"
+                  borderColor="gray.200"
+                  value={address}
+                  placeholder={
+                    currentLang === 'fr'
+                      ? 'Adresse, Code Postal'
+                      : 'Address, Postal Code'
+                  }
+                  onChange={(e) => handleChange(e.target.value, setAddress)}
+                />
+              </InputGroup>
+            </FormControl>
+
+            <FormControl textColor="black" isRequired>
+              <InputGroup textColor="black">
+                <InputLeftElement pointerEvents="none">
+                  <Icon as={FiPhone} color="gray.700" />
+                </InputLeftElement>
+                <Input
+                  type="tel"
+                  borderRadius="sm"
+                  borderColor="gray.200"
+                  value={tel}
+                  placeholder={
+                    currentLang === 'fr'
+                      ? 'Numéro de téléphone'
+                      : 'Phone number'
+                  }
+                  onChange={(e) => handleChange(e.target.value, setTel)}
+                />
+              </InputGroup>
+            </FormControl>
+
+            <FormControl textColor="black" isRequired>
+              <InputGroup textColor="black">
+                <InputLeftElement pointerEvents="none">
+                  <Icon as={FiMail} color="gray.700" />
+                </InputLeftElement>
+                <Input
+                  type="email"
+                  borderRadius="sm"
+                  borderColor="gray.200"
+                  value={email}
+                  placeholder={currentLang === 'fr' ? 'Courriel' : 'Email'}
+                  onChange={(e) => handleChange(e.target.value, setEmail)}
+                />
+              </InputGroup>
+            </FormControl>
+
+            <FormControl textColor="black" isRequired>
+              <RadioGroup value={typePeinture} onChange={setTypePeinture}>
+                <Stack direction="row">
+                  <Radio value="Peinture Intérieur" borderColor="gray.200">
+                    <Text fontWeight="semibold" textColor="#53514E">
+                      {currentLang === 'fr'
+                        ? 'Peinture Intérieure'
+                        : 'Interior Painting'}
+                    </Text>
+                  </Radio>
+                  <Radio value="Peinture Extérieur" borderColor="gray.200">
+                    <Text fontWeight="semibold" textColor="#53514E">
+                      {currentLang === 'fr'
+                        ? 'Peinture Extérieure'
+                        : 'Exterior Painting'}
+                    </Text>
+                  </Radio>
+                </Stack>
+              </RadioGroup>
+            </FormControl>
+
+            {typePeinture && (
+              <Stack direction="column" w="100%" gap="1">
+                <Text fontWeight="semibold" textColor="#53514E">
+                  {currentLang === 'fr'
+                    ? 'Quelle situation vous décris le mieux ?'
+                    : 'Which situation best describes you?'}
+                </Text>
+                <Flex direction="row" gap="2" flexWrap="wrap">
+                  {tags
+                    .filter((tag) => tag.category === typePeinture)
+                    .map((tag) => (
+                      <Tag
+                        key={tag.value}
+                        colorScheme="blue"
+                        cursor="pointer"
+                        borderWidth="2px"
+                        borderColor={
+                          besoinPeinture.includes(tag.value)
+                            ? 'blue.700'
+                            : 'transparent'
+                        }
+                        onClick={() => addBesoin(tag.value)}
+                      >
+                        <Text color="blue.900">
+                          {currentLang === 'fr'
+                            ? tag.label
+                            : translateTag(tag.label)}
+                        </Text>
+                      </Tag>
+                    ))}
+                </Flex>
+              </Stack>
+            )}
+
+            <FormControl textColor="#53514E">
+              <FormLabel>
+                {currentLang === 'fr'
+                  ? 'Description du projet'
+                  : 'Project Description'}
+              </FormLabel>
+              <Textarea
+                value={message}
+                w="100%"
+                borderColor="gray.200"
+                placeholder="Décrivez votre projet."
+                onChange={(e) => handleChange(e.target.value, setMessage)}
+              />
+            </FormControl>
+
+            <Button
+              bg="#0056D2"
+              color="white"
+              w="100%"
+              type="submit"
+              borderRadius="md"
+            >
+              {currentLang === 'fr' ? 'Envoyer' : 'Send'}
+            </Button>
+          </Stack>
+        </form>
+      )}
     </Stack>
   );
 }
