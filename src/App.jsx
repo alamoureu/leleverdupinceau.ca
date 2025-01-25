@@ -11,6 +11,9 @@ import LandingPageLayout from './layout/LandingPageLayout';
 import LandingPage from './pages/LandingPage';
 import WebsiteLayout from './layout/WebsiteLayout';
 import SoumissionDashboard from './pages/SoumissionDashboard';
+import AdminDashboard from './pages/AdminDashboard';
+import EmploiesDashboard from './pages/EmploiesDashboard';
+import ContactDashboard from './pages/ContactDashboard';
 
 export default function App() {
   return (
@@ -45,7 +48,10 @@ export default function App() {
             />
           </Route>
           <Route path="/admin">
-            <Route path="soumission" element={<SoumissionDashboard />} />
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="soumissions" element={<SoumissionDashboard />} />
+            <Route path="emplois" element={<EmploiesDashboard />} />
+            <Route path="contact" element={<ContactDashboard />} />
           </Route>
         </Routes>
       </AppProvider>

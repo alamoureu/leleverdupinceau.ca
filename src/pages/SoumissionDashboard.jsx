@@ -135,7 +135,7 @@ export default function SoumissionDashboard() {
   );
 }
 
-const PasswordProtection = ({ onPasswordCorrect }) => {
+export const PasswordProtection = ({ onPasswordCorrect }) => {
   const [password, setPassword] = useState('');
   const toast = useToast();
 
