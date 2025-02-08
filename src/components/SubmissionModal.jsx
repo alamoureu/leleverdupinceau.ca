@@ -1,7 +1,6 @@
 import {
   Modal,
   ModalBody,
-  ModalCloseButton,
   ModalContent,
   ModalHeader,
   ModalOverlay,
@@ -19,7 +18,7 @@ export default function SubmissionModal({ isOpen, onClose, lang }) {
         <ModalHeader>
           <Stack w="100%" alignItems="center">
             <Text
-              fontSize="2xl"
+              fontSize="22px"
               fontWeight="bold"
               borderRadius="md"
               color="#0056D2"
@@ -30,8 +29,8 @@ export default function SubmissionModal({ isOpen, onClose, lang }) {
             </Text>
           </Stack>
         </ModalHeader>
-        <ModalCloseButton />
-        <ModalBody px="15px">
+
+        <ModalBody>
           <SoumissionForm lang={lang} />
         </ModalBody>
       </ModalContent>

@@ -9,10 +9,10 @@ import {
   useToast,
 } from '@chakra-ui/react';
 import { FiUser, FiHome, FiPhone, FiMail } from 'react-icons/fi';
-import axios from 'axios';
 import appContext from '../AppProvider';
 import { db } from '../firebase';
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { collection, addDoc } from 'firebase/firestore';
+import { sendEmail } from '../sendEmail';
 
 export default function ContactForm() {
   const toast = useToast();
@@ -25,63 +25,6 @@ export default function ContactForm() {
 
   function updateProp(e, setValue) {
     setValue(e.target.value);
-  }
-
-  async function sendEmail() {
-    const content = {
-      name,
-      address,
-      telephone: phoneNumber,
-      courriel: email,
-      message,
-      date: Timestamp.now(),
-    };
-
-    const options = {
-      method: 'POST',
-      url: 'https://mail-sender-api1.p.rapidapi.com/',
-      headers: {
-        'x-rapidapi-key': '4bee346de9msh5ed1f6bb9bcc083p1cef0ejsn71c1549fb036',
-        'x-rapidapi-host': 'mail-sender-api1.p.rapidapi.com',
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      data: {
-        ishtml: 'false',
-        sendto: 'leleverdupinceau@gmail.com',
-        name: 'Nouvelle communication client',
-        title: 'Communication client',
-        body: JSON.stringify(content),
-      },
-    };
-
-    try {
-      await axios.request(options);
-      toast({
-        title: currentLang === 'fr' ? 'Contact envoyé' : 'Contact sent',
-        description:
-          currentLang === 'fr'
-            ? 'Nous allons vous contactez sous peu.'
-            : 'We will contact you shortly.',
-        status: 'success',
-        duration: 4000,
-        isClosable: true,
-        position: 'top-right',
-      });
-      resetForm();
-    } catch (error) {
-      toast({
-        title: currentLang === 'fr' ? 'Erreur' : 'Error',
-        description:
-          currentLang === 'fr'
-            ? 'Une erreur est survenue. Veuillez réessayer plus tard.'
-            : 'An error occurred. Please try again later.',
-        status: 'error',
-        duration: 4000,
-        isClosable: true,
-        position: 'top-right',
-      });
-    }
   }
 
   function resetForm() {
@@ -100,8 +43,38 @@ export default function ContactForm() {
       message,
     };
     if (name && address && phoneNumber && email && message) {
+      const emailBody = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        <h2 style="text-align: center; color: #2c3e50;">📩 Nouveau Message de Contact</h2>
+
+        <p><strong>📌 Nom:</strong> ${formData.name}</p>
+        <p><strong>📍 Adresse:</strong> ${formData.address}</p>
+        <p><strong>✉️ Email:</strong> <a href="mailto:${formData.email}">${
+        formData.email
+      }</a></p>
+        <p><strong>📞 Téléphone:</strong> <a href="tel:${
+          formData.phoneNumber
+        }">${formData.phoneNumber}</a></p>
+
+        <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #3498db; margin-top: 10px;">
+            <p><strong>📝 Message:</strong></p>
+            <blockquote style="margin: 0; padding-left: 10px; border-left: 3px solid #ccc; color: #555;">"${
+              formData.message || 'Aucun message fourni'
+            }"</blockquote>
+        </div>
+
+        <p style="margin-top: 20px; text-align: right; color: #888;">🕒 <strong>Date de soumission:</strong> ${new Date().toLocaleString()}</p>
+
+        <hr style="margin: 20px 0;">
+        <p style="text-align: center; font-size: 12px; color: #777;">
+            _Cet email a été envoyé automatiquement._
+        </p>
+    </div>
+`;
+
       await addDoc(collection(db, 'Contact'), formData);
-      sendEmail();
+      await sendEmail('Nouveau message', emailBody);
+      resetForm();
     } else {
       toast({
         title: currentLang === 'fr' ? 'Champs manquants' : 'Missing fields',

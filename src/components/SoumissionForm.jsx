@@ -22,6 +22,7 @@ import {
 import { FiHome, FiMail, FiPhone, FiUser } from 'react-icons/fi';
 import appContext from '../AppProvider';
 
+import { sendEmail } from '../sendEmail';
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 
@@ -162,7 +163,45 @@ export default function SoumissionForm() {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     try {
+      const besoinsFormatted = Array.isArray(formData.besoinPeinture)
+        ? formData.besoinPeinture.join(', ')
+        : formData.besoinPeinture;
+
+      const emailBody = `
+    <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+        <h2 style="text-align: center; color: #2c3e50;">🏠 Nouvelle soumission reçue 🏠</h2>
+
+        <p><strong>📌 Nom:</strong> ${formData.name}</p>
+        <p><strong>📍 Adresse:</strong> ${formData.address}</p>
+        <p><strong>✉️ Email:</strong> <a href="mailto:${formData.email}">${
+        formData.email
+      }</a></p>
+        <p><strong>📞 Téléphone:</strong> <a href="tel:${formData.tel}">${
+        formData.tel
+      }</a></p>
+        <p><strong>🎨 Type de peinture:</strong> ${formData.typePeinture}</p>
+        <p><strong>🔧 Besoin en peinture:</strong> ${besoinsFormatted}</p>
+
+        <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #3498db; margin-top: 10px;">
+            <p><strong>📝 Message:</strong></p>
+            <blockquote style="margin: 0; padding-left: 10px; border-left: 3px solid #ccc; color: #555;">"${
+              formData.message
+            }"</blockquote>
+        </div>
+
+        <p style="margin-top: 20px; text-align: right; color: #888;">🕒 <strong>Date de soumission:</strong> ${new Date(
+          formData.date.toDate()
+        ).toLocaleString()}</p>
+
+        <hr style="margin: 20px 0;">
+        <p style="text-align: center; font-size: 12px; color: #777;">
+           Cet email a été envoyé automatiquement via SendMail - Ultimate Email Sender
+        </p>
+    </div>
+`;
+
       await addDoc(collection(db, 'Soumission'), formData);
+      await sendEmail('Nouvelle soumission', emailBody);
       setLoading(false);
       setConfirmationVisible(true);
     } catch (error) {
@@ -181,7 +220,7 @@ export default function SoumissionForm() {
   }
 
   return (
-    <Stack h="100%" justifyContent="center" maxW="375px" px="0px">
+    <Stack h="100%" justifyContent="center" maxW="400px" px="0px">
       {loading ? (
         <Stack align="center" justify="center" h="100%">
           <Spinner size="xl" color="black" />
@@ -205,7 +244,7 @@ export default function SoumissionForm() {
               {currentLang === 'fr' ? 'Merci!' : 'Thank You!'}
             </Text>
           </HStack>
-          <VStack spacing={0}>
+          <VStack spacing={0} px="10px">
             <Text textAlign="center">
               {currentLang === 'fr'
                 ? 'Votre soumission a été envoyée avec succès. Nous vous contacterons sous peu.'

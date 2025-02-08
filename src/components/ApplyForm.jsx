@@ -11,9 +11,9 @@ import {
   Button,
 } from '@chakra-ui/react';
 import { FiHome, FiMail, FiPhone, FiUser } from 'react-icons/fi';
-import axios from 'axios';
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { sendEmail } from '../sendEmail';
 
 export default function ApplyForm({ lang }) {
   const [name, setName] = useState('');
@@ -25,36 +25,6 @@ export default function ApplyForm({ lang }) {
 
   function updateProp(e, setValue) {
     setValue(e.target.value);
-  }
-
-  async function sendEmail() {
-    const stringBody = JSON.stringify({
-      name: name,
-      address: address,
-      telephone: phoneNumber,
-      courriel: email,
-      message: message,
-    });
-    const options = {
-      method: 'POST',
-      url: 'https://mail-sender-api1.p.rapidapi.com/',
-      headers: {
-        'x-rapidapi-key': '4bee346de9msh5ed1f6bb9bcc083p1cef0ejsn71c1549fb036',
-        'x-rapidapi-host': 'mail-sender-api1.p.rapidapi.com',
-        'Content-Type': 'application/json',
-        Accept: 'application/json',
-      },
-      data: {
-        sendto: 'leleverdupinceau@gmail.com',
-        name: 'Nouvelle candidature',
-        replyTo: 'leleverdupinceau@gmail.com',
-        ishtml: 'false',
-        title: 'Nouvelle candidature de ' + name,
-        body: stringBody,
-      },
-    };
-
-    await axios.request(options);
   }
 
   async function handleClick() {
@@ -81,8 +51,38 @@ export default function ApplyForm({ lang }) {
       date: Timestamp.now(),
     };
 
+    const emailBody = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 8px;">
+            <h2 style="text-align: center; color: #2c3e50;">📩 Nouvelle Candidature Reçue</h2>
+
+            <p><strong>📌 Nom:</strong> ${formData.name}</p>
+            <p><strong>📍 Code Postal:</strong> ${formData.address}</p>
+            <p><strong>✉️ Email:</strong> <a href="mailto:${formData.email}">${
+      formData.email
+    }</a></p>
+            <p><strong>📞 Téléphone:</strong> <a href="tel:${
+              formData.phoneNumber
+            }">${formData.phoneNumber}</a></p>
+
+            <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #3498db; margin-top: 10px;">
+                <p><strong>📝 Message:</strong></p>
+                <blockquote style="margin: 0; padding-left: 10px; border-left: 3px solid #ccc; color: #555;">"${
+                  formData.message || 'Aucun message fourni'
+                }"</blockquote>
+            </div>
+
+            <p style="margin-top: 20px; text-align: right; color: #888;">🕒 <strong>Date de soumission:</strong> ${new Date(
+              formData.date.toDate()
+            ).toLocaleString()}</p>
+
+             <hr style="margin: 20px 0;">
+        <p style="text-align: center; font-size: 12px; color: #777;">
+           Cet email a été envoyé automatiquement via SendMail - Ultimate Email Sender
+        </p>
+        </div>
+    `;
     await addDoc(collection(db, 'Apply'), formData);
-    sendEmail();
+    await sendEmail('Nouvelle candidature', emailBody);
     toast({
       title: lang === 'fr' ? 'Candidature envoyée' : 'Candidacy sent',
       description:
