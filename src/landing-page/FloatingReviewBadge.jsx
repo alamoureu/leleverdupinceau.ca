@@ -57,7 +57,7 @@ export default function FloatingReviewBadge({ onOpen, lang }) {
         </Stack>
         <Text fontSize="xs" color="gray.500">
           {lang === 'fr'
-            ? 'Lire nos autres ommentaires'
+            ? 'Lire nos autres commentaires'
             : 'Read our other reviews'}
         </Text>
       </Stack>

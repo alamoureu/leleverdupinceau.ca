@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AppProvider } from './AppProvider';
 import MainPage from './pages/WebSiteLandingPage';
 import PeintureExt from './pages/PeintureExterieur';
 import PeintureInt from './pages/PeintureInterieur';
 import Nousjoindre from './pages/Nousjoindre';
 import AboutUs from './pages/AboutUs';
 import Emplois from './pages/Emplois';
-import { AppProvider } from './AppProvider';
 import FreeQuotationPage from './pages/SoumissionPage';
 import LandingPageLayout from './layout/LandingPageLayout';
 import LandingPage from './pages/LandingPage';
@@ -14,6 +14,8 @@ import SoumissionDashboard from './pages/SoumissionDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import EmploiesDashboard from './pages/EmploiesDashboard';
 import ContactDashboard from './pages/ContactDashboard';
+import ThermOfUsePage from './pages/ThermOfUse';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
 export default function App() {
   return (
@@ -34,7 +36,16 @@ export default function App() {
               path="/services/peinture-interieure"
               element={<PeintureInt />}
             />
+            <Route
+              path="/politiques/confidentialite"
+              element={<ThermOfUsePage />}
+            />
+            <Route
+              path="/politiques/termes-conditions"
+              element={<PrivacyPolicyPage />}
+            />
           </Route>
+          <Route path="peintre-montreal" element={<LandingPage lang="fr" />} />
           <Route path="/fr" element={<LandingPageLayout lang="fr" />}>
             <Route
               path="peintre-montreal"

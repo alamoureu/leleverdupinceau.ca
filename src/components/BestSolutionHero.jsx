@@ -12,7 +12,7 @@ import { BiCheck } from 'react-icons/bi';
 
 export default function BestSolutionHero({ lang }) {
   return (
-    <Stack pb={{ base: '50px', md: '100px' }}>
+    <Stack pb={{ base: '50px', md: '50px' }}>
       <Container maxW="container.md">
         <Stack spacing="5px">
           <Box textAlign="center" mb={10} px={{ base: 2, md: 0 }}>

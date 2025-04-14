@@ -38,12 +38,12 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
       >
         <Box textAlign="center">
           <Text fontSize="4xl" fontWeight="bold">
-            400+
+            80%
           </Text>
           <Text fontSize="md">
             {lang === 'fr'
-              ? 'Plus de 400 clients satisfaits'
-              : 'Over 400 satisfied clients'}
+              ? '80 % de nos clients proviennent de recommandations de leurs proches'
+              : '80% of customer ratings come from recommendations by their relatives'}
           </Text>
         </Box>
 

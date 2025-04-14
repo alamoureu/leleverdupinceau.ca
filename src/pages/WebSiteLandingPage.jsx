@@ -1,16 +1,14 @@
 import React, { Fragment, useContext } from 'react';
+import { Helmet } from 'react-helmet';
 import {
   Stack,
-  Text,
   Flex,
   useDisclosure,
   useBreakpointValue,
-  Center,
 } from '@chakra-ui/react';
 import appContext from '../AppProvider';
 import MainHero from '../components/MainHero';
 import SubmissionModal from '../components/SubmissionModal';
-import SoumissionForm from '../components/SoumissionForm';
 import NosServices from '../components/NosServices';
 import AddValueHero from '../components/AddValueHero';
 import WhyUsHero from '../components/WhyUsHero';
@@ -18,7 +16,7 @@ import ClientReviewsHero from '../components/ClientReviewsHero';
 import ReviewsDrawer from '../landing-page/ReviewsDrawer';
 import BestSolutionHero from '../components/BestSolutionHero';
 import BetonelBanerHero from '../components/BetonelBanerHero';
-import { Helmet } from 'react-helmet';
+import EmbeddedSubmissionForm from '../components/EmbeddedSubmissionForm';
 
 export default function WebSiteLandingPage() {
   const { currentLang } = useContext(appContext);
@@ -44,6 +42,18 @@ export default function WebSiteLandingPage() {
           name="keywords"
           content="Peinture intérieure Montréal, Peinture extérieure Montréal, Services de peinture résidentielle, Peintres professionnels, Devis peinture Montréal"
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-81FGM6EH3M"
+        ></script>
+        <script>
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-81FGM6EH3M');
+    `}
+        </script>
       </Helmet>
 
       <Flex
@@ -81,27 +91,14 @@ export default function WebSiteLandingPage() {
           id="soumission"
           px={{ base: '20px', md: '30px' }}
         >
-          <Text
-            fontSize={{ base: '25px', md: '40px' }}
-            fontWeight="bold"
-            borderRadius="md"
-            color="#1A365D"
-            pb="4"
-          >
-            {currentLang === 'fr'
-              ? 'OBTENIR UNE SOUMISSION GRATUITE'
-              : 'GET A FREE QUOTE'}
-          </Text>
-          <Center>
-            <Stack w={{ base: '100%', md: '400px' }}>
-              <SoumissionForm />
-            </Stack>
-          </Center>
+          <Stack w={{ base: '100%', md: '500px' }}>
+            <EmbeddedSubmissionForm isModal={false} />
+          </Stack>
         </Stack>
 
         <Stack
           pb={{ base: '75px', md: '150px' }}
-          pt={{ base: '25px', md: '100px' }}
+          pt={{ base: '25px', md: '25px' }}
         >
           <ClientReviewsHero onDrawerOpen={onDrawerOpen} lang={currentLang} />
         </Stack>

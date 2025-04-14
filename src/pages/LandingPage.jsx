@@ -81,6 +81,23 @@ export default function LandingPage({ lang }) {
           name="keywords"
           content="Peinture intérieure Montréal, Peinture extérieure Montréal, Services de peinture, Devis peinture Montréal, Peintres professionnels Montréal"
         />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-2WYQLD2VZD"
+        ></script>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-F53S9VD6MB"
+        ></script>
+        <script>
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-2WYQLD2VZD');
+      gtag('config', 'G-F53S9VD6MB');
+    `}
+        </script>
       </Helmet>
 
       <Flex

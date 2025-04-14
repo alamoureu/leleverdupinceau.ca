@@ -1,12 +1,9 @@
-import React, { Fragment, useContext, useEffect } from 'react';
-import { Flex, Stack, Text } from '@chakra-ui/react';
-import SoumissionForm from '../components/SoumissionForm';
-import appContext from '../AppProvider';
+import React, { Fragment, useEffect } from 'react';
+import { Flex, Stack } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet';
+import EmbeddedSubmissionForm from '../components/EmbeddedSubmissionForm';
 
 export default function SoumissionPage() {
-  const { currentLang } = useContext(appContext);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -25,8 +22,8 @@ export default function SoumissionPage() {
         />
       </Helmet>
       <Flex
-        pt={{ base: '90px', md: '155px' }}
-        pb={{ base: '80px', md: '100px' }}
+        pt={{ base: '90px', md: '100px' }}
+        pb={{ base: '80px', md: '50px' }}
         direction="column"
         w="100%"
         display="flex"
@@ -37,21 +34,9 @@ export default function SoumissionPage() {
         align="center"
         mt="30px"
       >
-        <Stack id="soumission" px={{ base: '20px', md: '30px' }}>
-          <Text
-            fontSize={{ base: '25px', md: '40px' }}
-            fontWeight="bold"
-            borderRadius="md"
-            color="#1A365D"
-            pb="4"
-          >
-            {currentLang === 'fr'
-              ? 'OBTENIR UNE SOUMISSION GRATUITE'
-              : 'GET A FREE QUOTE'}
-          </Text>
-
-          <Stack align="center">
-            <SoumissionForm />
+        <Stack id="soumission" w="100%" align="center">
+          <Stack align="center" w={{ base: '100%', md: '500px' }}>
+            <EmbeddedSubmissionForm isModal={false} />
           </Stack>
         </Stack>
       </Flex>
