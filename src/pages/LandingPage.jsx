@@ -179,11 +179,19 @@ export default function LandingPage({ lang }) {
         </Box>
 
         {/**Section 8 */}
-        <Stack pt="40px">
-          <EmbeddedSubmissionForm isModal={false} />
+        <Stack
+          w="100%"
+          alignItems="center"
+          id="soumission"
+          pt="80px"
+          px={{ base: '0px', md: '30px' }}
+        >
+          <Stack w={{ base: '100%', md: '500px' }}>
+            <EmbeddedSubmissionForm isModal={false} />
+          </Stack>
         </Stack>
         {/**Section 7 */}
-        <Stack pt={{ base: '175px', md: '100px' }}>
+        <Stack pt={{ base: '20px', md: '100px' }}>
           <ClientReviewsHero onDrawerOpen={onDrawerOpen} />
         </Stack>
 

@@ -98,7 +98,7 @@ export default function WebSiteLandingPage() {
 
         <Stack
           pb={{ base: '75px', md: '150px' }}
-          pt={{ base: '175px', md: '25px' }}
+          pt={{ base: '20px', md: '25px' }}
         >
           <ClientReviewsHero onDrawerOpen={onDrawerOpen} lang={currentLang} />
         </Stack>

@@ -31,7 +31,7 @@ export default function EmbeddedSubmissionForm({ isModal }) {
   const form = forms[currentLang];
 
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '100%', height: '100%' }}>
       <Text
         fontSize="28px"
         fontWeight="bold"
@@ -49,8 +49,7 @@ export default function EmbeddedSubmissionForm({ isModal }) {
         style={{
           width: '100%',
           height: '100%',
-          border: 'none',
-          borderRadius: '3px',
+          borderWidth: 'none',
           boxShadow: 'none',
         }}
         id={`inline-${form.id}`}
