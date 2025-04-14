@@ -67,6 +67,7 @@ export default function WebsiteLayout() {
 
         <Stack
           gap="0"
+          overflowX="none"
           overflowY="auto"
           h="100%"
           css={{

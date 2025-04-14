@@ -149,7 +149,7 @@ export default function ReviewsDrawer({ isOpen, onClose, lang }) {
 
             <Stack direction="row" align="center" justify="center" mb={3}>
               <Text fontSize="2xl" fontWeight="bold" color="gray.800">
-                4.8
+                4.8+
               </Text>
               <Stack direction="row" spacing={0.5}>
                 {[...Array(5)].map((_, i) => (

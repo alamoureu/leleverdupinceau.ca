@@ -10,7 +10,6 @@ import {
   useDisclosure,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import ApplyForm from '../components/ApplyForm';
 import NosServices from '../components/NosServices';
 import ReviewsDrawer from '../landing-page/ReviewsDrawer';
 import FloatingReviewBadge from '../landing-page/FloatingReviewBadge';
@@ -23,6 +22,7 @@ import ClientReviewsHero from '../components/ClientReviewsHero';
 import BestSolutionHero from '../components/BestSolutionHero';
 import BetonelBanerHero from '../components/BetonelBanerHero';
 import { Helmet } from 'react-helmet';
+import EmbeddedSubmissionForm from '../components/EmbeddedSubmissionForm';
 
 export default function LandingPage({ lang }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -179,31 +179,11 @@ export default function LandingPage({ lang }) {
         </Box>
 
         {/**Section 8 */}
-        <Stack
-          position="relative"
-          w="100%"
-          bgSize="auto"
-          bgPosition="center"
-          bgRepeat="no-repeat"
-          display="flex"
-          alignItems="center"
-          px={{ base: '0px', md: '100px' }}
-          pt={{ base: '50px', md: '100px' }}
-        >
-          <Box p={4} borderRadius="md">
-            <Heading
-              color="rgba(1, 42, 104, 1)"
-              fontSize={{ base: '3xl', md: '5xl' }}
-              fontWeight="bold"
-            >
-              {lang === 'fr' ? "Appliquez aujourd'hui" : 'Apply Today'}
-            </Heading>
-          </Box>
-          <ApplyForm lang={lang} />
+        <Stack pt="40px">
+          <EmbeddedSubmissionForm isModal={false} />
         </Stack>
-
         {/**Section 7 */}
-        <Stack pt={{ base: '25px', md: '100px' }}>
+        <Stack pt={{ base: '175px', md: '100px' }}>
           <ClientReviewsHero onDrawerOpen={onDrawerOpen} />
         </Stack>
 

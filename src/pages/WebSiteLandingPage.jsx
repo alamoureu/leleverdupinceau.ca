@@ -89,7 +89,7 @@ export default function WebSiteLandingPage() {
           w="100%"
           alignItems="center"
           id="soumission"
-          px={{ base: '20px', md: '30px' }}
+          px={{ base: '0px', md: '30px' }}
         >
           <Stack w={{ base: '100%', md: '500px' }}>
             <EmbeddedSubmissionForm isModal={false} />
@@ -98,7 +98,7 @@ export default function WebSiteLandingPage() {
 
         <Stack
           pb={{ base: '75px', md: '150px' }}
-          pt={{ base: '25px', md: '25px' }}
+          pt={{ base: '175px', md: '25px' }}
         >
           <ClientReviewsHero onDrawerOpen={onDrawerOpen} lang={currentLang} />
         </Stack>

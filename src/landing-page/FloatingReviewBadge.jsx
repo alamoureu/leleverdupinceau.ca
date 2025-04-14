@@ -48,7 +48,7 @@ export default function FloatingReviewBadge({ onOpen, lang }) {
         />
 
         <Text fontSize="lg" fontWeight="bold" color="black">
-          4.8
+          4.8+
         </Text>
         <Stack direction="row" spacing="1px">
           {[...Array(5)].map((_, i) => (

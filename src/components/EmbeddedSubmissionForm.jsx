@@ -37,7 +37,7 @@ export default function EmbeddedSubmissionForm({ isModal }) {
         fontWeight="bold"
         borderRadius="md"
         color="#1A365D"
-        mx={isModal && '10'}
+        mx={isModal ? '10' : '5'}
         mt={isModal && '12'}
       >
         {currentLang === 'fr'

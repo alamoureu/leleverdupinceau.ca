@@ -53,11 +53,11 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
         <Heading fontSize={{ base: '3xl', md: '7xl' }}>
           {lang === 'fr' ? (
             <>
-              Peintre d'expérience <br /> montréalais
+              Peintres d'expériences <br /> montréalais
             </>
           ) : (
             <>
-              Experienced <br /> Montreal Painter
+              Experienced <br /> Montreal Painters
             </>
           )}
         </Heading>

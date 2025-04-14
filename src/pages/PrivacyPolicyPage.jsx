@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
     <Container
       maxW="6xl"
       py={{ base: 10, md: 20 }}
-      pt={{ base: '90px', md: '150px' }}
+      pt={{ base: '120px', md: '150px' }}
     >
       <Stack spacing={8}>
         <Heading fontSize={{ base: '2xl', md: '4xl' }}>
