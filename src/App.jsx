@@ -1,21 +1,23 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { AppProvider } from './AppProvider';
-import MainPage from './pages/WebSiteLandingPage';
-import PeintureExt from './pages/PeintureExterieur';
-import PeintureInt from './pages/PeintureInterieur';
-import Nousjoindre from './pages/Nousjoindre';
-import AboutUs from './pages/AboutUs';
-import Emplois from './pages/Emplois';
-import FreeQuotationPage from './pages/SoumissionPage';
-import LandingPageLayout from './layout/LandingPageLayout';
-import LandingPage from './pages/LandingPage';
-import WebsiteLayout from './layout/WebsiteLayout';
-import SoumissionDashboard from './pages/SoumissionDashboard';
-import AdminDashboard from './pages/AdminDashboard';
-import EmploiesDashboard from './pages/EmploiesDashboard';
-import ContactDashboard from './pages/ContactDashboard';
-import ThermOfUsePage from './pages/ThermOfUse';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { AppProvider } from "./AppProvider";
+import MainPage from "./pages/WebSiteLandingPage";
+import PeintureExt from "./pages/PeintureExterieur";
+import PeintureInt from "./pages/PeintureInterieur";
+import Nousjoindre from "./pages/Nousjoindre";
+import AboutUs from "./pages/AboutUs";
+import Emplois from "./pages/Emplois";
+import FreeQuotationPage from "./pages/SoumissionPage";
+import LandingPageLayout from "./layout/LandingPageLayout";
+import LandingPage from "./pages/LandingPage";
+import WebsiteLayout from "./layout/WebsiteLayout";
+import SoumissionDashboard from "./pages/SoumissionDashboard";
+import AdminDashboard from "./pages/AdminDashboard";
+import EmploiesDashboard from "./pages/EmploiesDashboard";
+import ContactDashboard from "./pages/ContactDashboard";
+import TimeSheet from "./pages/TimeSheet";
+import TimeSheetDashboard from "./pages/TimeSheetDashboard";
+import ThermOfUsePage from "./pages/ThermOfUse";
+import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 
 export default function App() {
   return (
@@ -63,7 +65,9 @@ export default function App() {
             <Route path="soumissions" element={<SoumissionDashboard />} />
             <Route path="emplois" element={<EmploiesDashboard />} />
             <Route path="contact" element={<ContactDashboard />} />
+            <Route path="timesheets" element={<TimeSheetDashboard />} />
           </Route>
+          <Route path="/timesheet" element={<TimeSheet />} />
         </Routes>
       </AppProvider>
     </Router>
