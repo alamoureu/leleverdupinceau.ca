@@ -142,7 +142,6 @@ export default function TimeSheet() {
       const dateKey = now.toISOString().split("T")[0];
       const documentId = `${selectedEmployee}_${dateKey}`;
 
-      console.log("Uploading photo...");
       const photoURL = await uploadPhoto(
         photo,
         selectedEmployee,
@@ -252,7 +251,6 @@ export default function TimeSheet() {
         isClosable: true,
       });
     } finally {
-      console.log("Finally block: setting isSubmitting to false");
       setIsSubmitting(false);
     }
   };

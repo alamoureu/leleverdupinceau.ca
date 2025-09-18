@@ -61,12 +61,10 @@ export default function TimeSheetDashboard() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [employees, setEmployees] = useState([]);
-  const [dailySummaries, setDailySummaries] = useState([]);
 
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
-    // Check if user is already authenticated as admin
     if (AuthService.isAuthenticated(AuthService.ROLES.ADMIN)) {
       setIsAuthenticated(true);
     }
@@ -127,7 +125,6 @@ export default function TimeSheetDashboard() {
         (a, b) => new Date(b.date || 0) - new Date(a.date || 0)
       );
       setTimesheets(sortedData);
-      setDailySummaries(sortedData);
     } catch (error) {
       console.error("Error fetching timesheets:", error);
     } finally {

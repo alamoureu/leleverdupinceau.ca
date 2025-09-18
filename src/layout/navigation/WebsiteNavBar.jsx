@@ -117,13 +117,6 @@ export default function WebsiteNavBar() {
         <Button onClick={() => navigate("/emplois")}>
           {currentLang === "fr" ? "Emplois" : "Employment"}
         </Button>
-        <Button
-          onClick={() => navigate("/timesheet")}
-          colorScheme="blue"
-          variant="outline"
-        >
-          {currentLang === "fr" ? "Feuille de Temps" : "Timesheet"}
-        </Button>
       </ButtonGroup>
     </HStack>
   );
