@@ -65,6 +65,7 @@ export default function TimeSheet() {
   const [photo, setPhoto] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
   const [isCameraActive, setIsCameraActive] = useState(false);
+  const [cameraLoading, setCameraLoading] = useState(false);
   const [currentAction, setCurrentAction] = useState(null); // null, "clock-in", "clock-out"
   const [loadingEmployees, setLoadingEmployees] = useState(false);
 
@@ -482,10 +483,15 @@ export default function TimeSheet() {
 
                       {!isCameraActive && !photo && (
                         <Button
-                          onClick={() => setIsCameraActive(true)}
+                          onClick={() => {
+                            setCameraLoading(true);
+                            setIsCameraActive(true);
+                          }}
                           colorScheme='blue'
                           size='lg'
                           width='full'
+                          isLoading={cameraLoading}
+                          loadingText='Chargement de la caméra...'
                         >
                           Ouvrir la caméra
                         </Button>
@@ -493,7 +499,33 @@ export default function TimeSheet() {
 
                       {isCameraActive && (
                         <VStack spacing={4}>
-                          <Box borderRadius='md' overflow='hidden'>
+                          <Box
+                            borderRadius='md'
+                            overflow='hidden'
+                            position='relative'
+                          >
+                            {cameraLoading && (
+                              <Box
+                                position='absolute'
+                                top='0'
+                                left='0'
+                                right='0'
+                                bottom='0'
+                                bg='gray.100'
+                                display='flex'
+                                alignItems='center'
+                                justifyContent='center'
+                                zIndex={1}
+                                minH='300px'
+                              >
+                                <VStack spacing={3}>
+                                  <Spinner size='lg' color='blue.500' />
+                                  <Text color='gray.600' fontSize='sm'>
+                                    Chargement de la caméra...
+                                  </Text>
+                                </VStack>
+                              </Box>
+                            )}
                             <Webcam
                               ref={webcamRef}
                               audio={false}
@@ -503,8 +535,10 @@ export default function TimeSheet() {
                               }}
                               onUserMedia={(stream) => {
                                 // Webcam started successfully
+                                setCameraLoading(false);
                               }}
                               onUserMediaError={(error) => {
+                                setCameraLoading(false);
                                 toast({
                                   title: 'Erreur Caméra',
                                   description:
@@ -531,7 +565,10 @@ export default function TimeSheet() {
                               Prendre la photo
                             </Button>
                             <Button
-                              onClick={() => setIsCameraActive(false)}
+                              onClick={() => {
+                                setIsCameraActive(false);
+                                setCameraLoading(false);
+                              }}
                               variant='outline'
                             >
                               Annuler
