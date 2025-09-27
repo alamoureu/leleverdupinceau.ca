@@ -445,3 +445,44 @@ export function validateTimeSequence(clockInTime, clockOutTime) {
     error: null,
   };
 }
+
+/**
+ * Format hours to display hours and minutes properly
+ * @param {number} hours - Hours as decimal (e.g., 1.5, 0.5, 8.75)
+ * @param {string} format - Format type: 'short' (1h 30m), 'long' (1 heure 30 minutes), 'decimal' (1.5h)
+ * @returns {string} Formatted time string
+ */
+export function formatHoursDisplay(hours, format = 'short') {
+  if (!hours || hours === 0) {
+    return format === 'decimal' ? '0.0h' : '0h 0m';
+  }
+
+  const totalMinutes = Math.round(hours * 60);
+  const wholeHours = Math.floor(totalMinutes / 60);
+  const remainingMinutes = totalMinutes % 60;
+
+  if (format === 'decimal') {
+    return `${hours.toFixed(1)}h`;
+  }
+
+  if (format === 'long') {
+    if (wholeHours === 0) {
+      return `${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''}`;
+    } else if (remainingMinutes === 0) {
+      return `${wholeHours} heure${wholeHours !== 1 ? 's' : ''}`;
+    } else {
+      return `${wholeHours} heure${
+        wholeHours !== 1 ? 's' : ''
+      } ${remainingMinutes} minute${remainingMinutes !== 1 ? 's' : ''}`;
+    }
+  }
+
+  // Default 'short' format
+  if (wholeHours === 0) {
+    return `${remainingMinutes}m`;
+  } else if (remainingMinutes === 0) {
+    return `${wholeHours}h`;
+  } else {
+    return `${wholeHours}h ${remainingMinutes}m`;
+  }
+}

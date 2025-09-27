@@ -31,6 +31,10 @@ import {
   CardHeader,
   IconButton,
   Switch,
+  Stack,
+  Badge,
+  Flex,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { EditIcon, DeleteIcon, AddIcon } from '@chakra-ui/icons';
 import { db } from '../firebase';
@@ -53,6 +57,7 @@ export default function EmployeeManagement() {
   const [newEmployee, setNewEmployee] = useState({ name: '' });
   const { isOpen, onOpen, onClose } = useDisclosure();
   const toast = useToast();
+  const isMobile = useBreakpointValue({ base: true, md: false });
 
   useEffect(() => {
     if (AuthService.isAuthenticated(AuthService.ROLES.ADMIN)) {
@@ -273,31 +278,31 @@ export default function EmployeeManagement() {
   }
 
   return (
-    <Box bg='gray.50' minH='100vh' py={8}>
-      <Container maxW='container.lg'>
-        <VStack spacing={6} align='stretch'>
-          <Box textAlign='center'>
-            <Heading size='lg' color='blue.600' mb={2}>
+    <Box bg='gray.50' minH='100vh' py={{ base: 4, md: 8 }}>
+      <Container maxW={{ base: 'container.sm', md: 'container.lg' }}>
+        <VStack spacing={{ base: 4, md: 6 }} align='stretch'>
+          <Box textAlign='center' px={{ base: 4, md: 0 }}>
+            <Heading size={{ base: 'md', md: 'lg' }} color='blue.600' mb={2}>
               Gestion des Employés
             </Heading>
-            <Text color='gray.600'>
+            <Text color='gray.600' fontSize={{ base: 'sm', md: 'md' }}>
               Ajoutez, modifiez ou supprimez des employés
             </Text>
           </Box>
 
           {/* Add Employee Form */}
           <Card>
-            <CardHeader>
-              <Heading size='md'>Ajouter un Employé</Heading>
-            </CardHeader>
             <CardBody>
-              <HStack spacing={4}>
+              <Stack spacing={4} direction={{ base: 'column', md: 'row' }}>
                 <FormControl flex={1}>
-                  <FormLabel>Nom de l'employé</FormLabel>
+                  <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
+                    Nom de l'employé
+                  </FormLabel>
                   <Input
                     placeholder='Ex: Jean Dupont'
                     value={newEmployee.name}
                     onChange={(e) => setNewEmployee({ name: e.target.value })}
+                    size={{ base: 'md', md: 'md' }}
                   />
                   <Text fontSize='xs' color='gray.500' mt={1}>
                     L'ID sera généré automatiquement (ex: jean_dupont_001)
@@ -307,26 +312,94 @@ export default function EmployeeManagement() {
                   colorScheme='blue'
                   leftIcon={<AddIcon />}
                   onClick={handleAddEmployee}
-                  mt={6}
+                  mt={{ base: 0, md: 6 }}
                   isDisabled={!newEmployee.name.trim()}
+                  size={{ base: 'md', md: 'md' }}
+                  width={{ base: 'full', md: 'auto' }}
                 >
                   Ajouter
                 </Button>
-              </HStack>
+              </Stack>
             </CardBody>
           </Card>
 
           {/* Employees List */}
           <Card>
             <CardHeader>
-              <Heading size='md'>
+              <Heading size={{ base: 'sm', md: 'md' }}>
                 Liste des Employés ({employees.length})
               </Heading>
             </CardHeader>
             <CardBody>
               {loading ? (
                 <Text>Chargement...</Text>
+              ) : isMobile ? (
+                // Mobile Card Layout
+                <VStack spacing={3} align='stretch'>
+                  {employees.map((employee) => (
+                    <Card key={employee.documentId} size='sm' variant='outline'>
+                      <CardBody>
+                        <VStack spacing={3} align='stretch'>
+                          <Flex justify='space-between' align='center'>
+                            <Box>
+                              <Text fontWeight='bold' fontSize='md'>
+                                {employee.name}
+                              </Text>
+                              <Text fontSize='xs' color='gray.500'>
+                                ID: {employee.id}
+                              </Text>
+                            </Box>
+                            <Badge
+                              colorScheme={
+                                employee.status === 'active' ? 'green' : 'red'
+                              }
+                              size='sm'
+                            >
+                              {employee.status === 'active'
+                                ? 'Actif'
+                                : 'Inactif'}
+                            </Badge>
+                          </Flex>
+
+                          <Flex justify='space-between' align='center'>
+                            <HStack spacing={2}>
+                              <Text fontSize='sm'>Statut:</Text>
+                              <Switch
+                                isChecked={employee.status === 'active'}
+                                onChange={() =>
+                                  handleToggleStatus(employee, employee.status)
+                                }
+                                colorScheme='green'
+                                size='sm'
+                              />
+                            </HStack>
+
+                            <HStack spacing={2}>
+                              <IconButton
+                                size='sm'
+                                icon={<EditIcon />}
+                                onClick={() => openEditModal(employee)}
+                                colorScheme='blue'
+                                variant='outline'
+                                aria-label='Modifier'
+                              />
+                              <IconButton
+                                size='sm'
+                                icon={<DeleteIcon />}
+                                onClick={() => handleDeleteEmployee(employee)}
+                                colorScheme='red'
+                                variant='outline'
+                                aria-label='Supprimer'
+                              />
+                            </HStack>
+                          </Flex>
+                        </VStack>
+                      </CardBody>
+                    </Card>
+                  ))}
+                </VStack>
               ) : (
+                // Desktop Table Layout
                 <TableContainer>
                   <Table variant='simple'>
                     <Thead>
@@ -340,8 +413,14 @@ export default function EmployeeManagement() {
                     <Tbody>
                       {employees.map((employee) => (
                         <Tr key={employee.documentId}>
-                          <Td>{employee.id}</Td>
-                          <Td>{employee.name}</Td>
+                          <Td>
+                            <Text fontSize='sm' fontFamily='mono'>
+                              {employee.id}
+                            </Text>
+                          </Td>
+                          <Td>
+                            <Text fontWeight='medium'>{employee.name}</Text>
+                          </Td>
                           <Td>
                             <HStack spacing={2}>
                               <Switch
@@ -352,18 +431,16 @@ export default function EmployeeManagement() {
                                 colorScheme='green'
                                 size='sm'
                               />
-                              <Text
-                                fontSize='sm'
-                                color={
-                                  employee.status === 'active'
-                                    ? 'green.500'
-                                    : 'red.500'
+                              <Badge
+                                colorScheme={
+                                  employee.status === 'active' ? 'green' : 'red'
                                 }
+                                size='sm'
                               >
                                 {employee.status === 'active'
                                   ? 'Actif'
                                   : 'Inactif'}
-                              </Text>
+                              </Badge>
                             </HStack>
                           </Td>
                           <Td>
@@ -374,6 +451,7 @@ export default function EmployeeManagement() {
                                 onClick={() => openEditModal(employee)}
                                 colorScheme='blue'
                                 variant='outline'
+                                aria-label='Modifier'
                               />
                               <IconButton
                                 size='sm'
@@ -381,6 +459,7 @@ export default function EmployeeManagement() {
                                 onClick={() => handleDeleteEmployee(employee)}
                                 colorScheme='red'
                                 variant='outline'
+                                aria-label='Supprimer'
                               />
                             </HStack>
                           </Td>
@@ -396,15 +475,21 @@ export default function EmployeeManagement() {
       </Container>
 
       {/* Edit Modal */}
-      <Modal isOpen={isOpen} onClose={onClose}>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        size={{ base: 'full', md: 'md' }}
+      >
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Modifier l'Employé</ModalHeader>
+        <ModalContent mx={{ base: 4, md: 0 }} my={{ base: 0, md: 'auto' }}>
+          <ModalHeader fontSize={{ base: 'lg', md: 'xl' }}>
+            Modifier l'Employé
+          </ModalHeader>
           <ModalCloseButton />
-          <ModalBody>
+          <ModalBody pb={6}>
             <VStack spacing={4}>
               <FormControl>
-                <FormLabel>Nom</FormLabel>
+                <FormLabel fontSize={{ base: 'sm', md: 'md' }}>Nom</FormLabel>
                 <Input
                   value={editingEmployee?.name || ''}
                   onChange={(e) =>
@@ -413,15 +498,19 @@ export default function EmployeeManagement() {
                       name: e.target.value,
                     })
                   }
+                  size={{ base: 'md', md: 'md' }}
                 />
               </FormControl>
               <FormControl>
-                <FormLabel>ID (généré automatiquement)</FormLabel>
+                <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
+                  ID (généré automatiquement)
+                </FormLabel>
                 <Input
                   value={editingEmployee?.id || ''}
                   isReadOnly
                   bg='gray.100'
                   color='gray.600'
+                  size={{ base: 'md', md: 'md' }}
                 />
                 <Text fontSize='xs' color='gray.500' mt={1}>
                   L'ID ne peut pas être modifié
@@ -430,15 +519,29 @@ export default function EmployeeManagement() {
             </VStack>
           </ModalBody>
           <ModalFooter>
-            <Button
-              colorScheme='blue'
-              onClick={() => {
-                handleEditEmployee(editingEmployee, editingEmployee);
-                onClose();
-              }}
+            <Stack
+              direction={{ base: 'column', md: 'row' }}
+              spacing={3}
+              width={{ base: 'full', md: 'auto' }}
             >
-              Sauvegarder
-            </Button>
+              <Button
+                variant='ghost'
+                onClick={onClose}
+                width={{ base: 'full', md: 'auto' }}
+              >
+                Annuler
+              </Button>
+              <Button
+                colorScheme='blue'
+                onClick={() => {
+                  handleEditEmployee(editingEmployee, editingEmployee);
+                  onClose();
+                }}
+                width={{ base: 'full', md: 'auto' }}
+              >
+                Sauvegarder
+              </Button>
+            </Stack>
           </ModalFooter>
         </ModalContent>
       </Modal>

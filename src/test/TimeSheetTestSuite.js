@@ -9,6 +9,8 @@ const {
   calculateTotalWorkedHours,
   calculateTodayTotalHours,
   calculateTotalHoursForDateRange,
+  calculateTotalHours,
+  calculateRecordWorkedHours,
   validateTimesheetRecord,
   generateDocumentId,
   determineClockStatus,
@@ -18,6 +20,7 @@ const {
   validateTimeSequence,
   findDuplicateRecords,
   checkTimesheetExists,
+  formatHoursDisplay,
 } = require('../utils/timesheetCalculations');
 
 class TimeSheetTestSuite {
@@ -550,6 +553,231 @@ class TimeSheetTestSuite {
     }
   }
 
+  // Test 13: Hours Display Formatting
+  async testHoursDisplayFormatting() {
+    // Test various hour formats
+    const testCases = [
+      { hours: 0, expected: '0h 0m' },
+      { hours: 0.5, expected: '30m' },
+      { hours: 1, expected: '1h' },
+      { hours: 1.5, expected: '1h 30m' },
+      { hours: 8.75, expected: '8h 45m' },
+      { hours: 0.25, expected: '15m' },
+      { hours: 2.1, expected: '2h 6m' },
+    ];
+
+    for (const testCase of testCases) {
+      const result = formatHoursDisplay(testCase.hours);
+      if (result !== testCase.expected) {
+        throw new Error(
+          `Hours formatting failed for ${testCase.hours}: expected "${testCase.expected}", got "${result}"`
+        );
+      }
+    }
+
+    // Test decimal format
+    const decimalResult = formatHoursDisplay(1.5, 'decimal');
+    if (decimalResult !== '1.5h') {
+      throw new Error(
+        `Decimal format failed: expected "1.5h", got "${decimalResult}"`
+      );
+    }
+
+    // Test long format
+    const longResult = formatHoursDisplay(1.5, 'long');
+    if (longResult !== '1 heure 30 minutes') {
+      throw new Error(
+        `Long format failed: expected "1 heure 30 minutes", got "${longResult}"`
+      );
+    }
+  }
+
+  // Test 14: Inactive User Status
+  async testInactiveUserStatus() {
+    // Create mock timesheet records with both active and inactive employees
+    const mockTimesheets = [
+      {
+        id: 'juan_006_2025-01-27',
+        employeeId: 'juan_006',
+        date: '2025-01-27',
+        clockInTime: '2025-01-27T08:00:00.000Z',
+        clockOutTime: '2025-01-27T17:00:00.000Z',
+        totalWorkedHours: 8.5,
+        lunchDurationMinutes: 30,
+      },
+      {
+        id: 'inactive_001_2025-01-27',
+        employeeId: 'inactive_001',
+        date: '2025-01-27',
+        clockInTime: '2025-01-27T09:00:00.000Z',
+        clockOutTime: '2025-01-27T18:00:00.000Z',
+        totalWorkedHours: 8.5,
+        lunchDurationMinutes: 30,
+      },
+      {
+        id: 'moses_001_2025-01-26',
+        employeeId: 'moses_001',
+        date: '2025-01-26',
+        clockInTime: '2025-01-26T08:30:00.000Z',
+        clockOutTime: '2025-01-26T17:30:00.000Z',
+        totalWorkedHours: 8.5,
+        lunchDurationMinutes: 30,
+      },
+      {
+        id: 'inactive_002_2025-01-26',
+        employeeId: 'inactive_002',
+        date: '2025-01-26',
+        clockInTime: '2025-01-26T07:00:00.000Z',
+        clockOutTime: '2025-01-26T16:00:00.000Z',
+        totalWorkedHours: 8.5,
+        lunchDurationMinutes: 30,
+      },
+    ];
+
+    // Create mock employee data with active and inactive statuses
+    const mockEmployees = [
+      { id: 'juan_006', name: 'Juan Perez', status: 'active' },
+      { id: 'moses_001', name: 'Moses Smith', status: 'active' },
+      { id: 'inactive_001', name: 'Inactive User 1', status: 'inactive' },
+      { id: 'inactive_002', name: 'Inactive User 2', status: 'inactive' },
+    ];
+
+    // Test 1: Verify that calculations include ALL records regardless of employee status
+    const totalHours = calculateTotalHours(mockTimesheets);
+    const expectedTotal = 8.5 + 8.5 + 8.5 + 8.5; // All 4 records
+    if (Math.abs(totalHours - expectedTotal) > 0.01) {
+      throw new Error(
+        `Total hours calculation should include inactive users: expected ${expectedTotal}, got ${totalHours}`
+      );
+    }
+
+    // Test 2: Verify today's total includes inactive users
+    const todayTotal = calculateTodayTotalHours(mockTimesheets, '2025-01-27');
+    const expectedTodayTotal = 8.5 + 8.5; // Both active and inactive for today
+    if (Math.abs(todayTotal - expectedTodayTotal) > 0.01) {
+      throw new Error(
+        `Today's total should include inactive users: expected ${expectedTodayTotal}, got ${todayTotal}`
+      );
+    }
+
+    // Test 3: Verify date range calculations include inactive users
+    const rangeTotal = calculateTotalHoursForDateRange(
+      mockTimesheets,
+      '2025-01-26',
+      '2025-01-27'
+    );
+    const expectedRangeTotal = 8.5 + 8.5 + 8.5 + 8.5; // All records in range
+    if (Math.abs(rangeTotal - expectedRangeTotal) > 0.01) {
+      throw new Error(
+        `Date range total should include inactive users: expected ${expectedRangeTotal}, got ${rangeTotal}`
+      );
+    }
+
+    // Test 4: Verify individual record calculations work for inactive users
+    const inactiveRecord = mockTimesheets.find(
+      (r) => r.employeeId === 'inactive_001'
+    );
+    const calculatedHours = calculateRecordWorkedHours(inactiveRecord);
+    if (Math.abs(calculatedHours - 8.5) > 0.01) {
+      throw new Error(
+        `Individual record calculation should work for inactive users: expected 8.5, got ${calculatedHours}`
+      );
+    }
+
+    // Test 5: Verify validation works for inactive users
+    const validationResult = validateTimesheetRecord(inactiveRecord);
+    if (!validationResult.isValid) {
+      throw new Error(
+        `Timesheet validation should work for inactive users: ${validationResult.errors.join(
+          ', '
+        )}`
+      );
+    }
+
+    // Test 6: Verify document ID generation works for inactive users
+    const docId = generateDocumentId('inactive_001', '2025-01-27');
+    if (docId !== 'inactive_001_2025-01-27') {
+      throw new Error(
+        `Document ID generation should work for inactive users: expected "inactive_001_2025-01-27", got "${docId}"`
+      );
+    }
+
+    // Test 7: Verify clock status logic works for inactive users
+    const clockStatus = determineClockStatus(inactiveRecord);
+    if (clockStatus !== null) {
+      throw new Error(
+        `Clock status should work for inactive users: expected null (complete), got "${clockStatus}"`
+      );
+    }
+
+    // Test 8: Verify UI filtering logic (simulate dashboard filtering)
+    // Active employees should always be included
+    const activeEmployees = mockEmployees.filter(
+      (emp) => emp.status === 'active'
+    );
+    if (activeEmployees.length !== 2) {
+      throw new Error(
+        `Should find 2 active employees, got ${activeEmployees.length}`
+      );
+    }
+
+    // Inactive employees should only be included if they have records for the selected date
+    const selectedDate = '2025-01-27';
+    const inactiveEmployeesWithRecords = mockEmployees.filter((emp) => {
+      if (emp.status === 'active') return false; // Only check inactive
+      return mockTimesheets.some(
+        (record) => record.employeeId === emp.id && record.date === selectedDate
+      );
+    });
+    if (inactiveEmployeesWithRecords.length !== 1) {
+      throw new Error(
+        `Should find 1 inactive employee with records for ${selectedDate}, got ${inactiveEmployeesWithRecords.length}`
+      );
+    }
+
+    // Test 9: Verify that inactive employees without records for selected date are filtered out
+    const selectedDate2 = '2025-01-28'; // Date with no records
+    const inactiveEmployeesWithRecords2 = mockEmployees.filter((emp) => {
+      if (emp.status === 'active') return false; // Only check inactive
+      return mockTimesheets.some(
+        (record) =>
+          record.employeeId === emp.id && record.date === selectedDate2
+      );
+    });
+    if (inactiveEmployeesWithRecords2.length !== 0) {
+      throw new Error(
+        `Should find 0 inactive employees with records for ${selectedDate2}, got ${inactiveEmployeesWithRecords2.length}`
+      );
+    }
+
+    // Test 10: Verify duplicate detection works for inactive users
+    const duplicateTimesheets = [
+      ...mockTimesheets,
+      {
+        id: 'inactive_001_2025-01-27_duplicate',
+        employeeId: 'inactive_001',
+        date: '2025-01-27',
+        clockInTime: '2025-01-27T09:00:00.000Z',
+        clockOutTime: '2025-01-27T18:00:00.000Z',
+        totalWorkedHours: 8.5,
+        lunchDurationMinutes: 30,
+      },
+    ];
+
+    const duplicates = findDuplicateRecords(duplicateTimesheets);
+    if (duplicates.length === 0) {
+      throw new Error('Should detect duplicates for inactive users');
+    }
+
+    // Verify the duplicate is correctly identified
+    const inactiveDuplicate = duplicates.find(
+      (dup) => dup.employeeId === 'inactive_001' && dup.date === '2025-01-27'
+    );
+    if (!inactiveDuplicate) {
+      throw new Error('Should identify duplicate for inactive user');
+    }
+  }
+
   // Run all tests
   async runAllTests() {
     this.log('🚀 Starting TimeSheet Test Suite');
@@ -581,6 +809,12 @@ class TimeSheetTestSuite {
     );
     await this.runTest('Duplicate Prevention', () =>
       this.testDuplicatePrevention()
+    );
+    await this.runTest('Hours Display Formatting', () =>
+      this.testHoursDisplayFormatting()
+    );
+    await this.runTest('Inactive User Status', () =>
+      this.testInactiveUserStatus()
     );
 
     this.log('=====================================');

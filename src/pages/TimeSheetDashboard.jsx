@@ -70,6 +70,7 @@ import {
   validateTimesheetAction,
   validateTimeSequence,
   findDuplicateRecords,
+  formatHoursDisplay,
 } from '../utils/timesheetCalculations';
 
 export default function TimeSheetDashboard() {
@@ -113,11 +114,9 @@ export default function TimeSheetDashboard() {
       }));
 
       if (employeeData.length > 0) {
-        // Filter only active employees for the dropdown
-        const activeEmployees = employeeData.filter(
-          (emp) => emp.status === 'active'
-        );
-        setEmployees(activeEmployees);
+        // For dashboard, we keep ALL employees (active and inactive)
+        // Filtering will be done in the UI based on whether they have records
+        setEmployees(employeeData);
       } else {
         // If no employees in collection, create them from test data IDs
         const testEmployeeIds = [
@@ -187,49 +186,8 @@ export default function TimeSheetDashboard() {
       );
       setTimesheets(sortedData);
 
-      // Extract unique employees from timesheet data, filtering out undefined/null values
-      const uniqueEmployeeIds = [
-        ...new Set(
-          sortedData
-            .map((record) => record.employeeId)
-            .filter((id) => id != null && id !== undefined && id !== '')
-        ),
-      ];
-
-      // Fetch employee details for the unique IDs
-      const employeeDetails = [];
-      for (const employeeId of uniqueEmployeeIds) {
-        // Skip if employeeId is invalid
-        if (
-          !employeeId ||
-          employeeId === 'undefined' ||
-          employeeId === 'null'
-        ) {
-          continue;
-        }
-
-        try {
-          const employeeDoc = await getDoc(doc(db, 'employees', employeeId));
-          if (employeeDoc.exists()) {
-            employeeDetails.push({ id: employeeDoc.id, ...employeeDoc.data() });
-          } else {
-            // If employee doesn't exist in employees collection, create a basic entry
-            employeeDetails.push({
-              id: employeeId,
-              name: employeeId.replace('_', ' ').replace(/\d+/g, '').trim(),
-              status: 'active',
-            });
-          }
-        } catch (error) {
-          // Fallback: create basic entry
-          employeeDetails.push({
-            id: employeeId,
-            name: employeeId.replace('_', ' ').replace(/\d+/g, '').trim(),
-            status: 'active',
-          });
-        }
-      }
-      setEmployees(employeeDetails);
+      // Don't override employees state here - we already have the correct employee data from fetchEmployees
+      // The employees state should maintain the real employee status from the employees collection
     } catch (error) {
     } finally {
       setLoading(false);
@@ -238,9 +196,10 @@ export default function TimeSheetDashboard() {
 
   useEffect(() => {
     if (isAuthenticated) {
+      fetchEmployees(); // Ensure we have the latest employee data
       fetchTimesheets();
     }
-  }, [isAuthenticated, fetchTimesheets, selectedDate]);
+  }, [isAuthenticated, fetchEmployees, fetchTimesheets, selectedDate]);
 
   const openPhotoModal = (photoURL) => {
     setSelectedPhoto(photoURL);
@@ -278,7 +237,55 @@ export default function TimeSheetDashboard() {
 
   // Employee list component (responsive)
   const EmployeeList = () => {
-    const allEmployees = employees.filter((emp) => emp.status === 'active');
+    // Get unique employee IDs from timesheets to ensure we show employees with records
+    const employeeIdsWithRecords = [
+      ...new Set(
+        timesheets
+          .map((record) => record.employeeId)
+          .filter((id) => id != null && id !== undefined && id !== '')
+      ),
+    ];
+
+    // Create a complete list of employees to display
+    const allEmployeesToShow = [];
+
+    // Add employees from the employees collection (with correct status)
+    employees.forEach((emp) => {
+      if (emp.status === 'active') {
+        allEmployeesToShow.push(emp); // Always show active employees
+      } else {
+        // For inactive employees, only show if they have a record for the selected date
+        const hasRecordForDate = timesheets.some(
+          (record) =>
+            record.employeeId === emp.id && record.date === selectedDate
+        );
+        if (hasRecordForDate) {
+          allEmployeesToShow.push(emp);
+        }
+      }
+    });
+
+    // Add any employees that have timesheet records but don't exist in employees collection
+    // (This shouldn't happen but let's handle it gracefully)
+    employeeIdsWithRecords.forEach((employeeId) => {
+      const existsInEmployees = allEmployeesToShow.some(
+        (emp) => emp.id === employeeId
+      );
+      if (!existsInEmployees) {
+        // Only add if they have records for the selected date
+        const hasRecordForDate = timesheets.some(
+          (record) =>
+            record.employeeId === employeeId && record.date === selectedDate
+        );
+        if (hasRecordForDate) {
+          allEmployeesToShow.push({
+            id: employeeId,
+            name: employeeId.replace('_', ' ').replace(/\d+/g, '').trim(),
+            status: 'unknown', // Mark as unknown since they're not in employees collection
+          });
+        }
+      }
+    });
 
     return (
       <Flex
@@ -287,7 +294,7 @@ export default function TimeSheetDashboard() {
         gap={{ base: 3, md: 4 }}
         justify={{ base: 'stretch', md: 'start' }}
       >
-        {allEmployees.map((employee) => {
+        {allEmployeesToShow.map((employee) => {
           const status = getEmployeeStatus(employee.id, selectedDate);
           return (
             <Card
@@ -297,26 +304,58 @@ export default function TimeSheetDashboard() {
                 md: 'calc(50% - 8px)',
                 lg: 'calc(33.333% - 11px)',
               }}
-              shadow='sm'
-              size='sm'
+              bg='white'
+              border='1px'
+              borderColor='gray.200'
+              borderRadius='lg'
+              shadow='md'
+              _hover={{
+                shadow: 'lg',
+                transform: 'translateY(-2px)',
+                borderColor: 'blue.300',
+              }}
+              transition='all 0.2s'
             >
-              <CardBody p={{ base: 3, md: 4 }}>
-                <VStack spacing={3} align='stretch'>
-                  {/* Employee Name and Status */}
-                  <HStack justify='space-between' align='center'>
-                    <VStack align='start' spacing={1}>
-                      <Text
-                        fontWeight='bold'
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        color='gray.800'
-                      >
-                        {employee.name}
-                      </Text>
-                      <HStack spacing={3}>
+              <CardBody p={{ base: 4, md: 5 }}>
+                <VStack spacing={4} align='stretch'>
+                  {/* Employee Header */}
+                  <Box
+                    bg='blue.50'
+                    p={3}
+                    borderRadius='md'
+                    borderLeft='4px'
+                    borderLeftColor='blue.500'
+                  >
+                    <HStack justify='space-between' align='center'>
+                      <VStack align='start' spacing={1}>
+                        <Text
+                          fontWeight='bold'
+                          fontSize={{ base: 'lg', md: 'xl' }}
+                          color='blue.800'
+                        >
+                          {employee.name}
+                        </Text>
+                        <Text
+                          fontSize={{ base: 'xs', md: 'sm' }}
+                          color={
+                            employee.status === 'active'
+                              ? 'green.600'
+                              : employee.status === 'inactive'
+                              ? 'red.600'
+                              : 'orange.600'
+                          }
+                          textTransform='capitalize'
+                          fontWeight='semibold'
+                        >
+                          {employee.status || 'active'}
+                        </Text>
+                      </VStack>
+                      <VStack spacing={2} align='end'>
                         <HStack spacing={1}>
                           <Text
                             fontSize={{ base: 'xs', md: 'sm' }}
                             color='gray.600'
+                            fontWeight='medium'
                           >
                             Entrée:
                           </Text>
@@ -326,148 +365,244 @@ export default function TimeSheetDashboard() {
                           <Text
                             fontSize={{ base: 'xs', md: 'sm' }}
                             color='gray.600'
+                            fontWeight='medium'
                           >
                             Sortie:
                           </Text>
                           {getStatusIcon(status.clockedOut)}
                         </HStack>
-                      </HStack>
-                    </VStack>
-                  </HStack>
+                      </VStack>
+                    </HStack>
+                  </Box>
 
                   {/* Time Information */}
                   {status.record && (
-                    <Box bg='gray.50' p={3} borderRadius='md'>
-                      <VStack spacing={2} align='stretch'>
-                        <VStack spacing={1} align='stretch'>
+                    <Box
+                      bg='gray.50'
+                      p={4}
+                      borderRadius='md'
+                      border='1px'
+                      borderColor='gray.200'
+                    >
+                      <VStack spacing={3} align='stretch'>
+                        <Text
+                          fontSize={{ base: 'sm', md: 'md' }}
+                          fontWeight='semibold'
+                          color='gray.700'
+                          textAlign='center'
+                        >
+                          Détails du Temps
+                        </Text>
+                        <VStack spacing={2} align='stretch'>
                           <HStack
                             justify='space-between'
-                            fontSize={{ base: 'xs', md: 'sm' }}
-                            color='gray.600'
+                            p={2}
+                            bg='white'
+                            borderRadius='md'
+                            border='1px'
+                            borderColor='gray.100'
                           >
-                            <Text>Entrée:</Text>
-                            <Text>{formatTime(status.record.clockInTime)}</Text>
+                            <Text
+                              fontSize={{ base: 'xs', md: 'sm' }}
+                              color='gray.600'
+                              fontWeight='medium'
+                            >
+                              Entrée:
+                            </Text>
+                            <Text
+                              fontSize={{ base: 'xs', md: 'sm' }}
+                              color='gray.800'
+                              fontWeight='semibold'
+                            >
+                              {formatTime(status.record.clockInTime)}
+                            </Text>
                           </HStack>
                           {status.record.clockOutTime && (
                             <HStack
                               justify='space-between'
-                              fontSize={{ base: 'xs', md: 'sm' }}
-                              color='gray.600'
+                              p={2}
+                              bg='white'
+                              borderRadius='md'
+                              border='1px'
+                              borderColor='gray.100'
                             >
-                              <Text>Sortie:</Text>
-                              <Text>
+                              <Text
+                                fontSize={{ base: 'xs', md: 'sm' }}
+                                color='gray.600'
+                                fontWeight='medium'
+                              >
+                                Sortie:
+                              </Text>
+                              <Text
+                                fontSize={{ base: 'xs', md: 'sm' }}
+                                color='gray.800'
+                                fontWeight='semibold'
+                              >
                                 {formatTime(status.record.clockOutTime)}
                               </Text>
                             </HStack>
                           )}
                         </VStack>
                         {status.record.totalWorkedHours && (
-                          <HStack justify='center'>
+                          <Box
+                            bg='green.50'
+                            p={3}
+                            borderRadius='md'
+                            border='1px'
+                            borderColor='green.200'
+                            textAlign='center'
+                          >
                             <Text
                               fontWeight='bold'
-                              color='green.600'
-                              fontSize={{ base: 'sm', md: 'md' }}
+                              color='green.700'
+                              fontSize={{ base: 'md', md: 'lg' }}
                             >
-                              Total: {status.record.totalWorkedHours}h
+                              Total:{' '}
+                              {formatHoursDisplay(
+                                status.record.totalWorkedHours
+                              )}
                             </Text>
-                          </HStack>
+                          </Box>
                         )}
                       </VStack>
                     </Box>
                   )}
 
                   {/* Photo Thumbnails */}
-                  {status.record && (
-                    <HStack justify='center' spacing={4}>
-                      {status.record.clockInPhoto && (
-                        <VStack spacing={1}>
-                          <Text
-                            fontSize='xs'
-                            color='gray.600'
-                            textAlign='center'
-                          >
-                            Entrée
-                          </Text>
-                          <Box
-                            w='60px'
-                            h='60px'
-                            borderRadius='md'
-                            overflow='hidden'
-                            border='2px'
-                            borderColor='green.300'
-                            cursor='pointer'
-                            onClick={() =>
-                              openPhotoModal(status.record.clockInPhoto)
-                            }
-                          >
-                            <Image
-                              src={status.record.clockInPhoto}
-                              alt="Photo d'entrée"
-                              w='100%'
-                              h='100%'
-                              objectFit='cover'
-                              onError={(e) => {
-                                e.target.style.display = 'none';
-                              }}
-                            />
-                          </Box>
-                        </VStack>
-                      )}
-                      {status.record.clockOutPhoto && (
-                        <VStack spacing={1}>
-                          <Text
-                            fontSize='xs'
-                            color='gray.600'
-                            textAlign='center'
-                          >
-                            Sortie
-                          </Text>
-                          <Box
-                            w='60px'
-                            h='60px'
-                            borderRadius='md'
-                            overflow='hidden'
-                            border='2px'
-                            borderColor='red.300'
-                            cursor='pointer'
-                            onClick={() =>
-                              openPhotoModal(status.record.clockOutPhoto)
-                            }
-                          >
-                            <Image
-                              src={status.record.clockOutPhoto}
-                              alt='Photo de sortie'
-                              w='100%'
-                              h='100%'
-                              objectFit='cover'
-                              onError={(e) => {
-                                e.target.style.display = 'none';
-                              }}
-                            />
-                          </Box>
-                        </VStack>
-                      )}
-                    </HStack>
-                  )}
+                  {status.record &&
+                    (status.record.clockInPhoto ||
+                      status.record.clockOutPhoto) && (
+                      <Box
+                        bg='gray.50'
+                        p={3}
+                        borderRadius='md'
+                        border='1px'
+                        borderColor='gray.200'
+                      >
+                        <Text
+                          fontSize={{ base: 'xs', md: 'sm' }}
+                          fontWeight='semibold'
+                          color='gray.700'
+                          textAlign='center'
+                          mb={3}
+                        >
+                          Photos
+                        </Text>
+                        <HStack justify='center' spacing={4}>
+                          {status.record.clockInPhoto && (
+                            <VStack spacing={2}>
+                              <Text
+                                fontSize='xs'
+                                color='green.600'
+                                textAlign='center'
+                                fontWeight='medium'
+                              >
+                                Entrée
+                              </Text>
+                              <Box
+                                w='70px'
+                                h='70px'
+                                borderRadius='lg'
+                                overflow='hidden'
+                                border='3px'
+                                borderColor='green.400'
+                                cursor='pointer'
+                                _hover={{
+                                  borderColor: 'green.500',
+                                  transform: 'scale(1.05)',
+                                }}
+                                transition='all 0.2s'
+                                onClick={() =>
+                                  openPhotoModal(status.record.clockInPhoto)
+                                }
+                              >
+                                <Image
+                                  src={status.record.clockInPhoto}
+                                  alt="Photo d'entrée"
+                                  w='100%'
+                                  h='100%'
+                                  objectFit='cover'
+                                  onError={(e) => {
+                                    e.target.style.display = 'none';
+                                  }}
+                                />
+                              </Box>
+                            </VStack>
+                          )}
+                          {status.record.clockOutPhoto && (
+                            <VStack spacing={2}>
+                              <Text
+                                fontSize='xs'
+                                color='red.600'
+                                textAlign='center'
+                                fontWeight='medium'
+                              >
+                                Sortie
+                              </Text>
+                              <Box
+                                w='70px'
+                                h='70px'
+                                borderRadius='lg'
+                                overflow='hidden'
+                                border='3px'
+                                borderColor='red.400'
+                                cursor='pointer'
+                                _hover={{
+                                  borderColor: 'red.500',
+                                  transform: 'scale(1.05)',
+                                }}
+                                transition='all 0.2s'
+                                onClick={() =>
+                                  openPhotoModal(status.record.clockOutPhoto)
+                                }
+                              >
+                                <Image
+                                  src={status.record.clockOutPhoto}
+                                  alt='Photo de sortie'
+                                  w='100%'
+                                  h='100%'
+                                  objectFit='cover'
+                                  onError={(e) => {
+                                    e.target.style.display = 'none';
+                                  }}
+                                />
+                              </Box>
+                            </VStack>
+                          )}
+                        </HStack>
+                      </Box>
+                    )}
 
                   {/* Action Buttons */}
-                  <HStack spacing={2} justify='space-between' wrap='wrap'>
-                    <HStack spacing={1}>
+                  <Box borderTop='1px' borderColor='gray.200' pt={3} mt={1}>
+                    <HStack justify='center' spacing={3}>
                       {status.record ? (
                         <IconButton
-                          size={{ base: 'xs', md: 'sm' }}
+                          size='sm'
                           icon={<EditIcon />}
                           onClick={() => handleEditRecord(status.record)}
                           title='Modifier'
                           colorScheme='blue'
-                          variant='outline'
+                          variant='solid'
+                          borderRadius='lg'
+                          _hover={{
+                            transform: 'translateY(-2px)',
+                            shadow: 'md',
+                          }}
+                          transition='all 0.2s'
                         />
                       ) : (
                         <IconButton
-                          size={{ base: 'xs', md: 'sm' }}
+                          size='sm'
                           colorScheme='green'
-                          variant='outline'
+                          variant='solid'
                           icon={<AddIcon />}
+                          borderRadius='lg'
+                          _hover={{
+                            transform: 'translateY(-2px)',
+                            shadow: 'md',
+                          }}
+                          transition='all 0.2s'
                           onClick={() => {
                             // Create datetime-local format without timezone conversion
                             const clockInTime = `${selectedDate}T08:00`;
@@ -486,20 +621,24 @@ export default function TimeSheetDashboard() {
                           aria-label='Ajouter Entrée'
                         />
                       )}
-                    </HStack>
-                    <HStack spacing={1}>
                       {status.clockedIn && !status.clockedOut && (
                         <IconButton
-                          size={{ base: 'xs', md: 'sm' }}
+                          size='sm'
                           colorScheme='orange'
-                          variant='outline'
+                          variant='solid'
                           icon={<TimeIcon />}
+                          borderRadius='lg'
+                          _hover={{
+                            transform: 'translateY(-2px)',
+                            shadow: 'md',
+                          }}
+                          transition='all 0.2s'
                           onClick={() => handleManualClockOut(status.record)}
                           aria-label='Sortie Manuelle'
                         />
                       )}
                     </HStack>
-                  </HStack>
+                  </Box>
                 </VStack>
               </CardBody>
             </Card>
@@ -828,37 +967,55 @@ export default function TimeSheetDashboard() {
 
           {/* Statistics Cards */}
           <SimpleGrid columns={{ base: 2, md: 4 }} spacing={{ base: 2, md: 4 }}>
-            <Card>
+            <Card bg='blue.50' borderTop='4px' borderColor='blue.500'>
               <CardBody p={{ base: 2, md: 4 }}>
                 <Stat>
-                  <StatLabel fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatLabel
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     <HStack>
-                      <TimeIcon />
+                      <TimeIcon color='blue.500' />
                       <Text>Heures Jour</Text>
                     </HStack>
                   </StatLabel>
-                  <StatNumber fontSize={{ base: 'md', md: 'xl' }}>
-                    {todayTotalHours.toFixed(1)}h
+                  <StatNumber
+                    fontSize={{ base: 'md', md: 'xl' }}
+                    color='blue.700'
+                  >
+                    {formatHoursDisplay(todayTotalHours)}
                   </StatNumber>
-                  <StatHelpText fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatHelpText
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     {todaysRecords.length} actifs
                   </StatHelpText>
                 </Stat>
               </CardBody>
             </Card>
-            <Card>
+            <Card bg='blue.50' borderTop='4px' borderColor='blue.500'>
               <CardBody p={{ base: 2, md: 4 }}>
                 <Stat>
-                  <StatLabel fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatLabel
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     <HStack>
-                      <CalendarIcon />
+                      <CalendarIcon color='blue.500' />
                       <Text>Heures Semaine</Text>
                     </HStack>
                   </StatLabel>
-                  <StatNumber fontSize={{ base: 'md', md: 'xl' }}>
-                    {weekTotalHours.toFixed(1)}h
+                  <StatNumber
+                    fontSize={{ base: 'md', md: 'xl' }}
+                    color='blue.700'
+                  >
+                    {formatHoursDisplay(weekTotalHours)}
                   </StatNumber>
-                  <StatHelpText fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatHelpText
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     {startOfWeek.toLocaleDateString('fr-CA', {
                       month: 'short',
                       day: 'numeric',
@@ -871,19 +1028,28 @@ export default function TimeSheetDashboard() {
                 </Stat>
               </CardBody>
             </Card>
-            <Card>
+            <Card bg='blue.50' borderTop='4px' borderColor='blue.500'>
               <CardBody p={{ base: 2, md: 4 }}>
                 <Stat>
-                  <StatLabel fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatLabel
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     <HStack>
-                      <CalendarIcon />
+                      <CalendarIcon color='blue.500' />
                       <Text>Heures Mois</Text>
                     </HStack>
                   </StatLabel>
-                  <StatNumber fontSize={{ base: 'md', md: 'xl' }}>
-                    {monthTotalHours.toFixed(1)}h
+                  <StatNumber
+                    fontSize={{ base: 'md', md: 'xl' }}
+                    color='blue.700'
+                  >
+                    {formatHoursDisplay(monthTotalHours)}
                   </StatNumber>
-                  <StatHelpText fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatHelpText
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     {startOfMonth.toLocaleDateString('fr-CA', {
                       month: 'short',
                       year: 'numeric',
@@ -893,23 +1059,39 @@ export default function TimeSheetDashboard() {
               </CardBody>
             </Card>
             <Card
+              bg='blue.50'
+              borderTop='4px'
+              borderColor='blue.500'
               cursor='pointer'
-              _hover={{ shadow: 'md', transform: 'translateY(-2px)' }}
+              _hover={{
+                shadow: 'md',
+                transform: 'translateY(-2px)',
+                bg: 'blue.100',
+              }}
               transition='all 0.2s'
-              onClick={() => (window.location.href = '/employees')}
+              onClick={() => (window.location.href = '/admin/employees')}
             >
               <CardBody p={{ base: 2, md: 4 }}>
                 <Stat>
-                  <StatLabel fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatLabel
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     <HStack>
-                      <InfoIcon />
+                      <InfoIcon color='blue.500' />
                       <Text>Employés</Text>
                     </HStack>
                   </StatLabel>
-                  <StatNumber fontSize={{ base: 'md', md: 'xl' }}>
+                  <StatNumber
+                    fontSize={{ base: 'md', md: 'xl' }}
+                    color='blue.700'
+                  >
                     {totalEmployees}
                   </StatNumber>
-                  <StatHelpText fontSize={{ base: 'xs', md: 'sm' }}>
+                  <StatHelpText
+                    fontSize={{ base: 'xs', md: 'sm' }}
+                    color='blue.600'
+                  >
                     Voir employés
                   </StatHelpText>
                 </Stat>
@@ -1188,11 +1370,13 @@ export default function TimeSheetDashboard() {
                       })
                     }
                   >
-                    {employees.map((employee) => (
-                      <option key={employee.id} value={employee.id}>
-                        {employee.name}
-                      </option>
-                    ))}
+                    {employees
+                      .filter((emp) => emp.status === 'active')
+                      .map((employee) => (
+                        <option key={employee.id} value={employee.id}>
+                          {employee.name}
+                        </option>
+                      ))}
                   </Select>
                 </FormControl>
 

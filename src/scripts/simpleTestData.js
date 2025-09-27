@@ -125,9 +125,10 @@ function generateTestData() {
   // Show sample data
   console.log('\n📋 Sample entries:');
   allData.slice(0, 5).forEach((entry) => {
-    console.log(
-      `${entry.employeeId} - ${entry.date} - ${entry.totalWorkedHours}h`
-    );
+    const hours = Math.floor(entry.totalWorkedHours);
+    const minutes = Math.round((entry.totalWorkedHours - hours) * 60);
+    const timeDisplay = minutes > 0 ? `${hours}h ${minutes}m` : `${hours}h`;
+    console.log(`${entry.employeeId} - ${entry.date} - ${timeDisplay}`);
   });
 
   return allData;
