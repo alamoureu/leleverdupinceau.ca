@@ -1,0 +1,46 @@
+{
+  "employees": [
+    {
+      "id": "moses_001",
+      "name": "Moses",
+      "status": "active"
+    },
+    {
+      "id": "pedro_002",
+      "name": "Pedro",
+      "status": "active"
+    },
+    {
+      "id": "alex_003",
+      "name": "Alex",
+      "status": "active"
+    },
+    {
+      "id": "anar_004",
+      "name": "Anar",
+      "status": "active"
+    },
+    {
+      "id": "italo_005",
+      "name": "Italo",
+      "status": "active"
+    },
+    {
+      "id": "juan_006",
+      "name": "Juan Pablo",
+      "status": "active"
+    },
+    {
+      "id": "lux_007",
+      "name": "Lux",
+      "status": "active"
+    },
+    {
+      "id": "dany_008",
+      "name": "Dany",
+      "status": "active"
+    }
+  ],
+  "totalEmployees": 8,
+  "activeEmployees": 8
+}

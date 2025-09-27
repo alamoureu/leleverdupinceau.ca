@@ -1,0 +1,20 @@
+{
+  "name": "timesheet-test-suite",
+  "version": "1.0.0",
+  "description": "Comprehensive test suite for TimeSheet application",
+  "main": "runAllTests.js",
+  "scripts": {
+    "test": "node runAllTests.js",
+    "test:core": "node TimeSheetTestSuite.js",
+    "test:components": "node ComponentTestSuite.js",
+    "test:simple": "node runTests.js"
+  },
+  "keywords": [
+    "timesheet",
+    "testing",
+    "validation",
+    "business-logic"
+  ],
+  "author": "TimeSheet Development Team",
+  "license": "MIT"
+}
