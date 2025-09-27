@@ -478,7 +478,8 @@ export default function EmployeeManagement() {
       <Modal
         isOpen={isOpen}
         onClose={onClose}
-        size={{ base: 'full', md: 'md' }}
+        size={{ base: 'xs', md: 'lg' }}
+        isCentered
       >
         <ModalOverlay />
         <ModalContent mx={{ base: 4, md: 0 }} my={{ base: 0, md: 'auto' }}>

@@ -157,25 +157,6 @@ export default function AdminDashboard() {
               Gestion Employés
             </Text>
           </Box>
-          <Box
-            mt={6}
-            p={4}
-            bg='gray.200'
-            borderRadius='md'
-            boxShadow='md'
-            w='50%'
-            cursor='not-allowed'
-            opacity={0.5}
-          >
-            <Text
-              fontSize='md'
-              textAlign='center'
-              fontWeight='semibold'
-              color='gray.600'
-            >
-              Plus à venir...
-            </Text>
-          </Box>
         </Stack>
       </Container>
     </Box>

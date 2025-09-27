@@ -6,6 +6,7 @@ import {
   Text,
   VStack,
   HStack,
+  Stack,
   Select,
   Input,
   Card,
@@ -1127,7 +1128,8 @@ export default function TimeSheetDashboard() {
         <Modal
           isOpen={isOpen}
           onClose={onClose}
-          size={{ base: 'full', md: 'xl' }}
+          size={{ base: 'xs', md: 'lg' }}
+          isCentered
         >
           <ModalOverlay />
           <ModalContent maxW='90vw' maxH='90vh'>
@@ -1199,45 +1201,53 @@ export default function TimeSheetDashboard() {
         <Modal
           isOpen={isEditOpen}
           onClose={onEditClose}
-          size={{ base: 'full', md: 'xl' }}
+          size={{ base: 'xs', md: 'lg' }}
+          isCentered
         >
           <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Modifier les Heures (Admin)</ModalHeader>
+          <ModalContent maxH='90vh' overflowY='auto'>
+            <ModalHeader py={3} fontSize='lg'>
+              Modifier les Heures (Admin)
+            </ModalHeader>
             <ModalCloseButton />
-            <ModalBody p={{ base: 4, md: 6 }}>
+            <ModalBody p={4}>
               {editingRecord && (
-                <VStack spacing={{ base: 3, md: 4 }}>
-                  <FormControl>
-                    <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                      Employé
-                    </FormLabel>
-                    <Input
-                      value={editingRecord.employeeId}
-                      isReadOnly
-                      size={{ base: 'sm', md: 'md' }}
-                    />
-                  </FormControl>
-
-                  <FormControl>
-                    <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                      Date
-                    </FormLabel>
-                    <Input
-                      value={editingRecord.date}
-                      isReadOnly
-                      size={{ base: 'sm', md: 'md' }}
-                    />
-                  </FormControl>
-
-                  <VStack spacing={4} w='100%' align='stretch'>
+                <VStack spacing={3}>
+                  <Stack
+                    direction={{ base: 'column', md: 'row' }}
+                    spacing={3}
+                    w='100%'
+                  >
                     <FormControl>
-                      <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                        Heure d'Entrée
-                      </FormLabel>
+                      <FormLabel fontSize='sm'>Employé</FormLabel>
+                      <Input
+                        value={editingRecord.employeeId}
+                        isReadOnly
+                        size='sm'
+                        bg='gray.50'
+                      />
+                    </FormControl>
+                    <FormControl>
+                      <FormLabel fontSize='sm'>Date</FormLabel>
+                      <Input
+                        value={editingRecord.date}
+                        isReadOnly
+                        size='sm'
+                        bg='gray.50'
+                      />
+                    </FormControl>
+                  </Stack>
+
+                  <Stack
+                    direction={{ base: 'column', md: 'row' }}
+                    spacing={3}
+                    w='100%'
+                  >
+                    <FormControl>
+                      <FormLabel fontSize='sm'>Heure d'Entrée</FormLabel>
                       <Input
                         type='datetime-local'
-                        size={{ base: 'sm', md: 'md' }}
+                        size='sm'
                         value={
                           editingRecord.clockInTime
                             ? new Date(editingRecord.clockInTime)
@@ -1257,12 +1267,10 @@ export default function TimeSheetDashboard() {
                     </FormControl>
 
                     <FormControl>
-                      <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                        Heure de Sortie
-                      </FormLabel>
+                      <FormLabel fontSize='sm'>Heure de Sortie</FormLabel>
                       <Input
                         type='datetime-local'
-                        size={{ base: 'sm', md: 'md' }}
+                        size='sm'
                         value={
                           editingRecord.clockOutTime
                             ? new Date(editingRecord.clockOutTime)
@@ -1280,15 +1288,13 @@ export default function TimeSheetDashboard() {
                         }
                       />
                     </FormControl>
-                  </VStack>
+                  </Stack>
 
                   <FormControl>
-                    <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                      Durée du Lunch (minutes)
-                    </FormLabel>
+                    <FormLabel fontSize='sm'>Durée du Lunch (min)</FormLabel>
                     <NumberInput
                       value={editingRecord.lunchDuration || 30}
-                      size={{ base: 'sm', md: 'md' }}
+                      size='sm'
                       onChange={(value) =>
                         setEditingRecord({
                           ...editingRecord,
@@ -1305,12 +1311,11 @@ export default function TimeSheetDashboard() {
                   </FormControl>
 
                   <FormControl>
-                    <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                      Notes
-                    </FormLabel>
+                    <FormLabel fontSize='sm'>Notes</FormLabel>
                     <Textarea
                       value={editingRecord.notes || ''}
-                      size={{ base: 'sm', md: 'md' }}
+                      size='sm'
+                      rows={2}
                       onChange={(e) =>
                         setEditingRecord({
                           ...editingRecord,
@@ -1323,22 +1328,23 @@ export default function TimeSheetDashboard() {
                 </VStack>
               )}
             </ModalBody>
-            <ModalFooter p={{ base: 3, md: 4 }}>
-              <IconButton
-                variant='ghost'
-                mr={3}
-                onClick={onEditClose}
-                size={{ base: 'sm', md: 'md' }}
-                icon={<CloseIcon />}
-                aria-label='Annuler'
-              />
-              <IconButton
-                colorScheme='blue'
-                onClick={handleSaveEdit}
-                size={{ base: 'sm', md: 'md' }}
-                icon={<CheckIcon />}
-                aria-label='Sauvegarder'
-              />
+            <ModalFooter p={3}>
+              <HStack spacing={2}>
+                <IconButton
+                  variant='ghost'
+                  onClick={onEditClose}
+                  size='sm'
+                  icon={<CloseIcon />}
+                  aria-label='Annuler'
+                />
+                <IconButton
+                  colorScheme='blue'
+                  onClick={handleSaveEdit}
+                  size='sm'
+                  icon={<CheckIcon />}
+                  aria-label='Sauvegarder'
+                />
+              </HStack>
             </ModalFooter>
           </ModalContent>
         </Modal>
@@ -1347,65 +1353,69 @@ export default function TimeSheetDashboard() {
         <Modal
           isOpen={isAddOpen}
           onClose={onAddClose}
-          size={{ base: 'full', md: 'xl' }}
+          size={{ base: 'xs', md: 'lg' }}
+          isCentered
         >
           <ModalOverlay />
-          <ModalContent>
-            <ModalHeader>Ajouter Entrée Manuelle</ModalHeader>
+          <ModalContent maxH='90vh' overflowY='auto'>
+            <ModalHeader py={3} fontSize='lg'>
+              Ajouter Entrée Manuelle
+            </ModalHeader>
             <ModalCloseButton />
-            <ModalBody p={{ base: 4, md: 6 }}>
-              <VStack spacing={{ base: 3, md: 4 }}>
-                <FormControl isRequired>
-                  <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                    Employé
-                  </FormLabel>
-                  <Select
-                    placeholder='Sélectionner un employé'
-                    value={manualForm.employeeId}
-                    size={{ base: 'sm', md: 'md' }}
-                    onChange={(e) =>
-                      setManualForm({
-                        ...manualForm,
-                        employeeId: e.target.value,
-                      })
-                    }
-                  >
-                    {employees
-                      .filter((emp) => emp.status === 'active')
-                      .map((employee) => (
-                        <option key={employee.id} value={employee.id}>
-                          {employee.name}
-                        </option>
-                      ))}
-                  </Select>
-                </FormControl>
+            <ModalBody p={4}>
+              <VStack spacing={3}>
+                <Stack
+                  direction={{ base: 'column', md: 'row' }}
+                  spacing={3}
+                  w='100%'
+                >
+                  <FormControl isRequired>
+                    <FormLabel fontSize='sm'>Employé</FormLabel>
+                    <Select
+                      placeholder='Sélectionner un employé'
+                      value={manualForm.employeeId}
+                      size='sm'
+                      onChange={(e) =>
+                        setManualForm({
+                          ...manualForm,
+                          employeeId: e.target.value,
+                        })
+                      }
+                    >
+                      {employees
+                        .filter((emp) => emp.status === 'active')
+                        .map((employee) => (
+                          <option key={employee.id} value={employee.id}>
+                            {employee.name}
+                          </option>
+                        ))}
+                    </Select>
+                  </FormControl>
 
-                <FormControl isRequired>
-                  <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                    Date
-                  </FormLabel>
-                  <Input
-                    type='date'
-                    value={manualForm.date}
-                    size={{ base: 'sm', md: 'md' }}
-                    isReadOnly
-                    bg='gray.50'
-                    _readOnly={{ bg: 'gray.50' }}
-                  />
-                  <Text fontSize='xs' color='gray.500' mt={1}>
-                    Date sélectionnée dans le filtre
-                  </Text>
-                </FormControl>
+                  <FormControl isRequired>
+                    <FormLabel fontSize='sm'>Date</FormLabel>
+                    <Input
+                      type='date'
+                      value={manualForm.date}
+                      size='sm'
+                      isReadOnly
+                      bg='gray.50'
+                      _readOnly={{ bg: 'gray.50' }}
+                    />
+                  </FormControl>
+                </Stack>
 
-                <VStack spacing={4} w='100%' align='stretch'>
+                <Stack
+                  direction={{ base: 'column', md: 'row' }}
+                  spacing={3}
+                  w='100%'
+                >
                   <FormControl>
-                    <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                      Heure d'Entrée
-                    </FormLabel>
+                    <FormLabel fontSize='sm'>Heure d'Entrée</FormLabel>
                     <Input
                       type='datetime-local'
                       value={manualForm.clockInTime}
-                      size={{ base: 'sm', md: 'md' }}
+                      size='sm'
                       onChange={(e) =>
                         setManualForm({
                           ...manualForm,
@@ -1416,13 +1426,11 @@ export default function TimeSheetDashboard() {
                   </FormControl>
 
                   <FormControl>
-                    <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                      Heure de Sortie
-                    </FormLabel>
+                    <FormLabel fontSize='sm'>Heure de Sortie</FormLabel>
                     <Input
                       type='datetime-local'
                       value={manualForm.clockOutTime}
-                      size={{ base: 'sm', md: 'md' }}
+                      size='sm'
                       onChange={(e) =>
                         setManualForm({
                           ...manualForm,
@@ -1431,15 +1439,13 @@ export default function TimeSheetDashboard() {
                       }
                     />
                   </FormControl>
-                </VStack>
+                </Stack>
 
                 <FormControl>
-                  <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                    Durée du Lunch (minutes)
-                  </FormLabel>
+                  <FormLabel fontSize='sm'>Durée du Lunch (min)</FormLabel>
                   <NumberInput
                     value={manualForm.lunchDuration}
-                    size={{ base: 'sm', md: 'md' }}
+                    size='sm'
                     onChange={(value) =>
                       setManualForm({
                         ...manualForm,
@@ -1456,12 +1462,11 @@ export default function TimeSheetDashboard() {
                 </FormControl>
 
                 <FormControl>
-                  <FormLabel fontSize={{ base: 'sm', md: 'md' }}>
-                    Notes
-                  </FormLabel>
+                  <FormLabel fontSize='sm'>Notes</FormLabel>
                   <Textarea
                     value={manualForm.notes}
-                    size={{ base: 'sm', md: 'md' }}
+                    size='sm'
+                    rows={2}
                     onChange={(e) =>
                       setManualForm({
                         ...manualForm,
@@ -1473,22 +1478,23 @@ export default function TimeSheetDashboard() {
                 </FormControl>
               </VStack>
             </ModalBody>
-            <ModalFooter p={{ base: 3, md: 4 }}>
-              <IconButton
-                variant='ghost'
-                mr={3}
-                onClick={onAddClose}
-                size={{ base: 'sm', md: 'md' }}
-                icon={<CloseIcon />}
-                aria-label='Annuler'
-              />
-              <IconButton
-                colorScheme='green'
-                onClick={handleSaveManualEntry}
-                size={{ base: 'sm', md: 'md' }}
-                icon={<AddIcon />}
-                aria-label='Créer Entrée'
-              />
+            <ModalFooter p={3}>
+              <HStack spacing={2}>
+                <IconButton
+                  variant='ghost'
+                  onClick={onAddClose}
+                  size='sm'
+                  icon={<CloseIcon />}
+                  aria-label='Annuler'
+                />
+                <IconButton
+                  colorScheme='green'
+                  onClick={handleSaveManualEntry}
+                  size='sm'
+                  icon={<AddIcon />}
+                  aria-label='Créer Entrée'
+                />
+              </HStack>
             </ModalFooter>
           </ModalContent>
         </Modal>
