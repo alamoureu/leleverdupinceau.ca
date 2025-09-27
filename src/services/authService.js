@@ -12,17 +12,17 @@ const simpleHash = (str, salt) => {
 
 // Configuration - In production, these should come from environment variables
 const CONFIG = {
-  ADMIN_PASSWORD_HASH: simpleHash("111tbel", "leverDuPinceau_salt_2024"),
-  EMPLOYEE_PASSWORD_HASH: simpleHash("employe2024", "leverDuPinceau_salt_2024"),
-  SALT: "leverDuPinceau_salt_2024",
+  ADMIN_PASSWORD_HASH: simpleHash('111tbel', 'leverDuPinceau_salt_2025'),
+  EMPLOYEE_PASSWORD_HASH: simpleHash('employe2025', 'leverDuPinceau_salt_2025'),
+  SALT: 'leverDuPinceau_salt_2025',
   SESSION_DURATION: 8 * 60 * 60 * 1000, // 8 hours in milliseconds
 };
 
 // Authentication service
 export class AuthService {
   static ROLES = {
-    ADMIN: "admin",
-    EMPLOYEE: "employee",
+    ADMIN: 'admin',
+    EMPLOYEE: 'employee',
   };
 
   // Check if user is authenticated for a specific role
@@ -76,10 +76,7 @@ export class AuthService {
       const sessionKey = `leverDuPinceau_${role}_session`;
       localStorage.setItem(sessionKey, JSON.stringify(sessionData));
 
-      // Also set the old key for backward compatibility with existing admin pages
-      if (role === this.ROLES.ADMIN) {
-        localStorage.setItem("leverDuPinceauPassword", password);
-      }
+      // No need to store plaintext password - session-based auth is sufficient
 
       return true;
     }
@@ -92,10 +89,7 @@ export class AuthService {
     const sessionKey = `leverDuPinceau_${role}_session`;
     localStorage.removeItem(sessionKey);
 
-    // Also remove old admin key for backward compatibility
-    if (role === this.ROLES.ADMIN) {
-      localStorage.removeItem("leverDuPinceauPassword");
-    }
+    // Clean logout - no plaintext passwords stored
   }
 
   // Get session info
