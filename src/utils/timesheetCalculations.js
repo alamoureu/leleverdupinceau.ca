@@ -109,9 +109,22 @@ export function calculateWeekTotalHours(
 ) {
   const now = new Date();
   const start =
-    weekStart || new Date(now.setDate(now.getDate() - now.getDay()));
+    weekStart ||
+    (() => {
+      const startDate = new Date(now);
+      startDate.setDate(now.getDate() - now.getDay());
+      startDate.setHours(0, 0, 0, 0);
+      return startDate;
+    })();
+
   const end =
-    weekEnd || new Date(now.setDate(now.getDate() - now.getDay() + 6));
+    weekEnd ||
+    (() => {
+      const endDate = new Date(start);
+      endDate.setDate(start.getDate() + 6);
+      endDate.setHours(23, 59, 59, 999);
+      return endDate;
+    })();
 
   return calculateTotalHoursForDateRange(records, start, end);
 }
@@ -129,8 +142,20 @@ export function calculateMonthTotalHours(
   monthEnd = null
 ) {
   const now = new Date();
-  const start = monthStart || new Date(now.getFullYear(), now.getMonth(), 1);
-  const end = monthEnd || new Date(now.getFullYear(), now.getMonth() + 1, 0);
+  const start =
+    monthStart ||
+    (() => {
+      const startDate = new Date(now.getFullYear(), now.getMonth(), 1);
+      startDate.setHours(0, 0, 0, 0);
+      return startDate;
+    })();
+  const end =
+    monthEnd ||
+    (() => {
+      const endDate = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+      endDate.setHours(23, 59, 59, 999);
+      return endDate;
+    })();
 
   return calculateTotalHoursForDateRange(records, start, end);
 }

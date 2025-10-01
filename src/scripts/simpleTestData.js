@@ -56,10 +56,10 @@ function generateClockOutTime(date) {
 }
 
 // Calculate total worked hours
-function calculateTotalHours(clockIn, clockOut, lunchDuration = 30) {
+function calculateTotalHours(clockIn, clockOut, lunchDurationMinutes = 30) {
   const diffMs = clockOut.getTime() - clockIn.getTime();
   const diffHours = diffMs / (1000 * 60 * 60);
-  return Math.max(0, diffHours - lunchDuration / 60);
+  return Math.max(0, diffHours - lunchDurationMinutes / 60);
 }
 
 // Generate timesheet data for a specific date and employee

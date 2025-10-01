@@ -182,7 +182,7 @@ class ComponentTestSuite {
       date: '2025-01-27',
       clockInTime: '2025-01-27T09:00:00.000Z',
       clockOutTime: '2025-01-27T17:00:00.000Z',
-      lunchDuration: 30,
+      lunchDurationMinutes: 30,
       notes: 'Test entry',
     };
 
@@ -198,8 +198,8 @@ class ComponentTestSuite {
     if (typeof validFormData.employeeId !== 'string') {
       throw new Error('employeeId should be string');
     }
-    if (typeof validFormData.lunchDuration !== 'number') {
-      throw new Error('lunchDuration should be number');
+    if (typeof validFormData.lunchDurationMinutes !== 'number') {
+      throw new Error('lunchDurationMinutes should be number');
     }
 
     // Test time validation

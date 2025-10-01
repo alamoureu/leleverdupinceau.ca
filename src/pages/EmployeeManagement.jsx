@@ -36,7 +36,7 @@ import {
   Flex,
   useBreakpointValue,
 } from '@chakra-ui/react';
-import { EditIcon, DeleteIcon, AddIcon } from '@chakra-ui/icons';
+import { EditIcon, DeleteIcon, AddIcon, ViewIcon } from '@chakra-ui/icons';
 import { db } from '../firebase';
 import {
   collection,
@@ -377,6 +377,16 @@ export default function EmployeeManagement() {
                             <HStack spacing={2}>
                               <IconButton
                                 size='sm'
+                                icon={<ViewIcon />}
+                                onClick={() =>
+                                  (window.location.href = `/admin/employee-details?employee=${employee.id}`)
+                                }
+                                colorScheme='green'
+                                variant='outline'
+                                aria-label='Voir détails'
+                              />
+                              <IconButton
+                                size='sm'
                                 icon={<EditIcon />}
                                 onClick={() => openEditModal(employee)}
                                 colorScheme='blue'
@@ -445,6 +455,16 @@ export default function EmployeeManagement() {
                           </Td>
                           <Td>
                             <HStack spacing={2}>
+                              <IconButton
+                                size='sm'
+                                icon={<ViewIcon />}
+                                onClick={() =>
+                                  (window.location.href = `/admin/employee-details?employee=${employee.id}`)
+                                }
+                                colorScheme='green'
+                                variant='outline'
+                                aria-label='Voir détails'
+                              />
                               <IconButton
                                 size='sm'
                                 icon={<EditIcon />}

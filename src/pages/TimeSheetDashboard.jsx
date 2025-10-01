@@ -67,7 +67,6 @@ import {
   calculateTodayTotalHours,
   calculateWeekTotalHours,
   calculateMonthTotalHours,
-  getCurrentDateString,
   validateTimesheetAction,
   validateTimeSequence,
   findDuplicateRecords,
@@ -78,7 +77,13 @@ export default function TimeSheetDashboard() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [timesheets, setTimesheets] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedDate, setSelectedDate] = useState(getCurrentDateString());
+  const [selectedDate, setSelectedDate] = useState(() => {
+    const now = new Date();
+    return `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(
+      2,
+      '0'
+    )}-${String(now.getDate()).padStart(2, '0')}`;
+  });
   const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [employees, setEmployees] = useState([]);
   const [editingRecord, setEditingRecord] = useState(null);
@@ -87,7 +92,7 @@ export default function TimeSheetDashboard() {
     date: '',
     clockInTime: '',
     clockOutTime: '',
-    lunchDuration: 30,
+    lunchDurationMinutes: 30,
     notes: '',
   });
 
@@ -213,6 +218,18 @@ export default function TimeSheetDashboard() {
       hour: '2-digit',
       minute: '2-digit',
     });
+  };
+
+  // Helper function to convert ISO string to datetime-local format
+  const toDateTimeLocal = (isoString) => {
+    if (!isoString) return '';
+    const date = new Date(isoString);
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const hours = String(date.getHours()).padStart(2, '0');
+    const minutes = String(date.getMinutes()).padStart(2, '0');
+    return `${year}-${month}-${day}T${hours}:${minutes}`;
   };
 
   const getEmployeeStatus = (employeeId, date) => {
@@ -443,28 +460,56 @@ export default function TimeSheetDashboard() {
                               </Text>
                             </HStack>
                           )}
+                          {status.record.lunchDurationMinutes !== null &&
+                            status.record.lunchDurationMinutes !==
+                              undefined && (
+                              <HStack
+                                justify='space-between'
+                                p={2}
+                                bg='white'
+                                borderRadius='md'
+                                border='1px'
+                                borderColor='gray.100'
+                              >
+                                <Text
+                                  fontSize={{ base: 'xs', md: 'sm' }}
+                                  color='gray.600'
+                                  fontWeight='medium'
+                                >
+                                  Lunch:
+                                </Text>
+                                <Text
+                                  fontSize={{ base: 'xs', md: 'sm' }}
+                                  color='gray.800'
+                                  fontWeight='semibold'
+                                >
+                                  {status.record.lunchDurationMinutes} min
+                                </Text>
+                              </HStack>
+                            )}
                         </VStack>
-                        {status.record.totalWorkedHours && (
-                          <Box
-                            bg='green.50'
-                            p={3}
-                            borderRadius='md'
-                            border='1px'
-                            borderColor='green.200'
-                            textAlign='center'
-                          >
-                            <Text
-                              fontWeight='bold'
-                              color='green.700'
-                              fontSize={{ base: 'md', md: 'lg' }}
+                        {status.record.totalWorkedHours !== null &&
+                          status.record.totalWorkedHours !== undefined && (
+                            <Box
+                              bg='green.50'
+                              p={3}
+                              borderRadius='md'
+                              border='1px'
+                              borderColor='green.200'
+                              textAlign='center'
                             >
-                              Total:{' '}
-                              {formatHoursDisplay(
-                                status.record.totalWorkedHours
-                              )}
-                            </Text>
-                          </Box>
-                        )}
+                              <Text
+                                fontWeight='bold'
+                                color='green.700'
+                                fontSize={{ base: 'md', md: 'lg' }}
+                              >
+                                Total:{' '}
+                                {formatHoursDisplay(
+                                  status.record.totalWorkedHours
+                                )}
+                              </Text>
+                            </Box>
+                          )}
                       </VStack>
                     </Box>
                   )}
@@ -614,7 +659,7 @@ export default function TimeSheetDashboard() {
                               date: selectedDate,
                               clockInTime: clockInTime,
                               clockOutTime: clockOutTime,
-                              lunchDuration: 30,
+                              lunchDurationMinutes: 30,
                               notes: '',
                             });
                             onAddOpen();
@@ -636,6 +681,16 @@ export default function TimeSheetDashboard() {
                           transition='all 0.2s'
                           onClick={() => handleManualClockOut(status.record)}
                           aria-label='Sortie Manuelle'
+                          isDisabled={
+                            selectedDate !==
+                            new Date().toISOString().split('T')[0]
+                          }
+                          title={
+                            selectedDate !==
+                            new Date().toISOString().split('T')[0]
+                              ? 'Sortie manuelle disponible seulement pour la date actuelle'
+                              : 'Sortie Manuelle'
+                          }
                         />
                       )}
                     </HStack>
@@ -652,6 +707,20 @@ export default function TimeSheetDashboard() {
   // Admin functions
   const handleManualClockOut = async (record) => {
     try {
+      // Check if we're on the current date
+      const today = new Date().toISOString().split('T')[0];
+      if (selectedDate !== today) {
+        toast({
+          title: 'Erreur',
+          description:
+            "La sortie manuelle n'est disponible que pour la date actuelle.",
+          status: 'error',
+          duration: 3000,
+          isClosable: true,
+        });
+        return;
+      }
+
       const now = new Date();
       const clockInTime = new Date(record.clockInTime);
       const lunchMinutes = 30; // Default lunch duration
@@ -709,7 +778,7 @@ export default function TimeSheetDashboard() {
         totalWorkedHours = calculateTotalWorkedHours(
           clockInTime,
           clockOutTime,
-          editingRecord.lunchDuration || 30
+          editingRecord.lunchDurationMinutes ?? 30
         );
       }
 
@@ -816,7 +885,7 @@ export default function TimeSheetDashboard() {
         totalWorkedHours = calculateTotalWorkedHours(
           clockInTime,
           clockOutTime,
-          manualForm.lunchDuration
+          manualForm.lunchDurationMinutes
         );
       }
 
@@ -825,7 +894,7 @@ export default function TimeSheetDashboard() {
         date: manualForm.date,
         clockInTime: clockInTime ? clockInTime.toISOString() : null,
         clockOutTime: clockOutTime ? clockOutTime.toISOString() : null,
-        lunchDurationMinutes: manualForm.lunchDuration,
+        lunchDurationMinutes: manualForm.lunchDurationMinutes,
         totalWorkedHours,
         notes: manualForm.notes,
         adminCreated: true,
@@ -847,7 +916,7 @@ export default function TimeSheetDashboard() {
         date: '',
         clockInTime: '',
         clockOutTime: '',
-        lunchDuration: 30,
+        lunchDurationMinutes: 30,
         notes: '',
       });
       fetchTimesheets();
@@ -866,11 +935,6 @@ export default function TimeSheetDashboard() {
   const totalEmployees = employeeData.totalEmployees;
   const selectedDateObj = new Date(selectedDate);
 
-  // Selected date records
-  const todaysRecords = timesheets.filter(
-    (record) => record.date === selectedDate && record.clockInTime
-  );
-
   // Week calculation for selected date
   const startOfWeek = new Date(selectedDateObj);
   startOfWeek.setDate(selectedDateObj.getDate() - selectedDateObj.getDay());
@@ -880,25 +944,36 @@ export default function TimeSheetDashboard() {
   endOfWeek.setHours(23, 59, 59, 999);
 
   // Month calculation for selected date
-  const startOfMonth = new Date(
-    selectedDateObj.getFullYear(),
-    selectedDateObj.getMonth(),
-    1
-  );
+  // Parse the date string properly to avoid timezone issues
+  const [year, month] = selectedDate.split('-').map(Number);
+  const startOfMonth = new Date(year, month - 1, 1);
   startOfMonth.setHours(0, 0, 0, 0);
-  const endOfMonth = new Date(
-    selectedDateObj.getFullYear(),
-    selectedDateObj.getMonth() + 1,
-    0
-  );
+  const endOfMonth = new Date(year, month, 0);
   endOfMonth.setHours(23, 59, 59, 999);
 
   // Filter records for different periods (now handled by utility functions)
 
   // Calculate total hours using utility functions
   const todayTotalHours = calculateTodayTotalHours(timesheets, selectedDate);
-  const weekTotalHours = calculateWeekTotalHours(timesheets);
-  const monthTotalHours = calculateMonthTotalHours(timesheets);
+
+  // Calculate week hours for the selected date's week
+  const weekStart = new Date(selectedDateObj);
+  weekStart.setDate(selectedDateObj.getDate() - selectedDateObj.getDay());
+  weekStart.setHours(0, 0, 0, 0);
+  const weekEnd = new Date(weekStart);
+  weekEnd.setDate(weekStart.getDate() + 6);
+  weekEnd.setHours(23, 59, 59, 999);
+
+  const weekTotalHours = calculateWeekTotalHours(
+    timesheets,
+    weekStart,
+    weekEnd
+  );
+  const monthTotalHours = calculateMonthTotalHours(
+    timesheets,
+    startOfMonth,
+    endOfMonth
+  );
 
   if (!isAuthenticated) {
     return (
@@ -956,6 +1031,7 @@ export default function TimeSheetDashboard() {
                 onChange={(e) => setSelectedDate(e.target.value)}
                 size={{ base: 'sm', md: 'md' }}
                 maxW={{ base: '150px', md: '200px' }}
+                max={new Date().toLocaleDateString('en-CA')}
                 bg='white'
                 borderColor='blue.300'
                 _focus={{
@@ -990,7 +1066,12 @@ export default function TimeSheetDashboard() {
                     fontSize={{ base: 'xs', md: 'sm' }}
                     color='blue.600'
                   >
-                    {todaysRecords.length} actifs
+                    {new Date(selectedDate).toLocaleDateString('fr-CA', {
+                      weekday: 'long',
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
                   </StatHelpText>
                 </Stat>
               </CardBody>
@@ -1051,10 +1132,23 @@ export default function TimeSheetDashboard() {
                     fontSize={{ base: 'xs', md: 'sm' }}
                     color='blue.600'
                   >
-                    {startOfMonth.toLocaleDateString('fr-CA', {
-                      month: 'short',
-                      year: 'numeric',
-                    })}
+                    {(() => {
+                      const monthNames = [
+                        'janvier',
+                        'février',
+                        'mars',
+                        'avril',
+                        'mai',
+                        'juin',
+                        'juillet',
+                        'août',
+                        'septembre',
+                        'octobre',
+                        'novembre',
+                        'décembre',
+                      ];
+                      return `${monthNames[month - 1]} ${year}`;
+                    })()}
                   </StatHelpText>
                 </Stat>
               </CardBody>
@@ -1213,6 +1307,29 @@ export default function TimeSheetDashboard() {
             <ModalBody p={4}>
               {editingRecord && (
                 <VStack spacing={3}>
+                  {editingRecord.clockInTime && editingRecord.clockOutTime && (
+                    <Box
+                      w='100%'
+                      p={3}
+                      bg='blue.50'
+                      borderRadius='md'
+                      border='1px'
+                      borderColor='blue.200'
+                    >
+                      <Text
+                        fontSize='sm'
+                        fontWeight='semibold'
+                        color='blue.700'
+                        textAlign='center'
+                      >
+                        Total Heures Travaillées:{' '}
+                        {formatHoursDisplay(
+                          editingRecord.totalWorkedHours || 0
+                        )}{' '}
+                        heures
+                      </Text>
+                    </Box>
+                  )}
                   <Stack
                     direction={{ base: 'column', md: 'row' }}
                     spacing={3}
@@ -1248,21 +1365,30 @@ export default function TimeSheetDashboard() {
                       <Input
                         type='datetime-local'
                         size='sm'
-                        value={
-                          editingRecord.clockInTime
-                            ? new Date(editingRecord.clockInTime)
-                                .toISOString()
-                                .slice(0, 16)
-                            : ''
-                        }
-                        onChange={(e) =>
+                        value={toDateTimeLocal(editingRecord.clockInTime)}
+                        onChange={(e) => {
+                          const newClockInTime = e.target.value
+                            ? new Date(e.target.value).toISOString()
+                            : null;
+                          const clockOutTime = editingRecord.clockOutTime
+                            ? new Date(editingRecord.clockOutTime)
+                            : null;
+
+                          let newTotalWorkedHours = null;
+                          if (newClockInTime && clockOutTime) {
+                            newTotalWorkedHours = calculateTotalWorkedHours(
+                              new Date(newClockInTime),
+                              clockOutTime,
+                              editingRecord.lunchDurationMinutes ?? 30
+                            );
+                          }
+
                           setEditingRecord({
                             ...editingRecord,
-                            clockInTime: e.target.value
-                              ? new Date(e.target.value).toISOString()
-                              : null,
-                          })
-                        }
+                            clockInTime: newClockInTime,
+                            totalWorkedHours: newTotalWorkedHours,
+                          });
+                        }}
                       />
                     </FormControl>
 
@@ -1271,21 +1397,30 @@ export default function TimeSheetDashboard() {
                       <Input
                         type='datetime-local'
                         size='sm'
-                        value={
-                          editingRecord.clockOutTime
-                            ? new Date(editingRecord.clockOutTime)
-                                .toISOString()
-                                .slice(0, 16)
-                            : ''
-                        }
-                        onChange={(e) =>
+                        value={toDateTimeLocal(editingRecord.clockOutTime)}
+                        onChange={(e) => {
+                          const newClockOutTime = e.target.value
+                            ? new Date(e.target.value).toISOString()
+                            : null;
+                          const clockInTime = editingRecord.clockInTime
+                            ? new Date(editingRecord.clockInTime)
+                            : null;
+
+                          let newTotalWorkedHours = null;
+                          if (clockInTime && newClockOutTime) {
+                            newTotalWorkedHours = calculateTotalWorkedHours(
+                              clockInTime,
+                              new Date(newClockOutTime),
+                              editingRecord.lunchDurationMinutes ?? 30
+                            );
+                          }
+
                           setEditingRecord({
                             ...editingRecord,
-                            clockOutTime: e.target.value
-                              ? new Date(e.target.value).toISOString()
-                              : null,
-                          })
-                        }
+                            clockOutTime: newClockOutTime,
+                            totalWorkedHours: newTotalWorkedHours,
+                          });
+                        }}
                       />
                     </FormControl>
                   </Stack>
@@ -1293,14 +1428,36 @@ export default function TimeSheetDashboard() {
                   <FormControl>
                     <FormLabel fontSize='sm'>Durée du Lunch (min)</FormLabel>
                     <NumberInput
-                      value={editingRecord.lunchDuration || 30}
+                      defaultValue={30}
+                      min={0}
+                      max={120}
+                      value={editingRecord.lunchDurationMinutes || 0}
                       size='sm'
-                      onChange={(value) =>
+                      onChange={(value) => {
+                        const newLunchDurationMinutes =
+                          value === '' ? 0 : parseInt(value) || 0;
+                        const clockInTime = editingRecord.clockInTime
+                          ? new Date(editingRecord.clockInTime)
+                          : null;
+                        const clockOutTime = editingRecord.clockOutTime
+                          ? new Date(editingRecord.clockOutTime)
+                          : null;
+
+                        let newTotalWorkedHours = null;
+                        if (clockInTime && clockOutTime) {
+                          newTotalWorkedHours = calculateTotalWorkedHours(
+                            clockInTime,
+                            clockOutTime,
+                            newLunchDurationMinutes
+                          );
+                        }
+
                         setEditingRecord({
                           ...editingRecord,
-                          lunchDuration: parseInt(value) || 30,
-                        })
-                      }
+                          lunchDurationMinutes: newLunchDurationMinutes,
+                          totalWorkedHours: newTotalWorkedHours,
+                        });
+                      }}
                     >
                       <NumberInputField />
                       <NumberInputStepper>
@@ -1308,6 +1465,16 @@ export default function TimeSheetDashboard() {
                         <NumberDecrementStepper />
                       </NumberInputStepper>
                     </NumberInput>
+                    {editingRecord.clockInTime &&
+                      editingRecord.clockOutTime && (
+                        <Text fontSize='xs' color='blue.600' mt={1}>
+                          Total calculé:{' '}
+                          {formatHoursDisplay(
+                            editingRecord.totalWorkedHours || 0
+                          )}{' '}
+                          heures
+                        </Text>
+                      )}
                   </FormControl>
 
                   <FormControl>
@@ -1416,12 +1583,27 @@ export default function TimeSheetDashboard() {
                       type='datetime-local'
                       value={manualForm.clockInTime}
                       size='sm'
-                      onChange={(e) =>
+                      onChange={(e) => {
+                        const newClockInTime = e.target.value;
+                        const clockOutTime = manualForm.clockOutTime
+                          ? new Date(manualForm.clockOutTime)
+                          : null;
+
+                        let newTotalWorkedHours = null;
+                        if (newClockInTime && clockOutTime) {
+                          newTotalWorkedHours = calculateTotalWorkedHours(
+                            new Date(newClockInTime),
+                            clockOutTime,
+                            manualForm.lunchDurationMinutes
+                          );
+                        }
+
                         setManualForm({
                           ...manualForm,
-                          clockInTime: e.target.value,
-                        })
-                      }
+                          clockInTime: newClockInTime,
+                          totalWorkedHours: newTotalWorkedHours,
+                        });
+                      }}
                     />
                   </FormControl>
 
@@ -1431,12 +1613,27 @@ export default function TimeSheetDashboard() {
                       type='datetime-local'
                       value={manualForm.clockOutTime}
                       size='sm'
-                      onChange={(e) =>
+                      onChange={(e) => {
+                        const newClockOutTime = e.target.value;
+                        const clockInTime = manualForm.clockInTime
+                          ? new Date(manualForm.clockInTime)
+                          : null;
+
+                        let newTotalWorkedHours = null;
+                        if (clockInTime && newClockOutTime) {
+                          newTotalWorkedHours = calculateTotalWorkedHours(
+                            clockInTime,
+                            new Date(newClockOutTime),
+                            manualForm.lunchDurationMinutes
+                          );
+                        }
+
                         setManualForm({
                           ...manualForm,
-                          clockOutTime: e.target.value,
-                        })
-                      }
+                          clockOutTime: newClockOutTime,
+                          totalWorkedHours: newTotalWorkedHours,
+                        });
+                      }}
                     />
                   </FormControl>
                 </Stack>
@@ -1444,14 +1641,36 @@ export default function TimeSheetDashboard() {
                 <FormControl>
                   <FormLabel fontSize='sm'>Durée du Lunch (min)</FormLabel>
                   <NumberInput
-                    value={manualForm.lunchDuration}
+                    defaultValue={30}
+                    min={0}
+                    max={120}
+                    value={manualForm.lunchDurationMinutes}
                     size='sm'
-                    onChange={(value) =>
+                    onChange={(value) => {
+                      const newLunchDurationMinutes =
+                        value === '' ? 0 : parseInt(value) || 0;
+                      const clockInTime = manualForm.clockInTime
+                        ? new Date(manualForm.clockInTime)
+                        : null;
+                      const clockOutTime = manualForm.clockOutTime
+                        ? new Date(manualForm.clockOutTime)
+                        : null;
+
+                      let newTotalWorkedHours = null;
+                      if (clockInTime && clockOutTime) {
+                        newTotalWorkedHours = calculateTotalWorkedHours(
+                          clockInTime,
+                          clockOutTime,
+                          newLunchDurationMinutes
+                        );
+                      }
+
                       setManualForm({
                         ...manualForm,
-                        lunchDuration: parseInt(value) || 30,
-                      })
-                    }
+                        lunchDurationMinutes: newLunchDurationMinutes,
+                        totalWorkedHours: newTotalWorkedHours,
+                      });
+                    }}
                   >
                     <NumberInputField />
                     <NumberInputStepper>
@@ -1459,6 +1678,13 @@ export default function TimeSheetDashboard() {
                       <NumberDecrementStepper />
                     </NumberInputStepper>
                   </NumberInput>
+                  {manualForm.clockInTime && manualForm.clockOutTime && (
+                    <Text fontSize='xs' color='blue.600' mt={1}>
+                      Total calculé:{' '}
+                      {formatHoursDisplay(manualForm.totalWorkedHours || 0)}{' '}
+                      heures
+                    </Text>
+                  )}
                 </FormControl>
 
                 <FormControl>

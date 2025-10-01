@@ -17,6 +17,7 @@ import ContactDashboard from './pages/ContactDashboard';
 import TimeSheet from './pages/TimeSheet';
 import TimeSheetDashboard from './pages/TimeSheetDashboard';
 import EmployeeManagement from './pages/EmployeeManagement';
+import EmployeeDetails from './pages/EmployeeDetails';
 import ThermOfUsePage from './pages/ThermOfUse';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
@@ -68,6 +69,7 @@ export default function App() {
             <Route path='contact' element={<ContactDashboard />} />
             <Route path='timesheets' element={<TimeSheetDashboard />} />
             <Route path='employees' element={<EmployeeManagement />} />
+            <Route path='employee-details' element={<EmployeeDetails />} />
           </Route>
           <Route path='/timesheet' element={<TimeSheet />} />
         </Routes>

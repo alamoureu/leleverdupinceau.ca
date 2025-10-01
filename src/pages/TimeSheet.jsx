@@ -8,9 +8,6 @@ import {
   VStack,
   HStack,
   Select,
-  RadioGroup,
-  Radio,
-  Stack,
   Alert,
   AlertIcon,
   AlertTitle,
@@ -23,6 +20,13 @@ import {
   Badge,
   IconButton,
   Image,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  FormControl,
+  FormLabel,
 } from '@chakra-ui/react';
 import { LockIcon } from '@chakra-ui/icons';
 import Webcam from 'react-webcam';
@@ -36,37 +40,26 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase';
 import { AuthService } from '../services/authService';
-import PasswordProtection from '../components/PasswordProtection';
 import {
   calculateTotalWorkedHours,
   generateDocumentId,
-  getCurrentDateString,
   determineClockStatus,
   validateTimesheetAction,
   validateTimeSequence,
 } from '../utils/timesheetCalculations';
-
-// Employees will be loaded from database
-
-const LUNCH_DURATIONS = [
-  { value: 15, label: '15 minutes' },
-  { value: 20, label: '20 minutes' },
-  { value: 30, label: '30 minutes' },
-  { value: 45, label: '45 minutes' },
-  { value: 60, label: '1 heure' },
-];
+import PasswordProtection from '../components/PasswordProtection';
 
 export default function TimeSheet() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [employees, setEmployees] = useState([]);
   const [selectedEmployee, setSelectedEmployee] = useState('');
-  const [lunchDuration, setLunchDuration] = useState('30');
+  const [lunchDurationMinutes, setLunchDurationMinutes] = useState(30);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [photo, setPhoto] = useState(null);
   const [photoPreview, setPhotoPreview] = useState(null);
   const [isCameraActive, setIsCameraActive] = useState(false);
   const [cameraLoading, setCameraLoading] = useState(false);
-  const [currentAction, setCurrentAction] = useState(null); // null, "clock-in", "clock-out"
+  const [currentAction, setCurrentAction] = useState(null);
   const [loadingEmployees, setLoadingEmployees] = useState(false);
 
   const webcamRef = useRef(null);
@@ -112,7 +105,11 @@ export default function TimeSheet() {
 
   const checkEmployeeStatus = useCallback(async (employeeId) => {
     try {
-      const today = getCurrentDateString();
+      const now = new Date();
+      const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(
+        2,
+        '0'
+      )}-${String(now.getDate()).padStart(2, '0')}`;
       // First try the expected document ID format
       const documentId = generateDocumentId(employeeId, today);
 
@@ -230,7 +227,9 @@ export default function TimeSheet() {
     try {
       const now = new Date();
       const timestamp = now.getTime();
-      const dateKey = getCurrentDateString();
+      const dateKey = `${now.getFullYear()}-${String(
+        now.getMonth() + 1
+      ).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
       const documentId = generateDocumentId(selectedEmployee, dateKey);
 
       const photoURL = await uploadPhoto(
@@ -299,7 +298,7 @@ export default function TimeSheet() {
         const existingData = docSnap.data();
         const clockInTime = new Date(existingData.clockInTime);
         const clockOutTime = now;
-        const lunchMinutes = parseInt(lunchDuration);
+        const lunchMinutes = parseInt(lunchDurationMinutes);
 
         const totalWorkedHours = calculateTotalWorkedHours(
           clockInTime,
@@ -327,7 +326,7 @@ export default function TimeSheet() {
       // Reset form and check status again
       setPhoto(null);
       setPhotoPreview(null);
-      setLunchDuration('30');
+      setLunchDurationMinutes(30);
       setIsCameraActive(false);
       await checkEmployeeStatus(selectedEmployee);
     } catch (error) {
@@ -448,26 +447,29 @@ export default function TimeSheet() {
                     </Alert>
 
                     {currentAction === 'clock-out' && (
-                      <Box>
-                        <Text fontWeight='semibold' mb={3}>
-                          Durée du lunch:
-                        </Text>
-                        <RadioGroup
-                          value={lunchDuration}
-                          onChange={setLunchDuration}
+                      <FormControl isRequired>
+                        <FormLabel fontWeight='semibold' mb={3}>
+                          Durée du lunch (minutes):
+                        </FormLabel>
+                        <NumberInput
+                          value={lunchDurationMinutes}
+                          onChange={(valueNumber) =>
+                            setLunchDurationMinutes(valueNumber)
+                          }
+                          defaultValue={30}
+                          min={0}
+                          max={120}
                         >
-                          <Stack spacing={2}>
-                            {LUNCH_DURATIONS.map((duration) => (
-                              <Radio
-                                key={duration.value}
-                                value={duration.value.toString()}
-                              >
-                                {duration.label}
-                              </Radio>
-                            ))}
-                          </Stack>
-                        </RadioGroup>
-                      </Box>
+                          <NumberInputField />
+                          <NumberInputStepper>
+                            <NumberIncrementStepper />
+                            <NumberDecrementStepper />
+                          </NumberInputStepper>
+                        </NumberInput>
+                        <Text fontSize='sm' color='gray.600' mt={1}>
+                          Entrez la durée en minutes (minimum 0)
+                        </Text>
+                      </FormControl>
                     )}
 
                     <Divider />
