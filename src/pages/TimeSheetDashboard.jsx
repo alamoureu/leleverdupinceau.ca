@@ -782,8 +782,10 @@ export default function TimeSheetDashboard() {
         );
       }
 
+      const { id, ...updateData } = editingRecord;
+
       await updateDoc(doc(db, 'TimeSheet', editingRecord.id), {
-        ...editingRecord,
+        ...updateData,
         totalWorkedHours,
         adminModified: true,
       });
