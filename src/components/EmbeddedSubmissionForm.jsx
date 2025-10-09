@@ -31,12 +31,12 @@ export default function EmbeddedSubmissionForm({ isModal }) {
   const form = forms[currentLang];
 
   return (
-    <div style={{ width: '100%', height: '100%' }}>
+    <div style={{ width: '100%', height: '1000px' }}>
       <Text
-        fontSize="28px"
-        fontWeight="bold"
-        borderRadius="md"
-        color="#1A365D"
+        fontSize='28px'
+        fontWeight='bold'
+        borderRadius='md'
+        color='#1A365D'
         mx={isModal ? '10' : '5'}
         mt={isModal && '12'}
       >
@@ -54,12 +54,12 @@ export default function EmbeddedSubmissionForm({ isModal }) {
         }}
         id={`inline-${form.id}`}
         data-layout='{"id":"INLINE"}'
-        data-trigger-type="alwaysShow"
-        data-trigger-value=""
-        data-activation-type="alwaysActivated"
-        data-activation-value=""
-        data-deactivation-type="neverDeactivate"
-        data-deactivation-value=""
+        data-trigger-type='alwaysShow'
+        data-trigger-value=''
+        data-activation-type='alwaysActivated'
+        data-activation-value=''
+        data-deactivation-type='neverDeactivate'
+        data-deactivation-value=''
         data-form-name={form.title}
         data-height={form.height}
         data-layout-iframe-id={`inline-${form.id}`}
