@@ -1,6 +1,9 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 import MainPage from './pages/WebSiteLandingPage';
+import NewHomePage from './lelever-next/pages/NewHomePage';
+import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
+import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
 import PeintureExt from './pages/PeintureExterieur';
 import PeintureInt from './pages/PeintureInterieur';
 import Nousjoindre from './pages/Nousjoindre';
@@ -61,6 +64,16 @@ export default function App() {
               path='painter-montreal'
               element={<LandingPage lang='en' />}
             />
+          </Route>
+          <Route
+            path='/new-home'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route path='/new-home' element={<NewHomePage />} />
           </Route>
           <Route path='/admin'>
             <Route path='dashboard' element={<AdminDashboard />} />
