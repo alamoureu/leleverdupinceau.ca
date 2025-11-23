@@ -27,8 +27,8 @@ export default function FloatingLanguageToggle() {
       display='flex'
       alignItems='center'
       justifyContent='center'
-      minW='50px'
-      minH='50px'
+      w='40px'
+      h='40px'
       _hover={{
         boxShadow: 'xl',
         bg: 'rgba(255, 255, 255, 0.95)',

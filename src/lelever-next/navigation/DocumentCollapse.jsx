@@ -11,12 +11,35 @@ export const DocumentCollapse = ({ onClose }) => {
   const { currentLang } = useContext(appContext);
   const { isOpen, onToggle } = useDisclosure();
 
-  function handleNav(value) {
-    const type =
-      value === 'Peinture Intérieure'
-        ? 'peinture-interieure'
-        : 'peinture-exterieure';
-    const path = '/services/' + type;
+  const services = [
+    {
+      fr: 'Peinture résidentielle',
+      en: 'Residential Painting',
+      path: '/services/peinture-residentielle',
+    },
+    {
+      fr: 'Peinture commerciale',
+      en: 'Commercial Painting',
+      path: '/services/peinture-commerciale',
+    },
+    {
+      fr: 'Peinture intérieure',
+      en: 'Interior Painting',
+      path: '/services/peinture-interieure',
+    },
+    {
+      fr: 'Peinture extérieure',
+      en: 'Exterior Painting',
+      path: '/services/peinture-exterieure',
+    },
+    {
+      fr: 'Peinture industrielle',
+      en: 'Industrial Painting',
+      path: '/services/peinture-industrielle',
+    },
+  ];
+
+  function handleNav(path) {
     navigate(path);
     onClose();
   }
@@ -32,10 +55,11 @@ export const DocumentCollapse = ({ onClose }) => {
         fontSize={{ base: 'md', sm: 'lg' }}
         fontWeight='medium'
         _hover={{ bg: 'gray.50' }}
+        justifyContent='start'
       >
         <Stack justifyContent='space-between' direction='row' w='100%'>
           <Text as='span'>
-            {currentLang === 'fr' ? 'Résidentiel' : 'Residential'}
+            {currentLang === 'fr' ? 'Services' : 'Services'}
           </Text>
           <PopoverIcon isOpen={isOpen} />
         </Stack>
@@ -46,26 +70,20 @@ export const DocumentCollapse = ({ onClose }) => {
           alignItems='stretch'
           ps={{ base: 4, sm: 6 }}
         >
-          {[
-            { fr: 'Peinture Intérieure', en: 'Interior Painting' },
-            {
-              fr: 'Peinture et Teinture Extérieure',
-              en: 'Exterior Painting and Staining',
-            },
-          ].map((item, id) => (
+          {services.map((service, id) => (
             <Button
               key={id}
               variant='tertiary'
               size='md'
               justifyContent='start'
               textColor='black'
-              onClick={() => handleNav(item.fr)}
+              onClick={() => handleNav(service.path)}
               py={{ base: 3, sm: 4 }}
               fontSize={{ base: 'md', sm: 'lg' }}
               fontWeight='medium'
               _hover={{ bg: 'gray.50' }}
             >
-              {currentLang === 'fr' ? item.fr : item.en}
+              {currentLang === 'fr' ? service.fr : service.en}
             </Button>
           ))}
         </Stack>

@@ -16,7 +16,7 @@ import { StarIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
-import { DocumentPopover } from './DocumentPopover';
+import { ServicesPopover } from './ServicesPopover';
 import { MobileDrawer } from './MobileDrawer';
 import { useNavigate } from 'react-router-dom';
 import appContext from '../../AppProvider';
@@ -34,19 +34,11 @@ export default function WebsiteNavBar() {
           maxW='1440px'
           mx='auto'
           py={{ base: 2, sm: 2 }}
-          px={{ base: 4, sm: 6, lg: 8 }}
+          px={{ base: 4, sm: 6, lg: 8, xl: 8, '2xl': 0 }}
         >
           <HStack justify='space-between' spacing={4}>
             <HStack spacing={4}>
-              <Box display={{ base: 'block', lg: 'none' }}>
-                <MobileDrawer navColor='black' navSize='6rem' />
-              </Box>
-
-              <HStack
-                spacing={2}
-                display={{ base: 'none', sm: 'flex' }}
-                alignItems='center'
-              >
+              <HStack spacing={2} h='20px' alignItems='center'>
                 <Text
                   fontSize={{ base: 'sm', sm: 'md' }}
                   color='white'
@@ -63,7 +55,7 @@ export default function WebsiteNavBar() {
                   color='white'
                   variant='ghost'
                   _hover={{ bg: 'gray.800' }}
-                  fontSize='18px'
+                  fontSize={{ base: '16px', sm: '18px' }}
                   mr='-10px'
                 />
                 <IconButton
@@ -75,7 +67,7 @@ export default function WebsiteNavBar() {
                   color='white'
                   variant='ghost'
                   _hover={{ bg: 'gray.800' }}
-                  fontSize='18px'
+                  fontSize={{ base: '16px', sm: '18px' }}
                 />
               </HStack>
             </HStack>
@@ -114,7 +106,7 @@ export default function WebsiteNavBar() {
           <HStack
             spacing='4'
             alignItems='center'
-            justify={{ base: 'center', lg: 'space-between' }}
+            justify={{ base: 'space-between', lg: 'space-between' }}
             w='100%'
           >
             <Image
@@ -122,7 +114,7 @@ export default function WebsiteNavBar() {
               src={
                 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
               }
-              h={{ base: '75px', sm: '75px', lg: '70px' }}
+              h={{ base: '70px', sm: '70px', lg: '70px' }}
               onClick={() => navigate('/new-home')}
               cursor='pointer'
             />
@@ -136,45 +128,63 @@ export default function WebsiteNavBar() {
               display={{ base: 'none', lg: 'flex' }}
               color='white'
             >
+              <ServicesPopover />
               <Button
-                onClick={() => navigate('/new-home')}
+                onClick={() => navigate('/secteurs-desservis')}
                 fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
                 px={{ base: 3, lg: 3, xl: 3 }}
               >
-                {currentLang === 'fr' ? 'Accueil' : 'Home'}
+                {currentLang === 'fr' ? 'Secteurs desservis' : 'Service Areas'}
               </Button>
-              <DocumentPopover />
               <Button
-                onClick={() => navigate('/soumission')}
+                onClick={() => navigate('/peintre-professionnel')}
                 fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
                 px={{ base: 3, lg: 3, xl: 3 }}
               >
                 {currentLang === 'fr'
-                  ? 'Soumission Gratuite'
-                  : 'Free Quotation'}
+                  ? 'Peintres professionnels'
+                  : 'Professional Painters'}
+              </Button>
+              <Button
+                onClick={() => navigate('/new-home/a-propos')}
+                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                px={{ base: 3, lg: 3, xl: 3 }}
+              >
+                {currentLang === 'fr' ? 'À propos' : 'About'}
+              </Button>
+              <Button
+                onClick={() => navigate('/avis')}
+                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                px={{ base: 3, lg: 3, xl: 3 }}
+              >
+                {currentLang === 'fr' ? 'Avis' : 'Reviews'}
+              </Button>
+              <Button
+                onClick={() => navigate('/blog')}
+                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                px={{ base: 3, lg: 3, xl: 3 }}
+              >
+                {currentLang === 'fr' ? 'Blog' : 'Blog'}
               </Button>
               <Button
                 onClick={() => navigate('/contact')}
                 fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
-                px={{ base: 3, lg: 3, xl: 3 }}
+                px={{ base: 4, lg: 5, xl: 6 }}
+                py={{ base: 2, lg: 2.5, xl: 3 }}
+                bg='#014CC4'
+                color='white'
+                borderRadius='full'
+                fontWeight='semibold'
+                _hover={{ bg: '#0139A0' }}
+                transition='all 0.2s'
               >
-                {currentLang === 'fr' ? 'Nous joindre' : 'Contact us'}
-              </Button>
-              <Button
-                onClick={() => navigate('/a-propos-de-nous')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
-                px={{ base: 3, lg: 3, xl: 3 }}
-              >
-                {currentLang === 'fr' ? 'À propos de nous' : 'About us'}
-              </Button>
-              <Button
-                onClick={() => navigate('/emplois')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
-                px={{ base: 3, lg: 3, xl: 3 }}
-              >
-                {currentLang === 'fr' ? 'Emplois' : 'Employment'}
+                {currentLang === 'fr' ? 'Contact' : 'Contact'}
               </Button>
             </ButtonGroup>
+
+            <Box display={{ base: 'block', lg: 'none' }}>
+              <MobileDrawer />
+            </Box>
           </HStack>
 
           <Box

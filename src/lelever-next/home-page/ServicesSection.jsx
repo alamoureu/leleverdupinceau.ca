@@ -64,8 +64,9 @@ export default function ServicesSection() {
 
           <SimpleGrid
             columns={{ base: 1, md: 3 }}
-            spacing={{ base: 3, md: 5, lg: 6 }}
+            spacing={{ base: 4, md: 5, lg: 6 }}
             w='100%'
+            justifyItems={{ base: 'center', md: 'stretch' }}
           >
             {services.map((service, index) => (
               <Box
@@ -77,6 +78,9 @@ export default function ServicesSection() {
                 borderColor='gray.200'
                 textAlign='center'
                 cursor='pointer'
+                w={{ base: '280px', md: '100%' }}
+                maxW={{ base: '280px', md: 'none' }}
+                mx={{ base: 'auto', md: 0 }}
               >
                 <Box
                   position='relative'

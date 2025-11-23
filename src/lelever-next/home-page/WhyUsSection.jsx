@@ -13,10 +13,10 @@ import {
 } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faAward,
-  faShieldAlt,
-  faCheckCircle,
+  faPaintRoller,
+  faClockRotateLeft,
   faStar,
+  faRankingStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from '../i18n';
 
@@ -25,17 +25,17 @@ export default function WhyUsSection({ onSubmissionOpen }) {
 
   const benefits = [
     {
-      icon: faAward,
+      icon: faRankingStar,
       title: t.benefit1Title,
       description: t.benefit1Desc,
     },
     {
-      icon: faShieldAlt,
+      icon: faPaintRoller,
       title: t.benefit2Title,
       description: t.benefit2Desc,
     },
     {
-      icon: faCheckCircle,
+      icon: faClockRotateLeft,
       title: t.benefit3Title,
       description: t.benefit3Desc,
     },

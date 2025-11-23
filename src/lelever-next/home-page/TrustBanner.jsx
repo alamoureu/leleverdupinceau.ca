@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Flex, Text, Image } from '@chakra-ui/react';
+import { Box, Flex, Text, Image, Divider } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import quebecLogo from '../images/rbqlogo.png';
 import trushieldLogo from '../images/trushieldlogo.png';
@@ -82,27 +82,37 @@ export default function TrustBanner() {
       <Box h='100%' display='flex' flexDirection='column'>
         <Flex direction='row' justify='space-between' align='center' flex={1}>
           {TRUST_ITEMS.map((item, index) => (
-            <Box key={`top-${index}`} flex={1} textAlign='center'>
-              {item.isMetric ? (
-                <Text
-                  fontSize={{ base: '16px', md: '2xl', lg: '3xl', xl: '5xl' }}
-                  fontWeight='bold'
-                  color='gray.800'
-                  lineHeight={1}
-                >
-                  {item.value}
-                </Text>
-              ) : (
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  h={item.imageHeight}
-                  w='auto'
-                  objectFit='contain'
-                  mx='auto'
+            <React.Fragment key={`top-${index}`}>
+              <Box flex={1} textAlign='center'>
+                {item.isMetric ? (
+                  <Text
+                    fontSize={{ base: '16px', md: '2xl', lg: '3xl', xl: '5xl' }}
+                    fontWeight='bold'
+                    color='gray.800'
+                    lineHeight={1}
+                  >
+                    {item.value}
+                  </Text>
+                ) : (
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    h={item.imageHeight}
+                    w='auto'
+                    objectFit='contain'
+                    mx='auto'
+                  />
+                )}
+              </Box>
+              {index < TRUST_ITEMS.length - 1 && (
+                <Divider
+                  orientation='vertical'
+                  borderColor='gray.300'
+                  h={{ base: '40px', md: '50px', lg: '70px', xl: '100px' }}
+                  alignSelf='center'
                 />
               )}
-            </Box>
+            </React.Fragment>
           ))}
         </Flex>
 
@@ -114,16 +124,27 @@ export default function TrustBanner() {
           mt='-20px'
         >
           {TRUST_ITEMS.map((item, index) => (
-            <Box key={`bottom-${index}`} flex={1} textAlign='center'>
-              <Text
-                fontSize={{ base: '10px', md: 'sm', lg: 'md', xl: 'xl' }}
-                color='gray.800'
-                fontWeight='medium'
-                lineHeight='1.2'
-              >
-                {item.isMetric ? item.label : item.text}
-              </Text>
-            </Box>
+            <React.Fragment key={`bottom-${index}`}>
+              <Box flex={1} textAlign='center'>
+                <Text
+                  fontSize={{ base: '10px', md: 'sm', lg: 'md', xl: 'xl' }}
+                  color='gray.800'
+                  fontWeight='medium'
+                  lineHeight='1.2'
+                >
+                  {item.isMetric ? item.label : item.text}
+                </Text>
+              </Box>
+              {index < TRUST_ITEMS.length - 1 && (
+                <Divider
+                  orientation='vertical'
+                  borderColor='gray.300'
+                  h={{ base: '15px', md: '18px', lg: '20px', xl: '25px' }}
+                  alignSelf='flex-start'
+                  mt={{ base: '2px', md: '3px' }}
+                />
+              )}
+            </React.Fragment>
           ))}
         </Flex>
       </Box>

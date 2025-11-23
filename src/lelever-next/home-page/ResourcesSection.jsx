@@ -56,7 +56,7 @@ export default function ResourcesSection() {
             </Text>
           </Stack>
 
-          <SimpleGrid columns={columns} spacing={6}>
+          <SimpleGrid columns={columns} spacing={{ base: 4, md: 5, lg: 6 }}>
             {articles.map((article, index) => (
               <Link
                 key={index}

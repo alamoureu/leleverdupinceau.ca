@@ -15,12 +15,13 @@ import { ToggleButton } from './ToggleButton';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faFileAlt,
   faHome,
   faPhoneAlt,
-  faWrench,
-  faUser,
   faTimes,
+  faMapMarkerAlt,
+  faPaintBrush,
+  faStar,
+  faBlog,
 } from '@fortawesome/free-solid-svg-icons';
 import { Fragment, useContext } from 'react';
 import appContext from '../../AppProvider';
@@ -94,7 +95,7 @@ export const MobileDrawer = () => {
                 size='md'
                 variant='tertiary'
                 justifyContent='start'
-                onClick={() => handleNav('/new-home')}
+                onClick={() => handleNav('/')}
                 leftIcon={<FontAwesomeIcon icon={faHome} />}
                 py={{ base: 3, sm: 4 }}
                 fontSize={{ base: 'md', sm: 'lg' }}
@@ -108,16 +109,55 @@ export const MobileDrawer = () => {
                 size='md'
                 variant='tertiary'
                 justifyContent='start'
-                leftIcon={<FontAwesomeIcon icon={faFileAlt} />}
-                onClick={() => handleNav('/soumission')}
+                leftIcon={<FontAwesomeIcon icon={faMapMarkerAlt} />}
+                onClick={() => handleNav('/secteurs-desservis')}
+                py={{ base: 3, sm: 4 }}
+                fontSize={{ base: 'md', sm: 'lg' }}
+                fontWeight='medium'
+                _hover={{ bg: 'gray.50' }}
+              >
+                {currentLang === 'fr' ? 'Secteurs desservis' : 'Service Areas'}
+              </Button>
+              <Button
+                size='md'
+                variant='tertiary'
+                justifyContent='start'
+                leftIcon={<FontAwesomeIcon icon={faPaintBrush} />}
+                onClick={() => handleNav('/peintre-professionnel')}
                 py={{ base: 3, sm: 4 }}
                 fontSize={{ base: 'md', sm: 'lg' }}
                 fontWeight='medium'
                 _hover={{ bg: 'gray.50' }}
               >
                 {currentLang === 'fr'
-                  ? 'Soumission Gratuite'
-                  : 'Free Quotation '}
+                  ? 'Peintres professionnels'
+                  : 'Professional Painters'}
+              </Button>
+              <Button
+                size='md'
+                variant='tertiary'
+                justifyContent='start'
+                leftIcon={<FontAwesomeIcon icon={faStar} />}
+                onClick={() => handleNav('/avis')}
+                py={{ base: 3, sm: 4 }}
+                fontSize={{ base: 'md', sm: 'lg' }}
+                fontWeight='medium'
+                _hover={{ bg: 'gray.50' }}
+              >
+                {currentLang === 'fr' ? 'Avis' : 'Reviews'}
+              </Button>
+              <Button
+                size='md'
+                variant='tertiary'
+                justifyContent='start'
+                leftIcon={<FontAwesomeIcon icon={faBlog} />}
+                onClick={() => handleNav('/blog')}
+                py={{ base: 3, sm: 4 }}
+                fontSize={{ base: 'md', sm: 'lg' }}
+                fontWeight='medium'
+                _hover={{ bg: 'gray.50' }}
+              >
+                {currentLang === 'fr' ? 'Blog' : 'Blog'}
               </Button>
               <Button
                 size='md'
@@ -128,35 +168,11 @@ export const MobileDrawer = () => {
                 py={{ base: 3, sm: 4 }}
                 fontSize={{ base: 'md', sm: 'lg' }}
                 fontWeight='medium'
-                _hover={{ bg: 'gray.50' }}
+                bg='#014CC4'
+                color='white'
+                _hover={{ bg: '#0139A0' }}
               >
-                {currentLang === 'fr' ? 'Nous joindre' : 'Contact us'}
-              </Button>
-              <Button
-                size='md'
-                variant='tertiary'
-                justifyContent='start'
-                leftIcon={<FontAwesomeIcon icon={faUser} />}
-                onClick={() => handleNav('/a-propos-de-nous')}
-                py={{ base: 3, sm: 4 }}
-                fontSize={{ base: 'md', sm: 'lg' }}
-                fontWeight='medium'
-                _hover={{ bg: 'gray.50' }}
-              >
-                {currentLang === 'fr' ? 'À propos de nous' : 'About us'}
-              </Button>
-              <Button
-                size='md'
-                variant='tertiary'
-                justifyContent='start'
-                leftIcon={<FontAwesomeIcon icon={faWrench} />}
-                onClick={() => handleNav('/emplois')}
-                py={{ base: 3, sm: 4 }}
-                fontSize={{ base: 'md', sm: 'lg' }}
-                fontWeight='medium'
-                _hover={{ bg: 'gray.50' }}
-              >
-                {currentLang === 'fr' ? 'Emplois' : 'Employment'}
+                {currentLang === 'fr' ? 'Contact' : 'Contact'}
               </Button>
             </Stack>
           </DrawerBody>

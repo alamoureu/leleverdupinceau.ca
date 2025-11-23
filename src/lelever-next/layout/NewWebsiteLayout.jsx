@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import {
   Stack,
   Text,
@@ -6,15 +6,25 @@ import {
   IconButton,
   Flex,
   Image,
+  Box,
+  Link,
+  SimpleGrid,
+  Divider,
+  HStack,
 } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { Outlet } from 'react-router-dom';
+import { Outlet, Link as RouterLink } from 'react-router-dom';
 import WebsiteNavBar from '../navigation/WebsiteNavBar';
 import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
 import { Helmet } from 'react-helmet';
+import appContext from '../../AppProvider';
+import { useTranslation } from '../i18n';
 
 export default function NewWebsiteLayout() {
+  const { currentLang } = useContext(appContext);
+  const { t } = useTranslation();
+
   return (
     <Fragment>
       <Helmet>
@@ -82,58 +92,263 @@ export default function NewWebsiteLayout() {
           <Outlet />
         </Stack>
 
-        <Stack
+        <Box
           position='static'
           bottom='0'
           w='100%'
-          spacing={{ base: 6, sm: 8 }}
           bg='#022A68'
-          py={{ base: 8, sm: 10, lg: 12 }}
-          px={{ base: 4, sm: 6, lg: 12 }}
+          py={{ base: 8, md: 12 }}
+          px={{ base: 4, md: 6, lg: 12 }}
         >
-          <Stack
-            justify='space-between'
-            direction={{ base: 'column', md: 'row' }}
-            align={{ base: 'center', md: 'center' }}
-            spacing={{ base: 8, sm: 6, md: 0 }}
-          >
-            <Image
-              loading='lazy'
-              src={
-                'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
-              }
-              h={{ base: '80px', sm: '90px', md: '70px', lg: '80px' }}
-              w='auto'
-            />
-            <ButtonGroup variant='tertiary.accent'>
-              <IconButton
-                as='a'
-                textColor='white'
-                href='https://www.instagram.com/leleverdupinceau/'
-                aria-label='Instagram'
-                fontSize={{ base: '28px', md: '28px', lg: '32px' }}
-                icon={<FontAwesomeIcon icon={faInstagram} />}
-              />
-              <IconButton
-                as='a'
-                href='https://www.facebook.com/profile.php?id=100094900160859'
-                textColor='white'
-                fontSize={{ base: '28px', md: '28px', lg: '32px' }}
-                aria-label='Facebook'
-                icon={<FontAwesomeIcon icon={faFacebook} />}
-              />
-            </ButtonGroup>
-          </Stack>
-          <Text
-            fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-            textColor='white'
-            textAlign={{ base: 'center', md: 'left' }}
-            pb={{ base: 4, md: 6 }}
-          >
-            &copy; {new Date().getFullYear()} Le Lever Du Pinceau, Tout les
-            droits réservés
-          </Text>
-        </Stack>
+          <Box maxW='1440px' mx='auto'>
+            <Stack
+              spacing={3}
+              align={{ base: 'center', md: 'flex-start' }}
+              mb={{ base: 8, md: 10 }}
+            >
+              <RouterLink to='/new-home'>
+                <Image
+                  loading='lazy'
+                  src={
+                    'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
+                  }
+                  h={{ base: '60px', md: '70px' }}
+                  w='auto'
+                  cursor='pointer'
+                />
+              </RouterLink>
+              <Box
+                as={RouterLink}
+                to='/new-home'
+                cursor='pointer'
+                _hover={{ textDecoration: 'underline' }}
+              >
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='white'
+                  fontWeight='medium'
+                  _hover={{ color: 'gray.300' }}
+                >
+                  {currentLang === 'fr'
+                    ? 'Une peinture propre, rapide et impeccable.'
+                    : 'Clean, fast and impeccable painting.'}
+                </Text>
+              </Box>
+            </Stack>
+
+            <Divider borderColor='gray.600' mb={{ base: 6, md: 8 }} />
+
+            <SimpleGrid
+              columns={{ base: 1, sm: 2, md: 3 }}
+              spacing={{ base: 6, md: 8 }}
+              mb={{ base: 8, md: 10 }}
+            >
+              <Stack spacing={3}>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  fontWeight='bold'
+                  color='white'
+                  mb={2}
+                >
+                  SERVICES
+                </Text>
+                <Stack spacing={2}>
+                  <Link
+                    href='/services/peinture-interieure'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    - {t.serviceInterior}
+                  </Link>
+                  <Link
+                    href='/services/peinture-exterieure'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    - {t.serviceCommercial}
+                  </Link>
+                  <Link
+                    href='/services'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    - {t.serviceResidential}
+                  </Link>
+                </Stack>
+              </Stack>
+
+              <Stack spacing={3}>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  fontWeight='bold'
+                  color='white'
+                  mb={2}
+                >
+                  ENTREPRISE
+                </Text>
+                <Stack spacing={2}>
+                  <Link
+                    href='/new-home/a-propos'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    - {currentLang === 'fr' ? 'À propos' : 'About'}
+                  </Link>
+                  <Link
+                    href='/avis'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    - {currentLang === 'fr' ? 'Avis clients' : 'Client reviews'}
+                  </Link>
+                  <Link
+                    href='/peintre-professionnel'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    -{' '}
+                    {currentLang === 'fr'
+                      ? 'Peintres pro'
+                      : 'Professional painters'}
+                  </Link>
+                </Stack>
+              </Stack>
+
+              <Stack spacing={3}>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  fontWeight='bold'
+                  color='white'
+                  mb={2}
+                >
+                  RESSOURCES
+                </Text>
+                <Stack spacing={2}>
+                  <Link
+                    href='/blog'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    - {currentLang === 'fr' ? 'Blog' : 'Blog'}
+                  </Link>
+                  <Link
+                    href='/new-home/contact'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    - {currentLang === 'fr' ? 'Contact' : 'Contact'}
+                  </Link>
+                  <Link
+                    href='/secteurs-desservis'
+                    color='white'
+                    fontSize='sm'
+                    _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                  >
+                    -{' '}
+                    {currentLang === 'fr'
+                      ? 'Secteurs desservis'
+                      : 'Service areas'}
+                  </Link>
+                </Stack>
+              </Stack>
+            </SimpleGrid>
+
+            <Divider borderColor='gray.600' mb={{ base: 6, md: 8 }} />
+
+            <Flex
+              direction={{ base: 'column', md: 'row' }}
+              justify='space-between'
+              align={{ base: 'flex-start', md: 'center' }}
+              spacing={4}
+              mb={{ base: 6, md: 8 }}
+            >
+              <Stack spacing={2}>
+                <Link
+                  href='tel:4388680772'
+                  color='white'
+                  fontSize='sm'
+                  _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                >
+                  (438) 868-0772
+                </Link>
+                <Link
+                  href='mailto:leleverdupinceau@gmail.com'
+                  color='white'
+                  fontSize='sm'
+                  _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                >
+                  leleverdupinceau@gmail.com
+                </Link>
+                <Link
+                  href='/new-home/contact'
+                  color='white'
+                  fontSize='sm'
+                  _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+                >
+                  Montréal, Québec
+                </Link>
+              </Stack>
+              <ButtonGroup variant='tertiary.accent' mt={{ base: 4, md: 0 }}>
+                <IconButton
+                  as='a'
+                  textColor='white'
+                  href='https://www.instagram.com/leleverdupinceau/'
+                  aria-label='Instagram'
+                  fontSize='24px'
+                  icon={<FontAwesomeIcon icon={faInstagram} />}
+                  _hover={{ color: 'gray.300' }}
+                />
+                <IconButton
+                  as='a'
+                  href='https://www.facebook.com/profile.php?id=100094900160859'
+                  textColor='white'
+                  fontSize='24px'
+                  aria-label='Facebook'
+                  icon={<FontAwesomeIcon icon={faFacebook} />}
+                  _hover={{ color: 'gray.300' }}
+                />
+              </ButtonGroup>
+            </Flex>
+
+            <Divider borderColor='gray.600' mb={4} />
+
+            <HStack
+              spacing={4}
+              justify={{ base: 'center', md: 'flex-start' }}
+              flexWrap='wrap'
+            >
+              <Link
+                href='/mentions-legales'
+                color='white'
+                fontSize='sm'
+                _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+              >
+                {currentLang === 'fr' ? 'Mentions légales' : 'Legal notice'}
+              </Link>
+              <Text color='white' fontSize='sm'>
+                |
+              </Text>
+              <Link
+                href='/politique-de-confidentialite'
+                color='white'
+                fontSize='sm'
+                _hover={{ textDecoration: 'underline', color: 'gray.300' }}
+              >
+                {currentLang === 'fr'
+                  ? 'Politique de confidentialité'
+                  : 'Privacy policy'}
+              </Link>
+            </HStack>
+          </Box>
+        </Box>
         <FloatingLanguageToggle />
       </Flex>
     </Fragment>

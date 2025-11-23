@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
+import { motion, AnimatePresence } from 'framer-motion';
 
 export default function RecentProjectsSection() {
   const { t } = useTranslation();
@@ -81,6 +82,18 @@ export default function RecentProjectsSection() {
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3 });
   const [currentImageIndex, setCurrentImageIndex] = useState({});
 
+  const fadeVariants = {
+    enter: {
+      opacity: 0,
+    },
+    center: {
+      opacity: 1,
+    },
+    exit: {
+      opacity: 0,
+    },
+  };
+
   const handleImageChange = (projectId, newIndex) => {
     setCurrentImageIndex((prev) => ({
       ...prev,
@@ -123,7 +136,7 @@ export default function RecentProjectsSection() {
             </Text>
           </Stack>
 
-          <SimpleGrid columns={columns} spacing={5}>
+          <SimpleGrid columns={columns} spacing={{ base: 4, md: 5, lg: 6 }}>
             {projects.map((project) => {
               const currentIndex = getCurrentImageIndex(project.id);
               return (
@@ -144,14 +157,31 @@ export default function RecentProjectsSection() {
                     h='200px'
                     bg='gray.100'
                   >
-                    <Box
-                      bgImage={`url(${project.images[currentIndex]})`}
-                      bgSize='cover'
-                      bgPosition='center'
-                      w='100%'
-                      h='100%'
-                      transition='opacity 0.3s ease-in-out'
-                    />
+                    <AnimatePresence initial={false}>
+                      <motion.div
+                        key={currentIndex}
+                        variants={fadeVariants}
+                        initial='enter'
+                        animate='center'
+                        exit='exit'
+                        transition={{
+                          opacity: { duration: 0.4, ease: 'easeInOut' },
+                        }}
+                        style={{
+                          position: 'absolute',
+                          width: '100%',
+                          height: '100%',
+                        }}
+                      >
+                        <Box
+                          bgImage={`url(${project.images[currentIndex]})`}
+                          bgSize='cover'
+                          bgPosition='center'
+                          w='100%'
+                          h='100%'
+                        />
+                      </motion.div>
+                    </AnimatePresence>
                     {project.images.length > 1 && (
                       <>
                         <IconButton
@@ -161,11 +191,14 @@ export default function RecentProjectsSection() {
                           left={2}
                           top='50%'
                           transform='translateY(-50%)'
-                          bg='rgba(0, 0, 0, 0.5)'
-                          color='white'
+                          bg='white'
+                          border='1px solid'
+                          borderColor='gray.200'
+                          color='#014CC4'
                           borderRadius='full'
                           size='sm'
-                          _hover={{ bg: 'rgba(0, 0, 0, 0.7)' }}
+                          zIndex={2}
+                          _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
                           onClick={() =>
                             goToPreviousImage(project.id, project.images.length)
                           }
@@ -177,11 +210,14 @@ export default function RecentProjectsSection() {
                           right={2}
                           top='50%'
                           transform='translateY(-50%)'
-                          bg='rgba(0, 0, 0, 0.5)'
-                          color='white'
+                          bg='white'
+                          border='1px solid'
+                          borderColor='gray.200'
+                          color='#014CC4'
                           borderRadius='full'
                           size='sm'
-                          _hover={{ bg: 'rgba(0, 0, 0, 0.7)' }}
+                          zIndex={2}
+                          _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
                           onClick={() =>
                             goToNextImage(project.id, project.images.length)
                           }
@@ -192,6 +228,7 @@ export default function RecentProjectsSection() {
                           left='50%'
                           transform='translateX(-50%)'
                           spacing={2}
+                          zIndex={2}
                         >
                           {project.images.map((_, index) => (
                             <Box

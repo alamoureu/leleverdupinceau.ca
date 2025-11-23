@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 import MainPage from './pages/WebSiteLandingPage';
 import NewHomePage from './lelever-next/pages/NewHomePage';
+import ContactPage from './lelever-next/pages/ContactPage';
+import AvisPage from './lelever-next/pages/AvisPage';
+import AboutPage from './lelever-next/pages/AboutPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
 import PeintureExt from './pages/PeintureExterieur';
@@ -73,7 +76,20 @@ export default function App() {
               </PasswordProtectedPage>
             }
           >
-            <Route path='/new-home' element={<NewHomePage />} />
+            <Route index element={<NewHomePage />} />
+            <Route path='contact' element={<ContactPage />} />
+            <Route path='a-propos' element={<AboutPage />} />
+            <Route path='avis' element={<AvisPage />} />
+          </Route>
+          <Route
+            path='/avis'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<AvisPage />} />
           </Route>
           <Route path='/admin'>
             <Route path='dashboard' element={<AdminDashboard />} />
