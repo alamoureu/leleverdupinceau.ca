@@ -283,7 +283,7 @@ export default function AvisPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 8, md: 12 }}
         >
-          <Stack spacing={{ base: 8, md: 12 }}>
+          <Stack spacing={0}>
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -308,7 +308,7 @@ export default function AvisPage() {
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left'>
+            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -578,7 +578,7 @@ export default function AvisPage() {
               </Container>
             </Box>
 
-            <Box>
+            <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6} mb={8}>
                   <Stack spacing={2} textAlign='center'>
@@ -653,11 +653,12 @@ export default function AvisPage() {
                             >
                               {service.title}
                             </Text>
-                            <Icon
-                              as={ArrowForwardIcon}
-                              color='#014CC4'
-                              boxSize={4}
-                            />
+                            <HStack spacing={2} color='#014CC4'>
+                              <Text fontSize='sm' fontWeight='medium'>
+                                {isFr ? 'Voir' : 'View'}
+                              </Text>
+                              <ArrowForwardIcon boxSize={4} />
+                            </HStack>
                           </Stack>
                         </Box>
                       </Link>

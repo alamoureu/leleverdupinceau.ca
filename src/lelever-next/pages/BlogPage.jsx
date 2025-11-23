@@ -93,7 +93,7 @@ export default function BlogPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 8, md: 12 }}
         >
-          <Stack spacing={{ base: 8, md: 12 }}>
+          <Stack spacing={0}>
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -118,7 +118,7 @@ export default function BlogPage() {
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left'>
+            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -264,15 +264,11 @@ export default function BlogPage() {
                             >
                               {service.title}
                             </Text>
-                            <HStack spacing={2}>
-                              <Text
-                                color='#014CC4'
-                                fontSize='sm'
-                                fontWeight='medium'
-                              >
+                            <HStack spacing={2} color='#014CC4'>
+                              <Text fontSize='sm' fontWeight='medium'>
                                 {isFr ? 'Voir' : 'View'}
                               </Text>
-                              <ArrowForwardIcon color='#014CC4' boxSize={3} />
+                              <ArrowForwardIcon boxSize={4} />
                             </HStack>
                           </Stack>
                         </Box>

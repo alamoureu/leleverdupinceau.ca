@@ -119,7 +119,7 @@ export default function RecentProjectsSection() {
   };
 
   return (
-    <Box py={{ base: 10, md: 14 }} bg='white'>
+    <Box py={{ base: 12, md: 16 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={6}>
           <Stack spacing={2} textAlign='center'>

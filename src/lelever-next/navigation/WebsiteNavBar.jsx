@@ -18,14 +18,17 @@ import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { ServicesPopover } from './ServicesPopover';
 import { MobileDrawer } from './MobileDrawer';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 
 export default function WebsiteNavBar() {
   const navigate = useNavigate();
+  const location = useLocation();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
+
+  const isHomePage = location.pathname === '/new-home';
 
   return (
     <Box position='sticky' top={0} zIndex={1000}>
@@ -187,54 +190,56 @@ export default function WebsiteNavBar() {
             </Box>
           </HStack>
 
-          <Box
-            position='absolute'
-            top='100%'
-            right={{ base: '-5px', md: '10px', lg: '10px' }}
-            zIndex={10}
-            bg='white'
-            borderTopRadius='none'
-            borderBottomRadius='full'
-            p={{ base: 1.5, md: 5 }}
-            boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'
-            minW={{ base: '80px', md: '150px' }}
-            mt={2}
-          >
-            <Stack spacing={{ base: 1, md: 2.5 }} align='center'>
-              <Text
-                fontSize={{ base: 'sm', md: 'lg' }}
-                color='gray.800'
-                fontWeight='600'
-              >
-                {t.googleReviews}
-              </Text>
-              <Flex align='center' gap={{ base: 0.5, md: 1 }}>
+          {isHomePage && (
+            <Box
+              position='absolute'
+              top='100%'
+              right={{ base: '-5px', md: '10px', lg: '10px' }}
+              zIndex={10}
+              bg='white'
+              borderTopRadius='none'
+              borderBottomRadius='full'
+              p={{ base: 1.5, md: 5 }}
+              boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'
+              minW={{ base: '80px', md: '150px' }}
+              mt={2}
+            >
+              <Stack spacing={{ base: 1, md: 2.5 }} align='center'>
                 <Text
-                  fontWeight='700'
-                  fontSize={{ base: 'sm', md: '2xl' }}
+                  fontSize={{ base: 'sm', md: 'lg' }}
                   color='gray.800'
+                  fontWeight='600'
                 >
-                  {t.googleRating}
+                  {t.googleReviews}
                 </Text>
-                <Flex gap={0.5}>
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon
-                      key={i}
-                      color='#FBBC04'
-                      boxSize={{ base: 2.5, md: 4 }}
-                    />
-                  ))}
+                <Flex align='center' gap={{ base: 0.5, md: 1 }}>
+                  <Text
+                    fontWeight='700'
+                    fontSize={{ base: 'sm', md: '2xl' }}
+                    color='gray.800'
+                  >
+                    {t.googleRating}
+                  </Text>
+                  <Flex gap={0.5}>
+                    {[...Array(5)].map((_, i) => (
+                      <StarIcon
+                        key={i}
+                        color='#FBBC04'
+                        boxSize={{ base: 2.5, md: 4 }}
+                      />
+                    ))}
+                  </Flex>
                 </Flex>
-              </Flex>
-              <Image
-                src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
-                alt='Google'
-                h={{ base: '20px', md: '40px' }}
-                w={{ base: '20px', md: '40px' }}
-                mt={{ base: 0.5, md: 1 }}
-              />
-            </Stack>
-          </Box>
+                <Image
+                  src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
+                  alt='Google'
+                  h={{ base: '20px', md: '40px' }}
+                  w={{ base: '20px', md: '40px' }}
+                  mt={{ base: 0.5, md: 1 }}
+                />
+              </Stack>
+            </Box>
+          )}
         </Box>
       </Box>
     </Box>

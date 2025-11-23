@@ -295,7 +295,7 @@ export default function PeintreProfessionnelPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 8, md: 12 }}
         >
-          <Stack spacing={{ base: 8, md: 12 }}>
+          <Stack spacing={0}>
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -320,7 +320,7 @@ export default function PeintreProfessionnelPage() {
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left'>
+            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -540,12 +540,14 @@ export default function PeintreProfessionnelPage() {
                           <Link
                             href={service.link}
                             _hover={{ textDecoration: 'none' }}
-                            color='#014CC4'
-                            fontWeight='medium'
-                            fontSize='sm'
                             mt='auto'
                           >
-                            {isFr ? 'Voir le service' : 'View service'} →
+                            <HStack spacing={2} color='#014CC4'>
+                              <Text fontSize='sm' fontWeight='medium'>
+                                {isFr ? 'Voir le service' : 'View service'}
+                              </Text>
+                              <ArrowForwardIcon boxSize={4} />
+                            </HStack>
                           </Link>
                         </Stack>
                       </Box>
@@ -555,60 +557,7 @@ export default function PeintreProfessionnelPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Nos peintres professionnels se déplacent partout dans le Grand Montréal'
-                        : 'Our professional painters travel throughout Greater Montreal'}
-                    </Heading>
-                  </Stack>
-
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    textAlign='center'
-                    mb={4}
-                  >
-                    {isFr
-                      ? 'Nos équipes interviennent rapidement dans les villes suivantes :'
-                      : 'Our teams serve quickly in the following cities:'}
-                  </Text>
-
-                  <SectorsSection />
-
-                  <Box textAlign='center' pt={4}>
-                    <Link
-                      href='/secteurs-desservis'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Button
-                        rightIcon={<ArrowForwardIcon />}
-                        variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
-                        borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        px={{ base: 5, md: 7 }}
-                        py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
-                      >
-                        {isFr
-                          ? 'Voir toutes les zones desservies'
-                          : 'View all service areas'}
-                      </Button>
-                    </Link>
-                  </Box>
-                </Stack>
-              </Container>
-            </Box>
+            <SectorsSection />
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>

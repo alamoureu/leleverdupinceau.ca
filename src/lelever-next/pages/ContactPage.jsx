@@ -181,7 +181,7 @@ export default function ContactPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 8, md: 12 }}
         >
-          <Stack spacing={{ base: 8, md: 12 }}>
+          <Stack spacing={0}>
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -206,7 +206,7 @@ export default function ContactPage() {
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left'>
+            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}

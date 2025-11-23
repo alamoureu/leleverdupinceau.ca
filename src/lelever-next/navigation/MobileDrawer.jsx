@@ -170,6 +170,7 @@ export const MobileDrawer = () => {
                 fontWeight='medium'
                 bg='#014CC4'
                 color='white'
+                borderRadius='full'
                 _hover={{ bg: '#0139A0' }}
               >
                 {currentLang === 'fr' ? 'Contact' : 'Contact'}
