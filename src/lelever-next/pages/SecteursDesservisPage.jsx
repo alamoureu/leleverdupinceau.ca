@@ -130,6 +130,8 @@ export default function SecteursDesservisPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis'
         />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>

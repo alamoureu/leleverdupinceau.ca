@@ -21,7 +21,7 @@ import {
   faMapMarkerAlt,
   faPaintBrush,
   faStar,
-  faBlog,
+  faNewspaper,
 } from '@fortawesome/free-solid-svg-icons';
 import { Fragment, useContext } from 'react';
 import appContext from '../../AppProvider';
@@ -150,7 +150,7 @@ export const MobileDrawer = () => {
                 size='md'
                 variant='tertiary'
                 justifyContent='start'
-                leftIcon={<FontAwesomeIcon icon={faBlog} />}
+                leftIcon={<FontAwesomeIcon icon={faNewspaper} />}
                 onClick={() => handleNav('/blog')}
                 py={{ base: 3, sm: 4 }}
                 fontSize={{ base: 'md', sm: 'lg' }}

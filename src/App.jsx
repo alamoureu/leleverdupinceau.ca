@@ -83,7 +83,6 @@ export default function App() {
             <Route index element={<NewHomePage />} />
             <Route path='contact' element={<ContactPage />} />
             <Route path='a-propos' element={<AboutPage />} />
-            <Route path='avis' element={<AvisPage />} />
           </Route>
           <Route
             path='/peintre-professionnel'
@@ -134,6 +133,26 @@ export default function App() {
             }
           >
             <Route index element={<BlogPage />} />
+          </Route>
+          <Route
+            path='/contact'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<ContactPage />} />
+          </Route>
+          <Route
+            path='/a-propos'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<AboutPage />} />
           </Route>
           <Route path='/admin'>
             <Route path='dashboard' element={<AdminDashboard />} />

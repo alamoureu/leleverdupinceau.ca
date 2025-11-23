@@ -184,6 +184,8 @@ export default function AboutPage() {
           }
         />
         <link rel='canonical' href='https://leleverdupinceau.ca/a-propos' />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>

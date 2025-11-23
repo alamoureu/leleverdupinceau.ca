@@ -142,6 +142,8 @@ export default function ServicesPage() {
           }
         />
         <link rel='canonical' href='https://leleverdupinceau.ca/services' />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>

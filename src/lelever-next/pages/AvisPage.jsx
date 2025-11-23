@@ -267,6 +267,8 @@ export default function AvisPage() {
           }
         />
         <link rel='canonical' href='https://leleverdupinceau.ca/avis' />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>

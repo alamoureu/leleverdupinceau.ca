@@ -165,6 +165,8 @@ export default function ContactPage() {
           }
         />
         <link rel='canonical' href='https://leleverdupinceau.ca/contact' />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
