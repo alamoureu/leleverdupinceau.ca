@@ -1,3 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /new-home
+Disallow: /peintre-professionnel
+Disallow: /secteurs-desservis
+Disallow: /services
+Disallow: /blog
+Disallow: /avis
+Disallow: /contact
+Disallow: /a-propos
