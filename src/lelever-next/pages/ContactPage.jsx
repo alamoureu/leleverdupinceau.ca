@@ -204,7 +204,7 @@ export default function ContactPage() {
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign={{ base: 'center', md: 'left' }}>
+            <Stack spacing={4} textAlign='left'>
               <Heading
                 as='h1'
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -220,7 +220,6 @@ export default function ContactPage() {
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='800px'
-                mx={{ base: 'auto', md: 0 }}
               >
                 {isFr
                   ? 'Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ou obtenir une soumission rapide pour votre projet de peinture ? Notre équipe de peintres professionnels est disponible partout dans le Grand Montréal, Montréal, Laval, Longueuil, Brossard et tous les quartiers environnants. Nous répondons rapidement, offrons des soumissions claires et précises, et garantissons un service professionnel du début à la fin. Remplissez le formulaire ci-dessous ou contactez-nous directement, nous serons ravis de vous aider.'

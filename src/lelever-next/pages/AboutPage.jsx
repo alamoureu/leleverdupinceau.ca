@@ -73,20 +73,20 @@ export default function AboutPage() {
 
   const missionPoints = [
     isFr
-      ? 'offrir une qualité de finition impeccable'
-      : 'deliver impeccable finish quality',
+      ? 'Offrir une qualité de finition impeccable'
+      : 'Deliver impeccable finish quality',
     isFr
-      ? 'livrer un service professionnel & courtois'
-      : 'provide professional & courteous service',
+      ? 'Livrer un service professionnel & courtois'
+      : 'Provide professional & courteous service',
     isFr
-      ? 'respecter les délais et votre espace'
-      : 'respect deadlines and your space',
+      ? 'Respecter les délais et votre espace'
+      : 'Respect deadlines and your space',
     isFr
-      ? 'garantir un résultat durable et esthétique'
-      : 'guarantee a durable and aesthetic result',
+      ? 'Garantir un résultat durable et esthétique'
+      : 'Guarantee a durable and aesthetic result',
     isFr
-      ? 'rendre chaque projet simple, clair et agréable'
-      : 'make every project simple, clear and pleasant',
+      ? 'Rendre chaque projet simple, clair et agréable'
+      : 'Make every project simple, clear and pleasant',
   ];
 
   const values = [
@@ -124,20 +124,20 @@ export default function AboutPage() {
 
   const teamPoints = [
     isFr
-      ? 'formés aux meilleures techniques du métier'
-      : 'trained in the best techniques of the trade',
+      ? 'Formés aux meilleures techniques du métier'
+      : 'Trained in the best techniques of the trade',
     isFr
-      ? 'spécialisés en surfaces modernes & anciennes'
-      : 'specialized in modern & old surfaces',
+      ? 'Spécialisés en surfaces modernes & anciennes'
+      : 'Specialized in modern & old surfaces',
     isFr
-      ? 'habitués aux logements habités'
-      : 'accustomed to occupied dwellings',
+      ? 'Habitués aux logements habités'
+      : 'Accustomed to occupied dwellings',
     isFr
-      ? 'capables de gérer petits et grands projets'
-      : 'able to handle small and large projects',
+      ? 'Capables de gérer petits et grands projets'
+      : 'Able to handle small and large projects',
     isFr
-      ? 'reconnus pour leur minutie et leur efficacité'
-      : 'recognized for their attention to detail and efficiency',
+      ? 'Reconnus pour leur minutie et leur efficacité'
+      : 'Recognized for their attention to detail and efficiency',
   ];
 
   const projectTypes = [
@@ -157,14 +157,14 @@ export default function AboutPage() {
   ];
 
   const guarantees = [
-    isFr ? 'un résultat impeccable' : 'an impeccable result',
-    isFr ? 'un chantier propre' : 'a clean worksite',
-    isFr ? 'une équipe professionnelle' : 'a professional team',
-    isFr ? 'une communication claire' : 'clear communication',
-    isFr ? 'une finition durable' : 'a durable finish',
+    isFr ? 'Un résultat impeccable' : 'An impeccable result',
+    isFr ? 'Un chantier propre' : 'A clean worksite',
+    isFr ? 'Une équipe professionnelle' : 'A professional team',
+    isFr ? 'Une communication claire' : 'Clear communication',
+    isFr ? 'Une finition durable' : 'A durable finish',
     isFr
-      ? 'une expérience simple et agréable'
-      : 'a simple and pleasant experience',
+      ? 'Une expérience simple et agréable'
+      : 'A simple and pleasant experience',
   ];
 
   return (
@@ -199,7 +199,6 @@ export default function AboutPage() {
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={{ base: 8, md: 12 }}>
-            {/* Breadcrumb */}
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -224,8 +223,7 @@ export default function AboutPage() {
               </Text>
             </HStack>
 
-            {/* H1 and Introduction */}
-            <Stack spacing={4} textAlign={{ base: 'center', md: 'left' }}>
+            <Stack spacing={4} textAlign='left'>
               <Heading
                 as='h1'
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -241,7 +239,6 @@ export default function AboutPage() {
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='800px'
-                mx={{ base: 'auto', md: 0 }}
               >
                 {isFr
                   ? 'Le Lever du Pinceau est une équipe de peintres professionnels passionnés, spécialisés en peinture résidentielle, commerciale, intérieure et extérieure dans tout le Grand Montréal. Nous croyons que chaque projet mérite une approche personnalisée, un service impeccable et une finition de qualité durable. Depuis plusieurs années, nous aidons les propriétaires, entreprises, gestionnaires immobiliers et rénovateurs à transformer leurs espaces avec précision, propreté et souci du détail. Notre mission, offrir la meilleure expérience de peinture au Québec, du premier contact à la finition parfaite.'
@@ -249,7 +246,6 @@ export default function AboutPage() {
               </Text>
             </Stack>
 
-            {/* Section 1 - Notre mission */}
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -303,7 +299,6 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            {/* Section 2 - Nos valeurs */}
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -363,7 +358,6 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            {/* Section 3 - Notre équipe */}
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <SimpleGrid
@@ -453,7 +447,6 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            {/* Section 4 - Projets que nous réalisons */}
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -525,10 +518,8 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            {/* Section 5 - Où nous travaillons - Using SectorsSection component */}
             <SectorsSection />
 
-            {/* Section 6 - Notre engagement */}
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -580,7 +571,6 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            {/* Section 7 - Avis de nos clients - Using ReviewsSection component */}
             <Box>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6} mb={8}>
@@ -603,7 +593,6 @@ export default function AboutPage() {
           </Stack>
         </Container>
 
-        {/* Section 8 - CTA final - Full width, no border radius */}
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}

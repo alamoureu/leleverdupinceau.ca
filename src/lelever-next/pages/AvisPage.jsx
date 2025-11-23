@@ -28,7 +28,6 @@ export default function AvisPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
-  // Copied ReviewsSection code - all reviews from drawer and website
   const allReviews = [
     {
       name: 'Chantal Baril',
@@ -283,7 +282,6 @@ export default function AvisPage() {
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={{ base: 8, md: 12 }}>
-            {/* Breadcrumb */}
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -308,8 +306,7 @@ export default function AvisPage() {
               </Text>
             </HStack>
 
-            {/* H1 and Introduction */}
-            <Stack spacing={4} textAlign={{ base: 'center', md: 'left' }}>
+            <Stack spacing={4} textAlign='left'>
               <Heading
                 as='h1'
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -325,7 +322,6 @@ export default function AvisPage() {
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='800px'
-                mx={{ base: 'auto', md: 0 }}
               >
                 {isFr
                   ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur, toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons. Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
@@ -333,7 +329,6 @@ export default function AvisPage() {
               </Text>
             </Stack>
 
-            {/* Section 1: Recent Testimonials - Copied ReviewsSection code */}
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8} align='center'>
@@ -534,7 +529,6 @@ export default function AvisPage() {
               </Container>
             </Box>
 
-            {/* Section 2: Why clients recommend us */}
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -582,7 +576,6 @@ export default function AvisPage() {
               </Container>
             </Box>
 
-            {/* Section 3: Before/After - Using RecentProjectsSection component */}
             <Box>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6} mb={8}>
@@ -603,7 +596,6 @@ export default function AvisPage() {
               <RecentProjectsSection />
             </Box>
 
-            {/* Section 4: Services they trust us for */}
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -675,7 +667,6 @@ export default function AvisPage() {
           </Stack>
         </Container>
 
-        {/* Section 5: Final CTA - Full width, no border radius */}
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}

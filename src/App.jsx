@@ -5,6 +5,10 @@ import NewHomePage from './lelever-next/pages/NewHomePage';
 import ContactPage from './lelever-next/pages/ContactPage';
 import AvisPage from './lelever-next/pages/AvisPage';
 import AboutPage from './lelever-next/pages/AboutPage';
+import PeintreProfessionnelPage from './lelever-next/pages/PeintreProfessionnelPage';
+import SecteursDesservisPage from './lelever-next/pages/SecteursDesservisPage';
+import ServicesPage from './lelever-next/pages/ServicesPage';
+import BlogPage from './lelever-next/pages/BlogPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
 import PeintureExt from './pages/PeintureExterieur';
@@ -82,6 +86,16 @@ export default function App() {
             <Route path='avis' element={<AvisPage />} />
           </Route>
           <Route
+            path='/peintre-professionnel'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<PeintreProfessionnelPage />} />
+          </Route>
+          <Route
             path='/avis'
             element={
               <PasswordProtectedPage>
@@ -90,6 +104,36 @@ export default function App() {
             }
           >
             <Route index element={<AvisPage />} />
+          </Route>
+          <Route
+            path='/secteurs-desservis'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<SecteursDesservisPage />} />
+          </Route>
+          <Route
+            path='/services'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<ServicesPage />} />
+          </Route>
+          <Route
+            path='/blog'
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<BlogPage />} />
           </Route>
           <Route path='/admin'>
             <Route path='dashboard' element={<AdminDashboard />} />
