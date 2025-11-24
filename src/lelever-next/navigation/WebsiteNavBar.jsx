@@ -31,7 +31,7 @@ export default function WebsiteNavBar() {
   const isHomePage = location.pathname === '/new-home';
 
   return (
-    <Box spacing={0} gap={0} bg='red'>
+    <Box spacing={0} gap={0} bg='#022A68'>
       <Box
         position='fixed'
         top={0}

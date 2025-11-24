@@ -377,6 +377,11 @@ export default function SecteursDesservisPage() {
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
                         _hover={{ bg: '#014CC4', color: 'white' }}
+                        whiteSpace='normal'
+                        textAlign='center'
+                        lineHeight='1.4'
+                        h='auto'
+                        minH='48px'
                       >
                         {isFr
                           ? 'En savoir plus sur nos peintres professionnels'
