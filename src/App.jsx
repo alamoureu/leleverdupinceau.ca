@@ -7,6 +7,10 @@ import AvisPage from './lelever-next/pages/AvisPage';
 import AboutPage from './lelever-next/pages/AboutPage';
 import PeintreProfessionnelPage from './lelever-next/pages/PeintreProfessionnelPage';
 import SecteursDesservisPage from './lelever-next/pages/SecteursDesservisPage';
+import BrossardCityPage from './lelever-next/pages/BrossardCityPage';
+import MontrealCityPage from './lelever-next/pages/MontrealCityPage';
+import LavalCityPage from './lelever-next/pages/LavalCityPage';
+import LongueuilCityPage from './lelever-next/pages/LongueuilCityPage';
 import ServicesPage from './lelever-next/pages/ServicesPage';
 import BlogPage from './lelever-next/pages/BlogPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
@@ -113,6 +117,10 @@ export default function App() {
             }
           >
             <Route index element={<SecteursDesservisPage />} />
+            <Route path='brossard' element={<BrossardCityPage />} />
+            <Route path='montreal' element={<MontrealCityPage />} />
+            <Route path='laval' element={<LavalCityPage />} />
+            <Route path='longueuil' element={<LongueuilCityPage />} />
           </Route>
           <Route
             path='/services'

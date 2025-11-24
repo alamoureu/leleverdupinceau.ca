@@ -10,6 +10,8 @@ import {
   Icon,
   IconButton,
   HStack,
+  Image,
+  Flex,
 } from '@chakra-ui/react';
 import {
   ArrowForwardIcon,
@@ -17,6 +19,7 @@ import {
   ChevronRightIcon,
 } from '@chakra-ui/icons';
 import { FaStar } from 'react-icons/fa';
+import { FiThumbsUp } from 'react-icons/fi';
 import { useTranslation } from '../i18n';
 import appContext from '../../AppProvider';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -166,7 +169,7 @@ export default function ReviewsSection({ hideTitle = false }) {
             <Box
               position='relative'
               w='100%'
-              h={{ base: '275px', md: '350px' }}
+              h={{ base: '260px', md: '350px' }}
               pb={2}
             >
               <AnimatePresence initial={false} custom={direction}>
@@ -228,7 +231,7 @@ export default function ReviewsSection({ hideTitle = false }) {
                           <Icon
                             key={i}
                             as={FaStar}
-                            color='yellow.500'
+                            color='#EAA82E'
                             boxSize={4}
                           />
                         ))}
@@ -262,6 +265,16 @@ export default function ReviewsSection({ hideTitle = false }) {
                       >
                         {allReviews[currentIndex].content}
                       </Text>
+                    </Box>
+                    <Box
+                      mt={3}
+                      display='flex'
+                      justifyContent='space-between'
+                      alignItems='flex-end'
+                    >
+                      <Box display='flex' justifyContent='flex-start'>
+                        <Icon as={FiThumbsUp} color='gray.500' fontSize='lg' />
+                      </Box>
                     </Box>
                   </Box>
                 </motion.div>

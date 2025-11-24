@@ -31,8 +31,16 @@ export default function WebsiteNavBar() {
   const isHomePage = location.pathname === '/new-home';
 
   return (
-    <Box position='sticky' top={0} zIndex={1000}>
-      <Box bg='black' w='100%'>
+    <Box spacing={0} gap={0} bg='red'>
+      <Box
+        position='fixed'
+        top={0}
+        left={0}
+        right={0}
+        w='100%'
+        zIndex={1000}
+        bg='black'
+      >
         <Box
           maxW='1440px'
           mx='auto'
@@ -104,6 +112,7 @@ export default function WebsiteNavBar() {
         px={{ base: 4, sm: 6, lg: 8 }}
         shadow='md'
         position='relative'
+        mt='37px'
       >
         <Box maxW='1440px' w='100%' mx='auto' position='relative'>
           <HStack
@@ -204,19 +213,19 @@ export default function WebsiteNavBar() {
               minW={{ base: '80px', md: '150px' }}
               mt={2}
             >
-              <Stack spacing={{ base: 1, md: 2.5 }} align='center'>
+              <Stack spacing={0} align='center'>
                 <Text
                   fontSize={{ base: 'sm', md: 'lg' }}
-                  color='gray.800'
+                  color='gray.600'
                   fontWeight='600'
                 >
                   {t.googleReviews}
                 </Text>
                 <Flex align='center' gap={{ base: 0.5, md: 1 }}>
                   <Text
-                    fontWeight='700'
                     fontSize={{ base: 'sm', md: '2xl' }}
-                    color='gray.800'
+                    color='gray.600'
+                    fontWeight='600'
                   >
                     {t.googleRating}
                   </Text>
@@ -233,8 +242,8 @@ export default function WebsiteNavBar() {
                 <Image
                   src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
                   alt='Google'
-                  h={{ base: '20px', md: '40px' }}
-                  w={{ base: '20px', md: '40px' }}
+                  h={{ base: '45px', md: '45px' }}
+                  w={{ base: '45px', md: '45px' }}
                   mt={{ base: 0.5, md: 1 }}
                 />
               </Stack>

@@ -54,7 +54,7 @@ export default function ContactPage() {
     {
       icon: faMapMarkerAlt,
       label: isFr ? 'Lieu' : 'Location',
-      value: '2175 Saint-Patrick O, H3K 1B4',
+      value: '2175 Rue Saint-Patrick, Montréal, QC H3K 1B4',
       href: null,
     },
   ];
@@ -139,7 +139,7 @@ export default function ContactPage() {
       email: 'leleverdupinceau@gmail.com',
       address: {
         '@type': 'PostalAddress',
-        streetAddress: '2175 Saint-Patrick O',
+        streetAddress: '2175 Rue Saint-Patrick',
         addressLocality: 'Montréal',
         addressRegion: 'QC',
         postalCode: 'H3K 1B4',

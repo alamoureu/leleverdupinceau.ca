@@ -19,7 +19,7 @@ export default function WebsiteLayout() {
   return (
     <Fragment>
       <Helmet>
-        <script type="application/ld+json">
+        <script type='application/ld+json'>
           {JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
@@ -31,7 +31,7 @@ export default function WebsiteLayout() {
             email: 'leleverdupinceau@gmail.com',
             address: {
               '@type': 'PostalAddress',
-              streetAddress: '2175 Saint-Patrick St',
+              streetAddress: '2175 Rue Saint-Patrick',
               addressLocality: 'Montréal',
               addressRegion: 'QC',
               postalCode: 'H3K 1B4',
@@ -54,22 +54,22 @@ export default function WebsiteLayout() {
       </Helmet>
 
       <Flex
-        direction="column"
-        overflow="hidden"
-        h="100%"
-        px="0"
-        spacing="0"
-        flex="1"
+        direction='column'
+        overflow='hidden'
+        h='100%'
+        px='0'
+        spacing='0'
+        flex='1'
       >
-        <Stack pos="fixed" gap="0" w="100%" top="0" bg="black" zIndex={3}>
+        <Stack pos='fixed' gap='0' w='100%' top='0' bg='black' zIndex={3}>
           <NavBar />
         </Stack>
 
         <Stack
-          gap="0"
-          overflowX="none"
-          overflowY="auto"
-          h="100%"
+          gap='0'
+          overflowX='none'
+          overflowY='auto'
+          h='100%'
           css={{
             '&::-webkit-scrollbar': {
               width: '2px',
@@ -86,42 +86,42 @@ export default function WebsiteLayout() {
         </Stack>
 
         <Stack
-          position="static"
-          bottom="0"
-          w="100%"
+          position='static'
+          bottom='0'
+          w='100%'
           spacing={{ base: '4', md: '5' }}
-          bg="#022A68"
+          bg='#022A68'
           py={{ base: '12', md: '10' }}
           px={{ base: '10%', md: '30px' }}
         >
-          <Stack justify="space-between" direction="row" align="center">
+          <Stack justify='space-between' direction='row' align='center'>
             <Image
-              loading="lazy"
+              loading='lazy'
               src={
                 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
               }
-              h="60px"
+              h='60px'
             />
-            <ButtonGroup variant="tertiary.accent">
+            <ButtonGroup variant='tertiary.accent'>
               <IconButton
-                as="a"
-                textColor="white"
-                href="https://www.instagram.com/leleverdupinceau/"
-                aria-label="Instagram"
-                fontSize="20px"
+                as='a'
+                textColor='white'
+                href='https://www.instagram.com/leleverdupinceau/'
+                aria-label='Instagram'
+                fontSize='20px'
                 icon={<FaInstagram />}
               />
               <IconButton
-                as="a"
-                href="#"
-                textColor="white"
-                fontSize="20px"
-                aria-label="Facebook"
+                as='a'
+                href='#'
+                textColor='white'
+                fontSize='20px'
+                aria-label='Facebook'
                 icon={<FaFacebook />}
               />
             </ButtonGroup>
           </Stack>
-          <Text fontSize="sm" textColor="white" pb="30px">
+          <Text fontSize='sm' textColor='white' pb='30px'>
             &copy; {new Date().getFullYear()} Le Lever Du Pinceau, Tout les
             droits réservés
           </Text>

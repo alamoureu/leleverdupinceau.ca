@@ -15,7 +15,24 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from '../i18n';
 
-const sectors = ['Montréal', 'Laval', 'Longueuil', 'Brossard'];
+const sectors = [
+  {
+    name: 'Montréal',
+    link: '/secteurs-desservis/montreal',
+  },
+  {
+    name: 'Laval',
+    link: '/secteurs-desservis/laval',
+  },
+  {
+    name: 'Longueuil',
+    link: '/secteurs-desservis/longueuil',
+  },
+  {
+    name: 'Brossard',
+    link: '/secteurs-desservis/brossard',
+  },
+];
 
 export default function SectorsSection() {
   const { t } = useTranslation();
@@ -44,33 +61,44 @@ export default function SectorsSection() {
             maxW='700px'
           >
             {sectors.map((sector, index) => (
-              <Box
+              <Link
                 key={index}
-                p={8}
-                bg='white'
-                borderRadius='2xl'
-                textAlign='center'
-                border='1px solid'
-                borderColor='gray.200'
-                cursor='pointer'
+                href={sector.link}
+                _hover={{ textDecoration: 'none' }}
               >
-                <Stack spacing={4} align='center'>
-                  <Icon
-                    as={FontAwesomeIcon}
-                    icon={faMapMarkerAlt}
-                    boxSize={6}
-                    color='#014CC4'
-                  />
-                  <Text
-                    fontWeight='700'
-                    color='gray.800'
-                    fontSize='xl'
-                    letterSpacing='-0.02em'
-                  >
-                    {sector}
-                  </Text>
-                </Stack>
-              </Box>
+                <Box
+                  p={8}
+                  bg='white'
+                  borderRadius='2xl'
+                  textAlign='center'
+                  border='1px solid'
+                  borderColor='gray.200'
+                  cursor='pointer'
+                  _hover={{
+                    borderColor: '#014CC4',
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'md',
+                  }}
+                  transition='all 0.2s'
+                >
+                  <Stack spacing={4} align='center'>
+                    <Icon
+                      as={FontAwesomeIcon}
+                      icon={faMapMarkerAlt}
+                      boxSize={6}
+                      color='#014CC4'
+                    />
+                    <Text
+                      fontWeight='700'
+                      color='gray.800'
+                      fontSize='xl'
+                      letterSpacing='-0.02em'
+                    >
+                      {sector.name}
+                    </Text>
+                  </Stack>
+                </Box>
+              </Link>
             ))}
           </SimpleGrid>
 

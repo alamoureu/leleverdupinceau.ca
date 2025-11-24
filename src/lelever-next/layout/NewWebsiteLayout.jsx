@@ -40,7 +40,7 @@ export default function NewWebsiteLayout() {
             email: 'leleverdupinceau@gmail.com',
             address: {
               '@type': 'PostalAddress',
-              streetAddress: '2175 Saint-Patrick St',
+              streetAddress: '2175 Rue Saint-Patrick',
               addressLocality: 'Montréal',
               addressRegion: 'QC',
               postalCode: 'H3K 1B4',
@@ -287,14 +287,9 @@ export default function NewWebsiteLayout() {
                 >
                   leleverdupinceau@gmail.com
                 </Link>
-                <Link
-                  href='/new-home/contact'
-                  color='white'
-                  fontSize='sm'
-                  _hover={{ textDecoration: 'underline', color: 'gray.300' }}
-                >
-                  Montréal, Québec
-                </Link>
+                <Text color='white' fontSize='sm'>
+                  2175 Rue Saint-Patrick, Montréal, QC H3K 1B4
+                </Text>
               </Stack>
               <ButtonGroup variant='tertiary.accent' mt={{ base: 4, md: 0 }}>
                 <IconButton
