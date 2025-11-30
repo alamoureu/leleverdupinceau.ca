@@ -82,6 +82,8 @@ export default function CityServicesSection({ cityName, citySlug }) {
                 key={index}
                 href={service.link}
                 _hover={{ textDecoration: 'none' }}
+                display='block'
+                h='100%'
               >
                 <Box
                   bg='white'
@@ -90,6 +92,10 @@ export default function CityServicesSection({ cityName, citySlug }) {
                   border='1px solid'
                   borderColor='gray.200'
                   textAlign='center'
+                  h='100%'
+                  display='flex'
+                  flexDirection='column'
+                  justifyContent='center'
                   _hover={{
                     borderColor: '#014CC4',
                     transform: 'translateY(-2px)',
