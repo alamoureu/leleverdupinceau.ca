@@ -13,7 +13,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 
 export default function TeamSection() {
-  const { t } = useTranslation();
+  const { t, currentLang } = useTranslation();
   return (
     <Box py={{ base: 12, md: 16 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -23,17 +23,21 @@ export default function TeamSection() {
           align='center'
           mt={{ base: '-55px', md: '0px' }}
         >
-          <Box display={{ base: 'none', md: 'block' }}>
-            <Box
-              borderRadius='lg'
-              overflow='hidden'
-              border='1px solid'
-              borderColor='gray.200'
-              bgImage="url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')"
-              bgSize='cover'
-              bgPosition='center'
-              minH={{ base: '250px', md: '350px' }}
-            />
+          <Box
+            display={{ base: 'none', md: 'flex' }}
+            bg='gray.200'
+            borderRadius='lg'
+            w='100%'
+            h={{ base: '250px', md: '350px' }}
+            border='1px solid'
+            borderColor='gray.300'
+            borderStyle='dashed'
+            alignItems='center'
+            justifyContent='center'
+          >
+            <Text color='gray.400' fontSize='sm' fontWeight='medium'>
+              {currentLang === 'fr' ? 'Image à ajouter' : 'Image to add'}
+            </Text>
           </Box>
 
           <Stack spacing={6}>

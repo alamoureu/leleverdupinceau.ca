@@ -7,4 +7,12 @@ export default defineConfig({
     host: true,
     port: 5173,
   },
+  assetsInclude: [
+    '**/*.PNG',
+    '**/*.png',
+    '**/*.jpg',
+    '**/*.jpeg',
+    '**/*.JPG',
+    '**/*.JPEG',
+  ],
 });

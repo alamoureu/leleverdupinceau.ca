@@ -11,11 +11,11 @@ import {
 } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
-import CityServicesSection from '../home-page/city-pages/CityServicesSection';
-import CityProjectsSection from '../home-page/city-pages/CityProjectsSection';
-import CityWhyUsSection from '../home-page/city-pages/CityWhyUsSection';
-import CityResourcesSection from '../home-page/city-pages/CityResourcesSection';
-import CityCTASection from '../home-page/city-pages/CityCTASection';
+import CityServicesSection from '../city-pages/CityServicesSection';
+import CityProjectsSection from '../city-pages/CityProjectsSection';
+import CityWhyUsSection from '../city-pages/CityWhyUsSection';
+import CityResourcesSection from '../city-pages/CityResourcesSection';
+import CityCTASection from '../city-pages/CityCTASection';
 
 export default function BrossardCityPage() {
   const { currentLang } = useContext(appContext);
@@ -98,7 +98,6 @@ export default function BrossardCityPage() {
               : 'Le Lever du Pinceau offers complete residential, commercial and industrial painting services in Brossard. Professional painters in sectors R, S, T, C, V and DIX30 Quarter. Free quote.'
           }
         />
-        <meta name='robots' content='noindex, nofollow' />
         <link
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis/brossard'

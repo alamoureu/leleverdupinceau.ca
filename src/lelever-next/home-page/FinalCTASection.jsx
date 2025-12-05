@@ -5,7 +5,7 @@ import { useTranslation } from '../i18n';
 export default function FinalCTASection({ onSubmissionOpen }) {
   const { t } = useTranslation();
   return (
-    <Box py={{ base: 12, md: 16 }} bg='#014CC4' color='white'>
+    <Box w='100%' py={{ base: 12, md: 16 }} bg='#014CC4' color='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={6} align='center' textAlign='center'>
           <Heading

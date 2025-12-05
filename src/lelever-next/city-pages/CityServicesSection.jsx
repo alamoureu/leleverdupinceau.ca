@@ -10,7 +10,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import appContext from '../../../AppProvider';
+import appContext from '../../AppProvider';
 
 export default function CityServicesSection({ cityName, citySlug }) {
   const { currentLang } = useContext(appContext);
@@ -82,8 +82,6 @@ export default function CityServicesSection({ cityName, citySlug }) {
                 key={index}
                 href={service.link}
                 _hover={{ textDecoration: 'none' }}
-                display='block'
-                h='100%'
               >
                 <Box
                   bg='white'
@@ -95,7 +93,6 @@ export default function CityServicesSection({ cityName, citySlug }) {
                   h='100%'
                   display='flex'
                   flexDirection='column'
-                  justifyContent='center'
                   _hover={{
                     borderColor: '#014CC4',
                     transform: 'translateY(-2px)',
@@ -103,7 +100,7 @@ export default function CityServicesSection({ cityName, citySlug }) {
                   }}
                   transition='all 0.2s'
                 >
-                  <Stack spacing={2} align='center'>
+                  <Stack spacing={2} align='center' flex={1} justify='center'>
                     <Text fontWeight='bold' color='gray.800' fontSize='lg'>
                       {service.name}
                     </Text>

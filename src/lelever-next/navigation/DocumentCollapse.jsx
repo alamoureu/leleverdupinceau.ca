@@ -86,6 +86,21 @@ export const DocumentCollapse = ({ onClose }) => {
               {currentLang === 'fr' ? service.fr : service.en}
             </Button>
           ))}
+          <Button
+            variant='tertiary'
+            size='md'
+            justifyContent='start'
+            textColor='black'
+            onClick={() => handleNav('/services')}
+            py={{ base: 3, sm: 4 }}
+            fontSize={{ base: 'md', sm: 'lg' }}
+            fontWeight='semibold'
+            _hover={{ bg: 'gray.50' }}
+          >
+            {currentLang === 'fr'
+              ? 'Voir tous les services'
+              : 'View all services'}
+          </Button>
         </Stack>
       </Collapse>
     </>

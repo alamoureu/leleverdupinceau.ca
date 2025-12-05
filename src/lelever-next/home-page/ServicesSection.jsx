@@ -11,26 +11,26 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
+import peintureResidentielleImg from '../images/peinture_residentielle.jpg';
+import peintureCommercialeImg from '../images/peinture_commercial.jpg';
+import peintureInterieurImg from '../images/peinture_interieur.jpg';
 
 export default function ServicesSection() {
   const { t } = useTranslation();
 
   const services = [
     {
-      image:
-        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&q=80',
+      image: peintureResidentielleImg,
       title: t.serviceResidential,
       description: t.serviceResidentialDesc,
     },
     {
-      image:
-        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80',
+      image: peintureCommercialeImg,
       title: t.serviceCommercial,
       description: t.serviceCommercialDesc,
     },
     {
-      image:
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&q=80',
+      image: peintureInterieurImg,
       title: t.serviceInterior,
       description: t.serviceInteriorDesc,
     },

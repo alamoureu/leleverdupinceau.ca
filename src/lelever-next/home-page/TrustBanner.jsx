@@ -131,6 +131,7 @@ export default function TrustBanner() {
                   color='gray.800'
                   fontWeight='medium'
                   lineHeight='1.2'
+                  mt={{ md: '15px', lg: '0px' }}
                 >
                   {item.isMetric ? item.label : item.text}
                 </Text>

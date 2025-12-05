@@ -15,66 +15,42 @@ import { useTranslation } from '../i18n';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function RecentProjectsSection() {
-  const { t } = useTranslation();
+  const { t, currentLang } = useTranslation();
 
   const projects = [
     {
       id: 1,
-      images: [
-        'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      ],
+      images: [],
       title: t.projectResidential,
       description: t.projectResidentialDesc1,
     },
     {
       id: 2,
-      images: [
-        'https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      ],
+      images: [],
       title: t.projectCommercial,
       description: t.projectCommercialDesc1,
     },
     {
       id: 3,
-      images: [
-        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      ],
+      images: [],
       title: t.projectInterior,
       description: t.projectInteriorDesc,
     },
     {
       id: 4,
-      images: [
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1600607687644-c7171b42498f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      ],
+      images: [],
       title: t.projectExterior,
       description: t.projectExteriorDesc,
     },
     {
       id: 5,
-      images: [
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      ],
+      images: [],
       title: t.projectResidential,
       description: t.projectResidentialDesc2,
     },
     {
       id: 6,
-      images: [
-        'https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1589939705384-5185137a7f0f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-        'https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-      ],
+      images: [],
       title: t.projectCommercial,
       description: t.projectCommercialDesc2,
     },
@@ -155,101 +131,125 @@ export default function RecentProjectsSection() {
                     position='relative'
                     overflow='hidden'
                     h='200px'
-                    bg='gray.100'
+                    bg='gray.200'
+                    border='1px solid'
+                    borderColor='gray.300'
+                    borderStyle={
+                      project.images && project.images.length > 0
+                        ? 'solid'
+                        : 'dashed'
+                    }
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='center'
                   >
-                    <AnimatePresence initial={false}>
-                      <motion.div
-                        key={currentIndex}
-                        variants={fadeVariants}
-                        initial='enter'
-                        animate='center'
-                        exit='exit'
-                        transition={{
-                          opacity: { duration: 0.4, ease: 'easeInOut' },
-                        }}
-                        style={{
-                          position: 'absolute',
-                          width: '100%',
-                          height: '100%',
-                        }}
-                      >
-                        <Box
-                          bgImage={`url(${project.images[currentIndex]})`}
-                          bgSize='cover'
-                          bgPosition='center'
-                          w='100%'
-                          h='100%'
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-                    {project.images.length > 1 && (
+                    {(!project.images || project.images.length === 0) && (
+                      <Text color='gray.400' fontSize='sm' fontWeight='medium'>
+                        {currentLang === 'fr'
+                          ? 'Image à ajouter'
+                          : 'Image to add'}
+                      </Text>
+                    )}
+                    {project.images && project.images.length > 0 && (
                       <>
-                        <IconButton
-                          aria-label={t.previousImage}
-                          icon={<ChevronLeftIcon />}
-                          position='absolute'
-                          left={2}
-                          top='50%'
-                          transform='translateY(-50%)'
-                          bg='white'
-                          border='1px solid'
-                          borderColor='gray.200'
-                          color='#014CC4'
-                          borderRadius='full'
-                          size='sm'
-                          zIndex={2}
-                          _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
-                          onClick={() =>
-                            goToPreviousImage(project.id, project.images.length)
-                          }
-                        />
-                        <IconButton
-                          aria-label={t.nextImage}
-                          icon={<ChevronRightIcon />}
-                          position='absolute'
-                          right={2}
-                          top='50%'
-                          transform='translateY(-50%)'
-                          bg='white'
-                          border='1px solid'
-                          borderColor='gray.200'
-                          color='#014CC4'
-                          borderRadius='full'
-                          size='sm'
-                          zIndex={2}
-                          _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
-                          onClick={() =>
-                            goToNextImage(project.id, project.images.length)
-                          }
-                        />
-                        <HStack
-                          position='absolute'
-                          bottom={3}
-                          left='50%'
-                          transform='translateX(-50%)'
-                          spacing={2}
-                          zIndex={2}
-                        >
-                          {project.images.map((_, index) => (
+                        <AnimatePresence initial={false}>
+                          <motion.div
+                            key={currentIndex}
+                            variants={fadeVariants}
+                            initial='enter'
+                            animate='center'
+                            exit='exit'
+                            transition={{
+                              opacity: { duration: 0.4, ease: 'easeInOut' },
+                            }}
+                            style={{
+                              position: 'absolute',
+                              width: '100%',
+                              height: '100%',
+                            }}
+                          >
                             <Box
-                              key={index}
-                              w={currentIndex === index ? '8px' : '6px'}
-                              h={currentIndex === index ? '8px' : '6px'}
-                              borderRadius='full'
-                              bg={
-                                currentIndex === index
-                                  ? 'white'
-                                  : 'rgba(255, 255, 255, 0.5)'
-                              }
-                              cursor='pointer'
-                              transition='all 0.2s'
-                              onClick={() =>
-                                handleImageChange(project.id, index)
-                              }
-                              _hover={{ bg: 'white' }}
+                              bgImage={`url(${project.images[currentIndex]})`}
+                              bgSize='cover'
+                              bgPosition='center'
+                              w='100%'
+                              h='100%'
                             />
-                          ))}
-                        </HStack>
+                          </motion.div>
+                        </AnimatePresence>
+                        {project.images.length > 1 && (
+                          <>
+                            <IconButton
+                              aria-label={t.previousImage}
+                              icon={<ChevronLeftIcon />}
+                              position='absolute'
+                              left={2}
+                              top='50%'
+                              transform='translateY(-50%)'
+                              bg='white'
+                              border='1px solid'
+                              borderColor='gray.200'
+                              color='#014CC4'
+                              borderRadius='full'
+                              size='sm'
+                              zIndex={2}
+                              _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
+                              onClick={() =>
+                                goToPreviousImage(
+                                  project.id,
+                                  project.images.length
+                                )
+                              }
+                            />
+                            <IconButton
+                              aria-label={t.nextImage}
+                              icon={<ChevronRightIcon />}
+                              position='absolute'
+                              right={2}
+                              top='50%'
+                              transform='translateY(-50%)'
+                              bg='white'
+                              border='1px solid'
+                              borderColor='gray.200'
+                              color='#014CC4'
+                              borderRadius='full'
+                              size='sm'
+                              zIndex={2}
+                              _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
+                              onClick={() =>
+                                goToNextImage(project.id, project.images.length)
+                              }
+                            />
+                            <HStack
+                              position='absolute'
+                              bottom={3}
+                              left='50%'
+                              transform='translateX(-50%)'
+                              spacing={2}
+                              zIndex={2}
+                            >
+                              {project.images.map((_, index) => (
+                                <Box
+                                  key={index}
+                                  w={currentIndex === index ? '8px' : '6px'}
+                                  h={currentIndex === index ? '8px' : '6px'}
+                                  borderRadius='full'
+                                  bg={
+                                    currentIndex === index
+                                      ? 'white'
+                                      : 'rgba(255, 255, 255, 0.5)'
+                                  }
+                                  cursor='pointer'
+                                  transition='all 0.2s'
+                                  onClick={() =>
+                                    handleImageChange(project.id, index)
+                                  }
+                                  _hover={{ bg: 'white' }}
+                                />
+                              ))}
+                            </HStack>
+                          </>
+                        )}
                       </>
                     )}
                   </Box>

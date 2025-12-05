@@ -19,6 +19,7 @@ import {
   faRankingStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from '../i18n';
+import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
 
 export default function WhyUsSection({ onSubmissionOpen }) {
   const { t } = useTranslation();
@@ -114,7 +115,7 @@ export default function WhyUsSection({ onSubmissionOpen }) {
 
           <Box>
             <Image
-              src='https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=800&q=80'
+              src={peintureProfessionnelleImg}
               alt={t.professionalPainterAlt}
               borderRadius='lg'
               w='100%'

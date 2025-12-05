@@ -4,51 +4,51 @@ import React from 'react';
 export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
   return (
     <Stack
-      w="100%"
+      w='100%'
       h={{ base: '350px', md: '700px' }}
-      position="relative"
-      spacing="0px"
+      position='relative'
+      spacing='0px'
       mb={{ base: '-20px', md: '-100px' }}
     >
       <Box
-        w="100%"
-        h="100%"
-        position="absolute"
-        overflow="hidden"
+        w='100%'
+        h='100%'
+        position='absolute'
+        overflow='hidden'
         style={{
           clipPath: 'polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%)',
         }}
-        zIndex="0"
+        zIndex='0'
       >
         <Image
-          loading="lazy"
-          src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/main-background.png"
-          alt="Le lever du pinceau"
+          loading='lazy'
+          src='https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/main-background.png'
+          alt='Le lever du pinceau'
           objectFit={{ base: 'cover', md: 'cover' }}
-          objectPosition="center"
-          w="100%"
-          h="100%"
+          objectPosition='center'
+          w='100%'
+          h='100%'
         />
         <Box
-          position="absolute"
-          top="0"
-          left="0"
-          w="100%"
-          h="100%"
-          bg="rgba(0, 0, 0, 0.5)"
+          position='absolute'
+          top='0'
+          left='0'
+          w='100%'
+          h='100%'
+          bg='rgba(0, 0, 0, 0.5)'
         />
       </Box>
       <Box
-        position="relative"
-        zIndex="1"
-        color="white"
-        textAlign="left"
+        position='relative'
+        zIndex='1'
+        color='white'
+        textAlign='left'
         ml={{ base: '15px', md: '100px' }}
         pt={{ base: '50px', md: '100px' }}
-        display="flex"
-        flexDirection="column"
-        alignItems="flex-start"
-        justifyContent="center"
+        display='flex'
+        flexDirection='column'
+        alignItems='flex-start'
+        justifyContent='center'
       >
         <Heading fontSize={{ base: '3xl', md: '7xl' }}>
           {lang === 'fr' ? (
@@ -64,7 +64,7 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
 
         <Heading
           fontSize={{ base: 'xl', md: '3xl' }}
-          fontWeight="normal"
+          fontWeight='normal'
           mb={{ base: '2', md: '4' }}
         >
           {lang === 'fr'
@@ -74,11 +74,15 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
 
         <Button
           bg={buttonColor}
-          textColor="white"
+          textColor='white'
           _hover={{ bg: '#0056D2' }}
-          shadow="xl"
+          shadow='xl'
           maxW={{ base: 'fit-content', md: '100%' }}
-          size={{ base: 'sm', md: 'lg' }}
+          fontSize={{ base: 'md', md: 'lg' }}
+          px={{ base: 6, md: 8 }}
+          py={{ base: 4, md: 6 }}
+          h={{ base: '48px', md: 'auto' }}
+          borderRadius='full'
           onClick={onSubmissionFormOpen}
         >
           {lang === 'fr'
@@ -87,15 +91,15 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
         </Button>
       </Box>
       <Box
-        position="absolute"
+        position='absolute'
         right={{ base: '20px', md: '50px' }}
         bottom={{ base: '40px', md: '50px' }}
-        display="flex"
-        justifyContent="center"
+        display='flex'
+        justifyContent='center'
         w={{ base: '80px', md: '125px' }}
       >
         <Image
-          loading="lazy"
+          loading='lazy'
           src={
             lang === 'fr'
               ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/SSSS+(1).png'

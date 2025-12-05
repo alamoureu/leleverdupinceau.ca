@@ -12,6 +12,9 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
+import commentChoisirPeintre from '../images/comment_choisir_un_peintre.jpg';
+import prixProjetPeinture from '../images/prix_projet_peinture_montreal.jpg';
+import erreurEviterProjet from '../images/erreur_eviter_projet_peinture.jpg';
 
 export default function ResourcesSection() {
   const { t } = useTranslation();
@@ -20,20 +23,17 @@ export default function ResourcesSection() {
     {
       title: t.article1Title,
       href: '/blog/comment-choisir-peintre-professionnel',
-      image:
-        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: commentChoisirPeintre,
     },
     {
       title: t.article2Title,
       href: '/blog/prix-projet-peinture-montreal',
-      image:
-        'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: prixProjetPeinture,
     },
     {
       title: t.article3Title,
       href: '/blog/erreurs-eviter-avant-peindre',
-      image:
-        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+      image: erreurEviterProjet,
     },
   ];
   const columns = useBreakpointValue({ base: 1, md: 3 });
@@ -42,16 +42,24 @@ export default function ResourcesSection() {
     <Box py={{ base: 12, md: 16 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
-          <Stack spacing={3} textAlign='center'>
+          <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>
             <Heading
               as='h2'
               fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
               fontWeight='bold'
               color='gray.800'
+              lineHeight='1.3'
+              letterSpacing='-0.02em'
+              mb={{ base: 2, md: 3 }}
             >
               {t.resourcesTitle}
             </Heading>
-            <Text fontSize={{ base: 'md', md: 'lg' }} color='gray.600'>
+            <Text
+              fontSize={{ base: 'md', md: 'lg' }}
+              color='gray.600'
+              lineHeight='1.7'
+              letterSpacing='0.01em'
+            >
               {t.resourcesSubtitle}
             </Text>
           </Stack>
@@ -93,7 +101,9 @@ export default function ResourcesSection() {
                       fontWeight='bold'
                       color='gray.800'
                       fontSize='lg'
-                      lineHeight='1.4'
+                      lineHeight='1.5'
+                      letterSpacing='-0.01em'
+                      mb={{ base: 2, md: 3 }}
                       noOfLines={2}
                     >
                       {article.title}

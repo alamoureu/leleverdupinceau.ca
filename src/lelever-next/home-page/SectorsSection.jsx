@@ -40,16 +40,24 @@ export default function SectorsSection() {
     <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8} align='center'>
-          <Stack spacing={3} textAlign='center'>
+          <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>
             <Heading
               as='h2'
               fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
               fontWeight='bold'
               color='gray.800'
+              lineHeight='1.3'
+              letterSpacing='-0.02em'
+              mb={{ base: 2, md: 3 }}
             >
               {t.sectorsTitle}
             </Heading>
-            <Text fontSize={{ base: 'md', md: 'lg' }} color='gray.600'>
+            <Text
+              fontSize={{ base: 'md', md: 'lg' }}
+              color='gray.600'
+              lineHeight='1.7'
+              letterSpacing='0.01em'
+            >
               {t.sectorsSubtitle}
             </Text>
           </Stack>
@@ -93,6 +101,7 @@ export default function SectorsSection() {
                       color='gray.800'
                       fontSize='xl'
                       letterSpacing='-0.02em'
+                      lineHeight='1.4'
                     >
                       {sector.name}
                     </Text>

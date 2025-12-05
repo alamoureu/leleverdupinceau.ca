@@ -12,11 +12,20 @@ import MontrealCityPage from './lelever-next/pages/MontrealCityPage';
 import LavalCityPage from './lelever-next/pages/LavalCityPage';
 import LongueuilCityPage from './lelever-next/pages/LongueuilCityPage';
 import ServicesPage from './lelever-next/pages/ServicesPage';
+import PeintureCommercialePage from './lelever-next/services-pages/PeintureCommercialePage';
+import PeintureExterieurePage from './lelever-next/services-pages/PeintureExterieurePage';
+import PeintureResidentiellePage from './lelever-next/services-pages/PeintureResidentiellePage';
+import PeintureInterieurePage from './lelever-next/services-pages/PeintureInterieurePage';
+import PeintureIndustriellePage from './lelever-next/services-pages/PeintureIndustriellePage';
+import ServiceQuartierPage from './lelever-next/services-pages/service_ville/ServiceQuartierPage';
+import ServiceQuartierSecteurPage from './lelever-next/services-pages/service_quartier/ServiceQuartierSecteurPage';
+import SousServiceVillePage from './lelever-next/services-pages/sous_service_ville/SousServiceVillePage';
+import SousServicePage from './lelever-next/services-pages/sous_service/SousServicePage';
 import BlogPage from './lelever-next/pages/BlogPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
-import PeintureExt from './pages/PeintureExterieur';
-import PeintureInt from './pages/PeintureInterieur';
+// import PeintureExt from './pages/PeintureExterieur';
+// import PeintureInt from './pages/PeintureInterieur';
 import Nousjoindre from './pages/Nousjoindre';
 import AboutUs from './pages/AboutUs';
 import Emplois from './pages/Emplois';
@@ -46,14 +55,14 @@ export default function App() {
             <Route path='/contact' element={<Nousjoindre />} />
             <Route path='/a-propos-de-nous' element={<AboutUs />} />
             <Route path='/emplois' element={<Emplois />} />
-            <Route
+            {/* <Route
               path='/services/peinture-exterieure'
               element={<PeintureExt />}
-            />
-            <Route
+            /> */}
+            {/* <Route
               path='/services/peinture-interieure'
               element={<PeintureInt />}
-            />
+            /> */}
             <Route
               path='/politiques/confidentialite'
               element={<ThermOfUsePage />}
@@ -131,6 +140,46 @@ export default function App() {
             }
           >
             <Route index element={<ServicesPage />} />
+            <Route
+              path='peinture-commerciale'
+              element={<PeintureCommercialePage />}
+            />
+            <Route
+              path='peinture-exterieure'
+              element={<PeintureExterieurePage />}
+            />
+            <Route
+              path='peinture-residentielle'
+              element={<PeintureResidentiellePage />}
+            />
+            <Route
+              path='peinture-interieure'
+              element={<PeintureInterieurePage />}
+            />
+            <Route
+              path='peinture-industrielle'
+              element={<PeintureIndustriellePage />}
+            />
+            {/* Dynamic Service × SubService routes - MUST be before Service × SubService × City */}
+            <Route
+              path=':serviceSlug/:subServiceSlug'
+              element={<SousServicePage />}
+            />
+            {/* Dynamic Service × SubService × City routes - MUST be before Service × City × Neighborhood */}
+            <Route
+              path=':serviceSlug/:subServiceSlug/:citySlug'
+              element={<SousServiceVillePage />}
+            />
+            {/* Dynamic Service × City × Neighborhood routes - MUST be before Service × City */}
+            <Route
+              path=':serviceSlug/:citySlug/:neighborhoodSlug'
+              element={<ServiceQuartierSecteurPage />}
+            />
+            {/* Dynamic Service × City routes - MUST be last to avoid conflicts */}
+            <Route
+              path=':serviceSlug/:citySlug'
+              element={<ServiceQuartierPage />}
+            />
           </Route>
           <Route
             path='/blog'

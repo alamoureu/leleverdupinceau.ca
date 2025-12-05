@@ -158,7 +158,7 @@ export default function WebsiteNavBar() {
                   : 'Professional Painters'}
               </Button>
               <Button
-                onClick={() => navigate('/new-home/a-propos')}
+                onClick={() => navigate('/a-propos')}
                 fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
                 px={{ base: 3, lg: 3, xl: 3 }}
               >

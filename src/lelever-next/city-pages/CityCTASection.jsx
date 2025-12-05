@@ -9,7 +9,7 @@ import {
   Link,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import appContext from '../../../AppProvider';
+import appContext from '../../AppProvider';
 
 export default function CityCTASection({ cityName }) {
   const { currentLang } = useContext(appContext);

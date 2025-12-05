@@ -361,11 +361,25 @@ export default function ContactPage() {
                             : 'Saturday and Sunday: 5:30 AM – 11:30 PM'}
                         </Text>
                       </Stack>
-                      <Text color='gray.600' fontSize='xs' mt={2}>
-                        {isFr
-                          ? 'Disponible pour projets urgents sur demande'
-                          : 'Available for urgent projects upon request'}
-                      </Text>
+                      <Box
+                        mt={4}
+                        p={3}
+                        bg='#014CC4'
+                        borderRadius='md'
+                        border='1px solid'
+                        borderColor='#014CC4'
+                      >
+                        <Text
+                          color='white'
+                          fontSize='sm'
+                          fontWeight='bold'
+                          textAlign='center'
+                        >
+                          {isFr
+                            ? 'Disponible pour projets urgents sur demande'
+                            : 'Available for urgent projects upon request'}
+                        </Text>
+                      </Box>
                     </Stack>
                   </Box>
                 </Stack>

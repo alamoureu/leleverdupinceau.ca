@@ -12,13 +12,11 @@ import {
   Icon,
   HStack,
   Flex,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import heroImage from '../images/heroImage.png';
 import SectorsSection from '../home-page/SectorsSection';
 import ReviewsSection from '../home-page/ReviewsSection';
 
@@ -362,90 +360,70 @@ export default function AboutPage() {
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <SimpleGrid
-                  columns={{ base: 1, md: 2 }}
-                  spacing={{ base: 8, md: 12 }}
-                  align='center'
-                >
-                  <Box>
-                    <Image
-                      src={heroImage}
-                      alt={
-                        isFr
-                          ? 'équipe peinture Montréal'
-                          : 'painting team Montreal'
-                      }
-                      borderRadius='xl'
-                      objectFit='cover'
-                      w='100%'
-                      maxH='400px'
-                    />
-                  </Box>
-                  <Stack spacing={6}>
-                    <Stack spacing={3}>
-                      <Heading
-                        as='h2'
-                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                        fontWeight='bold'
-                        color='gray.800'
-                      >
-                        {isFr
-                          ? 'Des peintres professionnels expérimentés'
-                          : 'Experienced professional painters'}
-                      </Heading>
-                    </Stack>
-
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.600'
-                      lineHeight='1.7'
+                <Stack spacing={6} maxW='800px' mx='auto'>
+                  <Stack spacing={3}>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
                     >
                       {isFr
-                        ? 'Notre équipe est composée de peintres :'
-                        : 'Our team is made up of painters who are:'}
-                    </Text>
-
-                    <Stack spacing={3}>
-                      {teamPoints.map((point, index) => (
-                        <Flex key={index} align='start' gap={3}>
-                          <Icon
-                            as={FontAwesomeIcon}
-                            icon={faCheckCircle}
-                            color='#014CC4'
-                            boxSize={5}
-                            mt={1}
-                            flexShrink={0}
-                          />
-                          <Text color='gray.700' fontSize='md' lineHeight='1.6'>
-                            {point}
-                          </Text>
-                        </Flex>
-                      ))}
-                    </Stack>
-
-                    <Link
-                      href='/peintre-professionnel'
-                      _hover={{ textDecoration: 'none' }}
-                      w={{ base: '100%', md: 'auto' }}
-                    >
-                      <Button
-                        rightIcon={<ArrowForwardIcon />}
-                        variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
-                        borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        px={{ base: 5, md: 7 }}
-                        py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
-                      >
-                        {isFr
-                          ? 'Voir notre page Peintres professionnels'
-                          : 'See our Professional Painters page'}
-                      </Button>
-                    </Link>
+                        ? 'Des peintres professionnels expérimentés'
+                        : 'Experienced professional painters'}
+                    </Heading>
                   </Stack>
-                </SimpleGrid>
+
+                  <Text
+                    fontSize={{ base: 'md', md: 'lg' }}
+                    color='gray.600'
+                    lineHeight='1.7'
+                  >
+                    {isFr
+                      ? 'Notre équipe est composée de peintres :'
+                      : 'Our team is made up of painters who are:'}
+                  </Text>
+
+                  <Stack spacing={3}>
+                    {teamPoints.map((point, index) => (
+                      <Flex key={index} align='start' gap={3}>
+                        <Icon
+                          as={FontAwesomeIcon}
+                          icon={faCheckCircle}
+                          color='#014CC4'
+                          boxSize={5}
+                          mt={1}
+                          flexShrink={0}
+                        />
+                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                          {point}
+                        </Text>
+                      </Flex>
+                    ))}
+                  </Stack>
+
+                  <Link
+                    href='/peintre-professionnel'
+                    _hover={{ textDecoration: 'none' }}
+                    w={{ base: '100%', md: 'auto' }}
+                  >
+                    <Button
+                      rightIcon={<ArrowForwardIcon />}
+                      variant='outline'
+                      borderColor='#014CC4'
+                      color='#014CC4'
+                      borderRadius='full'
+                      fontSize={{ base: 'sm', md: 'md' }}
+                      px={{ base: 5, md: 7 }}
+                      py={{ base: 3, md: 4 }}
+                      _hover={{ bg: '#014CC4', color: 'white' }}
+                    >
+                      {isFr
+                        ? 'Voir notre page Peintres professionnels'
+                        : 'See our Professional Painters page'}
+                    </Button>
+                  </Link>
+                </Stack>
               </Container>
             </Box>
 

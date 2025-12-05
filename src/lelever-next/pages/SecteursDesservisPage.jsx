@@ -18,7 +18,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import heroImage from '../images/heroImage.png';
-import ResourcesSection from '../home-page/ResourcesSection';
+import commentChoisirPeintre from '../images/comment_choisir_un_peintre.jpg';
+import prixProjetPeinture from '../images/prix_projet_peinture_montreal.jpg';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -130,8 +131,6 @@ export default function SecteursDesservisPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis'
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -151,7 +150,7 @@ export default function SecteursDesservisPage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                href='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -186,8 +185,19 @@ export default function SecteursDesservisPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal, incluant Montréal, Laval, Longueuil et Brossard. Ce Hub regroupe toutes les zones desservies par Le Lever du Pinceau : villes principales, sous-villes et quartiers majeurs. Sélectionnez votre secteur pour découvrir les services disponibles, les projets réalisés et les détails propres à votre localité. Nous sommes disponibles rapidement dans votre quartier pour des projets résidentiels, commerciaux, intérieurs et extérieurs."
-                  : 'Our teams of professional painters serve all of Greater Montreal, including Montreal, Laval, Longueuil and Brossard. This Hub brings together all areas served by Le Lever du Pinceau: main cities, sub-cities and major neighborhoods. Select your area to discover available services, completed projects and details specific to your location. We are quickly available in your neighborhood for residential, commercial, interior and exterior projects.'}
+                  ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal, incluant Montréal, Laval, Longueuil et Brossard. Ce Hub regroupe toutes les zones desservies par Le Lever du Pinceau : villes principales, sous-villes et quartiers majeurs. Sélectionnez votre secteur pour découvrir les services disponibles, les projets réalisés et les détails propres à votre localité."
+                  : 'Our teams of professional painters serve all of Greater Montreal, including Montreal, Laval, Longueuil and Brossard. This Hub brings together all areas served by Le Lever du Pinceau: main cities, sub-cities and major neighborhoods. Select your area to discover available services, completed projects and details specific to your location.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='800px'
+                fontWeight='500'
+              >
+                {isFr
+                  ? '👉 Nous sommes disponibles rapidement dans votre quartier pour des projets résidentiels, commerciaux, intérieurs et extérieurs.'
+                  : '👉 We are quickly available in your neighborhood for residential, commercial, interior and exterior projects.'}
               </Text>
             </Stack>
 
@@ -458,7 +468,162 @@ export default function SecteursDesservisPage() {
               </Container>
             </Box>
 
-            <ResourcesSection />
+            {/* Section 5 — Guides & ressources */}
+            <Box py={{ base: 12, md: 16 }}>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign='center'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Conseils utiles pour mieux planifier votre projet'
+                        : 'Useful tips to better plan your project'}
+                    </Heading>
+                  </Stack>
+
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2 }}
+                    spacing={{ base: 4, md: 6 }}
+                    maxW='800px'
+                    mx='auto'
+                  >
+                    <Link
+                      href='/blog/comment-choisir-un-peintre-professionnel'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      <Box
+                        bg='white'
+                        borderRadius='xl'
+                        overflow='hidden'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{
+                          borderColor: '#014CC4',
+                          transform: 'translateY(-2px)',
+                          boxShadow: 'md',
+                        }}
+                        transition='all 0.2s'
+                      >
+                        <Box
+                          position='relative'
+                          overflow='hidden'
+                          h='200px'
+                          bg='gray.100'
+                        >
+                          <Image
+                            src={commentChoisirPeintre}
+                            alt={
+                              isFr
+                                ? 'Comment choisir un peintre professionnel'
+                                : 'How to choose a professional painter'
+                            }
+                            w='100%'
+                            h='100%'
+                            objectFit='cover'
+                          />
+                        </Box>
+                        <Stack p={6} spacing={4} flex={1}>
+                          <Text
+                            fontWeight='bold'
+                            color='gray.800'
+                            fontSize='lg'
+                            lineHeight='1.4'
+                          >
+                            {isFr
+                              ? 'Comment choisir un peintre professionnel ?'
+                              : 'How to choose a professional painter?'}
+                          </Text>
+                          <Box
+                            display='flex'
+                            alignItems='center'
+                            color='#014CC4'
+                            fontWeight='semibold'
+                            fontSize='sm'
+                          >
+                            <Text mr={2}>
+                              {isFr ? "Lire l'article" : 'Read article'}
+                            </Text>
+                            <ArrowForwardIcon boxSize={4} />
+                          </Box>
+                        </Stack>
+                      </Box>
+                    </Link>
+
+                    <Link
+                      href='/blog/prix-peinture-montreal'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      <Box
+                        bg='white'
+                        borderRadius='xl'
+                        overflow='hidden'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{
+                          borderColor: '#014CC4',
+                          transform: 'translateY(-2px)',
+                          boxShadow: 'md',
+                        }}
+                        transition='all 0.2s'
+                      >
+                        <Box
+                          position='relative'
+                          overflow='hidden'
+                          h='200px'
+                          bg='gray.100'
+                        >
+                          <Image
+                            src={prixProjetPeinture}
+                            alt={
+                              isFr
+                                ? 'Prix peinture Montréal : comprendre les coûts'
+                                : 'Painting prices Montreal: understand the costs'
+                            }
+                            w='100%'
+                            h='100%'
+                            objectFit='cover'
+                          />
+                        </Box>
+                        <Stack p={6} spacing={4} flex={1}>
+                          <Text
+                            fontWeight='bold'
+                            color='gray.800'
+                            fontSize='lg'
+                            lineHeight='1.4'
+                          >
+                            {isFr
+                              ? 'Prix peinture Montréal : comprendre les coûts'
+                              : 'Painting prices Montreal: understand the costs'}
+                          </Text>
+                          <Box
+                            display='flex'
+                            alignItems='center'
+                            color='#014CC4'
+                            fontWeight='semibold'
+                            fontSize='sm'
+                          >
+                            <Text mr={2}>
+                              {isFr ? "Lire l'article" : 'Read article'}
+                            </Text>
+                            <ArrowForwardIcon boxSize={4} />
+                          </Box>
+                        </Stack>
+                      </Box>
+                    </Link>
+                  </SimpleGrid>
+                </Stack>
+              </Container>
+            </Box>
           </Stack>
         </Container>
 
@@ -494,10 +659,7 @@ export default function SecteursDesservisPage() {
               </Stack>
 
               <Box>
-                <Link
-                  href='/new-home/contact'
-                  _hover={{ textDecoration: 'none' }}
-                >
+                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

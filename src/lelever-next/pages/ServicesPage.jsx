@@ -10,13 +10,12 @@ import {
   Link,
   Button,
   HStack,
-  Flex,
-  Image,
+  Icon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import heroImage from '../images/heroImage.png';
-import ResourcesSection from '../home-page/ResourcesSection';
 
 export default function ServicesPage() {
   const { currentLang } = useContext(appContext);
@@ -84,25 +83,25 @@ export default function ServicesPage() {
       title: isFr
         ? 'Peinture résidentielle intérieure'
         : 'Residential interior painting',
-      link: '/services/peinture-residentielle',
+      link: '/services/peinture-residentielle/interieure',
     },
     {
       title: isFr
         ? 'Peinture résidentielle extérieure'
         : 'Residential exterior painting',
-      link: '/services/peinture-residentielle',
+      link: '/services/peinture-residentielle/exterieure',
     },
     {
       title: isFr
         ? 'Peinture commerciale intérieure'
         : 'Commercial interior painting',
-      link: '/services/peinture-commerciale',
+      link: '/services/peinture-commerciale/interieure',
     },
     {
       title: isFr
         ? 'Peinture commerciale extérieure'
         : 'Commercial exterior painting',
-      link: '/services/peinture-commerciale',
+      link: '/services/peinture-commerciale/exterieure',
     },
   ];
 
@@ -143,7 +142,6 @@ export default function ServicesPage() {
         />
         <link rel='canonical' href='https://leleverdupinceau.ca/services' />
         <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -163,7 +161,7 @@ export default function ServicesPage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                href='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -198,15 +196,26 @@ export default function ServicesPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? "Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Nos équipes de peintres professionnels réalisent des projets résidentiels, commerciaux, intérieurs, extérieurs et industriels avec une finition impeccable. Ce Hub regroupe l'ensemble de nos services afin de vous orienter rapidement vers la page correspondant à votre besoin. Choisissez un service pour découvrir les détails et les options disponibles."
-                  : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Our teams of professional painters carry out residential, commercial, interior, exterior and industrial projects with impeccable finish. This Hub brings together all our services to quickly guide you to the page corresponding to your need. Choose a service to discover the details and available options.'}
+                  ? "Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Nos équipes de peintres professionnels réalisent des projets résidentiels, commerciaux, intérieurs, extérieurs et industriels avec une finition impeccable. Ce Hub regroupe l'ensemble de nos services afin de vous orienter rapidement vers la page correspondant à votre besoin."
+                  : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Our teams of professional painters carry out residential, commercial, interior, exterior and industrial projects with impeccable finish. This Hub brings together all our services to quickly guide you to the page corresponding to your need.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='800px'
+                fontWeight='500'
+              >
+                {isFr
+                  ? '👉 Choisissez un service pour découvrir les détails et les options disponibles.'
+                  : '👉 Choose a service to discover the details and available options.'}
               </Text>
             </Stack>
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
+                  <Stack spacing={3} textAlign='left'>
                     <Heading
                       as='h2'
                       fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -235,6 +244,9 @@ export default function ServicesPage() {
                           borderRadius='xl'
                           border='1px solid'
                           borderColor='gray.200'
+                          h='100%'
+                          display='flex'
+                          flexDirection='column'
                           _hover={{
                             borderColor: '#014CC4',
                             transform: 'translateY(-2px)',
@@ -242,7 +254,7 @@ export default function ServicesPage() {
                           }}
                           transition='all 0.2s'
                         >
-                          <Stack spacing={4}>
+                          <Stack spacing={4} flex={1}>
                             <Heading
                               as='h3'
                               fontSize='xl'
@@ -258,7 +270,7 @@ export default function ServicesPage() {
                             >
                               {service.description}
                             </Text>
-                            <HStack spacing={2} color='#014CC4'>
+                            <HStack spacing={2} color='#014CC4' mt='auto'>
                               <Text
                                 fontSize='sm'
                                 fontWeight='medium'
@@ -277,10 +289,10 @@ export default function ServicesPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
+                  <Stack spacing={3} textAlign='left'>
                     <Heading
                       as='h2'
                       fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -291,13 +303,21 @@ export default function ServicesPage() {
                         ? 'Sous-services disponibles'
                         : 'Available sub-services'}
                     </Heading>
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='gray.600'
+                      lineHeight='1.7'
+                      maxW='800px'
+                    >
+                      {isFr
+                        ? 'Découvrez nos services spécialisés par type de projet et environnement.'
+                        : 'Discover our specialized services by project type and environment.'}
+                    </Text>
                   </Stack>
 
                   <SimpleGrid
                     columns={{ base: 1, md: 2 }}
-                    spacing={{ base: 4, md: 6 }}
-                    maxW='800px'
-                    mx='auto'
+                    spacing={{ base: 6, md: 8 }}
                   >
                     {subServices.map((service, index) => (
                       <Link
@@ -305,36 +325,49 @@ export default function ServicesPage() {
                         href={service.link}
                         _hover={{ textDecoration: 'none' }}
                       >
-                        <Flex
-                          align={{ base: 'flex-start', md: 'center' }}
-                          justify='space-between'
-                          direction={{ base: 'column', md: 'row' }}
-                          gap={{ base: 3, md: 0 }}
-                          p={{ base: 4, md: 6 }}
+                        <Box
                           bg='white'
+                          p={{ base: 6, md: 8 }}
                           borderRadius='xl'
                           border='1px solid'
                           borderColor='gray.200'
+                          h='100%'
+                          display='flex'
+                          flexDirection='column'
                           _hover={{
                             borderColor: '#014CC4',
-                            transform: 'translateX(4px)',
+                            transform: 'translateY(-2px)',
+                            boxShadow: 'md',
                           }}
                           transition='all 0.2s'
                         >
-                          <Text
-                            fontWeight='medium'
-                            color='gray.800'
-                            fontSize='md'
-                          >
-                            {service.title}
-                          </Text>
-                          <HStack spacing={2} color='#014CC4'>
-                            <Text fontSize='sm' fontWeight='medium'>
-                              {isFr ? 'Voir' : 'View'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </HStack>
-                        </Flex>
+                          <Stack spacing={4} flex={1}>
+                            <Heading
+                              as='h3'
+                              fontSize='xl'
+                              fontWeight='bold'
+                              color='gray.800'
+                            >
+                              {service.title}
+                            </Heading>
+                            <HStack spacing={2} color='#014CC4' mt='auto'>
+                              <Text
+                                fontSize='sm'
+                                fontWeight='medium'
+                                _hover={{ textDecoration: 'underline' }}
+                              >
+                                {service.link.includes('residentielle')
+                                  ? isFr
+                                    ? 'Voir peinture résidentielle'
+                                    : 'View residential painting'
+                                  : isFr
+                                  ? 'Voir peinture commerciale'
+                                  : 'View commercial painting'}
+                              </Text>
+                              <ArrowForwardIcon boxSize={4} />
+                            </HStack>
+                          </Stack>
+                        </Box>
                       </Link>
                     ))}
                   </SimpleGrid>
@@ -344,38 +377,18 @@ export default function ServicesPage() {
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <SimpleGrid
-                  columns={{ base: 1, md: 2 }}
-                  spacing={{ base: 8, md: 12 }}
-                  align='center'
-                >
-                  <Box>
-                    <Image
-                      src={heroImage}
-                      alt={
-                        isFr
-                          ? 'services de peinture Montréal'
-                          : 'painting services Montreal'
-                      }
-                      borderRadius='xl'
-                      objectFit='cover'
-                      w='100%'
-                      maxH='400px'
-                    />
-                  </Box>
-                  <Stack spacing={6}>
-                    <Stack spacing={3}>
-                      <Heading
-                        as='h2'
-                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                        fontWeight='bold'
-                        color='gray.800'
-                      >
-                        {isFr
-                          ? 'Des peintres professionnels pour chaque type de projet'
-                          : 'Professional painters for every type of project'}
-                      </Heading>
-                    </Stack>
+                <Stack spacing={6} align='center' textAlign='center'>
+                  <Stack spacing={3} maxW='800px'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Des peintres professionnels pour chaque type de projet'
+                        : 'Professional painters for every type of project'}
+                    </Heading>
 
                     <Text
                       fontSize={{ base: 'md', md: 'lg' }}
@@ -391,6 +404,7 @@ export default function ServicesPage() {
                       href='/peintre-professionnel'
                       _hover={{ textDecoration: 'none' }}
                       w={{ base: '100%', md: 'auto' }}
+                      display='inline-block'
                     >
                       <Button
                         rightIcon={<ArrowForwardIcon />}
@@ -414,19 +428,21 @@ export default function ServicesPage() {
                       </Button>
                     </Link>
                   </Stack>
-                </SimpleGrid>
+                </Stack>
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
+                <Stack spacing={8} align='center'>
+                  <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>
                     <Heading
                       as='h2'
                       fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
                       fontWeight='bold'
                       color='gray.800'
+                      lineHeight='1.3'
+                      letterSpacing='-0.02em'
                     >
                       {isFr
                         ? 'Services disponibles dans votre ville'
@@ -434,12 +450,7 @@ export default function ServicesPage() {
                     </Heading>
                   </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 2, sm: 4 }}
-                    spacing={6}
-                    maxW='700px'
-                    mx='auto'
-                  >
+                  <SimpleGrid columns={{ base: 2, sm: 4 }} spacing={6} w='100%'>
                     {cities.map((city, index) => (
                       <Link
                         key={index}
@@ -453,6 +464,11 @@ export default function ServicesPage() {
                           textAlign='center'
                           border='1px solid'
                           borderColor='gray.200'
+                          cursor='pointer'
+                          h='100%'
+                          minH={{ base: '180px', md: '200px' }}
+                          display='flex'
+                          flexDirection='column'
                           _hover={{
                             borderColor: '#014CC4',
                             transform: 'translateY(-2px)',
@@ -460,21 +476,35 @@ export default function ServicesPage() {
                           }}
                           transition='all 0.2s'
                         >
-                          <Stack spacing={4} align='center'>
+                          <Stack
+                            spacing={4}
+                            align='center'
+                            flex={1}
+                            justify='center'
+                            w='100%'
+                          >
+                            <Icon
+                              as={FontAwesomeIcon}
+                              icon={faMapMarkerAlt}
+                              boxSize={6}
+                              color='#014CC4'
+                              flexShrink={0}
+                            />
                             <Text
                               fontWeight='700'
                               color='gray.800'
                               fontSize='xl'
                               letterSpacing='-0.02em'
+                              lineHeight='1.4'
+                              minH={{ base: '48px', md: '56px' }}
+                              display='flex'
+                              alignItems='center'
+                              justifyContent='center'
+                              textAlign='center'
+                              w='100%'
                             >
                               {city.name}
                             </Text>
-                            <HStack spacing={2} color='#014CC4'>
-                              <Text fontSize='sm' fontWeight='medium'>
-                                {isFr ? 'Voir la ville' : 'View city'}
-                              </Text>
-                              <ArrowForwardIcon boxSize={4} />
-                            </HStack>
                           </Stack>
                         </Box>
                       </Link>
@@ -484,7 +514,171 @@ export default function ServicesPage() {
               </Container>
             </Box>
 
-            <ResourcesSection />
+            {/* Section 5 — Guides & ressources */}
+            <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign='left'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Conseils pratiques avant de choisir votre service'
+                        : 'Practical tips before choosing your service'}
+                    </Heading>
+                  </Stack>
+
+                  <SimpleGrid
+                    columns={{ base: 1, md: 3 }}
+                    spacing={{ base: 4, md: 6 }}
+                  >
+                    <Link
+                      href='/blog/comment-choisir-un-peintre-professionnel'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      <Box
+                        bg='white'
+                        borderRadius='xl'
+                        overflow='hidden'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{
+                          borderColor: '#014CC4',
+                          transform: 'translateY(-2px)',
+                          boxShadow: 'md',
+                        }}
+                        transition='all 0.2s'
+                      >
+                        <Stack p={6} spacing={4} flex={1}>
+                          <Text
+                            fontWeight='bold'
+                            color='gray.800'
+                            fontSize='lg'
+                            lineHeight='1.4'
+                          >
+                            {isFr
+                              ? 'Comment choisir un peintre professionnel ?'
+                              : 'How to choose a professional painter?'}
+                          </Text>
+                          <Box
+                            display='flex'
+                            alignItems='center'
+                            color='#014CC4'
+                            fontWeight='semibold'
+                            fontSize='sm'
+                          >
+                            <Text mr={2}>
+                              {isFr ? "Lire l'article" : 'Read article'}
+                            </Text>
+                            <ArrowForwardIcon boxSize={4} />
+                          </Box>
+                        </Stack>
+                      </Box>
+                    </Link>
+
+                    <Link
+                      href='/blog/prix-peinture-montreal'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      <Box
+                        bg='white'
+                        borderRadius='xl'
+                        overflow='hidden'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{
+                          borderColor: '#014CC4',
+                          transform: 'translateY(-2px)',
+                          boxShadow: 'md',
+                        }}
+                        transition='all 0.2s'
+                      >
+                        <Stack p={6} spacing={4} flex={1}>
+                          <Text
+                            fontWeight='bold'
+                            color='gray.800'
+                            fontSize='lg'
+                            lineHeight='1.4'
+                          >
+                            {isFr
+                              ? "Quel est le prix d'un service de peinture à Montréal ?"
+                              : 'What is the price of a painting service in Montreal?'}
+                          </Text>
+                          <Box
+                            display='flex'
+                            alignItems='center'
+                            color='#014CC4'
+                            fontWeight='semibold'
+                            fontSize='sm'
+                          >
+                            <Text mr={2}>
+                              {isFr ? "Lire l'article" : 'Read article'}
+                            </Text>
+                            <ArrowForwardIcon boxSize={4} />
+                          </Box>
+                        </Stack>
+                      </Box>
+                    </Link>
+
+                    <Link
+                      href='/blog/erreurs-a-eviter-peinture'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      <Box
+                        bg='white'
+                        borderRadius='xl'
+                        overflow='hidden'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{
+                          borderColor: '#014CC4',
+                          transform: 'translateY(-2px)',
+                          boxShadow: 'md',
+                        }}
+                        transition='all 0.2s'
+                      >
+                        <Stack p={6} spacing={4} flex={1}>
+                          <Text
+                            fontWeight='bold'
+                            color='gray.800'
+                            fontSize='lg'
+                            lineHeight='1.4'
+                          >
+                            {isFr
+                              ? 'Les erreurs courantes à éviter avant de repeindre'
+                              : 'Common mistakes to avoid before repainting'}
+                          </Text>
+                          <Box
+                            display='flex'
+                            alignItems='center'
+                            color='#014CC4'
+                            fontWeight='semibold'
+                            fontSize='sm'
+                          >
+                            <Text mr={2}>
+                              {isFr ? "Lire l'article" : 'Read article'}
+                            </Text>
+                            <ArrowForwardIcon boxSize={4} />
+                          </Box>
+                        </Stack>
+                      </Box>
+                    </Link>
+                  </SimpleGrid>
+                </Stack>
+              </Container>
+            </Box>
           </Stack>
         </Container>
 
@@ -520,10 +714,7 @@ export default function ServicesPage() {
               </Stack>
 
               <Box>
-                <Link
-                  href='/new-home/contact'
-                  _hover={{ textDecoration: 'none' }}
-                >
+                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

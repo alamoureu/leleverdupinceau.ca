@@ -8,15 +8,13 @@ import {
   SimpleGrid,
   Button,
   Link,
-  Image,
   Flex,
   Icon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import appContext from '../../../AppProvider';
-import heroImage from '../../images/heroImage.png';
+import appContext from '../../AppProvider';
 
 export default function CityWhyUsSection({
   cityName,
@@ -170,23 +168,21 @@ export default function CityWhyUsSection({
               </Button>
             </Link>
           </Stack>
-          <Box>
-            <Image
-              src={heroImage}
-              alt={
-                isFr
-                  ? cityName === 'Brossard'
-                    ? 'Peinture Brossard'
-                    : `Peinture ${cityName} professionnelle`
-                  : cityName === 'Brossard'
-                  ? 'Painting Brossard'
-                  : `Professional painting ${cityName}`
-              }
-              borderRadius='xl'
-              objectFit='cover'
-              w='100%'
-              maxH='400px'
-            />
+          <Box
+            bg='gray.200'
+            borderRadius='xl'
+            w='100%'
+            h='400px'
+            border='1px solid'
+            borderColor='gray.300'
+            borderStyle='dashed'
+            display='flex'
+            alignItems='center'
+            justifyContent='center'
+          >
+            <Text color='gray.400' fontSize='sm' fontWeight='medium'>
+              {isFr ? 'Image à ajouter' : 'Image to add'}
+            </Text>
           </Box>
         </SimpleGrid>
       </Container>

@@ -10,7 +10,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import appContext from '../../../AppProvider';
+import appContext from '../../AppProvider';
 
 export default function CityResourcesSection({ cityName }) {
   const { currentLang } = useContext(appContext);
@@ -144,6 +144,9 @@ export default function CityResourcesSection({ cityName }) {
                   borderRadius='xl'
                   border='1px solid'
                   borderColor='gray.200'
+                  h='100%'
+                  display='flex'
+                  flexDirection='column'
                   _hover={{
                     borderColor: '#014CC4',
                     transform: 'translateY(-2px)',
@@ -151,7 +154,7 @@ export default function CityResourcesSection({ cityName }) {
                   }}
                   transition='all 0.2s'
                 >
-                  <Stack spacing={3}>
+                  <Stack spacing={3} flex={1}>
                     <Text
                       fontWeight='bold'
                       color='gray.800'
@@ -160,7 +163,7 @@ export default function CityResourcesSection({ cityName }) {
                     >
                       {article.title}
                     </Text>
-                    <HStack spacing={2} color='#014CC4'>
+                    <HStack spacing={2} color='#014CC4' mt='auto'>
                       <Text fontSize='sm' fontWeight='medium'>
                         {isFr ? 'Lire' : 'Read'}
                       </Text>

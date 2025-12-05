@@ -12,12 +12,31 @@ import {
 } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import appContext from '../../../AppProvider';
-import heroImage from '../../images/heroImage.png';
+import appContext from '../../AppProvider';
+import montrealMapImage from '../images/montreal_secteur.png';
+import lavalMapImage from '../images/laval_secteur.png';
+import longueuilMapImage from '../images/longueil_secteur.png';
+import brossardMapImage from '../images/brossard_secteur.png';
 
 export default function CityProjectsSection({ cityName, projectsContent }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+
+  // Get the appropriate map image based on city name
+  const getMapImage = () => {
+    switch (cityName) {
+      case 'Montréal':
+        return montrealMapImage;
+      case 'Laval':
+        return lavalMapImage;
+      case 'Longueuil':
+        return longueuilMapImage;
+      case 'Brossard':
+        return brossardMapImage;
+      default:
+        return montrealMapImage; // fallback
+    }
+  };
 
   return (
     <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
@@ -57,24 +76,23 @@ export default function CityProjectsSection({ cityName, projectsContent }) {
             spacing={{ base: 8, md: 12 }}
             align='center'
           >
-            <Box>
-              <Image
-                src={heroImage}
-                alt={
-                  isFr
-                    ? cityName === 'Brossard'
-                      ? 'Peintre Brossard'
-                      : `Peintre professionnel ${cityName}`
-                    : cityName === 'Brossard'
-                    ? 'Painter Brossard'
-                    : `Professional painter ${cityName}`
-                }
-                borderRadius='xl'
-                objectFit='cover'
-                w='100%'
-                maxH='400px'
-              />
-            </Box>
+            <Image
+              src={getMapImage()}
+              alt={
+                isFr
+                  ? `Secteurs desservis à ${cityName}`
+                  : `Service areas in ${cityName}`
+              }
+              borderRadius='xl'
+              border='1px solid'
+              borderColor='gray.200'
+              objectFit='cover'
+              objectPosition='center'
+              w='100%'
+              h='400px'
+              display='block'
+            />
+
             <Stack spacing={4}>
               {projectsContent ? (
                 typeof projectsContent === 'string' ? (
