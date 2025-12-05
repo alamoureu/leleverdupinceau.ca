@@ -62,45 +62,35 @@ export const peintureExterieureData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Peinture extérieure d'une maison moderne secteur R",
               description:
                 "Rafraîchissement complet d'une façade moderne avec des produits haute durabilité adaptés au climat québécois.",
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Protection d'un revêtement en bois dans le secteur S",
               description:
                 "Application de produits protecteurs sur revêtement en bois pour résister aux intempéries et à l'humidité.",
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Modernisation d'une façade en vinyle près du DIX30",
               description:
                 "Mise à jour esthétique d'une façade en vinyle avec des couleurs modernes et durables.",
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Repeinture d'un balcon + escalier dans le secteur T",
               description:
                 "Rénovation complète d'un balcon et escalier extérieur avec finition résistante aux intempéries.",
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Rafraîchissement complet d'un condo secteur C",
               description:
                 "Peinture extérieure complète d'un condo avec protection des surfaces adjacentes et finition impeccable.",
@@ -109,45 +99,35 @@ export const peintureExterieureData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Exterior painting of a modern house in sector R',
               description:
                 'Complete refresh of a modern facade with high durability products adapted to Quebec climate.',
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Protection of a wood cladding in sector S',
               description:
                 'Application of protective products on wood cladding to resist weather and humidity.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Modernization of a vinyl facade near DIX30',
               description:
                 'Aesthetic update of a vinyl facade with modern and durable colors.',
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Repainting of a balcony + stairs in sector T',
               description:
                 'Complete renovation of a balcony and exterior stairs with weather-resistant finish.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Complete refresh of a condo in sector C',
               description:
                 'Complete exterior painting of a condo with protection of adjacent surfaces and impeccable finish.',
@@ -287,45 +267,35 @@ export const peintureExterieureData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Peinture extérieure d'un bungalow à Sainte-Rose",
               description:
                 "Rafraîchissement complet d'un bungalow avec des produits adaptés au climat québécois.",
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Protection d'une façade en bois à Fabreville",
               description:
                 'Application de produits protecteurs sur une façade en bois pour résister aux intempéries.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Repeinture complète d'un duplex à Chomedey",
               description:
                 "Rénovation complète d'un duplex avec finition durable et esthétique.",
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Mise à jour d'un revêtement en aluminium dans Vimont",
               description:
                 "Modernisation d'un revêtement en aluminium avec des couleurs durables.",
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Rénovation extérieure d'un plex à Laval-des-Rapides",
               description:
                 "Peinture extérieure complète d'un plex avec protection des surfaces adjacentes.",
@@ -334,45 +304,35 @@ export const peintureExterieureData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Exterior painting of a bungalow in Sainte-Rose',
               description:
                 'Complete refresh of a bungalow with products adapted to Quebec climate.',
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Protection of a wood facade in Fabreville',
               description:
                 'Application of protective products on a wood facade to resist weather.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Complete repainting of a duplex in Chomedey',
               description:
                 'Complete renovation of a duplex with durable and aesthetic finish.',
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Update of an aluminum cladding in Vimont',
               description:
                 'Modernization of an aluminum cladding with durable colors.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Exterior renovation of a plex in Laval-des-Rapides',
               description:
                 'Complete exterior painting of a plex with protection of adjacent surfaces.',
@@ -512,9 +472,7 @@ export const peintureExterieureData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Rafraîchissement complet d'un extérieur dans le Vieux-Longueuil",
               description:
@@ -522,27 +480,21 @@ export const peintureExterieureData = {
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Protection d'une façade en bois dans Saint-Hubert",
               description:
                 'Application de produits protecteurs sur une façade en bois pour résister aux intempéries.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Repeinture d'un plex dans Laflèche",
               description:
                 "Rénovation complète d'un plex avec finition durable et esthétique.",
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Modernisation d'un revêtement en vinyle dans Greenfield Park",
               description:
@@ -550,9 +502,7 @@ export const peintureExterieureData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Peinture complète d'une galerie et escalier extérieur",
               description:
                 "Rénovation complète d'une galerie et escalier extérieur avec finition résistante aux intempéries.",
@@ -561,45 +511,35 @@ export const peintureExterieureData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Complete refresh of an exterior in Vieux-Longueuil',
               description:
                 'Complete renovation of a facade with products adapted to Quebec climate.',
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Protection of a wood facade in Saint-Hubert',
               description:
                 'Application of protective products on a wood facade to resist weather.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Repainting of a plex in Laflèche',
               description:
                 'Complete renovation of a plex with durable and aesthetic finish.',
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Modernization of a vinyl cladding in Greenfield Park',
               description:
                 'Aesthetic update of a vinyl cladding with modern colors.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Complete painting of a gallery and exterior stairs',
               description:
                 'Complete renovation of a gallery and exterior stairs with weather-resistant finish.',
@@ -736,45 +676,35 @@ export const peintureExterieureData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Rafraîchissement complet d'un duplex au Plateau",
               description:
                 "Rénovation complète d'un duplex avec des produits adaptés au climat montréalais.",
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Peinture de balcon et escalier extérieur dans Villeray',
               description:
                 "Rénovation complète d'un balcon et escalier extérieur avec finition résistante aux intempéries.",
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Modernisation de la façade d'un plex à Rosemont",
               description:
                 "Mise à jour esthétique d'une façade de plex avec des couleurs modernes et durables.",
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Protection d'un revêtement en bois dans NDG",
               description:
                 'Application de produits protecteurs sur un revêtement en bois pour résister aux intempéries.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Mise à jour d'une façade en brique à Verdun",
               description:
                 "Rafraîchissement d'une façade en brique avec des produits adaptés aux matériaux anciens.",
@@ -783,45 +713,35 @@ export const peintureExterieureData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1568605114967-8130f3a36994?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Complete refresh of a duplex in Plateau',
               description:
                 'Complete renovation of a duplex with products adapted to Montreal climate.',
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Painting of balcony and exterior stairs in Villeray',
               description:
                 'Complete renovation of a balcony and exterior stairs with weather-resistant finish.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Modernization of a plex facade in Rosemont',
               description:
                 'Aesthetic update of a plex facade with modern and durable colors.',
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Protection of a wood cladding in NDG',
               description:
                 'Application of protective products on a wood cladding to resist weather.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1600607687644-c7171b42498b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Update of a brick facade in Verdun',
               description:
                 'Refresh of a brick facade with products adapted to old materials.',

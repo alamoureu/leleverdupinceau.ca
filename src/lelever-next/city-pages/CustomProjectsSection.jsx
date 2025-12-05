@@ -89,7 +89,9 @@ export default function CustomProjectsSection({
           <SimpleGrid columns={columns} spacing={{ base: 4, md: 5, lg: 6 }}>
             {projects.map((project) => {
               const currentIndex = getCurrentImageIndex(project.id);
-              const images = project.images || [project.image].filter(Boolean);
+              // Filter out null, undefined, and empty string values
+              const rawImages = project.images || [project.image].filter(Boolean);
+              const images = rawImages.filter(img => img != null && img !== '');
               const imageAlt = project.imageAlt || project.title || '';
 
               return (
@@ -123,7 +125,7 @@ export default function CustomProjectsSection({
                   >
                     {images.length === 0 && (
                       <Text color='gray.400' fontSize='sm' fontWeight='medium'>
-                        {isFr ? 'Image à ajouter' : 'Image to add'}
+                        {isFr ? 'Image manquante' : 'Missing image'}
                       </Text>
                     )}
                     {images.length > 0 && (

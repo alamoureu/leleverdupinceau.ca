@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -195,7 +196,8 @@ export default function PeintureResidentiellePage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -204,7 +206,8 @@ export default function PeintureResidentiellePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/services'
+                as={RouterLink}
+                to='/services'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -375,7 +378,8 @@ export default function PeintureResidentiellePage() {
                     maxW='800px'
                   >
                     <Link
-                      href='/services/peinture-residentielle/interieure'
+                      as={RouterLink}
+                      to='/services/peinture-residentielle/interieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -421,7 +425,8 @@ export default function PeintureResidentiellePage() {
                     </Link>
 
                     <Link
-                      href='/services/peinture-residentielle/exterieure'
+                      as={RouterLink}
+                      to='/services/peinture-residentielle/exterieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -528,7 +533,8 @@ export default function PeintureResidentiellePage() {
                       : 'Our professional painters have been carrying out residential projects for over 10 years. We apply modern methods to offer an impeccable and durable finish.'}
                   </Text>
                   <Link
-                    href='/peintre-professionnel'
+                    as={RouterLink}
+                    to='/peintre-professionnel'
                     _hover={{ textDecoration: 'none' }}
                     w={{ base: '100%', md: 'auto' }}
                   >
@@ -592,7 +598,11 @@ export default function PeintureResidentiellePage() {
               </Stack>
 
               <Box>
-                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
+                <Link
+                  as={RouterLink}
+                  to='/contact'
+                  _hover={{ textDecoration: 'none' }}
+                >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

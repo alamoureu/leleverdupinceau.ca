@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -54,7 +55,11 @@ export default function ServiceCTASection({ title, description, buttonText }) {
           </Stack>
 
           <Box>
-            <Link href='/contact' _hover={{ textDecoration: 'none' }}>
+            <Link
+              as={RouterLink}
+              to='/contact'
+              _hover={{ textDecoration: 'none' }}
+            >
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 bg='white'

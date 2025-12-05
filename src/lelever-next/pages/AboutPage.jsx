@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -12,13 +13,17 @@ import {
   Icon,
   HStack,
   Flex,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import SectorsSection from '../home-page/SectorsSection';
 import ReviewsSection from '../home-page/ReviewsSection';
+import teamImage1 from '../images/Propreté.PNG';
+import teamImage2 from '../images/Qualité.PNG';
+import teamImage3 from '../images/Respect.PNG';
+import teamImage4 from '../images/Transparence.JPG';
 
 export default function AboutPage() {
   const { currentLang } = useContext(appContext);
@@ -206,7 +211,8 @@ export default function AboutPage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -238,13 +244,73 @@ export default function AboutPage() {
                 fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
                 lineHeight='1.7'
-                maxW='800px'
+                maxW='900px'
               >
                 {isFr
-                  ? 'Le Lever du Pinceau est une équipe de peintres professionnels passionnés, spécialisés en peinture résidentielle, commerciale, intérieure et extérieure dans tout le Grand Montréal. Nous croyons que chaque projet mérite une approche personnalisée, un service impeccable et une finition de qualité durable. Depuis plusieurs années, nous aidons les propriétaires, entreprises, gestionnaires immobiliers et rénovateurs à transformer leurs espaces avec précision, propreté et souci du détail. Notre mission, offrir la meilleure expérience de peinture au Québec, du premier contact à la finition parfaite.'
-                  : 'Le Lever du Pinceau is a team of passionate professional painters, specialized in residential, commercial, interior and exterior painting throughout Greater Montreal. We believe that every project deserves a personalized approach, impeccable service and a durable quality finish. For several years, we have been helping homeowners, businesses, property managers and renovators transform their spaces with precision, cleanliness and attention to detail. Our mission, to offer the best painting experience in Quebec, from first contact to perfect finish.'}
+                  ? 'Le Lever du Pinceau est une équipe de peintres professionnels passionnés, spécialisés en peinture résidentielle, commerciale, intérieure et extérieure dans tout le Grand Montréal. Nous croyons que chaque projet mérite une approche personnalisée, un service impeccable et une finition de qualité durable. Depuis plusieurs années, nous aidons les propriétaires, entreprises, gestionnaires immobiliers et rénovateurs à transformer leurs espaces avec précision, propreté et souci du détail.'
+                  : 'Le Lever du Pinceau is a team of passionate professional painters, specialized in residential, commercial, interior and exterior painting throughout Greater Montreal. We believe that every project deserves a personalized approach, impeccable service and a durable quality finish. For several years, we have been helping homeowners, businesses, property managers and renovators transform their spaces with precision, cleanliness and attention to detail.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.700'
+                fontWeight='medium'
+                lineHeight='1.7'
+                maxW='900px'
+                mt={2}
+              >
+                {isFr
+                  ? '👉 Notre mission : offrir la meilleure expérience de peinture au Québec, du premier contact à la finition parfaite.'
+                  : '👉 Our mission: to offer the best painting experience in Quebec, from first contact to perfect finish.'}
               </Text>
             </Stack>
+
+            {/* Images Section */}
+            <SimpleGrid
+              columns={{ base: 2, md: 4 }}
+              spacing={{ base: 3, md: 4 }}
+              mb={{ base: 12, md: 16 }}
+            >
+              <Image
+                src={teamImage1}
+                alt={
+                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
+                }
+                borderRadius='lg'
+                objectFit='cover'
+                h={{ base: '150px', md: '200px' }}
+                w='100%'
+              />
+              <Image
+                src={teamImage2}
+                alt={
+                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
+                }
+                borderRadius='lg'
+                objectFit='cover'
+                h={{ base: '150px', md: '200px' }}
+                w='100%'
+              />
+              <Image
+                src={teamImage3}
+                alt={
+                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
+                }
+                borderRadius='lg'
+                objectFit='cover'
+                h={{ base: '150px', md: '200px' }}
+                w='100%'
+              />
+              <Image
+                src={teamImage4}
+                alt={
+                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
+                }
+                borderRadius='lg'
+                objectFit='cover'
+                h={{ base: '150px', md: '200px' }}
+                w='100%'
+              />
+            </SimpleGrid>
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -403,7 +469,8 @@ export default function AboutPage() {
                   </Stack>
 
                   <Link
-                    href='/peintre-professionnel'
+                    as={RouterLink}
+                    to='/peintre-professionnel'
                     _hover={{ textDecoration: 'none' }}
                     w={{ base: '100%', md: 'auto' }}
                   >
@@ -476,7 +543,11 @@ export default function AboutPage() {
                   </SimpleGrid>
 
                   <Box textAlign='center' pt={4}>
-                    <Link href='/services' _hover={{ textDecoration: 'none' }}>
+                    <Link
+                      as={RouterLink}
+                      to='/services'
+                      _hover={{ textDecoration: 'none' }}
+                    >
                       <Button
                         rightIcon={<ArrowForwardIcon />}
                         variant='outline'
@@ -498,7 +569,85 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            <SectorsSection />
+            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign='center'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Nous servons tout le Grand Montréal'
+                        : 'We serve all of Greater Montreal'}
+                    </Heading>
+                  </Stack>
+
+                  <SimpleGrid
+                    columns={{ base: 2, sm: 4 }}
+                    spacing={6}
+                    maxW='800px'
+                    mx='auto'
+                  >
+                    {['Montréal', 'Laval', 'Longueuil', 'Brossard'].map(
+                      (city) => (
+                        <Box
+                          key={city}
+                          p={6}
+                          bg='white'
+                          borderRadius='xl'
+                          textAlign='center'
+                          border='1px solid'
+                          borderColor='gray.200'
+                        >
+                          <Text
+                            fontWeight='bold'
+                            color='gray.800'
+                            fontSize='lg'
+                          >
+                            {city}
+                          </Text>
+                        </Box>
+                      )
+                    )}
+                  </SimpleGrid>
+
+                  <Text
+                    fontSize={{ base: 'md', md: 'lg' }}
+                    color='gray.600'
+                    textAlign='center'
+                  >
+                    {isFr
+                      ? 'Tous les quartiers & secteurs desservis'
+                      : 'All neighborhoods & service areas'}
+                  </Text>
+
+                  <Box textAlign='center' pt={4}>
+                    <Link
+                      as={RouterLink}
+                      to='/secteurs-desservis'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      <Button
+                        rightIcon={<ArrowForwardIcon />}
+                        variant='outline'
+                        borderColor='#014CC4'
+                        color='#014CC4'
+                        borderRadius='full'
+                        fontSize={{ base: 'sm', md: 'md' }}
+                        px={{ base: 5, md: 7 }}
+                        py={{ base: 3, md: 4 }}
+                        _hover={{ bg: '#014CC4', color: 'white' }}
+                      >
+                        {isFr ? 'Voir les secteurs' : 'See the sectors'}
+                      </Button>
+                    </Link>
+                  </Box>
+                </Stack>
+              </Container>
+            </Box>
 
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -569,6 +718,29 @@ export default function AboutPage() {
                 </Stack>
               </Container>
               <ReviewsSection hideTitle={true} />
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Box textAlign='center' pt={8}>
+                  <Link
+                    as={RouterLink}
+                    to='/avis'
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    <Button
+                      rightIcon={<ArrowForwardIcon />}
+                      variant='outline'
+                      borderColor='#014CC4'
+                      color='#014CC4'
+                      borderRadius='full'
+                      fontSize={{ base: 'sm', md: 'md' }}
+                      px={{ base: 5, md: 7 }}
+                      py={{ base: 3, md: 4 }}
+                      _hover={{ bg: '#014CC4', color: 'white' }}
+                    >
+                      {isFr ? 'Voir tous les avis' : 'See all reviews'}
+                    </Button>
+                  </Link>
+                </Box>
+              </Container>
             </Box>
           </Stack>
         </Container>
@@ -606,7 +778,8 @@ export default function AboutPage() {
 
               <Box>
                 <Link
-                  href='/new-home/contact'
+                  as={RouterLink}
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button

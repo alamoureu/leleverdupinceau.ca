@@ -64,9 +64,7 @@ export const peintureCommercialeData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt:
                 'Peinture commerciale Brossard - Local commercial au Quartier DIX30',
               title:
@@ -76,9 +74,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt: 'Peinture commerciale Brossard - Bureaux secteur C',
               title: 'Rafraîchissement de bureaux dans le secteur C',
               description:
@@ -86,9 +82,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt:
                 'Peinture commerciale Brossard - Clinique professionnelle',
               title:
@@ -98,9 +92,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt: 'Peinture commerciale Brossard - Restaurant DIX30',
               title: 'Travaux dans un restaurant ou café près du DIX30',
               description:
@@ -108,9 +100,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt: 'Peinture commerciale Brossard - Commerce de détail',
               title:
                 "Mise à jour de l'intérieur d'un commerce de détail dans un centre commercial",
@@ -121,9 +111,7 @@ export const peintureCommercialeData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt:
                 'Commercial painting Brossard - Commercial space at DIX30 Quarter',
               title: 'Interior painting of a commercial space at DIX30 Quarter',
@@ -132,9 +120,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt: 'Commercial painting Brossard - Office sector C',
               title: 'Office refresh in sector C',
               description:
@@ -142,9 +128,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt: 'Commercial painting Brossard - Professional clinic',
               title: 'Modernization of a clinic or professional office',
               description:
@@ -152,9 +136,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1514933651103-005eec06c04b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt: 'Commercial painting Brossard - Restaurant DIX30',
               title: 'Work in a restaurant or café near DIX30',
               description:
@@ -162,9 +144,7 @@ export const peintureCommercialeData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               imageAlt: 'Commercial painting Brossard - Retail store',
               title:
                 'Update of the interior of a retail store in a shopping center',

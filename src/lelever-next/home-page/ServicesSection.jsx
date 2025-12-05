@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -14,6 +15,7 @@ import { useTranslation } from '../i18n';
 import peintureResidentielleImg from '../images/peinture_residentielle.jpg';
 import peintureCommercialeImg from '../images/peinture_commercial.jpg';
 import peintureInterieurImg from '../images/peinture_interieur.jpg';
+import heroImage from '../images/heroImage.png';
 
 export default function ServicesSection() {
   const { t } = useTranslation();
@@ -33,6 +35,16 @@ export default function ServicesSection() {
       image: peintureInterieurImg,
       title: t.serviceInterior,
       description: t.serviceInteriorDesc,
+    },
+    {
+      image: heroImage,
+      title: t.serviceExterior,
+      description: t.serviceExteriorDesc,
+    },
+    {
+      image: heroImage,
+      title: t.serviceIndustrial,
+      description: t.serviceIndustrialDesc,
     },
   ];
   return (
@@ -63,7 +75,7 @@ export default function ServicesSection() {
           </Stack>
 
           <SimpleGrid
-            columns={{ base: 1, md: 3 }}
+            columns={{ base: 1, md: 2, lg: 5 }}
             spacing={{ base: 4, md: 5, lg: 6 }}
             w='100%'
             justifyItems={{ base: 'center', md: 'stretch' }}
@@ -121,8 +133,8 @@ export default function ServicesSection() {
           </SimpleGrid>
 
           <Button
-            as='a'
-            href='/services'
+            as={RouterLink}
+            to='/services'
             variant='outline'
             borderColor='#014CC4'
             color='#014CC4'

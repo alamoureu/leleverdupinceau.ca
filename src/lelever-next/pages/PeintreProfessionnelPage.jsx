@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -327,11 +328,9 @@ export default function PeintreProfessionnelPage() {
         <Box
           position='relative'
           w='100%'
-          bg='linear-gradient(135deg, #f5f7fa 0%, #ffffff 50%, #f0f4f8 100%)'
+          bg='white'
           pt={{ base: 6, md: 10, lg: 12 }}
           pb={{ base: 10, md: 14, lg: 18 }}
-          borderBottom='1px solid'
-          borderColor='gray.200'
         >
           <Container maxW='1440px' px={{ base: 4, md: 6, lg: 8 }}>
             <SimpleGrid
@@ -431,7 +430,7 @@ export default function PeintreProfessionnelPage() {
                   </Button>
                   <Button
                     as={Link}
-                    href='/new-home/contact'
+                    to='/contact'
                     variant='outline'
                     borderColor='gray.300'
                     color='gray.700'
@@ -821,7 +820,8 @@ export default function PeintreProfessionnelPage() {
 
               <Box>
                 <Link
-                  href='/new-home/contact'
+                  as={RouterLink}
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button

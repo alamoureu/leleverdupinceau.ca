@@ -154,7 +154,8 @@ export default function NewWebsiteLayout() {
                 </Text>
                 <Stack spacing={2}>
                   <Link
-                    href='/services/peinture-interieure'
+                    as={RouterLink}
+                    to='/services/peinture-interieure'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -162,7 +163,8 @@ export default function NewWebsiteLayout() {
                     - {t.serviceInterior}
                   </Link>
                   <Link
-                    href='/services/peinture-exterieure'
+                    as={RouterLink}
+                    to='/services/peinture-exterieure'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -170,7 +172,8 @@ export default function NewWebsiteLayout() {
                     - {t.serviceCommercial}
                   </Link>
                   <Link
-                    href='/services'
+                    as={RouterLink}
+                    to='/services'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -191,7 +194,8 @@ export default function NewWebsiteLayout() {
                 </Text>
                 <Stack spacing={2}>
                   <Link
-                    href='/new-home/a-propos'
+                    as={RouterLink}
+                    to='/a-propos'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -199,7 +203,8 @@ export default function NewWebsiteLayout() {
                     - {currentLang === 'fr' ? 'À propos' : 'About'}
                   </Link>
                   <Link
-                    href='/avis'
+                    as={RouterLink}
+                    to='/avis'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -207,7 +212,8 @@ export default function NewWebsiteLayout() {
                     - {currentLang === 'fr' ? 'Avis clients' : 'Client reviews'}
                   </Link>
                   <Link
-                    href='/peintre-professionnel'
+                    as={RouterLink}
+                    to='/peintre-professionnel'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -231,7 +237,8 @@ export default function NewWebsiteLayout() {
                 </Text>
                 <Stack spacing={2}>
                   <Link
-                    href='/blog'
+                    as={RouterLink}
+                    to='/blog'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -239,7 +246,8 @@ export default function NewWebsiteLayout() {
                     - {currentLang === 'fr' ? 'Blog' : 'Blog'}
                   </Link>
                   <Link
-                    href='/new-home/contact'
+                    as={RouterLink}
+                    to='/contact'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -247,7 +255,8 @@ export default function NewWebsiteLayout() {
                     - {currentLang === 'fr' ? 'Contact' : 'Contact'}
                   </Link>
                   <Link
-                    href='/secteurs-desservis'
+                    as={RouterLink}
+                    to='/secteurs-desservis'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -321,7 +330,8 @@ export default function NewWebsiteLayout() {
               flexWrap='wrap'
             >
               <Link
-                href='/mentions-legales'
+                as={RouterLink}
+                to='/politiques/termes-conditions'
                 color='white'
                 fontSize='sm'
                 _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -332,7 +342,8 @@ export default function NewWebsiteLayout() {
                 |
               </Text>
               <Link
-                href='/politique-de-confidentialite'
+                as={RouterLink}
+                to='/politiques/confidentialite'
                 color='white'
                 fontSize='sm'
                 _hover={{ textDecoration: 'underline', color: 'gray.300' }}

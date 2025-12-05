@@ -11,15 +11,12 @@ import {
   Button,
   Icon,
   HStack,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import heroImage from '../images/heroImage.png';
-import commentChoisirPeintre from '../images/comment_choisir_un_peintre.jpg';
-import prixProjetPeinture from '../images/prix_projet_peinture_montreal.jpg';
+import ResourcesSection from '../home-page/ResourcesSection';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -131,6 +128,8 @@ export default function SecteursDesservisPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis'
         />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -228,6 +227,8 @@ export default function SecteursDesservisPage() {
                         key={index}
                         href={city.link}
                         _hover={{ textDecoration: 'none' }}
+                        w='100%'
+                        h='100%'
                       >
                         <Box
                           bg='white'
@@ -235,6 +236,10 @@ export default function SecteursDesservisPage() {
                           borderRadius='xl'
                           border='1px solid'
                           borderColor='gray.200'
+                          h='100%'
+                          minH={{ base: '200px', md: '220px' }}
+                          display='flex'
+                          flexDirection='column'
                           _hover={{
                             borderColor: '#014CC4',
                             transform: 'translateY(-2px)',
@@ -242,31 +247,36 @@ export default function SecteursDesservisPage() {
                           }}
                           transition='all 0.2s'
                         >
-                          <Stack spacing={4}>
-                            <HStack spacing={3}>
-                              <Icon
-                                as={FontAwesomeIcon}
-                                icon={faMapMarkerAlt}
-                                color='#014CC4'
-                                boxSize={5}
-                              />
-                              <Heading
-                                as='h3'
-                                fontSize='xl'
-                                fontWeight='bold'
-                                color='gray.800'
+                          <Stack spacing={4} flex={1} justify='space-between'>
+                            <Box>
+                              <HStack spacing={3} mb={3}>
+                                <Icon
+                                  as={FontAwesomeIcon}
+                                  icon={faMapMarkerAlt}
+                                  color='#014CC4'
+                                  boxSize={5}
+                                />
+                                <Heading
+                                  as='h3'
+                                  fontSize='xl'
+                                  fontWeight='bold'
+                                  color='gray.800'
+                                >
+                                  {city.name}
+                                </Heading>
+                              </HStack>
+                              <Text
+                                color='gray.600'
+                                fontSize='md'
+                                lineHeight='1.6'
+                                minH={{ base: '48px', md: '56px' }}
+                                display='flex'
+                                alignItems='center'
                               >
-                                {city.name}
-                              </Heading>
-                            </HStack>
-                            <Text
-                              color='gray.600'
-                              fontSize='md'
-                              lineHeight='1.6'
-                            >
-                              {city.description}
-                            </Text>
-                            <HStack spacing={2} color='#014CC4'>
+                                {city.description}
+                              </Text>
+                            </Box>
+                            <HStack spacing={2} color='#014CC4' flexShrink={0}>
                               <Text fontSize='sm' fontWeight='medium'>
                                 {isFr ? 'Voir' : 'View'} {city.name}
                               </Text>
@@ -334,19 +344,24 @@ export default function SecteursDesservisPage() {
                   spacing={{ base: 8, md: 12 }}
                   align='center'
                 >
-                  <Box>
-                    <Image
-                      src={heroImage}
-                      alt={
-                        isFr
-                          ? 'secteurs desservis peinture Montréal'
-                          : 'service areas painting Montreal'
-                      }
-                      borderRadius='xl'
-                      objectFit='cover'
-                      w='100%'
-                      maxH='400px'
-                    />
+                  <Box
+                    w='100%'
+                    h={{ base: '250px', md: '400px' }}
+                    bg='gray.100'
+                    borderRadius='xl'
+                    display='flex'
+                    alignItems='center'
+                    justifyContent='center'
+                    border='1px solid'
+                    borderColor='gray.200'
+                  >
+                    <Text
+                      color='gray.500'
+                      fontSize={{ base: 'sm', md: 'md' }}
+                      fontWeight='medium'
+                    >
+                      {isFr ? 'Image manquante' : 'Missing image'}
+                    </Text>
                   </Box>
                   <Stack spacing={6}>
                     <Stack spacing={3}>
@@ -469,161 +484,7 @@ export default function SecteursDesservisPage() {
             </Box>
 
             {/* Section 5 — Guides & ressources */}
-            <Box py={{ base: 12, md: 16 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Conseils utiles pour mieux planifier votre projet'
-                        : 'Useful tips to better plan your project'}
-                    </Heading>
-                  </Stack>
-
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2 }}
-                    spacing={{ base: 4, md: 6 }}
-                    maxW='800px'
-                    mx='auto'
-                  >
-                    <Link
-                      href='/blog/comment-choisir-un-peintre-professionnel'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        bg='white'
-                        borderRadius='xl'
-                        overflow='hidden'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Box
-                          position='relative'
-                          overflow='hidden'
-                          h='200px'
-                          bg='gray.100'
-                        >
-                          <Image
-                            src={commentChoisirPeintre}
-                            alt={
-                              isFr
-                                ? 'Comment choisir un peintre professionnel'
-                                : 'How to choose a professional painter'
-                            }
-                            w='100%'
-                            h='100%'
-                            objectFit='cover'
-                          />
-                        </Box>
-                        <Stack p={6} spacing={4} flex={1}>
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
-                            lineHeight='1.4'
-                          >
-                            {isFr
-                              ? 'Comment choisir un peintre professionnel ?'
-                              : 'How to choose a professional painter?'}
-                          </Text>
-                          <Box
-                            display='flex'
-                            alignItems='center'
-                            color='#014CC4'
-                            fontWeight='semibold'
-                            fontSize='sm'
-                          >
-                            <Text mr={2}>
-                              {isFr ? "Lire l'article" : 'Read article'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </Box>
-                        </Stack>
-                      </Box>
-                    </Link>
-
-                    <Link
-                      href='/blog/prix-peinture-montreal'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        bg='white'
-                        borderRadius='xl'
-                        overflow='hidden'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Box
-                          position='relative'
-                          overflow='hidden'
-                          h='200px'
-                          bg='gray.100'
-                        >
-                          <Image
-                            src={prixProjetPeinture}
-                            alt={
-                              isFr
-                                ? 'Prix peinture Montréal : comprendre les coûts'
-                                : 'Painting prices Montreal: understand the costs'
-                            }
-                            w='100%'
-                            h='100%'
-                            objectFit='cover'
-                          />
-                        </Box>
-                        <Stack p={6} spacing={4} flex={1}>
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
-                            lineHeight='1.4'
-                          >
-                            {isFr
-                              ? 'Prix peinture Montréal : comprendre les coûts'
-                              : 'Painting prices Montreal: understand the costs'}
-                          </Text>
-                          <Box
-                            display='flex'
-                            alignItems='center'
-                            color='#014CC4'
-                            fontWeight='semibold'
-                            fontSize='sm'
-                          >
-                            <Text mr={2}>
-                              {isFr ? "Lire l'article" : 'Read article'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </Box>
-                        </Stack>
-                      </Box>
-                    </Link>
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
+            <ResourcesSection />
           </Stack>
         </Container>
 

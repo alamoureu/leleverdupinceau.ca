@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -134,7 +134,8 @@ export default function SousServicePage() {
               alignItems='center'
             >
               <Link
-                href='/'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -144,7 +145,8 @@ export default function SousServicePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/services'
+                as={RouterLink}
+                to='/services'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -154,7 +156,8 @@ export default function SousServicePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href={`/services/${serviceSlug}`}
+                as={RouterLink}
+                to={`/services/${serviceSlug}`}
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}

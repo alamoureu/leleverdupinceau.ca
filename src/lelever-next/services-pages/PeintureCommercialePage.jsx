@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -169,6 +170,8 @@ export default function PeintureCommercialePage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/services/peinture-commerciale'
         />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -189,7 +192,8 @@ export default function PeintureCommercialePage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -198,7 +202,8 @@ export default function PeintureCommercialePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/services'
+                as={RouterLink}
+                to='/services'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -346,7 +351,8 @@ export default function PeintureCommercialePage() {
                     maxW='800px'
                   >
                     <Link
-                      href='/services/peinture-commerciale/interieure'
+                      as={RouterLink}
+                      to='/services/peinture-commerciale/interieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -392,7 +398,8 @@ export default function PeintureCommercialePage() {
                     </Link>
 
                     <Link
-                      href='/services/peinture-commerciale/exterieure'
+                      as={RouterLink}
+                      to='/services/peinture-commerciale/exterieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -499,7 +506,8 @@ export default function PeintureCommercialePage() {
                       : 'Our professional painters are used to working in commercial environments, with time constraints, brand image and traffic.'}
                   </Text>
                   <Link
-                    href='/peintre-professionnel'
+                    as={RouterLink}
+                    to='/peintre-professionnel'
                     _hover={{ textDecoration: 'none' }}
                     w={{ base: '100%', md: 'auto' }}
                   >
@@ -565,7 +573,11 @@ export default function PeintureCommercialePage() {
               </Stack>
 
               <Box>
-                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
+                <Link
+                  as={RouterLink}
+                  to='/contact'
+                  _hover={{ textDecoration: 'none' }}
+                >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

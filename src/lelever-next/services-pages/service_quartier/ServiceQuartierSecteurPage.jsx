@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -118,6 +118,8 @@ export default function ServiceQuartierSecteurPage() {
             `https://leleverdupinceau.ca/services/${serviceSlug}/${citySlug}/${neighborhoodSlug}`
           }
         />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -140,7 +142,8 @@ export default function ServiceQuartierSecteurPage() {
               alignItems='center'
             >
               <Link
-                href='/'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -150,7 +153,8 @@ export default function ServiceQuartierSecteurPage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/services'
+                as={RouterLink}
+                to='/services'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -160,7 +164,8 @@ export default function ServiceQuartierSecteurPage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href={`/services/${serviceSlug}`}
+                as={RouterLink}
+                to={`/services/${serviceSlug}`}
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -170,7 +175,8 @@ export default function ServiceQuartierSecteurPage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href={`/services/${serviceSlug}/${citySlug}`}
+                as={RouterLink}
+                to={`/services/${serviceSlug}/${citySlug}`}
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}

@@ -11,6 +11,7 @@ import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import TrustBanner from '../home-page/TrustBanner';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 import SubmissionModal from '../home-page/SubmissionModal';
 
@@ -56,6 +57,8 @@ export default function NewHomePage() {
         <ResourcesSection />
 
         <ContactFormSection />
+
+        <FinalCTASection onSubmissionOpen={onOpen} />
       </Box>
 
       <SubmissionModal isOpen={isOpen} onClose={onClose} />

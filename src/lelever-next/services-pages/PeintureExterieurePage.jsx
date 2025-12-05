@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -188,7 +189,8 @@ export default function PeintureExterieurePage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -197,7 +199,8 @@ export default function PeintureExterieurePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/services'
+                as={RouterLink}
+                to='/services'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -345,7 +348,8 @@ export default function PeintureExterieurePage() {
                     maxW='1000px'
                   >
                     <Link
-                      href='/services/peinture-residentielle/exterieure'
+                      as={RouterLink}
+                      to='/services/peinture-residentielle/exterieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -391,7 +395,8 @@ export default function PeintureExterieurePage() {
                     </Link>
 
                     <Link
-                      href='/services/peinture-commerciale/exterieure'
+                      as={RouterLink}
+                      to='/services/peinture-commerciale/exterieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -437,7 +442,8 @@ export default function PeintureExterieurePage() {
                     </Link>
 
                     <Link
-                      href='/services/peinture-industrielle/exterieure'
+                      as={RouterLink}
+                      to='/services/peinture-industrielle'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -535,7 +541,8 @@ export default function PeintureExterieurePage() {
                       : 'Our professional painters are trained to work at height, on various types of coatings and in demanding exterior environments.'}
                   </Text>
                   <Link
-                    href='/peintre-professionnel'
+                    as={RouterLink}
+                    to='/peintre-professionnel'
                     _hover={{ textDecoration: 'none' }}
                     w={{ base: '100%', md: 'auto' }}
                   >
@@ -599,7 +606,11 @@ export default function PeintureExterieurePage() {
               </Stack>
 
               <Box>
-                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
+                <Link
+                  as={RouterLink}
+                  to='/contact'
+                  _hover={{ textDecoration: 'none' }}
+                >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

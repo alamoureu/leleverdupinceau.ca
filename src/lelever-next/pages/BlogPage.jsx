@@ -308,10 +308,7 @@ export default function BlogPage() {
               </Stack>
 
               <Box>
-                <Link
-                  href='/new-home/contact'
-                  _hover={{ textDecoration: 'none' }}
-                >
+                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

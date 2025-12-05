@@ -10,6 +10,7 @@ import {
   HStack,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { Link as RouterLink } from 'react-router-dom';
 import appContext from '../../../../AppProvider';
 
 export default function ServiceQuartierSectorsSection({
@@ -47,7 +48,8 @@ export default function ServiceQuartierSectorsSection({
             {sectors.map((sector, index) => (
               <Link
                 key={index}
-                href={`/services/${serviceSlug}/${citySlug}/${sector.slug}`}
+                as={RouterLink}
+                to={`/services/${serviceSlug}/${citySlug}/${sector.slug}`}
                 _hover={{ textDecoration: 'none' }}
               >
                 <Box

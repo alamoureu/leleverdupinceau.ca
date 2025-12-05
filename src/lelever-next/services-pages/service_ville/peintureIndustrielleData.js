@@ -62,18 +62,14 @@ export const peintureIndustrielleData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Revêtement époxy dans un entrepôt secteur R',
               description:
                 "Application d'un revêtement époxy haute résistance sur plancher d'entrepôt pour résister à l'abrasion et aux charges lourdes.",
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Peinture anticorrosion sur structure extérieure secteur S',
               description:
@@ -81,9 +77,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Modernisation intérieure d'un bâtiment logistique secteur C",
               description:
@@ -91,9 +85,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Rafraîchissement de murs techniques dans un atelier du secteur V',
               description:
@@ -101,9 +93,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Protection de poutres extérieures dans un parc industriel',
               description:
@@ -113,45 +103,35 @@ export const peintureIndustrielleData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Epoxy coating in a warehouse sector R',
               description:
                 'Application of high resistance epoxy coating on warehouse floor to resist abrasion and heavy loads.',
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Anti-corrosion painting on exterior structure sector S',
               description:
                 'Complete protection of an exterior metal structure with high durability anti-corrosion products.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Interior modernization of a logistics building sector C',
               description:
                 'Complete renovation of interior surfaces of a logistics building with professional finish.',
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Refresh of technical walls in a workshop sector V',
               description:
                 'Painting of technical walls with products resistant to demanding industrial environments.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Protection of exterior beams in an industrial park',
               description:
                 'Anti-corrosion treatment of exterior metal beams to extend their lifespan.',
@@ -265,9 +245,7 @@ export const peintureIndustrielleData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Application d'un revêtement époxy dans un entrepôt de Chomedey",
               description:
@@ -275,9 +253,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Peinture anticorrosion de structures métalliques à Duvernay',
               description:
@@ -285,9 +261,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Rafraîchissement de murs techniques dans un centre logistique',
               description:
@@ -295,9 +269,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Peinture intérieure d'une zone de production à Laval-Ouest",
               description:
@@ -305,9 +277,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Revêtement anti-humidité pour un bâtiment industriel à Sainte-Rose',
               description:
@@ -317,9 +287,7 @@ export const peintureIndustrielleData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Application of an epoxy coating in a warehouse in Chomedey',
               description:
@@ -327,36 +295,28 @@ export const peintureIndustrielleData = {
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Anti-corrosion painting of metal structures in Duvernay',
               description:
                 'Complete protection of metal structures with high durability anti-corrosion products.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Refresh of technical walls in a logistics center',
               description:
                 'Painting of technical walls with products resistant to industrial environments.',
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Interior painting of a production zone in Laval-Ouest',
               description:
                 'Complete renovation of a production zone with professional and durable finish.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Anti-humidity coating for an industrial building in Sainte-Rose',
               description:
@@ -472,9 +432,7 @@ export const peintureIndustrielleData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Application d'un revêtement époxy dans un entrepôt de Saint-Hubert",
               description:
@@ -482,9 +440,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Traitement anticorrosion d'une structure métallique à Greenfield Park",
               description:
@@ -492,9 +448,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Peinture intérieure d'une zone de production dans le Vieux-Longueuil",
               description:
@@ -502,9 +456,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Rafraîchissement de murs techniques pour un atelier mécanique',
               description:
@@ -512,9 +464,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Revêtement industriel pour un centre logistique de la Rive-Sud',
               description:
@@ -524,9 +474,7 @@ export const peintureIndustrielleData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Application of an epoxy coating in a warehouse in Saint-Hubert',
               description:
@@ -534,9 +482,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Anti-corrosion treatment of a metal structure in Greenfield Park',
               description:
@@ -544,9 +490,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Interior painting of a production zone in Vieux-Longueuil',
               description:
@@ -554,18 +498,14 @@ export const peintureIndustrielleData = {
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Refresh of technical walls for a mechanical workshop',
               description:
                 'Painting of technical walls with products resistant to demanding industrial environments.',
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Industrial coating for a South Shore logistics center',
               description:
                 'Application of specialized industrial coatings to protect logistics installations.',
@@ -677,18 +617,14 @@ export const peintureIndustrielleData = {
           fr: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: "Revêtement époxy sur plancher d'usine à Saint-Laurent",
               description:
                 "Application d'un revêtement époxy haute résistance sur plancher d'usine pour résister à l'abrasion et aux charges lourdes.",
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Peinture de murs de béton dans un entrepôt de l'Est de Montréal",
               description:
@@ -696,9 +632,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Traitement anticorrosion de structures métalliques à Anjou',
               description:
@@ -706,9 +640,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Peinture extérieure d'un bâtiment industriel à Montréal-Nord",
               description:
@@ -716,9 +648,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 "Rafraîchissement intérieur d'une zone de production dans Lachine",
               description:
@@ -728,36 +658,28 @@ export const peintureIndustrielleData = {
           en: [
             {
               id: 1,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Epoxy coating on factory floor in Saint-Laurent',
               description:
                 'Application of high resistance epoxy coating on factory floor to resist abrasion and heavy loads.',
             },
             {
               id: 2,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Painting of concrete walls in an East Montreal warehouse',
               description:
                 'Complete renovation of concrete walls with products resistant to industrial environments.',
             },
             {
               id: 3,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Anti-corrosion treatment of metal structures in Anjou',
               description:
                 'Complete protection of metal structures with high durability anti-corrosion products.',
             },
             {
               id: 4,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title:
                 'Exterior painting of an industrial building in Montreal-North',
               description:
@@ -765,9 +687,7 @@ export const peintureIndustrielleData = {
             },
             {
               id: 5,
-              images: [
-                'https://images.unsplash.com/photo-1581092160562-40aa08e78837?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-              ],
+              images: [null],
               title: 'Interior refresh of a production zone in Lachine',
               description:
                 'Complete painting of a production zone with professional and durable finish.',

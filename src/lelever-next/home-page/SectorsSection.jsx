@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -69,49 +70,41 @@ export default function SectorsSection() {
             maxW='700px'
           >
             {sectors.map((sector, index) => (
-              <Link
+              <Box
                 key={index}
-                href={sector.link}
-                _hover={{ textDecoration: 'none' }}
+                p={8}
+                bg='white'
+                borderRadius='2xl'
+                textAlign='center'
+                border='1px solid'
+                borderColor='gray.200'
               >
-                <Box
-                  p={8}
-                  bg='white'
-                  borderRadius='2xl'
-                  textAlign='center'
-                  border='1px solid'
-                  borderColor='gray.200'
-                  cursor='pointer'
-                  _hover={{
-                    borderColor: '#014CC4',
-                    transform: 'translateY(-2px)',
-                    boxShadow: 'md',
-                  }}
-                  transition='all 0.2s'
-                >
-                  <Stack spacing={4} align='center'>
-                    <Icon
-                      as={FontAwesomeIcon}
-                      icon={faMapMarkerAlt}
-                      boxSize={6}
-                      color='#014CC4'
-                    />
-                    <Text
-                      fontWeight='700'
-                      color='gray.800'
-                      fontSize='xl'
-                      letterSpacing='-0.02em'
-                      lineHeight='1.4'
-                    >
-                      {sector.name}
-                    </Text>
-                  </Stack>
-                </Box>
-              </Link>
+                <Stack spacing={4} align='center'>
+                  <Icon
+                    as={FontAwesomeIcon}
+                    icon={faMapMarkerAlt}
+                    boxSize={6}
+                    color='#014CC4'
+                  />
+                  <Text
+                    fontWeight='700'
+                    color='gray.800'
+                    fontSize='xl'
+                    letterSpacing='-0.02em'
+                    lineHeight='1.4'
+                  >
+                    {sector.name}
+                  </Text>
+                </Stack>
+              </Box>
             ))}
           </SimpleGrid>
 
-          <Link href='/secteurs-desservis' _hover={{ textDecoration: 'none' }}>
+          <Link
+            as={RouterLink}
+            to='/secteurs-desservis'
+            _hover={{ textDecoration: 'none' }}
+          >
             <Button
               rightIcon={<ArrowForwardIcon />}
               variant='outline'

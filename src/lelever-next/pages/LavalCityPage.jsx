@@ -98,6 +98,8 @@ export default function LavalCityPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis/laval'
         />
+        <meta name='robots' content='noindex, nofollow' />
+        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>

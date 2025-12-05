@@ -18,11 +18,20 @@ export const allServiceQuartierData = {
 
 // Helper function to get page data
 export function getServiceQuartierData(serviceSlug, citySlug) {
+  if (!serviceSlug || !citySlug) {
+    return null;
+  }
+
+  // Direct lookup - URLs match data keys exactly
   const service = allServiceQuartierData[serviceSlug];
-  if (!service) return null;
+  if (!service || !service.cities) {
+    return null;
+  }
 
   const city = service.cities[citySlug];
-  if (!city) return null;
+  if (!city) {
+    return null;
+  }
 
   return {
     service,

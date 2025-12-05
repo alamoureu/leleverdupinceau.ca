@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -191,7 +192,8 @@ export default function PeintureIndustriellePage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -200,7 +202,8 @@ export default function PeintureIndustriellePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/services'
+                as={RouterLink}
+                to='/services'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -348,7 +351,8 @@ export default function PeintureIndustriellePage() {
                     maxW='800px'
                   >
                     <Link
-                      href='/services/peinture-industrielle/interieure'
+                      as={RouterLink}
+                      to='/services/peinture-industrielle'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -394,7 +398,8 @@ export default function PeintureIndustriellePage() {
                     </Link>
 
                     <Link
-                      href='/services/peinture-industrielle/exterieure'
+                      as={RouterLink}
+                      to='/services/peinture-industrielle'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -501,7 +506,8 @@ export default function PeintureIndustriellePage() {
                       : 'Our industrial painters are trained to work in technical environments, with specific risks (height, machinery, specialized materials).'}
                   </Text>
                   <Link
-                    href='/peintre-professionnel'
+                    as={RouterLink}
+                    to='/peintre-professionnel'
                     _hover={{ textDecoration: 'none' }}
                     w={{ base: '100%', md: 'auto' }}
                   >
@@ -565,7 +571,11 @@ export default function PeintureIndustriellePage() {
               </Stack>
 
               <Box>
-                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
+                <Link
+                  as={RouterLink}
+                  to='/contact'
+                  _hover={{ textDecoration: 'none' }}
+                >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

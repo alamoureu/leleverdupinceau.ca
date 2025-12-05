@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -187,7 +188,8 @@ export default function PeintureInterieurePage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -196,7 +198,8 @@ export default function PeintureInterieurePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/services'
+                as={RouterLink}
+                to='/services'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -313,7 +316,7 @@ export default function PeintureInterieurePage() {
                   description: isFr
                     ? 'Entrepôts, usines et installations industrielles.'
                     : 'Warehouses, factories and industrial facilities.',
-                  link: '/services/peinture-industrielle/interieure',
+                  link: '/services/peinture-industrielle',
                 },
               ]}
             />
@@ -369,7 +372,8 @@ export default function PeintureInterieurePage() {
                       : 'Our professional painters have been doing interior work for over 10 years, with perfect mastery of products, techniques and high-end finishes.'}
                   </Text>
                   <Link
-                    href='/peintre-professionnel'
+                    as={RouterLink}
+                    to='/peintre-professionnel'
                     _hover={{ textDecoration: 'none' }}
                     w={{ base: '100%', md: 'auto' }}
                   >

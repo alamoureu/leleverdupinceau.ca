@@ -1,10 +1,21 @@
 import React from 'react';
-import { Box, Container, Heading, Text, Button, Stack } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  Button,
+  Stack,
+  HStack,
+  Link,
+} from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.png';
 
 export default function HeroSection({ onSubmissionOpen }) {
-  const { t } = useTranslation();
+  const { t, currentLang } = useTranslation();
+  const isFr = currentLang === 'fr';
+
   return (
     <Box
       position='relative'
@@ -36,6 +47,31 @@ export default function HeroSection({ onSubmissionOpen }) {
             xl: '170px',
           }}
         >
+          {/* Breadcrumb above hero */}
+          <HStack
+            spacing={3}
+            fontSize={{ base: 'sm', md: 'md' }}
+            color='whiteAlpha.800'
+            mb={{ base: 4, md: 6 }}
+            pb={{ base: 2, md: 4 }}
+          >
+            <Link
+              href='/new-home'
+              _hover={{ textDecoration: 'underline', color: 'white' }}
+              color='whiteAlpha.800'
+            >
+              {isFr ? 'Accueil' : 'Home'}
+            </Link>
+            <Text fontSize={{ base: 'sm', md: 'md' }}>›</Text>
+            <Text
+              color='white'
+              fontWeight='medium'
+              fontSize={{ base: 'sm', md: 'md' }}
+            >
+              {isFr ? 'Services de peinture' : 'Painting services'}
+            </Text>
+          </HStack>
+
           <Stack spacing={{ base: '15px', sm: '15px', md: '20px' }}>
             <Heading
               as='h1'
@@ -50,9 +86,9 @@ export default function HeroSection({ onSubmissionOpen }) {
               color='white'
               lineHeight='1.1'
             >
-              {t.heroTitle}
-              <br />
-              {t.heroTitleSecondLine}
+              {isFr
+                ? 'Services de peinture résidentielle & commerciale à Montréal'
+                : 'Residential & commercial painting services in Montreal'}
             </Heading>
 
             <Text
@@ -60,7 +96,9 @@ export default function HeroSection({ onSubmissionOpen }) {
               color='white'
               fontWeight='thin'
             >
-              {t.heroSubtitle}
+              {isFr
+                ? 'Un service professionnel, rapide et impeccable pour tous vos projets intérieurs et extérieurs.'
+                : 'A professional, fast and impeccable service for all your interior and exterior projects.'}
             </Text>
 
             <Box pt={{ base: 1, sm: 2, md: 2 }}>
@@ -94,7 +132,7 @@ export default function HeroSection({ onSubmissionOpen }) {
                 boxShadow='lg'
                 _hover={{ bg: '#0139A0' }}
               >
-                {t.heroButton}
+                {isFr ? 'Soumission gratuite' : 'Free quote'}
               </Button>
             </Box>
           </Stack>

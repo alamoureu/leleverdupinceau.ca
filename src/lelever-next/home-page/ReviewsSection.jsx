@@ -1,4 +1,5 @@
 import React, { useState, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -332,7 +333,7 @@ export default function ReviewsSection({ hideTitle = false }) {
             </HStack>
           </Stack>
 
-          <Link href='/avis' _hover={{ textDecoration: 'none' }}>
+          <Link as={RouterLink} to='/avis' _hover={{ textDecoration: 'none' }}>
             <Button
               rightIcon={<ArrowForwardIcon />}
               variant='outline'

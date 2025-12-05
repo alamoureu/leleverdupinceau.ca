@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -18,11 +19,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import RecentProjectsSection from '../home-page/RecentProjectsSection';
-import { useState } from 'react';
-import { IconButton } from '@chakra-ui/react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { FaStar } from 'react-icons/fa';
-import { motion, AnimatePresence } from 'framer-motion';
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
@@ -101,43 +98,143 @@ export default function AvisPage() {
           ? 'Excellente expérience avec le levé du pinceau! Professionnels, respectueux des lieux, honnêtes et travail parfait. Je recommande vivement cette équipe!'
           : 'Great experience with brush lifting! Professional, respectful of the place, honest and perfect work. I highly recommend this team!',
     },
-  ];
-
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
+    {
+      name: 'Sophie Tremblay',
+      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Service exceptionnel! L'équipe a peint toute ma maison intérieure avec une précision remarquable. Tout était propre et bien protégé. Je recommande sans hésitation!"
+          : 'Exceptional service! The team painted my entire house interior with remarkable precision. Everything was clean and well protected. I recommend without hesitation!',
     },
-    exit: (direction) => ({
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0,
-    }),
-  };
-
-  const swipeConfidenceThreshold = 10000;
-  const swipePower = (offset, velocity) => {
-    return Math.abs(offset) * velocity;
-  };
-
-  const paginate = (newDirection) => {
-    setDirection(newDirection);
-    setCurrentIndex((prevIndex) => {
-      if (newDirection === 1) {
-        return prevIndex === allReviews.length - 1 ? 0 : prevIndex + 1;
-      } else {
-        return prevIndex === 0 ? allReviews.length - 1 : prevIndex - 1;
-      }
-    });
-  };
+    {
+      name: 'Marc Dubois',
+      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Travail rapide et de qualité. L'équipe est venue peindre mon commerce et a respecté mes horaires d'ouverture. Résultat impeccable!"
+          : 'Fast and quality work. The team came to paint my business and respected my opening hours. Impeccable result!',
+    },
+    {
+      name: 'Isabelle Roy',
+      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
+      content:
+        currentLang === 'fr'
+          ? "Excellent service de peinture extérieure. Ma maison a l'air neuve! L'équipe était professionnelle et le travail a été fait rapidement."
+          : 'Excellent exterior painting service. My house looks brand new! The team was professional and the work was done quickly.',
+    },
+    {
+      name: 'Jean-Pierre Martin',
+      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Très satisfait du travail effectué. L'équipe a été ponctuelle, propre et le résultat est parfait. Je les recommande vivement!"
+          : 'Very satisfied with the work done. The team was punctual, clean and the result is perfect. I highly recommend them!',
+    },
+    {
+      name: 'Caroline Gagnon',
+      time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
+      content:
+        currentLang === 'fr'
+          ? "Peinture de mon condo réalisée avec soin. L'équipe a protégé tous mes meubles et a nettoyé parfaitement après les travaux. Service impeccable!"
+          : 'Painting of my condo done with care. The team protected all my furniture and cleaned perfectly after the work. Impeccable service!',
+    },
+    {
+      name: 'David Lavoie',
+      time: currentLang === 'fr' ? 'Il y a 1 semaine' : '1 week ago',
+      content:
+        currentLang === 'fr'
+          ? "Travail professionnel et rapide. L'équipe a peint mon bureau commercial en une journée. Tout était parfaitement organisé."
+          : 'Professional and fast work. The team painted my commercial office in one day. Everything was perfectly organized.',
+    },
+    {
+      name: 'Nathalie Fortin',
+      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
+      content:
+        currentLang === 'fr'
+          ? "Service de peinture résidentielle exceptionnel. L'équipe était courtoise, propre et le résultat dépasse mes attentes. Je recommande!"
+          : 'Exceptional residential painting service. The team was courteous, clean and the result exceeds my expectations. I recommend!',
+    },
+    {
+      name: 'Robert Bouchard',
+      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Peinture extérieure de ma maison réalisée avec professionnalisme. L'équipe a bien préparé les surfaces et le résultat est durable."
+          : 'Exterior painting of my house done with professionalism. The team prepared the surfaces well and the result is durable.',
+    },
+    {
+      name: 'Marie-Claire Desjardins',
+      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Très satisfaite! L'équipe a peint mon appartement rapidement et avec beaucoup de soin. Tout était propre à la fin."
+          : 'Very satisfied! The team painted my apartment quickly and with great care. Everything was clean at the end.',
+    },
+    {
+      name: 'Pierre Bergeron',
+      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
+      content:
+        currentLang === 'fr'
+          ? "Excellent travail de peinture commerciale. L'équipe a respecté mes contraintes horaires et le résultat est impeccable."
+          : 'Excellent commercial painting work. The team respected my time constraints and the result is impeccable.',
+    },
+    {
+      name: 'Julie Morin',
+      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Service impeccable du début à la fin. L'équipe est venue peindre ma maison et a fait un travail remarquable. Je recommande!"
+          : 'Impeccable service from start to finish. The team came to paint my house and did a remarkable job. I recommend!',
+    },
+    {
+      name: 'François Pelletier',
+      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Peinture intérieure réalisée avec précision. L'équipe a été professionnelle et le résultat est parfait. Merci!"
+          : 'Interior painting done with precision. The team was professional and the result is perfect. Thank you!',
+    },
+    {
+      name: 'Sylvie Côté',
+      time: currentLang === 'fr' ? 'Il y a 1 semaine' : '1 week ago',
+      content:
+        currentLang === 'fr'
+          ? "Travail rapide et de qualité. L'équipe a peint mon commerce avec soin et a respecté mes horaires. Excellent service!"
+          : 'Fast and quality work. The team painted my business with care and respected my hours. Excellent service!',
+    },
+    {
+      name: 'Michel Leblanc',
+      time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
+      content:
+        currentLang === 'fr'
+          ? "Service de peinture professionnel. L'équipe a fait un excellent travail sur ma résidence. Tout était propre et bien fait."
+          : 'Professional painting service. The team did an excellent job on my residence. Everything was clean and well done.',
+    },
+    {
+      name: 'Annie Girard',
+      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
+      content:
+        currentLang === 'fr'
+          ? "Très satisfaite du service! L'équipe a peint mon condo avec beaucoup de soin. Le résultat est impeccable et tout était propre."
+          : 'Very satisfied with the service! The team painted my condo with great care. The result is impeccable and everything was clean.',
+    },
+    {
+      name: 'Patrick Simard',
+      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Peinture extérieure de qualité. L'équipe a bien préparé les surfaces et le résultat est durable. Je recommande!"
+          : 'Quality exterior painting. The team prepared the surfaces well and the result is durable. I recommend!',
+    },
+    {
+      name: 'Louise Thibault',
+      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
+      content:
+        currentLang === 'fr'
+          ? "Service exceptionnel! L'équipe a peint ma maison rapidement et avec précision. Tout était parfaitement organisé et propre."
+          : 'Exceptional service! The team painted my house quickly and with precision. Everything was perfectly organized and clean.',
+    },
+  ];
 
   const whyRecommend = [
     isFr ? 'Finition très soignée' : 'Very careful finish',
@@ -291,7 +388,8 @@ export default function AvisPage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -347,164 +445,7 @@ export default function AvisPage() {
                     </Heading>
                   </Stack>
 
-                  <Stack spacing={6} w='100%' maxW='800px' align='center'>
-                    <Box
-                      position='relative'
-                      w='100%'
-                      h={{ base: '275px', md: '350px' }}
-                      pb={2}
-                    >
-                      <AnimatePresence initial={false} custom={direction}>
-                        <motion.div
-                          key={currentIndex}
-                          custom={direction}
-                          variants={slideVariants}
-                          initial='enter'
-                          animate='center'
-                          exit='exit'
-                          transition={{
-                            x: { type: 'spring', stiffness: 300, damping: 30 },
-                            opacity: { duration: 0.2 },
-                          }}
-                          drag='x'
-                          dragConstraints={{ left: 0, right: 0 }}
-                          dragElastic={1}
-                          onDragEnd={(e, { offset, velocity }) => {
-                            const swipe = swipePower(offset.x, velocity.x);
-
-                            if (swipe < -swipeConfidenceThreshold) {
-                              paginate(1);
-                            } else if (swipe > swipeConfidenceThreshold) {
-                              paginate(-1);
-                            }
-                          }}
-                          style={{
-                            position: 'absolute',
-                            width: '100%',
-                            height: '100%',
-                          }}
-                        >
-                          <Box
-                            bg='#F5F6F8'
-                            p={{ base: 4, md: 6 }}
-                            borderRadius='xl'
-                            border='1px solid'
-                            borderColor='gray.200'
-                            w='100%'
-                            h='100%'
-                            display='flex'
-                            flexDirection='column'
-                          >
-                            <Stack spacing={2} flexShrink={0}>
-                              <Box>
-                                <Text
-                                  fontWeight='bold'
-                                  fontSize={{ base: 'md', md: 'lg' }}
-                                  color='gray.800'
-                                >
-                                  {allReviews[currentIndex].name}
-                                </Text>
-                                <Text fontSize='sm' color='gray.500' mt={0.5}>
-                                  {allReviews[currentIndex].time}
-                                </Text>
-                              </Box>
-                              <Box display='flex' alignItems='center' gap={0.5}>
-                                {[...Array(5)].map((_, i) => (
-                                  <Icon
-                                    key={i}
-                                    as={FaStar}
-                                    color='yellow.500'
-                                    boxSize={4}
-                                  />
-                                ))}
-                              </Box>
-                            </Stack>
-                            <Box
-                              flex={1}
-                              overflowY='auto'
-                              mt={3}
-                              pr={2}
-                              css={{
-                                '&::-webkit-scrollbar': {
-                                  width: '6px',
-                                },
-                                '&::-webkit-scrollbar-track': {
-                                  background: 'transparent',
-                                },
-                                '&::-webkit-scrollbar-thumb': {
-                                  background: '#CBD5E0',
-                                  borderRadius: '3px',
-                                },
-                                '&::-webkit-scrollbar-thumb:hover': {
-                                  background: '#A0AEC0',
-                                },
-                              }}
-                            >
-                              <Text
-                                fontSize={{ base: 'sm', md: 'md' }}
-                                color='gray.700'
-                                lineHeight='1.6'
-                              >
-                                {allReviews[currentIndex].content}
-                              </Text>
-                            </Box>
-                          </Box>
-                        </motion.div>
-                      </AnimatePresence>
-                    </Box>
-
-                    <HStack
-                      justify='center'
-                      spacing={4}
-                      w='100%'
-                      position='relative'
-                      zIndex={2}
-                    >
-                      <IconButton
-                        aria-label='Previous review'
-                        icon={<ChevronLeftIcon />}
-                        onClick={() => paginate(-1)}
-                        borderRadius='full'
-                        bg='white'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
-                        color='#014CC4'
-                        size='md'
-                      />
-                      <HStack spacing={1}>
-                        {allReviews.map((_, index) => (
-                          <Box
-                            key={index}
-                            w={currentIndex === index ? '10px' : '8px'}
-                            h={currentIndex === index ? '10px' : '8px'}
-                            borderRadius='full'
-                            bg={currentIndex === index ? '#014CC4' : 'gray.300'}
-                            cursor='pointer'
-                            onClick={() => {
-                              setDirection(index > currentIndex ? 1 : -1);
-                              setCurrentIndex(index);
-                            }}
-                            transition='all 0.2s'
-                          />
-                        ))}
-                      </HStack>
-                      <IconButton
-                        aria-label='Next review'
-                        icon={<ChevronRightIcon />}
-                        onClick={() => paginate(1)}
-                        borderRadius='full'
-                        bg='white'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
-                        color='#014CC4'
-                        size='md'
-                      />
-                    </HStack>
-                  </Stack>
-
-                  <Box textAlign='center' pt={4}>
+                  <Box textAlign='center' pb={6}>
                     <Link
                       href='https://www.google.com/search?sca_esv=04ccc06d6a14a3bd&cs=0&output=search&kgmid=/g/11ldw9sdvg&q=Le+Lever+Du+Pinceau&shndl=30&shem=uaasic&source=sh/x/loc/uni/m1/1&kgs=a53523f1a2b1d98f#lrd=0x68f987b7d3c06763:0xde27a613b1baf982,3,,,,'
                       rel='nofollow'
@@ -527,6 +468,64 @@ export default function AvisPage() {
                       </Button>
                     </Link>
                   </Box>
+
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2, lg: 3 }}
+                    spacing={{ base: 4, md: 6 }}
+                    w='100%'
+                  >
+                    {allReviews.map((review, index) => (
+                      <Box
+                        key={index}
+                        bg='white'
+                        p={{ base: 4, md: 6 }}
+                        borderRadius='xl'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{
+                          borderColor: '#014CC4',
+                          boxShadow: 'md',
+                        }}
+                        transition='all 0.2s'
+                      >
+                        <Stack spacing={3} flex={1}>
+                          <Box>
+                            <Text
+                              fontWeight='bold'
+                              fontSize={{ base: 'md', md: 'lg' }}
+                              color='gray.800'
+                            >
+                              {review.name}
+                            </Text>
+                            <Text fontSize='sm' color='gray.500' mt={0.5}>
+                              {review.time}
+                            </Text>
+                          </Box>
+                          <Box display='flex' alignItems='center' gap={0.5}>
+                            {[...Array(5)].map((_, i) => (
+                              <Icon
+                                key={i}
+                                as={FaStar}
+                                color='#EAA82E'
+                                boxSize={4}
+                              />
+                            ))}
+                          </Box>
+                          <Text
+                            fontSize={{ base: 'sm', md: 'md' }}
+                            color='gray.700'
+                            lineHeight='1.6'
+                            flex={1}
+                          >
+                            {review.content}
+                          </Text>
+                        </Stack>
+                      </Box>
+                    ))}
+                  </SimpleGrid>
                 </Stack>
               </Container>
             </Box>
@@ -703,7 +702,8 @@ export default function AvisPage() {
 
               <Box>
                 <Link
-                  href='/new-home/contact'
+                  as={RouterLink}
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
