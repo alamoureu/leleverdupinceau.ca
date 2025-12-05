@@ -207,14 +207,14 @@ export default function PeintreProfessionnelPage() {
       description: isFr
         ? 'Murs, plafonds, portes, escaliers.'
         : 'Walls, ceilings, doors, stairs.',
-      link: '/services/peinture-interieure',
+      link: '/services/new-peinture-interieure',
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       description: isFr
         ? 'Revêtements, clôtures, bois, brique, aluminium.'
         : 'Coatings, fences, wood, brick, aluminum.',
-      link: '/services/peinture-exterieure',
+      link: '/services/new-peinture-exterieure',
     },
     {
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
@@ -430,7 +430,7 @@ export default function PeintreProfessionnelPage() {
                   </Button>
                   <Button
                     as={Link}
-                    to='/contact'
+                    to='/new-contact'
                     variant='outline'
                     borderColor='gray.300'
                     color='gray.700'
@@ -821,7 +821,7 @@ export default function PeintreProfessionnelPage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/contact'
+                  to='/new-contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button

@@ -57,7 +57,7 @@ export default function ServiceCTASection({ title, description, buttonText }) {
           <Box>
             <Link
               as={RouterLink}
-              to='/contact'
+              to='/new-contact'
               _hover={{ textDecoration: 'none' }}
             >
               <Button

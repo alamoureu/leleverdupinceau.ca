@@ -256,11 +256,11 @@ export default function AvisPage() {
   const services = [
     {
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
-      link: '/services/peinture-interieure',
+      link: '/services/new-peinture-interieure',
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
-      link: '/services/peinture-exterieure',
+      link: '/services/new-peinture-exterieure',
     },
     {
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
@@ -703,7 +703,7 @@ export default function AvisPage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/contact'
+                  to='/new-contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button

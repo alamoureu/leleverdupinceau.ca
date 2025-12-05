@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -51,11 +52,11 @@ export default function BlogPage() {
     },
     {
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
-      link: '/services/peinture-interieure',
+      link: '/services/new-peinture-interieure',
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
-      link: '/services/peinture-exterieure',
+      link: '/services/new-peinture-exterieure',
     },
     {
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
@@ -308,7 +309,11 @@ export default function BlogPage() {
               </Stack>
 
               <Box>
-                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
+                <Link
+                  as={RouterLink}
+                  to='/new-contact'
+                  _hover={{ textDecoration: 'none' }}
+                >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

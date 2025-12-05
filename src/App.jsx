@@ -24,8 +24,8 @@ import SousServicePage from './lelever-next/services-pages/sous_service/SousServ
 import BlogPage from './lelever-next/pages/BlogPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
-// import PeintureExt from './pages/PeintureExterieur';
-// import PeintureInt from './pages/PeintureInterieur';
+import PeintureExt from './pages/PeintureExterieur';
+import PeintureInt from './pages/PeintureInterieur';
 import Nousjoindre from './pages/Nousjoindre';
 import AboutUs from './pages/AboutUs';
 import Emplois from './pages/Emplois';
@@ -55,14 +55,14 @@ export default function App() {
             <Route path='/contact' element={<Nousjoindre />} />
             <Route path='/a-propos-de-nous' element={<AboutUs />} />
             <Route path='/emplois' element={<Emplois />} />
-            {/* <Route
+            <Route
               path='/services/peinture-exterieure'
               element={<PeintureExt />}
-            /> */}
-            {/* <Route
+            />
+            <Route
               path='/services/peinture-interieure'
               element={<PeintureInt />}
-            /> */}
+            />
             <Route
               path='/politiques/confidentialite'
               element={<ThermOfUsePage />}
@@ -145,7 +145,7 @@ export default function App() {
               element={<PeintureCommercialePage />}
             />
             <Route
-              path='peinture-exterieure'
+              path='new-peinture-exterieure'
               element={<PeintureExterieurePage />}
             />
             <Route
@@ -153,7 +153,7 @@ export default function App() {
               element={<PeintureResidentiellePage />}
             />
             <Route
-              path='peinture-interieure'
+              path='new-peinture-interieure'
               element={<PeintureInterieurePage />}
             />
             <Route
@@ -192,7 +192,7 @@ export default function App() {
             <Route index element={<BlogPage />} />
           </Route>
           <Route
-            path='/contact'
+            path='/new-contact'
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />

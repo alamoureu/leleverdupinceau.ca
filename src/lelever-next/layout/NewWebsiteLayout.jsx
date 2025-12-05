@@ -155,7 +155,7 @@ export default function NewWebsiteLayout() {
                 <Stack spacing={2}>
                   <Link
                     as={RouterLink}
-                    to='/services/peinture-interieure'
+                    to='/services/new-peinture-interieure'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -164,7 +164,7 @@ export default function NewWebsiteLayout() {
                   </Link>
                   <Link
                     as={RouterLink}
-                    to='/services/peinture-exterieure'
+                    to='/services/new-peinture-exterieure'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -247,7 +247,7 @@ export default function NewWebsiteLayout() {
                   </Link>
                   <Link
                     as={RouterLink}
-                    to='/contact'
+                    to='/new-contact'
                     color='white'
                     fontSize='sm'
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}

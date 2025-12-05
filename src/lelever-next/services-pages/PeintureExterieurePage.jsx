@@ -45,7 +45,7 @@ export default function PeintureExterieurePage() {
         '@type': 'ListItem',
         position: 3,
         name: isFr ? 'Peinture extérieure' : 'Exterior painting',
-        item: 'https://leleverdupinceau.ca/services/peinture-exterieure',
+        item: 'https://leleverdupinceau.ca/services/new-peinture-exterieure',
       },
     ],
   };
@@ -167,7 +167,7 @@ export default function PeintureExterieurePage() {
         <meta name='robots' content='noindex, nofollow' />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/peinture-exterieure'
+          href='https://leleverdupinceau.ca/services/new-peinture-exterieure'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -497,7 +497,7 @@ export default function PeintureExterieurePage() {
                   : 'Available throughout Greater Montreal'
               }
               serviceName={isFr ? 'Peinture extérieure' : 'Exterior painting'}
-              serviceSlug='peinture-exterieure'
+              serviceSlug='new-peinture-exterieure'
               cities={cities}
             />
 

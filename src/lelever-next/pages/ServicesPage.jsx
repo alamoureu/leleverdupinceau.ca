@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -60,14 +61,14 @@ export default function ServicesPage() {
       description: isFr
         ? 'Murs, plafonds, portes, escaliers, finitions.'
         : 'Walls, ceilings, doors, stairs, finishes.',
-      link: '/services/peinture-interieure',
+      link: '/services/new-peinture-interieure',
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       description: isFr
         ? 'Revêtements extérieurs, brique, bois, aluminium, crépi.'
         : 'Exterior coatings, brick, wood, aluminum, stucco.',
-      link: '/services/peinture-exterieure',
+      link: '/services/new-peinture-exterieure',
     },
     {
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
@@ -714,7 +715,11 @@ export default function ServicesPage() {
               </Stack>
 
               <Box>
-                <Link href='/contact' _hover={{ textDecoration: 'none' }}>
+                <Link
+                  as={RouterLink}
+                  to='/new-contact'
+                  _hover={{ textDecoration: 'none' }}
+                >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'

@@ -33,13 +33,13 @@ export default function CityServicesSection({ cityName, citySlug }) {
       name: isFr
         ? `Peinture intérieure ${cityName}`
         : `Interior painting ${cityName}`,
-      link: `/services/peinture-interieure/${citySlug}`,
+      link: `/services/new-peinture-interieure/${citySlug}`,
     },
     {
       name: isFr
         ? `Peinture extérieure ${cityName}`
         : `Exterior painting ${cityName}`,
-      link: `/services/peinture-exterieure/${citySlug}`,
+      link: `/services/new-peinture-exterieure/${citySlug}`,
     },
     {
       name: isFr

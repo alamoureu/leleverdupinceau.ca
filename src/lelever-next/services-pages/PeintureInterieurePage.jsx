@@ -45,7 +45,7 @@ export default function PeintureInterieurePage() {
         '@type': 'ListItem',
         position: 3,
         name: isFr ? 'Peinture intérieure' : 'Interior painting',
-        item: 'https://leleverdupinceau.ca/services/peinture-interieure',
+        item: 'https://leleverdupinceau.ca/services/new-peinture-interieure',
       },
     ],
   };
@@ -165,7 +165,7 @@ export default function PeintureInterieurePage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/peinture-interieure'
+          href='https://leleverdupinceau.ca/services/new-peinture-interieure'
         />
         <meta name='robots' content='noindex, nofollow' />
         <script type='application/ld+json'>
@@ -329,7 +329,7 @@ export default function PeintureInterieurePage() {
                   : 'Available throughout Greater Montreal'
               }
               serviceName={isFr ? 'Peinture intérieure' : 'Interior painting'}
-              serviceSlug='peinture-interieure'
+              serviceSlug='new-peinture-interieure'
             />
 
             {/* Section 4 — Exemples de projets */}

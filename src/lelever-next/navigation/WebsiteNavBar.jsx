@@ -179,7 +179,7 @@ export default function WebsiteNavBar() {
                 {currentLang === 'fr' ? 'Blog' : 'Blog'}
               </Button>
               <Button
-                onClick={() => navigate('/contact')}
+                onClick={() => navigate('/new-contact')}
                 fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
                 px={{ base: 4, lg: 5, xl: 6 }}
                 py={{ base: 2, lg: 2.5, xl: 3 }}

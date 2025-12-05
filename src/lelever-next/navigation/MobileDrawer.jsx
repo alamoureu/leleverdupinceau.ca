@@ -178,7 +178,7 @@ export const MobileDrawer = () => {
                 variant='tertiary'
                 justifyContent='start'
                 leftIcon={<FontAwesomeIcon icon={faPhoneAlt} />}
-                onClick={() => handleNav('/contact')}
+                onClick={() => handleNav('/new-contact')}
                 py={{ base: 3, sm: 4 }}
                 fontSize={{ base: 'md', sm: 'lg' }}
                 fontWeight='medium'

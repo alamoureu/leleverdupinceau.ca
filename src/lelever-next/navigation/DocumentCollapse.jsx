@@ -25,12 +25,12 @@ export const DocumentCollapse = ({ onClose }) => {
     {
       fr: 'Peinture intérieure',
       en: 'Interior Painting',
-      path: '/services/peinture-interieure',
+      path: '/services/new-peinture-interieure',
     },
     {
       fr: 'Peinture extérieure',
       en: 'Exterior Painting',
-      path: '/services/peinture-exterieure',
+      path: '/services/new-peinture-exterieure',
     },
     {
       fr: 'Peinture industrielle',
