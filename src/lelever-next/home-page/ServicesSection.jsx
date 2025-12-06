@@ -15,7 +15,6 @@ import { useTranslation } from '../i18n';
 import peintureResidentielleImg from '../images/peinture_residentielle.jpg';
 import peintureCommercialeImg from '../images/peinture_commercial.jpg';
 import peintureInterieurImg from '../images/peinture_interieur.jpg';
-import heroImage from '../images/heroImage.png';
 
 export default function ServicesSection() {
   const { t } = useTranslation();
@@ -35,16 +34,6 @@ export default function ServicesSection() {
       image: peintureInterieurImg,
       title: t.serviceInterior,
       description: t.serviceInteriorDesc,
-    },
-    {
-      image: heroImage,
-      title: t.serviceExterior,
-      description: t.serviceExteriorDesc,
-    },
-    {
-      image: heroImage,
-      title: t.serviceIndustrial,
-      description: t.serviceIndustrialDesc,
     },
   ];
   return (
@@ -75,7 +64,7 @@ export default function ServicesSection() {
           </Stack>
 
           <SimpleGrid
-            columns={{ base: 1, md: 2, lg: 5 }}
+            columns={{ base: 1, md: 2, lg: 3 }}
             spacing={{ base: 4, md: 5, lg: 6 }}
             w='100%'
             justifyItems={{ base: 'center', md: 'stretch' }}

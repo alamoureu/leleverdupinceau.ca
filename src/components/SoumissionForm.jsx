@@ -25,6 +25,7 @@ import appContext from '../AppProvider';
 import { sendEmail } from '../sendEmail';
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { sendToGoHighLevel } from '../utils/gohighlevelWebhook';
 
 export default function SoumissionForm() {
   const { currentLang } = useContext(appContext);
@@ -101,6 +102,39 @@ export default function SoumissionForm() {
       label: 'Autre',
       value: 'Autre',
       category: 'Peinture Extérieur',
+    },
+    // Tags for Peinture Résidentielle
+    { label: 'Maison complète', value: 'Maison complète', category: 'Peinture Résidentielle' },
+    { label: 'Condo', value: 'Condo', category: 'Peinture Résidentielle' },
+    { label: 'Plex', value: 'Plex', category: 'Peinture Résidentielle' },
+    { label: 'Appartement', value: 'Appartement', category: 'Peinture Résidentielle' },
+    { label: 'Multi-étages', value: 'Multi-étages', category: 'Peinture Résidentielle' },
+    // Tags for Peinture Commerciale
+    { label: 'Bureaux', value: 'Bureaux', category: 'Peinture Commerciale' },
+    { label: 'Commerce', value: 'Commerce', category: 'Peinture Commerciale' },
+    { label: 'Restaurant', value: 'Restaurant', category: 'Peinture Commerciale' },
+    { label: 'Immeuble commercial', value: 'Immeuble commercial', category: 'Peinture Commerciale' },
+    { label: 'Espace de vente', value: 'Espace de vente', category: 'Peinture Commerciale' },
+    // Tags for Peinture Industrielle
+    { label: 'Entrepôt', value: 'Entrepôt', category: 'Peinture Industrielle' },
+    { label: 'Usine', value: 'Usine', category: 'Peinture Industrielle' },
+    { label: 'Bâtiment industriel', value: 'Bâtiment industriel', category: 'Peinture Industrielle' },
+    { label: 'Hangar', value: 'Hangar', category: 'Peinture Industrielle' },
+    { label: 'Installation spécialisée', value: 'Installation spécialisée', category: 'Peinture Industrielle' },
+    {
+      label: 'Autre',
+      value: 'Autre',
+      category: 'Peinture Résidentielle',
+    },
+    {
+      label: 'Autre',
+      value: 'Autre',
+      category: 'Peinture Commerciale',
+    },
+    {
+      label: 'Autre',
+      value: 'Autre',
+      category: 'Peinture Industrielle',
     },
   ];
 
@@ -200,8 +234,29 @@ export default function SoumissionForm() {
     </div>
 `;
 
+      // Save to Firebase
       await addDoc(collection(db, 'Soumission'), formData);
+      
+      // Send email notification
       await sendEmail('Nouvelle soumission', emailBody);
+      
+      // Send to GoHighLevel webhook
+      try {
+        await sendToGoHighLevel({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.tel,
+          address: formData.address,
+          typePeinture: formData.typePeinture,
+          besoinPeinture: formData.besoinPeinture,
+          message: formData.message,
+        });
+      } catch (webhookError) {
+        // Log webhook error but don't fail the submission
+        console.error('GoHighLevel webhook error:', webhookError);
+        // Optionally show a warning but continue
+      }
+      
       setLoading(false);
       setConfirmationVisible(true);
     } catch (error) {
@@ -245,10 +300,10 @@ export default function SoumissionForm() {
             </Text>
           </HStack>
           <VStack spacing={0} px="10px">
-            <Text textAlign="center">
+            <Text textAlign="center" fontSize="md" color="gray.700">
               {currentLang === 'fr'
-                ? 'Votre soumission a été envoyée avec succès. Nous vous contacterons sous peu.'
-                : 'Your submission was sent successfully. We will contact you shortly.'}
+                ? 'Votre soumission a été envoyée avec succès. Nous vous contacterons dans les plus brefs délais.'
+                : 'Your submission has been sent successfully. We will contact you as soon as possible.'}
             </Text>
           </VStack>
         </Stack>
@@ -330,8 +385,27 @@ export default function SoumissionForm() {
             </FormControl>
 
             <FormControl textColor="black" isRequired>
+              <FormLabel mb={3} fontWeight="semibold" textColor="#53514E">
+                {currentLang === 'fr'
+                  ? 'Type de peinture*'
+                  : 'Painting Type*'}
+              </FormLabel>
               <RadioGroup value={typePeinture} onChange={setTypePeinture}>
-                <Stack direction="row">
+                <Stack direction="column" spacing={3}>
+                  <Radio value="Peinture Résidentielle" borderColor="gray.200">
+                    <Text fontWeight="semibold" textColor="#53514E">
+                      {currentLang === 'fr'
+                        ? 'Peinture Résidentielle'
+                        : 'Residential Painting'}
+                    </Text>
+                  </Radio>
+                  <Radio value="Peinture Commerciale" borderColor="gray.200">
+                    <Text fontWeight="semibold" textColor="#53514E">
+                      {currentLang === 'fr'
+                        ? 'Peinture Commerciale'
+                        : 'Commercial Painting'}
+                    </Text>
+                  </Radio>
                   <Radio value="Peinture Intérieur" borderColor="gray.200">
                     <Text fontWeight="semibold" textColor="#53514E">
                       {currentLang === 'fr'
@@ -344,6 +418,13 @@ export default function SoumissionForm() {
                       {currentLang === 'fr'
                         ? 'Peinture Extérieure'
                         : 'Exterior Painting'}
+                    </Text>
+                  </Radio>
+                  <Radio value="Peinture Industrielle" borderColor="gray.200">
+                    <Text fontWeight="semibold" textColor="#53514E">
+                      {currentLang === 'fr'
+                        ? 'Peinture Industrielle'
+                        : 'Industrial Painting'}
                     </Text>
                   </Radio>
                 </Stack>
@@ -405,6 +486,19 @@ export default function SoumissionForm() {
               w="100%"
               type="submit"
               borderRadius="md"
+              isLoading={loading}
+              loadingText={
+                currentLang === 'fr' ? 'Envoi en cours...' : 'Sending...'
+              }
+              spinnerPlacement="start"
+              _loading={{
+                opacity: 0.8,
+                cursor: 'not-allowed',
+              }}
+              disabled={loading}
+              _hover={{
+                bg: loading ? '#0056D2' : '#0045A8',
+              }}
             >
               {currentLang === 'fr' ? 'Envoyer' : 'Send'}
             </Button>

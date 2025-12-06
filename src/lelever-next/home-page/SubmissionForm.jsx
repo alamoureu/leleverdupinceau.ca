@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Stack,
   FormControl,
@@ -14,8 +14,14 @@ import {
   Checkbox,
   Link,
   Box,
+  useToast,
+  Heading,
 } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n';
+import { db } from '../../firebase';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 
 const activeLabelStyles = {
   transform: 'scale(0.85) translateY(-24px)',
@@ -71,10 +77,15 @@ export default function SubmissionForm({
   onSubmit,
   onClose,
   isModal: _isModal = false,
+  onSubmissionStateChange,
 }) {
   const { t } = useTranslation();
+  const toast = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
+    email: '',
     phone: '',
     address: '',
     projectDetails: '',
@@ -97,29 +108,175 @@ export default function SubmissionForm({
     });
   };
 
-  const handleSubmit = (e) => {
+  // Notify parent of submission state
+  useEffect(() => {
+    if (isSubmitted && onSubmissionStateChange) {
+      onSubmissionStateChange(true);
+    } else if (!isSubmitted && onSubmissionStateChange) {
+      onSubmissionStateChange(false);
+    }
+  }, [isSubmitted, onSubmissionStateChange]);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (!formData.consentAccepted) {
-      alert(t.formConsentRequired);
+      toast({
+        title: t.formConsentRequired || 'Consent required',
+        description: t.formConsentRequired || 'Please accept the terms and conditions.',
+        status: 'warning',
+        duration: 4000,
+        isClosable: true,
+      });
       return;
     }
-    if (onSubmit) {
-      onSubmit(formData);
-    } else {
-      console.log('Form submitted:', formData);
+
+    if (!formData.name || !formData.email || !formData.phone || !formData.address) {
+      toast({
+        title: 'Error',
+        description: 'Please fill in all required fields.',
+        status: 'warning',
+        duration: 4000,
+        isClosable: true,
+      });
+      return;
     }
-    setFormData({
-      name: '',
-      phone: '',
-      address: '',
-      projectDetails: '',
-      paintingType: '',
-      consentAccepted: false,
-    });
-    if (onClose) {
-      onClose();
+
+    setIsSubmitting(true);
+
+    try {
+      // Prepare data for Firebase
+      const firebaseData = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        projectDetails: formData.projectDetails,
+        paintingType: formData.paintingType,
+        date: Timestamp.now(),
+        source: 'Website Form',
+      };
+
+      // Save to Firebase
+      await addDoc(collection(db, 'Soumission'), firebaseData);
+
+      // Send to GoHighLevel webhook
+      try {
+        await sendToGoHighLevel(formData);
+      } catch (webhookError) {
+        // Log webhook error but don't fail the submission
+        console.error('GoHighLevel webhook error:', webhookError);
+        // Optionally show a warning but continue
+      }
+
+      // Call custom onSubmit if provided
+      if (onSubmit) {
+        onSubmit(formData);
+      }
+
+      // Show success state
+      setIsSubmitted(true);
+      // Notify parent of submission state change
+      if (onSubmissionStateChange) {
+        onSubmissionStateChange(true);
+      }
+
+      // Reset form
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        address: '',
+        projectDetails: '',
+        paintingType: '',
+        consentAccepted: false,
+      });
+
+      // Close modal if provided (after showing confirmation)
+      if (onClose) {
+        setTimeout(() => {
+          onClose();
+        }, 5000);
+      }
+    } catch (error) {
+      console.error('Submission error:', error);
+      toast({
+        title: 'Error',
+        description: 'An error occurred. Please try again.',
+        status: 'error',
+        duration: 5000,
+        isClosable: true,
+      });
+    } finally {
+      setIsSubmitting(false);
     }
   };
+
+  // Show confirmation message if submitted
+  if (isSubmitted) {
+    return (
+      <ChakraProvider theme={theme}>
+        <Box
+          w='100%'
+          p={{ base: 8, md: 10 }}
+          textAlign='center'
+        >
+          <Stack spacing={6}>
+            {/* Success Icon with Animation */}
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{
+                type: 'spring',
+                stiffness: 200,
+                damping: 15,
+                duration: 0.5,
+              }}
+            >
+              <Box
+                display='flex'
+                justifyContent='center'
+                alignItems='center'
+                w={{ base: '60px', md: '80px' }}
+                h={{ base: '60px', md: '80px' }}
+                mx='auto'
+                bg='#014CC4'
+                borderRadius='full'
+                boxShadow='0 4px 15px rgba(1, 76, 196, 0.3)'
+              >
+                <Text fontSize={{ base: '2xl', md: '3xl' }} color='white' fontWeight='bold'>
+                  ✓
+                </Text>
+              </Box>
+            </motion.div>
+            
+            {/* Title */}
+            <Heading
+              as='h3'
+              fontSize={{ base: 'xl', md: '2xl' }}
+              fontWeight='bold'
+              color='#014CC4'
+              textAlign='center'
+            >
+              {t.formConfirmationTitle}
+            </Heading>
+            
+            {/* Subtitle */}
+            <Text
+              fontSize={{ base: 'md', md: 'lg' }}
+              color='gray.600'
+              lineHeight='1.8'
+              maxW='500px'
+              mx='auto'
+              textAlign='center'
+            >
+              {t.formConfirmationMessage}
+            </Text>
+          </Stack>
+        </Box>
+      </ChakraProvider>
+    );
+  }
 
   return (
     <ChakraProvider theme={theme}>
@@ -147,6 +304,32 @@ export default function SubmissionForm({
               }
             >
               {t.formName}
+            </FormLabel>
+          </FormControl>
+
+          <FormControl variant='floating' isRequired>
+            <Input
+              name='email'
+              type='email'
+              value={formData.email}
+              onChange={handleChange}
+              placeholder=' '
+              size='lg'
+              borderColor='gray.300'
+              _focus={{
+                borderColor: '#014CC4',
+                boxShadow: '0 0 0 1px #014CC4',
+              }}
+            />
+            <FormLabel
+              color='gray.700'
+              requiredIndicator={
+                <Text as='span' color='red.500'>
+                  *
+                </Text>
+              }
+            >
+              {t.formEmail || 'Email'}
             </FormLabel>
           </FormControl>
 
@@ -243,12 +426,21 @@ export default function SubmissionForm({
               value={formData.paintingType}
               onChange={handleRadioChange}
             >
-              <Stack direction='row' spacing={6}>
+              <Stack direction='column' spacing={3}>
+                <Radio value='residential' colorScheme='blue'>
+                  {t.serviceResidential || 'Peinture résidentielle'}
+                </Radio>
+                <Radio value='commercial' colorScheme='blue'>
+                  {t.serviceCommercial || 'Peinture commerciale'}
+                </Radio>
                 <Radio value='interior' colorScheme='blue'>
-                  {t.formInteriorPainting}
+                  {t.formInteriorPainting || t.serviceInterior || 'Peinture intérieure'}
                 </Radio>
                 <Radio value='exterior' colorScheme='blue'>
-                  {t.formExteriorPainting}
+                  {t.formExteriorPainting || t.serviceExterior || 'Peinture extérieure'}
+                </Radio>
+                <Radio value='industrial' colorScheme='blue'>
+                  {t.serviceIndustrial || 'Peinture industrielle'}
                 </Radio>
               </Stack>
             </RadioGroup>
@@ -310,8 +502,16 @@ export default function SubmissionForm({
             fontWeight='semibold'
             borderRadius='full'
             _hover={{ bg: '#0139A0' }}
+            _loading={{
+              opacity: 0.8,
+              cursor: 'not-allowed',
+            }}
+            isLoading={isSubmitting}
+            loadingText={t.formSubmitting || 'Envoi en cours...'}
+            spinnerPlacement='start'
+            disabled={isSubmitting}
           >
-            {t.formSubmit}
+            {t.formSubmit || 'Envoyer'}
           </Button>
         </Stack>
       </form>

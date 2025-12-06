@@ -70,33 +70,46 @@ export default function SectorsSection() {
             maxW='700px'
           >
             {sectors.map((sector, index) => (
-              <Box
+              <Link
                 key={index}
-                p={8}
-                bg='white'
-                borderRadius='2xl'
-                textAlign='center'
-                border='1px solid'
-                borderColor='gray.200'
+                as={RouterLink}
+                to={sector.link}
+                _hover={{ textDecoration: 'none' }}
               >
-                <Stack spacing={4} align='center'>
-                  <Icon
-                    as={FontAwesomeIcon}
-                    icon={faMapMarkerAlt}
-                    boxSize={6}
-                    color='#014CC4'
-                  />
-                  <Text
-                    fontWeight='700'
-                    color='gray.800'
-                    fontSize='xl'
-                    letterSpacing='-0.02em'
-                    lineHeight='1.4'
-                  >
-                    {sector.name}
-                  </Text>
-                </Stack>
-              </Box>
+                <Box
+                  p={8}
+                  bg='white'
+                  borderRadius='2xl'
+                  textAlign='center'
+                  border='1px solid'
+                  borderColor='gray.200'
+                  cursor='pointer'
+                  transition='all 0.2s'
+                  _hover={{
+                    borderColor: '#014CC4',
+                    boxShadow: 'md',
+                    transform: 'translateY(-2px)',
+                  }}
+                >
+                  <Stack spacing={4} align='center'>
+                    <Icon
+                      as={FontAwesomeIcon}
+                      icon={faMapMarkerAlt}
+                      boxSize={6}
+                      color='#014CC4'
+                    />
+                    <Text
+                      fontWeight='700'
+                      color='gray.800'
+                      fontSize='xl'
+                      letterSpacing='-0.02em'
+                      lineHeight='1.4'
+                    >
+                      {sector.name}
+                    </Text>
+                  </Stack>
+                </Box>
+              </Link>
             ))}
           </SimpleGrid>
 

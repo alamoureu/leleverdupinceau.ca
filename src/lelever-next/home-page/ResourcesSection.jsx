@@ -22,17 +22,17 @@ export default function ResourcesSection() {
   const articles = [
     {
       title: t.article1Title,
-      href: '/blog/comment-choisir-peintre-professionnel',
+      href: '/blog/comment-choisir-un-peintre-professionnel',
       image: commentChoisirPeintre,
     },
     {
       title: t.article2Title,
-      href: '/blog/prix-projet-peinture-montreal',
+      href: '/blog/prix-peinture-montreal',
       image: prixProjetPeinture,
     },
     {
       title: t.article3Title,
-      href: '/blog/erreurs-eviter-avant-peindre',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
       image: erreurEviterProjet,
     },
   ];

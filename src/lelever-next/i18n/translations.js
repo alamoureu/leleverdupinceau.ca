@@ -2,17 +2,17 @@ export const translations = {
   fr: {
     heroTitle: 'Un résultat impeccable,',
     heroTitleSecondLine: 'rien de moins',
-    heroSubtitle: 'Un service rapide, propre et garanti',
+    heroSubtitle: 'Un service rapide, propre et garanti.',
     heroButton: 'Recevoir ma soumission gratuite',
 
     servicesTitle: 'Nos services',
     servicesSubtitle:
-      'Les travaux de peinture que nous réalisons le plus souvent',
-    serviceResidential: 'Peinture résidentielle',
+      'Les travaux que nous réalisons le plus souvent',
+    serviceResidential: 'Résidentiel',
     serviceResidentialDesc: 'Maisons, condos, multi-étages',
-    serviceCommercial: 'Peinture commerciale',
+    serviceCommercial: 'Commercial',
     serviceCommercialDesc: 'Bureaux, commerces, restaurants',
-    serviceInterior: 'Peinture intérieure',
+    serviceInterior: 'Intérieure',
     serviceInteriorDesc: 'Murs, plafonds, escaliers, boiseries',
     serviceExterior: 'Peinture extérieure',
     serviceExteriorDesc: 'Revêtements, brique, aluminium',
@@ -21,14 +21,14 @@ export const translations = {
     viewAllServices: 'Voir tous nos services',
 
     whyUsTitle: 'Pourquoi nous choisir ?',
-    benefit1Title: 'Finition impeccable',
-    benefit1Desc: 'Finition impeccable, durable et uniforme',
-    benefit2Title: 'Travaux rapides et propres',
-    benefit2Desc: 'Travaux rapides, propres et planifiés',
-    benefit3Title: 'Service client 5 étoiles',
-    benefit3Desc: 'Service client 5 étoiles, sans surprise',
-    benefit4Title: 'Produits de haute qualité',
-    benefit4Desc: 'Produits professionnels, adaptés à chaque surface',
+    benefit1Title: 'Un travail impeccable',
+    benefit1Desc: 'Un travail propre, uniforme, détaillé et tout du premier coup',
+    benefit2Title: 'Aucun stress, aucun dégât',
+    benefit2Desc: 'On protège tout. Votre maison reste intacte du début à la fin',
+    benefit3Title: 'Rapidité et ponctualité',
+    benefit3Desc: 'On arrive à l\'heure. On termine à l\'heure. Pas d\'excuses',
+    benefit4Title: 'Services 5 étoiles',
+    benefit4Desc: 'Communication claire, équipe respectueuse, zéro devinette',
     freeSubmission: 'Soumission gratuite',
     professionalPainterAlt: 'Peintre professionnel au travail',
 
@@ -56,6 +56,7 @@ export const translations = {
     contactFormTitle: 'Obtenir une soumission gratuite',
 
     formName: 'Nom',
+    formEmail: 'Courriel',
     formPhone: 'Téléphone',
     formAddress: 'Adresse',
     formProjectDetails: 'Détails du projet',
@@ -71,6 +72,11 @@ export const translations = {
       "de Le Lever du Pinceau. En fournissant mon numéro de téléphone et mon adresse courriel, j'accepte de recevoir des messages texte et des courriels de la part de l'entreprise.",
     formConsentRequired:
       'Vous devez accepter les termes et conditions pour continuer',
+    formSuccessTitle: 'Soumission envoyée!',
+    formSuccessMessage: 'Votre soumission a été envoyée avec succès!',
+    formConfirmationTitle: 'Votre demande a été reçue avec succès.',
+    formConfirmationMessage:
+      'Notre équipe va vous contacter dans les plus brefs délais.',
 
     modalTitle: 'Obtenir une soumission gratuite',
 
@@ -122,7 +128,7 @@ export const translations = {
   en: {
     heroTitle: 'An impeccable result,',
     heroTitleSecondLine: 'nothing less',
-    heroSubtitle: 'A fast, clean and guaranteed service',
+    heroSubtitle: 'A fast, clean and guaranteed service.',
     heroButton: 'Get my free quote',
 
     servicesTitle: 'Our services',
@@ -140,14 +146,14 @@ export const translations = {
     viewAllServices: 'View all our services',
 
     whyUsTitle: 'Why choose us?',
-    benefit1Title: 'Impeccable finish',
-    benefit1Desc: 'Impeccable, durable and uniform finish',
-    benefit2Title: 'Fast and clean work',
-    benefit2Desc: 'Fast, clean and planned work',
-    benefit3Title: '5-star customer service',
-    benefit3Desc: '5-star customer service, no surprises',
-    benefit4Title: 'High quality products',
-    benefit4Desc: 'Professional products, adapted to each surface',
+    benefit1Title: 'Impeccable work',
+    benefit1Desc: 'Clean, uniform, detailed work, done right the first time',
+    benefit2Title: 'No stress, no damage',
+    benefit2Desc: 'We protect everything. Your home remains intact from start to finish',
+    benefit3Title: 'Speed and punctuality',
+    benefit3Desc: 'We arrive on time. We finish on time. No excuses',
+    benefit4Title: '5-star services',
+    benefit4Desc: 'Clear communication, respectful team, zero guesswork',
     freeSubmission: 'Free quote',
     professionalPainterAlt: 'Professional painter at work',
 
@@ -175,6 +181,7 @@ export const translations = {
     contactFormTitle: 'Get a free quote',
 
     formName: 'Name',
+    formEmail: 'Email',
     formPhone: 'Phone',
     formAddress: 'Address',
     formProjectDetails: 'Project details',
@@ -189,6 +196,11 @@ export const translations = {
     formOf:
       'of Le Lever du Pinceau. By providing my phone number and email address, I agree to receive text messages and emails from the company.',
     formConsentRequired: 'You must accept the terms and conditions to continue',
+    formSuccessTitle: 'Submission sent!',
+    formSuccessMessage: 'Your submission has been sent successfully!',
+    formConfirmationTitle: 'Your request has been received successfully.',
+    formConfirmationMessage:
+      'Our team will contact you as soon as possible.',
 
     modalTitle: 'Get a free quote',
 

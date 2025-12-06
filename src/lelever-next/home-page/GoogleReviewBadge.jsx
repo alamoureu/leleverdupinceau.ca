@@ -12,10 +12,12 @@ export default function GoogleReviewBadge() {
       right={{ base: '20px', md: '40px', lg: '60px' }}
       zIndex={4}
       bg='white'
-      borderRadius='xl'
-      p={{ base: 4, md: 5 }}
+      borderTopRadius='lg'
+      borderBottomRadius='150px'
+      p={{ base: 3, md: 4 }}
       boxShadow='0 4px 15px rgba(0,0,0,0.15)'
-      minW='140px'
+      minW='90px'
+      maxW='90px'
     >
       <Stack spacing={2} align='center'>
         <Text fontSize='xs' color='gray.600' fontWeight='600'>

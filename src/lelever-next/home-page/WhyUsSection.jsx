@@ -14,9 +14,10 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faPaintRoller,
-  faClockRotateLeft,
+  faShield,
+  faClock,
+  faCheckCircle,
   faStar,
-  faRankingStar,
 } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from '../i18n';
 import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
@@ -26,19 +27,20 @@ export default function WhyUsSection({ onSubmissionOpen }) {
 
   const benefits = [
     {
-      icon: faRankingStar,
+      icon: faPaintRoller,
       title: t.benefit1Title,
       description: t.benefit1Desc,
     },
     {
-      icon: faPaintRoller,
+      icon: faShield,
       title: t.benefit2Title,
       description: t.benefit2Desc,
     },
     {
-      icon: faClockRotateLeft,
+      icon: faClock,
       title: t.benefit3Title,
       description: t.benefit3Desc,
+      hasCheck: true,
     },
     {
       icon: faStar,
@@ -49,34 +51,60 @@ export default function WhyUsSection({ onSubmissionOpen }) {
   return (
     <Box py={{ base: 12, md: 16 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-        <Stack spacing={{ base: 8, md: 10 }} align='center' textAlign='center'>
-          <Heading
-            as='h2'
-            fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-            fontWeight='bold'
-            color='gray.800'
-            mb={4}
-          >
-            {t.whyUsTitle}
-          </Heading>
+        <Heading
+          as='h2'
+          fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+          fontWeight='bold'
+          color='gray.800'
+          mb={{ base: 8, md: 10 }}
+          textAlign='center'
+        >
+          {t.whyUsTitle}
+        </Heading>
 
-          <Stack spacing={{ base: 4, md: 6 }} maxW='800px' w='100%'>
+        <SimpleGrid
+          columns={{ base: 1, lg: 2 }}
+          spacing={{ base: 8, lg: 12 }}
+          alignItems='center'
+        >
+          {/* Left Column - Text Content */}
+          <Stack spacing={{ base: 4, md: 6 }}>
             {benefits.map((benefit, index) => (
               <Flex
                 key={index}
                 direction='row'
                 align='start'
                 gap={4}
-                justify='center'
               >
-                <Icon
-                  as={FontAwesomeIcon}
-                  icon={benefit.icon}
-                  color='#014CC4'
-                  boxSize={{ base: 6, md: 7 }}
-                  mt={1}
-                  flexShrink={0}
-                />
+                {benefit.hasCheck ? (
+                  <Box position='relative' flexShrink={0}>
+                    <Icon
+                      as={FontAwesomeIcon}
+                      icon={faClock}
+                      color='#014CC4'
+                      boxSize={{ base: 6, md: 7 }}
+                      mt={1}
+                    />
+                    <Icon
+                      as={FontAwesomeIcon}
+                      icon={faCheckCircle}
+                      color='#014CC4'
+                      boxSize={{ base: 3, md: 4 }}
+                      position='absolute'
+                      bottom='-2px'
+                      right='-2px'
+                    />
+                  </Box>
+                ) : (
+                  <Icon
+                    as={FontAwesomeIcon}
+                    icon={benefit.icon}
+                    color='#014CC4'
+                    boxSize={{ base: 6, md: 7 }}
+                    mt={1}
+                    flexShrink={0}
+                  />
+                )}
 
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -84,7 +112,6 @@ export default function WhyUsSection({ onSubmissionOpen }) {
                   lineHeight='1.6'
                   textAlign='left'
                   flex={1}
-                  maxW='600px'
                 >
                   <Text as='span' fontWeight='bold' color='gray.800'>
                     {benefit.title}
@@ -94,24 +121,41 @@ export default function WhyUsSection({ onSubmissionOpen }) {
                 </Text>
               </Flex>
             ))}
+
+            <Box pt={4}>
+              <Button
+                onClick={onSubmissionOpen}
+                bg='#014CC4'
+                color='white'
+                fontSize={{ base: 'sm', md: 'md' }}
+                px={{ base: 8, md: 10 }}
+                h={{ base: '45px', md: '55px' }}
+                borderRadius='full'
+                boxShadow='lg'
+                _hover={{ bg: '#0139A0' }}
+                w={{ base: '100%', md: 'auto' }}
+              >
+                {t.freeSubmission}
+              </Button>
+            </Box>
           </Stack>
 
-          <Box pt={4}>
-            <Button
-              onClick={onSubmissionOpen}
-              bg='#014CC4'
-              color='white'
-              fontSize={{ base: 'sm', md: 'md' }}
-              px={{ base: 8, md: 10 }}
-              h={{ base: '45px', md: '55px' }}
-              borderRadius='full'
-              boxShadow='lg'
-              _hover={{ bg: '#0139A0' }}
-            >
-              {t.freeSubmission}
-            </Button>
+          {/* Right Column - Image */}
+          <Box
+            borderRadius='xl'
+            overflow='hidden'
+            boxShadow='lg'
+            order={{ base: -1, lg: 0 }}
+          >
+            <Image
+              src={peintureProfessionnelleImg}
+              alt='Professional painting service'
+              w='100%'
+              h='auto'
+              objectFit='cover'
+            />
           </Box>
-        </Stack>
+        </SimpleGrid>
       </Container>
     </Box>
   );

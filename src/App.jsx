@@ -22,6 +22,9 @@ import ServiceQuartierSecteurPage from './lelever-next/services-pages/service_qu
 import SousServiceVillePage from './lelever-next/services-pages/sous_service_ville/SousServiceVillePage';
 import SousServicePage from './lelever-next/services-pages/sous_service/SousServicePage';
 import BlogPage from './lelever-next/pages/BlogPage';
+import CommentChoisirPeintreProfessionnelPage from './lelever-next/pages/CommentChoisirPeintreProfessionnelPage';
+import PrixPeintureMontrealPage from './lelever-next/pages/PrixPeintureMontrealPage';
+import ErreursAEviterPeintureInterieurePage from './lelever-next/pages/ErreursAEviterPeintureInterieurePage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
 import PeintureExt from './pages/PeintureExterieur';
@@ -190,6 +193,18 @@ export default function App() {
             }
           >
             <Route index element={<BlogPage />} />
+            <Route
+              path='comment-choisir-un-peintre-professionnel'
+              element={<CommentChoisirPeintreProfessionnelPage />}
+            />
+            <Route
+              path='prix-peinture-montreal'
+              element={<PrixPeintureMontrealPage />}
+            />
+            <Route
+              path='erreurs-a-eviter-peinture-interieure'
+              element={<ErreursAEviterPeintureInterieurePage />}
+            />
           </Route>
           <Route
             path='/new-contact'

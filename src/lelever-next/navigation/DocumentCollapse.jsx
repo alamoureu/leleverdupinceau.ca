@@ -27,16 +27,6 @@ export const DocumentCollapse = ({ onClose }) => {
       en: 'Interior Painting',
       path: '/services/new-peinture-interieure',
     },
-    {
-      fr: 'Peinture extérieure',
-      en: 'Exterior Painting',
-      path: '/services/new-peinture-exterieure',
-    },
-    {
-      fr: 'Peinture industrielle',
-      en: 'Industrial Painting',
-      path: '/services/peinture-industrielle',
-    },
   ];
 
   function handleNav(path) {

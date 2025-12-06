@@ -12,7 +12,6 @@ import {
   IconButton,
   HStack,
   Image,
-  Flex,
 } from '@chakra-ui/react';
 import {
   ArrowForwardIcon,
@@ -31,14 +30,6 @@ export default function ReviewsSection({ hideTitle = false }) {
 
   // All reviews from drawer and website
   const allReviews = [
-    {
-      name: 'Chantal Baril',
-      time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
-      content:
-        currentLang === 'fr'
-          ? "Je suis très satisfaite des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
-          : 'I am very satisfied with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
-    },
     {
       name: 'Zoé Boudreau',
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
@@ -62,6 +53,14 @@ export default function ReviewsSection({ hideTitle = false }) {
         currentLang === 'fr'
           ? "Nous sommes très heureux de notre expérience avec Le Lever Du Pinceau. Leur travail minutieux et leur grande courtoisie en font une référence pour quiconque recherche une main-d'œuvre fiable et efficace."
           : 'We are very happy with our experience with Le Lever Du Pinceau. Their meticulous work and great courtesy make them a reference for anyone looking for reliable and efficient labor.',
+    },
+    {
+      name: 'Chantal Baril',
+      time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
+      content:
+        currentLang === 'fr'
+          ? "Je suis très satisfaite des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
+          : 'I am very satisfied with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
     },
     {
       name: 'Frédéric Choinière',
@@ -105,7 +104,7 @@ export default function ReviewsSection({ hideTitle = false }) {
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(2); // Start at third position
   const [direction, setDirection] = useState(0);
 
   const slideVariants = {
@@ -164,13 +163,13 @@ export default function ReviewsSection({ hideTitle = false }) {
           <Stack
             spacing={6}
             w='100%'
-            maxW={{ base: '100%', md: '600px' }}
+            maxW={{ base: '100%', md: '750px', lg: '800px' }}
             align='center'
           >
             <Box
               position='relative'
               w='100%'
-              h={{ base: '260px', md: '350px' }}
+              h={{ base: '280px', md: '420px' }}
               pb={2}
             >
               <AnimatePresence initial={false} custom={direction}>
@@ -199,11 +198,14 @@ export default function ReviewsSection({ hideTitle = false }) {
                   }}
                   style={{
                     position: 'absolute',
-                    width: '100%',
+                    width: 'calc(100% - 100px)',
+                    left: '50px',
                     height: '100%',
+                    maxWidth: '100%',
                   }}
                 >
                   <Box
+                    position='relative'
                     bg='#F5F6F8'
                     p={{ base: 4, md: 6 }}
                     borderRadius='xl'
@@ -215,17 +217,27 @@ export default function ReviewsSection({ hideTitle = false }) {
                     flexDirection='column'
                   >
                     <Stack spacing={2} flexShrink={0}>
-                      <Box>
-                        <Text
-                          fontWeight='bold'
-                          fontSize={{ base: 'md', md: 'lg' }}
-                          color='gray.800'
-                        >
-                          {allReviews[currentIndex].name}
-                        </Text>
-                        <Text fontSize='sm' color='gray.500' mt={0.5}>
-                          {allReviews[currentIndex].time}
-                        </Text>
+                      <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
+                        <Box>
+                          <Text
+                            fontWeight='bold'
+                            fontSize={{ base: 'md', md: 'lg' }}
+                            color='gray.800'
+                          >
+                            {allReviews[currentIndex].name}
+                          </Text>
+                          <Text fontSize='sm' color='gray.500' mt={0.5}>
+                            {allReviews[currentIndex].time}
+                          </Text>
+                        </Box>
+                        {/* Google Logo */}
+                        <Image
+                          src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
+                          alt='Google'
+                          h={{ base: '32px', md: '40px' }}
+                          w={{ base: '32px', md: '40px' }}
+                          flexShrink={0}
+                        />
                       </Box>
                       <Box display='flex' alignItems='center' gap={0.5}>
                         {[...Array(5)].map((_, i) => (
@@ -280,15 +292,8 @@ export default function ReviewsSection({ hideTitle = false }) {
                   </Box>
                 </motion.div>
               </AnimatePresence>
-            </Box>
-
-            <HStack
-              justify='center'
-              spacing={4}
-              w='100%'
-              position='relative'
-              zIndex={2}
-            >
+              
+              {/* Left Arrow - Positioned on the left side */}
               <IconButton
                 aria-label='Previous review'
                 icon={<ChevronLeftIcon />}
@@ -300,24 +305,15 @@ export default function ReviewsSection({ hideTitle = false }) {
                 _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
                 color='#014CC4'
                 size='md'
+                position='absolute'
+                left={{ base: '0px', md: '0px' }}
+                top='50%'
+                transform='translateY(-50%)'
+                zIndex={10}
+                boxShadow='0 2px 8px rgba(0,0,0,0.1)'
               />
-              <HStack spacing={1}>
-                {allReviews.map((_, index) => (
-                  <Box
-                    key={index}
-                    w={currentIndex === index ? '10px' : '8px'}
-                    h={currentIndex === index ? '10px' : '8px'}
-                    borderRadius='full'
-                    bg={currentIndex === index ? '#014CC4' : 'gray.300'}
-                    cursor='pointer'
-                    onClick={() => {
-                      setDirection(index > currentIndex ? 1 : -1);
-                      setCurrentIndex(index);
-                    }}
-                    transition='all 0.2s'
-                  />
-                ))}
-              </HStack>
+              
+              {/* Right Arrow - Positioned on the right side */}
               <IconButton
                 aria-label='Next review'
                 icon={<ChevronRightIcon />}
@@ -329,7 +325,38 @@ export default function ReviewsSection({ hideTitle = false }) {
                 _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
                 color='#014CC4'
                 size='md'
+                position='absolute'
+                right={{ base: '0px', md: '0px' }}
+                top='50%'
+                transform='translateY(-50%)'
+                zIndex={10}
+                boxShadow='0 2px 8px rgba(0,0,0,0.1)'
               />
+            </Box>
+
+            {/* Dots indicator - below the carousel */}
+            <HStack
+              justify='center'
+              spacing={1}
+              w='100%'
+              position='relative'
+              zIndex={2}
+            >
+              {allReviews.map((_, index) => (
+                <Box
+                  key={index}
+                  w={currentIndex === index ? '10px' : '8px'}
+                  h={currentIndex === index ? '10px' : '8px'}
+                  borderRadius='full'
+                  bg={currentIndex === index ? '#014CC4' : 'gray.300'}
+                  cursor='pointer'
+                  onClick={() => {
+                    setDirection(index > currentIndex ? 1 : -1);
+                    setCurrentIndex(index);
+                  }}
+                  transition='all 0.2s'
+                />
+              ))}
             </HStack>
           </Stack>
 

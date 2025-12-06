@@ -14,6 +14,7 @@ import {
   HStack,
   Flex,
   useDisclosure,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,6 +23,7 @@ import appContext from '../../AppProvider';
 import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SubmissionModal from '../home-page/SubmissionModal';
+import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
 
 export default function PeintreProfessionnelPage() {
   const { currentLang } = useContext(appContext);
@@ -453,25 +455,22 @@ export default function PeintreProfessionnelPage() {
                 </Stack>
               </Stack>
 
-              {/* Right Image - Placeholder */}
+              {/* Right Image */}
               <Box order={{ base: 1, lg: 2 }} position='relative'>
                 <Box
                   position='relative'
                   borderRadius='xl'
                   overflow='hidden'
-                  border='1px solid'
-                  borderColor='gray.300'
-                  boxShadow='sm'
-                  bg='gray.200'
+                  boxShadow='lg'
                   w='100%'
-                  h={{ base: '250px', sm: '300px', md: '400px', lg: '500px' }}
-                  display='flex'
-                  alignItems='center'
-                  justifyContent='center'
                 >
-                  <Text color='gray.400' fontSize='sm' fontWeight='medium'>
-                    {isFr ? 'Image à ajouter' : 'Image to add'}
-                  </Text>
+                  <Image
+                    src={peintureProfessionnelleImg}
+                    alt='Professional painting service'
+                    w='100%'
+                    h='auto'
+                    objectFit='cover'
+                  />
                 </Box>
               </Box>
             </SimpleGrid>

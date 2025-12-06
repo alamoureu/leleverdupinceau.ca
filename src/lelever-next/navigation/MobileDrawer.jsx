@@ -105,19 +105,6 @@ export const MobileDrawer = () => {
               >
                 {currentLang === 'fr' ? 'Accueil' : 'Home'}
               </Button>
-              <Button
-                size='md'
-                variant='tertiary'
-                justifyContent='start'
-                leftIcon={<FontAwesomeIcon icon={faTools} />}
-                onClick={() => handleNav('/services')}
-                py={{ base: 3, sm: 4 }}
-                fontSize={{ base: 'md', sm: 'lg' }}
-                fontWeight='medium'
-                _hover={{ bg: 'gray.50' }}
-              >
-                {currentLang === 'fr' ? 'Services' : 'Services'}
-              </Button>
               <DocumentCollapse onClose={onClose} />
               <Button
                 size='md'

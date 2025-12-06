@@ -207,15 +207,16 @@ export default function WebsiteNavBar() {
               zIndex={10}
               bg='white'
               borderTopRadius='none'
-              borderBottomRadius='full'
-              p={{ base: 1.5, md: 5 }}
+              borderBottomRadius='50px'
+              p={{ base: 1.5, md: 4 }}
               boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'
-              minW={{ base: '80px', md: '150px' }}
+              minW={{ base: '60px', md: '110px' }}
+              maxW={{ base: '75px', md: '120px' }}
               mt={2}
             >
               <Stack spacing={0} align='center'>
                 <Text
-                  fontSize={{ base: 'sm', md: 'lg' }}
+                  fontSize={{ base: 'xs', md: 'lg' }}
                   color='gray.600'
                   fontWeight='600'
                 >
@@ -223,7 +224,7 @@ export default function WebsiteNavBar() {
                 </Text>
                 <Flex align='center' gap={{ base: 0.5, md: 1 }}>
                   <Text
-                    fontSize={{ base: 'sm', md: '2xl' }}
+                    fontSize={{ base: 'xs', md: '2xl' }}
                     color='gray.600'
                     fontWeight='600'
                   >
@@ -234,7 +235,7 @@ export default function WebsiteNavBar() {
                       <StarIcon
                         key={i}
                         color='#FBBC04'
-                        boxSize={{ base: 2.5, md: 4 }}
+                        boxSize={{ base: 2, md: 4 }}
                       />
                     ))}
                   </Flex>
@@ -242,8 +243,8 @@ export default function WebsiteNavBar() {
                 <Image
                   src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
                   alt='Google'
-                  h={{ base: '45px', md: '45px' }}
-                  w={{ base: '45px', md: '45px' }}
+                  h={{ base: '28px', md: '50px' }}
+                  w={{ base: '28px', md: '50px' }}
                   mt={{ base: 0.5, md: 1 }}
                 />
               </Stack>
