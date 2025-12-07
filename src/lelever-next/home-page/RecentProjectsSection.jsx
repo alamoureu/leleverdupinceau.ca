@@ -13,6 +13,12 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import { motion, AnimatePresence } from 'framer-motion';
+import peintureResidentielle from '../images/peinture_residentielle.jpg';
+import projetResidentielle from '../images/projet_residentielle.jpg';
+import projetResidentielle2 from '../images/projet_residentielle_2.jpg';
+import projetCommercial from '../images/projet_commercial.jpg';
+import projetCommercial2 from '../images/projet_commercial_2.jpg';
+import projetExterieur from '../images/projet_exterieur.jpg';
 
 export default function RecentProjectsSection() {
   const { t, currentLang } = useTranslation();
@@ -20,37 +26,37 @@ export default function RecentProjectsSection() {
   const projects = [
     {
       id: 1,
-      images: [],
+      images: [peintureResidentielle],
       title: t.projectResidential,
       description: t.projectResidentialDesc1,
     },
     {
       id: 2,
-      images: [],
+      images: [projetCommercial],
       title: t.projectCommercial,
       description: t.projectCommercialDesc1,
     },
     {
       id: 3,
-      images: [],
+      images: [projetResidentielle],
       title: t.projectInterior,
       description: t.projectInteriorDesc,
     },
     {
       id: 4,
-      images: [],
+      images: [projetExterieur],
       title: t.projectExterior,
       description: t.projectExteriorDesc,
     },
     {
       id: 5,
-      images: [],
+      images: [projetResidentielle2],
       title: t.projectResidential,
       description: t.projectResidentialDesc2,
     },
     {
       id: 6,
-      images: [],
+      images: [projetCommercial2],
       title: t.projectCommercial,
       description: t.projectCommercialDesc2,
     },

@@ -22,8 +22,22 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
+import RecentProjectsSection from '../home-page/RecentProjectsSection';
 import SubmissionModal from '../home-page/SubmissionModal';
+import BeforeAfter from '../components/BeforeAfter';
 import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5975 from '../images/before_after/IMG_5975.jpg';
+import img5976 from '../images/before_after/IMG_5976.jpg';
+import img5977 from '../images/before_after/IMG_5977.jpg';
+import img5978 from '../images/before_after/IMG_5978.jpg';
+import img5982 from '../images/before_after/IMG_5982.jpg';
+import img5984 from '../images/before_after/IMG_5984.jpg';
 
 export default function PeintreProfessionnelPage() {
   const { currentLang } = useContext(appContext);
@@ -260,6 +274,33 @@ export default function PeintreProfessionnelPage() {
       answer: isFr
         ? 'Oui : bureaux, commerces, restaurants, immeubles.'
         : 'Yes: offices, businesses, restaurants, buildings.',
+    },
+  ];
+
+  const beforeAfterImages = [
+    {
+      before: img5969,
+      after: img5970,
+    },
+    {
+      before: img5971,
+      after: img5972,
+    },
+    {
+      before: img5973,
+      after: img5974,
+    },
+    {
+      before: img5975,
+      after: img5976,
+    },
+    {
+      before: img5977,
+      after: img5978,
+    },
+    {
+      before: img5984,
+      after: img5982,
     },
   ];
 
@@ -718,6 +759,35 @@ export default function PeintreProfessionnelPage() {
 
             {/* Section 4 — Secteurs desservis */}
             <SectorsSection />
+
+            {/* Section 4.5 — Projets récents */}
+            <RecentProjectsSection />
+
+            {/* Section 4.6 — Avant/Après */}
+            <Box
+              py={{ base: 12, md: 16 }}
+              bg='white'
+              borderRadius='xl'
+              mb={{ base: 8, md: 12 }}
+            >
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign='left'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Résultats de peintres professionnels à Montréal'
+                        : 'Professional Painters Results in Montreal'}
+                    </Heading>
+                  </Stack>
+                  <BeforeAfter images={beforeAfterImages} isFr={isFr} />
+                </Stack>
+              </Container>
+            </Box>
 
             {/* Section 5 — Questions fréquentes */}
             <Box

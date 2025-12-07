@@ -119,11 +119,12 @@ export default function SubmissionForm({
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!formData.consentAccepted) {
       toast({
         title: t.formConsentRequired || 'Consent required',
-        description: t.formConsentRequired || 'Please accept the terms and conditions.',
+        description:
+          t.formConsentRequired || 'Please accept the terms and conditions.',
         status: 'warning',
         duration: 4000,
         isClosable: true,
@@ -131,7 +132,12 @@ export default function SubmissionForm({
       return;
     }
 
-    if (!formData.name || !formData.email || !formData.phone || !formData.address) {
+    if (
+      !formData.name ||
+      !formData.email ||
+      !formData.phone ||
+      !formData.address
+    ) {
       toast({
         title: 'Error',
         description: 'Please fill in all required fields.',
@@ -216,11 +222,7 @@ export default function SubmissionForm({
   if (isSubmitted) {
     return (
       <ChakraProvider theme={theme}>
-        <Box
-          w='100%'
-          p={{ base: 8, md: 10 }}
-          textAlign='center'
-        >
+        <Box w='100%' p={{ base: 8, md: 10 }} textAlign='center'>
           <Stack spacing={6}>
             {/* Success Icon with Animation */}
             <motion.div
@@ -244,12 +246,16 @@ export default function SubmissionForm({
                 borderRadius='full'
                 boxShadow='0 4px 15px rgba(1, 76, 196, 0.3)'
               >
-                <Text fontSize={{ base: '2xl', md: '3xl' }} color='white' fontWeight='bold'>
+                <Text
+                  fontSize={{ base: '2xl', md: '3xl' }}
+                  color='white'
+                  fontWeight='bold'
+                >
                   ✓
                 </Text>
               </Box>
             </motion.div>
-            
+
             {/* Title */}
             <Heading
               as='h3'
@@ -260,7 +266,7 @@ export default function SubmissionForm({
             >
               {t.formConfirmationTitle}
             </Heading>
-            
+
             {/* Subtitle */}
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
@@ -427,20 +433,15 @@ export default function SubmissionForm({
               onChange={handleRadioChange}
             >
               <Stack direction='column' spacing={3}>
-                <Radio value='residential' colorScheme='blue'>
-                  {t.serviceResidential || 'Peinture résidentielle'}
-                </Radio>
-                <Radio value='commercial' colorScheme='blue'>
-                  {t.serviceCommercial || 'Peinture commerciale'}
-                </Radio>
                 <Radio value='interior' colorScheme='blue'>
-                  {t.formInteriorPainting || t.serviceInterior || 'Peinture intérieure'}
+                  {t.formInteriorPainting ||
+                    t.serviceInterior ||
+                    'Peinture intérieure'}
                 </Radio>
                 <Radio value='exterior' colorScheme='blue'>
-                  {t.formExteriorPainting || t.serviceExterior || 'Peinture extérieure'}
-                </Radio>
-                <Radio value='industrial' colorScheme='blue'>
-                  {t.serviceIndustrial || 'Peinture industrielle'}
+                  {t.formExteriorPainting ||
+                    t.serviceExterior ||
+                    'Peinture extérieure'}
                 </Radio>
               </Stack>
             </RadioGroup>

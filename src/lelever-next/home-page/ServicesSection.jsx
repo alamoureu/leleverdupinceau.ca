@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
-import peintureResidentielleImg from '../images/peinture_residentielle.jpg';
+import peintureResidentielleImg from '../images/peinture_residentielle.PNG';
 import peintureCommercialeImg from '../images/peinture_commercial.jpg';
 import peintureInterieurImg from '../images/peinture_interieur.jpg';
 

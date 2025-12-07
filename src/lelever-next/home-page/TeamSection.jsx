@@ -8,9 +8,11 @@ import {
   Button,
   SimpleGrid,
   Link,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
+import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
 
 export default function TeamSection() {
   const { t, currentLang } = useTranslation();
@@ -24,23 +26,25 @@ export default function TeamSection() {
           mt={{ base: '-55px', md: '0px' }}
         >
           <Box
-            display={{ base: 'none', md: 'flex' }}
-            bg='gray.200'
-            borderRadius='lg'
-            w='100%'
-            h={{ base: '250px', md: '350px' }}
-            border='1px solid'
-            borderColor='gray.300'
-            borderStyle='dashed'
-            alignItems='center'
-            justifyContent='center'
+            borderRadius='xl'
+            overflow='hidden'
+            boxShadow='lg'
+            order={{ base: 1, md: 1 }}
           >
-            <Text color='gray.400' fontSize='sm' fontWeight='medium'>
-              {currentLang === 'fr' ? 'Image à ajouter' : 'Image to add'}
-            </Text>
+            <Image
+              src={peintureProfessionnelleImg}
+              alt={
+                currentLang === 'fr'
+                  ? 'Peintre professionnel au travail'
+                  : 'Professional painter at work'
+              }
+              w='100%'
+              h='auto'
+              objectFit='cover'
+            />
           </Box>
 
-          <Stack spacing={6}>
+          <Stack spacing={6} order={{ base: 2, md: 2 }}>
             <Stack spacing={3}>
               <Heading
                 as='h2'

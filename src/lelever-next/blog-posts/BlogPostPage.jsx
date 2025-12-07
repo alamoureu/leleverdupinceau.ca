@@ -1,13 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  Stack,
-  Link,
-} from '@chakra-ui/react';
+import { Box, Container, Heading, Text, Stack, Link } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import BlogPostContent from './components/BlogPostContent';
 
@@ -59,7 +52,8 @@ export default function BlogPostPage({ blogData }) {
             name: item.name?.[lang] || item.name,
             acceptedAnswer: {
               ...item.acceptedAnswer,
-              text: item.acceptedAnswer.text?.[lang] || item.acceptedAnswer.text,
+              text:
+                item.acceptedAnswer.text?.[lang] || item.acceptedAnswer.text,
             },
           })),
         };
@@ -99,9 +93,7 @@ export default function BlogPostPage({ blogData }) {
           </script>
         )}
         {schemas['@graph'] && (
-          <script type='application/ld+json'>
-            {JSON.stringify(schemas)}
-          </script>
+          <script type='application/ld+json'>{JSON.stringify(schemas)}</script>
         )}
       </Helmet>
 
@@ -112,84 +104,86 @@ export default function BlogPostPage({ blogData }) {
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={0}>
-            {/* Breadcrumb */}
-            <Box
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-              display='flex'
-              flexWrap='wrap'
-              alignItems='center'
-              gap={2}
-            >
-              {blogData.breadcrumb[isFr ? 'fr' : 'en'].map((item, index) => (
-                <Fragment key={index}>
-                  {index > 0 && (
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      whiteSpace='nowrap'
-                      mx={1}
-                    >
-                      ›
-                    </Text>
-                  )}
-                  {index < blogData.breadcrumb[isFr ? 'fr' : 'en'].length - 1 ? (
-                    <Link
-                      href={
-                        index === 0
-                          ? '/new-home'
-                          : index === 1
-                          ? '/blog'
-                          : '#'
-                      }
-                      _hover={{ textDecoration: 'underline' }}
-                      color='gray.600'
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      whiteSpace='nowrap'
-                    >
-                      {item}
-                    </Link>
-                  ) : (
-                    <Text
-                      color='gray.800'
-                      fontWeight='medium'
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      whiteSpace='nowrap'
-                    >
-                      {item}
-                    </Text>
-                  )}
-                </Fragment>
-              ))}
+            {/* Breadcrumb - Same width as body */}
+            <Box mb={{ base: 4, md: 6 }}>
+              <Box
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                display='flex'
+                flexWrap='wrap'
+                alignItems='center'
+                gap={2}
+              >
+                {blogData.breadcrumb[isFr ? 'fr' : 'en'].map((item, index) => (
+                  <Fragment key={index}>
+                    {index > 0 && (
+                      <Text
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        whiteSpace='nowrap'
+                        mx={1}
+                      >
+                        ›
+                      </Text>
+                    )}
+                    {index <
+                    blogData.breadcrumb[isFr ? 'fr' : 'en'].length - 1 ? (
+                      <Link
+                        href={
+                          index === 0
+                            ? '/new-home'
+                            : index === 1
+                            ? '/blog'
+                            : '#'
+                        }
+                        _hover={{ textDecoration: 'underline' }}
+                        color='gray.600'
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        whiteSpace='nowrap'
+                      >
+                        {item}
+                      </Link>
+                    ) : (
+                      <Text
+                        color='gray.800'
+                        fontWeight='medium'
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        whiteSpace='nowrap'
+                      >
+                        {item}
+                      </Text>
+                    )}
+                  </Fragment>
+                ))}
+              </Box>
             </Box>
 
-            {/* H1 */}
-            <Heading
-              as='h1'
-              fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-              fontWeight='bold'
-              color='gray.800'
-              mb={{ base: 6, md: 8 }}
-              lineHeight='1.2'
-            >
-              {blogData.h1[isFr ? 'fr' : 'en']}
-            </Heading>
+            {/* Header and Introduction - Same width as body, left-aligned */}
+            <Box mb={{ base: 8, md: 10 }}>
+              {/* H1 */}
+              <Heading
+                as='h1'
+                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                fontWeight='bold'
+                color='gray.800'
+                mb={{ base: 6, md: 8 }}
+                lineHeight='1.2'
+              >
+                {blogData.h1[isFr ? 'fr' : 'en']}
+              </Heading>
 
-            {/* Introduction */}
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              lineHeight='1.7'
-              mb={{ base: 8, md: 10 }}
-              whiteSpace='pre-line'
-            >
-              {blogData.introduction[isFr ? 'fr' : 'en']}
-            </Text>
+              {/* Introduction */}
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                whiteSpace='pre-line'
+              >
+                {blogData.introduction[isFr ? 'fr' : 'en']}
+              </Text>
+            </Box>
 
-            {/* Content */}
+            {/* Content - Same width as body, left-aligned */}
             <Box
-              maxW='900px'
-              mx='auto'
               mb={{ base: 10, md: 12 }}
               sx={{
                 '& h2': {
@@ -206,8 +200,6 @@ export default function BlogPostPage({ blogData }) {
                 blogSlug={blogData.slug}
               />
             </Box>
-
-
           </Stack>
         </Container>
 
@@ -243,10 +235,7 @@ export default function BlogPostPage({ blogData }) {
                 </Text>
               </Stack>
               <Box>
-                <Link
-                  href='/new-contact'
-                  _hover={{ textDecoration: 'none' }}
-                >
+                <Link href='/new-contact' _hover={{ textDecoration: 'none' }}>
                   <Box
                     as='button'
                     bg='white'
@@ -269,4 +258,3 @@ export default function BlogPostPage({ blogData }) {
     </Fragment>
   );
 }
-

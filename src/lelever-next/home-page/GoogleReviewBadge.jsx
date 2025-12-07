@@ -5,6 +5,7 @@ import { useTranslation } from '../i18n';
 
 export default function GoogleReviewBadge() {
   const { t } = useTranslation();
+
   return (
     <Box
       position='absolute'
@@ -14,30 +15,49 @@ export default function GoogleReviewBadge() {
       bg='white'
       borderTopRadius='lg'
       borderBottomRadius='150px'
-      p={{ base: 3, md: 4 }}
       boxShadow='0 4px 15px rgba(0,0,0,0.15)'
-      minW='90px'
-      maxW='90px'
+      w={{ base: '90px', md: '110px', lg: '130px' }}
+      aspectRatio='1/1.4'
+      display='flex'
+      alignItems='center'
+      justifyContent='center'
+      p='8%'
     >
-      <Stack spacing={2} align='center'>
-        <Text fontSize='xs' color='gray.600' fontWeight='600'>
+      <Stack spacing='3%' align='center' w='100%' h='100%' justify='center'>
+        <Text
+          fontSize='clamp(7px, 8.5%, 11px)'
+          color='gray.600'
+          fontWeight='600'
+          lineHeight='1.2'
+          textAlign='center'
+        >
           {t.googleReviews}
         </Text>
-        <Flex align='center' gap={1}>
-          <Text fontWeight='700' fontSize='2xl' color='gray.800'>
+        <Flex align='center' gap='2%' flexWrap='nowrap' justify='center'>
+          <Text
+            fontWeight='700'
+            fontSize='clamp(20px, 24%, 34px)'
+            color='gray.800'
+            lineHeight='1'
+          >
             {t.googleRating}
           </Text>
-          <Flex gap={0.5}>
+          <Flex gap='1%'>
             {[...Array(5)].map((_, i) => (
-              <StarIcon key={i} color='#FBBC04' boxSize={4} />
+              <StarIcon
+                key={i}
+                color='#FBBC04'
+                boxSize='clamp(3.5px, 5%, 6.5px)'
+              />
             ))}
           </Flex>
         </Flex>
         <Image
           src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
           alt='Google'
-          h='22px'
-          w='22px'
+          h='clamp(20px, 24%, 34px)'
+          w='clamp(20px, 24%, 34px)'
+          objectFit='contain'
         />
       </Stack>
     </Box>

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -80,7 +81,8 @@ export default function CityServicesSection({ cityName, citySlug }) {
             {services.map((service, index) => (
               <Link
                 key={index}
-                href={service.link}
+                as={RouterLink}
+                to={service.link}
                 _hover={{ textDecoration: 'none' }}
               >
                 <Box

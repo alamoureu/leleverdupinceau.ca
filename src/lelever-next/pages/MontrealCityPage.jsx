@@ -14,7 +14,6 @@ import ResourcesSection from '../home-page/ResourcesSection';
 import CityServicesSection from '../city-pages/CityServicesSection';
 import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
-import CityResourcesSection from '../city-pages/CityResourcesSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 export default function MontrealCityPage() {
@@ -185,9 +184,6 @@ export default function MontrealCityPage() {
               whyUsContent={whyUsContent}
               whyUsIntroText={whyUsIntroText}
             />
-
-            {/* Section 4 — Guides & ressources utiles */}
-            <CityResourcesSection cityName='Montréal' />
 
             <ResourcesSection />
           </Stack>

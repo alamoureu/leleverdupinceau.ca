@@ -14,7 +14,6 @@ import ResourcesSection from '../home-page/ResourcesSection';
 import CityServicesSection from '../city-pages/CityServicesSection';
 import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
-import CityResourcesSection from '../city-pages/CityResourcesSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 export default function BrossardCityPage() {
@@ -189,9 +188,6 @@ export default function BrossardCityPage() {
               whyUsContent={whyUsContent}
               whyUsIntroText={whyUsIntroText}
             />
-
-            {/* Section 4 — Guides & ressources utiles */}
-            <CityResourcesSection cityName='Brossard' />
 
             <ResourcesSection />
           </Stack>

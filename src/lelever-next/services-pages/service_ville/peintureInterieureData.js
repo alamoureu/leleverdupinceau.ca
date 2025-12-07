@@ -1,7 +1,7 @@
 // Data configuration for Peinture Intérieure × City pages
 
 export const peintureInterieureData = {
-  'peinture-interieure': {
+  'new-peinture-interieure': {
     name: {
       fr: 'Peinture intérieure',
       en: 'Interior painting',
@@ -11,7 +11,7 @@ export const peintureInterieureData = {
         name: { fr: 'Brossard', en: 'Brossard' },
         slug: 'brossard',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-interieure/brossard',
+          'https://leleverdupinceau.ca/services/new-peinture-interieure/brossard',
         h1: {
           fr: 'Peinture intérieure à Brossard – Le Lever du Pinceau',
           en: 'Interior painting in Brossard – Le Lever du Pinceau',
@@ -217,7 +217,7 @@ export const peintureInterieureData = {
         name: { fr: 'Laval', en: 'Laval' },
         slug: 'laval',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-interieure/laval',
+          'https://leleverdupinceau.ca/services/new-peinture-interieure/laval',
         h1: {
           fr: 'Peinture intérieure à Laval – Le Lever du Pinceau',
           en: 'Interior painting in Laval – Le Lever du Pinceau',
@@ -421,7 +421,7 @@ export const peintureInterieureData = {
         name: { fr: 'Longueuil', en: 'Longueuil' },
         slug: 'longueuil',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-interieure/longueuil',
+          'https://leleverdupinceau.ca/services/new-peinture-interieure/longueuil',
         h1: {
           fr: 'Peinture intérieure à Longueuil – Le Lever du Pinceau',
           en: 'Interior painting in Longueuil – Le Lever du Pinceau',
@@ -611,7 +611,7 @@ export const peintureInterieureData = {
         name: { fr: 'Montréal', en: 'Montreal' },
         slug: 'montreal',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-interieure/montreal',
+          'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal',
         h1: {
           fr: 'Peinture intérieure à Montréal – Le Lever du Pinceau',
           en: 'Interior painting in Montreal – Le Lever du Pinceau',

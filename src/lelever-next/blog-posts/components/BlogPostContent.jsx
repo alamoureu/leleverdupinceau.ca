@@ -1,12 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Heading,
-  Text,
-  Link,
-  Stack,
-  SimpleGrid,
-} from '@chakra-ui/react';
+import { Box, Heading, Text, Link, Stack, SimpleGrid } from '@chakra-ui/react';
 
 // Helper function to prevent orphaned punctuation
 function preventOrphanedPunctuation(text) {
@@ -28,7 +21,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
     // Use hash of slug to get consistent style per blog
     let hash = 0;
     for (let i = 0; i < blogSlug.length; i++) {
-      hash = ((hash << 5) - hash) + blogSlug.charCodeAt(i);
+      hash = (hash << 5) - hash + blogSlug.charCodeAt(i);
       hash = hash & hash;
     }
     return Math.abs(hash) % 4;
@@ -43,12 +36,17 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
         const HeadingTag = `h${item.level}`;
         const headingText = item.text?.[isFr ? 'fr' : 'en'] || item.text;
         const isAfterSection = previousType === 'section';
-        
+
         // Different styles based on context
         if (isAfterSection) {
           // Heading after section header - more prominent
           return (
-            <Box key={index} position='relative' mt={{ base: 6, md: 8 }} mb={{ base: 4, md: 6 }}>
+            <Box
+              key={index}
+              position='relative'
+              mt={{ base: 6, md: 8 }}
+              mb={{ base: 4, md: 6 }}
+            >
               <Box
                 position='absolute'
                 left={0}
@@ -75,7 +73,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
             </Box>
           );
         }
-        
+
         // Regular heading - clean style
         return (
           <Heading
@@ -127,17 +125,20 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
 
       case 'paragraph':
         const paragraphText = item.text?.[isFr ? 'fr' : 'en'] || item.text;
-        const isAfterHeading = previousType === 'heading' || previousType === 'subheading';
+        const isAfterHeading =
+          previousType === 'heading' || previousType === 'subheading';
         const isIntroParagraph = index < 3 && paragraphText.length > 150;
-        
+
         // Check if next item is a link that should be inline
         const nextItemPara = content[index + 1];
         const shouldCombineParaWithLink = nextItemPara?.type === 'link';
-        const linkTextPara = shouldCombineParaWithLink 
-          ? (nextItemPara.text?.[isFr ? 'fr' : 'en'] || nextItemPara.text)
+        const linkTextPara = shouldCombineParaWithLink
+          ? nextItemPara.text?.[isFr ? 'fr' : 'en'] || nextItemPara.text
           : null;
-        const linkHrefPara = shouldCombineParaWithLink ? nextItemPara.href : null;
-        
+        const linkHrefPara = shouldCombineParaWithLink
+          ? nextItemPara.href
+          : null;
+
         // Intro paragraph - larger and more prominent
         if (isIntroParagraph && isAfterHeading) {
           return (
@@ -149,9 +150,11 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               mb={shouldCombineParaWithLink ? 0 : { base: 6, md: 8 }}
               fontWeight='400'
             >
-              <span dangerouslySetInnerHTML={{
-                __html: preventOrphanedPunctuation(paragraphText),
-              }} />
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: preventOrphanedPunctuation(paragraphText),
+                }}
+              />
               {shouldCombineParaWithLink && (
                 <>
                   {' '}
@@ -169,7 +172,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
             </Text>
           );
         }
-        
+
         // Regular paragraph after heading - slight emphasis
         if (isAfterHeading) {
           return (
@@ -183,9 +186,11 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               borderLeft='2px solid'
               borderColor='gray.200'
             >
-              <span dangerouslySetInnerHTML={{
-                __html: preventOrphanedPunctuation(paragraphText),
-              }} />
+              <span
+                dangerouslySetInnerHTML={{
+                  __html: preventOrphanedPunctuation(paragraphText),
+                }}
+              />
               {shouldCombineParaWithLink && (
                 <>
                   {' '}
@@ -203,7 +208,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
             </Text>
           );
         }
-        
+
         // Regular paragraph
         return (
           <Text
@@ -213,9 +218,11 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
             lineHeight='1.7'
             mb={shouldCombineParaWithLink ? 0 : { base: 4, md: 5 }}
           >
-            <span dangerouslySetInnerHTML={{
-              __html: preventOrphanedPunctuation(paragraphText),
-            }} />
+            <span
+              dangerouslySetInnerHTML={{
+                __html: preventOrphanedPunctuation(paragraphText),
+              }}
+            />
             {shouldCombineParaWithLink && (
               <>
                 {' '}
@@ -290,7 +297,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
             </Box>
           );
         }
-        
+
         // Check if this is a pricing examples list
         const items = item.items?.[isFr ? 'fr' : 'en'] || [];
         const isPricingExamples = items.some(
@@ -359,10 +366,14 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                   const parts = listItem.split('→');
                   const description = parts[0]?.trim() || '';
                   const price = parts[1]?.trim() || '';
-                  
+
                   // Extract example number
-                  const exampleMatch = description.match(/Exemple\s+(\d+)|Example\s+(\d+)/i);
-                  const exampleNum = exampleMatch ? (exampleMatch[1] || exampleMatch[2]) : '';
+                  const exampleMatch = description.match(
+                    /Exemple\s+(\d+)|Example\s+(\d+)/i
+                  );
+                  const exampleNum = exampleMatch
+                    ? exampleMatch[1] || exampleMatch[2]
+                    : '';
 
                   return (
                     <Box
@@ -732,39 +743,27 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
         // Check if next item is a link that should be inline
         const nextItem = content[index + 1];
         const shouldCombineWithLink = nextItem?.type === 'link';
-        const linkText = shouldCombineWithLink 
-          ? (nextItem.text?.[isFr ? 'fr' : 'en'] || nextItem.text)
+        const linkText = shouldCombineWithLink
+          ? nextItem.text?.[isFr ? 'fr' : 'en'] || nextItem.text
           : null;
         const linkHref = shouldCombineWithLink ? nextItem.href : null;
-        
+
         // Consistent callout style per blog
         const calloutStyle = blogStyleIndex % 3;
-        
+
         if (calloutStyle === 0) {
           // Style 1: Blue accent with icon-like indicator
-        return (
+          return (
             <Box key={index}>
-          <Box
-            bg='blue.50'
-            borderLeft='4px solid'
-            borderColor='#014CC4'
-            p={{ base: 4, md: 5 }}
-            borderRadius='md'
+              <Box
+                bg='blue.50'
+                borderLeft='4px solid'
+                borderColor='#014CC4'
+                p={{ base: 4, md: 5 }}
+                borderRadius='md'
                 mb={shouldCombineWithLink ? 0 : { base: 4, md: 6 }}
                 mt={{ base: 6, md: 8 }}
-                position='relative'
               >
-                <Box
-                  position='absolute'
-                  top={4}
-                  right={4}
-                  w='8px'
-                  h='8px'
-                  minW='8px'
-                  minH='8px'
-                  borderRadius='full'
-                  bg='#014CC4'
-                />
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.800'
@@ -802,14 +801,14 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                 p={{ base: 4, md: 5 }}
                 borderRadius='xl'
                 mb={shouldCombineWithLink ? 0 : { base: 4, md: 6 }}
-            mt={{ base: 6, md: 8 }}
+                mt={{ base: 6, md: 8 }}
                 boxShadow='sm'
-          >
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.800'
-              lineHeight='1.8'
-              whiteSpace='pre-line'
+              >
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.800'
+                  lineHeight='1.8'
+                  whiteSpace='pre-line'
                   fontWeight='500'
                 >
                   {preventOrphanedPunctuation(calloutText)}
@@ -865,17 +864,17 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       </Link>
                     </>
                   )}
-            </Text>
+                </Text>
               </Box>
-          </Box>
-        );
+            </Box>
+          );
         }
 
       case 'quote':
         const quoteText = item.text?.[isFr ? 'fr' : 'en'] || item.text;
         // Consistent quote style per blog
         const quoteStyle = blogStyleIndex % 2;
-        
+
         if (quoteStyle === 0) {
           // Style 1: Classic quote with quotation marks
           return (
@@ -914,29 +913,29 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           );
         } else {
           // Style 2: Minimal with accent line
-        return (
-          <Box
-            key={index}
-            borderLeft='4px solid'
+          return (
+            <Box
+              key={index}
+              borderLeft='4px solid'
               borderColor='#014CC4'
-            pl={{ base: 4, md: 5 }}
-            my={{ base: 6, md: 8 }}
+              pl={{ base: 4, md: 5 }}
+              my={{ base: 6, md: 8 }}
               bg='blue.50'
               py={4}
               borderRadius='md'
-          >
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
+            >
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.800'
-              lineHeight='1.8'
+                lineHeight='1.8'
                 fontStyle='italic'
                 fontWeight='500'
                 dangerouslySetInnerHTML={{
                   __html: `"${preventOrphanedPunctuation(quoteText)}"`,
                 }}
               />
-          </Box>
-        );
+            </Box>
+          );
         }
 
       case 'link':
@@ -945,7 +944,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
         if (prevItem?.type === 'callout' || prevItem?.type === 'paragraph') {
           return null; // Already rendered inline with callout or paragraph
         }
-        
+
         return (
           <Box key={index} mb={{ base: 4, md: 5 }} mt={{ base: 2, md: 3 }}>
             <Link
@@ -965,15 +964,11 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
         const sectionTitle = item.title?.[isFr ? 'fr' : 'en'] || item.title;
         // Consistent section style per blog (same style for all sections in a blog)
         const sectionNumber = blogStyleIndex;
-        
+
         if (sectionNumber === 0) {
           // Style 1: With background bar
           return (
-            <Box
-              key={index}
-              mt={{ base: 10, md: 12 }}
-              mb={{ base: 6, md: 8 }}
-            >
+            <Box key={index} mt={{ base: 10, md: 12 }} mb={{ base: 6, md: 8 }}>
               <Box
                 bg='#014CC4'
                 color='white'
@@ -1017,22 +1012,22 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           );
         } else if (sectionNumber === 2) {
           // Style 3: With left border accent
-        return (
-          <Box
-            key={index}
+          return (
+            <Box
+              key={index}
               mt={{ base: 10, md: 12 }}
               mb={{ base: 6, md: 8 }}
               pl={4}
               borderLeft='4px solid'
               borderColor='#014CC4'
-          >
-            <Text
-              fontSize={{ base: 'sm', md: 'md' }}
-              fontWeight='bold'
-              color='#014CC4'
-              textTransform='uppercase'
-              letterSpacing='wide'
             >
+              <Text
+                fontSize={{ base: 'sm', md: 'md' }}
+                fontWeight='bold'
+                color='#014CC4'
+                textTransform='uppercase'
+                letterSpacing='wide'
+              >
                 {sectionTitle}
               </Text>
             </Box>
@@ -1064,9 +1059,9 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                 letterSpacing='wide'
               >
                 {sectionTitle}
-            </Text>
-          </Box>
-        );
+              </Text>
+            </Box>
+          );
         }
 
       case 'beforeAfter':
@@ -1078,10 +1073,5 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
     }
   };
 
-  return (
-    <Box>
-      {content.map((item, index) => renderContent(item, index))}
-    </Box>
-  );
+  return <Box>{content.map((item, index) => renderContent(item, index))}</Box>;
 }
-

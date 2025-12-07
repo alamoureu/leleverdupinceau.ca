@@ -578,22 +578,6 @@ export default function AvisPage() {
             </Box>
 
             <Box py={{ base: 12, md: 16 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} mb={8}>
-                  <Stack spacing={2} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Des transformations impressionnantes'
-                        : 'Impressive transformations'}
-                    </Heading>
-                  </Stack>
-                </Stack>
-              </Container>
               <RecentProjectsSection />
             </Box>
 

@@ -20,6 +20,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ReviewsSection from '../home-page/ReviewsSection';
+import RecentProjectsSection from '../home-page/RecentProjectsSection';
+import SectorsSection from '../home-page/SectorsSection';
 import teamImage1 from '../images/Propreté.PNG';
 import teamImage2 from '../images/Qualité.PNG';
 import teamImage3 from '../images/Respect.PNG';
@@ -339,28 +341,57 @@ export default function AboutPage() {
                       : 'Our mission is simple'}
                   </Text>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
-                    maxW='1000px'
-                    mx='auto'
-                  >
-                    {missionPoints.map((point, index) => (
-                      <Flex key={index} align='start' gap={3}>
-                        <Icon
-                          as={FontAwesomeIcon}
-                          icon={faCheckCircle}
-                          color='#014CC4'
-                          boxSize={5}
-                          mt={1}
-                          flexShrink={0}
-                        />
-                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
-                          {point}
-                        </Text>
-                      </Flex>
-                    ))}
-                  </SimpleGrid>
+                  <Box maxW='1000px' mx='auto'>
+                    <SimpleGrid
+                      columns={{ base: 1, md: 2, lg: 3 }}
+                      spacing={{ base: 4, md: 6 }}
+                    >
+                      {missionPoints.slice(0, 3).map((point, index) => (
+                        <Flex key={index} align='start' gap={3}>
+                          <Icon
+                            as={FontAwesomeIcon}
+                            icon={faCheckCircle}
+                            color='#014CC4'
+                            boxSize={5}
+                            mt={1}
+                            flexShrink={0}
+                          />
+                          <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                            {point}
+                          </Text>
+                        </Flex>
+                      ))}
+                    </SimpleGrid>
+                    {/* Last row - centered on desktop */}
+                    <Flex
+                      display={{ base: 'block', lg: 'flex' }}
+                      justify='center'
+                      gap={{ base: 0, lg: 6 }}
+                      mt={{ base: 4, lg: 6 }}
+                    >
+                      {missionPoints.slice(3).map((point, index) => (
+                        <Flex
+                          key={index + 3}
+                          align='start'
+                          gap={3}
+                          w={{ base: '100%', lg: 'auto' }}
+                          maxW={{ base: '100%', lg: 'calc(33.333% - 12px)' }}
+                        >
+                          <Icon
+                            as={FontAwesomeIcon}
+                            icon={faCheckCircle}
+                            color='#014CC4'
+                            boxSize={5}
+                            mt={1}
+                            flexShrink={0}
+                          />
+                          <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                            {point}
+                          </Text>
+                        </Flex>
+                      ))}
+                    </Flex>
+                  </Box>
                 </Stack>
               </Container>
             </Box>
@@ -569,85 +600,18 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Nous servons tout le Grand Montréal'
-                        : 'We serve all of Greater Montreal'}
-                    </Heading>
-                  </Stack>
-
-                  <SimpleGrid
-                    columns={{ base: 2, sm: 4 }}
-                    spacing={6}
-                    maxW='800px'
-                    mx='auto'
-                  >
-                    {['Montréal', 'Laval', 'Longueuil', 'Brossard'].map(
-                      (city) => (
-                        <Box
-                          key={city}
-                          p={6}
-                          bg='white'
-                          borderRadius='xl'
-                          textAlign='center'
-                          border='1px solid'
-                          borderColor='gray.200'
-                        >
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
-                          >
-                            {city}
-                          </Text>
-                        </Box>
-                      )
-                    )}
-                  </SimpleGrid>
-
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    textAlign='center'
-                  >
-                    {isFr
-                      ? 'Tous les quartiers & secteurs desservis'
-                      : 'All neighborhoods & service areas'}
-                  </Text>
-
-                  <Box textAlign='center' pt={4}>
-                    <Link
-                      as={RouterLink}
-                      to='/secteurs-desservis'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Button
-                        rightIcon={<ArrowForwardIcon />}
-                        variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
-                        borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        px={{ base: 5, md: 7 }}
-                        py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
-                      >
-                        {isFr ? 'Voir les secteurs' : 'See the sectors'}
-                      </Button>
-                    </Link>
-                  </Box>
-                </Stack>
-              </Container>
-            </Box>
+            <SectorsSection
+              title={
+                isFr
+                  ? 'Nous servons tout le Grand Montréal'
+                  : 'We serve all of Greater Montreal'
+              }
+              subtitle={
+                isFr
+                  ? 'Tous les quartiers & secteurs desservis'
+                  : 'All neighborhoods & service areas'
+              }
+            />
 
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -699,6 +663,8 @@ export default function AboutPage() {
                 </Stack>
               </Container>
             </Box>
+
+            <RecentProjectsSection />
 
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>

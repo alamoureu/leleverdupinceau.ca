@@ -14,7 +14,6 @@ import ResourcesSection from '../home-page/ResourcesSection';
 import CityServicesSection from '../city-pages/CityServicesSection';
 import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
-import CityResourcesSection from '../city-pages/CityResourcesSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 export default function LavalCityPage() {
@@ -181,9 +180,6 @@ export default function LavalCityPage() {
 
             {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}
             <CityWhyUsSection cityName='Laval' whyUsContent={whyUsContent} />
-
-            {/* Section 4 — Guides & ressources utiles */}
-            <CityResourcesSection cityName='Laval' />
 
             <ResourcesSection />
           </Stack>

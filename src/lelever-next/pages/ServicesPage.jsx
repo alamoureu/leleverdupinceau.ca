@@ -11,12 +11,12 @@ import {
   Link,
   Button,
   HStack,
-  Icon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
+import RecentProjectsSection from '../home-page/RecentProjectsSection';
+import ResourcesSection from '../home-page/ResourcesSection';
+import SectorsSection from '../home-page/SectorsSection';
 
 export default function ServicesPage() {
   const { currentLang } = useContext(appContext);
@@ -103,25 +103,6 @@ export default function ServicesPage() {
         ? 'Peinture commerciale extérieure'
         : 'Commercial exterior painting',
       link: '/services/peinture-commerciale/exterieure',
-    },
-  ];
-
-  const cities = [
-    {
-      name: 'Montréal',
-      link: '/secteurs-desservis/montreal',
-    },
-    {
-      name: 'Laval',
-      link: '/secteurs-desservis/laval',
-    },
-    {
-      name: 'Longueuil',
-      link: '/secteurs-desservis/longueuil',
-    },
-    {
-      name: 'Brossard',
-      link: '/secteurs-desservis/brossard',
     },
   ];
 
@@ -433,253 +414,13 @@ export default function ServicesPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8} align='center'>
-                  <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                      lineHeight='1.3'
-                      letterSpacing='-0.02em'
-                    >
-                      {isFr
-                        ? 'Services disponibles dans votre ville'
-                        : 'Services available in your city'}
-                    </Heading>
-                  </Stack>
+            <SectorsSection />
 
-                  <SimpleGrid columns={{ base: 2, sm: 4 }} spacing={6} w='100%'>
-                    {cities.map((city, index) => (
-                      <Link
-                        key={index}
-                        href={city.link}
-                        _hover={{ textDecoration: 'none' }}
-                      >
-                        <Box
-                          p={8}
-                          bg='white'
-                          borderRadius='2xl'
-                          textAlign='center'
-                          border='1px solid'
-                          borderColor='gray.200'
-                          cursor='pointer'
-                          h='100%'
-                          minH={{ base: '180px', md: '200px' }}
-                          display='flex'
-                          flexDirection='column'
-                          _hover={{
-                            borderColor: '#014CC4',
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'md',
-                          }}
-                          transition='all 0.2s'
-                        >
-                          <Stack
-                            spacing={4}
-                            align='center'
-                            flex={1}
-                            justify='center'
-                            w='100%'
-                          >
-                            <Icon
-                              as={FontAwesomeIcon}
-                              icon={faMapMarkerAlt}
-                              boxSize={6}
-                              color='#014CC4'
-                              flexShrink={0}
-                            />
-                            <Text
-                              fontWeight='700'
-                              color='gray.800'
-                              fontSize='xl'
-                              letterSpacing='-0.02em'
-                              lineHeight='1.4'
-                              minH={{ base: '48px', md: '56px' }}
-                              display='flex'
-                              alignItems='center'
-                              justifyContent='center'
-                              textAlign='center'
-                              w='100%'
-                            >
-                              {city.name}
-                            </Text>
-                          </Stack>
-                        </Box>
-                      </Link>
-                    ))}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
+            {/* Section 4.5 — Projets récents */}
+            <RecentProjectsSection />
 
             {/* Section 5 — Guides & ressources */}
-            <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Conseils pratiques avant de choisir votre service'
-                        : 'Practical tips before choosing your service'}
-                    </Heading>
-                  </Stack>
-
-                  <SimpleGrid
-                    columns={{ base: 1, md: 3 }}
-                    spacing={{ base: 4, md: 6 }}
-                  >
-                    <Link
-                      href='/blog/comment-choisir-un-peintre-professionnel'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        bg='white'
-                        borderRadius='xl'
-                        overflow='hidden'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Stack p={6} spacing={4} flex={1}>
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
-                            lineHeight='1.4'
-                          >
-                            {isFr
-                              ? 'Comment choisir un peintre professionnel ?'
-                              : 'How to choose a professional painter?'}
-                          </Text>
-                          <Box
-                            display='flex'
-                            alignItems='center'
-                            color='#014CC4'
-                            fontWeight='semibold'
-                            fontSize='sm'
-                          >
-                            <Text mr={2}>
-                              {isFr ? "Lire l'article" : 'Read article'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </Box>
-                        </Stack>
-                      </Box>
-                    </Link>
-
-                    <Link
-                      href='/blog/prix-peinture-montreal'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        bg='white'
-                        borderRadius='xl'
-                        overflow='hidden'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Stack p={6} spacing={4} flex={1}>
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
-                            lineHeight='1.4'
-                          >
-                            {isFr
-                              ? "Quel est le prix d'un service de peinture à Montréal ?"
-                              : 'What is the price of a painting service in Montreal?'}
-                          </Text>
-                          <Box
-                            display='flex'
-                            alignItems='center'
-                            color='#014CC4'
-                            fontWeight='semibold'
-                            fontSize='sm'
-                          >
-                            <Text mr={2}>
-                              {isFr ? "Lire l'article" : 'Read article'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </Box>
-                        </Stack>
-                      </Box>
-                    </Link>
-
-                    <Link
-                      href='/blog/erreurs-a-eviter-peinture'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        bg='white'
-                        borderRadius='xl'
-                        overflow='hidden'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Stack p={6} spacing={4} flex={1}>
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
-                            lineHeight='1.4'
-                          >
-                            {isFr
-                              ? 'Les erreurs courantes à éviter avant de repeindre'
-                              : 'Common mistakes to avoid before repainting'}
-                          </Text>
-                          <Box
-                            display='flex'
-                            alignItems='center'
-                            color='#014CC4'
-                            fontWeight='semibold'
-                            fontSize='sm'
-                          >
-                            <Text mr={2}>
-                              {isFr ? "Lire l'article" : 'Read article'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </Box>
-                        </Stack>
-                      </Box>
-                    </Link>
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
+            <ResourcesSection />
           </Stack>
         </Container>
 

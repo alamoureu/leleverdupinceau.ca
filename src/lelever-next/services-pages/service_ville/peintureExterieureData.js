@@ -1,7 +1,7 @@
 // Data configuration for Peinture Extérieure × City pages
 
 export const peintureExterieureData = {
-  'peinture-exterieure': {
+  'new-peinture-exterieure': {
     name: {
       fr: 'Peinture extérieure',
       en: 'Exterior painting',
@@ -11,7 +11,7 @@ export const peintureExterieureData = {
         name: { fr: 'Brossard', en: 'Brossard' },
         slug: 'brossard',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-exterieure/brossard',
+          'https://leleverdupinceau.ca/services/new-peinture-exterieure/brossard',
         h1: {
           fr: 'Peinture extérieure à Brossard – Le Lever du Pinceau',
           en: 'Exterior painting in Brossard – Le Lever du Pinceau',
@@ -216,7 +216,7 @@ export const peintureExterieureData = {
         name: { fr: 'Laval', en: 'Laval' },
         slug: 'laval',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-exterieure/laval',
+          'https://leleverdupinceau.ca/services/new-peinture-exterieure/laval',
         h1: {
           fr: 'Peinture extérieure à Laval – Le Lever du Pinceau',
           en: 'Exterior painting in Laval – Le Lever du Pinceau',
@@ -421,7 +421,7 @@ export const peintureExterieureData = {
         name: { fr: 'Longueuil', en: 'Longueuil' },
         slug: 'longueuil',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-exterieure/longueuil',
+          'https://leleverdupinceau.ca/services/new-peinture-exterieure/longueuil',
         h1: {
           fr: 'Peinture extérieure à Longueuil – Le Lever du Pinceau',
           en: 'Exterior painting in Longueuil – Le Lever du Pinceau',
@@ -625,7 +625,7 @@ export const peintureExterieureData = {
         name: { fr: 'Montréal', en: 'Montreal' },
         slug: 'montreal',
         canonical:
-          'https://leleverdupinceau.ca/services/peinture-exterieure/montreal',
+          'https://leleverdupinceau.ca/services/new-peinture-exterieure/montreal',
         h1: {
           fr: 'Peinture extérieure à Montréal – Le Lever du Pinceau',
           en: 'Exterior painting in Montreal – Le Lever du Pinceau',
