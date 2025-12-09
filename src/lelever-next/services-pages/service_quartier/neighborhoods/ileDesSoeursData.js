@@ -7,20 +7,6 @@ export const ileDesSoeursData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/ile-des-soeurs',
   h1: "Peinture intérieure à l'Île-des-Sœurs – Le Lever du Pinceau",
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Île-des-Sœurs Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Île-des-Sœurs Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Île-des-Sœurs Montréal',
-    },
-  ],
   introduction:
     "L'Île-des-Sœurs est un secteur résidentiel haut de gamme, moderne et très recherché. On y retrouve de grands condos luxueux, des tours résidentielles récentes, des appartements lumineux avec vue sur le fleuve, des maisons de ville et des unités rénovées. Pour mettre en valeur ces espaces modernes et sophistiqués, une peinture intérieure professionnelle est essentielle afin d'obtenir une finition uniforme, propre et élégante. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à l'Île-des-Sœurs, parfaitement adapté aux condos contemporains, aux logements haut de gamme et aux résidences rénovées du quartier. Pour un résultat impeccable, durable et parfaitement exécuté, notre équipe est la meilleure option sur l'Île-des-Sœurs.",
   whyUs: {

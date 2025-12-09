@@ -7,20 +7,6 @@ export const westmountData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/westmount',
   h1: 'Peinture intérieure à Westmount – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Westmount',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Westmount',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Westmount',
-    },
-  ],
   introduction:
     "Westmount est l'un des quartiers les plus prestigieux de Montréal : grandes maisons historiques, résidences haut de gamme, intérieurs luxueux, condos modernes et immeubles patrimoniaux. Ces propriétés exigent une peinture intérieure irréprochable, avec une précision exceptionnelle et un sens du détail supérieur. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Westmount, parfaitement adapté aux résidences haut de gamme, aux intérieurs élégants et aux propriétés nécessitant une préparation méticuleuse. Si vous recherchez un service de peinture intérieure haut de gamme, discret, propre et parfaitement exécuté, notre équipe est la référence à Westmount.",
   whyUs: {

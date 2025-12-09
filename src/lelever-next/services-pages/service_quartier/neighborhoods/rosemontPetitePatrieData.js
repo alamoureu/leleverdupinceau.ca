@@ -7,20 +7,6 @@ export const rosemontPetitePatrieData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/rosemont-petite-patrie',
   h1: 'Peinture intérieure à Rosemont–La Petite-Patrie – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Rosemont Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Rosemont Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Rosemont Montréal',
-    },
-  ],
   introduction:
     "Rosemont–La Petite-Patrie est l'un des quartiers les plus dynamiques de Montréal : duplex typiques, triplex avec façade en brique, maisons rénovées, condos modernes, appartements familiaux, studios lumineux, ruelles vertes et espaces créatifs. Pour rafraîchir, moderniser et harmoniser ces logements variés, une peinture intérieure professionnelle est essentielle pour obtenir une finition propre, uniforme et durable. Le Lever du Pinceau offre un service complet de peinture intérieure à Rosemont–La Petite-Patrie, parfaitement adapté aux résidences anciennes, aux rénovations modernes et aux condos récents. Pour une finition impeccable, un service propre et des résultats durables, notre équipe est prête à intervenir partout dans Rosemont et La Petite-Patrie.",
   whyUs: {

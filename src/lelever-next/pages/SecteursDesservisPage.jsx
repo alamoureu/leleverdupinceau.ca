@@ -73,18 +73,21 @@ export default function SecteursDesservisPage() {
     },
   ];
 
-  const neighborhoods = [
-    'Outremont',
-    'Plateau-Mont-Royal',
-    'NDG',
-    'Rosemont',
-    'Ahuntsic',
-    'Griffintown',
-    'Verdun',
-    'Westmount',
-    'Saint-Laurent',
-    'Hochelaga',
-  ];
+  // Map neighborhood names to their slugs for linking
+  const neighborhoodMap = {
+    'Outremont': 'outremont',
+    'Plateau-Mont-Royal': 'plateau-mont-royal',
+    'NDG': 'notre-dame-de-grace',
+    'Rosemont': 'rosemont-petite-patrie',
+    'Ahuntsic': 'ahuntsic',
+    'Griffintown': 'griffintown',
+    'Verdun': 'verdun',
+    'Westmount': 'westmount',
+    'Saint-Laurent': 'ville-saint-laurent',
+    'Hochelaga': 'hochelaga',
+  };
+
+  const neighborhoods = Object.keys(neighborhoodMap);
 
   const services = [
     {
@@ -311,30 +314,69 @@ export default function SecteursDesservisPage() {
                   </Stack>
 
                   <SimpleGrid
-                    columns={{ base: 2, md: 3, lg: 5 }}
+                    columns={{ base: 2, sm: 3, md: 4, lg: 5 }}
                     spacing={{ base: 4, md: 6 }}
                     maxW='1000px'
                     mx='auto'
                   >
-                    {neighborhoods.map((neighborhood, index) => (
-                      <Box
-                        key={index}
-                        p={4}
-                        bg='white'
-                        borderRadius='lg'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        textAlign='center'
-                      >
-                        <Text
-                          fontWeight='medium'
-                          color='gray.700'
-                          fontSize='md'
+                    {neighborhoods.map((neighborhood, index) => {
+                      const neighborhoodSlug = neighborhoodMap[neighborhood];
+                      // Use 'new-peinture-interieure' as the route slug (matches App.jsx route)
+                      // The getServiceQuartierSecteurData function will map it to 'peinture-interieure' for data lookup
+                      const linkTo = `/services/new-peinture-interieure/montreal/${neighborhoodSlug}`;
+
+                      return (
+                        <Link
+                          key={index}
+                          as={RouterLink}
+                          to={linkTo}
+                          _hover={{ textDecoration: 'none' }}
                         >
-                          {neighborhood}
-                        </Text>
-                      </Box>
-                    ))}
+                          <Box
+                            p={{ base: 5, md: 6 }}
+                            bg='white'
+                            borderRadius='lg'
+                            border='1px solid'
+                            borderColor='gray.200'
+                            textAlign='center'
+                            h='100%'
+                            minH={{ base: '100px', md: '120px' }}
+                            display='flex'
+                            flexDirection='column'
+                            justifyContent='center'
+                            alignItems='center'
+                            transition='all 0.2s'
+                            _hover={{
+                              borderColor: '#014CC4',
+                              transform: 'translateY(-2px)',
+                              boxShadow: 'md',
+                            }}
+                          >
+                            <Stack spacing={3} align='center' w='100%'>
+                              <Text
+                                fontWeight='600'
+                                color='gray.800'
+                                fontSize={{ base: 'sm', md: 'md' }}
+                                lineHeight='1.4'
+                                noOfLines={2}
+                              >
+                                {neighborhood}
+                              </Text>
+                              <HStack
+                                spacing={2}
+                                color='#014CC4'
+                                justify='center'
+                              >
+                                <Text fontSize='xs' fontWeight='medium'>
+                                  {isFr ? 'Voir' : 'View'}
+                                </Text>
+                                <ArrowForwardIcon boxSize={3} />
+                              </HStack>
+                            </Stack>
+                          </Box>
+                        </Link>
+                      );
+                    })}
                   </SimpleGrid>
                 </Stack>
               </Container>

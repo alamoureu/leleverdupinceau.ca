@@ -7,20 +7,6 @@ export const saintHenriData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/saint-henri',
   h1: 'Peinture intérieure à Saint-Henri – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Saint-Henri',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Saint-Henri',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Saint-Henri',
-    },
-  ],
   introduction:
     "Saint-Henri est un quartier en pleine transformation : lofts industriels rénovés, condos modernes, triplex classiques, bâtiments anciens du canal de Lachine et nouveaux projets résidentiels. Ces propriétés, souvent un mélange d'architecture ancienne et de design urbain moderne, nécessitent une peinture intérieure professionnelle, adaptée aux surfaces variées et aux styles contemporains. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Saint-Henri, idéal pour les lofts au plafond élevé, les condos modernes, les murs en brique, les gypse neufs et les résidences traditionnelles du quartier. Pour une finition intérieure moderne, durable et impeccable dans votre maison, condo ou loft de Saint-Henri, notre équipe est le choix idéal.",
   whyUs: {

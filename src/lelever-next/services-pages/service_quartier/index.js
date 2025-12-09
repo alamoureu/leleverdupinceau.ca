@@ -23,13 +23,19 @@ export function getServiceQuartierSecteurData(
   citySlug,
   neighborhoodSlug
 ) {
-  const service = allServiceQuartierSecteurData[serviceSlug];
+  const serviceSlugMap = {
+    'new-peinture-interieure': 'peinture-interieure',
+    'new-peinture-exterieure': 'peinture-exterieure',
+  };
+  
+  const mappedServiceSlug = serviceSlugMap[serviceSlug] || serviceSlug;
+  const service = allServiceQuartierSecteurData[mappedServiceSlug];
   if (!service) return null;
 
-  const city = service.cities[citySlug];
+  const city = service?.cities?.[citySlug];
   if (!city) return null;
 
-  const neighborhood = city.neighborhoods[neighborhoodSlug];
+  const neighborhood = city?.neighborhoods?.[neighborhoodSlug];
   if (!neighborhood) return null;
 
   return {

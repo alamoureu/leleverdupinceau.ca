@@ -207,16 +207,16 @@ export default function WebsiteNavBar() {
               zIndex={10}
               bg='white'
               borderTopRadius='none'
-              borderBottomRadius={{ base: '50px', md: '80px', lg: '100px' }}
-              p={3}
+              borderBottomRadius={{ base: '70px', md: '80px', lg: '100px' }}
+              p={{ base: 2, md: 3 }}
               boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'
-              minW='90px'
-              maxW='110px'
+              minW={{ base: '65px', md: '90px' }}
+              maxW={{ base: '75px', md: '110px' }}
               mt={2}
             >
               <Stack spacing={0} align='center'>
                 <Text
-                  fontSize='sm'
+                  fontSize={{ base: '2xs', md: 'sm' }}
                   color='gray.600'
                   fontWeight='600'
                 >
@@ -224,7 +224,7 @@ export default function WebsiteNavBar() {
                 </Text>
                 <Flex align='center' gap={0.5}>
                   <Text
-                    fontSize='sm'
+                    fontSize={{ base: '2xs', md: 'sm' }}
                     color='gray.600'
                     fontWeight='600'
                   >
@@ -235,7 +235,7 @@ export default function WebsiteNavBar() {
                       <StarIcon
                         key={i}
                         color='#FBBC04'
-                        boxSize={3}
+                        boxSize={{ base: 2, md: 3 }}
                       />
                     ))}
                   </Flex>
@@ -243,8 +243,8 @@ export default function WebsiteNavBar() {
                 <Image
                   src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
                   alt='Google'
-                  h='40px'
-                  w='40px'
+                  h={{ base: '30px', md: '40px' }}
+                  w={{ base: '30px', md: '40px' }}
                   mt={1}
                 />
               </Stack>

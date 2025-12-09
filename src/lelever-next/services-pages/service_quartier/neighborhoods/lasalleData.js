@@ -7,20 +7,6 @@ export const lasalleData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/lasalle',
   h1: 'Peinture intérieure à LaSalle – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure LaSalle Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure LaSalle Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure LaSalle Montréal',
-    },
-  ],
   introduction:
     'LaSalle offre un mélange résidentiel dynamique : maisons unifamiliales, duplex et triplex classiques, condos modernes, logements rénovés et résidences familiales près du fleuve et du parc Angrignon. Pour mettre en valeur ces espaces variés, une peinture intérieure professionnelle est essentielle afin de moderniser les pièces, rafraîchir les surfaces et assurer une finition durable. Le Lever du Pinceau propose un service spécialisé de peinture intérieure à LaSalle, adapté à la fois aux logements anciens nécessitant une réparation soignée et aux condos récents qui demandent des finitions impeccables. Pour une finition intérieure propre, moderne et durable dans votre maison, condo ou appartement à LaSalle, notre équipe est disponible rapidement.',
   whyUs: {

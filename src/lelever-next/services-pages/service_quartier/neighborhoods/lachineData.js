@@ -7,20 +7,6 @@ export const lachineData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/lachine',
   h1: 'Peinture intérieure à Lachine – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Lachine Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Lachine Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Lachine Montréal',
-    },
-  ],
   introduction:
     "Lachine est un quartier résidentiel diversifié : maisons familiales près du bord de l'eau, duplex et triplex plus anciens, condos récents, logements rénovés et propriétés situées près des parcs riverains. Ces espaces demandent une peinture intérieure professionnelle qui met en valeur leur style, rafraîchit les surfaces et garantit une finition durable. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Lachine, parfaitement adapté aux logements anciens nécessitant des réparations et aux condos modernes demandant des finitions impeccables. Notre équipe offre une finition intérieure propre, lisse et professionnelle, idéale pour votre maison ou votre condo à Lachine.",
   whyUs: {

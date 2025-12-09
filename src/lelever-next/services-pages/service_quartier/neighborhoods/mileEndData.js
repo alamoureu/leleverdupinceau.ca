@@ -7,20 +7,6 @@ export const mileEndData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/mile-end',
   h1: 'Peinture intérieure à Mile-End – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Mile-End Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Mile-End Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Mile-End Montréal',
-    },
-  ],
   introduction:
     "Mile-End est l'un des quartiers les plus artistiques et recherchés de Montréal : lofts créatifs, appartements rénovés, duplex traditionnels, condos modernes, studios lumineux, immeubles anciens à cachet unique et espaces urbains. Une peinture intérieure professionnelle permet de mettre en valeur ce style distinctif, tout en modernisant les pièces et en donnant un aspect propre et uniforme à vos espaces. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Mile-End, adapté aux logements rénovés, aux appartements d'époque, aux espaces créatifs et aux condos modernes du quartier. Pour une finition intérieure élégante, uniforme et durable à Mile-End, notre équipe est votre solution.",
   whyUs: {

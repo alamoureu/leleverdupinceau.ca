@@ -170,15 +170,15 @@ export default function App() {
               path=':serviceSlug/:subServiceSlug'
               element={<SousServicePage />}
             />
-            {/* Dynamic Service × SubService × City routes - MUST be before Service × City × Neighborhood */}
-            <Route
-              path=':serviceSlug/:subServiceSlug/:citySlug'
-              element={<SousServiceVillePage />}
-            />
-            {/* Dynamic Service × City × Neighborhood routes - MUST be before Service × City */}
+            {/* Dynamic Service × City × Neighborhood routes - MUST be before Service × SubService × City to prioritize neighborhoods */}
             <Route
               path=':serviceSlug/:citySlug/:neighborhoodSlug'
               element={<ServiceQuartierSecteurPage />}
+            />
+            {/* Dynamic Service × SubService × City routes */}
+            <Route
+              path=':serviceSlug/:subServiceSlug/:citySlug'
+              element={<SousServiceVillePage />}
             />
             {/* Dynamic Service × City routes - MUST be last to avoid conflicts */}
             <Route

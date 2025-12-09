@@ -7,20 +7,6 @@ export const pointeSaintCharlesData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/pointe-saint-charles',
   h1: 'Peinture intérieure à Pointe-Saint-Charles – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Pointe-Saint-Charles Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Pointe-Saint-Charles Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Pointe-Saint-Charles Montréal',
-    },
-  ],
   introduction:
     'Pointe-Saint-Charles ("The Point") est un quartier résidentiel en pleine transformation : maisons en rangée, duplex traditionnels, appartements rénovés, condos modernes, lofts industriels convertis et nouvelles constructions au style urbain. Pour mettre en valeur ces espaces — qu\'ils soient anciens ou contemporains — une peinture intérieure professionnelle est essentielle pour offrir une finition propre, uniforme et durable. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Pointe-Saint-Charles, adapté aux propriétés centenaires, aux logements rénovés, aux lofts industriels et aux condos récents. Pour une finition intérieure élégante, moderne et soignée dans votre logement de Pointe-Saint-Charles, vous êtes au bon endroit.',
   whyUs: {

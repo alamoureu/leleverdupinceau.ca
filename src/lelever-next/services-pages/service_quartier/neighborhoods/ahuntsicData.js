@@ -7,20 +7,6 @@ export const ahuntsicData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-interieure/montreal/ahuntsic',
   h1: 'Peinture intérieure à Ahuntsic – Le Lever du Pinceau',
-  images: [
-    {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure Ahuntsic',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peintre intérieur Ahuntsic Montréal',
-    },
-    {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture intérieure résidentielle Ahuntsic',
-    },
-  ],
   introduction:
     "Ahuntsic est un quartier résidentiel paisible et recherché de Montréal, avec ses maisons unifamiliales, ses duplex et triplex, ses appartements, ses immeubles à logements et ses rues bordées d'arbres près de la rivière des Prairies. Pour rafraîchir un salon, moderniser une cuisine, refaire des chambres ou donner un coup de neuf complet à votre propriété, une peinture intérieure professionnelle fait toute la différence. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Ahuntsic, adapté aux maisons familiales, logements rénovés et condos du quartier. Pour une finition propre, uniforme et durable dans votre propriété à Ahuntsic, notre équipe de peintres professionnels est prête à intervenir.",
   whyUs: {

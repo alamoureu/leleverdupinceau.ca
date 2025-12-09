@@ -9,7 +9,6 @@ import {
   Stack,
   Flex,
   Link,
-  Image,
   SimpleGrid,
 } from '@chakra-ui/react';
 import appContext from '../../../AppProvider';
@@ -27,14 +26,12 @@ export default function ServiceQuartierSecteurPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
-  // Get data for this service-city-neighborhood combination
   const pageData = getServiceQuartierSecteurData(
     serviceSlug,
     citySlug,
     neighborhoodSlug
   );
 
-  // If data doesn't exist, redirect to services page
   if (!pageData) {
     return <Navigate to='/services' replace />;
   }
@@ -224,34 +221,6 @@ export default function ServiceQuartierSecteurPage() {
               </Text>
             </Stack>
 
-            {/* Images Section */}
-            {neighborhood.images && neighborhood.images.length > 0 && (
-              <SimpleGrid
-                columns={{ base: 1, md: 2, lg: 3 }}
-                spacing={{ base: 4, md: 6 }}
-                mt={{ base: 8, md: 12 }}
-                mb={{ base: 8, md: 12 }}
-              >
-                {neighborhood.images.map((img, index) => (
-                  <Box
-                    key={index}
-                    borderRadius='lg'
-                    overflow='hidden'
-                    boxShadow='md'
-                    _hover={{ boxShadow: 'lg', transform: 'scale(1.02)' }}
-                    transition='all 0.3s ease'
-                  >
-                    <Image
-                      src={img.src}
-                      alt={img.alt || 'peinture intérieure Griffintown'}
-                      w='100%'
-                      h={{ base: '200px', md: '250px', lg: '300px' }}
-                      objectFit='cover'
-                    />
-                  </Box>
-                ))}
-              </SimpleGrid>
-            )}
           </Stack>
         </Container>
 
