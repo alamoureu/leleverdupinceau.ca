@@ -207,24 +207,24 @@ export default function WebsiteNavBar() {
               zIndex={10}
               bg='white'
               borderTopRadius='none'
-              borderBottomRadius='50px'
-              p={{ base: 1.5, md: 4 }}
+              borderBottomRadius={{ base: '50px', md: '80px', lg: '100px' }}
+              p={3}
               boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)'
-              minW={{ base: '60px', md: '110px' }}
-              maxW={{ base: '75px', md: '120px' }}
+              minW='90px'
+              maxW='110px'
               mt={2}
             >
               <Stack spacing={0} align='center'>
                 <Text
-                  fontSize={{ base: 'xs', md: 'lg' }}
+                  fontSize='sm'
                   color='gray.600'
                   fontWeight='600'
                 >
                   {t.googleReviews}
                 </Text>
-                <Flex align='center' gap={{ base: 0.5, md: 1 }}>
+                <Flex align='center' gap={0.5}>
                   <Text
-                    fontSize={{ base: 'xs', md: '2xl' }}
+                    fontSize='sm'
                     color='gray.600'
                     fontWeight='600'
                   >
@@ -235,7 +235,7 @@ export default function WebsiteNavBar() {
                       <StarIcon
                         key={i}
                         color='#FBBC04'
-                        boxSize={{ base: 2, md: 4 }}
+                        boxSize={3}
                       />
                     ))}
                   </Flex>
@@ -243,9 +243,9 @@ export default function WebsiteNavBar() {
                 <Image
                   src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
                   alt='Google'
-                  h={{ base: '28px', md: '50px' }}
-                  w={{ base: '28px', md: '50px' }}
-                  mt={{ base: 0.5, md: 1 }}
+                  h='40px'
+                  w='40px'
+                  mt={1}
                 />
               </Stack>
             </Box>
