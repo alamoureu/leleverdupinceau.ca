@@ -105,11 +105,6 @@ export default function CustomProjectsSection({
                   h='100%'
                   display='flex'
                   flexDirection='column'
-                  _hover={{
-                    borderColor: '#014CC4',
-                    boxShadow: 'md',
-                  }}
-                  transition='all 0.2s'
                 >
                   <Box
                     position='relative'

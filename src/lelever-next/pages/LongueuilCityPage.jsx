@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -123,7 +124,8 @@ export default function LongueuilCityPage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -132,7 +134,8 @@ export default function LongueuilCityPage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
-                href='/secteurs-desservis'
+                as={RouterLink}
+                to='/secteurs-desservis'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}

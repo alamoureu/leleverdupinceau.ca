@@ -179,20 +179,7 @@ export const peintureResidentielleExterieureData = {
               fr: 'Nous couvrons tous les secteurs de Brossard avec un service rapide, organisé et soigné.',
               en: 'We cover all sectors of Brossard with a fast, organized and careful service.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Brossard',
-              },
-            ],
+            images: [],
           },
           laval: {
             name: { fr: 'Laval', en: 'Laval' },
@@ -362,20 +349,7 @@ export const peintureResidentielleExterieureData = {
               fr: 'Nous servons tous les quartiers de Laval avec un service rapide et fiable.',
               en: 'We serve all neighborhoods of Laval with a fast and reliable service.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Laval',
-              },
-            ],
+            images: [],
           },
           longueuil: {
             name: { fr: 'Longueuil', en: 'Longueuil' },
@@ -547,20 +521,7 @@ export const peintureResidentielleExterieureData = {
               fr: 'Nous couvrons tous les secteurs de Longueuil avec un service rapide, efficace et soigné.',
               en: 'We cover all sectors of Longueuil with a fast, efficient and careful service.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Longueuil',
-              },
-            ],
+            images: [],
           },
           montreal: {
             name: { fr: 'Montréal', en: 'Montreal' },
@@ -732,20 +693,7 @@ export const peintureResidentielleExterieureData = {
               fr: 'Nous pouvons planifier vos travaux en fonction des saisons et de votre disponibilité.',
               en: 'We can plan your work according to seasons and your availability.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle extérieure Montréal',
-              },
-            ],
+            images: [],
           },
         },
       },

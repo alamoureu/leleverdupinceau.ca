@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
+import ScrollToTop from './components/ScrollToTop';
 import MainPage from './pages/WebSiteLandingPage';
 import NewHomePage from './lelever-next/pages/NewHomePage';
 import ContactPage from './lelever-next/pages/ContactPage';
@@ -51,6 +52,7 @@ export default function App() {
   return (
     <Router>
       <AppProvider>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<WebsiteLayout />}>
             <Route path='/' element={<MainPage />} />

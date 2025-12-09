@@ -546,7 +546,8 @@ export default function SousServicePage() {
                       {pageData.complementaryServices.map((service, index) => (
                         <Link
                           key={index}
-                          href={service.href}
+                          as={RouterLink}
+                          to={service.href}
                           _hover={{ textDecoration: 'none' }}
                         >
                           <Box

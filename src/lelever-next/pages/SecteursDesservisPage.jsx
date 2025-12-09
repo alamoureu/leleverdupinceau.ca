@@ -150,7 +150,8 @@ export default function SecteursDesservisPage() {
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/'
+                as={RouterLink}
+                to='/new-home'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -226,7 +227,8 @@ export default function SecteursDesservisPage() {
                     {cities.map((city, index) => (
                       <Link
                         key={index}
-                        href={city.link}
+                        as={RouterLink}
+                        to={city.link}
                         _hover={{ textDecoration: 'none' }}
                         w='100%'
                         h='100%'
@@ -389,7 +391,8 @@ export default function SecteursDesservisPage() {
                     </Text>
 
                     <Link
-                      href='/peintre-professionnel'
+                      as={RouterLink}
+                      to='/peintre-professionnel'
                       _hover={{ textDecoration: 'none' }}
                       w={{ base: '100%', md: 'auto' }}
                     >
@@ -444,7 +447,8 @@ export default function SecteursDesservisPage() {
                     {services.map((service, index) => (
                       <Link
                         key={index}
-                        href={service.link}
+                        as={RouterLink}
+                        to={service.link}
                         _hover={{ textDecoration: 'none' }}
                       >
                         <Box

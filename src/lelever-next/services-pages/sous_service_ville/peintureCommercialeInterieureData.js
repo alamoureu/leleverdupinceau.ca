@@ -68,7 +68,7 @@ export const peintureCommercialeInterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Brossard (vue d"ensemble)',
+                  fr: "Peinture commerciale Brossard (vue d'ensemble)",
                   en: 'Commercial painting Brossard (overview)',
                 },
                 href: '/services/peinture-commerciale/brossard',
@@ -181,20 +181,7 @@ export const peintureCommercialeInterieureData = {
               fr: 'Travaux rapides, propres et planifiés selon votre réalité.',
               en: 'Fast, clean work planned according to your reality.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Brossard',
-              },
-            ],
+            images: [],
           },
           laval: {
             name: { fr: 'Laval', en: 'Laval' },
@@ -364,20 +351,7 @@ export const peintureCommercialeInterieureData = {
               fr: 'Nous offrons un service rapide, flexible et professionnel.',
               en: 'We offer a fast, flexible and professional service.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Laval',
-              },
-            ],
+            images: [],
           },
           longueuil: {
             name: { fr: 'Longueuil', en: 'Longueuil' },
@@ -436,7 +410,7 @@ export const peintureCommercialeInterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Longueuil (vue d"ensemble)',
+                  fr: "Peinture commerciale Longueuil (vue d'ensemble)",
                   en: 'Commercial painting Longueuil (overview)',
                 },
                 href: '/services/peinture-commerciale/longueuil',
@@ -545,20 +519,7 @@ export const peintureCommercialeInterieureData = {
               fr: 'Nous planifions les travaux pour ne pas perturber vos opérations.',
               en: 'We plan the work to not disrupt your operations.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Longueuil',
-              },
-            ],
+            images: [],
           },
           montreal: {
             name: { fr: 'Montréal', en: 'Montreal' },
@@ -617,7 +578,7 @@ export const peintureCommercialeInterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Montréal (vue d"ensemble)',
+                  fr:   "Peinture commerciale Montréal (vue d'ensemble)",
                   en: 'Commercial painting Montreal (overview)',
                 },
                 href: '/services/peinture-commerciale/montreal',
@@ -728,20 +689,7 @@ export const peintureCommercialeInterieureData = {
               fr: 'Nous pouvons planifier vos travaux en fonction de vos heures d"ouverture et de vos échéances d"affaires.',
               en: 'We can plan your work according to your opening hours and business deadlines.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale intérieure Montréal',
-              },
-            ],
+            images: [],
           },
         },
       },

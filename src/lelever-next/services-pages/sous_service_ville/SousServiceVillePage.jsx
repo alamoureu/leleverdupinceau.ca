@@ -37,9 +37,23 @@ export default function SousServiceVillePage() {
   }
 
   const { service, subService, city } = pageData;
-  const serviceName = service.name[isFr ? 'fr' : 'en'];
-  const subServiceName = subService.name[isFr ? 'fr' : 'en'];
-  const cityName = city.name[isFr ? 'fr' : 'en'] || city.name;
+  
+  // Safety checks with fallbacks
+  if (!service || !service.name) {
+    return <Navigate to='/services' replace />;
+  }
+  
+  if (!subService || !subService.name) {
+    return <Navigate to='/services' replace />;
+  }
+  
+  if (!city || !city.name) {
+    return <Navigate to='/services' replace />;
+  }
+  
+  const serviceName = service.name[isFr ? 'fr' : 'en'] || service.name.fr || service.name.en || 'Service';
+  const subServiceName = subService.name[isFr ? 'fr' : 'en'] || subService.name.fr || subService.name.en || 'SubService';
+  const cityName = city.name[isFr ? 'fr' : 'en'] || city.name.fr || city.name.en || city.name || 'City';
 
   // Build breadcrumb schema
   const breadcrumbSchema = {

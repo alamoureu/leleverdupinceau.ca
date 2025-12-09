@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -56,11 +57,12 @@ export default function ServiceCitiesSectorsSection({
 
           <SimpleGrid columns={{ base: 2, sm: 4 }} spacing={6} w='100%'>
             {cities.map((city, index) => {
-              const href = city.href || `/services/${serviceSlug}/${city.slug}`;
+              const to = city.href || `/services/${serviceSlug}/${city.slug}`;
               return (
                 <Link
                   key={index}
-                  href={href}
+                  as={RouterLink}
+                  to={to}
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Box

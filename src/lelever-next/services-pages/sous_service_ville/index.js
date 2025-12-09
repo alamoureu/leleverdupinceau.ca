@@ -9,12 +9,20 @@ import { peintureResidentielleInterieureData } from './peintureResidentielleInte
 // Merge all sous-service data into one object
 export const allSousServiceVilleData = {
   'peinture-commerciale': {
+    name: {
+      fr: 'Peinture commerciale',
+      en: 'Commercial painting',
+    },
     subServices: {
       ...peintureCommercialeExterieureData['peinture-commerciale'].subServices,
       ...peintureCommercialeInterieureData['peinture-commerciale'].subServices,
     },
   },
   'peinture-residentielle': {
+    name: {
+      fr: 'Peinture résidentielle',
+      en: 'Residential painting',
+    },
     subServices: {
       ...peintureResidentielleExterieureData['peinture-residentielle']
         .subServices,
@@ -27,16 +35,31 @@ export const allSousServiceVilleData = {
 // Helper function to get page data
 export function getSousServiceVilleData(serviceSlug, subServiceSlug, citySlug) {
   const service = allSousServiceVilleData[serviceSlug];
-  if (!service) return null;
+  if (!service) {
+    return null;
+  }
 
   const subService = service.subServices?.[subServiceSlug];
-  if (!subService) return null;
+  if (!subService) {
+    return null;
+  }
 
   const city = subService.cities?.[citySlug];
-  if (!city) return null;
+  if (!city) {
+    return null;
+  }
+
+  // Ensure service has name property
+  const serviceWithName = {
+    ...service,
+    name: service.name || {
+      fr: serviceSlug === 'peinture-commerciale' ? 'Peinture commerciale' : 'Peinture résidentielle',
+      en: serviceSlug === 'peinture-commerciale' ? 'Commercial painting' : 'Residential painting',
+    },
+  };
 
   return {
-    service,
+    service: serviceWithName,
     subService,
     city,
   };

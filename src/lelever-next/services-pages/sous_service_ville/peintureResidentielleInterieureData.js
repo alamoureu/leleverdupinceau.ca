@@ -177,20 +177,7 @@ export const peintureResidentielleInterieureData = {
               fr: 'Nous servons tous les secteurs de Brossard — un service rapide, fiable, impeccable.',
               en: 'We serve all sectors of Brossard — a fast, reliable, impeccable service.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Brossard',
-              },
-            ],
+            images: [],
           },
           laval: {
             name: { fr: 'Laval', en: 'Laval' },
@@ -362,20 +349,7 @@ export const peintureResidentielleInterieureData = {
               fr: 'Nous offrons un service rapide, soigné et professionnel.',
               en: 'We offer a fast, careful and professional service.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Laval',
-              },
-            ],
+            images: [],
           },
           longueuil: {
             name: { fr: 'Longueuil', en: 'Longueuil' },
@@ -543,20 +517,7 @@ export const peintureResidentielleInterieureData = {
               fr: 'Nous pouvons planifier vos travaux rapidement, avec une approche clé en main.',
               en: 'We can plan your work quickly, with a turnkey approach.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Longueuil',
-              },
-            ],
+            images: [],
           },
           montreal: {
             name: { fr: 'Montréal', en: 'Montreal' },
@@ -724,20 +685,7 @@ export const peintureResidentielleInterieureData = {
               fr: 'Nous pouvons planifier vos travaux rapidement, avec une approche clé en main.',
               en: 'We can plan your work quickly, with a turnkey approach.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture résidentielle intérieure Montréal',
-              },
-            ],
+            images: [],
           },
         },
       },

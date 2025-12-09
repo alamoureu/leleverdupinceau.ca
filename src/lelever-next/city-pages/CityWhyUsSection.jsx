@@ -100,12 +100,6 @@ export default function CityWhyUsSection({
                       borderRadius='lg'
                       border='1px solid'
                       borderColor='gray.200'
-                      _hover={{
-                        borderColor: '#014CC4',
-                        boxShadow: 'sm',
-                        transform: 'translateX(4px)',
-                      }}
-                      transition='all 0.2s ease'
                     >
                       <Icon
                         as={FontAwesomeIcon}

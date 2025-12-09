@@ -70,7 +70,7 @@ export const peintureCommercialeExterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Brossard (vue d"ensemble)',
+                  fr: "Peinture commerciale Brossard (vue d'ensemble)",
                   en: 'Commercial painting Brossard (overview)',
                 },
                 href: '/services/peinture-commerciale/brossard',
@@ -185,20 +185,7 @@ export const peintureCommercialeExterieureData = {
               fr: 'Nous intervenons rapidement dans tous les secteurs commerciaux.',
               en: 'We work quickly in all commercial sectors.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Brossard',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Brossard',
-              },
-            ],
+            images: [],
           },
           laval: {
             name: { fr: 'Laval', en: 'Laval' },
@@ -259,7 +246,7 @@ export const peintureCommercialeExterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Laval (vue d"ensemble)',
+                  fr: "Peinture commerciale Laval (vue d'ensemble)",
                   en: 'Commercial painting Laval (overview)',
                 },
                 href: '/services/peinture-commerciale/laval',
@@ -372,20 +359,7 @@ export const peintureCommercialeExterieureData = {
               fr: 'Nous intervenons rapidement dans toutes les zones commerciales de Laval.',
               en: 'We work quickly in all commercial areas of Laval.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Laval',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Laval',
-              },
-            ],
+            images: [],
           },
           longueuil: {
             name: { fr: 'Longueuil', en: 'Longueuil' },
@@ -446,7 +420,7 @@ export const peintureCommercialeExterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Longueuil (vue d"ensemble)',
+                  fr: "Peinture commerciale Longueuil (vue d'ensemble)",
                   en: 'Commercial painting Longueuil (overview)',
                 },
                 href: '/services/peinture-commerciale/longueuil',
@@ -563,20 +537,7 @@ export const peintureCommercialeExterieureData = {
               fr: 'Nous intervenons rapidement dans tous les secteurs commerciaux de Longueuil.',
               en: 'We work quickly in all commercial sectors of Longueuil.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Longueuil',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Longueuil',
-              },
-            ],
+            images: [],
           },
           montreal: {
             name: { fr: 'Montréal', en: 'Montreal' },
@@ -637,7 +598,7 @@ export const peintureCommercialeExterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Montréal (vue d"ensemble)',
+                  fr: "Peinture commerciale Montréal (vue d'ensemble)",
                   en: 'Commercial painting Montreal (overview)',
                 },
                 href: '/services/peinture-commerciale/montreal',
@@ -750,20 +711,7 @@ export const peintureCommercialeExterieureData = {
               fr: 'Nous pouvons planifier les travaux rapidement, en respectant votre réalité opérationnelle.',
               en: 'We can plan the work quickly, respecting your operational reality.',
             },
-            images: [
-              {
-                src: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Montréal',
-              },
-              {
-                src: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-                alt: 'peinture commerciale extérieure Montréal',
-              },
-            ],
+            images: [],
           },
         },
       },
