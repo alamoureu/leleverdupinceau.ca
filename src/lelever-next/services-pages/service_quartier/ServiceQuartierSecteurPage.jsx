@@ -9,7 +9,6 @@ import {
   Stack,
   Flex,
   Link,
-  SimpleGrid,
 } from '@chakra-ui/react';
 import appContext from '../../../AppProvider';
 import ServiceWhyUsSection from '../components/ServiceWhyUsSection';
