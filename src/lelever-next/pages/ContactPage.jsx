@@ -13,6 +13,7 @@ import {
   HStack,
   Flex,
   useDisclosure,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,6 +28,7 @@ import appContext from '../../AppProvider';
 import SubmissionForm from '../home-page/SubmissionForm';
 import SubmissionModal from '../home-page/SubmissionModal';
 import SectorsSection from '../home-page/SectorsSection';
+import heroImage from '../images/heroImage.png';
 
 export default function ContactPage() {
   const { currentLang } = useContext(appContext);
@@ -206,6 +208,18 @@ export default function ContactPage() {
               </Text>
             </HStack>
 
+            {/* Header Image */}
+            <Box mb={{ base: 8, md: 12 }}>
+              <Image
+                src={heroImage}
+                alt={isFr ? 'Contactez Le Lever du Pinceau' : 'Contact Le Lever du Pinceau'}
+                w="100%"
+                h={{ base: '200px', md: '350px' }}
+                objectFit="cover"
+                borderRadius="xl"
+              />
+            </Box>
+
             <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
@@ -224,8 +238,20 @@ export default function ContactPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? 'Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ou obtenir une soumission rapide pour votre projet de peinture ? Notre équipe de peintres professionnels est disponible partout dans le Grand Montréal, Montréal, Laval, Longueuil, Brossard et tous les quartiers environnants. Nous répondons rapidement, offrons des soumissions claires et précises, et garantissons un service professionnel du début à la fin. Remplissez le formulaire ci-dessous ou contactez-nous directement, nous serons ravis de vous aider.'
-                  : 'Would you like to refresh your interior, modernize your spaces, or get a quick quote for your painting project? Our team of professional painters is available throughout Greater Montreal, Montreal, Laval, Longueuil, Brossard and all surrounding neighborhoods. We respond quickly, offer clear and accurate quotes, and guarantee professional service from start to finish. Fill out the form below or contact us directly, we will be happy to help you.'}
+                  ? 'Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ou obtenir une soumission rapide pour votre projet de peinture ? Notre équipe de peintres professionnels est disponible partout dans le Grand Montréal, Montréal, Laval, Longueuil, Brossard et tous les quartiers environnants. Nous répondons rapidement, offrons des soumissions claires et précises, et garantissons un service professionnel du début à la fin.'
+                  : 'Would you like to refresh your interior, modernize your spaces, or get a quick quote for your painting project? Our team of professional painters is available throughout Greater Montreal, Montreal, Laval, Longueuil, Brossard and all surrounding neighborhoods. We respond quickly, offer clear and accurate quotes, and guarantee professional service from start to finish.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='800px'
+                mt={2}
+                fontWeight='medium'
+              >
+                {isFr
+                  ? '👉 Remplissez le formulaire ci-dessous ou contactez-nous directement, nous serons ravis de vous aider.'
+                  : '👉 Fill out the form below or contact us directly, we will be happy to help you.'}
               </Text>
             </Stack>
 
@@ -386,8 +412,6 @@ export default function ContactPage() {
               </Container>
             </Box>
 
-            <SectorsSection />
-
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -525,6 +549,83 @@ export default function ContactPage() {
                       </Button>
                     </Link>
                   </Box>
+                </Stack>
+              </Container>
+            </Box>
+
+            <SectorsSection
+              title={
+                isFr
+                  ? 'Nous servons tout le Grand Montréal'
+                  : 'We serve all of Greater Montreal'
+              }
+              subtitle={
+                isFr
+                  ? 'Nos équipes sont présentes dans votre secteur'
+                  : 'Our teams are present in your area'
+              }
+              pageContext={isFr ? 'Page Contact' : 'Contact Page'}
+              disableLinks={true}
+            />
+
+            {/* Section 6 — CTA Final */}
+            <Box
+              w='100%'
+              py={{ base: 12, md: 16 }}
+              bg='#014CC4'
+              mt={{ base: 8, md: 12 }}
+            >
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={8} textAlign='center'>
+                  <Stack spacing={3}>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='white'
+                    >
+                      {isFr
+                        ? 'Prêt à commencer votre projet de peinture ?'
+                        : 'Ready to start your painting project?'}
+                    </Heading>
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='whiteAlpha.900'
+                      maxW='800px'
+                      mx='auto'
+                    >
+                      {isFr
+                        ? 'Nous répondons rapidement, évaluons votre projet et vous envoyons une soumission claire et détaillée.'
+                        : 'We respond quickly, assess your project and send you a clear and detailed quote.'}
+                    </Text>
+                  </Stack>
+
+                  <Box>
+                    <Link
+                      href='#submission-form' // Assuming the form has this ID or similar, or just scrolling up. Using link to form if possible or just a general CTA behavior.
+                      _hover={{ textDecoration: 'none' }}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                      }}
+                    >
+                      <Button
+                        rightIcon={<ArrowForwardIcon />}
+                        bg='white'
+                        color='#014CC4'
+                        borderRadius='full'
+                        fontSize={{ base: 'sm', md: 'md' }}
+                        px={{ base: 5, md: 7 }}
+                        py={{ base: 3, md: 4 }}
+                        _hover={{ bg: 'gray.100' }}
+                        size='lg'
+                      >
+                        {isFr ? 'Obtenir ma soumission' : 'Get my quote'}
+                      </Button>
+                    </Link>
+                  </Box>
+                  {/* Placeholder for GHL integration */}
+                  {/* <div id="ghl-form-placeholder"></div> */}
                 </Stack>
               </Container>
             </Box>

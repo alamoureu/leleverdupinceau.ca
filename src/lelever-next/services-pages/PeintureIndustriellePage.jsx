@@ -19,7 +19,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import CustomProjectsSection from '../city-pages/CustomProjectsSection';
-import ServiceCitiesSectorsSection from './components/ServiceCitiesSectorsSection';
+import ResourcesSection from '../home-page/ResourcesSection';
+import SectorsSection, {
+  montrealSecteur,
+  lavalSecteur,
+  longueuilSecteur,
+  brossardSecteur,
+} from '../home-page/SectorsSection';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
 
 export default function PeintureIndustriellePage() {
   const { currentLang } = useContext(appContext);
@@ -52,97 +64,97 @@ export default function PeintureIndustriellePage() {
 
   const whyUsContent = isFr
     ? [
-        "Résistance aux chocs, à l'humidité et aux produits chimiques",
-        'Protection anticorrosion (revêtements spécialisés)',
-        'Produits à faible odeur ou à séchage rapide selon le site',
-        "Application conforme aux normes d'environnement industriel",
-        'Sécurité renforcée sur le chantier',
-        'Équipe formée pour environnements complexes',
-      ]
+      "Résistance aux chocs, à l'humidité et aux produits chimiques",
+      'Protection anticorrosion (revêtements spécialisés)',
+      'Produits à faible odeur ou à séchage rapide selon le site',
+      "Application conforme aux normes d'environnement industriel",
+      'Sécurité renforcée sur le chantier',
+      'Équipe formée pour environnements complexes',
+    ]
     : [
-        'Resistance to shocks, humidity and chemicals',
-        'Anti-corrosion protection (specialized coatings)',
-        'Low odor or fast drying products depending on the site',
-        'Application compliant with industrial environment standards',
-        'Enhanced safety on site',
-        'Team trained for complex environments',
-      ];
+      'Resistance to shocks, humidity and chemicals',
+      'Anti-corrosion protection (specialized coatings)',
+      'Low odor or fast drying products depending on the site',
+      'Application compliant with industrial environment standards',
+      'Enhanced safety on site',
+      'Team trained for complex environments',
+    ];
 
   const industrialProjects = isFr
     ? [
-        {
-          id: 1,
-          images: [],
-          title: 'Protection anticorrosive de structures métalliques',
-          description:
-            'Application de revêtements spécialisés pour protéger les structures métalliques contre la corrosion. Traitement de surfaces en acier, poutres et équipements industriels.',
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'Peinture de planchers industriels haute résistance',
-          description:
-            'Revêtement de planchers en béton avec des produits époxy ou polyuréthane résistants aux charges lourdes. Finition durable pour entrepôts et usines.',
-        },
-        {
-          id: 3,
-          images: [],
-          title: "Rafraîchissement intérieur d'entrepôts",
-          description:
-            "Peinture complète d'entrepôts et centres logistiques avec des produits adaptés aux grandes surfaces. Planification efficace pour minimiser les interruptions.",
-        },
-        {
-          id: 4,
-          images: [],
-          title: "Peinture extérieure d'usines",
-          description:
-            'Rénovation de façades industrielles avec des revêtements résistants aux intempéries. Protection contre les éléments.',
-        },
-        {
-          id: 5,
-          images: [],
-          title: 'Revêtement spécialisé pour conduits et poutres',
-          description:
-            'Peinture de conduits de ventilation, poutres métalliques et structures complexes. Amélioration de la sécurité et de la durabilité.',
-        },
-      ]
+      {
+        id: 1,
+        images: [],
+        title: 'Protection anticorrosive de structures métalliques',
+        description:
+          'Application de revêtements spécialisés pour protéger les structures métalliques contre la corrosion. Traitement de surfaces en acier, poutres et équipements industriels.',
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'Peinture de planchers industriels haute résistance',
+        description:
+          'Revêtement de planchers en béton avec des produits époxy ou polyuréthane résistants aux charges lourdes. Finition durable pour entrepôts et usines.',
+      },
+      {
+        id: 3,
+        images: [],
+        title: "Rafraîchissement intérieur d'entrepôts",
+        description:
+          "Peinture complète d'entrepôts et centres logistiques avec des produits adaptés aux grandes surfaces. Planification efficace pour minimiser les interruptions.",
+      },
+      {
+        id: 4,
+        images: [],
+        title: "Peinture extérieure d'usines",
+        description:
+          'Rénovation de façades industrielles avec des revêtements résistants aux intempéries. Protection contre les éléments.',
+      },
+      {
+        id: 5,
+        images: [],
+        title: 'Revêtement spécialisé pour conduits et poutres',
+        description:
+          'Peinture de conduits de ventilation, poutres métalliques et structures complexes. Amélioration de la sécurité et de la durabilité.',
+      },
+    ]
     : [
-        {
-          id: 1,
-          images: [],
-          title: 'Anti-corrosion protection of metal structures',
-          description:
-            'Application of specialized coatings to protect metal structures against corrosion. Treatment of steel surfaces, beams and industrial equipment.',
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'High resistance industrial floor painting',
-          description:
-            'Concrete floor coating with epoxy or polyurethane products resistant to heavy loads. Durable finish for warehouses and factories.',
-        },
-        {
-          id: 3,
-          images: [],
-          title: 'Interior warehouse refresh',
-          description:
-            'Complete painting of warehouses and logistics centers with products adapted to large surfaces. Efficient planning to minimize interruptions.',
-        },
-        {
-          id: 4,
-          images: [],
-          title: 'Factory exterior painting',
-          description:
-            'Industrial facade renovation with weather-resistant coatings. Protection against the elements.',
-        },
-        {
-          id: 5,
-          images: [],
-          title: 'Specialized coating for ducts and beams',
-          description:
-            'Painting of ventilation ducts, metal beams and complex structures. Improvement of safety and durability.',
-        },
-      ];
+      {
+        id: 1,
+        images: [],
+        title: 'Anti-corrosion protection of metal structures',
+        description:
+          'Application of specialized coatings to protect metal structures against corrosion. Treatment of steel surfaces, beams and industrial equipment.',
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'High resistance industrial floor painting',
+        description:
+          'Concrete floor coating with epoxy or polyurethane products resistant to heavy loads. Durable finish for warehouses and factories.',
+      },
+      {
+        id: 3,
+        images: [],
+        title: 'Interior warehouse refresh',
+        description:
+          'Complete painting of warehouses and logistics centers with products adapted to large surfaces. Efficient planning to minimize interruptions.',
+      },
+      {
+        id: 4,
+        images: [],
+        title: 'Factory exterior painting',
+        description:
+          'Industrial facade renovation with weather-resistant coatings. Protection against the elements.',
+      },
+      {
+        id: 5,
+        images: [],
+        title: 'Specialized coating for ducts and beams',
+        description:
+          'Painting of ventilation ducts, metal beams and complex structures. Improvement of safety and durability.',
+      },
+    ];
 
   const cities = [
     { name: isFr ? 'Montréal' : 'Montreal', slug: 'montreal' },
@@ -239,10 +251,50 @@ export default function PeintureIndustriellePage() {
                 maxW='900px'
               >
                 {isFr
-                  ? 'La peinture industrielle requiert des produits robustes, une préparation rigoureuse et des techniques adaptées aux environnements exigeants. Le Lever du Pinceau intervient dans les usines, entrepôts, centres logistiques, bâtiments industriels et équipements spécialisés à Montréal, Laval, Longueuil et Brossard. Nos peintres professionnels utilisent des revêtements industriels résistants, adaptés aux surfaces métalliques, béton, acier, structures extérieures et environnements à forte circulation. Pour protéger vos surfaces industrielles et améliorer la durabilité de vos installations, notre équipe est prête à intervenir rapidement.'
-                  : 'Industrial painting requires robust products, rigorous preparation and techniques adapted to demanding environments. Le Lever du Pinceau works in factories, warehouses, logistics centers, industrial buildings and specialized equipment in Montreal, Laval, Longueuil and Brossard. Our professional painters use resistant industrial coatings, adapted to metal surfaces, concrete, steel, exterior structures and high-traffic environments. To protect your industrial surfaces and improve the durability of your installations, our team is ready to intervene quickly.'}
+                  ? 'La peinture industrielle requiert des produits robustes, une préparation rigoureuse et des techniques adaptées aux environnements exigeants. Le Lever du Pinceau intervient dans les usines, entrepôts, centres logistiques, bâtiments industriels et équipements spécialisés à Montréal, Laval, Longueuil et Brossard.'
+                  : 'Industrial painting requires robust products, rigorous preparation and techniques adapted to demanding environments. Le Lever du Pinceau works in factories, warehouses, logistics centers, industrial buildings and specialized equipment in Montreal, Laval, Longueuil and Brossard.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='900px'
+                mt={2}
+                fontWeight='medium'
+              >
+                {isFr
+                  ? '👉 Nos peintres professionnels utilisent des revêtements industriels résistants, adaptés aux surfaces métalliques, béton, acier, structures extérieures et environnements à forte circulation. Pour protéger vos surfaces industrielles et améliorer la durabilité de vos installations, notre équipe est prête à intervenir rapidement.'
+                  : '👉 Our professional painters use resistant industrial coatings, adapted to metal surfaces, concrete, steel, exterior structures and high-traffic environments. To protect your industrial surfaces and improve the durability of your installations, our team is ready to intervene quickly.'}
               </Text>
             </Stack>
+
+            {/* Images Section */}
+            <Box mb={{ base: 12, md: 16 }}>
+              <SimpleGrid
+                columns={{ base: 1, md: 2, lg: 3 }}
+                spacing={4}
+                maxW='1200px'
+              >
+                {[
+                  { src: img5969, alt: 'Projet industriel 1' },
+                  { src: img5970, alt: 'Projet industriel 2' },
+                  { src: img5971, alt: 'Projet industriel 3' },
+                  { src: img5972, alt: 'Projet industriel 4' },
+                  { src: img5973, alt: 'Projet industriel 5' },
+                  { src: img5974, alt: 'Projet industriel 6' },
+                ].map((img, index) => (
+                  <Image
+                    key={index}
+                    src={img.src}
+                    alt={img.alt}
+                    borderRadius='lg'
+                    w='100%'
+                    h={{ base: '200px', md: '250px' }}
+                    objectFit='cover'
+                  />
+                ))}
+              </SimpleGrid>
+            </Box>
 
             {/* Section 1 — Pourquoi choisir notre service industriel */}
             <Box
@@ -328,138 +380,36 @@ export default function PeintureIndustriellePage() {
               </Container>
             </Box>
 
-            {/* Section 2 — Sous-services */}
-            <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Peinture industrielle intérieure et extérieure'
-                        : 'Interior and exterior industrial painting'}
-                    </Heading>
-                  </Stack>
-
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2 }}
-                    spacing={{ base: 6, md: 8 }}
-                    maxW='800px'
-                  >
-                    <Link
-                      as={RouterLink}
-                      to='/services/peinture-industrielle'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        p={6}
-                        bg='white'
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Stack spacing={3} flex={1}>
-                          <Heading
-                            as='h3'
-                            fontSize='xl'
-                            fontWeight='bold'
-                            color='gray.800'
-                          >
-                            {isFr
-                              ? 'Peinture industrielle intérieure'
-                              : 'Interior industrial painting'}
-                          </Heading>
-                          <Text fontSize='md' color='gray.600' lineHeight='1.6'>
-                            {isFr
-                              ? 'Planchers, murs de béton, poutres, plafonds, conduits, zones de travail.'
-                              : 'Floors, concrete walls, beams, ceilings, ducts, work areas.'}
-                          </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
-                            <Text fontSize='sm' fontWeight='medium'>
-                              {isFr ? 'Voir la page' : 'View page'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </HStack>
-                        </Stack>
-                      </Box>
-                    </Link>
-
-                    <Link
-                      as={RouterLink}
-                      to='/services/peinture-industrielle'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        p={6}
-                        bg='white'
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Stack spacing={3} flex={1}>
-                          <Heading
-                            as='h3'
-                            fontSize='xl'
-                            fontWeight='bold'
-                            color='gray.800'
-                          >
-                            {isFr
-                              ? 'Peinture industrielle extérieure'
-                              : 'Exterior industrial painting'}
-                          </Heading>
-                          <Text fontSize='md' color='gray.600' lineHeight='1.6'>
-                            {isFr
-                              ? "Structures métalliques, revêtements, façades d'usines, équipements extérieurs."
-                              : 'Metal structures, coatings, factory facades, exterior equipment.'}
-                          </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
-                            <Text fontSize='sm' fontWeight='medium'>
-                              {isFr ? 'Voir la page' : 'View page'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </HStack>
-                        </Stack>
-                      </Box>
-                    </Link>
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
 
             {/* Section 3 — Peinture industrielle par ville */}
-            <ServiceCitiesSectorsSection
+            <SectorsSection
               title={
                 isFr
                   ? 'Disponible dans toutes les zones industrielles du Grand Montréal'
                   : 'Available in all industrial areas of Greater Montreal'
               }
-              serviceName={
-                isFr ? 'Peinture industrielle' : 'Industrial painting'
-              }
-              serviceSlug='peinture-industrielle'
-              cities={cities}
+              sectors={[
+                {
+                  name: 'Montréal',
+                  link: '/services/peinture-industrielle/montreal',
+                  image: montrealSecteur,
+                },
+                {
+                  name: 'Laval',
+                  link: '/services/peinture-industrielle/laval',
+                  image: lavalSecteur,
+                },
+                {
+                  name: 'Longueuil',
+                  link: '/services/peinture-industrielle/longueuil',
+                  image: longueuilSecteur,
+                },
+                {
+                  name: 'Brossard',
+                  link: '/services/peinture-industrielle/brossard',
+                  image: brossardSecteur,
+                },
+              ]}
             />
 
             {/* Section 4 — Exemples de projets industriels */}
@@ -477,6 +427,8 @@ export default function PeintureIndustriellePage() {
               projects={industrialProjects}
             />
 
+            <ResourcesSection />
+
             {/* Section 5 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
@@ -485,7 +437,7 @@ export default function PeintureIndustriellePage() {
               mb={{ base: 8, md: 12 }}
             >
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} textAlign='left'>
+                <Stack spacing={6} textAlign='center' align='center'>
                   <Heading
                     as='h2'
                     fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}

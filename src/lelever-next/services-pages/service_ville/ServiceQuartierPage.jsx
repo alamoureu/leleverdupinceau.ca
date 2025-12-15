@@ -9,7 +9,12 @@ import {
   Stack,
   Flex,
   Link,
+  SimpleGrid,
+  Image,
+  Icon,
 } from '@chakra-ui/react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../../AppProvider';
 import ServiceWhyUsSection from '../components/ServiceWhyUsSection';
 import ServiceSubServicesSection from '../components/ServiceSubServicesSection';
@@ -72,47 +77,47 @@ export default function ServiceQuartierPage() {
   // Build guides array from data or use defaults
   const guides = city.guides
     ? city.guides.map((guide) => ({
-        title: guide.title[isFr ? 'fr' : 'en'],
-        href: guide.href,
-      }))
+      title: guide.title[isFr ? 'fr' : 'en'],
+      href: guide.href,
+    }))
     : [
-        {
-          title: isFr
-            ? 'Comment choisir un peintre professionnel ?'
-            : 'How to choose a professional painter?',
-          href: '/blog/comment-choisir-un-peintre-professionnel',
-        },
-        {
-          title: isFr
-            ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
-            : 'Painting prices Montreal / South Shore – what you need to know',
-          href: '/blog/prix-peinture-montreal',
-        },
-        {
-          title: isFr
-            ? 'Erreurs à éviter avant des travaux dans un commerce'
-            : 'Mistakes to avoid before work in a business',
-          href: '/blog/erreurs-a-eviter-peinture',
-        },
-      ];
+      {
+        title: isFr
+          ? 'Comment choisir un peintre professionnel ?'
+          : 'How to choose a professional painter?',
+        href: '/blog/comment-choisir-un-peintre-professionnel',
+      },
+      {
+        title: isFr
+          ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
+          : 'Painting prices Montreal / South Shore – what you need to know',
+        href: '/blog/prix-peinture-montreal',
+      },
+      {
+        title: isFr
+          ? 'Erreurs à éviter avant des travaux dans un commerce'
+          : 'Mistakes to avoid before work in a business',
+        href: '/blog/erreurs-a-eviter-peinture',
+      },
+    ];
 
   // Build sub-services array (handle both interior/exterior and residential/commercial structures)
   const subServices = city.subServices
     ? city.subServices.interior && city.subServices.exterior
       ? [
-          {
-            title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
-            link: city.subServices.interior.link,
-            linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
-          },
-          {
-            title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
-            link: city.subServices.exterior.link,
-            linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
-          },
-        ]
+        {
+          title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
+          link: city.subServices.interior.link,
+          linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
+        },
+        {
+          title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
+          link: city.subServices.exterior.link,
+          linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
+        },
+      ]
       : city.subServices.residential && city.subServices.commercial
-      ? [
+        ? [
           {
             title: city.subServices.residential.title[isFr ? 'fr' : 'en'],
             link: city.subServices.residential.link,
@@ -124,7 +129,7 @@ export default function ServiceQuartierPage() {
             linkText: city.subServices.commercial.linkText[isFr ? 'fr' : 'en'],
           },
         ]
-      : []
+        : []
     : [];
 
   return (
@@ -227,18 +232,72 @@ export default function ServiceQuartierPage() {
                 {city.h1
                   ? city.h1[isFr ? 'fr' : 'en']
                   : isFr
-                  ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
-                  : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
+                    ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
+                    : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {city.introduction[isFr ? 'fr' : 'en']}
-              </Text>
+              {city.introduction && (
+                <>
+                  {Array.isArray(city.introduction[isFr ? 'fr' : 'en']) ? (
+                    city.introduction[isFr ? 'fr' : 'en'].map(
+                      (paragraph, index) => (
+                        <Text
+                          key={index}
+                          fontSize={{ base: 'md', md: 'lg' }}
+                          color='gray.600'
+                          lineHeight='1.7'
+                          maxW='900px'
+                        >
+                          {paragraph}
+                        </Text>
+                      )
+                    )
+                  ) : (
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='gray.600'
+                      lineHeight='1.7'
+                      maxW='900px'
+                    >
+                      {city.introduction[isFr ? 'fr' : 'en']}
+                    </Text>
+                  )}
+                </>
+              )}
+              {city.introFingerText &&
+                city.introFingerText[isFr ? 'fr' : 'en'] && (
+                  <Text
+                    fontSize={{ base: 'lg', md: 'xl' }}
+                    fontWeight='bold'
+                    color='gray.800'
+                    maxW='900px'
+                  >
+                    {city.introFingerText[isFr ? 'fr' : 'en']}
+                  </Text>
+                )}
             </Stack>
+
+            {/* Images Section */}
+            {city.images && city.images.length > 0 && (
+              <Box mb={{ base: 12, md: 16 }}>
+                <SimpleGrid
+                  columns={{ base: 1, md: 2, lg: 3 }}
+                  spacing={4}
+                  maxW='1200px'
+                >
+                  {city.images.map((img, index) => (
+                    <Image
+                      key={index}
+                      src={img.src}
+                      alt={img.alt}
+                      borderRadius='lg'
+                      w='100%'
+                      h={{ base: '200px', md: '250px' }}
+                      objectFit='cover'
+                    />
+                  ))}
+                </SimpleGrid>
+              </Box>
+            )}
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <ServiceWhyUsSection

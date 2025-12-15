@@ -6,24 +6,38 @@ import {
   Text,
   Button,
   Stack,
+  Image,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.png';
 
-export default function HeroSection({ onSubmissionOpen }) {
-  const { t } = useTranslation();
+export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
+  const { t, currentLang } = useTranslation();
 
   return (
     <Box
       position='relative'
       w='100%'
       h={{ base: '300px', md: '450px', lg: '585px', xl: '750px' }}
-      bgPosition='center'
-      bgImage={heroImage}
-      bgSize='cover'
       bgColor='gray.600'
       px={{ base: '0px', md: '20px', lg: '75px', xl: '20px' }}
+      overflow="hidden"
     >
+      <Image
+        src={heroImage}
+        alt={
+          currentLang === 'fr'
+            ? `Services de peinture résidentielle et commerciale${pageContext ? ' - ' + pageContext : ''}`
+            : `Residential and commercial painting services${pageContext ? ' - ' + pageContext : ''}`
+        }
+        position="absolute"
+        top={0}
+        left={0}
+        w="100%"
+        h="100%"
+        objectFit="cover"
+        zIndex={0}
+      />
       <Box
         position='absolute'
         top={0}
@@ -31,9 +45,9 @@ export default function HeroSection({ onSubmissionOpen }) {
         right={0}
         bottom={0}
         bg='rgba(0, 0, 0, 0.4)'
-        zIndex={0}
+        zIndex={1}
       />
-      <Container maxW='1440px' h='100%' position='relative' zIndex={1}>
+      <Container maxW='1440px' h='100%' position='relative' zIndex={2}>
         <Stack
           h='100%'
           pt={{

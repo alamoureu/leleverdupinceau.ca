@@ -7,12 +7,18 @@ import {
   Stack,
   Flex,
   Icon,
+  SimpleGrid,
+  Image,
 } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 
-export default function CityProjectsSection({ cityName, projectsContent }) {
+export default function CityProjectsSection({
+  cityName,
+  projectsContent,
+  projectImages,
+}) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
@@ -31,26 +37,26 @@ export default function CityProjectsSection({ cityName, projectsContent }) {
                 ? cityName === 'Montréal'
                   ? 'Projets résidentiels, commerciaux et industriels à Montréal'
                   : cityName === 'Laval'
-                  ? 'Projets résidentiels, commerciaux et industriels à Laval'
-                  : cityName === 'Longueuil'
-                  ? 'Exemples de projets résidentiels, commerciaux et industriels'
-                  : cityName === 'Brossard'
-                  ? 'Exemples de projets réalisés dans la ville de Brossard'
-                  : `Exemples de projets réalisés dans la ville de ${cityName}`
+                    ? 'Projets résidentiels, commerciaux et industriels à Laval'
+                    : cityName === 'Longueuil'
+                      ? 'Exemples de projets résidentiels, commerciaux et industriels'
+                      : cityName === 'Brossard'
+                        ? 'Exemples de projets réalisés dans la ville de Brossard'
+                        : `Exemples de projets réalisés dans la ville de ${cityName}`
                 : cityName === 'Montreal'
-                ? 'Residential, commercial and industrial projects in Montreal'
-                : cityName === 'Laval'
-                ? 'Residential, commercial and industrial projects in Laval'
-                : cityName === 'Longueuil'
-                ? 'Examples of residential, commercial and industrial projects'
-                : cityName === 'Brossard'
-                ? 'Examples of projects completed in the city of Brossard'
-                : `Examples of projects completed in the city of ${cityName}`}
+                  ? 'Residential, commercial and industrial projects in Montreal'
+                  : cityName === 'Laval'
+                    ? 'Residential, commercial and industrial projects in Laval'
+                    : cityName === 'Longueuil'
+                      ? 'Examples of residential, commercial and industrial projects'
+                      : cityName === 'Brossard'
+                        ? 'Examples of projects completed in the city of Brossard'
+                        : `Examples of projects completed in the city of ${cityName}`}
             </Heading>
           </Stack>
 
           <Box maxW='900px'>
-            <Stack spacing={4}>
+            <Stack spacing={8}>
               {projectsContent ? (
                 typeof projectsContent === 'string' ? (
                   <Text
@@ -112,6 +118,29 @@ export default function CityProjectsSection({ cityName, projectsContent }) {
                     ? `Contenu à compléter avec les projets spécifiques à ${cityName}.`
                     : `Content to be completed with specific projects for ${cityName}.`}
                 </Text>
+              )}
+
+              {projectImages && projectImages.length > 0 && (
+                <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={8}>
+                  {projectImages.map((img, index) => (
+                    <Box
+                      key={index}
+                      borderRadius='xl'
+                      overflow='hidden'
+                      boxShadow='md'
+                      _hover={{ transform: 'scale(1.02)' }}
+                      transition='all 0.3s ease'
+                    >
+                      <Image
+                        src={img}
+                        alt={`Project ${cityName} ${index + 1}`}
+                        w='100%'
+                        h='250px'
+                        objectFit='cover'
+                      />
+                    </Box>
+                  ))}
+                </SimpleGrid>
               )}
             </Stack>
           </Box>

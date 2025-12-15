@@ -17,6 +17,16 @@ import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
+import ResidentialProject from '../images/Projets résidentiels.PNG';
+import ExtProject from '../images/projet_exterieur.jpg';
+import CommercialProject from '../images/Projets commerciaux.PNG';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
+
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
@@ -48,19 +58,21 @@ export default function LongueuilCityPage() {
 
   const projectsContent = isFr
     ? [
-        '• Peinture intérieure de maisons et condos',
-        '• Rafraîchissement de revêtements extérieurs',
-        '• Projets commerciaux pour bureaux, commerces et restaurants',
-        '• Travaux dans des entrepôts et bâtiments industriels',
-        '• Interventions dans des plex et immeubles locatifs',
-      ]
+      '• Peinture intérieure de maisons et condos',
+      '• Rafraîchissement de revêtements extérieurs',
+      '• Projets commerciaux pour bureaux, commerces et restaurants',
+      '• Travaux dans des entrepôts et bâtiments industriels',
+      '• Interventions dans des plex et immeubles locatifs',
+    ]
     : [
-        '• Interior painting of houses and condos',
-        '• Exterior coating refresh',
-        '• Commercial projects for offices, stores and restaurants',
-        '• Work in warehouses and industrial buildings',
-        '• Work in plex and rental buildings',
-      ];
+      '• Interior painting of houses and condos',
+      '• Exterior coating refresh',
+      '• Commercial projects for offices, stores and restaurants',
+      '• Work in warehouses and industrial buildings',
+      '• Work in plex and rental buildings',
+    ];
+
+  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
 
   const whyUsIntroText = isFr
     ? 'Nos peintres sont régulièrement en intervention dans Longueuil et comprennent parfaitement :'
@@ -68,19 +80,19 @@ export default function LongueuilCityPage() {
 
   const whyUsContent = isFr
     ? [
-        '• la typologie des propriétés locales (maisons, plex, condos)',
-        '• les besoins des commerces de la Rive-Sud',
-        "• les contraintes climatiques et d'entretien des bâtiments",
-        '• les surfaces courantes du secteur',
-        "• l'importance d'un travail propre, rapide et durable",
-      ]
+      '• la typologie des propriétés locales (maisons, plex, condos)',
+      '• les besoins des commerces de la Rive-Sud',
+      "• les contraintes climatiques et d'entretien des bâtiments",
+      '• les surfaces courantes du secteur',
+      "• l'importance d'un travail propre, rapide et durable",
+    ]
     : [
-        '• the typology of local properties (houses, plex, condos)',
-        '• the needs of South Shore businesses',
-        '• climate constraints and building maintenance',
-        '• common surfaces in the area',
-        '• the importance of clean, fast and durable work',
-      ];
+      '• the typology of local properties (houses, plex, condos)',
+      '• the needs of South Shore businesses',
+      '• climate constraints and building maintenance',
+      '• common surfaces in the area',
+      '• the importance of clean, fast and durable work',
+    ];
 
   return (
     <Fragment>
@@ -164,16 +176,32 @@ export default function LongueuilCityPage() {
                   ? 'Peintres à Longueuil – Le Lever du Pinceau'
                   : 'Painters in Longueuil – Le Lever du Pinceau'}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? "Longueuil fait partie des principales villes que nous desservons pour des projets résidentiels, commerciaux et industriels. Le Lever du Pinceau intervient dans l'ensemble des secteurs de Longueuil, incluant Saint-Hubert, Le Vieux-Longueuil, Greenfield Park et plusieurs autres zones. Nos peintres professionnels réalisent des travaux de peinture intérieure et extérieure pour maisons, condos, commerces, bureaux et bâtiments industriels. Où que vous soyez à Longueuil, notre équipe se déplace rapidement pour offrir un service professionnel, propre et durable."
-                  : 'Longueuil is one of the main cities we serve for residential, commercial and industrial projects. Le Lever du Pinceau works throughout all sectors of Longueuil, including Saint-Hubert, Le Vieux-Longueuil, Greenfield Park and several other areas. Our professional painters perform interior and exterior painting work for homes, condos, stores, offices and industrial buildings. Wherever you are in Longueuil, our team quickly travels to provide professional, clean and durable service.'}
-              </Text>
+
+              <Box>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  mb={4}
+                  maxW='900px'
+                >
+                  {isFr
+                    ? "Longueuil fait partie des principales villes que nous desservons pour des projets résidentiels, commerciaux et industriels. Le Lever du Pinceau intervient dans l'ensemble des secteurs de Longueuil, incluant Saint-Hubert, Le Vieux-Longueuil, Greenfield Park et plusieurs autres zones. Nos peintres professionnels réalisent des travaux de peinture intérieure et extérieure pour maisons, condos, commerces, bureaux et bâtiments industriels."
+                    : 'Longueuil is one of the main cities we serve for residential, commercial and industrial projects. Le Lever du Pinceau works throughout all sectors of Longueuil, including Saint-Hubert, Le Vieux-Longueuil, Greenfield Park and several other areas. Our professional painters perform interior and exterior painting work for homes, condos, stores, offices and industrial buildings.'}
+                </Text>
+
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  fontWeight='medium'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? '👉 Où que vous soyez à Longueuil, notre équipe se déplace rapidement pour offrir un service professionnel, propre et durable.'
+                    : '👉 Wherever you are in Longueuil, our team quickly travels to provide professional, clean and durable service.'}
+                </Text>
+              </Box>
             </Stack>
 
             {/* Section 1 — Services de peinture */}
@@ -183,6 +211,7 @@ export default function LongueuilCityPage() {
             <CityProjectsSection
               cityName='Longueuil'
               projectsContent={projectsContent}
+              projectImages={projectImages}
             />
 
             {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}

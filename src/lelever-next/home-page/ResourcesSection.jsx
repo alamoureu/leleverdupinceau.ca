@@ -16,7 +16,7 @@ import commentChoisirPeintre from '../images/comment_choisir_un_peintre.jpg';
 import prixProjetPeinture from '../images/prix_projet_peinture_montreal.jpg';
 import erreurEviterProjet from '../images/erreur_eviter_projet_peinture.jpg';
 
-export default function ResourcesSection() {
+export default function ResourcesSection({ title, subtitle, excludeSlugs = [] }) {
   const { t } = useTranslation();
 
   const articles = [
@@ -35,7 +35,7 @@ export default function ResourcesSection() {
       href: '/blog/erreurs-a-eviter-peinture-interieure',
       image: erreurEviterProjet,
     },
-  ];
+  ].filter((article) => !excludeSlugs.includes(article.href));
   const columns = useBreakpointValue({ base: 1, md: 3 });
 
   return (
@@ -52,7 +52,7 @@ export default function ResourcesSection() {
               letterSpacing='-0.02em'
               mb={{ base: 2, md: 3 }}
             >
-              {t.resourcesTitle}
+              {title || t.resourcesTitle}
             </Heading>
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
@@ -60,7 +60,7 @@ export default function ResourcesSection() {
               lineHeight='1.7'
               letterSpacing='0.01em'
             >
-              {t.resourcesSubtitle}
+              {subtitle || t.resourcesSubtitle}
             </Text>
           </Stack>
 

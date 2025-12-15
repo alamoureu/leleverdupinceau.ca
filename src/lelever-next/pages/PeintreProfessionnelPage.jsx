@@ -15,6 +15,11 @@ import {
   Flex,
   useDisclosure,
   Image,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -22,7 +27,6 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
-import RecentProjectsSection from '../home-page/RecentProjectsSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfter from '../components/BeforeAfter';
 import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
@@ -281,26 +285,44 @@ export default function PeintreProfessionnelPage() {
     {
       before: img5969,
       after: img5970,
+      description: isFr
+        ? 'Appartement locatif peinturé et plâtré au plateau'
+        : 'Rental apartment painted and plastered in the Plateau',
     },
     {
       before: img5971,
       after: img5972,
+      description: isFr
+        ? '3e niveau d’un triplex, changement de couleur à Outremont'
+        : '3rd level of a triplex, color change in Outremont',
     },
     {
       before: img5973,
       after: img5974,
+      description: isFr
+        ? 'Sablage et teinture de terrasse à Longueuil'
+        : 'Terrace sanding and staining in Longueuil',
     },
     {
       before: img5975,
       after: img5976,
+      description: isFr
+        ? 'Peinture de cabinetterie à Laval'
+        : 'Cabinetry painting in Laval',
     },
     {
       before: img5977,
       after: img5978,
+      description: isFr
+        ? 'Peinture de Plafond en Steel Deck industrielle'
+        : 'Industrial Steel Deck ceiling painting',
     },
     {
       before: img5984,
       after: img5982,
+      description: isFr
+        ? 'Protection et peinture complète d’une maison à Westmount'
+        : 'Protection and complete house painting in Westmount',
     },
   ];
 
@@ -386,53 +408,41 @@ export default function PeintreProfessionnelPage() {
                 spacing={{ base: 4, md: 6, lg: 8 }}
                 order={{ base: 2, lg: 1 }}
               >
-                <Box>
+
+                <Heading
+                  as='h1'
+                  fontSize={{
+                    base: '2xl',
+                    sm: '2.5xl',
+                    md: '3xl',
+                    lg: '4xl',
+                    xl: '5xl',
+                  }}
+                  fontWeight='800'
+                  color='gray.900'
+                  lineHeight='1.1'
+                  mb={{ base: 3, md: 4 }}
+                >
+                  {isFr
+                    ? 'Peintres professionnels à Montréal'
+                    : 'Professional Painters in Montreal'}
                   <Text
-                    fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
-                    color='#014CC4'
-                    fontWeight='600'
-                    letterSpacing='wide'
-                    textTransform='uppercase'
-                    mb={{ base: 2, md: 3 }}
-                  >
-                    {isFr
-                      ? 'Expertise Professionnelle'
-                      : 'Professional Expertise'}
-                  </Text>
-                  <Heading
-                    as='h1'
+                    as='span'
+                    display='block'
                     fontSize={{
-                      base: '2xl',
-                      sm: '2.5xl',
+                      base: 'xl',
+                      sm: '2xl',
                       md: '3xl',
                       lg: '4xl',
-                      xl: '5xl',
+                      xl: '4.5xl',
                     }}
-                    fontWeight='800'
-                    color='gray.900'
-                    lineHeight='1.1'
-                    mb={{ base: 3, md: 4 }}
+                    color='#014CC4'
+                    mt={{ base: 1, md: 2 }}
                   >
-                    {isFr
-                      ? 'Peintres professionnels à Montréal'
-                      : 'Professional Painters in Montreal'}
-                    <Text
-                      as='span'
-                      display='block'
-                      fontSize={{
-                        base: 'xl',
-                        sm: '2xl',
-                        md: '3xl',
-                        lg: '4xl',
-                        xl: '4.5xl',
-                      }}
-                      color='#014CC4'
-                      mt={{ base: 1, md: 2 }}
-                    >
-                      Le Lever du Pinceau
-                    </Text>
-                  </Heading>
-                </Box>
+                    Le Lever du Pinceau
+                  </Text>
+                </Heading>
+
 
                 <Text
                   fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
@@ -441,59 +451,10 @@ export default function PeintreProfessionnelPage() {
                   maxW='600px'
                 >
                   {isFr
-                    ? 'Expertise technique, finition impeccable et service rapide pour tous vos projets de peinture résidentielle, commerciale, intérieure et extérieure dans tout le Grand Montréal.'
-                    : 'Technical expertise, impeccable finish and fast service for all your residential, commercial, interior and exterior painting projects throughout Greater Montreal.'}
+                    ? 'Chez Le Lever du Pinceau, nos peintres professionnels accompagnent propriétaires, commerces et immeubles dans tous leurs projets de peinture à Montréal, Laval et Longueuil. Nous combinons expertise technique, finition impeccable et service rapide pour offrir des résultats durables et esthétiques. Sur cette page, vous trouverez notre approche professionnelle, les services disponibles, les zones desservies et les réponses essentielles pour choisir le bon peintre.'
+                    : 'At Le Lever du Pinceau, our professional painters assist homeowners, businesses and buildings in all their painting projects in Montreal, Laval and Longueuil. We combine technical expertise, impeccable finish and fast service to offer durable and aesthetic results. On this page you will find our professional approach, available services, service areas and essential answers for choosing the right painter.'}
                 </Text>
 
-                <Stack
-                  direction={{ base: 'column', sm: 'row' }}
-                  spacing={{ base: 3, md: 4 }}
-                  pt={{ base: 1, md: 2 }}
-                >
-                  <Button
-                    onClick={onOpen}
-                    bg='#014CC4'
-                    color='white'
-                    fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}
-                    px={{ base: 6, sm: 8, md: 10 }}
-                    py={{ base: 5, sm: 6, md: 7 }}
-                    h='auto'
-                    borderRadius='full'
-                    boxShadow='md'
-                    _hover={{
-                      bg: '#0139A0',
-                      transform: 'translateY(-2px)',
-                      boxShadow: 'lg',
-                    }}
-                    transition='all 0.3s'
-                    fontWeight='600'
-                    w={{ base: '100%', sm: 'auto' }}
-                  >
-                    {isFr ? 'Soumission gratuite' : 'Free quote'}
-                  </Button>
-                  <Button
-                    as={Link}
-                    to='/new-contact'
-                    variant='outline'
-                    borderColor='gray.300'
-                    color='gray.700'
-                    fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}
-                    px={{ base: 6, sm: 8, md: 10 }}
-                    py={{ base: 5, sm: 6, md: 7 }}
-                    h='auto'
-                    borderRadius='full'
-                    _hover={{
-                      borderColor: '#014CC4',
-                      color: '#014CC4',
-                      bg: 'gray.50',
-                    }}
-                    transition='all 0.3s'
-                    fontWeight='600'
-                    w={{ base: '100%', sm: 'auto' }}
-                  >
-                    {isFr ? 'Nous contacter' : 'Contact us'}
-                  </Button>
-                </Stack>
               </Stack>
 
               {/* Right Image */}
@@ -507,7 +468,8 @@ export default function PeintreProfessionnelPage() {
                 >
                   <Image
                     src={peintureProfessionnelleImg}
-                    alt='Professional painting service'
+                    alt={isFr ? 'Peintre professionnel Montréal - Le Lever du Pinceau' : 'Professional painter Montreal - Le Lever du Pinceau'}
+                    title={isFr ? 'Peintres professionnels en action à Montréal' : 'Professional painters in action in Montreal'}
                     w='100%'
                     h='auto'
                     objectFit='cover'
@@ -758,10 +720,18 @@ export default function PeintreProfessionnelPage() {
             </Box>
 
             {/* Section 4 — Secteurs desservis */}
-            <SectorsSection />
-
-            {/* Section 4.5 — Projets récents */}
-            <RecentProjectsSection />
+            <SectorsSection
+              title={
+                isFr
+                  ? 'Nos peintres professionnels se déplacent partout dans le Grand Montréal'
+                  : 'Our professional painters travel throughout Greater Montreal'
+              }
+              subtitle={
+                isFr
+                  ? 'Nous intervenons rapidement dans les villes suivantes :'
+                  : 'We intervene quickly in the following cities:'
+              }
+            />
 
             {/* Section 4.6 — Avant/Après */}
             <Box
@@ -783,6 +753,15 @@ export default function PeintreProfessionnelPage() {
                         ? 'Résultats de peintres professionnels à Montréal'
                         : 'Professional Painters Results in Montreal'}
                     </Heading>
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='gray.600'
+                      lineHeight='1.7'
+                    >
+                      {isFr
+                        ? 'Nous avons réalisé des centaines de projets résidentiels, commerciaux et extérieurs dans la région.'
+                        : 'We have completed hundreds of residential, commercial and exterior projects in the region.'}
+                    </Text>
                   </Stack>
                   <BeforeAfter images={beforeAfterImages} isFr={isFr} />
                 </Stack>
@@ -798,7 +777,7 @@ export default function PeintreProfessionnelPage() {
             >
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
+                  <Stack spacing={3} textAlign='center'>
                     <Heading
                       as='h2'
                       fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -811,31 +790,45 @@ export default function PeintreProfessionnelPage() {
                     </Heading>
                   </Stack>
 
-                  <Stack spacing={4}>
+                  <Accordion allowToggle allowMultiple w='100%' maxW='800px' mx='auto'>
                     {faqs.map((faq, index) => (
-                      <Box
+                      <AccordionItem
                         key={index}
                         bg='white'
-                        p={{ base: 6, md: 8 }}
+                        mb={4}
+                        border='none'
                         borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
+                        boxShadow='sm'
+                        overflow='hidden'
+                        _last={{ mb: 0 }}
                       >
-                        <Stack spacing={2}>
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
+                        <h2>
+                          <AccordionButton
+                            py={6}
+                            px={8}
+                            _hover={{ bg: 'gray.50' }}
                           >
-                            {faq.question}
-                          </Text>
-                          <Text color='gray.600' fontSize='md' lineHeight='1.6'>
+                            <Box
+                              flex='1'
+                              textAlign='left'
+                              fontWeight='bold'
+                              color='gray.800'
+                              fontSize={{ base: 'md', md: 'lg' }}
+                            >
+                              {faq.question}
+                            </Box>
+                            <AccordionIcon color='#014CC4' />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={6} px={8} pt={0}>
+                          <Text color='gray.600' lineHeight='1.7'>
                             {faq.answer}
                             {faq.link && (
                               <Link
                                 href={faq.link}
                                 color='#014CC4'
                                 ml={1}
+                                fontWeight='medium'
                                 _hover={{ textDecoration: 'underline' }}
                               >
                                 {isFr
@@ -844,10 +837,10 @@ export default function PeintreProfessionnelPage() {
                               </Link>
                             )}
                           </Text>
-                        </Stack>
-                      </Box>
+                        </AccordionPanel>
+                      </AccordionItem>
                     ))}
-                  </Stack>
+                  </Accordion>
                 </Stack>
               </Container>
             </Box>
@@ -917,3 +910,4 @@ export default function PeintreProfessionnelPage() {
     </Fragment>
   );
 }
+

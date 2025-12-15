@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
-import ScrollToTop from './components/ScrollToTop';
+
 import MainPage from './pages/WebSiteLandingPage';
 import NewHomePage from './lelever-next/pages/NewHomePage';
 import ContactPage from './lelever-next/pages/ContactPage';
@@ -47,12 +47,13 @@ import EmployeeManagement from './pages/EmployeeManagement';
 import EmployeeDetails from './pages/EmployeeDetails';
 import ThermOfUsePage from './pages/ThermOfUse';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import ScrollToTop from './lelever-next/components/ScrollToTop';
 
 export default function App() {
   return (
     <Router>
+      <ScrollToTop />
       <AppProvider>
-        <ScrollToTop />
         <Routes>
           <Route path='/' element={<WebsiteLayout />}>
             <Route path='/' element={<MainPage />} />
@@ -105,9 +106,7 @@ export default function App() {
           <Route
             path='/peintre-professionnel'
             element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
+              <NewWebsiteLayout />
             }
           >
             <Route index element={<PeintreProfessionnelPage />} />
@@ -125,9 +124,7 @@ export default function App() {
           <Route
             path='/secteurs-desservis'
             element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
+              <NewWebsiteLayout />
             }
           >
             <Route index element={<SecteursDesservisPage />} />

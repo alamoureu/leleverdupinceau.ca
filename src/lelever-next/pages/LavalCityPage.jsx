@@ -17,6 +17,16 @@ import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
+import ResidentialProject from '../images/Projets résidentiels.PNG';
+import ExtProject from '../images/projet_exterieur.jpg';
+import CommercialProject from '../images/Projets commerciaux.PNG';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
+
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
@@ -48,35 +58,37 @@ export default function LavalCityPage() {
 
   const projectsContent = isFr
     ? [
-        '• Peinture intérieure complète de maisons et condos',
-        '• Rafraîchissement de façades et revêtements extérieurs',
-        '• Projets commerciaux : bureaux, commerces, restaurants, cliniques',
-        "• Peinture d'entrepôts et bâtiments industriels",
-        '• Travaux dans des plex et immeubles locatifs',
-      ]
+      '• Peinture intérieure complète de maisons et condos',
+      '• Rafraîchissement de façades et revêtements extérieurs',
+      '• Projets commerciaux : bureaux, commerces, restaurants, cliniques',
+      "• Peinture d'entrepôts et bâtiments industriels",
+      '• Travaux dans des plex et immeubles locatifs',
+    ]
     : [
-        '• Complete interior painting of houses and condos',
-        '• Facade refresh and exterior coatings',
-        '• Commercial projects: offices, stores, restaurants, clinics',
-        '• Warehouse and industrial building painting',
-        '• Work in plex and rental buildings',
-      ];
+      '• Complete interior painting of houses and condos',
+      '• Facade refresh and exterior coatings',
+      '• Commercial projects: offices, stores, restaurants, clinics',
+      '• Warehouse and industrial building painting',
+      '• Work in plex and rental buildings',
+    ];
+
+  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
 
   const whyUsContent = isFr
     ? [
-        '• Intervention rapide dans tous les quartiers lavallois',
-        '• Connaissance des matériaux et types de bâtiments locaux',
-        '• Produits adaptés au climat québécois',
-        '• Travail propre, professionnel et garanti',
-        '• Service client transparent du devis à la livraison',
-      ]
+      '• Intervention rapide dans tous les quartiers lavallois',
+      '• Connaissance des matériaux et types de bâtiments locaux',
+      '• Produits adaptés au climat québécois',
+      '• Travail propre, professionnel et garanti',
+      '• Service client transparent du devis à la livraison',
+    ]
     : [
-        '• Quick intervention in all Laval neighborhoods',
-        '• Knowledge of local materials and building types',
-        '• Products adapted to Quebec climate',
-        '• Clean, professional and guaranteed work',
-        '• Transparent customer service from quote to delivery',
-      ];
+      '• Quick intervention in all Laval neighborhoods',
+      '• Knowledge of local materials and building types',
+      '• Products adapted to Quebec climate',
+      '• Clean, professional and guaranteed work',
+      '• Transparent customer service from quote to delivery',
+    ];
 
   return (
     <Fragment>
@@ -160,16 +172,32 @@ export default function LavalCityPage() {
                   ? 'Peintres à Laval – Le Lever du Pinceau'
                   : 'Painters in Laval – Le Lever du Pinceau'}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? "Laval est l'une des villes où nous effectuons le plus de projets résidentiels, commerciaux et industriels. Le Lever du Pinceau dessert l'ensemble des quartiers de Laval : maisons unifamiliales, condos, plex, commerces, bureaux, immeubles et zones industrielles, incluant Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville et plus. Nos peintres professionnels interviennent pour des projets intérieurs et extérieurs, avec une finition durable et de haute qualité. Que vous soyez dans un secteur résidentiel ou commercial, notre équipe se déplace rapidement pour vos travaux de peinture à Laval."
-                  : 'Laval is one of the cities where we carry out the most residential, commercial and industrial projects. Le Lever du Pinceau serves all neighborhoods in Laval: single-family homes, condos, plex, stores, offices, buildings and industrial areas, including Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville and more. Our professional painters work on interior and exterior projects, with durable and high-quality finishes. Whether you are in a residential or commercial sector, our team can quickly come to your location for your painting work in Laval.'}
-              </Text>
+
+              <Box>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  mb={4}
+                  maxW='900px'
+                >
+                  {isFr
+                    ? "Laval est l'une des villes où nous effectuons le plus de projets résidentiels, commerciaux et industriels. Le Lever du Pinceau dessert l'ensemble des quartiers de Laval : maisons unifamiliales, condos, plex, commerces, bureaux, immeubles et zones industrielles, incluant Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville et plus. Nos peintres professionnels interviennent pour des projets intérieurs et extérieurs, avec une finition durable et de haute qualité."
+                    : 'Laval is one of the cities where we carry out the most residential, commercial and industrial projects. Le Lever du Pinceau serves all neighborhoods in Laval: single-family homes, condos, plex, stores, offices, buildings and industrial areas, including Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville and more. Our professional painters work on interior and exterior projects, with durable and high-quality finishes.'}
+                </Text>
+
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  fontWeight='medium'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? '👉 Que vous soyez dans un secteur résidentiel ou commercial, notre équipe se déplace rapidement pour vos travaux de peinture à Laval.'
+                    : '👉 Whether you are in a residential or commercial sector, our team can quickly come to your location for your painting work in Laval.'}
+                </Text>
+              </Box>
             </Stack>
 
             {/* Section 1 — Services de peinture */}
@@ -179,6 +207,7 @@ export default function LavalCityPage() {
             <CityProjectsSection
               cityName='Laval'
               projectsContent={projectsContent}
+              projectImages={projectImages}
             />
 
             {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}

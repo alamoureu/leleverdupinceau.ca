@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
@@ -10,6 +10,7 @@ import {
   Button,
   Link,
   Icon,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -53,12 +54,15 @@ export default function SectorsSection({
   showButton = true,
   buttonText,
   buttonLink = '/secteurs-desservis',
+  pageContext = '',
+  disableLinks = false,
 }) {
-  const { t } = useTranslation();
+  const { t, currentLang } = useTranslation();
   const sectorsToDisplay = sectors || defaultSectors;
   const displayTitle = title || t.sectorsTitle;
   const displaySubtitle = subtitle || t.sectorsSubtitle;
   const displayButtonText = buttonText || t.viewAllSectors;
+  const isFr = currentLang === 'fr';
 
   return (
     <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
@@ -94,34 +98,46 @@ export default function SectorsSection({
             w='100%'
             maxW='900px'
           >
-            {sectorsToDisplay.map((sector, index) => (
-              <Link
-                key={index}
-                as={RouterLink}
-                to={sector.link}
-                _hover={{ textDecoration: 'none' }}
-              >
+            {sectorsToDisplay.map((sector, index) => {
+              const InnerContent = (
                 <Box
                   position='relative'
                   borderRadius='2xl'
                   overflow='hidden'
                   border='1px solid'
                   borderColor='gray.200'
-                  cursor='pointer'
+                  cursor={disableLinks ? 'default' : 'pointer'}
                   transition='all 0.2s'
                   minH={{ base: '180px', md: '200px' }}
                   h='100%'
                   w='100%'
-                  bgImage={`url(${sector.image})`}
-                  bgSize='cover'
-                  bgPosition='center'
-                  bgRepeat='no-repeat'
-                  _hover={{
-                    borderColor: '#014CC4',
-                    boxShadow: 'md',
-                    transform: 'translateY(-2px)',
-                  }}
+                  _hover={
+                    disableLinks
+                      ? {}
+                      : {
+                        borderColor: '#014CC4',
+                        boxShadow: 'md',
+                        transform: 'translateY(-2px)',
+                      }
+                  }
                 >
+                  <Image
+                    src={sector.image}
+                    alt={
+                      isFr
+                        ? `Secteur desservi : ${sector.name}${pageContext ? ' - ' + pageContext : ''
+                        }`
+                        : `Service area: ${sector.name}${pageContext ? ' - ' + pageContext : ''
+                        }`
+                    }
+                    position='absolute'
+                    top={0}
+                    left={0}
+                    w='100%'
+                    h='100%'
+                    objectFit='cover'
+                    zIndex={0}
+                  />
                   {/* Color Overlay Filter */}
                   <Box
                     position='absolute'
@@ -130,13 +146,13 @@ export default function SectorsSection({
                     right={0}
                     bottom={0}
                     bgGradient='linear(to-b, rgba(1, 76, 196, 0.55), rgba(1, 76, 196, 0.15))'
-                    zIndex={0}
+                    zIndex={1}
                   />
 
                   {/* Content */}
                   <Box
                     position='relative'
-                    zIndex={1}
+                    zIndex={2}
                     p={8}
                     h='100%'
                     display='flex'
@@ -165,8 +181,38 @@ export default function SectorsSection({
                     </Stack>
                   </Box>
                 </Box>
-              </Link>
-            ))}
+              );
+
+              return (
+                <Stack key={index} spacing={3} align='center' w='100%'>
+                  {disableLinks ? (
+                    <Box w='100%'>{InnerContent}</Box>
+                  ) : (
+                    <Link
+                      as={RouterLink}
+                      to={sector.link}
+                      _hover={{ textDecoration: 'none' }}
+                      w='100%'
+                    >
+                      {InnerContent}
+                    </Link>
+                  )}
+                  {sector.subText && (
+                    <Text
+                      fontSize='sm'
+                      textAlign='center'
+                      color='gray.600'
+                      lineHeight='1.4'
+                      maxW='180px'
+                      mx='auto'
+                      fontWeight='normal'
+                    >
+                      {sector.subText}
+                    </Text>
+                  )}
+                </Stack>
+              );
+            })}
           </SimpleGrid>
 
           {showButton && (

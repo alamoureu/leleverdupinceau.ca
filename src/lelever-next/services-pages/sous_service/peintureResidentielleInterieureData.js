@@ -1,4 +1,10 @@
-// Data for Peinture Résidentielle Intérieure sub-service page
+// Forces HMR update
+import img5969 from '../../images/before_after/IMG_5969.jpg';
+import img5970 from '../../images/before_after/IMG_5970.jpg';
+import img5971 from '../../images/before_after/IMG_5971.jpg';
+import img5972 from '../../images/before_after/IMG_5972.jpg';
+import img5973 from '../../images/before_after/IMG_5973.jpg';
+import img5974 from '../../images/before_after/IMG_5974.jpg';
 
 export const peintureResidentielleInterieureData = {
   serviceSlug: 'peinture-residentielle',
@@ -14,8 +20,20 @@ export const peintureResidentielleInterieureData = {
     en: 'Residential interior painting – Le Lever du Pinceau',
   },
   introduction: {
-    fr: 'La peinture résidentielle intérieure nécessite précision, minutie et une préparation soignée pour offrir un résultat durable et impeccable. Chez Le Lever du Pinceau, nous offrons un service complet pour les maisons, condos, appartements, duplex et triplex du Grand Montréal. Nos peintres professionnels transforment votre intérieur avec des techniques modernes, des produits haut de gamme et un souci constant du détail. Si vous souhaitez rafraîchir une pièce, rénover un étage complet ou moderniser votre espace, notre service de peinture résidentielle intérieure est la solution idéale.',
-    en: 'Residential interior painting requires precision, care and careful preparation to deliver a durable and impeccable result. At Le Lever du Pinceau, we offer a complete service for houses, condos, apartments, duplexes and triplexes in Greater Montreal. Our professional painters transform your interior with modern techniques, high-end products and constant attention to detail. If you want to refresh a room, renovate an entire floor or modernize your space, our residential interior painting service is the ideal solution.',
+    fr: [
+      "La peinture intérieure résidentielle est le moyen le plus efficace de transformer votre espace de vie, d'ajouter de la valeur à votre propriété et de créer une ambiance qui vous ressemble.",
+      "Le Lever du Pinceau offre un service clé en main pour vos projets de peinture intérieure, du simple rafraîchissement à la transformation complète de votre domicile. Nous desservons Montréal, Laval, Longueuil et Brossard avec une équipe de peintres minutieux et respectueux de votre environnement.",
+      "Nous peignons murs, plafonds, boiseries, portes, escaliers et plus encore."
+    ],
+    en: [
+      "Residential interior painting is the most effective way to transform your living space, add value to your property and create an atmosphere that suits you.",
+      "Le Lever du Pinceau offers a turnkey service for your interior painting projects, from a simple refresh to the complete transformation of your home. We serve Montreal, Laval, Longueuil and Brossard with a team of painters who are meticulous and respectful of your environment.",
+      "We paint walls, ceilings, woodwork, doors, stairs and more."
+    ],
+  },
+  introFingerText: {
+    fr: '👉 Pour rafraîchir une pièce, rénover un étage complet ou moderniser votre espace, notre service de peinture résidentielle intérieure est la solution idéale.',
+    en: '👉 To refresh a room, renovate an entire floor or modernize your space, our residential interior painting service is the ideal solution.',
   },
   whyUsTitle: {
     fr: 'Une finition intérieure impeccable',
@@ -75,8 +93,8 @@ export const peintureResidentielleInterieureData = {
     },
   ],
   citiesTitle: {
-    fr: 'Disponible dans toutes les villes du Grand Montréal',
-    en: 'Available in all Greater Montreal cities',
+    fr: 'Secteurs desservis',
+    en: 'Service areas',
   },
   cities: [
     {
@@ -85,6 +103,10 @@ export const peintureResidentielleInterieureData = {
         en: 'Montreal',
       },
       href: '/services/peinture-residentielle/interieure/montreal',
+      subText: {
+        fr: 'Service résidentiel intérieur complet à Montréal',
+        en: 'Complete residential interior service in Montreal',
+      },
     },
     {
       name: {
@@ -92,6 +114,10 @@ export const peintureResidentielleInterieureData = {
         en: 'Laval',
       },
       href: '/services/peinture-residentielle/interieure/laval',
+      subText: {
+        fr: 'Service résidentiel intérieur complet à Laval',
+        en: 'Complete residential interior service in Laval',
+      },
     },
     {
       name: {
@@ -99,6 +125,10 @@ export const peintureResidentielleInterieureData = {
         en: 'Longueuil',
       },
       href: '/services/peinture-residentielle/interieure/longueuil',
+      subText: {
+        fr: 'Service résidentiel intérieur complet à Longueuil',
+        en: 'Complete residential interior service in Longueuil',
+      },
     },
     {
       name: {
@@ -106,6 +136,10 @@ export const peintureResidentielleInterieureData = {
         en: 'Brossard',
       },
       href: '/services/peinture-residentielle/interieure/brossard',
+      subText: {
+        fr: 'Service résidentiel intérieur complet à Brossard',
+        en: 'Complete residential interior service in Brossard',
+      },
     },
   ],
   projectsTitle: {
@@ -142,17 +176,17 @@ export const peintureResidentielleInterieureData = {
     },
     {
       title: {
-        fr: 'Prix peinture Montréal – intérieur',
-        en: 'Painting prices Montreal – interior',
+        fr: "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir",
+        en: 'Painting prices Montreal / South Shore – what you need to know',
       },
       href: '/blog/prix-peinture-montreal',
     },
     {
       title: {
-        fr: 'Erreurs à éviter avant de repeindre une pièce',
-        en: 'Mistakes to avoid before repainting a room',
+        fr: 'Erreurs à éviter avant des travaux de peinture intérieure',
+        en: 'Mistakes to avoid before interior painting work',
       },
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure', // Fixed link
     },
   ],
   aboutTitle: {
@@ -178,16 +212,28 @@ export const peintureResidentielleInterieureData = {
   },
   images: [
     {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture résidentielle intérieure Montréal',
+      src: img5969,
+      alt: 'peinture résidentielle intérieure 1',
     },
     {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture résidentielle intérieure Montréal',
+      src: img5970,
+      alt: 'peinture résidentielle intérieure 2',
     },
     {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture résidentielle intérieure Montréal',
+      src: img5971,
+      alt: 'peinture résidentielle intérieure 3',
+    },
+    {
+      src: img5972,
+      alt: 'peinture résidentielle intérieure 4',
+    },
+    {
+      src: img5973,
+      alt: 'peinture résidentielle intérieure 5',
+    },
+    {
+      src: img5974,
+      alt: 'peinture résidentielle intérieure 6',
     },
   ],
 };

@@ -12,12 +12,21 @@ import {
   Button,
   Icon,
   HStack,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
+import {
+  montrealSecteur,
+  lavalSecteur,
+  longueuilSecteur,
+  brossardSecteur,
+} from '../home-page/SectorsSection';
+import secteursDesservisHero from '../images/secteurs_desservis.jpg';
+
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -49,6 +58,7 @@ export default function SecteursDesservisPage() {
         ? 'Peinture résidentielle, intérieure, extérieure, commerciale, industrielle.'
         : 'Residential, interior, exterior, commercial, industrial painting.',
       link: '/secteurs-desservis/montreal',
+      image: montrealSecteur,
     },
     {
       name: 'Laval',
@@ -56,6 +66,7 @@ export default function SecteursDesservisPage() {
         ? 'Services pour maisons, condos, commerces et entrepôts.'
         : 'Services for houses, condos, businesses and warehouses.',
       link: '/secteurs-desservis/laval',
+      image: lavalSecteur,
     },
     {
       name: 'Longueuil',
@@ -63,6 +74,7 @@ export default function SecteursDesservisPage() {
         ? 'Peinture intérieure, extérieure, résidentielle et commerciale.'
         : 'Interior, exterior, residential and commercial painting.',
       link: '/secteurs-desservis/longueuil',
+      image: longueuilSecteur,
     },
     {
       name: 'Brossard',
@@ -70,24 +82,11 @@ export default function SecteursDesservisPage() {
         ? 'Projets résidentiels et commerciaux.'
         : 'Residential and commercial projects.',
       link: '/secteurs-desservis/brossard',
+      image: brossardSecteur,
     },
   ];
 
-  // Map neighborhood names to their slugs for linking
-  const neighborhoodMap = {
-    'Outremont': 'outremont',
-    'Plateau-Mont-Royal': 'plateau-mont-royal',
-    'NDG': 'notre-dame-de-grace',
-    'Rosemont': 'rosemont-petite-patrie',
-    'Ahuntsic': 'ahuntsic',
-    'Griffintown': 'griffintown',
-    'Verdun': 'verdun',
-    'Westmount': 'westmount',
-    'Saint-Laurent': 'ville-saint-laurent',
-    'Hochelaga': 'hochelaga',
-  };
 
-  const neighborhoods = Object.keys(neighborhoodMap);
 
   const services = [
     {
@@ -234,57 +233,83 @@ export default function SecteursDesservisPage() {
                         to={city.link}
                         _hover={{ textDecoration: 'none' }}
                         w='100%'
-                        h='100%'
                       >
                         <Box
-                          bg='white'
-                          p={{ base: 6, md: 8 }}
-                          borderRadius='xl'
+                          position='relative'
+                          borderRadius='2xl'
+                          overflow='hidden'
                           border='1px solid'
                           borderColor='gray.200'
+                          cursor='pointer'
+                          transition='all 0.2s'
+                          bg='white'
+                          minH={{ base: '280px', md: '320px' }}
                           h='100%'
-                          minH={{ base: '200px', md: '220px' }}
-                          display='flex'
-                          flexDirection='column'
                           _hover={{
                             borderColor: '#014CC4',
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'md',
+                            boxShadow: 'xl',
+                            transform: 'translateY(-4px)',
                           }}
-                          transition='all 0.2s'
                         >
-                          <Stack spacing={4} flex={1} justify='space-between'>
-                            <Box>
-                              <HStack spacing={3} mb={3}>
-                                <Icon
-                                  as={FontAwesomeIcon}
-                                  icon={faMapMarkerAlt}
-                                  color='#014CC4'
-                                  boxSize={5}
-                                />
-                                <Heading
-                                  as='h3'
-                                  fontSize='xl'
-                                  fontWeight='bold'
-                                  color='gray.800'
-                                >
-                                  {city.name}
-                                </Heading>
-                              </HStack>
-                              <Text
-                                color='gray.600'
-                                fontSize='md'
-                                lineHeight='1.6'
-                                minH={{ base: '48px', md: '56px' }}
-                                display='flex'
-                                alignItems='center'
+                          {/* Image Background */}
+                          <Image
+                            src={city.image}
+                            alt={city.name}
+                            position='absolute'
+                            top={0}
+                            left={0}
+                            w='100%'
+                            h='100%'
+                            objectFit='cover'
+                            zIndex={0}
+                          />
+                          {/* Overlay */}
+                          <Box
+                            position='absolute'
+                            top={0}
+                            left={0}
+                            right={0}
+                            bottom={0}
+                            bgGradient='linear(to-b, rgba(0,0,0,0.2), rgba(0,0,0,0.85))'
+                            zIndex={1}
+                          />
+
+                          {/* Content */}
+                          <Stack
+                            position='relative'
+                            zIndex={2}
+                            p={{ base: 6, md: 8 }}
+                            h='100%'
+                            justify='flex-end'
+                            spacing={3}
+                          >
+                            <HStack spacing={3}>
+                              <Icon
+                                as={FontAwesomeIcon}
+                                icon={faMapMarkerAlt}
+                                color='white' // Changed to white due to dark overlay
+                                boxSize={5}
+                              />
+                              <Heading
+                                as='h3'
+                                fontSize={{ base: 'xl', md: '2xl' }}
+                                fontWeight='bold'
+                                color='white'
                               >
-                                {city.description}
-                              </Text>
-                            </Box>
-                            <HStack spacing={2} color='#014CC4' flexShrink={0}>
-                              <Text fontSize='sm' fontWeight='medium'>
-                                {isFr ? 'Voir' : 'View'} {city.name}
+                                {city.name}
+                              </Heading>
+                            </HStack>
+                            <Text
+                              color='whiteAlpha.900'
+                              fontSize={{ base: 'md', md: 'lg' }}
+                              lineHeight='1.6'
+                              fontWeight='medium'
+                            >
+                              {city.description}
+                            </Text>
+                            <HStack spacing={2} color='white' pt={2}>
+                              <Text fontSize='sm' fontWeight='bold'>
+                                {isFr ? 'Voir le secteur' : 'View area'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
                             </HStack>
@@ -297,90 +322,7 @@ export default function SecteursDesservisPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Quelques quartiers que nous desservons'
-                        : 'Some neighborhoods we serve'}
-                    </Heading>
-                  </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 2, sm: 3, md: 4, lg: 5 }}
-                    spacing={{ base: 4, md: 6 }}
-                    maxW='1000px'
-                    mx='auto'
-                  >
-                    {neighborhoods.map((neighborhood, index) => {
-                      const neighborhoodSlug = neighborhoodMap[neighborhood];
-                      // Use 'new-peinture-interieure' as the route slug (matches App.jsx route)
-                      // The getServiceQuartierSecteurData function will map it to 'peinture-interieure' for data lookup
-                      const linkTo = `/services/new-peinture-interieure/montreal/${neighborhoodSlug}`;
-
-                      return (
-                        <Link
-                          key={index}
-                          as={RouterLink}
-                          to={linkTo}
-                          _hover={{ textDecoration: 'none' }}
-                        >
-                          <Box
-                            p={{ base: 5, md: 6 }}
-                            bg='white'
-                            borderRadius='lg'
-                            border='1px solid'
-                            borderColor='gray.200'
-                            textAlign='center'
-                            h='100%'
-                            minH={{ base: '100px', md: '120px' }}
-                            display='flex'
-                            flexDirection='column'
-                            justifyContent='center'
-                            alignItems='center'
-                            transition='all 0.2s'
-                            _hover={{
-                              borderColor: '#014CC4',
-                              transform: 'translateY(-2px)',
-                              boxShadow: 'md',
-                            }}
-                          >
-                            <Stack spacing={3} align='center' w='100%'>
-                              <Text
-                                fontWeight='600'
-                                color='gray.800'
-                                fontSize={{ base: 'sm', md: 'md' }}
-                                lineHeight='1.4'
-                                noOfLines={2}
-                              >
-                                {neighborhood}
-                              </Text>
-                              <HStack
-                                spacing={2}
-                                color='#014CC4'
-                                justify='center'
-                              >
-                                <Text fontSize='xs' fontWeight='medium'>
-                                  {isFr ? 'Voir' : 'View'}
-                                </Text>
-                                <ArrowForwardIcon boxSize={3} />
-                              </HStack>
-                            </Stack>
-                          </Box>
-                        </Link>
-                      );
-                    })}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -392,21 +334,21 @@ export default function SecteursDesservisPage() {
                   <Box
                     w='100%'
                     h={{ base: '250px', md: '400px' }}
-                    bg='gray.100'
                     borderRadius='xl'
-                    display='flex'
-                    alignItems='center'
-                    justifyContent='center'
-                    border='1px solid'
-                    borderColor='gray.200'
+                    overflow='hidden'
+                    boxShadow='lg'
                   >
-                    <Text
-                      color='gray.500'
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      fontWeight='medium'
-                    >
-                      {isFr ? 'Image manquante' : 'Missing image'}
-                    </Text>
+                    <Image
+                      src={secteursDesservisHero}
+                      alt={
+                        isFr
+                          ? 'Peintres professionnels Le Lever du Pinceau'
+                          : 'Professional Painters Le Lever du Pinceau'
+                      }
+                      w='100%'
+                      h='100%'
+                      objectFit='cover'
+                    />
                   </Box>
                   <Stack spacing={6}>
                     <Stack spacing={3}>
@@ -531,7 +473,13 @@ export default function SecteursDesservisPage() {
             </Box>
 
             {/* Section 5 — Guides & ressources */}
-            <ResourcesSection />
+            <ResourcesSection
+              subtitle={
+                isFr
+                  ? 'Conseils utiles pour mieux planifier votre projet'
+                  : 'Useful tips to better plan your project'
+              }
+            />
           </Stack>
         </Container>
 

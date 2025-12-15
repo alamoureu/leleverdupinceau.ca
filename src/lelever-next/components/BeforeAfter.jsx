@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Grid, GridItem, Stack, Heading } from '@chakra-ui/react';
+import { Box, Grid, GridItem, Stack, Heading, Text } from '@chakra-ui/react';
 import ReactCompareImage from 'react-compare-image';
 
 export default function BeforeAfter({ images, title, isFr }) {
@@ -114,6 +114,17 @@ export default function BeforeAfter({ images, title, isFr }) {
                   rightImageLabel={isFr ? 'APRÈS' : 'AFTER'}
                 />
               </Box>
+              {pair.description && (
+                <Text
+                  fontSize='sm'
+                  color='gray.600'
+                  textAlign='center'
+                  mt={2}
+                  fontWeight='medium'
+                >
+                  {pair.description}
+                </Text>
+              )}
             </Stack>
           </GridItem>
         ))}

@@ -18,12 +18,70 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import RecentProjectsSection from '../home-page/RecentProjectsSection';
+// RecentProjectsSection removed
 import { FaStar } from 'react-icons/fa';
+import BeforeAfter from '../components/BeforeAfter';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5975 from '../images/before_after/IMG_5975.jpg';
+import img5976 from '../images/before_after/IMG_5976.jpg';
+import img5977 from '../images/before_after/IMG_5977.jpg';
+import img5978 from '../images/before_after/IMG_5978.jpg';
+import img5982 from '../images/before_after/IMG_5982.jpg';
+import img5984 from '../images/before_after/IMG_5984.jpg';
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+
+  const beforeAfterImages = [
+    {
+      before: img5969,
+      after: img5970,
+      description: isFr
+        ? 'Appartement locatif peinturé et plâtré au plateau'
+        : 'Rental apartment painted and plastered in the Plateau',
+    },
+    {
+      before: img5971,
+      after: img5972,
+      description: isFr
+        ? '3e niveau d’un triplex, changement de couleur à Outremont'
+        : '3rd level of a triplex, color change in Outremont',
+    },
+    {
+      before: img5973,
+      after: img5974,
+      description: isFr
+        ? 'Sablage et teinture de terrasse à Longueuil'
+        : 'Terrace sanding and staining in Longueuil',
+    },
+    {
+      before: img5975,
+      after: img5976,
+      description: isFr
+        ? 'Peinture de cabinetterie à Laval'
+        : 'Cabinetry painting in Laval',
+    },
+    {
+      before: img5977,
+      after: img5978,
+      description: isFr
+        ? 'Peinture de Plafond en Steel Deck industrielle'
+        : 'Industrial Steel Deck ceiling painting',
+    },
+    {
+      before: img5984,
+      after: img5982,
+      description: isFr
+        ? 'Protection et peinture complète d’une maison à Westmount'
+        : 'Protection and complete house painting in Westmount',
+    },
+  ];
 
   const allReviews = [
     {
@@ -424,8 +482,20 @@ export default function AvisPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur, toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons. Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
-                  : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior, all our interventions are carried out with precision, cleanliness and impeccable attention to detail. This page brings together authentic reviews left by our clients from Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve. Discover their testimonials, their before/after photos and their complete evaluations.'}
+                  ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur, toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable.'
+                  : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior, all our interventions are carried out with precision, cleanliness and impeccable attention to detail.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='800px'
+                mt={4}
+                fontWeight='medium'
+              >
+                {isFr
+                  ? '👉 Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons. Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
+                  : '👉 This page brings together authentic reviews left by our clients from Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve. Discover their testimonials, before/after photos and complete evaluations.'}
               </Text>
             </Stack>
 
@@ -577,8 +647,39 @@ export default function AvisPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
-              <RecentProjectsSection />
+            {/* Before/After Section */}
+            <Box
+              py={{ base: 12, md: 16 }}
+              bg='white'
+              borderRadius='xl'
+              mb={{ base: 8, md: 12 }}
+            >
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign='left'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Résultats de peintres professionnels à Montréal'
+                        : 'Professional Painters Results in Montreal'}
+                    </Heading>
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='gray.600'
+                      lineHeight='1.7'
+                    >
+                      {isFr
+                        ? 'Nous avons réalisé des centaines de projets résidentiels, commerciaux et extérieurs dans la région.'
+                        : 'We have completed hundreds of residential, commercial and exterior projects in the region.'}
+                    </Text>
+                  </Stack>
+                  <BeforeAfter images={beforeAfterImages} isFr={isFr} />
+                </Stack>
+              </Container>
             </Box>
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>

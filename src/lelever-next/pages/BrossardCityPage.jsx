@@ -17,6 +17,16 @@ import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
+import ResidentialProject from '../images/Projets résidentiels.PNG';
+import ExtProject from '../images/projet_exterieur.jpg';
+import CommercialProject from '../images/Projets commerciaux.PNG';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
+
 export default function BrossardCityPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
@@ -48,19 +58,21 @@ export default function BrossardCityPage() {
 
   const projectsContent = isFr
     ? [
-        '• Maisons familiales dans les secteurs R, S et C',
-        '• Condos modernes autour du Quartier DIX30',
-        '• Projets commerciaux (restaurants, bureaux, commerces du DIX30)',
-        '• Peinture de revêtements extérieurs pour de nouvelles constructions',
-        '• Travaux industriels dans les zones techniques du secteur V',
-      ]
+      '• Maisons familiales dans les secteurs R, S et C',
+      '• Condos modernes autour du Quartier DIX30',
+      '• Projets commerciaux (restaurants, bureaux, commerces du DIX30)',
+      '• Peinture de revêtements extérieurs pour de nouvelles constructions',
+      '• Travaux industriels dans les zones techniques du secteur V',
+    ]
     : [
-        '• Family homes in sectors R, S and C',
-        '• Modern condos around DIX30 Quarter',
-        '• Commercial projects (restaurants, offices, DIX30 businesses)',
-        '• Exterior coating painting for new constructions',
-        '• Industrial work in technical areas of sector V',
-      ];
+      '• Family homes in sectors R, S and C',
+      '• Modern condos around DIX30 Quarter',
+      '• Commercial projects (restaurants, offices, DIX30 businesses)',
+      '• Exterior coating painting for new constructions',
+      '• Industrial work in technical areas of sector V',
+    ];
+
+  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
 
   const whyUsIntroText = isFr
     ? 'Nos peintres sont régulièrement en intervention à Brossard et offrent :'
@@ -68,19 +80,19 @@ export default function BrossardCityPage() {
 
   const whyUsContent = isFr
     ? [
-        '• Un service rapide dans tous les secteurs alphabétiques',
-        '• Une excellente maîtrise des types de constructions de Brossard',
-        '• Des produits adaptés au climat québécois (UV, humidité, température)',
-        '• Une approche propre, professionnelle et efficace',
-        "• Une finition durable — autant intérieure qu'extérieure",
-      ]
+      '• Un service rapide dans tous les secteurs alphabétiques',
+      '• Une excellente maîtrise des types de constructions de Brossard',
+      '• Des produits adaptés au climat québécois (UV, humidité, température)',
+      '• Une approche propre, professionnelle et efficace',
+      "• Une finition durable — autant intérieure qu'extérieure",
+    ]
     : [
-        '• Fast service in all alphabetical sectors',
-        '• Excellent knowledge of Brossard construction types',
-        '• Products adapted to Quebec climate (UV, humidity, temperature)',
-        '• A clean, professional and efficient approach',
-        '• Durable finish — both interior and exterior',
-      ];
+      '• Fast service in all alphabetical sectors',
+      '• Excellent knowledge of Brossard construction types',
+      '• Products adapted to Quebec climate (UV, humidity, temperature)',
+      '• A clean, professional and efficient approach',
+      '• Durable finish — both interior and exterior',
+    ];
 
   return (
     <Fragment>
@@ -164,16 +176,32 @@ export default function BrossardCityPage() {
                   ? 'Peintres à Brossard – Le Lever du Pinceau'
                   : 'Painters in Brossard – Le Lever du Pinceau'}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? 'Brossard est une ville en pleine croissance où résident de nombreuses familles, entreprises et complexes immobiliers. Le Lever du Pinceau offre des services complets de peinture résidentielle, commerciale et industrielle dans tous les secteurs de Brossard, incluant les quartiers R, S, T, C, V et les nouvelles zones de développement. Nos peintres professionnels réalisent des projets intérieurs et extérieurs avec précision, rapidité et une finition durable. Que vous soyez dans un secteur résidentiel, près du Quartier DIX30 ou dans une zone commerciale, notre équipe peut se déplacer rapidement pour votre projet de peinture.'
-                  : 'Brossard is a growing city where many families, businesses and residential complexes reside. Le Lever du Pinceau offers complete residential, commercial and industrial painting services in all sectors of Brossard, including neighborhoods R, S, T, C, V and new development areas. Our professional painters carry out interior and exterior projects with precision, speed and durable finish. Whether you are in a residential sector, near DIX30 Quarter or in a commercial area, our team can quickly come to your location for your painting project.'}
-              </Text>
+
+              <Box>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  mb={4}
+                  maxW='900px'
+                >
+                  {isFr
+                    ? 'Brossard est une ville en pleine croissance où résident de nombreuses familles, entreprises et complexes immobiliers. Le Lever du Pinceau offre des services complets de peinture résidentielle, commerciale et industrielle dans tous les secteurs de Brossard, incluant les quartiers R, S, T, C, V et les nouvelles zones de développement. Nos peintres professionnels réalisent des projets intérieurs et extérieurs avec précision, rapidité et une finition durable.'
+                    : 'Brossard is a growing city where many families, businesses and residential complexes reside. Le Lever du Pinceau offers complete residential, commercial and industrial painting services in all sectors of Brossard, including neighborhoods R, S, T, C, V and new development areas. Our professional painters carry out interior and exterior projects with precision, speed and durable finish.'}
+                </Text>
+
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  fontWeight='medium'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? '👉 Que vous soyez dans un secteur résidentiel, près du Quartier DIX30 ou dans une zone commerciale, notre équipe peut se déplacer rapidement pour votre projet de peinture.'
+                    : '👉 Whether you are in a residential sector, near DIX30 Quarter or in a commercial area, our team can quickly come to your location for your painting project.'}
+                </Text>
+              </Box>
             </Stack>
 
             {/* Section 1 — Services de peinture */}
@@ -183,6 +211,7 @@ export default function BrossardCityPage() {
             <CityProjectsSection
               cityName='Brossard'
               projectsContent={projectsContent}
+              projectImages={projectImages}
             />
 
             {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}

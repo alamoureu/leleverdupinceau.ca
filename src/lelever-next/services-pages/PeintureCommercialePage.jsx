@@ -19,8 +19,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
-import CustomProjectsSection from '../city-pages/CustomProjectsSection';
-import ServiceCitiesSectorsSection from './components/ServiceCitiesSectorsSection';
+import RecentProjectsSection from '../home-page/RecentProjectsSection';
+import SectorsSection, {
+  montrealSecteur,
+  lavalSecteur,
+  longueuilSecteur,
+  brossardSecteur,
+} from '../home-page/SectorsSection';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -53,95 +64,95 @@ export default function PeintureCommercialePage() {
 
   const whyUsContent = isFr
     ? [
-        "Planification des travaux en dehors des heures d'ouverture si nécessaire",
-        'Protection complète des sols, meubles et équipements',
-        'Respect strict des délais et du calendrier convenu',
-        'Utilisation de produits adaptés aux environnements commerciaux (faible odeur, séchage rapide, résistance accrue)',
-        'Communication claire du début à la fin du projet',
-      ]
+      "Planification des travaux en dehors des heures d'ouverture si nécessaire",
+      'Protection complète des sols, meubles et équipements',
+      'Respect strict des délais et du calendrier convenu',
+      'Utilisation de produits adaptés aux environnements commerciaux (faible odeur, séchage rapide, résistance accrue)',
+      'Communication claire du début à la fin du projet',
+    ]
     : [
-        'Planning work outside opening hours if necessary',
-        'Complete protection of floors, furniture and equipment',
-        'Strict respect of deadlines and agreed schedule',
-        'Use of products adapted to commercial environments (low odor, fast drying, increased resistance)',
-        'Clear communication from start to finish of the project',
-      ];
+      'Planning work outside opening hours if necessary',
+      'Complete protection of floors, furniture and equipment',
+      'Strict respect of deadlines and agreed schedule',
+      'Use of products adapted to commercial environments (low odor, fast drying, increased resistance)',
+      'Clear communication from start to finish of the project',
+    ];
 
   const commercialProjects = isFr
     ? [
-        {
-          id: 1,
-          images: [],
-          title: 'Rafraîchissement complet de bureaux',
-          description:
-            "Transformation complète d'espaces de bureaux avec une finition professionnelle et durable. Planification flexible pour minimiser les interruptions.",
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'Mise à jour de commerces de détail',
-          description:
-            "Rénovation de commerces avec des couleurs modernes qui reflètent votre image de marque. Travail effectué en dehors des heures d'ouverture.",
-        },
-        {
-          id: 3,
-          images: [],
-          title: 'Peinture de restaurants et cafés',
-          description:
-            "Création d'ambiances chaleureuses pour vos établissements avec des finitions résistantes aux taches. Produits adaptés aux environnements alimentaires.",
-        },
-        {
-          id: 4,
-          images: [],
-          title: 'Rénovation de corridors et espaces communs',
-          description:
-            "Rafraîchissement des espaces communs d'immeubles avec des produits adaptés au trafic élevé. Finitions durables qui résistent à l'usure quotidienne.",
-        },
-        {
-          id: 5,
-          images: [],
-          title: "Rafraîchissement d'entrées commerciales et façades",
-          description:
-            "Amélioration de l'image extérieure de votre commerce avec des finitions durables. Produits résistants aux intempéries et au climat québécois.",
-        },
-      ]
+      {
+        id: 1,
+        images: [],
+        title: 'Rafraîchissement complet de bureaux',
+        description:
+          "Transformation complète d'espaces de bureaux avec une finition professionnelle et durable. Planification flexible pour minimiser les interruptions.",
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'Mise à jour de commerces de détail',
+        description:
+          "Rénovation de commerces avec des couleurs modernes qui reflètent votre image de marque. Travail effectué en dehors des heures d'ouverture.",
+      },
+      {
+        id: 3,
+        images: [],
+        title: 'Peinture de restaurants et cafés',
+        description:
+          "Création d'ambiances chaleureuses pour vos établissements avec des finitions résistantes aux taches. Produits adaptés aux environnements alimentaires.",
+      },
+      {
+        id: 4,
+        images: [],
+        title: 'Rénovation de corridors et espaces communs',
+        description:
+          "Rafraîchissement des espaces communs d'immeubles avec des produits adaptés au trafic élevé. Finitions durables qui résistent à l'usure quotidienne.",
+      },
+      {
+        id: 5,
+        images: [],
+        title: "Rafraîchissement d'entrées commerciales et façades",
+        description:
+          "Amélioration de l'image extérieure de votre commerce avec des finitions durables. Produits résistants aux intempéries et au climat québécois.",
+      },
+    ]
     : [
-        {
-          id: 1,
-          images: [],
-          title: 'Complete office refresh',
-          description:
-            'Complete transformation of office spaces with professional and durable finish. Flexible planning to minimize interruptions.',
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'Retail store updates',
-          description:
-            'Store renovation with modern colors that reflect your brand image. Work done outside opening hours to avoid disrupting your sales.',
-        },
-        {
-          id: 3,
-          images: [],
-          title: 'Restaurant and café painting',
-          description:
-            'Creating warm atmospheres for your establishments with finishes resistant to stains. Products adapted to food environments.',
-        },
-        {
-          id: 4,
-          images: [],
-          title: 'Corridor and common area renovation',
-          description:
-            'Refreshing building common areas with products adapted to high traffic. Durable finishes that resist daily wear.',
-        },
-        {
-          id: 5,
-          images: [],
-          title: 'Commercial entrance and facade refresh',
-          description:
-            'Improving the exterior image of your business with durable finishes. Products resistant to weather and Quebec climate.',
-        },
-      ];
+      {
+        id: 1,
+        images: [],
+        title: 'Complete office refresh',
+        description:
+          'Complete transformation of office spaces with professional and durable finish. Flexible planning to minimize interruptions.',
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'Retail store updates',
+        description:
+          'Store renovation with modern colors that reflect your brand image. Work done outside opening hours to avoid disrupting your sales.',
+      },
+      {
+        id: 3,
+        images: [],
+        title: 'Restaurant and café painting',
+        description:
+          'Creating warm atmospheres for your establishments with finishes resistant to stains. Products adapted to food environments.',
+      },
+      {
+        id: 4,
+        images: [],
+        title: 'Corridor and common area renovation',
+        description:
+          'Refreshing building common areas with products adapted to high traffic. Durable finishes that resist daily wear.',
+      },
+      {
+        id: 5,
+        images: [],
+        title: 'Commercial entrance and facade refresh',
+        description:
+          'Improving the exterior image of your business with durable finishes. Products resistant to weather and Quebec climate.',
+      },
+    ];
 
   const cities = [
     { name: isFr ? 'Montréal' : 'Montreal', slug: 'montreal' },
@@ -239,10 +250,50 @@ export default function PeintureCommercialePage() {
                 maxW='900px'
               >
                 {isFr
-                  ? "La peinture commerciale demande une organisation efficace, des délais respectés et un résultat professionnel qui renforce l'image de votre entreprise. Le Lever du Pinceau accompagne commerces, bureaux, restaurants, cliniques, immeubles et bâtiments commerciaux dans tout le Grand Montréal. Nos peintres professionnels planifient les travaux pour minimiser l'impact sur vos opérations, tout en livrant une finition propre, durable et adaptée à votre environnement. Pour rafraîchir vos locaux, moderniser votre espace client ou rénover un immeuble complet, notre équipe de peinture commerciale est prête à intervenir."
-                  : "Commercial painting requires efficient organization, respected deadlines and a professional result that strengthens your company's image. Le Lever du Pinceau accompanies stores, offices, restaurants, clinics, buildings and commercial buildings throughout Greater Montreal. Our professional painters plan the work to minimize the impact on your operations, while delivering a clean, durable finish adapted to your environment. To refresh your premises, modernize your customer space or renovate a complete building, our commercial painting team is ready to intervene."}
+                  ? "La peinture commerciale demande une organisation efficace, des délais respectés et un résultat professionnel qui renforce l'image de votre entreprise. Le Lever du Pinceau accompagne commerces, bureaux, restaurants, cliniques, immeubles et bâtiments commerciaux dans tout le Grand Montréal."
+                  : "Commercial painting requires efficient organization, respected deadlines and a professional result that strengthens your company's image. Le Lever du Pinceau accompanies stores, offices, restaurants, clinics, buildings and commercial buildings throughout Greater Montreal."}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='900px'
+                mt={2}
+                fontWeight='medium'
+              >
+                {isFr
+                  ? "👉 Nos peintres professionnels planifient les travaux pour minimiser l'impact sur vos opérations, tout en livrant une finition propre, durable et adaptée à votre environnement. Pour rafraîchir vos locaux, moderniser votre espace client ou rénover un immeuble complet, notre équipe de peinture commerciale est prête à intervenir."
+                  : "👉 Our professional painters plan the work to minimize the impact on your operations, while delivering a clean, durable finish adapted to your environment. To refresh your premises, modernize your customer space or renovate a complete building, our commercial painting team is ready to intervene."}
               </Text>
             </Stack>
+
+            {/* Images Section */}
+            <Box mb={{ base: 12, md: 16 }}>
+              <SimpleGrid
+                columns={{ base: 1, md: 2, lg: 3 }}
+                spacing={4}
+                maxW='1200px'
+              >
+                {[
+                  { src: img5969, alt: 'Projet commercial 1' },
+                  { src: img5970, alt: 'Projet commercial 2' },
+                  { src: img5971, alt: 'Projet commercial 3' },
+                  { src: img5972, alt: 'Projet commercial 4' },
+                  { src: img5973, alt: 'Projet commercial 5' },
+                  { src: img5974, alt: 'Projet commercial 6' },
+                ].map((img, index) => (
+                  <Image
+                    key={index}
+                    src={img.src}
+                    alt={img.alt}
+                    borderRadius='lg'
+                    w='100%'
+                    h={{ base: '200px', md: '250px' }}
+                    objectFit='cover'
+                  />
+                ))}
+              </SimpleGrid>
+            </Box>
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <Box
@@ -449,33 +500,38 @@ export default function PeintureCommercialePage() {
             </Box>
 
             {/* Section 3 — Peinture commerciale par ville */}
-            <ServiceCitiesSectorsSection
+            <SectorsSection
               title={
                 isFr
                   ? 'Peinture commerciale dans votre ville'
                   : 'Commercial painting in your city'
               }
-              serviceName={
-                isFr ? 'Peinture commerciale' : 'Commercial painting'
-              }
-              serviceSlug='peinture-commerciale'
-              cities={cities}
+              sectors={[
+                {
+                  name: 'Montréal',
+                  link: '/services/peinture-commerciale/montreal',
+                  image: montrealSecteur,
+                },
+                {
+                  name: 'Laval',
+                  link: '/services/peinture-commerciale/laval',
+                  image: lavalSecteur,
+                },
+                {
+                  name: 'Longueuil',
+                  link: '/services/peinture-commerciale/longueuil',
+                  image: longueuilSecteur,
+                },
+                {
+                  name: 'Brossard',
+                  link: '/services/peinture-commerciale/brossard',
+                  image: brossardSecteur,
+                },
+              ]}
             />
 
             {/* Section 4 — Exemples de projets */}
-            <CustomProjectsSection
-              title={
-                isFr
-                  ? 'Réalisations en peinture commerciale'
-                  : 'Commercial painting achievements'
-              }
-              subtitle={
-                isFr
-                  ? 'Exemples de projets réalisés :'
-                  : 'Examples of completed projects:'
-              }
-              projects={commercialProjects}
-            />
+            <RecentProjectsSection />
 
             {/* Section 5 — À propos de nos peintres professionnels */}
             <Box

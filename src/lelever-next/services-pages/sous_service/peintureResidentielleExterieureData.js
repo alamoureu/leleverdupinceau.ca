@@ -1,4 +1,10 @@
-// Data for Peinture Résidentielle Extérieure sub-service page
+// Forces HMR update
+import img5969 from '../../images/before_after/IMG_5969.jpg';
+import img5970 from '../../images/before_after/IMG_5970.jpg';
+import img5971 from '../../images/before_after/IMG_5971.jpg';
+import img5972 from '../../images/before_after/IMG_5972.jpg';
+import img5973 from '../../images/before_after/IMG_5973.jpg';
+import img5974 from '../../images/before_after/IMG_5974.jpg';
 
 export const peintureResidentielleExterieureData = {
   serviceSlug: 'peinture-residentielle',
@@ -14,8 +20,20 @@ export const peintureResidentielleExterieureData = {
     en: 'Residential exterior painting – Le Lever du Pinceau',
   },
   introduction: {
-    fr: "La peinture extérieure est essentielle pour protéger votre maison contre les intempéries, améliorer son apparence et augmenter sa valeur. Chez Le Lever du Pinceau, nous réalisons des projets extérieurs pour maisons, plex, condos et multi-logements à Montréal, Laval, Longueuil et Brossard. Nos peintres résidentiels utilisent des produits extérieurs haut de gamme, résistants aux UV, à l'humidité, aux variations de température et aux conditions climatiques québécoises. Si vous souhaitez rafraîchir votre façade ou moderniser votre revêtement, notre service de peinture résidentielle extérieure offre des résultats durables et esthétiques.",
-    en: 'Exterior painting is essential to protect your home from the elements, improve its appearance and increase its value. At Le Lever du Pinceau, we carry out exterior projects for houses, plexes, condos and multi-unit dwellings in Montreal, Laval, Longueuil and Brossard. Our residential painters use high-end exterior products, resistant to UV, humidity, temperature variations and Quebec weather conditions. If you want to refresh your facade or modernize your cladding, our residential exterior painting service offers durable and aesthetic results.',
+    fr: [
+      "La peinture extérieure de votre maison est la première barrière de protection contre les intempéries et le premier élément visible de votre propriété.",
+      "Elle valorise votre investissement et prolonge la durée de vie de vos revêtements. Le Lever du Pinceau est spécialisé en peinture résidentielle extérieure dans le Grand Montréal.",
+      "Nous intervenons sur tous types de revêtements : brique, stuc, bois, vinyle, aluminium, agrégat."
+    ],
+    en: [
+      "Exterior painting is essential to protect your home from the elements, improve its appearance and increase its value.",
+      "It enhances your investment and extends the life of your claddings. Le Lever du Pinceau specializes in residential exterior painting in Greater Montreal.",
+      "We work on all types of claddings: brick, stucco, wood, vinyl, aluminum, aggregate."
+    ],
+  },
+  introFingerText: {
+    fr: '👉 Que vous souhaitiez rafraîchir votre façade ou moderniser votre revêtement, notre service de peinture résidentielle extérieure offre des résultats durables et esthétiques.',
+    en: '👉 Whether you want to refresh your facade or modernize your cladding, our residential exterior painting service offers durable and aesthetic results.',
   },
   whyUsTitle: {
     fr: 'Protection durable et finition impeccable',
@@ -77,8 +95,8 @@ export const peintureResidentielleExterieureData = {
     },
   ],
   citiesTitle: {
-    fr: 'Disponible dans toutes les villes principales',
-    en: 'Available in all major cities',
+    fr: 'Secteurs desservis',
+    en: 'Service areas',
   },
   cities: [
     {
@@ -87,6 +105,10 @@ export const peintureResidentielleExterieureData = {
         en: 'Montreal',
       },
       href: '/services/peinture-residentielle/exterieure/montreal',
+      subText: {
+        fr: 'Service résidentiel extérieur complet à Montréal',
+        en: 'Complete residential exterior service in Montreal',
+      },
     },
     {
       name: {
@@ -94,6 +116,10 @@ export const peintureResidentielleExterieureData = {
         en: 'Laval',
       },
       href: '/services/peinture-residentielle/exterieure/laval',
+      subText: {
+        fr: 'Service résidentiel extérieur complet à Laval',
+        en: 'Complete residential exterior service in Laval',
+      },
     },
     {
       name: {
@@ -101,6 +127,10 @@ export const peintureResidentielleExterieureData = {
         en: 'Longueuil',
       },
       href: '/services/peinture-residentielle/exterieure/longueuil',
+      subText: {
+        fr: 'Service résidentiel extérieur complet à Longueuil',
+        en: 'Complete residential exterior service in Longueuil',
+      },
     },
     {
       name: {
@@ -108,6 +138,10 @@ export const peintureResidentielleExterieureData = {
         en: 'Brossard',
       },
       href: '/services/peinture-residentielle/exterieure/brossard',
+      subText: {
+        fr: 'Service résidentiel extérieur complet à Brossard',
+        en: 'Complete residential exterior service in Brossard',
+      },
     },
   ],
   projectsTitle: {
@@ -134,29 +168,7 @@ export const peintureResidentielleExterieureData = {
     fr: 'Conseils utiles pour la peinture extérieure',
     en: 'Useful advice for exterior painting',
   },
-  guides: [
-    {
-      title: {
-        fr: 'Comment choisir un peintre professionnel ?',
-        en: 'How to choose a professional painter?',
-      },
-      href: '/blog/comment-choisir-un-peintre-professionnel',
-    },
-    {
-      title: {
-        fr: 'Prix peinture Montréal (extérieur)',
-        en: 'Painting prices Montreal (exterior)',
-      },
-      href: '/blog/prix-peinture-montreal',
-    },
-    {
-      title: {
-        fr: 'Erreurs à éviter avant de peindre un revêtement extérieur',
-        en: 'Mistakes to avoid before painting an exterior cladding',
-      },
-      href: '/blog/erreurs-a-eviter-peinture',
-    },
-  ],
+  guides: [],
   aboutTitle: {
     fr: 'Des peintres spécialisés en extérieur résidentiel',
     en: 'Painters specialized in residential exterior',
@@ -180,16 +192,28 @@ export const peintureResidentielleExterieureData = {
   },
   images: [
     {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture résidentielle extérieure Montréal',
+      src: img5969,
+      alt: 'peinture résidentielle extérieure 1',
     },
     {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture résidentielle extérieure Montréal',
+      src: img5970,
+      alt: 'peinture résidentielle extérieure 2',
     },
     {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture résidentielle extérieure Montréal',
+      src: img5971,
+      alt: 'peinture résidentielle extérieure 3',
+    },
+    {
+      src: img5972,
+      alt: 'peinture résidentielle extérieure 4',
+    },
+    {
+      src: img5973,
+      alt: 'peinture résidentielle extérieure 5',
+    },
+    {
+      src: img5974,
+      alt: 'peinture résidentielle extérieure 6',
     },
   ],
 };

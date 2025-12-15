@@ -1,4 +1,10 @@
-// Data for Peinture Commerciale Intérieure sub-service page
+// Forces HMR update
+import img5969 from '../../images/before_after/IMG_5969.jpg';
+import img5970 from '../../images/before_after/IMG_5970.jpg';
+import img5971 from '../../images/before_after/IMG_5971.jpg';
+import img5972 from '../../images/before_after/IMG_5972.jpg';
+import img5973 from '../../images/before_after/IMG_5973.jpg';
+import img5974 from '../../images/before_after/IMG_5974.jpg';
 
 export const peintureCommercialeInterieureData = {
   serviceSlug: 'peinture-commerciale',
@@ -14,8 +20,20 @@ export const peintureCommercialeInterieureData = {
     en: 'Commercial interior painting – Le Lever du Pinceau',
   },
   introduction: {
-    fr: "La peinture intérieure de vos locaux commerciaux a un impact direct sur l'image de votre entreprise, le confort de vos employés et l'expérience de vos clients. Que vous gériez un bureau, un commerce de détail, un restaurant, une clinique ou un espace professionnel, notre équipe de peintres commerciaux réalise des travaux intérieurs propres, rapides et adaptés à vos horaires d'affaires. Le Lever du Pinceau est spécialisé en peinture commerciale intérieure dans le Grand Montréal (Montréal, Laval, Longueuil, Brossard). Nous combinons une préparation minutieuse, une finition professionnelle et une organisation de chantier pensée pour les entreprises. Si vous voulez rafraîchir vos bureaux, moderniser votre commerce ou rénover vos espaces intérieurs, cette page est pour vous.",
-    en: "The interior painting of your commercial premises has a direct impact on your company's image, your employees' comfort and your customers' experience. Whether you manage an office, retail store, restaurant, clinic or professional space, our team of commercial painters carries out clean, fast interior work adapted to your business hours. Le Lever du Pinceau specializes in commercial interior painting in Greater Montreal (Montreal, Laval, Longueuil, Brossard). We combine meticulous preparation, professional finishing and a job site organization designed for businesses. If you want to refresh your offices, modernize your business or renovate your interior spaces, this page is for you.",
+    fr: [
+      "La peinture intérieure de vos locaux commerciaux a un impact direct sur l'image de votre entreprise, le confort de vos employés et l'expérience de vos clients.",
+      "Que vous gériez un bureau, un commerce de détail, un restaurant, une clinique ou un espace professionnel, notre équipe de peintres commerciaux réalise des travaux intérieurs propres, rapides et adaptés à vos horaires d'affaires.",
+      "Le Lever du Pinceau est spécialisé en peinture commerciale intérieure dans le Grand Montréal (Montréal, Laval, Longueuil, Brossard). Nous combinons une préparation minutieuse, une finition professionnelle et une organisation de chantier pensée pour les entreprises."
+    ],
+    en: [
+      "The interior painting of your commercial premises has a direct impact on your company's image, your employees' comfort and your customers' experience.",
+      "Whether you manage an office, retail store, restaurant, clinic or professional space, our team of commercial painters carries out clean, fast interior work adapted to your business hours.",
+      "Le Lever du Pinceau specializes in commercial interior painting in Greater Montreal (Montreal, Laval, Longueuil, Brossard). We combine meticulous preparation, professional finishing and a job site organization designed for businesses."
+    ],
+  },
+  introFingerText: {
+    fr: '👉 Si vous voulez rafraîchir vos bureaux, moderniser votre commerce ou rénover vos espaces intérieurs, cette page est pour vous.',
+    en: '👉 If you want to refresh your offices, modernize your business or renovate your interior spaces, this page is for you.',
   },
   whyUsTitle: {
     fr: 'Une approche pensée pour les entreprises',
@@ -45,9 +63,14 @@ export const peintureCommercialeInterieureData = {
     fr: "Nous intervenons dans : Bureaux & espaces corporatifs, Commerces de détail & boutiques, Restaurants & cafés, Cliniques & cabinets professionnels, Salons & studios, Espaces communs d'immeubles commerciaux.",
     en: 'We work in: Offices & corporate spaces, Retail stores & boutiques, Restaurants & cafes, Clinics & professional offices, Salons & studios, Common areas of commercial buildings.',
   },
+  ctaBelowWhyUs: true,
   complementaryServicesTitle: {
     fr: 'Pour un projet complet de peinture commerciale',
     en: 'For a complete commercial painting project',
+  },
+  complementaryServicesIntro: {
+    fr: 'Pour un projet de peinture commerciale complet vous pouvez aussi consulter :',
+    en: 'For a complete commercial painting project you can also consult:',
   },
   complementaryServices: [
     {
@@ -121,37 +144,53 @@ export const peintureCommercialeInterieureData = {
     ],
   },
   citiesTitle: {
-    fr: 'Peinture commerciale intérieure dans le Grand Montréal',
-    en: 'Commercial interior painting in Greater Montreal',
+    fr: 'Nos services de peinture commerciale intérieure sont offerts dans:',
+    en: 'Our commercial interior painting services are offered in:',
   },
   cities: [
     {
       name: {
-        fr: 'Peinture commerciale intérieure Montréal',
-        en: 'Commercial interior painting Montreal',
+        fr: 'Montréal',
+        en: 'Montreal',
       },
       href: '/services/peinture-commerciale/interieure/montreal',
+      subText: {
+        fr: 'Peinture commerciale durable à Montréal',
+        en: 'Durable commercial painting in Montreal',
+      },
     },
     {
       name: {
-        fr: 'Peinture commerciale intérieure Laval',
-        en: 'Commercial interior painting Laval',
+        fr: 'Laval',
+        en: 'Laval',
       },
       href: '/services/peinture-commerciale/interieure/laval',
+      subText: {
+        fr: 'Peinture commerciale durable à Laval',
+        en: 'Durable commercial painting in Laval',
+      },
     },
     {
       name: {
-        fr: 'Peinture commerciale intérieure Longueuil',
-        en: 'Commercial interior painting Longueuil',
+        fr: 'Longueuil',
+        en: 'Longueuil',
       },
       href: '/services/peinture-commerciale/interieure/longueuil',
+      subText: {
+        fr: 'Peinture commerciale durable à Longueuil',
+        en: 'Durable commercial painting in Longueuil',
+      },
     },
     {
       name: {
-        fr: 'Peinture commerciale intérieure Brossard',
-        en: 'Commercial interior painting Brossard',
+        fr: 'Brossard',
+        en: 'Brossard',
       },
       href: '/services/peinture-commerciale/interieure/brossard',
+      subText: {
+        fr: 'Peinture commerciale durable à Brossard',
+        en: 'Durable commercial painting in Brossard',
+      },
     },
   ],
   projectsTitle: {
@@ -176,29 +215,7 @@ export const peintureCommercialeInterieureData = {
     fr: 'Bien préparer vos travaux de peinture commerciale à Brossard',
     en: 'Properly prepare your commercial painting work in Brossard',
   },
-  guides: [
-    {
-      title: {
-        fr: 'Comment choisir un peintre professionnel ?',
-        en: 'How to choose a professional painter?',
-      },
-      href: '/blog/comment-choisir-un-peintre-professionnel',
-    },
-    {
-      title: {
-        fr: 'Prix peinture Montréal / Rive-Sud – guide complet',
-        en: 'Painting prices Montreal / South Shore – complete guide',
-      },
-      href: '/blog/prix-peinture-montreal',
-    },
-    {
-      title: {
-        fr: 'Erreurs à éviter avant des travaux de peinture commerciale',
-        en: 'Mistakes to avoid before commercial painting work',
-      },
-      href: '/blog/erreurs-a-eviter-peinture',
-    },
-  ],
+  guides: [],
   aboutTitle: {
     fr: 'Une équipe spécialisée dans les environnements commerciaux',
     en: 'A team specialized in commercial environments',
@@ -222,16 +239,28 @@ export const peintureCommercialeInterieureData = {
   },
   images: [
     {
-      src: null,
-      alt: 'Missing image',
+      src: img5969,
+      alt: 'Peinture commerciale intérieure 1',
     },
     {
-      src: null,
-      alt: 'Missing image',
+      src: img5970,
+      alt: 'Peinture commerciale intérieure 2',
     },
     {
-      src: null,
-      alt: 'Missing image',
+      src: img5971,
+      alt: 'Peinture commerciale intérieure 3',
+    },
+    {
+      src: img5972,
+      alt: 'Peinture commerciale intérieure 4',
+    },
+    {
+      src: img5973,
+      alt: 'Peinture commerciale intérieure 5',
+    },
+    {
+      src: img5974,
+      alt: 'Peinture commerciale intérieure 6',
     },
   ],
 };

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import HeroSection from '../home-page/HeroSection';
@@ -12,11 +12,15 @@ import ResourcesSection from '../home-page/ResourcesSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import TrustBanner from '../home-page/TrustBanner';
 import FinalCTASection from '../home-page/FinalCTASection';
+import appContext from '../../AppProvider';
 
 import SubmissionModal from '../home-page/SubmissionModal';
 
 export default function NewHomePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { currentLang } = useContext(appContext);
+  const isFr = currentLang === 'fr';
+  const pageContext = isFr ? 'Accueil' : 'Home';
 
   return (
     <Fragment>
@@ -38,21 +42,21 @@ export default function NewHomePage() {
       </Helmet>
 
       <Box w='100%' bg='white' overflowX='hidden'>
-        <HeroSection onSubmissionOpen={onOpen} />
+        <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
 
         <TrustBanner />
 
         <ServicesSection />
 
+        <RecentProjectsSection pageContext={pageContext} />
+
         <WhyUsSection onSubmissionOpen={onOpen} />
 
-        <TeamSection />
+        <TeamSection pageContext={pageContext} />
 
         <ReviewsSection />
 
-        <RecentProjectsSection />
-
-        <SectorsSection />
+        <SectorsSection pageContext={pageContext} disableLinks={true} />
 
         <ResourcesSection />
 

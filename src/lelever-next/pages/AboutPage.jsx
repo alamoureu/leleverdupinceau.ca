@@ -20,12 +20,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ReviewsSection from '../home-page/ReviewsSection';
-import RecentProjectsSection from '../home-page/RecentProjectsSection';
 import SectorsSection from '../home-page/SectorsSection';
-import teamImage1 from '../images/Propreté.PNG';
-import teamImage2 from '../images/Qualité.PNG';
-import teamImage3 from '../images/Respect.PNG';
-import teamImage4 from '../images/Transparence.JPG';
+
 
 export default function AboutPage() {
   const { currentLang } = useContext(appContext);
@@ -206,6 +202,7 @@ export default function AboutPage() {
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={0}>
+            {/* Breadcrumbs */}
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -231,6 +228,7 @@ export default function AboutPage() {
               </Text>
             </HStack>
 
+            {/* Intro Content */}
             <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
@@ -266,54 +264,69 @@ export default function AboutPage() {
               </Text>
             </Stack>
 
-            {/* Images Section */}
-            <SimpleGrid
-              columns={{ base: 2, md: 4 }}
-              spacing={{ base: 3, md: 4 }}
-              mb={{ base: 12, md: 16 }}
-            >
-              <Image
-                src={teamImage1}
-                alt={
-                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
-                }
-                borderRadius='lg'
-                objectFit='cover'
-                h={{ base: '150px', md: '200px' }}
-                w='100%'
-              />
-              <Image
-                src={teamImage2}
-                alt={
-                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
-                }
-                borderRadius='lg'
-                objectFit='cover'
-                h={{ base: '150px', md: '200px' }}
-                w='100%'
-              />
-              <Image
-                src={teamImage3}
-                alt={
-                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
-                }
-                borderRadius='lg'
-                objectFit='cover'
-                h={{ base: '150px', md: '200px' }}
-                w='100%'
-              />
-              <Image
-                src={teamImage4}
-                alt={
-                  isFr ? 'Équipe peinture Montréal' : 'Montreal painting team'
-                }
-                borderRadius='lg'
-                objectFit='cover'
-                h={{ base: '150px', md: '200px' }}
-                w='100%'
-              />
-            </SimpleGrid>
+            {/* Values Section (Moved Up) */}
+            <Box py={{ base: 8, md: 12 }}>
+              <Container maxW='1440px' px={{ base: 0 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign='center'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Les principes qui guident chaque projet'
+                        : 'The principles that guide every project'}
+                    </Heading>
+                  </Stack>
 
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2, lg: 3 }}
+                    spacing={{ base: 8, md: 10 }}
+                    maxW='1200px'
+                    mx='auto'
+                  >
+                    {values.map((value, index) => (
+                      <Box
+                        key={index}
+                        p={{ base: 6, md: 8 }}
+                        bg='white'
+                        borderRadius='xl'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        textAlign='center'
+                      >
+                        <Stack spacing={4}>
+                          <Icon
+                            as={FontAwesomeIcon}
+                            icon={faCheckCircle}
+                            color='#014CC4'
+                            boxSize={6}
+                            mx='auto'
+                          />
+                          <Heading
+                            as='h3'
+                            fontSize='xl'
+                            fontWeight='bold'
+                            color='gray.800'
+                          >
+                            {value.title}
+                          </Heading>
+                          <Text color='gray.600' fontSize='md' lineHeight='1.6'>
+                            {value.description}
+                          </Text>
+                        </Stack>
+                      </Box>
+                    ))}
+                  </SimpleGrid>
+                </Stack>
+              </Container>
+            </Box>
+
+
+
+            {/* Mission Section (Background Gray) */}
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -344,7 +357,7 @@ export default function AboutPage() {
                   <Box maxW='1000px' mx='auto'>
                     <SimpleGrid
                       columns={{ base: 1, md: 2, lg: 3 }}
-                      spacing={{ base: 4, md: 6 }}
+                      spacing={{ base: 6, md: 8 }}
                     >
                       {missionPoints.slice(0, 3).map((point, index) => (
                         <Flex key={index} align='start' gap={3}>
@@ -364,9 +377,9 @@ export default function AboutPage() {
                     </SimpleGrid>
                     {/* Last row - centered on desktop */}
                     <Flex
-                      display={{ base: 'block', lg: 'flex' }}
+                      direction={{ base: 'column', lg: 'row' }}
                       justify='center'
-                      gap={{ base: 0, lg: 6 }}
+                      gap={{ base: 4, lg: 6 }}
                       mt={{ base: 4, lg: 6 }}
                     >
                       {missionPoints.slice(3).map((point, index) => (
@@ -396,136 +409,10 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Les principes qui guident chaque projet'
-                        : 'The principles that guide every project'}
-                    </Heading>
-                  </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 6, md: 8 }}
-                    maxW='1200px'
-                    mx='auto'
-                  >
-                    {values.map((value, index) => (
-                      <Box
-                        key={index}
-                        p={{ base: 6, md: 8 }}
-                        bg='white'
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        textAlign='center'
-                      >
-                        <Stack spacing={3}>
-                          <Icon
-                            as={FontAwesomeIcon}
-                            icon={faCheckCircle}
-                            color='#014CC4'
-                            boxSize={6}
-                            mx='auto'
-                          />
-                          <Heading
-                            as='h3'
-                            fontSize='xl'
-                            fontWeight='bold'
-                            color='gray.800'
-                          >
-                            {value.title}
-                          </Heading>
-                          <Text color='gray.600' fontSize='md' lineHeight='1.6'>
-                            {value.description}
-                          </Text>
-                        </Stack>
-                      </Box>
-                    ))}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} maxW='800px' mx='auto'>
-                  <Stack spacing={3}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Des peintres professionnels expérimentés'
-                        : 'Experienced professional painters'}
-                    </Heading>
-                  </Stack>
-
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    lineHeight='1.7'
-                  >
-                    {isFr
-                      ? 'Notre équipe est composée de peintres :'
-                      : 'Our team is made up of painters who are:'}
-                  </Text>
-
-                  <Stack spacing={3}>
-                    {teamPoints.map((point, index) => (
-                      <Flex key={index} align='start' gap={3}>
-                        <Icon
-                          as={FontAwesomeIcon}
-                          icon={faCheckCircle}
-                          color='#014CC4'
-                          boxSize={5}
-                          mt={1}
-                          flexShrink={0}
-                        />
-                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
-                          {point}
-                        </Text>
-                      </Flex>
-                    ))}
-                  </Stack>
-
-                  <Link
-                    as={RouterLink}
-                    to='/peintre-professionnel'
-                    _hover={{ textDecoration: 'none' }}
-                    w={{ base: '100%', md: 'auto' }}
-                  >
-                    <Button
-                      rightIcon={<ArrowForwardIcon />}
-                      variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
-                      borderRadius='full'
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 5, md: 7 }}
-                      py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
-                    >
-                      {isFr
-                        ? 'Voir notre page Peintres professionnels'
-                        : 'See our Professional Painters page'}
-                    </Button>
-                  </Link>
-                </Stack>
-              </Container>
-            </Box>
-
-            <Box py={{ base: 12, md: 16 }}>
+            {/* Project Types (De la petite retouche...) */}
+            <Box py={{ base: 4, md: 8 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={3} textAlign='center'>
@@ -600,19 +487,78 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            <SectorsSection
-              title={
-                isFr
-                  ? 'Nous servons tout le Grand Montréal'
-                  : 'We serve all of Greater Montreal'
-              }
-              subtitle={
-                isFr
-                  ? 'Tous les quartiers & secteurs desservis'
-                  : 'All neighborhoods & service areas'
-              }
-            />
+            {/* Team Points (Des peintres professionnels...) */}
+            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={6} maxW='800px' mx='auto'>
+                  <Stack spacing={3}>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Des peintres professionnels expérimentés'
+                        : 'Experienced professional painters'}
+                    </Heading>
+                  </Stack>
 
+                  <Text
+                    fontSize={{ base: 'md', md: 'lg' }}
+                    color='gray.600'
+                    lineHeight='1.7'
+                  >
+                    {isFr
+                      ? 'Notre équipe est composée de peintres :'
+                      : 'Our team is made up of painters who are:'}
+                  </Text>
+
+                  <Stack spacing={5}>
+                    {teamPoints.map((point, index) => (
+                      <Flex key={index} align='start' gap={3}>
+                        <Icon
+                          as={FontAwesomeIcon}
+                          icon={faCheckCircle}
+                          color='#014CC4'
+                          boxSize={5}
+                          mt={1}
+                          flexShrink={0}
+                        />
+                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                          {point}
+                        </Text>
+                      </Flex>
+                    ))}
+                  </Stack>
+
+                  <Link
+                    as={RouterLink}
+                    to='/peintre-professionnel'
+                    _hover={{ textDecoration: 'none' }}
+                    w={{ base: '100%', md: 'auto' }}
+                  >
+                    <Button
+                      rightIcon={<ArrowForwardIcon />}
+                      variant='outline'
+                      borderColor='#014CC4'
+                      color='#014CC4'
+                      borderRadius='full'
+                      fontSize={{ base: 'sm', md: 'md' }}
+                      px={{ base: 5, md: 7 }}
+                      py={{ base: 3, md: 4 }}
+                      _hover={{ bg: '#014CC4', color: 'white' }}
+                    >
+                      {isFr
+                        ? 'Voir notre page Peintres professionnels'
+                        : 'See our Professional Painters page'}
+                    </Button>
+                  </Link>
+                </Stack>
+              </Container>
+            </Box>
+
+            {/* Guarantees */}
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -664,7 +610,19 @@ export default function AboutPage() {
               </Container>
             </Box>
 
-            <RecentProjectsSection />
+            <SectorsSection
+              title={
+                isFr
+                  ? 'Nous servons tout le Grand Montréal'
+                  : 'We serve all of Greater Montreal'
+              }
+              subtitle={
+                isFr
+                  ? 'Tous les quartiers & secteurs desservis'
+                  : 'All neighborhoods & service areas'
+              }
+              pageContext={isFr ? 'Page À propos' : 'About Page'}
+            />
 
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -683,30 +641,7 @@ export default function AboutPage() {
                   </Stack>
                 </Stack>
               </Container>
-              <ReviewsSection hideTitle={true} />
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Box textAlign='center' pt={8}>
-                  <Link
-                    as={RouterLink}
-                    to='/avis'
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    <Button
-                      rightIcon={<ArrowForwardIcon />}
-                      variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
-                      borderRadius='full'
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 5, md: 7 }}
-                      py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
-                    >
-                      {isFr ? 'Voir tous les avis' : 'See all reviews'}
-                    </Button>
-                  </Link>
-                </Box>
-              </Container>
+              <ReviewsSection hideTitle={true} hideButton={true} />
             </Box>
           </Stack>
         </Container>

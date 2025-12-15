@@ -9,6 +9,7 @@ import {
   useBreakpointValue,
   HStack,
   IconButton,
+  Image,
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
@@ -20,8 +21,16 @@ import projetCommercial from '../images/projet_commercial.jpg';
 import projetCommercial2 from '../images/projet_commercial_2.jpg';
 import projetExterieur from '../images/projet_exterieur.jpg';
 
-export default function RecentProjectsSection() {
+export default function RecentProjectsSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
+
+  const getAltText = (title, context) => {
+    const baseAlt = title;
+    if (context) {
+      return `${baseAlt} - ${context}`;
+    }
+    return baseAlt;
+  };
 
   const projects = [
     {
@@ -61,6 +70,7 @@ export default function RecentProjectsSection() {
       description: t.projectCommercialDesc2,
     },
   ];
+
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3 });
   const [currentImageIndex, setCurrentImageIndex] = useState({});
 
@@ -157,7 +167,7 @@ export default function RecentProjectsSection() {
                       </Text>
                     )}
                     {project.images && project.images.length > 0 && (
-                      <>
+                      <Box w="100%" h="100%" position="relative">
                         <AnimatePresence initial={false}>
                           <motion.div
                             key={currentIndex}
@@ -174,12 +184,12 @@ export default function RecentProjectsSection() {
                               height: '100%',
                             }}
                           >
-                            <Box
-                              bgImage={`url(${project.images[currentIndex]})`}
-                              bgSize='cover'
-                              bgPosition='center'
+                            <Image
+                              src={project.images[currentIndex]}
+                              alt={getAltText(project.title, pageContext)}
                               w='100%'
                               h='100%'
+                              objectFit='cover'
                             />
                           </motion.div>
                         </AnimatePresence>
@@ -256,7 +266,7 @@ export default function RecentProjectsSection() {
                             </HStack>
                           </>
                         )}
-                      </>
+                      </Box>
                     )}
                   </Box>
 

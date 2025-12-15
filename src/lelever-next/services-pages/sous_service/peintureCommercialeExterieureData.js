@@ -1,3 +1,11 @@
+// Forces HMR update
+import img5969 from '../../images/before_after/IMG_5969.jpg';
+import img5970 from '../../images/before_after/IMG_5970.jpg';
+import img5971 from '../../images/before_after/IMG_5971.jpg';
+import img5972 from '../../images/before_after/IMG_5972.jpg';
+import img5973 from '../../images/before_after/IMG_5973.jpg';
+import img5974 from '../../images/before_after/IMG_5974.jpg';
+
 // Data for Peinture Commerciale Extérieure sub-service page
 
 export const peintureCommercialeExterieureData = {
@@ -14,8 +22,18 @@ export const peintureCommercialeExterieureData = {
     en: 'Commercial exterior painting – Le Lever du Pinceau',
   },
   introduction: {
-    fr: "La peinture commerciale extérieure est essentielle pour protéger votre bâtiment, attirer les clients et maintenir une image professionnelle cohérente avec votre marque. Le Lever du Pinceau réalise des projets extérieurs pour commerces, restaurants, bureaux, façades commerciales et immeubles dans tout le Grand Montréal. Nos peintres professionnels utilisent des produits durables, résistants aux UV, à l'humidité, aux intempéries et aux variations de température. Si vous souhaitez une façade commerciale moderne, robuste et attrayante, notre service de peinture extérieure commerciale garantit un résultat durable et impeccable.",
-    en: 'Commercial exterior painting is essential to protect your building, attract customers and maintain a professional image consistent with your brand. Le Lever du Pinceau carries out exterior projects for businesses, restaurants, offices, commercial facades and buildings throughout Greater Montreal. Our professional painters use durable products, resistant to UV, humidity, weather and temperature variations. If you want a modern, robust and attractive commercial facade, our commercial exterior painting service guarantees a durable and impeccable result.',
+    fr: [
+      "La peinture commerciale extérieure est essentielle pour protéger votre bâtiment, attirer les clients et maintenir une image professionnelle cohérente avec votre marque. Le Lever du Pinceau réalise des projets extérieurs pour commerces, restaurants, bureaux, façades commerciales et immeubles dans tout le Grand Montréal.",
+      "Nos peintres professionnels utilisent des produits durables, résistants aux UV, à l'humidité, aux intempéries et aux variations de température."
+    ],
+    en: [
+      'Commercial exterior painting is essential to protect your building, attract customers and maintain a professional image consistent with your brand. Le Lever du Pinceau carries out exterior projects for businesses, restaurants, offices, commercial facades and buildings throughout Greater Montreal.',
+      'Our professional painters use durable products, resistant to UV, humidity, weather and temperature variations.'
+    ],
+  },
+  introFingerText: {
+    fr: '👉 Pour une façade commerciale moderne, robuste et attrayante, notre service de peinture extérieure commerciale garantit un résultat durable et impeccable.',
+    en: '👉 For a modern, robust and attractive commercial facade, our commercial exterior painting service guarantees a durable and impeccable result.',
   },
   whyUsTitle: {
     fr: 'Une façade commerciale qui attire et inspire confiance',
@@ -85,6 +103,10 @@ export const peintureCommercialeExterieureData = {
         en: 'Montreal',
       },
       href: '/services/peinture-commerciale/exterieure/montreal',
+      subText: {
+        fr: 'Peinture commerciale extérieure durable à Montréal',
+        en: 'Durable commercial exterior painting in Montreal',
+      },
     },
     {
       name: {
@@ -92,6 +114,10 @@ export const peintureCommercialeExterieureData = {
         en: 'Laval',
       },
       href: '/services/peinture-commerciale/exterieure/laval',
+      subText: {
+        fr: 'Peinture commerciale extérieure durable à Laval',
+        en: 'Durable commercial exterior painting in Laval',
+      },
     },
     {
       name: {
@@ -99,6 +125,10 @@ export const peintureCommercialeExterieureData = {
         en: 'Longueuil',
       },
       href: '/services/peinture-commerciale/exterieure/longueuil',
+      subText: {
+        fr: 'Peinture commerciale extérieure durable à Longueuil',
+        en: 'Durable commercial exterior painting in Longueuil',
+      },
     },
     {
       name: {
@@ -106,6 +136,10 @@ export const peintureCommercialeExterieureData = {
         en: 'Brossard',
       },
       href: '/services/peinture-commerciale/exterieure/brossard',
+      subText: {
+        fr: 'Peinture commerciale extérieure durable à Brossard',
+        en: 'Durable commercial exterior painting in Brossard',
+      },
     },
   ],
   projectsTitle: {
@@ -132,29 +166,7 @@ export const peintureCommercialeExterieureData = {
     fr: 'Conseils pour vos projets commerciaux extérieurs',
     en: 'Advice for your commercial exterior projects',
   },
-  guides: [
-    {
-      title: {
-        fr: 'Comment choisir un peintre professionnel ?',
-        en: 'How to choose a professional painter?',
-      },
-      href: '/blog/comment-choisir-un-peintre-professionnel',
-    },
-    {
-      title: {
-        fr: 'Prix peinture Montréal – projets extérieurs',
-        en: 'Painting prices Montreal – exterior projects',
-      },
-      href: '/blog/prix-peinture-montreal',
-    },
-    {
-      title: {
-        fr: 'Erreurs à éviter avant de peindre une façade commerciale',
-        en: 'Mistakes to avoid before painting a commercial facade',
-      },
-      href: '/blog/erreurs-a-eviter-peinture',
-    },
-  ],
+  guides: [],
   aboutTitle: {
     fr: "Des peintres commerciaux qualifiés pour l'extérieur",
     en: 'Qualified commercial painters for exterior work',
@@ -178,16 +190,28 @@ export const peintureCommercialeExterieureData = {
   },
   images: [
     {
-      src: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture commerciale extérieure Montréal',
+      src: img5969,
+      alt: 'Peinture commerciale extérieure 1',
     },
     {
-      src: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture commerciale extérieure Montréal',
+      src: img5970,
+      alt: 'Peinture commerciale extérieure 2',
     },
     {
-      src: 'https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-      alt: 'peinture commerciale extérieure Montréal',
+      src: img5971,
+      alt: 'Peinture commerciale extérieure 3',
+    },
+    {
+      src: img5972,
+      alt: 'Peinture commerciale extérieure 4',
+    },
+    {
+      src: img5973,
+      alt: 'Peinture commerciale extérieure 5',
+    },
+    {
+      src: img5974,
+      alt: 'Peinture commerciale extérieure 6',
     },
   ],
 };

@@ -24,7 +24,7 @@ import { useTranslation } from '../i18n';
 import appContext from '../../AppProvider';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function ReviewsSection({ hideTitle = false }) {
+export default function ReviewsSection({ hideTitle = false, hideButton = false }) {
   const { t } = useTranslation();
   const { currentLang } = useContext(appContext);
 
@@ -292,7 +292,7 @@ export default function ReviewsSection({ hideTitle = false }) {
                   </Box>
                 </motion.div>
               </AnimatePresence>
-              
+
               {/* Left Arrow - Positioned on the left side */}
               <IconButton
                 aria-label='Previous review'
@@ -312,7 +312,7 @@ export default function ReviewsSection({ hideTitle = false }) {
                 zIndex={10}
                 boxShadow='0 2px 8px rgba(0,0,0,0.1)'
               />
-              
+
               {/* Right Arrow - Positioned on the right side */}
               <IconButton
                 aria-label='Next review'
@@ -360,22 +360,28 @@ export default function ReviewsSection({ hideTitle = false }) {
             </HStack>
           </Stack>
 
-          <Link as={RouterLink} to='/avis' _hover={{ textDecoration: 'none' }}>
-            <Button
-              rightIcon={<ArrowForwardIcon />}
-              variant='outline'
-              borderColor='#014CC4'
-              color='#014CC4'
-              bg='white'
-              borderRadius='full'
-              fontSize={{ base: 'sm', md: 'md' }}
-              px={{ base: 5, md: 7 }}
-              py={{ base: 3, md: 4 }}
-              _hover={{ bg: '#014CC4', color: 'white' }}
+          {!hideButton && (
+            <Link
+              as={RouterLink}
+              to='/avis'
+              _hover={{ textDecoration: 'none' }}
             >
-              {t.viewAllReviews}
-            </Button>
-          </Link>
+              <Button
+                rightIcon={<ArrowForwardIcon />}
+                variant='outline'
+                borderColor='#014CC4'
+                color='#014CC4'
+                bg='white'
+                borderRadius='full'
+                fontSize={{ base: 'sm', md: 'md' }}
+                px={{ base: 5, md: 7 }}
+                py={{ base: 3, md: 4 }}
+                _hover={{ bg: '#014CC4', color: 'white' }}
+              >
+                {t.viewAllReviews}
+              </Button>
+            </Link>
+          )}
         </Stack>
       </Container>
     </Box>

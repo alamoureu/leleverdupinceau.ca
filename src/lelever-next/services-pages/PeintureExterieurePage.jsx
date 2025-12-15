@@ -18,8 +18,20 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import CustomProjectsSection from '../city-pages/CustomProjectsSection';
-import ServiceCitiesSectorsSection from './components/ServiceCitiesSectorsSection';
+import RecentProjectsSection from '../home-page/RecentProjectsSection';
+import ResourcesSection from '../home-page/ResourcesSection';
+import SectorsSection, {
+  montrealSecteur,
+  lavalSecteur,
+  longueuilSecteur,
+  brossardSecteur,
+} from '../home-page/SectorsSection';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
 
 export default function PeintureExterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -52,97 +64,97 @@ export default function PeintureExterieurePage() {
 
   const whyUsContent = isFr
     ? [
-        'Nettoyage, préparation et réparation des surfaces',
-        'Décapage ou sablage selon le type de revêtement',
-        'Protection complète des fenêtres, portes et végétation',
-        'Application uniforme et durable',
-        'Produits spécialisés : bois, aluminium, brique, crépi, vinyle',
-        'Finition résistante aux intempéries et aux UV',
-      ]
+      'Nettoyage, préparation et réparation des surfaces',
+      'Décapage ou sablage selon le type de revêtement',
+      'Protection complète des fenêtres, portes et végétation',
+      'Application uniforme et durable',
+      'Produits spécialisés : bois, aluminium, brique, crépi, vinyle',
+      'Finition résistante aux intempéries et aux UV',
+    ]
     : [
-        'Cleaning, preparation and surface repair',
-        'Stripping or sandblasting depending on coating type',
-        'Complete protection of windows, doors and vegetation',
-        'Uniform and durable application',
-        'Specialized products: wood, aluminum, brick, stucco, vinyl',
-        'Finish resistant to weather and UV',
-      ];
+      'Cleaning, preparation and surface repair',
+      'Stripping or sandblasting depending on coating type',
+      'Complete protection of windows, doors and vegetation',
+      'Uniform and durable application',
+      'Specialized products: wood, aluminum, brick, stucco, vinyl',
+      'Finish resistant to weather and UV',
+    ];
 
   const exteriorProjects = isFr
     ? [
-        {
-          id: 1,
-          images: [],
-          title: 'Rafraîchissement de façade résidentielle',
-          description:
-            "Transformation complète de l'apparence de votre maison avec des produits résistants aux intempéries. Protection durable et look moderne.",
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'Peinture de revêtement aluminium',
-          description:
-            'Protection et rafraîchissement de revêtements en aluminium avec des produits spécialisés. Finition durable qui résiste au climat québécois.',
-        },
-        {
-          id: 3,
-          images: [],
-          title: 'Protection de structures extérieures',
-          description:
-            'Peinture de structures métalliques, poutres et éléments architecturaux extérieurs. Protection contre la corrosion et les intempéries.',
-        },
-        {
-          id: 4,
-          images: [],
-          title: 'Mise à jour de commerces ou entrées commerciales',
-          description:
-            "Amélioration de l'image extérieure de votre commerce avec des finitions durables. Pour attirer plus de clients.",
-        },
-        {
-          id: 5,
-          images: [],
-          title: 'Peinture de terrasses et clôtures',
-          description:
-            "Rafraîchissement de terrasses en bois, clôtures et structures extérieures. Protection contre l'humidité, les UV et les variations de température.",
-        },
-      ]
+      {
+        id: 1,
+        images: [],
+        title: 'Rafraîchissement de façade résidentielle',
+        description:
+          "Transformation complète de l'apparence de votre maison avec des produits résistants aux intempéries. Protection durable et look moderne.",
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'Peinture de revêtement aluminium',
+        description:
+          'Protection et rafraîchissement de revêtements en aluminium avec des produits spécialisés. Finition durable qui résiste au climat québécois.',
+      },
+      {
+        id: 3,
+        images: [],
+        title: 'Protection de structures extérieures',
+        description:
+          'Peinture de structures métalliques, poutres et éléments architecturaux extérieurs. Protection contre la corrosion et les intempéries.',
+      },
+      {
+        id: 4,
+        images: [],
+        title: 'Mise à jour de commerces ou entrées commerciales',
+        description:
+          "Amélioration de l'image extérieure de votre commerce avec des finitions durables. Pour attirer plus de clients.",
+      },
+      {
+        id: 5,
+        images: [],
+        title: 'Peinture de terrasses et clôtures',
+        description:
+          "Rafraîchissement de terrasses en bois, clôtures et structures extérieures. Protection contre l'humidité, les UV et les variations de température.",
+      },
+    ]
     : [
-        {
-          id: 1,
-          images: [],
-          title: 'Residential facade refresh',
-          description:
-            "Complete transformation of your home's appearance with weather-resistant products. Durable protection and modern look.",
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'Aluminum coating painting',
-          description:
-            'Protection and refresh of aluminum coatings with specialized products. Durable finish that resists Quebec climate.',
-        },
-        {
-          id: 3,
-          images: [],
-          title: 'Exterior structure protection',
-          description:
-            'Painting of metal structures, beams and exterior architectural elements. Protection against corrosion and weather.',
-        },
-        {
-          id: 4,
-          images: [],
-          title: 'Commercial storefront and entrance updates',
-          description:
-            'Improving the exterior image of your business with durable finishes. To attract more customers.',
-        },
-        {
-          id: 5,
-          images: [],
-          title: 'Deck and fence painting',
-          description:
-            'Refresh of wood decks, fences and exterior structures. Protection against moisture, UV and temperature variations.',
-        },
-      ];
+      {
+        id: 1,
+        images: [],
+        title: 'Residential facade refresh',
+        description:
+          "Complete transformation of your home's appearance with weather-resistant products. Durable protection and modern look.",
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'Aluminum coating painting',
+        description:
+          'Protection and refresh of aluminum coatings with specialized products. Durable finish that resists Quebec climate.',
+      },
+      {
+        id: 3,
+        images: [],
+        title: 'Exterior structure protection',
+        description:
+          'Painting of metal structures, beams and exterior architectural elements. Protection against corrosion and weather.',
+      },
+      {
+        id: 4,
+        images: [],
+        title: 'Commercial storefront and entrance updates',
+        description:
+          'Improving the exterior image of your business with durable finishes. To attract more customers.',
+      },
+      {
+        id: 5,
+        images: [],
+        title: 'Deck and fence painting',
+        description:
+          'Refresh of wood decks, fences and exterior structures. Protection against moisture, UV and temperature variations.',
+      },
+    ];
 
   const cities = [
     { name: isFr ? 'Montréal' : 'Montreal', slug: 'montreal' },
@@ -236,10 +248,50 @@ export default function PeintureExterieurePage() {
                 maxW='900px'
               >
                 {isFr
-                  ? "La peinture extérieure protège votre propriété contre les intempéries, rehausse son apparence et augmente sa valeur. Le Lever du Pinceau réalise des projets de peinture extérieure pour maisons, plex, condos, immeubles résidentiels, commerces et bâtiments industriels dans tout le Grand Montréal. Nos peintres professionnels utilisent des produits haut de gamme, résistants aux UV, à l'humidité, aux variations de température et au climat québécois. Pour rafraîchir votre façade, moderniser une structure extérieure ou protéger un revêtement, notre équipe est prête à intervenir."
-                  : 'Exterior painting protects your property against the elements, enhances its appearance and increases its value. Le Lever du Pinceau carries out exterior painting projects for houses, plex, condos, residential buildings, businesses and industrial buildings throughout Greater Montreal. Our professional painters use high-end products, resistant to UV, humidity, temperature variations and Quebec climate. To refresh your facade, modernize an exterior structure or protect a coating, our team is ready to intervene.'}
+                  ? "La peinture extérieure protège votre propriété contre les intempéries, rehausse son apparence et augmente sa valeur. Le Lever du Pinceau réalise des projets de peinture extérieure pour maisons, plex, condos, immeubles résidentiels, commerces et bâtiments industriels dans tout le Grand Montréal."
+                  : 'Exterior painting protects your property against the elements, enhances its appearance and increases its value. Le Lever du Pinceau carries out exterior painting projects for houses, plex, condos, residential buildings, businesses and industrial buildings throughout Greater Montreal.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='900px'
+                mt={2}
+                fontWeight='medium'
+              >
+                {isFr
+                  ? "👉 Nos peintres professionnels utilisent des produits haut de gamme, résistants aux UV, à l'humidité, aux variations de température et au climat québécois. Pour rafraîchir votre façade, moderniser une structure extérieure ou protéger un revêtement, notre équipe est prête à intervenir."
+                  : '👉 Our professional painters use high-end products, resistant to UV, humidity, temperature variations and Quebec climate. To refresh your facade, modernize an exterior structure or protect a coating, our team is ready to intervene.'}
               </Text>
             </Stack>
+
+            {/* Images Section */}
+            <Box mb={{ base: 12, md: 16 }}>
+              <SimpleGrid
+                columns={{ base: 1, md: 2, lg: 3 }}
+                spacing={4}
+                maxW='1200px'
+              >
+                {[
+                  { src: img5969, alt: 'Projet extérieur 1' },
+                  { src: img5970, alt: 'Projet extérieur 2' },
+                  { src: img5971, alt: 'Projet extérieur 3' },
+                  { src: img5972, alt: 'Projet extérieur 4' },
+                  { src: img5973, alt: 'Projet extérieur 5' },
+                  { src: img5974, alt: 'Projet extérieur 6' },
+                ].map((img, index) => (
+                  <Image
+                    key={index}
+                    src={img.src}
+                    alt={img.alt}
+                    borderRadius='lg'
+                    w='100%'
+                    h={{ base: '200px', md: '250px' }}
+                    objectFit='cover'
+                  />
+                ))}
+              </SimpleGrid>
+            </Box>
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <Box
@@ -441,75 +493,48 @@ export default function PeintureExterieurePage() {
                       </Box>
                     </Link>
 
-                    <Link
-                      as={RouterLink}
-                      to='/services/peinture-industrielle'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        p={6}
-                        bg='white'
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        _hover={{
-                          borderColor: '#014CC4',
-                          transform: 'translateY(-2px)',
-                          boxShadow: 'md',
-                        }}
-                        transition='all 0.2s'
-                      >
-                        <Stack spacing={3}>
-                          <Heading
-                            as='h3'
-                            fontSize='xl'
-                            fontWeight='bold'
-                            color='gray.800'
-                          >
-                            {isFr
-                              ? 'Peinture industrielle extérieure'
-                              : 'Industrial exterior painting'}
-                          </Heading>
-                          <Text fontSize='md' color='gray.600' lineHeight='1.6'>
-                            {isFr
-                              ? "Structures métalliques, revêtements, façades d'usines, équipements extérieurs."
-                              : 'Metal structures, coatings, factory facades, exterior equipment.'}
-                          </Text>
-                          <HStack spacing={2} color='#014CC4'>
-                            <Text fontSize='sm' fontWeight='medium'>
-                              {isFr ? 'Voir la page' : 'View page'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={4} />
-                          </HStack>
-                        </Stack>
-                      </Box>
-                    </Link>
+
                   </SimpleGrid>
                 </Stack>
               </Container>
             </Box>
 
             {/* Section 3 — Peinture extérieure par ville */}
-            <ServiceCitiesSectorsSection
+            <SectorsSection
               title={
                 isFr
                   ? 'Disponible dans tout le Grand Montréal'
                   : 'Available throughout Greater Montreal'
               }
-              serviceName={isFr ? 'Peinture extérieure' : 'Exterior painting'}
-              serviceSlug='new-peinture-exterieure'
-              cities={cities}
+              sectors={[
+                {
+                  name: 'Montréal',
+                  link: '/services/new-peinture-exterieure/montreal',
+                  image: montrealSecteur,
+                },
+                {
+                  name: 'Laval',
+                  link: '/services/new-peinture-exterieure/laval',
+                  image: lavalSecteur,
+                },
+                {
+                  name: 'Longueuil',
+                  link: '/services/new-peinture-exterieure/longueuil',
+                  image: longueuilSecteur,
+                },
+                {
+                  name: 'Brossard',
+                  link: '/services/new-peinture-exterieure/brossard',
+                  image: brossardSecteur,
+                },
+              ]}
             />
 
             {/* Section 4 — Exemples de projets */}
-            <CustomProjectsSection
-              title={
-                isFr
-                  ? 'Quelques réalisations en peinture extérieure'
-                  : 'Some exterior painting achievements'
-              }
-              subtitle={isFr ? 'Projets typiques :' : 'Typical projects:'}
-              projects={exteriorProjects}
+            <RecentProjectsSection />
+
+            <ResourcesSection
+              excludeSlugs={['/blog/erreurs-a-eviter-peinture-interieure']}
             />
 
             {/* Section 5 — À propos de nos peintres */}
@@ -520,7 +545,8 @@ export default function PeintureExterieurePage() {
               mb={{ base: 8, md: 12 }}
             >
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} textAlign='left'>
+
+                <Stack spacing={6} textAlign='center' align='center'>
                   <Heading
                     as='h2'
                     fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -535,6 +561,8 @@ export default function PeintureExterieurePage() {
                     fontSize={{ base: 'md', md: 'lg' }}
                     color='gray.600'
                     lineHeight='1.7'
+                    maxW='800px'
+                    mx='auto'
                   >
                     {isFr
                       ? 'Nos peintres professionnels sont formés pour travailler en hauteur, sur divers types de revêtements et dans des environnements extérieurs exigeants.'

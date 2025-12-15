@@ -10,17 +10,24 @@ import {
   Text,
   HStack,
   Icon,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../../AppProvider';
+import {
+  montrealSecteur,
+  lavalSecteur,
+  longueuilSecteur,
+  brossardSecteur,
+} from '../../home-page/SectorsSection';
 
 const defaultCities = [
-  { name: 'Montréal', slug: 'montreal' },
-  { name: 'Laval', slug: 'laval' },
-  { name: 'Longueuil', slug: 'longueuil' },
-  { name: 'Brossard', slug: 'brossard' },
+  { name: 'Montréal', slug: 'montreal', image: montrealSecteur },
+  { name: 'Laval', slug: 'laval', image: lavalSecteur },
+  { name: 'Longueuil', slug: 'longueuil', image: longueuilSecteur },
+  { name: 'Brossard', slug: 'brossard', image: brossardSecteur },
 ];
 
 export default function ServiceCitiesSectorsSection({
@@ -32,6 +39,15 @@ export default function ServiceCitiesSectorsSection({
 }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+
+  // Merge default images if not provided in cities prop
+  const citiesWithImages = cities.map((city) => {
+    const defaultCity = defaultCities.find((c) => c.slug === city.slug);
+    return {
+      ...city,
+      image: city.image || (defaultCity ? defaultCity.image : montrealSecteur),
+    };
+  });
 
   return (
     <Box
@@ -56,7 +72,7 @@ export default function ServiceCitiesSectorsSection({
           </Stack>
 
           <SimpleGrid columns={{ base: 2, sm: 4 }} spacing={6} w='100%'>
-            {cities.map((city, index) => {
+            {citiesWithImages.map((city, index) => {
               const to = city.href || `/services/${serviceSlug}/${city.slug}`;
               return (
                 <Link
@@ -66,69 +82,80 @@ export default function ServiceCitiesSectorsSection({
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Box
-                    p={8}
-                    bg='white'
+                    position='relative'
                     borderRadius='2xl'
-                    textAlign='center'
+                    overflow='hidden'
                     border='1px solid'
                     borderColor='gray.200'
                     cursor='pointer'
-                    h='100%'
+                    transition='all 0.2s'
                     minH={{ base: '180px', md: '200px' }}
-                    display='flex'
-                    flexDirection='column'
+                    h='100%'
+                    w='100%'
                     _hover={{
                       borderColor: '#014CC4',
-                      transform: 'translateY(-2px)',
                       boxShadow: 'md',
+                      transform: 'translateY(-2px)',
                     }}
-                    transition='all 0.2s'
                   >
-                    <Stack
-                      spacing={4}
-                      align='center'
-                      flex={1}
-                      justify='space-between'
+                    <Image
+                      src={city.image}
+                      alt={
+                        serviceName ? `${serviceName} ${city.name}` : city.name
+                      }
+                      position='absolute'
+                      top={0}
+                      left={0}
                       w='100%'
+                      h='100%'
+                      objectFit='cover'
+                      zIndex={0}
+                    />
+                    {/* Color Overlay Filter */}
+                    <Box
+                      position='absolute'
+                      top={0}
+                      left={0}
+                      right={0}
+                      bottom={0}
+                      bgGradient='linear(to-b, rgba(1, 76, 196, 0.55), rgba(1, 76, 196, 0.15))'
+                      zIndex={1}
+                    />
+
+                    {/* Content */}
+                    <Box
+                      position='relative'
+                      zIndex={2}
+                      p={4}
+                      h='100%'
+                      display='flex'
+                      flexDirection='column'
+                      alignItems='center'
+                      justifyContent='center'
                     >
-                      <Icon
-                        as={FontAwesomeIcon}
-                        icon={faMapMarkerAlt}
-                        boxSize={6}
-                        color='#014CC4'
-                        flexShrink={0}
-                      />
-                      <Text
-                        fontWeight='700'
-                        color='gray.800'
-                        fontSize='xl'
-                        letterSpacing='-0.02em'
-                        lineHeight='1.4'
-                        minH={{ base: '48px', md: '56px' }}
-                        display='flex'
-                        alignItems='center'
-                        justifyContent='center'
-                        textAlign='center'
-                        w='100%'
-                      >
-                        {serviceName
-                          ? `${serviceName} ${city.name}`
-                          : city.name}
-                      </Text>
-                      {showViewLink && (
-                        <HStack
-                          spacing={2}
-                          color='#014CC4'
-                          justify='center'
-                          flexShrink={0}
+                      <Stack spacing={3} align='center'>
+                        <Icon
+                          as={FontAwesomeIcon}
+                          icon={faMapMarkerAlt}
+                          boxSize={6}
+                          color='white'
+                          filter='drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
+                        />
+                        <Text
+                          fontWeight='700'
+                          color='white'
+                          fontSize={{ base: 'lg', md: 'xl' }}
+                          letterSpacing='-0.02em'
+                          lineHeight='1.3'
+                          textShadow='0 2px 4px rgba(0,0,0,0.3)'
+                          textAlign='center'
                         >
-                          <Text fontSize='sm' fontWeight='medium'>
-                            {isFr ? 'Voir' : 'View'}
-                          </Text>
-                          <ArrowForwardIcon boxSize={4} />
-                        </HStack>
-                      )}
-                    </Stack>
+                          {serviceName
+                            ? `${serviceName} ${city.name}`
+                            : city.name}
+                        </Text>
+                      </Stack>
+                    </Box>
                   </Box>
                 </Link>
               );

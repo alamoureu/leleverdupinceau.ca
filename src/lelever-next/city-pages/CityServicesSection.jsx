@@ -13,40 +13,50 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 
-export default function CityServicesSection({ cityName, citySlug }) {
+export default function CityServicesSection({ cityName, citySlug, serviceDescriptions }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
   const services = [
     {
+      key: 'residential',
       name: isFr
         ? `Peinture résidentielle ${cityName}`
         : `Residential painting ${cityName}`,
       link: `/services/peinture-residentielle/${citySlug}`,
+      description: serviceDescriptions?.residential,
     },
     {
+      key: 'commercial',
       name: isFr
         ? `Peinture commerciale ${cityName}`
         : `Commercial painting ${cityName}`,
       link: `/services/peinture-commerciale/${citySlug}`,
+      description: serviceDescriptions?.commercial,
     },
     {
+      key: 'interior',
       name: isFr
         ? `Peinture intérieure ${cityName}`
         : `Interior painting ${cityName}`,
       link: `/services/new-peinture-interieure/${citySlug}`,
+      description: serviceDescriptions?.interior,
     },
     {
+      key: 'exterior',
       name: isFr
         ? `Peinture extérieure ${cityName}`
         : `Exterior painting ${cityName}`,
       link: `/services/new-peinture-exterieure/${citySlug}`,
+      description: serviceDescriptions?.exterior,
     },
     {
+      key: 'industrial',
       name: isFr
         ? `Peinture industrielle ${cityName}`
         : `Industrial painting ${cityName}`,
       link: `/services/peinture-industrielle/${citySlug}`,
+      description: serviceDescriptions?.industrial,
     },
   ];
 
@@ -106,7 +116,12 @@ export default function CityServicesSection({ cityName, citySlug }) {
                     <Text fontWeight='bold' color='gray.800' fontSize='lg'>
                       {service.name}
                     </Text>
-                    <HStack spacing={2} color='#014CC4'>
+                    {service.description && (
+                      <Text fontSize='sm' color='gray.600' mt={1}>
+                        {service.description}
+                      </Text>
+                    )}
+                    <HStack spacing={2} color='#014CC4' mt={2}>
                       <Text fontSize='sm' fontWeight='medium'>
                         {isFr ? 'Voir' : 'View'}
                       </Text>

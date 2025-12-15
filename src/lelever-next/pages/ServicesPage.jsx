@@ -14,7 +14,6 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
-import RecentProjectsSection from '../home-page/RecentProjectsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection from '../home-page/SectorsSection';
 
@@ -178,8 +177,8 @@ export default function ServicesPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? "Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Nos équipes de peintres professionnels réalisent des projets résidentiels, commerciaux, intérieurs, extérieurs et industriels avec une finition impeccable. Ce Hub regroupe l'ensemble de nos services afin de vous orienter rapidement vers la page correspondant à votre besoin."
-                  : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Our teams of professional painters carry out residential, commercial, interior, exterior and industrial projects with impeccable finish. This Hub brings together all our services to quickly guide you to the page corresponding to your need.'}
+                  ? "Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Nos équipes de peintres professionnels réalisent des projets résidentiels, commerciaux, intérieurs, extérieurs et industriels avec une finition impeccable. Cette page regroupe l'ensemble de nos services afin de vous orienter rapidement vers la page correspondant à votre besoin."
+                  : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Our teams of professional painters carry out residential, commercial, interior, exterior and industrial projects with impeccable finish. This page brings together all our services to quickly guide you to the page corresponding to your need.'}
               </Text>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -343,8 +342,8 @@ export default function ServicesPage() {
                                     ? 'Voir peinture résidentielle'
                                     : 'View residential painting'
                                   : isFr
-                                  ? 'Voir peinture commerciale'
-                                  : 'View commercial painting'}
+                                    ? 'Voir peinture commerciale'
+                                    : 'View commercial painting'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
                             </HStack>
@@ -414,13 +413,22 @@ export default function ServicesPage() {
               </Container>
             </Box>
 
-            <SectorsSection />
-
-            {/* Section 4.5 — Projets récents */}
-            <RecentProjectsSection />
+            <SectorsSection
+              title={
+                isFr
+                  ? 'Services disponibles dans votre ville'
+                  : 'Services available in your city'
+              }
+            />
 
             {/* Section 5 — Guides & ressources */}
-            <ResourcesSection />
+            <ResourcesSection
+              title={
+                isFr
+                  ? 'Conseils pratiques avant de choisir votre service'
+                  : 'Practical advice before choosing your service'
+              }
+            />
           </Stack>
         </Container>
 

@@ -18,8 +18,20 @@ import appContext from '../../AppProvider';
 import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import ServiceWhyUsSection from './components/ServiceWhyUsSection';
 import ServiceSubServicesSection from './components/ServiceSubServicesSection';
-import ServiceCitiesSectorsSection from './components/ServiceCitiesSectorsSection';
+import ResourcesSection from '../home-page/ResourcesSection';
+import SectorsSection, {
+  montrealSecteur,
+  lavalSecteur,
+  longueuilSecteur,
+  brossardSecteur,
+} from '../home-page/SectorsSection';
 import ServiceCTASection from './components/ServiceCTASection';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
 
 export default function PeintureInterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -52,100 +64,108 @@ export default function PeintureInterieurePage() {
 
   const whyUsContent = isFr
     ? [
-        'Une préparation soignée (réparations, joints, calfeutrage)',
-        'Une protection complète des meubles, planchers et surfaces',
-        'Une application uniforme sans traces ni démarcations',
-        'Des conseils sur les couleurs, finis et produits',
-        'Une équipe ponctuelle, propre et expérimentée',
-        'Des produits adaptés : fini mat, perle, velours, semi-lustré, etc.',
-      ]
+      'Une préparation soignée (réparations, joints, calfeutrage)',
+      'Une protection complète des meubles, planchers et surfaces',
+      'Une application uniforme sans traces ni démarcations',
+      'Des conseils sur les couleurs, finis et produits',
+      'Une équipe ponctuelle, propre et expérimentée',
+      'Des produits adaptés : fini mat, perle, velours, semi-lustré, etc.',
+    ]
     : [
-        'Careful preparation (repairs, joints, caulking)',
-        'Complete protection of furniture, floors and surfaces',
-        'Uniform application without traces or demarcations',
-        'Advice on colors, finishes and products',
-        'A punctual, clean and experienced team',
-        'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
-      ];
+      'Careful preparation (repairs, joints, caulking)',
+      'Complete protection of furniture, floors and surfaces',
+      'Uniform application without traces or demarcations',
+      'Advice on colors, finishes and products',
+      'A punctual, clean and experienced team',
+      'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
+    ];
 
   const interiorProjects = isFr
     ? [
-        {
-          id: 1,
-          images: [],
-          title: 'Rafraîchissement de pièces complètes',
-          description:
-            'Transformation complète de salons, chambres et espaces de vie avec des finitions impeccables. Préparation minutieuse et application professionnelle garanties.',
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'Rénovation intérieure moderne',
-          description:
-            'Mise à jour complète de votre intérieur avec des couleurs contemporaines et des finitions haut de gamme. Résultat professionnel garanti.',
-        },
-        {
-          id: 3,
-          images: [],
-          title: "Peinture d'escaliers et boiseries",
-          description:
-            "Rénovation complète d'escaliers et de boiseries avec des finitions résistantes. Protection des surfaces adjacentes et résultat impeccable.",
-        },
-        {
-          id: 4,
-          images: [],
-          title: 'Peinture de plafonds et murs haute précision',
-          description:
-            'Peinture de plafonds et murs avec une attention particulière aux détails. Application uniforme sans traces de rouleau ni démarcations garantie.',
-        },
-        {
-          id: 5,
-          images: [],
-          title: 'Harmonisation des couleurs dans des espaces ouverts',
-          description:
-            "Création d'une harmonie visuelle dans les espaces ouverts avec des couleurs complémentaires. Conseils personnalisés sur le choix des couleurs inclus.",
-        },
-      ]
+      {
+        id: 1,
+        images: [],
+        title: 'Rafraîchissement de pièces complètes',
+        description:
+          'Transformation complète de salons, chambres et espaces de vie avec des finitions impeccables. Préparation minutieuse et application professionnelle garanties.',
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'Rénovation intérieure moderne',
+        description:
+          'Mise à jour complète de votre intérieur avec des couleurs contemporaines et des finitions haut de gamme. Résultat professionnel garanti.',
+      },
+      {
+        id: 3,
+        images: [],
+        title: "Peinture d'escaliers et boiseries",
+        description:
+          "Rénovation complète d'escaliers et de boiseries avec des finitions résistantes. Protection des surfaces adjacentes et résultat impeccable.",
+      },
+      {
+        id: 4,
+        images: [],
+        title: 'Peinture de plafonds et murs haute précision',
+        description:
+          'Peinture de plafonds et murs avec une attention particulière aux détails. Application uniforme sans traces de rouleau ni démarcations garantie.',
+      },
+      {
+        id: 5,
+        images: [],
+        title: 'Harmonisation des couleurs dans des espaces ouverts',
+        description:
+          "Création d'une harmonie visuelle dans les espaces ouverts avec des couleurs complémentaires. Conseils personnalisés sur le choix des couleurs inclus.",
+      },
+    ]
     : [
-        {
-          id: 1,
-          images: [],
-          title: 'Complete room refresh',
-          description:
-            'Complete transformation of living rooms, bedrooms and living spaces with impeccable finishes. Careful preparation and professional application.',
-        },
-        {
-          id: 2,
-          images: [],
-          title: 'Modern interior renovation',
-          description:
-            'Complete update of your interior with contemporary colors and high-end finishes. Professional result guaranteed.',
-        },
-        {
-          id: 3,
-          images: [],
-          title: 'Stair and woodwork painting',
-          description:
-            'Complete renovation of stairs and woodwork with resistant finishes. Protection of adjacent surfaces and impeccable result.',
-        },
-        {
-          id: 4,
-          images: [],
-          title: 'High precision ceiling and wall painting',
-          description:
-            'Painting of ceilings and walls with particular attention to detail. Uniform application without roller marks or demarcations.',
-        },
-        {
-          id: 5,
-          images: [],
-          title: 'Color harmonization in open spaces',
-          description:
-            'Creating visual harmony in open spaces with complementary colors. Personalized advice on color choice.',
-        },
-      ];
+      {
+        id: 1,
+        images: [],
+        title: 'Complete room refresh',
+        description:
+          'Complete transformation of living rooms, bedrooms and living spaces with impeccable finishes. Careful preparation and professional application.',
+      },
+      {
+        id: 2,
+        images: [],
+        title: 'Modern interior renovation',
+        description:
+          'Complete update of your interior with contemporary colors and high-end finishes. Professional result guaranteed.',
+      },
+      {
+        id: 3,
+        images: [],
+        title: 'Stair and woodwork painting',
+        description:
+          'Complete renovation of stairs and woodwork with resistant finishes. Protection of adjacent surfaces and impeccable result.',
+      },
+      {
+        id: 4,
+        images: [],
+        title: 'High precision ceiling and wall painting',
+        description:
+          'Painting of ceilings and walls with particular attention to detail. Uniform application without roller marks or demarcations.',
+      },
+      {
+        id: 5,
+        images: [],
+        title: 'Color harmonization in open spaces',
+        description:
+          'Creating visual harmony in open spaces with complementary colors. Personalized advice on color choice.',
+      },
+    ];
 
   // Images section removed to avoid duplication with project images above
-  const images = [];
+  // Images section populated
+  const images = [
+    { src: img5969, alt: isFr ? 'Projet intérieur 1' : 'Interior project 1' },
+    { src: img5970, alt: isFr ? 'Projet intérieur 2' : 'Interior project 2' },
+    { src: img5971, alt: isFr ? 'Projet intérieur 3' : 'Interior project 3' },
+    { src: img5972, alt: isFr ? 'Projet intérieur 4' : 'Interior project 4' },
+    { src: img5973, alt: isFr ? 'Projet intérieur 5' : 'Interior project 5' },
+    { src: img5974, alt: isFr ? 'Projet intérieur 6' : 'Interior project 6' },
+  ];
 
   return (
     <Fragment>
@@ -235,8 +255,20 @@ export default function PeintureInterieurePage() {
                 maxW='900px'
               >
                 {isFr
-                  ? "La peinture intérieure transforme immédiatement l'apparence d'un espace, que ce soit pour rafraîchir une pièce, moderniser un condo, ou revoir entièrement le style de votre maison. Le Lever du Pinceau offre des services de peinture intérieure professionnels à Montréal, Laval, Longueuil et Brossard pour tous types de surfaces : murs, plafonds, escaliers, boiseries et plus. Nos peintres travaillent proprement, rapidement et avec un souci constant du détail. Pour un intérieur impeccable, durable et adapté à votre style, notre équipe est là pour vous accompagner."
-                  : 'Interior painting immediately transforms the appearance of a space, whether to refresh a room, modernize a condo, or completely rethink the style of your home. Le Lever du Pinceau offers professional interior painting services in Montreal, Laval, Longueuil and Brossard for all types of surfaces: walls, ceilings, stairs, woodwork and more. Our painters work cleanly, quickly and with constant attention to detail. For an impeccable, durable interior adapted to your style, our team is here to support you.'}
+                  ? "La peinture intérieure transforme immédiatement l'apparence d'un espace, que ce soit pour rafraîchir une pièce, moderniser un condo, ou revoir entièrement le style de votre maison. Le Lever du Pinceau offre des services de peinture intérieure professionnels à Montréal, Laval, Longueuil et Brossard pour tous types de surfaces : murs, plafonds, escaliers, boiseries et plus."
+                  : 'Interior painting immediately transforms the appearance of a space, whether to refresh a room, modernize a condo, or completely rethink the style of your home. Le Lever du Pinceau offers professional interior painting services in Montreal, Laval, Longueuil and Brossard for all types of surfaces: walls, ceilings, stairs, woodwork and more.'}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='900px'
+                mt={2}
+                fontWeight='medium'
+              >
+                {isFr
+                  ? '👉 Nos peintres travaillent proprement, rapidement et avec un souci constant du détail. Pour un intérieur impeccable, durable et adapté à votre style, notre équipe est là pour vous accompagner.'
+                  : '👉 Our painters work cleanly, quickly and with constant attention to detail. For an impeccable, durable interior adapted to your style, our team is here to support you.'}
               </Text>
             </Stack>
 
@@ -309,27 +341,38 @@ export default function PeintureInterieurePage() {
                     : 'Offices, stores, restaurants and commercial spaces.',
                   link: '/services/peinture-commerciale/interieure',
                 },
-                {
-                  title: isFr
-                    ? 'Peinture industrielle intérieure'
-                    : 'Industrial interior painting',
-                  description: isFr
-                    ? 'Entrepôts, usines et installations industrielles.'
-                    : 'Warehouses, factories and industrial facilities.',
-                  link: '/services/peinture-industrielle',
-                },
               ]}
             />
 
             {/* Section 3 — Peinture intérieure par ville */}
-            <ServiceCitiesSectorsSection
+            <SectorsSection
               title={
                 isFr
                   ? 'Disponible dans tout le Grand Montréal'
                   : 'Available throughout Greater Montreal'
               }
-              serviceName={isFr ? 'Peinture intérieure' : 'Interior painting'}
-              serviceSlug='new-peinture-interieure'
+              sectors={[
+                {
+                  name: 'Montréal',
+                  link: '/services/new-peinture-interieure/montreal',
+                  image: montrealSecteur,
+                },
+                {
+                  name: 'Laval',
+                  link: '/services/new-peinture-interieure/laval',
+                  image: lavalSecteur,
+                },
+                {
+                  name: 'Longueuil',
+                  link: '/services/new-peinture-interieure/longueuil',
+                  image: longueuilSecteur,
+                },
+                {
+                  name: 'Brossard',
+                  link: '/services/new-peinture-interieure/brossard',
+                  image: brossardSecteur,
+                },
+              ]}
             />
 
             {/* Section 4 — Exemples de projets */}
@@ -343,6 +386,8 @@ export default function PeintureInterieurePage() {
               projects={interiorProjects}
             />
 
+            <ResourcesSection />
+
             {/* Section 5 — À propos de nos peintres */}
             <Box
               py={{ base: 12, md: 16 }}
@@ -351,7 +396,7 @@ export default function PeintureInterieurePage() {
               mb={{ base: 8, md: 12 }}
             >
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} textAlign='left'>
+                <Stack spacing={6} textAlign='center' align='center'>
                   <Heading
                     as='h2'
                     fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}

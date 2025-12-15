@@ -14,7 +14,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
 
-export default function TeamSection() {
+export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
   return (
     <Box py={{ base: 12, md: 16 }} bg='white'>
@@ -35,8 +35,8 @@ export default function TeamSection() {
               src={peintureProfessionnelleImg}
               alt={
                 currentLang === 'fr'
-                  ? 'Peintre professionnel au travail'
-                  : 'Professional painter at work'
+                  ? `Peintre professionnel au travail${pageContext ? ' - ' + pageContext : ''}`
+                  : `Professional painter at work${pageContext ? ' - ' + pageContext : ''}`
               }
               w='100%'
               h='auto'

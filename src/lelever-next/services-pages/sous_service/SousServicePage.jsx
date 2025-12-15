@@ -13,6 +13,7 @@ import {
   VStack,
   HStack,
   Icon,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -84,47 +85,47 @@ export default function SousServicePage() {
     // Build guides array
     const guides = city.guides
       ? city.guides.map((guide) => ({
-          title: guide.title[isFr ? 'fr' : 'en'],
-          href: guide.href,
-        }))
+        title: guide.title[isFr ? 'fr' : 'en'],
+        href: guide.href,
+      }))
       : [
-          {
-            title: isFr
-              ? 'Comment choisir un peintre professionnel ?'
-              : 'How to choose a professional painter?',
-            href: '/blog/comment-choisir-un-peintre-professionnel',
-          },
-          {
-            title: isFr
-              ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
-              : 'Painting prices Montreal / South Shore – what you need to know',
-            href: '/blog/prix-peinture-montreal',
-          },
-          {
-            title: isFr
-              ? 'Erreurs à éviter avant des travaux dans un commerce'
-              : 'Mistakes to avoid before work in a business',
-            href: '/blog/erreurs-a-eviter-peinture',
-          },
-        ];
+        {
+          title: isFr
+            ? 'Comment choisir un peintre professionnel ?'
+            : 'How to choose a professional painter?',
+          href: '/blog/comment-choisir-un-peintre-professionnel',
+        },
+        {
+          title: isFr
+            ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
+            : 'Painting prices Montreal / South Shore – what you need to know',
+          href: '/blog/prix-peinture-montreal',
+        },
+        {
+          title: isFr
+            ? 'Erreurs à éviter avant des travaux dans un commerce'
+            : 'Mistakes to avoid before work in a business',
+          href: '/blog/erreurs-a-eviter-peinture-interieure',
+        },
+      ];
 
     // Build sub-services array
     const subServices = city.subServices
       ? city.subServices.interior && city.subServices.exterior
         ? [
-            {
-              title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
-              link: city.subServices.interior.link,
-              linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
-            },
-            {
-              title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
-              link: city.subServices.exterior.link,
-              linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
-            },
-          ]
+          {
+            title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
+            link: city.subServices.interior.link,
+            linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
+          },
+          {
+            title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
+            link: city.subServices.exterior.link,
+            linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
+          },
+        ]
         : city.subServices.residential && city.subServices.commercial
-        ? [
+          ? [
             {
               title: city.subServices.residential.title[isFr ? 'fr' : 'en'],
               link: city.subServices.residential.link,
@@ -138,7 +139,7 @@ export default function SousServicePage() {
                 city.subServices.commercial.linkText[isFr ? 'fr' : 'en'],
             },
           ]
-        : []
+          : []
       : [];
 
     // Render city page content
@@ -242,8 +243,8 @@ export default function SousServicePage() {
                   {city.h1
                     ? city.h1[isFr ? 'fr' : 'en']
                     : isFr
-                    ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
-                    : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
+                      ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
+                      : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -335,8 +336,8 @@ export default function SousServicePage() {
         ? 'Peinture commerciale'
         : 'Commercial painting'
       : isFr
-      ? 'Peinture résidentielle'
-      : 'Residential painting';
+        ? 'Peinture résidentielle'
+        : 'Residential painting';
 
   // Build breadcrumb schema
   const breadcrumbSchema = {
@@ -373,9 +374,9 @@ export default function SousServicePage() {
   // Build guides array from data
   const guides = pageData.guides
     ? pageData.guides.map((guide) => ({
-        title: guide.title[isFr ? 'fr' : 'en'],
-        href: guide.href,
-      }))
+      title: guide.title[isFr ? 'fr' : 'en'],
+      href: guide.href,
+    }))
     : [];
 
   return (
@@ -479,15 +480,39 @@ export default function SousServicePage() {
             </Heading>
 
             {/* Introduction */}
-            <Text
-              fontSize={{ base: 'lg', md: 'xl' }}
-              color='gray.700'
-              lineHeight='1.8'
-              mb={{ base: 8, md: 12 }}
-              maxW='900px'
-            >
-              {pageData.introduction[isFr ? 'fr' : 'en']}
-            </Text>
+            <Stack spacing={4} mb={{ base: 8, md: 12 }} maxW='900px'>
+              {Array.isArray(pageData.introduction[isFr ? 'fr' : 'en']) ? (
+                pageData.introduction[isFr ? 'fr' : 'en'].map((para, i) => (
+                  <Text
+                    key={i}
+                    fontSize={{ base: 'lg', md: 'xl' }}
+                    color='gray.700'
+                    lineHeight='1.8'
+                  >
+                    {para}
+                  </Text>
+                ))
+              ) : (
+                <Text
+                  fontSize={{ base: 'lg', md: 'xl' }}
+                  color='gray.700'
+                  lineHeight='1.8'
+                >
+                  {pageData.introduction[isFr ? 'fr' : 'en']}
+                </Text>
+              )}
+
+              {pageData.introFingerText && (
+                <Text
+                  fontSize={{ base: 'lg', md: 'xl' }}
+                  color='gray.700'
+                  lineHeight='1.8'
+                  fontWeight='medium'
+                >
+                  {pageData.introFingerText[isFr ? 'fr' : 'en']}
+                </Text>
+              )}
+            </Stack>
 
             {/* Images */}
             {pageData.images && pageData.images.length > 0 && (
@@ -496,34 +521,64 @@ export default function SousServicePage() {
                 spacing={4}
                 mb={{ base: 8, md: 12 }}
               >
-                {pageData.images.map((img, index) => (
-                  <Box
-                    key={index}
-                    borderRadius='lg'
-                    w='100%'
-                    h={{ base: '250px', md: '300px' }}
-                    border='2px dashed'
-                    borderColor='gray.300'
-                    bg='gray.50'
-                    display='flex'
-                    alignItems='center'
-                    justifyContent='center'
-                    color='gray.500'
-                    fontSize='sm'
-                  >
-                    {isFr ? 'Image manquante' : 'Missing image'}
-                  </Box>
-                ))}
+                {pageData.images
+                  .filter((img) => img.src)
+                  .map((img, index) => (
+                    <Box
+                      key={index}
+                      borderRadius='lg'
+                      overflow='hidden'
+                      h={{ base: '250px', md: '300px' }}
+                      boxShadow='md'
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt || 'Projet peinture'}
+                        w='100%'
+                        h='100%'
+                        objectFit='cover'
+                      />
+                    </Box>
+                  ))}
               </SimpleGrid>
             )}
 
             {/* Why Us Section */}
             <ServiceWhyUsSection
               title={pageData.whyUsTitle[isFr ? 'fr' : 'en']}
-              introText={pageData.whyUsIntro[isFr ? 'fr' : 'en']}
+              introText={pageData.whyUsIntro ? pageData.whyUsIntro[isFr ? 'fr' : 'en'] : null}
               content={pageData.whyUsContent[isFr ? 'fr' : 'en']}
-              outroText={pageData.whyUsOutro[isFr ? 'fr' : 'en']}
+              outroText={
+                pageData.whyUsOutro ? pageData.whyUsOutro[isFr ? 'fr' : 'en'] : null
+              }
             />
+
+            {/* CTA below Why Us (if configured) */}
+            {pageData.ctaBelowWhyUs && (
+              <Box mt={8} mb={{ base: 8, md: 12 }} textAlign='center'>
+                <Link
+                  as={RouterLink}
+                  to='/peintre-professionnel'
+                  _hover={{ textDecoration: 'none' }}
+                >
+                  <Button
+                    rightIcon={<ArrowForwardIcon />}
+                    variant='outline'
+                    borderColor='#014CC4'
+                    color='#014CC4'
+                    borderRadius='full'
+                    fontSize={{ base: 'sm', md: 'md' }}
+                    px={{ base: 5, md: 7 }}
+                    py={{ base: 3, md: 4 }}
+                    _hover={{ bg: '#014CC4', color: 'white' }}
+                  >
+                    {isFr
+                      ? 'En savoir plus sur nos peintres professionnels'
+                      : 'Learn more about our professional painters'}
+                  </Button>
+                </Link>
+              </Box>
+            )}
 
             {/* Complementary Services Section */}
             {pageData.complementaryServices && (
@@ -538,6 +593,13 @@ export default function SousServicePage() {
                     >
                       {pageData.complementaryServicesTitle[isFr ? 'fr' : 'en']}
                     </Heading>
+
+                    {pageData.complementaryServicesIntro && (
+                      <Text fontSize='md' color='gray.600'>
+                        {pageData.complementaryServicesIntro[isFr ? 'fr' : 'en']}
+                      </Text>
+                    )}
+
                     <SimpleGrid
                       columns={{ base: 1, md: 3 }}
                       spacing={6}
@@ -599,7 +661,11 @@ export default function SousServicePage() {
             {pageData.cities && (
               <SectorsSection
                 title={pageData.citiesTitle[isFr ? 'fr' : 'en']}
-                subtitle={null}
+                subtitle={
+                  pageData.citiesSubtitle
+                    ? pageData.citiesSubtitle[isFr ? 'fr' : 'en']
+                    : null
+                }
                 showButton={false}
                 sectors={pageData.cities.map((city) => {
                   const citySlug = city.href.split('/').pop();
@@ -607,12 +673,12 @@ export default function SousServicePage() {
                     citySlug === 'montreal'
                       ? montrealSecteur
                       : citySlug === 'laval'
-                      ? lavalSecteur
-                      : citySlug === 'longueuil'
-                      ? longueuilSecteur
-                      : citySlug === 'brossard'
-                      ? brossardSecteur
-                      : null;
+                        ? lavalSecteur
+                        : citySlug === 'longueuil'
+                          ? longueuilSecteur
+                          : citySlug === 'brossard'
+                            ? brossardSecteur
+                            : null;
 
                   return {
                     name:
@@ -621,6 +687,9 @@ export default function SousServicePage() {
                         : city.name,
                     link: city.href,
                     image: cityImage,
+                    subText: city.subText
+                      ? city.subText[isFr ? 'fr' : 'en']
+                      : null,
                   };
                 })}
               />
@@ -665,6 +734,69 @@ export default function SousServicePage() {
                         )
                       )}
                     </SimpleGrid>
+                  </Stack>
+                </Container>
+              </Box>
+            )}
+
+            {/* Services/Surfaces List Section (e.g. for Commercial Interior) */}
+            {pageData.surfacesTitle && pageData.surfaces && (
+              <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }} bg='gray.50' borderRadius='xl'>
+                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                  <Stack spacing={8}>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {pageData.surfacesTitle[isFr ? 'fr' : 'en']}
+                    </Heading>
+                    <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
+                      {pageData.surfaces[isFr ? 'fr' : 'en'].map(
+                        (surface, index) => (
+                          <Box
+                            key={index}
+                            p={6}
+                            bg='white'
+                            borderRadius='lg'
+                            border='1px solid'
+                            borderColor='gray.200'
+                            boxShadow='sm'
+                          >
+                            <Text color='gray.700' fontSize='md' fontWeight='500'>
+                              {surface}
+                            </Text>
+                          </Box>
+                        )
+                      )}
+                    </SimpleGrid>
+
+                    {/* Optional button below surfaces */}
+                    {pageData.aboutButtonLink && pageData.aboutButtonText && (
+                      <Box textAlign='center' mt={8}>
+                        <Link
+                          as={RouterLink}
+                          to={pageData.aboutButtonLink}
+                          _hover={{ textDecoration: 'none' }}
+                        >
+                          <Button
+                            rightIcon={<ArrowForwardIcon />}
+                            variant='outline'
+                            borderColor='#014CC4'
+                            color='#014CC4'
+                            borderRadius='full'
+                            fontSize={{ base: 'sm', md: 'md' }}
+                            px={{ base: 5, md: 7 }}
+                            py={{ base: 3, md: 4 }}
+                            _hover={{ bg: '#014CC4', color: 'white' }}
+                          >
+                            {pageData.aboutButtonText[isFr ? 'fr' : 'en']}
+                          </Button>
+                        </Link>
+                      </Box>
+                    )}
+
                   </Stack>
                 </Container>
               </Box>

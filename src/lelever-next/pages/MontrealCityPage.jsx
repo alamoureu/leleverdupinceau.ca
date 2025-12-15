@@ -9,6 +9,7 @@ import {
   Stack,
   Link,
   HStack,
+  Image,
 } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
@@ -16,6 +17,17 @@ import CityServicesSection from '../city-pages/CityServicesSection';
 import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
+import mtlImage from '../images/mtl.png';
+
+import ResidentialProject from '../images/Projets résidentiels.PNG';
+import ExtProject from '../images/projet_exterieur.jpg';
+import CommercialProject from '../images/Projets commerciaux.PNG';
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5971 from '../images/before_after/IMG_5971.jpg';
+import img5972 from '../images/before_after/IMG_5972.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
 
 export default function MontrealCityPage() {
   const { currentLang } = useContext(appContext);
@@ -48,17 +60,33 @@ export default function MontrealCityPage() {
 
   const projectsContent = isFr
     ? [
-        "• Peinture d'appartements et de condos au centre-ville et dans les quartiers résidentiels",
-        '• Rafraîchissement de maisons unifamiliales dans plusieurs arrondissements',
-        '• Projets commerciaux pour bureaux, commerces, restaurants et cliniques',
-        '• Travaux dans des entrepôts, usines et bâtiments industriels',
-      ]
+      "• Peinture d'appartements et de condos au centre-ville et dans les quartiers résidentiels",
+      '• Rafraîchissement de maisons unifamiliales dans plusieurs arrondissements',
+      '• Projets commerciaux pour bureaux, commerces, restaurants et cliniques',
+      '• Travaux dans des entrepôts, usines et bâtiments industriels',
+    ]
     : [
-        '• Apartment and condo painting in downtown and residential neighborhoods',
-        '• Single-family home refresh in multiple boroughs',
-        '• Commercial projects for offices, stores, restaurants and clinics',
-        '• Work in warehouses, factories and industrial buildings',
-      ];
+      '• Apartment and condo painting in downtown and residential neighborhoods',
+      '• Single-family home refresh in multiple boroughs',
+      '• Commercial projects for offices, stores, restaurants and clinics',
+      '• Work in warehouses, factories and industrial buildings',
+    ];
+
+  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
+
+  const serviceDescriptions = isFr ? {
+    residential: 'Service complet de peinture pour maisons unifamiliales, condos, plex et appartements à Montréal. Finitions soignées.',
+    commercial: 'Solutions et forfaits de peinture pour bureaux, commerces, boutiques et restaurants. Travail rapide.',
+    industrial: "Peinture d'entrepôts, usines et structures industrielles. Protection durable et revêtements spécialisés.",
+    interior: 'Rafraîchissement de murs, plafonds, boiseries et portes. Protection des meubles et nettoyage inclus.',
+    exterior: 'Peinture et entretien de façades, balcons, corniches, briques et revêtements extérieurs.'
+  } : {
+    residential: 'Complete painting service for single-family homes, condos, plex and apartments in Montreal. Careful finishes.',
+    commercial: 'Painting solutions and packages for offices, stores, shops and restaurants. Fast work.',
+    industrial: 'Painting of warehouses, factories and industrial structures. Durable protection and specialized coatings.',
+    interior: 'Refreshing walls, ceilings, woodwork and doors. Furniture protection and cleaning included.',
+    exterior: 'Painting and maintenance of facades, balconies, cornices, bricks and exterior siding.'
+  };
 
   const whyUsIntroText = isFr
     ? "Choisir Le Lever du Pinceau pour vos projets à Montréal, c'est profiter de :"
@@ -66,17 +94,17 @@ export default function MontrealCityPage() {
 
   const whyUsContent = isFr
     ? [
-        '• Une équipe de peintres professionnels habitués aux bâtiments montréalais (plex, condos, immeubles anciens, etc.)',
-        '• Des produits adaptés au climat québécois (froid, chaleur, humidité)',
-        '• Une planification flexible selon votre réalité (résidentiel ou commercial)',
-        "• Un service transparent, du devis jusqu'à la livraison finale",
-      ]
+      '• Une équipe de peintres professionnels habitués aux bâtiments montréalais (plex, condos, immeubles anciens, etc.)',
+      '• Des produits adaptés au climat québécois (froid, chaleur, humidité)',
+      '• Une planification flexible selon votre réalité (résidentiel ou commercial)',
+      "• Un service transparent, du devis jusqu'à la livraison finale",
+    ]
     : [
-        '• A team of professional painters familiar with Montreal buildings (plex, condos, old buildings, etc.)',
-        '• Products adapted to Quebec climate (cold, heat, humidity)',
-        '• Flexible planning according to your reality (residential or commercial)',
-        '• Transparent service, from quote to final delivery',
-      ];
+      '• A team of professional painters familiar with Montreal buildings (plex, condos, old buildings, etc.)',
+      '• Products adapted to Quebec climate (cold, heat, humidity)',
+      '• Flexible planning according to your reality (residential or commercial)',
+      '• Transparent service, from quote to final delivery',
+    ];
 
   return (
     <Fragment>
@@ -148,6 +176,18 @@ export default function MontrealCityPage() {
               </Text>
             </HStack>
 
+            {/* Header Image */}
+            <Box mb={{ base: 8, md: 12 }}>
+              <Image
+                src={mtlImage}
+                alt={isFr ? 'Experts peintres à Montréal - Le Lever du Pinceau' : 'Montreal Painting Experts - Le Lever du Pinceau'}
+                w="100%"
+                h={{ base: '200px', md: '350px' }}
+                objectFit="cover"
+                borderRadius="xl"
+              />
+            </Box>
+
             {/* H1 et Introduction */}
             <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
@@ -160,25 +200,46 @@ export default function MontrealCityPage() {
                   ? 'Peintres à Montréal – Le Lever du Pinceau'
                   : 'Painters in Montreal – Le Lever du Pinceau'}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? "Montréal est au cœur de nos activités de peinture résidentielle, commerciale et industrielle. Le Lever du Pinceau dessert de nombreux quartiers de l'île, des secteurs résidentiels calmes aux rues commerciales animées. Nos peintres professionnels interviennent dans les maisons, condos, commerces, bureaux, immeubles et bâtiments industriels partout à Montréal. Que vous soyez à Outremont, NDG, Plateau-Mont-Royal ou dans un autre quartier de Montréal, notre équipe peut se déplacer rapidement pour vos projets de peinture intérieure et extérieure."
-                  : 'Montreal is at the heart of our residential, commercial and industrial painting activities. Le Lever du Pinceau serves many neighborhoods on the island, from quiet residential sectors to busy commercial streets. Our professional painters work in homes, condos, stores, offices, buildings and industrial facilities throughout Montreal. Whether you are in Outremont, NDG, Plateau-Mont-Royal or another neighborhood in Montreal, our team can quickly come to your location for your interior and exterior painting projects.'}
-              </Text>
+
+              <Box>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  mb={4}
+                  maxW='900px'
+                >
+                  {isFr
+                    ? "Montréal est au cœur de nos activités de peinture résidentielle, commerciale et industrielle. Le Lever du Pinceau dessert de nombreux quartiers de l'île, des secteurs résidentiels calmes aux rues commerciales animées. Nos peintres professionnels interviennent dans les maisons, condos, commerces, bureaux, immeubles et bâtiments industriels partout à Montréal."
+                    : 'Montreal is at the heart of our residential, commercial and industrial painting activities. Le Lever du Pinceau serves many neighborhoods on the island, from quiet residential sectors to busy commercial streets. Our professional painters work in homes, condos, stores, offices, buildings and industrial facilities throughout Montreal.'}
+                </Text>
+
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  fontWeight='medium'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? '👉 Que vous soyez à Outremont, NDG, Plateau-Mont-Royal ou dans un autre quartier de Montréal, notre équipe peut se déplacer rapidement pour vos projets de peinture intérieure et extérieure.'
+                    : '👉 Whether you are in Outremont, NDG, Plateau-Mont-Royal or another neighborhood in Montreal, our team can quickly come to your location for your interior and exterior painting projects.'}
+                </Text>
+              </Box>
             </Stack>
 
             {/* Section 1 — Services de peinture */}
-            <CityServicesSection cityName='Montréal' citySlug='montreal' />
+            <CityServicesSection
+              cityName='Montréal'
+              citySlug='montreal'
+              serviceDescriptions={serviceDescriptions}
+            />
 
             {/* Section 2 — Projets réalisés */}
             <CityProjectsSection
               cityName='Montréal'
               projectsContent={projectsContent}
+              projectImages={projectImages}
             />
 
             {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}

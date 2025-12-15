@@ -9,6 +9,7 @@ import {
   Stack,
   Image,
   Button,
+  Link,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
@@ -24,16 +25,19 @@ export default function ServicesSection() {
       image: peintureResidentielleImg,
       title: t.serviceResidential,
       description: t.serviceResidentialDesc,
+      link: '/services/peinture-residentielle',
     },
     {
       image: peintureCommercialeImg,
       title: t.serviceCommercial,
       description: t.serviceCommercialDesc,
+      link: '/services/peinture-commerciale',
     },
     {
       image: peintureInterieurImg,
       title: t.serviceInterior,
       description: t.serviceInteriorDesc,
+      link: '/services/peinture-interieure',
     },
   ];
   return (
@@ -70,54 +74,70 @@ export default function ServicesSection() {
             justifyItems={{ base: 'center', md: 'stretch' }}
           >
             {services.map((service, index) => (
-              <Box
+              <Link
                 key={index}
-                bg='white'
-                borderRadius='xl'
-                overflow='hidden'
-                border='1px solid'
-                borderColor='gray.200'
-                textAlign='center'
-                cursor='pointer'
+                as={RouterLink}
+                to={service.link}
+                _hover={{ textDecoration: 'none' }}
                 w={{ base: '280px', md: '100%' }}
                 maxW={{ base: '280px', md: 'none' }}
                 mx={{ base: 'auto', md: 0 }}
               >
                 <Box
-                  position='relative'
+                  bg='white'
+                  borderRadius='xl'
                   overflow='hidden'
-                  h={{ base: '140px', md: '180px', lg: '240px' }}
+                  border='1px solid'
+                  borderColor='gray.200'
+                  textAlign='center'
+                  cursor='pointer'
+                  w='100%'
+                  h='100%'
+                  transition='transform 0.2s, box-shadow 0.2s'
+                  _hover={{
+                    transform: 'translateY(-5px)',
+                    boxShadow: 'xl',
+                    borderColor: '#014CC4',
+                  }}
                 >
-                  <Image
-                    src={service.image}
-                    alt={service.title}
-                    w='100%'
-                    h='100%'
-                    objectFit='cover'
-                  />
+                  <Box
+                    position='relative'
+                    overflow='hidden'
+                    h={{ base: '140px', md: '180px', lg: '240px' }}
+                  >
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      w='100%'
+                      h='100%'
+                      objectFit='cover'
+                      transition='transform 0.3s ease'
+                      _hover={{ transform: 'scale(1.05)' }}
+                    />
+                  </Box>
+                  <Stack
+                    p={{ base: 3, md: 5, lg: 6 }}
+                    spacing={{ base: 1.5, md: 2, lg: 3 }}
+                  >
+                    <Heading
+                      as='h3'
+                      fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                      lineHeight='1.2'
+                    >
+                      {service.title}
+                    </Heading>
+                    <Text
+                      fontSize={{ base: 'xs', md: 'sm', lg: 'sm' }}
+                      color='gray.600'
+                      lineHeight='1.5'
+                    >
+                      {service.description}
+                    </Text>
+                  </Stack>
                 </Box>
-                <Stack
-                  p={{ base: 3, md: 5, lg: 6 }}
-                  spacing={{ base: 1.5, md: 2, lg: 3 }}
-                >
-                  <Heading
-                    as='h3'
-                    fontSize={{ base: 'md', md: 'lg', lg: 'xl' }}
-                    fontWeight='bold'
-                    color='gray.800'
-                    lineHeight='1.2'
-                  >
-                    {service.title}
-                  </Heading>
-                  <Text
-                    fontSize={{ base: 'xs', md: 'sm', lg: 'sm' }}
-                    color='gray.600'
-                    lineHeight='1.5'
-                  >
-                    {service.description}
-                  </Text>
-                </Stack>
-              </Box>
+              </Link>
             ))}
           </SimpleGrid>
 

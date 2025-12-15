@@ -137,12 +137,25 @@ export default function BlogPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? "Bienvenue sur le blog du Lever du Pinceau. Nos peintres professionnels partagent des guides pratiques, des conseils d'entretien et des astuces pour réussir vos projets résidentiels, commerciaux, intérieurs ou extérieurs. Ce hub regroupe tous nos articles afin de vous aider à mieux planifier vos travaux et à éviter les erreurs courantes. Parcourez nos articles pour découvrir les meilleures pratiques de peinture."
-                  : "Welcome to Le Lever du Pinceau's blog. Our professional painters share practical guides, maintenance tips and tricks to succeed in your residential, commercial, interior or exterior projects. This hub brings together all our articles to help you better plan your work and avoid common mistakes. Browse our articles to discover the best painting practices."}
+                  ? "Bienvenue sur le blog du Lever du Pinceau. Nos peintres professionnels partagent des guides pratiques, des conseils d'entretien et des astuces pour réussir vos projets résidentiels, commerciaux, intérieurs ou extérieurs. Ce hub regroupe tous nos articles afin de vous aider à mieux planifier vos travaux et à éviter les erreurs courantes."
+                  : "Welcome to Le Lever du Pinceau's blog. Our professional painters share practical guides, maintenance tips and tricks to succeed in your residential, commercial, interior or exterior projects. This hub brings together all our articles to help you better plan your work and avoid common mistakes."}
+              </Text>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                maxW='800px'
+                fontWeight='500'
+              >
+                {isFr
+                  ? '👉 Parcourez nos articles pour découvrir les meilleures pratiques de peinture.'
+                  : '👉 Browse our articles to discover the best painting practices.'}
               </Text>
             </Stack>
 
-            <ResourcesSection />
+            <ResourcesSection
+              title={isFr ? 'Guides essentiels' : 'Essential Guides'}
+            />
 
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>

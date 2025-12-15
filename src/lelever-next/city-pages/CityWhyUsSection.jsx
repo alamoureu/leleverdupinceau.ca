@@ -32,11 +32,7 @@ export default function CityWhyUsSection({
       mb={{ base: 8, md: 12 }}
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-        <SimpleGrid
-          columns={{ base: 1, md: 2 }}
-          spacing={{ base: 8, md: 12 }}
-          align='center'
-        >
+        <Stack spacing={8} align='center' maxW='900px' mx='auto'>
           <Stack spacing={6}>
             <Stack spacing={3} textAlign='left'>
               <Heading
@@ -49,21 +45,21 @@ export default function CityWhyUsSection({
                   ? cityName === 'Montréal'
                     ? 'Une équipe de peintres basée dans le Grand Montréal'
                     : cityName === 'Brossard'
-                    ? 'Une équipe de peintres professionnels sur la Rive-Sud'
-                    : cityName === 'Laval'
-                    ? 'Une équipe de peintres professionnels basée près de Laval'
-                    : cityName === 'Longueuil'
-                    ? 'Une équipe locale, rapide et expérimentée'
-                    : `Une équipe de peintres professionnels sur la Rive-Sud ${cityName}`
+                      ? 'Une équipe de peintres professionnels sur la Rive-Sud'
+                      : cityName === 'Laval'
+                        ? 'Une équipe de peintres professionnels basée près de Laval'
+                        : cityName === 'Longueuil'
+                          ? 'Une équipe locale, rapide et expérimentée'
+                          : `Une équipe de peintres professionnels sur la Rive-Sud ${cityName}`
                   : cityName === 'Montreal'
-                  ? 'A team of painters based in Greater Montreal'
-                  : cityName === 'Brossard'
-                  ? 'A team of professional painters on the South Shore'
-                  : cityName === 'Laval'
-                  ? 'A team of professional painters based near Laval'
-                  : cityName === 'Longueuil'
-                  ? 'A local, fast and experienced team'
-                  : `A team of professional painters on the South Shore ${cityName}`}
+                    ? 'A team of painters based in Greater Montreal'
+                    : cityName === 'Brossard'
+                      ? 'A team of professional painters on the South Shore'
+                      : cityName === 'Laval'
+                        ? 'A team of professional painters based near Laval'
+                        : cityName === 'Longueuil'
+                          ? 'A local, fast and experienced team'
+                          : `A team of professional painters on the South Shore ${cityName}`}
               </Heading>
             </Stack>
 
@@ -162,23 +158,7 @@ export default function CityWhyUsSection({
               </Button>
             </Link>
           </Stack>
-          <Box
-            bg='gray.200'
-            borderRadius='xl'
-            w='100%'
-            h='400px'
-            border='1px solid'
-            borderColor='gray.300'
-            borderStyle='dashed'
-            display='flex'
-            alignItems='center'
-            justifyContent='center'
-          >
-            <Text color='gray.400' fontSize='sm' fontWeight='medium'>
-              {isFr ? 'Image à ajouter' : 'Image to add'}
-            </Text>
-          </Box>
-        </SimpleGrid>
+        </Stack>
       </Container>
     </Box>
   );
