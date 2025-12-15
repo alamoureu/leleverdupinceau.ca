@@ -303,7 +303,7 @@ export default function BlogPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#014CC4'
+          bg='#022A68'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -330,7 +330,7 @@ export default function BlogPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#014CC4'
+                    color='#022A68'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

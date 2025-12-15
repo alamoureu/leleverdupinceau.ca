@@ -567,70 +567,70 @@ export default function ContactPage() {
               pageContext={isFr ? 'Page Contact' : 'Contact Page'}
               disableLinks={true}
             />
-
-            {/* Section 6 — CTA Final */}
-            <Box
-              w='100%'
-              py={{ base: 12, md: 16 }}
-              bg='#014CC4'
-              mt={{ base: 8, md: 12 }}
-            >
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8} textAlign='center'>
-                  <Stack spacing={3}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='white'
-                    >
-                      {isFr
-                        ? 'Prêt à commencer votre projet de peinture ?'
-                        : 'Ready to start your painting project?'}
-                    </Heading>
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='whiteAlpha.900'
-                      maxW='800px'
-                      mx='auto'
-                    >
-                      {isFr
-                        ? 'Nous répondons rapidement, évaluons votre projet et vous envoyons une soumission claire et détaillée.'
-                        : 'We respond quickly, assess your project and send you a clear and detailed quote.'}
-                    </Text>
-                  </Stack>
-
-                  <Box>
-                    <Link
-                      href='#submission-form' // Assuming the form has this ID or similar, or just scrolling up. Using link to form if possible or just a general CTA behavior.
-                      _hover={{ textDecoration: 'none' }}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        window.scrollTo({ top: 0, behavior: 'smooth' });
-                      }}
-                    >
-                      <Button
-                        rightIcon={<ArrowForwardIcon />}
-                        bg='white'
-                        color='#014CC4'
-                        borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        px={{ base: 5, md: 7 }}
-                        py={{ base: 3, md: 4 }}
-                        _hover={{ bg: 'gray.100' }}
-                        size='lg'
-                      >
-                        {isFr ? 'Obtenir ma soumission' : 'Get my quote'}
-                      </Button>
-                    </Link>
-                  </Box>
-                  {/* Placeholder for GHL integration */}
-                  {/* <div id="ghl-form-placeholder"></div> */}
-                </Stack>
-              </Container>
-            </Box>
           </Stack>
         </Container>
+
+        {/* Section 6 — CTA Final */}
+        <Box
+          w='100%'
+          py={{ base: 12, md: 16 }}
+          bg='#022A68'
+          mt={{ base: 8, md: 12 }}
+        >
+          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+            <Stack spacing={8} textAlign='center'>
+              <Stack spacing={3}>
+                <Heading
+                  as='h2'
+                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                  fontWeight='bold'
+                  color='white'
+                >
+                  {isFr
+                    ? 'Prêt à commencer votre projet de peinture ?'
+                    : 'Ready to start your painting project?'}
+                </Heading>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='whiteAlpha.900'
+                  maxW='800px'
+                  mx='auto'
+                >
+                  {isFr
+                    ? 'Nous répondons rapidement, évaluons votre projet et vous envoyons une soumission claire et détaillée.'
+                    : 'We respond quickly, assess your project and send you a clear and detailed quote.'}
+                </Text>
+              </Stack>
+
+              <Box>
+                <Link
+                  href='#submission-form' // Assuming the form has this ID or similar, or just scrolling up. Using link to form if possible or just a general CTA behavior.
+                  _hover={{ textDecoration: 'none' }}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                  }}
+                >
+                  <Button
+                    rightIcon={<ArrowForwardIcon />}
+                    bg='white'
+                    color='#022A68'
+                    borderRadius='full'
+                    fontSize={{ base: 'sm', md: 'md' }}
+                    px={{ base: 5, md: 7 }}
+                    py={{ base: 3, md: 4 }}
+                    _hover={{ bg: 'gray.100' }}
+                    size='lg'
+                  >
+                    {isFr ? 'Obtenir ma soumission' : 'Get my quote'}
+                  </Button>
+                </Link>
+              </Box>
+              {/* Placeholder for GHL integration */}
+              {/* <div id="ghl-form-placeholder"></div> */}
+            </Stack>
+          </Container>
+        </Box>
       </Box>
 
       <SubmissionModal isOpen={isOpen} onClose={onClose} />

@@ -26,8 +26,6 @@ export default function FinalCTASection({
       bg='#022A68' // Deep Navy Blue for premium feel
       position='relative'
       overflow='hidden'
-      borderBottom='1px solid'
-      borderColor='whiteAlpha.200'
     >
       <Container maxW='1000px' px={{ base: 4, md: 6 }} position='relative' zIndex={1}>
         <Stack spacing={{ base: 8, md: 10 }} align='center' textAlign='center'>

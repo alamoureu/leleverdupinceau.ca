@@ -524,7 +524,7 @@ export default function AvisPage() {
                     >
                       <Button
                         rightIcon={<ArrowForwardIcon />}
-                        bg='#014CC4'
+                        bg='#022A68'
                         color='white'
                         borderRadius='full'
                         fontSize={{ base: 'sm', md: 'md' }}
@@ -757,7 +757,7 @@ export default function AvisPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#014CC4'
+          bg='#022A68'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -794,7 +794,7 @@ export default function AvisPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#014CC4'
+                    color='#022A68'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

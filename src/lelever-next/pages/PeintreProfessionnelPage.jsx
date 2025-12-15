@@ -668,7 +668,8 @@ export default function PeintreProfessionnelPage() {
                     {services.map((service, index) => (
                       <Link
                         key={index}
-                        href={service.link}
+                        as={RouterLink}
+                        to={service.link}
                         _hover={{ textDecoration: 'none' }}
                       >
                         <Box

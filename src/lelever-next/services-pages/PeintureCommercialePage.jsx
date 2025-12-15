@@ -644,7 +644,7 @@ export default function PeintureCommercialePage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/contact'
+                  to='/new-contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button

@@ -20,7 +20,7 @@ export default function CityCTASection({ cityName }) {
     <Box
       w='100%'
       py={{ base: 12, md: 16 }}
-      bg='#014CC4'
+      bg='#022A68'
       mt={{ base: 8, md: 12 }}
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -37,8 +37,8 @@ export default function CityCTASection({ cityName }) {
                   ? 'Obtenez une soumission pour un projet de peinture à Longueuil'
                   : `Obtenez votre soumission pour un projet de peinture à ${cityName}`
                 : cityName === 'Longueuil'
-                ? 'Get a quote for a painting project in Longueuil'
-                : `Get your quote for a painting project in ${cityName}`}
+                  ? 'Get a quote for a painting project in Longueuil'
+                  : `Get your quote for a painting project in ${cityName}`}
             </Heading>
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
@@ -50,30 +50,30 @@ export default function CityCTASection({ cityName }) {
                 ? cityName === 'Montréal'
                   ? 'Vous avez un projet de peinture résidentielle, commerciale ou industrielle à Montréal ? Nos peintres se déplacent rapidement dans votre secteur.'
                   : cityName === 'Laval'
-                  ? 'Nous pouvons intervenir rapidement pour vos projets résidentiels, commerciaux ou industriels.'
-                  : cityName === 'Longueuil'
-                  ? "Que ce soit pour l'intérieur, l'extérieur, un commerce ou un bâtiment industriel, notre équipe se déplace rapidement partout à Longueuil."
-                  : 'Nous offrons des services rapides, fiables et professionnels pour tous vos travaux de peinture résidentiels, commerciaux ou industriels.'
+                    ? 'Nous pouvons intervenir rapidement pour vos projets résidentiels, commerciaux ou industriels.'
+                    : cityName === 'Longueuil'
+                      ? "Que ce soit pour l'intérieur, l'extérieur, un commerce ou un bâtiment industriel, notre équipe se déplace rapidement partout à Longueuil."
+                      : 'Nous offrons des services rapides, fiables et professionnels pour tous vos travaux de peinture résidentiels, commerciaux ou industriels.'
                 : cityName === 'Montreal'
-                ? 'Do you have a residential, commercial or industrial painting project in Montreal? Our painters quickly travel to your area.'
-                : cityName === 'Laval'
-                ? 'We can quickly intervene for your residential, commercial or industrial projects.'
-                : cityName === 'Longueuil'
-                ? "Whether it's for interior, exterior, commercial or industrial building work, our team quickly travels throughout Longueuil."
-                : 'We offer fast, reliable and professional services for all your residential, commercial or industrial painting work.'}
+                  ? 'Do you have a residential, commercial or industrial painting project in Montreal? Our painters quickly travel to your area.'
+                  : cityName === 'Laval'
+                    ? 'We can quickly intervene for your residential, commercial or industrial projects.'
+                    : cityName === 'Longueuil'
+                      ? "Whether it's for interior, exterior, commercial or industrial building work, our team quickly travels throughout Longueuil."
+                      : 'We offer fast, reliable and professional services for all your residential, commercial or industrial painting work.'}
             </Text>
           </Stack>
 
           <Box>
             <Link
               as={RouterLink}
-              to='/contact'
+              to='/new-contact'
               _hover={{ textDecoration: 'none' }}
             >
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 bg='white'
-                color='#014CC4'
+                color='#022A68'
                 borderRadius='full'
                 fontSize={{ base: 'sm', md: 'md' }}
                 px={{ base: 5, md: 7 }}
