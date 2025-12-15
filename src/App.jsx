@@ -47,12 +47,12 @@ import EmployeeManagement from './pages/EmployeeManagement';
 import EmployeeDetails from './pages/EmployeeDetails';
 import ThermOfUsePage from './pages/ThermOfUse';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
-import ScrollToTop from './lelever-next/components/ScrollToTop';
+
 
 export default function App() {
   return (
     <Router>
-      <ScrollToTop />
+
       <AppProvider>
         <Routes>
           <Route path='/' element={<WebsiteLayout />}>

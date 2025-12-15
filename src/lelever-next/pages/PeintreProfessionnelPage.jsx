@@ -719,7 +719,6 @@ export default function PeintreProfessionnelPage() {
               </Container>
             </Box>
 
-            {/* Section 4 — Secteurs desservis */}
             <SectorsSection
               title={
                 isFr
@@ -796,8 +795,12 @@ export default function PeintreProfessionnelPage() {
                         key={index}
                         bg='white'
                         mb={4}
-                        border='none'
+                        border='1px solid'
+                        borderColor='gray.200'
                         borderRadius='xl'
+                        overflow='hidden'
+                        _hover={{ borderColor: '#014CC4', boxShadow: 'sm' }}
+                        transition='all 0.2s'
                         boxShadow='sm'
                         overflow='hidden'
                         _last={{ mb: 0 }}

@@ -17,6 +17,7 @@ export default function ServiceWhyUsSection({
   content,
   introText,
   outroText,
+  ...rest
 }) {
   return (
     <Box
@@ -24,6 +25,7 @@ export default function ServiceWhyUsSection({
       bg='gray.50'
       borderRadius='xl'
       mb={{ base: 8, md: 12 }}
+      {...rest}
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>

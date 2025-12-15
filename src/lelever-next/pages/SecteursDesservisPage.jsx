@@ -28,7 +28,7 @@ import {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import secteursDesservisHero from '../images/secteurs_desservis.jpg';
+import peintureProImg from '../images/peinture_pro.jpg';
 
 
 export default function SecteursDesservisPage() {
@@ -343,11 +343,16 @@ export default function SecteursDesservisPage() {
                     boxShadow='lg'
                   >
                     <Image
-                      src={secteursDesservisHero}
+                      src={peintureProImg}
                       alt={
                         isFr
-                          ? 'Peintres professionnels Le Lever du Pinceau'
-                          : 'Professional Painters Le Lever du Pinceau'
+                          ? 'Secteurs desservis Le Lever du Pinceau - Peintres Montréal'
+                          : 'Service areas Le Lever du Pinceau - Painters Montreal'
+                      }
+                      title={
+                        isFr
+                          ? 'Nos peintres desservent tout le Grand Montréal'
+                          : 'Our painters serve all of Greater Montreal'
                       }
                       w='100%'
                       h='100%'

@@ -17,7 +17,7 @@ import CityServicesSection from '../city-pages/CityServicesSection';
 import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
-import mtlImage from '../images/mtl.png';
+
 
 import ResidentialProject from '../images/Projets résidentiels.PNG';
 import ExtProject from '../images/projet_exterieur.jpg';
@@ -176,17 +176,7 @@ export default function MontrealCityPage() {
               </Text>
             </HStack>
 
-            {/* Header Image */}
-            <Box mb={{ base: 8, md: 12 }}>
-              <Image
-                src={mtlImage}
-                alt={isFr ? 'Experts peintres à Montréal - Le Lever du Pinceau' : 'Montreal Painting Experts - Le Lever du Pinceau'}
-                w="100%"
-                h={{ base: '200px', md: '350px' }}
-                objectFit="cover"
-                borderRadius="xl"
-              />
-            </Box>
+
 
             {/* H1 et Introduction */}
             <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>

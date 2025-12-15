@@ -18,7 +18,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import RecentProjectsSection from '../home-page/RecentProjectsSection';
+import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection, {
   montrealSecteur,
@@ -531,7 +531,19 @@ export default function PeintureExterieurePage() {
             />
 
             {/* Section 4 — Exemples de projets */}
-            <RecentProjectsSection />
+            <CustomProjectsSection
+              title={
+                isFr
+                  ? 'Réalisations extérieures'
+                  : 'Exterior achievements'
+              }
+              subtitle={
+                isFr
+                  ? 'Exemples de projets de peinture extérieure réalisés :'
+                  : 'Examples of exterior painting projects completed:'
+              }
+              projects={exteriorProjects}
+            />
 
             <ResourcesSection
               excludeSlugs={['/blog/erreurs-a-eviter-peinture-interieure']}
@@ -605,7 +617,7 @@ export default function PeintureExterieurePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#014CC4'
+          bg='#022A68'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -642,7 +654,7 @@ export default function PeintureExterieurePage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#014CC4'
+                    color='#022A68'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

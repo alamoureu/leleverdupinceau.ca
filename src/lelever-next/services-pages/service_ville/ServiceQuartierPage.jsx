@@ -299,15 +299,25 @@ export default function ServiceQuartierPage() {
               </Box>
             )}
 
-            {/* Section 1 — Pourquoi choisir notre service */}
-            <ServiceWhyUsSection
-              title={city.whyUsTitle[isFr ? 'fr' : 'en']}
-              content={city.whyUsContent[isFr ? 'fr' : 'en']}
-              introText={city.whyUsIntro[isFr ? 'fr' : 'en']}
-              outroText={
-                city.whyUsOutro ? city.whyUsOutro[isFr ? 'fr' : 'en'] : null
-              }
-            />
+          </Stack>
+        </Container>
+
+        {/* Section 1 — Pourquoi choisir notre service */}
+        <ServiceWhyUsSection
+          title={city.whyUsTitle[isFr ? 'fr' : 'en']}
+          content={city.whyUsContent[isFr ? 'fr' : 'en']}
+          introText={city.whyUsIntro[isFr ? 'fr' : 'en']}
+          outroText={
+            city.whyUsOutro ? city.whyUsOutro[isFr ? 'fr' : 'en'] : null
+          }
+          borderRadius='0'
+        />
+
+        <Container
+          maxW='1440px'
+          px={{ base: 4, md: 6 }}
+        >
+          <Stack spacing={0}>
 
             {/* Section 2 — Sous-services (only if subServices exist) */}
             {subServices.length > 0 && (

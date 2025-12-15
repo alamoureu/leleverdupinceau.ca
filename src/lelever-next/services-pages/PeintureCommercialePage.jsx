@@ -13,13 +13,14 @@ import {
   HStack,
   Flex,
   Icon,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
-import RecentProjectsSection from '../home-page/RecentProjectsSection';
+import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import SectorsSection, {
   montrealSecteur,
   lavalSecteur,
@@ -531,7 +532,19 @@ export default function PeintureCommercialePage() {
             />
 
             {/* Section 4 — Exemples de projets */}
-            <RecentProjectsSection />
+            <CustomProjectsSection
+              title={
+                isFr
+                  ? 'Réalisations commerciales'
+                  : 'Commercial achievements'
+              }
+              subtitle={
+                isFr
+                  ? 'Exemples de travaux réalisés pour nos clients commerciaux :'
+                  : 'Examples of work done for our commercial clients:'
+              }
+              projects={commercialProjects}
+            />
 
             {/* Section 5 — À propos de nos peintres professionnels */}
             <Box
@@ -541,7 +554,7 @@ export default function PeintureCommercialePage() {
               mb={{ base: 8, md: 12 }}
             >
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} textAlign='left'>
+                <Stack spacing={6} textAlign='center' align='center'>
                   <Heading
                     as='h2'
                     fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -600,7 +613,7 @@ export default function PeintureCommercialePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#014CC4'
+          bg='#022A68'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -637,7 +650,7 @@ export default function PeintureCommercialePage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#014CC4'
+                    color='#022A68'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}
