@@ -13,12 +13,15 @@ import {
   Icon,
   HStack,
   Image,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
+import FinalCTASection from '../home-page/FinalCTASection';
+import SubmissionModal from '../home-page/SubmissionModal';
 import {
   montrealSecteur,
   lavalSecteur,
@@ -30,6 +33,7 @@ import secteursDesservisHero from '../images/secteurs_desservis.jpg';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const isFr = currentLang === 'fr';
 
   const breadcrumbSchema = {
@@ -483,62 +487,22 @@ export default function SecteursDesservisPage() {
           </Stack>
         </Container>
 
-        <Box
-          w='100%'
-          py={{ base: 12, md: 16 }}
-          bg='#014CC4'
-          mt={{ base: 8, md: 12 }}
-        >
-          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} textAlign='center'>
-              <Stack spacing={3}>
-                <Heading
-                  as='h2'
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
-                  color='white'
-                >
-                  {isFr
-                    ? "Besoin d'un peintre dans votre secteur ?"
-                    : 'Need a painter in your area?'}
-                </Heading>
-                <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color='whiteAlpha.900'
-                  maxW='800px'
-                  mx='auto'
-                >
-                  {isFr
-                    ? 'Nos équipes interviennent rapidement dans toutes les villes et quartiers du Grand Montréal. Demandez votre estimation gratuite en moins de 24 heures.'
-                    : 'Our teams serve quickly in all cities and neighborhoods of Greater Montreal. Request your free estimate in less than 24 hours.'}
-                </Text>
-              </Stack>
-
-              <Box>
-                <Link
-                  as={RouterLink}
-                  to='/new-contact'
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    rightIcon={<ArrowForwardIcon />}
-                    bg='white'
-                    color='#014CC4'
-                    borderRadius='full'
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                    _hover={{ bg: 'gray.100' }}
-                    size='lg'
-                  >
-                    {isFr ? 'Soumission gratuite' : 'Free quote'}
-                  </Button>
-                </Link>
-              </Box>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={
+            isFr
+              ? "Besoin d'un peintre dans votre secteur ?"
+              : 'Need a painter in your area?'
+          }
+          subtitle={
+            isFr
+              ? 'Nos équipes interviennent rapidement dans toutes les villes et quartiers du Grand Montréal. Demandez votre estimation gratuite en moins de 24 heures.'
+              : 'Our teams serve quickly in all cities and neighborhoods of Greater Montreal. Request your free estimate in less than 24 hours.'
+          }
+          buttonText={isFr ? 'Soumission gratuite' : 'Free quote'}
+        />
       </Box>
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

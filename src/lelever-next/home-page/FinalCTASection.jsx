@@ -1,34 +1,79 @@
 import React from 'react';
-import { Box, Container, Heading, Stack, Button } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Heading,
+  Stack,
+  Button,
+  Text,
+  Icon,
+} from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 
-export default function FinalCTASection({ onSubmissionOpen }) {
+export default function FinalCTASection({
+  onSubmissionOpen,
+  title,
+  subtitle,
+  buttonText,
+}) {
   const { t } = useTranslation();
+
   return (
-    <Box w='100%' py={{ base: 12, md: 16 }} bg='#014CC4' color='white'>
-      <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-        <Stack spacing={6} align='center' textAlign='center'>
-          <Heading
-            as='h2'
-            fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-            fontWeight='bold'
-            color='white'
-          >
-            {t.ctaTitle}
-          </Heading>
+    <Box
+      w='100%'
+      py={{ base: 16, md: 24 }}
+      bg='#022A68' // Deep Navy Blue for premium feel
+      position='relative'
+      overflow='hidden'
+      borderBottom='1px solid'
+      borderColor='whiteAlpha.200'
+    >
+      <Container maxW='1000px' px={{ base: 4, md: 6 }} position='relative' zIndex={1}>
+        <Stack spacing={{ base: 8, md: 10 }} align='center' textAlign='center'>
+          <Stack spacing={4}>
+            <Heading
+              as='h2'
+              fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+              fontWeight='800' // Extra bold
+              color='white'
+              letterSpacing='tight'
+              lineHeight='1.1'
+            >
+              {title || t.ctaTitle}
+            </Heading>
+            {subtitle && (
+              <Text
+                fontSize={{ base: 'lg', md: 'xl' }}
+                color='gray.200'
+                maxW='700px'
+                mx='auto'
+                lineHeight='1.6'
+              >
+                {subtitle}
+              </Text>
+            )}
+          </Stack>
 
           <Button
+            rightIcon={<ArrowForwardIcon />}
             bg='white'
-            color='#014CC4'
+            color='#022A68'
             onClick={onSubmissionOpen}
-            fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-            px={{ base: 6, md: 8, lg: 10 }}
-            py={{ base: 4, md: 5, lg: 6 }}
-            fontWeight='semibold'
+            fontSize={{ base: 'md', md: 'lg' }}
+            px={{ base: 10, md: 12 }}
+            py={{ base: 7, md: 8 }}
+            fontWeight='bold' // Bold text
             borderRadius='full'
-            _hover={{ bg: 'gray.100' }}
+            _hover={{
+              bg: 'gray.100',
+              transform: 'translateY(-2px)',
+              boxShadow: 'xl',
+            }}
+            transition='all 0.2s cubic-bezier(0.4, 0, 0.2, 1)'
+            boxShadow='lg'
           >
-            {t.ctaButton}
+            {buttonText || t.ctaButton}
           </Button>
         </Stack>
       </Container>

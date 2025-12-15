@@ -22,7 +22,7 @@ import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 
 export default function NewWebsiteLayout() {
-  const { currentLang } = useContext(appContext);
+  const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
 
   return (
@@ -129,9 +129,10 @@ export default function NewWebsiteLayout() {
                   fontWeight='medium'
                   _hover={{ color: 'gray.300' }}
                 >
-                  {currentLang === 'fr'
-                    ? 'Une peinture propre, rapide et impeccable.'
-                    : 'Clean, fast and impeccable painting.'}
+                  {footerData?.description ||
+                    (currentLang === 'fr'
+                      ? 'Une peinture propre, rapide et impeccable.'
+                      : 'Clean, fast and impeccable painting.')}
                 </Text>
               </Box>
             </Stack>
