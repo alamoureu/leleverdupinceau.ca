@@ -77,47 +77,47 @@ export default function ServiceQuartierPage() {
   // Build guides array from data or use defaults
   const guides = city.guides
     ? city.guides.map((guide) => ({
-      title: guide.title[isFr ? 'fr' : 'en'],
-      href: guide.href,
-    }))
+        title: guide.title[isFr ? 'fr' : 'en'],
+        href: guide.href,
+      }))
     : [
-      {
-        title: isFr
-          ? 'Comment choisir un peintre professionnel ?'
-          : 'How to choose a professional painter?',
-        href: '/blog/comment-choisir-un-peintre-professionnel',
-      },
-      {
-        title: isFr
-          ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
-          : 'Painting prices Montreal / South Shore – what you need to know',
-        href: '/blog/prix-peinture-montreal',
-      },
-      {
-        title: isFr
-          ? 'Erreurs à éviter avant des travaux dans un commerce'
-          : 'Mistakes to avoid before work in a business',
-        href: '/blog/erreurs-a-eviter-peinture',
-      },
-    ];
+        {
+          title: isFr
+            ? 'Comment choisir un peintre professionnel ?'
+            : 'How to choose a professional painter?',
+          href: '/blog/comment-choisir-un-peintre-professionnel',
+        },
+        {
+          title: isFr
+            ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
+            : 'Painting prices Montreal / South Shore – what you need to know',
+          href: '/blog/prix-peinture-montreal',
+        },
+        {
+          title: isFr
+            ? 'Erreurs à éviter avant des travaux dans un commerce'
+            : 'Mistakes to avoid before work in a business',
+          href: '/blog/erreurs-a-eviter-peinture',
+        },
+      ];
 
   // Build sub-services array (handle both interior/exterior and residential/commercial structures)
   const subServices = city.subServices
     ? city.subServices.interior && city.subServices.exterior
       ? [
-        {
-          title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
-          link: city.subServices.interior.link,
-          linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
-        },
-        {
-          title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
-          link: city.subServices.exterior.link,
-          linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
-        },
-      ]
+          {
+            title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
+            link: city.subServices.interior.link,
+            linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
+          },
+          {
+            title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
+            link: city.subServices.exterior.link,
+            linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
+          },
+        ]
       : city.subServices.residential && city.subServices.commercial
-        ? [
+      ? [
           {
             title: city.subServices.residential.title[isFr ? 'fr' : 'en'],
             link: city.subServices.residential.link,
@@ -129,7 +129,7 @@ export default function ServiceQuartierPage() {
             linkText: city.subServices.commercial.linkText[isFr ? 'fr' : 'en'],
           },
         ]
-        : []
+      : []
     : [];
 
   return (
@@ -232,8 +232,8 @@ export default function ServiceQuartierPage() {
                 {city.h1
                   ? city.h1[isFr ? 'fr' : 'en']
                   : isFr
-                    ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
-                    : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
+                  ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
+                  : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
               </Heading>
               {city.introduction && (
                 <>
@@ -298,7 +298,6 @@ export default function ServiceQuartierPage() {
                 </SimpleGrid>
               </Box>
             )}
-
           </Stack>
         </Container>
 
@@ -313,12 +312,8 @@ export default function ServiceQuartierPage() {
           borderRadius='0'
         />
 
-        <Container
-          maxW='1440px'
-          px={{ base: 4, md: 6 }}
-        >
+        <Container maxW='1440px' px={{ base: 4, md: 6 }}>
           <Stack spacing={0}>
-
             {/* Section 2 — Sous-services (only if subServices exist) */}
             {subServices.length > 0 && (
               <ServiceSubServicesSection

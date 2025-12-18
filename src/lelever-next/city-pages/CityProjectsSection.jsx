@@ -55,7 +55,7 @@ export default function CityProjectsSection({
             </Heading>
           </Stack>
 
-          <Box maxW='900px'>
+          <Box maxW='900px' mx='auto'>
             <Stack spacing={8}>
               {projectsContent ? (
                 typeof projectsContent === 'string' ? (

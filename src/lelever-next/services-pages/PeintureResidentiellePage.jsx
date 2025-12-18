@@ -19,7 +19,6 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection, {
   montrealSecteur,
@@ -79,82 +78,6 @@ export default function PeintureResidentiellePage() {
       'High-end products adapted to each material',
       'Clean and organized worksite',
       'Fast and respectful service of your space',
-    ];
-
-  const residentialProjects = isFr
-    ? [
-      {
-        id: 1,
-        images: [],
-        title: "Rafraîchissement complet d'intérieur",
-        description:
-          "Transformation complète de l'intérieur de votre maison avec une finition impeccable. Préparation soignée et protection de vos biens.",
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Rénovation de maisons et condos',
-        description:
-          'Rénovation complète de maisons unifamiliales et condos avec des finitions durables. Résultat professionnel garanti.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Peinture de façade extérieure',
-        description:
-          'Rafraîchissement de la façade de votre maison avec des produits résistants aux intempéries. Protection durable contre le climat québécois.',
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Finition de boiseries et escaliers',
-        description:
-          'Peinture précise de boiseries, escaliers, portes et fenêtres avec une finition impeccable. Résultat professionnel qui met en valeur les détails architecturaux.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Travaux dans plex et multi-logements',
-        description:
-          'Peinture de duplex, triplex et immeubles à logements multiples. Finitions durables adaptées au trafic résidentiel.',
-      },
-    ]
-    : [
-      {
-        id: 1,
-        images: [],
-        title: 'Complete interior refresh',
-        description:
-          'Complete transformation of the interior of your home with an impeccable finish. Careful preparation and protection of your belongings.',
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'House and condo renovation',
-        description:
-          'Complete renovation of single-family homes and condos with durable finishes. Professional result guaranteed.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Exterior facade painting',
-        description:
-          'Refreshing the facade of your home with weather-resistant products. Durable protection against Quebec climate.',
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Woodwork and staircase finishing',
-        description:
-          'Precise painting of woodwork, stairs, doors and windows with an impeccable finish. Professional result that highlights architectural details.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Work in plex and multi-dwellings',
-        description:
-          'Painting of duplexes, triplexes and multi-unit buildings. Finishes adapted to residential traffic.',
-      },
     ];
 
   const cities = [
@@ -536,21 +459,6 @@ export default function PeintureResidentiellePage() {
                   image: brossardSecteur,
                 },
               ]}
-            />
-
-            {/* Section 4 — Exemples de projets résidentiels */}
-            <CustomProjectsSection
-              title={
-                isFr
-                  ? 'Quelques réalisations en peinture résidentielle'
-                  : 'Some residential painting achievements'
-              }
-              subtitle={
-                isFr
-                  ? 'Projects typiques réalisés :'
-                  : 'Typical projects completed:'
-              }
-              projects={residentialProjects}
             />
 
             <ResourcesSection />

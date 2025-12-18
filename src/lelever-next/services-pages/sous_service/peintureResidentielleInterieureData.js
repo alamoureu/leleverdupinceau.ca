@@ -22,13 +22,13 @@ export const peintureResidentielleInterieureData = {
   introduction: {
     fr: [
       "La peinture intérieure résidentielle est le moyen le plus efficace de transformer votre espace de vie, d'ajouter de la valeur à votre propriété et de créer une ambiance qui vous ressemble.",
-      "Le Lever du Pinceau offre un service clé en main pour vos projets de peinture intérieure, du simple rafraîchissement à la transformation complète de votre domicile. Nous desservons Montréal, Laval, Longueuil et Brossard avec une équipe de peintres minutieux et respectueux de votre environnement.",
-      "Nous peignons murs, plafonds, boiseries, portes, escaliers et plus encore."
+      'Le Lever du Pinceau offre un service clé en main pour vos projets de peinture intérieure, du simple rafraîchissement à la transformation complète de votre domicile. Nous desservons Montréal, Laval, Longueuil et Brossard avec une équipe de peintres minutieux et respectueux de votre environnement.',
+      'Nous peignons murs, plafonds, boiseries, portes, escaliers et plus encore.',
     ],
     en: [
-      "Residential interior painting is the most effective way to transform your living space, add value to your property and create an atmosphere that suits you.",
-      "Le Lever du Pinceau offers a turnkey service for your interior painting projects, from a simple refresh to the complete transformation of your home. We serve Montreal, Laval, Longueuil and Brossard with a team of painters who are meticulous and respectful of your environment.",
-      "We paint walls, ceilings, woodwork, doors, stairs and more."
+      'Residential interior painting is the most effective way to transform your living space, add value to your property and create an atmosphere that suits you.',
+      'Le Lever du Pinceau offers a turnkey service for your interior painting projects, from a simple refresh to the complete transformation of your home. We serve Montreal, Laval, Longueuil and Brossard with a team of painters who are meticulous and respectful of your environment.',
+      'We paint walls, ceilings, woodwork, doors, stairs and more.',
     ],
   },
   introFingerText: {
@@ -75,14 +75,14 @@ export const peintureResidentielleInterieureData = {
         fr: 'Peinture résidentielle',
         en: 'Residential painting',
       },
-      href: '/services/peinture-residentielle',
+      href: '/services/new-peinture-residentielle',
     },
     {
       title: {
         fr: 'Peinture intérieure',
         en: 'Interior painting',
       },
-      href: '/services/peinture-interieure',
+      href: '/services/new-peinture-interieure',
     },
     {
       title: {

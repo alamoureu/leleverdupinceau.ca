@@ -66,58 +66,6 @@ export const peintureExterieureData = {
           fr: 'Peinture extérieure résidentielle et commerciale à Brossard',
           en: 'Residential and commercial exterior painting in Brossard',
         },
-        projectsTitle: {
-          fr: 'Projets de peinture extérieure réalisés à Brossard',
-          en: 'Exterior painting projects completed in Brossard',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title: "Peinture extérieure d'une maison moderne secteur R",
-              description:
-                "Rafraîchissement complet d'une façade moderne avec des produits haute durabilité adaptés au climat québécois.",
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: "Protection d'un revêtement en bois dans le secteur S",
-              description:
-                "Application de produits protecteurs sur revêtement en bois pour résister aux intempéries et à l'humidité.",
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: "Modernisation d'une façade en vinyle près du DIX30",
-              description:
-                "Mise à jour esthétique d'une façade en vinyle avec des couleurs modernes et durables.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title: 'Exterior painting of a modern house in sector R',
-              description:
-                'Complete refresh of a modern facade with high durability products adapted to Quebec climate.',
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: 'Protection of a wood cladding in sector S',
-              description:
-                'Application of protective products on wood cladding to resist weather and humidity.',
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: 'Modernization of a vinyl facade near DIX30',
-              description:
-                'Aesthetic update of a vinyl facade with modern and durable colors.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien préparer vos travaux de peinture extérieure à Brossard',
           en: 'Prepare your exterior painting work in Brossard well',
@@ -242,58 +190,6 @@ export const peintureExterieureData = {
         subServicesTitle: {
           fr: 'Peinture extérieure résidentielle et commerciale à Laval',
           en: 'Residential and commercial exterior painting in Laval',
-        },
-        projectsTitle: {
-          fr: 'Projets récents de peinture extérieure à Laval',
-          en: 'Recent exterior painting projects in Laval',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title: "Peinture extérieure d'un bungalow à Sainte-Rose",
-              description:
-                "Rafraîchissement complet d'un bungalow avec des produits adaptés au climat québécois.",
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: "Protection d'une façade en bois à Fabreville",
-              description:
-                'Application de produits protecteurs sur une façade en bois pour résister aux intempéries.',
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: "Repeinture complète d'un duplex à Chomedey",
-              description:
-                "Rénovation complète d'un duplex avec finition durable et esthétique.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title: 'Exterior painting of a bungalow in Sainte-Rose',
-              description:
-                'Complete refresh of a bungalow with products adapted to Quebec climate.',
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: 'Protection of a wood facade in Fabreville',
-              description:
-                'Application of protective products on a wood facade to resist weather.',
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: 'Complete repainting of a duplex in Chomedey',
-              description:
-                'Complete renovation of a duplex with durable and aesthetic finish.',
-            },
-          ],
         },
         guidesTitle: {
           fr: 'Bien préparer votre peinture extérieure à Laval',
@@ -424,59 +320,6 @@ export const peintureExterieureData = {
           fr: 'Services de peinture extérieure à Longueuil',
           en: 'Exterior painting services in Longueuil',
         },
-        projectsTitle: {
-          fr: 'Projets récents réalisés dans la ville de Longueuil',
-          en: 'Recent projects completed in the city of Longueuil',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title:
-                "Rafraîchissement complet d'un extérieur dans le Vieux-Longueuil",
-              description:
-                "Rénovation complète d'une façade avec des produits adaptés au climat québécois.",
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: "Protection d'une façade en bois dans Saint-Hubert",
-              description:
-                'Application de produits protecteurs sur une façade en bois pour résister aux intempéries.',
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: "Repeinture d'un plex dans Laflèche",
-              description:
-                "Rénovation complète d'un plex avec finition durable et esthétique.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title: 'Complete refresh of an exterior in Vieux-Longueuil',
-              description:
-                'Complete renovation of a facade with products adapted to Quebec climate.',
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: 'Protection of a wood facade in Saint-Hubert',
-              description:
-                'Application of protective products on a wood facade to resist weather.',
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: 'Repainting of a plex in Laflèche',
-              description:
-                'Complete renovation of a plex with durable and aesthetic finish.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien préparer votre projet de peinture extérieure à Longueuil',
           en: 'Prepare your exterior painting project in Longueuil well',
@@ -600,58 +443,6 @@ export const peintureExterieureData = {
           fr: 'Peinture extérieure résidentielle et commerciale à Montréal',
           en: 'Residential and commercial exterior painting in Montreal',
         },
-        projectsTitle: {
-          fr: 'Projets récents de peinture extérieure à Montréal',
-          en: 'Recent exterior painting projects in Montreal',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title: "Rafraîchissement complet d'un duplex au Plateau",
-              description:
-                "Rénovation complète d'un duplex avec des produits adaptés au climat montréalais.",
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: 'Peinture de balcon et escalier extérieur dans Villeray',
-              description:
-                "Rénovation complète d'un balcon et escalier extérieur avec finition résistante aux intempéries.",
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: "Modernisation de la façade d'un plex à Rosemont",
-              description:
-                "Mise à jour esthétique d'une façade de plex avec des couleurs modernes et durables.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [ExtProject],
-              title: 'Complete refresh of a duplex in Plateau',
-              description:
-                'Complete renovation of a duplex with products adapted to Montreal climate.',
-            },
-            {
-              id: 2,
-              images: [ExtProject],
-              title: 'Painting of balcony and exterior stairs in Villeray',
-              description:
-                'Complete renovation of a balcony and exterior stairs with weather-resistant finish.',
-            },
-            {
-              id: 3,
-              images: [ExtProject],
-              title: 'Modernization of a plex facade in Rosemont',
-              description:
-                'Aesthetic update of a plex facade with modern and durable colors.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien préparer votre peinture extérieure à Montréal',
           en: 'Prepare your exterior painting in Montreal well',
@@ -734,3 +525,4 @@ export const peintureExterieureData = {
     },
   },
 };
+

@@ -5,7 +5,7 @@ export const saintLeonardData = {
     en: 'Saint-Léonard',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/saint-leonard',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/saint-leonard',
   h1: 'Peinture intérieure à Saint-Léonard – Le Lever du Pinceau',
   introduction:
     "Saint-Léonard est reconnu pour ses maisons unifamiliales, ses duplex et triplex spacieux, ses bungalows des années 70–90, ses condos modernes ainsi que ses appartements familiaux. Pour rafraîchir ces espaces variés — anciens comme récents — une peinture intérieure professionnelle est essentielle afin d'obtenir une finition parfaite, durable et élégante. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Saint-Léonard, adapté aux grandes maisons familiales, aux logements rénovés et aux condos modernes. Si vous souhaitez moderniser vos pièces, rafraîchir votre propriété ou obtenir une finition impeccable, notre équipe est prête à intervenir dans tout Saint-Léonard.",
@@ -28,7 +28,7 @@ export const saintLeonardData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -100,3 +100,4 @@ export const saintLeonardData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

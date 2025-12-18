@@ -5,7 +5,7 @@ export const villeMontRoyalData = {
     en: 'Town of Mount Royal',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/ville-mont-royal',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/ville-mont-royal',
   h1: 'Peinture intérieure à Ville-Mont-Royal – Le Lever du Pinceau',
   introduction:
     "Ville-Mont-Royal (VMR / TMR) est reconnue pour ses résidences haut de gamme, ses maisons cossues, ses propriétés familiales de prestige, ses duplex luxueux et ses rénovations modernes. Ces intérieurs élégants exigent une peinture intérieure professionnelle, soignée et parfaitement exécutée. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Ville-Mont-Royal, adapté aux propriétés haut de gamme et aux résidences nécessitant un niveau d'attention supérieur : finitions précises, préparation minutieuse, produits premium et exécution irréprochable. Si vous recherchez une finition intérieure raffinée, lisse et durable dans votre maison ou duplex de Ville-Mont-Royal, notre équipe est la référence.",
@@ -29,7 +29,7 @@ export const villeMontRoyalData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -103,3 +103,4 @@ export const villeMontRoyalData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

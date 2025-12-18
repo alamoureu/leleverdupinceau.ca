@@ -23,12 +23,12 @@ export const peintureCommercialeInterieureData = {
     fr: [
       "La peinture intérieure de vos locaux commerciaux a un impact direct sur l'image de votre entreprise, le confort de vos employés et l'expérience de vos clients.",
       "Que vous gériez un bureau, un commerce de détail, un restaurant, une clinique ou un espace professionnel, notre équipe de peintres commerciaux réalise des travaux intérieurs propres, rapides et adaptés à vos horaires d'affaires.",
-      "Le Lever du Pinceau est spécialisé en peinture commerciale intérieure dans le Grand Montréal (Montréal, Laval, Longueuil, Brossard). Nous combinons une préparation minutieuse, une finition professionnelle et une organisation de chantier pensée pour les entreprises."
+      'Le Lever du Pinceau est spécialisé en peinture commerciale intérieure dans le Grand Montréal (Montréal, Laval, Longueuil, Brossard). Nous combinons une préparation minutieuse, une finition professionnelle et une organisation de chantier pensée pour les entreprises.',
     ],
     en: [
       "The interior painting of your commercial premises has a direct impact on your company's image, your employees' comfort and your customers' experience.",
-      "Whether you manage an office, retail store, restaurant, clinic or professional space, our team of commercial painters carries out clean, fast interior work adapted to your business hours.",
-      "Le Lever du Pinceau specializes in commercial interior painting in Greater Montreal (Montreal, Laval, Longueuil, Brossard). We combine meticulous preparation, professional finishing and a job site organization designed for businesses."
+      'Whether you manage an office, retail store, restaurant, clinic or professional space, our team of commercial painters carries out clean, fast interior work adapted to your business hours.',
+      'Le Lever du Pinceau specializes in commercial interior painting in Greater Montreal (Montreal, Laval, Longueuil, Brossard). We combine meticulous preparation, professional finishing and a job site organization designed for businesses.',
     ],
   },
   introFingerText: {
@@ -78,7 +78,7 @@ export const peintureCommercialeInterieureData = {
         fr: 'Peinture commerciale',
         en: 'Commercial painting',
       },
-      href: '/services/peinture-commerciale',
+      href: '/services/new-peinture-commerciale',
     },
     {
       title: {
@@ -92,7 +92,7 @@ export const peintureCommercialeInterieureData = {
         fr: 'Peinture intérieure',
         en: 'Interior painting',
       },
-      href: '/services/peinture-interieure',
+      href: '/services/new-peinture-interieure',
     },
   ],
   surfacesTitle: {

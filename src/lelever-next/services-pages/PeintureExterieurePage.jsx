@@ -13,12 +13,12 @@ import {
   HStack,
   Flex,
   Icon,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection, {
   montrealSecteur,
@@ -78,82 +78,6 @@ export default function PeintureExterieurePage() {
       'Uniform and durable application',
       'Specialized products: wood, aluminum, brick, stucco, vinyl',
       'Finish resistant to weather and UV',
-    ];
-
-  const exteriorProjects = isFr
-    ? [
-      {
-        id: 1,
-        images: [],
-        title: 'Rafraîchissement de façade résidentielle',
-        description:
-          "Transformation complète de l'apparence de votre maison avec des produits résistants aux intempéries. Protection durable et look moderne.",
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Peinture de revêtement aluminium',
-        description:
-          'Protection et rafraîchissement de revêtements en aluminium avec des produits spécialisés. Finition durable qui résiste au climat québécois.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Protection de structures extérieures',
-        description:
-          'Peinture de structures métalliques, poutres et éléments architecturaux extérieurs. Protection contre la corrosion et les intempéries.',
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Mise à jour de commerces ou entrées commerciales',
-        description:
-          "Amélioration de l'image extérieure de votre commerce avec des finitions durables. Pour attirer plus de clients.",
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Peinture de terrasses et clôtures',
-        description:
-          "Rafraîchissement de terrasses en bois, clôtures et structures extérieures. Protection contre l'humidité, les UV et les variations de température.",
-      },
-    ]
-    : [
-      {
-        id: 1,
-        images: [],
-        title: 'Residential facade refresh',
-        description:
-          "Complete transformation of your home's appearance with weather-resistant products. Durable protection and modern look.",
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Aluminum coating painting',
-        description:
-          'Protection and refresh of aluminum coatings with specialized products. Durable finish that resists Quebec climate.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Exterior structure protection',
-        description:
-          'Painting of metal structures, beams and exterior architectural elements. Protection against corrosion and weather.',
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Commercial storefront and entrance updates',
-        description:
-          'Improving the exterior image of your business with durable finishes. To attract more customers.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Deck and fence painting',
-        description:
-          'Refresh of wood decks, fences and exterior structures. Protection against moisture, UV and temperature variations.',
-      },
     ];
 
   const cities = [
@@ -528,21 +452,6 @@ export default function PeintureExterieurePage() {
                   image: brossardSecteur,
                 },
               ]}
-            />
-
-            {/* Section 4 — Exemples de projets */}
-            <CustomProjectsSection
-              title={
-                isFr
-                  ? 'Réalisations extérieures'
-                  : 'Exterior achievements'
-              }
-              subtitle={
-                isFr
-                  ? 'Exemples de projets de peinture extérieure réalisés :'
-                  : 'Examples of exterior painting projects completed:'
-              }
-              projects={exteriorProjects}
             />
 
             <ResourcesSection

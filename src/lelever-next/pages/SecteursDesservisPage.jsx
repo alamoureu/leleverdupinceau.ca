@@ -30,7 +30,6 @@ import {
 } from '../home-page/SectorsSection';
 import peintureProImg from '../images/peinture_pro.jpg';
 
-
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -89,8 +88,6 @@ export default function SecteursDesservisPage() {
       image: brossardSecteur,
     },
   ];
-
-
 
   const services = [
     {
@@ -192,8 +189,8 @@ export default function SecteursDesservisPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal, incluant Montréal, Laval, Longueuil et Brossard. Ce Hub regroupe toutes les zones desservies par Le Lever du Pinceau : villes principales, sous-villes et quartiers majeurs. Sélectionnez votre secteur pour découvrir les services disponibles, les projets réalisés et les détails propres à votre localité."
-                  : 'Our teams of professional painters serve all of Greater Montreal, including Montreal, Laval, Longueuil and Brossard. This Hub brings together all areas served by Le Lever du Pinceau: main cities, sub-cities and major neighborhoods. Select your area to discover available services, completed projects and details specific to your location.'}
+                  ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal, incluant Montréal, Laval, Longueuil et Brossard. Cette page regroupe toutes les zones desservies par Le Lever du Pinceau : villes principales, sous-villes et quartiers majeurs. Sélectionnez votre secteur pour découvrir les services disponibles, les projets réalisés et les détails propres à votre localité."
+                  : 'Our teams of professional painters serve all of Greater Montreal, including Montreal, Laval, Longueuil and Brossard. This page brings together all areas served by Le Lever du Pinceau: main cities, sub-cities and major neighborhoods. Select your area to discover available services, completed projects and details specific to your location.'}
               </Text>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -325,8 +322,6 @@ export default function SecteursDesservisPage() {
                 </Stack>
               </Container>
             </Box>
-
-
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>

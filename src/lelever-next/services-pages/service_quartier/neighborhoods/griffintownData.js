@@ -5,7 +5,7 @@ export const griffintownData = {
     en: 'Griffintown',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/griffintown',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/griffintown',
   h1: 'Peinture intérieure à Griffintown – Le Lever du Pinceau',
   introduction:
     "Griffintown est l'un des quartiers les plus modernes et dynamiques de Montréal : condos neufs, lofts industriels, tours résidentielles de haute qualité et espaces à aire ouverte. Ces environnements contemporains nécessitent une peinture intérieure professionnelle, élégante et parfaitement exécutée pour mettre en valeur l'architecture moderne du quartier. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Griffintown, adapté aux condos haut de gamme, aux lofts industriels, aux nouvelles constructions et aux espaces de vie modernes. Si vous cherchez des peintres professionnels capables de livrer une finition interne moderne, propre et parfaitement uniforme, vous êtes au bon endroit.",
@@ -30,7 +30,7 @@ export const griffintownData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -102,3 +102,4 @@ export const griffintownData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

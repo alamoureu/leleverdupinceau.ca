@@ -117,8 +117,8 @@ export default function PeintreProfessionnelPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text: isFr
-            ? 'En général sous 24 heures.'
-            : 'Generally within 24 hours.',
+            ? "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."
+            : 'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
         },
       },
       {
@@ -129,8 +129,8 @@ export default function PeintreProfessionnelPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text: isFr
-            ? 'Selon le type de surface, la préparation requise et les produits utilisés. Voir notre article sur les prix.'
-            : 'Depending on the type of surface, required preparation and products used. See our article on pricing.',
+            ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 2$ et 6$ par pied carré. Pour obtenir une estimation précise adaptée à votre projet, consultez notre article sur les prix de la peinture à Montréal."
+            : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $2 and $6 per square foot. For an accurate estimate tailored to your project, see our article on painting prices in Montreal.',
         },
       },
       {
@@ -140,7 +140,9 @@ export default function PeintreProfessionnelPage() {
           : 'Do you protect surfaces before painting?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: isFr ? 'Oui, toujours.' : 'Yes, always.',
+          text: isFr
+            ? 'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.'
+            : 'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
         },
       },
       {
@@ -151,8 +153,32 @@ export default function PeintreProfessionnelPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text: isFr
-            ? 'Oui : bureaux, commerces, restaurants, immeubles.'
-            : 'Yes: offices, businesses, restaurants, buildings.',
+            ? "Oui, nous sommes spécialisés dans les projets commerciaux et comprenons les exigences spécifiques des entreprises. Nous intervenons dans les bureaux, commerces de détail, restaurants, cliniques médicales, cabinets professionnels, écoles privées, halls d'immeubles et espaces de coworking. Nous offrons des horaires flexibles (soirs et fins de semaine) pour minimiser l'impact sur vos opérations, respectons les normes de sécurité commerciales et coordonnons efficacement avec les gestionnaires d'immeubles."
+            : 'Yes, we specialize in commercial projects and understand the specific requirements of businesses. We work in offices, retail stores, restaurants, medical clinics, professional offices, private schools, building halls, and coworking spaces. We offer flexible schedules (evenings and weekends) to minimize impact on your operations, comply with commercial safety standards, and coordinate effectively with building managers.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: isFr
+          ? "Quelle est la durée typique d'un projet de peinture ?"
+          : 'What is the typical duration of a painting project?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? "La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission."
+            : 'Duration varies depending on project scope. For a standard room (bedroom or living room), expect 1 to 2 days. A complete apartment (3-4 rooms) generally takes 3 to 5 days. A complete house may require 1 to 2 weeks depending on size. Commercial projects are scheduled according to your operational constraints. We will provide you with a precise timeline when quoting.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: isFr
+          ? 'Utilisez-vous des peintures écologiques et sans odeur ?'
+          : 'Do you use eco-friendly and odorless paints?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Benjamin Moore Natura, Aura et Eco Spec. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
+            : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands like Benjamin Moore Natura, Aura and Eco Spec. We will advise you on the best choice based on your project and budget.",
         },
       },
     ],
@@ -251,16 +277,16 @@ export default function PeintreProfessionnelPage() {
         ? 'Quel est le délai pour obtenir une soumission ?'
         : 'What is the turnaround time for a quote?',
       answer: isFr
-        ? 'En général sous 24 heures.'
-        : 'Generally within 24 hours.',
+        ? "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."
+        : 'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
     },
     {
       question: isFr
         ? 'Combien coûte un peintre professionnel à Montréal ?'
         : 'How much does a professional painter cost in Montreal?',
       answer: isFr
-        ? 'Selon le type de surface, la préparation requise et les produits utilisés. Voir notre article sur les prix.'
-        : 'Depending on the type of surface, required preparation and products used. See our article on pricing.',
+        ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 2$ et 6$ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,"
+        : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $2 and $6 per square foot. For an accurate estimate tailored to your project,',
       link: isFr
         ? '/blog/prix-peinture-montreal'
         : '/blog/prix-peinture-montreal',
@@ -269,15 +295,33 @@ export default function PeintreProfessionnelPage() {
       question: isFr
         ? 'Est-ce que vous protégez les surfaces avant de peindre ?'
         : 'Do you protect surfaces before painting?',
-      answer: isFr ? 'Oui, toujours.' : 'Yes, always.',
+      answer: isFr
+        ? 'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.'
+        : 'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
     },
     {
       question: isFr
         ? 'Travaillez-vous sur des projets commerciaux ?'
         : 'Do you work on commercial projects?',
       answer: isFr
-        ? 'Oui : bureaux, commerces, restaurants, immeubles.'
-        : 'Yes: offices, businesses, restaurants, buildings.',
+        ? "Oui, nous sommes spécialisés dans les projets commerciaux et comprenons les exigences spécifiques des entreprises. Nous intervenons dans les bureaux, commerces de détail, restaurants, cliniques médicales, cabinets professionnels, écoles privées, halls d'immeubles et espaces de coworking. Nous offrons des horaires flexibles (soirs et fins de semaine) pour minimiser l'impact sur vos opérations, respectons les normes de sécurité commerciales et coordonnons efficacement avec les gestionnaires d'immeubles."
+        : 'Yes, we specialize in commercial projects and understand the specific requirements of businesses. We work in offices, retail stores, restaurants, medical clinics, professional offices, private schools, building halls, and coworking spaces. We offer flexible schedules (evenings and weekends) to minimize impact on your operations, comply with commercial safety standards, and coordinate effectively with building managers.',
+    },
+    {
+      question: isFr
+        ? "Quelle est la durée typique d'un projet de peinture ?"
+        : 'What is the typical duration of a painting project?',
+      answer: isFr
+        ? "La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission."
+        : 'Duration varies depending on project scope. For a standard room (bedroom or living room), expect 1 to 2 days. A complete apartment (3-4 rooms) generally takes 3 to 5 days. A complete house may require 1 to 2 weeks depending on size. Commercial projects are scheduled according to your operational constraints. We will provide you with a precise timeline when quoting.',
+    },
+    {
+      question: isFr
+        ? 'Utilisez-vous des peintures écologiques et sans odeur ?'
+        : 'Do you use eco-friendly and odorless paints?',
+      answer: isFr
+        ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Benjamin Moore Natura, Aura et Eco Spec. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
+        : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands like Benjamin Moore Natura, Aura and Eco Spec. We will advise you on the best choice based on your project and budget.",
     },
   ];
 
@@ -408,7 +452,6 @@ export default function PeintreProfessionnelPage() {
                 spacing={{ base: 4, md: 6, lg: 8 }}
                 order={{ base: 2, lg: 1 }}
               >
-
                 <Heading
                   as='h1'
                   fontSize={{
@@ -443,7 +486,6 @@ export default function PeintreProfessionnelPage() {
                   </Text>
                 </Heading>
 
-
                 <Text
                   fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
                   color='gray.600'
@@ -454,7 +496,6 @@ export default function PeintreProfessionnelPage() {
                     ? 'Chez Le Lever du Pinceau, nos peintres professionnels accompagnent propriétaires, commerces et immeubles dans tous leurs projets de peinture à Montréal, Laval et Longueuil. Nous combinons expertise technique, finition impeccable et service rapide pour offrir des résultats durables et esthétiques. Sur cette page, vous trouverez notre approche professionnelle, les services disponibles, les zones desservies et les réponses essentielles pour choisir le bon peintre.'
                     : 'At Le Lever du Pinceau, our professional painters assist homeowners, businesses and buildings in all their painting projects in Montreal, Laval and Longueuil. We combine technical expertise, impeccable finish and fast service to offer durable and aesthetic results. On this page you will find our professional approach, available services, service areas and essential answers for choosing the right painter.'}
                 </Text>
-
               </Stack>
 
               {/* Right Image */}
@@ -468,8 +509,16 @@ export default function PeintreProfessionnelPage() {
                 >
                   <Image
                     src={peintureProfessionnelleImg}
-                    alt={isFr ? 'Peintre professionnel Montréal - Le Lever du Pinceau' : 'Professional painter Montreal - Le Lever du Pinceau'}
-                    title={isFr ? 'Peintres professionnels en action à Montréal' : 'Professional painters in action in Montreal'}
+                    alt={
+                      isFr
+                        ? 'Peintre professionnel Montréal - Le Lever du Pinceau'
+                        : 'Professional painter Montreal - Le Lever du Pinceau'
+                    }
+                    title={
+                      isFr
+                        ? 'Peintres professionnels en action à Montréal'
+                        : 'Professional painters in action in Montreal'
+                    }
                     w='100%'
                     h='auto'
                     objectFit='cover'
@@ -790,7 +839,13 @@ export default function PeintreProfessionnelPage() {
                     </Heading>
                   </Stack>
 
-                  <Accordion allowToggle allowMultiple w='100%' maxW='800px' mx='auto'>
+                  <Accordion
+                    allowToggle
+                    allowMultiple
+                    w='100%'
+                    maxW='800px'
+                    mx='auto'
+                  >
                     {faqs.map((faq, index) => (
                       <AccordionItem
                         key={index}
@@ -856,7 +911,7 @@ export default function PeintreProfessionnelPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#014CC4'
+          bg='#022A68'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -893,7 +948,7 @@ export default function PeintreProfessionnelPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#014CC4'
+                    color='#022A68'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}
@@ -914,4 +969,3 @@ export default function PeintreProfessionnelPage() {
     </Fragment>
   );
 }
-

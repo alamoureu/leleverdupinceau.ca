@@ -20,9 +20,16 @@ import ServiceCTASection from '../components/ServiceCTASection';
 import { getSousServiceVilleData } from './index';
 
 export default function SousServiceVillePage() {
-  const { serviceSlug, subServiceSlug, citySlug } = useParams();
+  const params = useParams();
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+
+  // Support both param naming conventions:
+  // - Direct: subServiceSlug, citySlug
+  // - From SmartRouter: param2, param3
+  const serviceSlug = params.serviceSlug;
+  const subServiceSlug = params.subServiceSlug || params.param2;
+  const citySlug = params.citySlug || params.param3;
 
   // Get data for this service-subService-city combination
   const pageData = getSousServiceVilleData(
@@ -37,23 +44,36 @@ export default function SousServiceVillePage() {
   }
 
   const { service, subService, city } = pageData;
-  
+
   // Safety checks with fallbacks
   if (!service || !service.name) {
     return <Navigate to='/services' replace />;
   }
-  
+
   if (!subService || !subService.name) {
     return <Navigate to='/services' replace />;
   }
-  
+
   if (!city || !city.name) {
     return <Navigate to='/services' replace />;
   }
-  
-  const serviceName = service.name[isFr ? 'fr' : 'en'] || service.name.fr || service.name.en || 'Service';
-  const subServiceName = subService.name[isFr ? 'fr' : 'en'] || subService.name.fr || subService.name.en || 'SubService';
-  const cityName = city.name[isFr ? 'fr' : 'en'] || city.name.fr || city.name.en || city.name || 'City';
+
+  const serviceName =
+    service.name[isFr ? 'fr' : 'en'] ||
+    service.name.fr ||
+    service.name.en ||
+    'Service';
+  const subServiceName =
+    subService.name[isFr ? 'fr' : 'en'] ||
+    subService.name.fr ||
+    subService.name.en ||
+    'SubService';
+  const cityName =
+    city.name[isFr ? 'fr' : 'en'] ||
+    city.name.fr ||
+    city.name.en ||
+    city.name ||
+    'City';
 
   // Build breadcrumb schema
   const breadcrumbSchema = {
@@ -289,55 +309,6 @@ export default function SousServiceVillePage() {
                   </Container>
                 </Box>
               )}
-
-            {/* Section 3 — Types de surfaces */}
-            {city.surfaces && city.surfaces[isFr ? 'fr' : 'en'] && (
-              <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={6}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {city.surfacesTitle[isFr ? 'fr' : 'en']}
-                    </Heading>
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.600'
-                      mb={4}
-                    >
-                      {isFr
-                        ? 'Nous peignons et rénovons :'
-                        : 'We paint and renovate:'}
-                    </Text>
-                    <Stack spacing={2}>
-                      {city.surfaces[isFr ? 'fr' : 'en'].map(
-                        (surface, index) => (
-                          <Text
-                            key={index}
-                            fontSize={{ base: 'md', md: 'lg' }}
-                            color='gray.700'
-                            pl={4}
-                            position='relative'
-                            _before={{
-                              content: '"•"',
-                              position: 'absolute',
-                              left: 0,
-                              color: '#014CC4',
-                              fontWeight: 'bold',
-                            }}
-                          >
-                            {surface}
-                          </Text>
-                        )
-                      )}
-                    </Stack>
-                  </Stack>
-                </Container>
-              </Box>
-            )}
 
             {/* Section 4 — Processus */}
             {city.processSteps && city.processSteps[isFr ? 'fr' : 'en'] && (

@@ -30,7 +30,10 @@
   "scripts": {
     "start": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "node src/test/verify-routes.js",
+    "open:routes": "node src/test/open-all-routes.js",
+    "open:all": "node src/test/open-all-routes.js --all"
   },
   "eslintConfig": {
     "extends": [

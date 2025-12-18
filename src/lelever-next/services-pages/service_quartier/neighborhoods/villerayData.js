@@ -5,7 +5,7 @@ export const villerayData = {
     en: 'Villeray',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/villeray',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/villeray',
   h1: 'Peinture intérieure à Villeray – Le Lever du Pinceau',
   introduction:
     'Villeray est un quartier chaleureux, familial et dynamique, connu pour ses duplex typiques, triplex, appartements rénovés, condos modernes et résidences près du parc Jarry. Entre logements anciens à cachet unique et nouveaux condos lumineux, une peinture intérieure professionnelle est essentielle pour rafraîchir, moderniser et uniformiser vos pièces. Le Lever du Pinceau propose un service spécialisé de peinture intérieure à Villeray, parfaitement adapté aux maisons anciennes, aux logements rénovés et aux condos modernes. Pour une finition intérieure durable, propre et élégante dans votre logement de Villeray, notre équipe est prête à intervenir rapidement.',
@@ -29,7 +29,7 @@ export const villerayData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -100,3 +100,4 @@ export const villerayData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

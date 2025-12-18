@@ -5,7 +5,7 @@ export const centreVilleData = {
     en: 'Downtown',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/centre-ville',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/centre-ville',
   h1: 'Peinture intérieure au Centre-Ville de Montréal – Le Lever du Pinceau',
   introduction:
     "Le Centre-Ville de Montréal regroupe des tours résidentielles haut de gamme, des condos modernes, des lofts urbains, des appartements rénovés et des unités luxueuses situées près de Sainte-Catherine, René-Lévesque, Golden Square Mile, Shaughnessy Village, et les environs du Quartier des Spectacles. Ces espaces hautement modernes méritent une peinture intérieure professionnelle, soignée et parfaitement exécutée afin de refléter le style contemporain et l'élégance du centre-ville. Le Lever du Pinceau offre un service spécialisé de peinture intérieure au Centre-Ville, idéal pour les logements urbains, les condos neufs, les studios modernes et les résidences haut de gamme. Pour une finition impeccable dans votre condo du centre-ville, notre équipe livre une qualité supérieure et un résultat durable.",
@@ -29,7 +29,7 @@ export const centreVilleData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -101,3 +101,4 @@ export const centreVilleData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

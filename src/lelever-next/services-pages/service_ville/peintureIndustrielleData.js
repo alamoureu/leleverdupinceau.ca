@@ -74,60 +74,6 @@ export const peintureIndustrielleData = {
           fr: 'Nous travaillons dans : entrepôts, centres logistiques, usines, ateliers, centres mécaniques, bâtiments techniques et structures extérieures.',
           en: 'We work in: warehouses, logistics centers, factories, workshops, mechanical centers, technical buildings and exterior structures.',
         },
-        projectsTitle: {
-          fr: 'Projets récents réalisés à Brossard',
-          en: 'Recent projects completed in Brossard',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: 'Revêtement époxy dans un entrepôt secteur R',
-              description:
-                "Application d'un revêtement époxy haute résistance sur plancher d'entrepôt pour résister à l'abrasion et aux charges lourdes.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title:
-                'Peinture anticorrosion sur structure extérieure secteur S',
-              description:
-                "Protection complète d'une structure métallique extérieure avec produits anticorrosion haute durabilité.",
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title:
-                "Modernisation intérieure d'un bâtiment logistique secteur C",
-              description:
-                "Rénovation complète des surfaces intérieures d'un bâtiment logistique avec finition professionnelle.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: 'Epoxy coating in a warehouse sector R',
-              description:
-                'Application of high resistance epoxy coating on warehouse floor to resist abrasion and heavy loads.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Anti-corrosion painting on exterior structure sector S',
-              description:
-                'Complete protection of an exterior metal structure with high durability anti-corrosion products.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: 'Interior modernization of a logistics building sector C',
-              description:
-                'Complete renovation of interior surfaces of a logistics building with professional finish.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien préparer vos travaux industriels à Brossard',
           en: 'Prepare your industrial work in Brossard well',
@@ -233,62 +179,6 @@ export const peintureIndustrielleData = {
           fr: 'Nous travaillons dans : entrepôts, usines, centres logistiques, ateliers, bâtiments industriels, stations techniques et zones de production.',
           en: 'We work in: warehouses, factories, logistics centers, workshops, industrial buildings, technical stations and production zones.',
         },
-        projectsTitle: {
-          fr: 'Projets récents dans des installations industrielles lavalloises',
-          en: 'Recent projects in Laval industrial installations',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title:
-                "Application d'un revêtement époxy dans un entrepôt de Chomedey",
-              description:
-                "Revêtement époxy haute résistance sur plancher d'entrepôt pour résister à l'abrasion et aux charges lourdes.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title:
-                'Peinture anticorrosion de structures métalliques à Duvernay',
-              description:
-                'Protection complète de structures métalliques avec produits anticorrosion haute durabilité.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title:
-                'Rafraîchissement de murs techniques dans un centre logistique',
-              description:
-                'Peinture de murs techniques avec produits résistants aux environnements industriels.',
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title:
-                'Application of an epoxy coating in a warehouse in Chomedey',
-              description:
-                'High resistance epoxy coating on warehouse floor to resist abrasion and heavy loads.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Anti-corrosion painting of metal structures in Duvernay',
-              description:
-                'Complete protection of metal structures with high durability anti-corrosion products.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: 'Refresh of technical walls in a logistics center',
-              description:
-                'Painting of technical walls with products resistant to industrial environments.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien planifier un projet de peinture industrielle à Laval',
           en: 'Plan an industrial painting project in Laval well',
@@ -386,64 +276,6 @@ export const peintureIndustrielleData = {
           fr: 'Nous intervenons dans : usines, entrepôts, ateliers, centres logistiques, bâtiments techniques, zones mécaniques, structures extérieures.',
           en: 'We work in: factories, warehouses, workshops, logistics centers, technical buildings, mechanical zones, exterior structures.',
         },
-        projectsTitle: {
-          fr: 'Projets récents dans les installations industrielles longuelloises',
-          en: 'Recent projects in Longueuil industrial installations',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title:
-                "Application d'un revêtement époxy dans un entrepôt de Saint-Hubert",
-              description:
-                "Revêtement époxy haute résistance sur plancher d'entrepôt pour résister à l'abrasion et aux charges lourdes.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title:
-                "Traitement anticorrosion d'une structure métallique à Greenfield Park",
-              description:
-                "Protection complète d'une structure métallique avec produits anticorrosion haute durabilité.",
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title:
-                "Peinture intérieure d'une zone de production dans le Vieux-Longueuil",
-              description:
-                "Rénovation complète d'une zone de production avec finition professionnelle et durable.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title:
-                'Application of an epoxy coating in a warehouse in Saint-Hubert',
-              description:
-                'High resistance epoxy coating on warehouse floor to resist abrasion and heavy loads.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title:
-                'Anti-corrosion treatment of a metal structure in Greenfield Park',
-              description:
-                'Complete protection of a metal structure with high durability anti-corrosion products.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title:
-                'Interior painting of a production zone in Vieux-Longueuil',
-              description:
-                'Complete renovation of a production zone with professional and durable finish.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien planifier vos travaux industriels à Longueuil',
           en: 'Plan your industrial work in Longueuil well',
@@ -540,60 +372,6 @@ export const peintureIndustrielleData = {
         whyUsOutro: {
           fr: 'Nous intervenons dans : entrepôts, usines, ateliers, stations techniques, centres logistiques, structures métalliques et installations extérieures.',
           en: 'We work in: warehouses, factories, workshops, technical stations, logistics centers, metal structures and exterior installations.',
-        },
-        projectsTitle: {
-          fr: 'Projets récents dans les bâtiments industriels montréalais',
-          en: 'Recent projects in Montreal industrial buildings',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: "Revêtement époxy sur plancher d'usine à Saint-Laurent",
-              description:
-                "Application d'un revêtement époxy haute résistance sur plancher d'usine pour résister à l'abrasion et aux charges lourdes.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title:
-                "Peinture de murs de béton dans un entrepôt de l'Est de Montréal",
-              description:
-                'Rénovation complète de murs de béton avec produits résistants aux environnements industriels.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title:
-                'Traitement anticorrosion de structures métalliques à Anjou',
-              description:
-                'Protection complète de structures métalliques avec produits anticorrosion haute durabilité.',
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: 'Epoxy coating on factory floor in Saint-Laurent',
-              description:
-                'Application of high resistance epoxy coating on factory floor to resist abrasion and heavy loads.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Painting of concrete walls in an East Montreal warehouse',
-              description:
-                'Complete renovation of concrete walls with products resistant to industrial environments.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: 'Anti-corrosion treatment of metal structures in Anjou',
-              description:
-                'Complete protection of metal structures with high durability anti-corrosion products.',
-            },
-          ],
         },
         guidesTitle: {
           fr: 'Bien préparer vos travaux industriels à Montréal',

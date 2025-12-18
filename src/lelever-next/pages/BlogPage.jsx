@@ -44,11 +44,11 @@ export default function BlogPage() {
   const services = [
     {
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
-      link: '/services/peinture-residentielle',
+      link: '/services/new-peinture-residentielle',
     },
     {
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
-      link: '/services/peinture-commerciale',
+      link: '/services/new-peinture-commerciale',
     },
     {
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
@@ -60,7 +60,7 @@ export default function BlogPage() {
     },
     {
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
-      link: '/services/peinture-industrielle',
+      link: '/services/new-peinture-industrielle',
     },
   ];
 

@@ -5,7 +5,7 @@ export const villeSaintLaurentData = {
     en: 'Saint-Laurent',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/ville-saint-laurent',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/ville-saint-laurent',
   h1: 'Peinture intérieure à Ville-Saint-Laurent – Le Lever du Pinceau',
   introduction:
     'Ville-Saint-Laurent est un secteur diversifié et dynamique : condos récents, appartements modernes, immeubles à logements, maisons unifamiliales, duplex, triplex et nouvelles constructions. Avec tant de styles architecturaux différents, une peinture intérieure professionnelle est indispensable pour moderniser les pièces, rafraîchir un logement ou donner un look uniforme à un espace rénové. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Ville-Saint-Laurent, adapté aux logements modernes, aux propriétés familiales, aux appartements en hauteur et aux résidences plus anciennes. Pour une finition intérieure durable, moderne et détaillée à VSL, notre équipe est la référence.',
@@ -29,7 +29,7 @@ export const villeSaintLaurentData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -101,3 +101,4 @@ export const villeSaintLaurentData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

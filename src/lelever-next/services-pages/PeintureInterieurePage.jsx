@@ -15,7 +15,6 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
-import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import ServiceWhyUsSection from './components/ServiceWhyUsSection';
 import ServiceSubServicesSection from './components/ServiceSubServicesSection';
 import ResourcesSection from '../home-page/ResourcesSection';
@@ -78,82 +77,6 @@ export default function PeintureInterieurePage() {
       'Advice on colors, finishes and products',
       'A punctual, clean and experienced team',
       'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
-    ];
-
-  const interiorProjects = isFr
-    ? [
-      {
-        id: 1,
-        images: [],
-        title: 'Rafraîchissement de pièces complètes',
-        description:
-          'Transformation complète de salons, chambres et espaces de vie avec des finitions impeccables. Préparation minutieuse et application professionnelle garanties.',
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Rénovation intérieure moderne',
-        description:
-          'Mise à jour complète de votre intérieur avec des couleurs contemporaines et des finitions haut de gamme. Résultat professionnel garanti.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: "Peinture d'escaliers et boiseries",
-        description:
-          "Rénovation complète d'escaliers et de boiseries avec des finitions résistantes. Protection des surfaces adjacentes et résultat impeccable.",
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Peinture de plafonds et murs haute précision',
-        description:
-          'Peinture de plafonds et murs avec une attention particulière aux détails. Application uniforme sans traces de rouleau ni démarcations garantie.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Harmonisation des couleurs dans des espaces ouverts',
-        description:
-          "Création d'une harmonie visuelle dans les espaces ouverts avec des couleurs complémentaires. Conseils personnalisés sur le choix des couleurs inclus.",
-      },
-    ]
-    : [
-      {
-        id: 1,
-        images: [],
-        title: 'Complete room refresh',
-        description:
-          'Complete transformation of living rooms, bedrooms and living spaces with impeccable finishes. Careful preparation and professional application.',
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Modern interior renovation',
-        description:
-          'Complete update of your interior with contemporary colors and high-end finishes. Professional result guaranteed.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Stair and woodwork painting',
-        description:
-          'Complete renovation of stairs and woodwork with resistant finishes. Protection of adjacent surfaces and impeccable result.',
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'High precision ceiling and wall painting',
-        description:
-          'Painting of ceilings and walls with particular attention to detail. Uniform application without roller marks or demarcations.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Color harmonization in open spaces',
-        description:
-          'Creating visual harmony in open spaces with complementary colors. Personalized advice on color choice.',
-      },
     ];
 
   // Images section removed to avoid duplication with project images above
@@ -375,20 +298,9 @@ export default function PeintureInterieurePage() {
               ]}
             />
 
-            {/* Section 4 — Exemples de projets */}
-            <CustomProjectsSection
-              title={
-                isFr
-                  ? 'Quelques réalisations en peinture intérieure'
-                  : 'Some interior painting achievements'
-              }
-              subtitle={isFr ? 'Projets typiques :' : 'Typical projects:'}
-              projects={interiorProjects}
-            />
-
             <ResourcesSection />
 
-            {/* Section 5 — À propos de nos peintres */}
+            {/* Section 4 — À propos de nos peintres */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'

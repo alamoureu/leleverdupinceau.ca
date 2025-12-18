@@ -37,7 +37,7 @@ export default function ServicesSection() {
       image: peintureInterieurImg,
       title: t.serviceInterior,
       description: t.serviceInteriorDesc,
-      link: '/services/peinture-interieure',
+      link: '/services/new-peinture-interieure',
     },
   ];
   return (

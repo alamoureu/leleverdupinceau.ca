@@ -1,7 +1,7 @@
 // Data configuration for Peinture Commerciale Extérieure × City pages
 
 export const peintureCommercialeExterieureData = {
-  'peinture-commerciale': {
+  'new-peinture-commerciale': {
     subServices: {
       exterieure: {
         name: {

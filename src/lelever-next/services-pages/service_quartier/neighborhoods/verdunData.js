@@ -5,7 +5,7 @@ export const verdunData = {
     en: 'Verdun',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/verdun',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/verdun',
   h1: 'Peinture intérieure à Verdun – Le Lever du Pinceau',
   introduction:
     "Verdun est un quartier en plein essor : appartements rénovés, condos modernes, multiplex historiques, maisons familiales, logements rénovés près du fleuve et projets urbains récents. Avec un mélange unique d'anciens logements de brique, de nouvelles constructions et de condos contemporains, une peinture intérieure professionnelle est essentielle pour obtenir une finition élégante et durable. Le Lever du Pinceau propose un service spécialisé de peinture intérieure à Verdun, adapté aux besoins des logements classiques, des condos modernes et des propriétés anciennes nécessitant une préparation soignée. Si vous souhaitez rafraîchir votre intérieur, moderniser votre condo ou redonner vie à un appartement verdunois, notre équipe est la solution idéale.",
@@ -28,7 +28,7 @@ export const verdunData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -98,3 +98,4 @@ export const verdunData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

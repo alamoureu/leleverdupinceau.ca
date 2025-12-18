@@ -5,7 +5,7 @@ export const outremontData = {
     en: 'Outremont',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/outremont',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/outremont',
   h1: 'Peinture intérieure à Outremont – Le Lever du Pinceau',
   introduction:
     "Outremont est reconnu pour ses résidences luxueuses, ses maisons cossues, ses triplex classiques, ses condos de prestige et ses immeubles patrimoniaux. Ce quartier exige une peinture intérieure professionnelle, précise et impeccable pour respecter le niveau d'élégance typique d'Outremont. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Outremont, adapté aux maisons haut de gamme, aux intérieurs rénovés et aux propriétés anciennes nécessitant une préparation très soignée. Si vous souhaitez une finition intérieure durable, luxueuse et sans défauts, notre équipe expérimentée est le choix idéal à Outremont.",
@@ -28,7 +28,7 @@ export const outremontData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -95,3 +95,4 @@ export const outremontData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

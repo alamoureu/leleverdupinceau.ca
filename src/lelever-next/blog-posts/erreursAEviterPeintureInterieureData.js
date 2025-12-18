@@ -697,7 +697,7 @@ export const erreursAEviterPeintureInterieureData = {
         fr: 'Découvrez nos services de peinture intérieure à Montréal',
         en: 'Discover our interior painting services in Montreal',
       },
-      href: '/services/peinture-interieure',
+      href: '/services/new-peinture-interieure',
     },
     {
       type: 'link',
@@ -878,4 +878,5 @@ export const erreursAEviterPeintureInterieureData = {
     ],
   },
 };
+
 

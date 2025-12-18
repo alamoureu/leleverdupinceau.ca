@@ -5,7 +5,7 @@ export const hochelagaData = {
     en: 'Hochelaga',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/hochelaga',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/hochelaga',
   h1: 'Peinture intérieure à Hochelaga – Le Lever du Pinceau',
   introduction:
     'Hochelaga (HO-MA) est un quartier en pleine revitalisation : appartements rénovés, logements anciens au cachet unique, duplex et triplex typiques, condos urbains, lofts industriels et nouvelles constructions. Ces espaces variés nécessitent une peinture intérieure professionnelle, capable d’unifier les surfaces, moderniser les pièces et redonner vie aux logements plus anciens. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Hochelaga, parfait pour rafraîchir un appartement, moderniser un condo ou restaurer une vieille propriété du quartier. Pour une finition intérieure propre, uniforme, moderne et durable dans votre logement à Hochelaga, notre équipe est à votre service.',
@@ -28,7 +28,7 @@ export const hochelagaData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -99,3 +99,4 @@ export const hochelagaData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

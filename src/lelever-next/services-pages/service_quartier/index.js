@@ -23,13 +23,7 @@ export function getServiceQuartierSecteurData(
   citySlug,
   neighborhoodSlug
 ) {
-  const serviceSlugMap = {
-    'new-peinture-interieure': 'peinture-interieure',
-    'new-peinture-exterieure': 'peinture-exterieure',
-  };
-  
-  const mappedServiceSlug = serviceSlugMap[serviceSlug] || serviceSlug;
-  const service = allServiceQuartierSecteurData[mappedServiceSlug];
+  const service = allServiceQuartierSecteurData[serviceSlug];
   if (!service) return null;
 
   const city = service?.cities?.[citySlug];
@@ -64,4 +58,3 @@ export function getAllServiceQuartierSecteurRoutes() {
   });
   return routes;
 }
-

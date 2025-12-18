@@ -1,7 +1,7 @@
 // Data configuration for Peinture Résidentielle Extérieure × City pages
 
 export const peintureResidentielleExterieureData = {
-  'peinture-residentielle': {
+  'new-peinture-residentielle': {
     subServices: {
       exterieure: {
         name: {

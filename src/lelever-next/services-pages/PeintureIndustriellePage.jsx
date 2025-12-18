@@ -19,7 +19,6 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection, {
   montrealSecteur,
@@ -79,82 +78,6 @@ export default function PeintureIndustriellePage() {
       'Application compliant with industrial environment standards',
       'Enhanced safety on site',
       'Team trained for complex environments',
-    ];
-
-  const industrialProjects = isFr
-    ? [
-      {
-        id: 1,
-        images: [],
-        title: 'Protection anticorrosive de structures métalliques',
-        description:
-          'Application de revêtements spécialisés pour protéger les structures métalliques contre la corrosion. Traitement de surfaces en acier, poutres et équipements industriels.',
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Peinture de planchers industriels haute résistance',
-        description:
-          'Revêtement de planchers en béton avec des produits époxy ou polyuréthane résistants aux charges lourdes. Finition durable pour entrepôts et usines.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: "Rafraîchissement intérieur d'entrepôts",
-        description:
-          "Peinture complète d'entrepôts et centres logistiques avec des produits adaptés aux grandes surfaces. Planification efficace pour minimiser les interruptions.",
-      },
-      {
-        id: 4,
-        images: [],
-        title: "Peinture extérieure d'usines",
-        description:
-          'Rénovation de façades industrielles avec des revêtements résistants aux intempéries. Protection contre les éléments.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Revêtement spécialisé pour conduits et poutres',
-        description:
-          'Peinture de conduits de ventilation, poutres métalliques et structures complexes. Amélioration de la sécurité et de la durabilité.',
-      },
-    ]
-    : [
-      {
-        id: 1,
-        images: [],
-        title: 'Anti-corrosion protection of metal structures',
-        description:
-          'Application of specialized coatings to protect metal structures against corrosion. Treatment of steel surfaces, beams and industrial equipment.',
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'High resistance industrial floor painting',
-        description:
-          'Concrete floor coating with epoxy or polyurethane products resistant to heavy loads. Durable finish for warehouses and factories.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Interior warehouse refresh',
-        description:
-          'Complete painting of warehouses and logistics centers with products adapted to large surfaces. Efficient planning to minimize interruptions.',
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Factory exterior painting',
-        description:
-          'Industrial facade renovation with weather-resistant coatings. Protection against the elements.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Specialized coating for ducts and beams',
-        description:
-          'Painting of ventilation ducts, metal beams and complex structures. Improvement of safety and durability.',
-      },
     ];
 
   const cities = [
@@ -413,24 +336,9 @@ export default function PeintureIndustriellePage() {
               ]}
             />
 
-            {/* Section 4 — Exemples de projets industriels */}
-            <CustomProjectsSection
-              title={
-                isFr
-                  ? 'Projets industriels réalisés'
-                  : 'Completed industrial projects'
-              }
-              subtitle={
-                isFr
-                  ? 'Exemples de projets industriels :'
-                  : 'Examples of industrial projects:'
-              }
-              projects={industrialProjects}
-            />
-
             <ResourcesSection />
 
-            {/* Section 5 — À propos de nos peintres professionnels */}
+            {/* Section 4 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'

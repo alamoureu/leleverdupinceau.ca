@@ -20,7 +20,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
-import CustomProjectsSection from '../city-pages/CustomProjectsSection';
 import SectorsSection, {
   montrealSecteur,
   lavalSecteur,
@@ -77,82 +76,6 @@ export default function PeintureCommercialePage() {
       'Strict respect of deadlines and agreed schedule',
       'Use of products adapted to commercial environments (low odor, fast drying, increased resistance)',
       'Clear communication from start to finish of the project',
-    ];
-
-  const commercialProjects = isFr
-    ? [
-      {
-        id: 1,
-        images: [],
-        title: 'Rafraîchissement complet de bureaux',
-        description:
-          "Transformation complète d'espaces de bureaux avec une finition professionnelle et durable. Planification flexible pour minimiser les interruptions.",
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Mise à jour de commerces de détail',
-        description:
-          "Rénovation de commerces avec des couleurs modernes qui reflètent votre image de marque. Travail effectué en dehors des heures d'ouverture.",
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Peinture de restaurants et cafés',
-        description:
-          "Création d'ambiances chaleureuses pour vos établissements avec des finitions résistantes aux taches. Produits adaptés aux environnements alimentaires.",
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Rénovation de corridors et espaces communs',
-        description:
-          "Rafraîchissement des espaces communs d'immeubles avec des produits adaptés au trafic élevé. Finitions durables qui résistent à l'usure quotidienne.",
-      },
-      {
-        id: 5,
-        images: [],
-        title: "Rafraîchissement d'entrées commerciales et façades",
-        description:
-          "Amélioration de l'image extérieure de votre commerce avec des finitions durables. Produits résistants aux intempéries et au climat québécois.",
-      },
-    ]
-    : [
-      {
-        id: 1,
-        images: [],
-        title: 'Complete office refresh',
-        description:
-          'Complete transformation of office spaces with professional and durable finish. Flexible planning to minimize interruptions.',
-      },
-      {
-        id: 2,
-        images: [],
-        title: 'Retail store updates',
-        description:
-          'Store renovation with modern colors that reflect your brand image. Work done outside opening hours to avoid disrupting your sales.',
-      },
-      {
-        id: 3,
-        images: [],
-        title: 'Restaurant and café painting',
-        description:
-          'Creating warm atmospheres for your establishments with finishes resistant to stains. Products adapted to food environments.',
-      },
-      {
-        id: 4,
-        images: [],
-        title: 'Corridor and common area renovation',
-        description:
-          'Refreshing building common areas with products adapted to high traffic. Durable finishes that resist daily wear.',
-      },
-      {
-        id: 5,
-        images: [],
-        title: 'Commercial entrance and facade refresh',
-        description:
-          'Improving the exterior image of your business with durable finishes. Products resistant to weather and Quebec climate.',
-      },
     ];
 
   const cities = [
@@ -531,22 +454,7 @@ export default function PeintureCommercialePage() {
               ]}
             />
 
-            {/* Section 4 — Exemples de projets */}
-            <CustomProjectsSection
-              title={
-                isFr
-                  ? 'Réalisations commerciales'
-                  : 'Commercial achievements'
-              }
-              subtitle={
-                isFr
-                  ? 'Exemples de travaux réalisés pour nos clients commerciaux :'
-                  : 'Examples of work done for our commercial clients:'
-              }
-              projects={commercialProjects}
-            />
-
-            {/* Section 5 — À propos de nos peintres professionnels */}
+            {/* Section 4 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'
@@ -609,7 +517,7 @@ export default function PeintureCommercialePage() {
           </Stack>
         </Container>
 
-        {/* Section 7 — CTA final */}
+        {/* Section 5 — CTA final */}
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}

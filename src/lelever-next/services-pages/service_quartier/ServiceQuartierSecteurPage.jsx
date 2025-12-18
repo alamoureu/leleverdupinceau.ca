@@ -21,9 +21,16 @@ import ServiceCTASection from '../components/ServiceCTASection';
 import { getServiceQuartierSecteurData } from './index';
 
 export default function ServiceQuartierSecteurPage() {
-  const { serviceSlug, citySlug, neighborhoodSlug } = useParams();
+  const params = useParams();
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+
+  // Support both param naming conventions:
+  // - Direct: citySlug, neighborhoodSlug
+  // - From SmartRouter: param2, param3
+  const serviceSlug = params.serviceSlug;
+  const citySlug = params.citySlug || params.param2;
+  const neighborhoodSlug = params.neighborhoodSlug || params.param3;
 
   const pageData = getServiceQuartierSecteurData(
     serviceSlug,
@@ -219,7 +226,6 @@ export default function ServiceQuartierSecteurPage() {
                     neighborhood.introduction}
               </Text>
             </Stack>
-
           </Stack>
         </Container>
 

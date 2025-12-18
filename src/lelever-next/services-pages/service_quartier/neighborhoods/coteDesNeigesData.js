@@ -5,7 +5,7 @@ export const coteDesNeigesData = {
     en: 'Côte-des-Neiges',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/cote-des-neiges',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/cote-des-neiges',
   h1: 'Peinture intérieure à Côte-des-Neiges – Le Lever du Pinceau',
   introduction:
     "Côte-des-Neiges est l'un des quartiers les plus vastes et diversifiés de Montréal : grands appartements, condos modernes, logements étudiants, maisons unifamiliales, immeubles à logements et résidences patrimoniales. Avec une telle variété de styles et d'âges de bâtiments, une peinture intérieure professionnelle est essentielle pour rafraîchir les pièces, moderniser les espaces et assurer une finition durable. Le Lever du Pinceau propose un service spécialisé de peinture intérieure à Côte-des-Neiges, adapté aux logements anciens, aux condos récents, aux appartements rénovés et aux résidences familiales du secteur. Si vous souhaitez une finition intérieure moderne, propre et professionnelle dans votre logement à Côte-des-Neiges, vous êtes au bon endroit.",
@@ -29,7 +29,7 @@ export const coteDesNeigesData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -101,3 +101,4 @@ export const coteDesNeigesData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

@@ -5,7 +5,7 @@ export const leVillageData = {
     en: 'The Village',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/le-village',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/le-village',
   h1: 'Peinture intérieure dans Le Village – Le Lever du Pinceau',
   introduction:
     'Le Village (Centre-Sud / Village gai) est un quartier vibrant, coloré et culturellement riche : appartements rénovés, condos urbains, lofts modernes, logements plus anciens, immeubles typiques du Centre-Sud et studios créatifs. Ces espaces diversifiés nécessitent une peinture intérieure professionnelle pour moderniser les pièces, rafraîchir les murs et livrer une finition propre, uniforme et durable. Le Lever du Pinceau offre un service spécialisé de peinture intérieure dans Le Village, adapté aux logements anciens, aux condos récents, aux studios artistiques et aux appartements urbains. Si vous souhaitez rafraîchir un appartement, moderniser un condo ou transformer un loft dans Le Village, notre équipe offre une finition impeccable.',
@@ -28,7 +28,7 @@ export const leVillageData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -101,3 +101,4 @@ export const leVillageData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

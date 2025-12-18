@@ -5,7 +5,7 @@ export const notreDameDeGraceData = {
     en: 'Notre-Dame-de-Grâce',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/notre-dame-de-grace',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/notre-dame-de-grace',
   h1: 'Peinture intérieure à Notre-Dame-de-Grâce (NDG) – Le Lever du Pinceau',
   introduction:
     'Notre-Dame-de-Grâce (NDG) est connu pour ses maisons familiales, duplex, triplex, condos urbains et immeubles locatifs bien établis. Ces espaces nécessitent une peinture intérieure professionnelle pour mettre en valeur les volumes, moderniser les pièces et assurer une finition durable, propre et uniforme. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à NDG, parfaitement adapté aux réalités des résidences du quartier : maisons centenaires, logements rénovés, condos modernes et propriétés multi-étages. Si vous cherchez des peintres intérieurs fiables, minutieux et habitués aux bâtiments de NDG, vous êtes au bon endroit.',
@@ -29,7 +29,7 @@ export const notreDameDeGraceData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -99,3 +99,4 @@ export const notreDameDeGraceData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

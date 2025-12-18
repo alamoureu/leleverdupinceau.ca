@@ -86,47 +86,47 @@ export default function SousServicePage() {
     // Build guides array
     const guides = city.guides
       ? city.guides.map((guide) => ({
-        title: guide.title[isFr ? 'fr' : 'en'],
-        href: guide.href,
-      }))
+          title: guide.title[isFr ? 'fr' : 'en'],
+          href: guide.href,
+        }))
       : [
-        {
-          title: isFr
-            ? 'Comment choisir un peintre professionnel ?'
-            : 'How to choose a professional painter?',
-          href: '/blog/comment-choisir-un-peintre-professionnel',
-        },
-        {
-          title: isFr
-            ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
-            : 'Painting prices Montreal / South Shore – what you need to know',
-          href: '/blog/prix-peinture-montreal',
-        },
-        {
-          title: isFr
-            ? 'Erreurs à éviter avant des travaux dans un commerce'
-            : 'Mistakes to avoid before work in a business',
-          href: '/blog/erreurs-a-eviter-peinture-interieure',
-        },
-      ];
+          {
+            title: isFr
+              ? 'Comment choisir un peintre professionnel ?'
+              : 'How to choose a professional painter?',
+            href: '/blog/comment-choisir-un-peintre-professionnel',
+          },
+          {
+            title: isFr
+              ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
+              : 'Painting prices Montreal / South Shore – what you need to know',
+            href: '/blog/prix-peinture-montreal',
+          },
+          {
+            title: isFr
+              ? 'Erreurs à éviter avant des travaux dans un commerce'
+              : 'Mistakes to avoid before work in a business',
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
+        ];
 
     // Build sub-services array
     const subServices = city.subServices
       ? city.subServices.interior && city.subServices.exterior
         ? [
-          {
-            title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
-            link: city.subServices.interior.link,
-            linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
-          },
-          {
-            title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
-            link: city.subServices.exterior.link,
-            linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
-          },
-        ]
+            {
+              title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
+              link: city.subServices.interior.link,
+              linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
+            },
+            {
+              title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
+              link: city.subServices.exterior.link,
+              linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
+            },
+          ]
         : city.subServices.residential && city.subServices.commercial
-          ? [
+        ? [
             {
               title: city.subServices.residential.title[isFr ? 'fr' : 'en'],
               link: city.subServices.residential.link,
@@ -140,7 +140,7 @@ export default function SousServicePage() {
                 city.subServices.commercial.linkText[isFr ? 'fr' : 'en'],
             },
           ]
-          : []
+        : []
       : [];
 
     // Render city page content
@@ -244,8 +244,8 @@ export default function SousServicePage() {
                   {city.h1
                     ? city.h1[isFr ? 'fr' : 'en']
                     : isFr
-                      ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
-                      : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
+                    ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
+                    : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -256,7 +256,6 @@ export default function SousServicePage() {
                   {city.introduction[isFr ? 'fr' : 'en']}
                 </Text>
               </Stack>
-
             </Stack>
           </Container>
 
@@ -271,12 +270,8 @@ export default function SousServicePage() {
             borderRadius='0'
           />
 
-          <Container
-            maxW='1440px'
-            px={{ base: 4, md: 6 }}
-          >
+          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
             <Stack spacing={0}>
-
               {/* Section 2 — Sous-services (only if subServices exist) */}
               {subServices.length > 0 && (
                 <ServiceSubServicesSection
@@ -347,8 +342,8 @@ export default function SousServicePage() {
         ? 'Peinture commerciale'
         : 'Commercial painting'
       : isFr
-        ? 'Peinture résidentielle'
-        : 'Residential painting';
+      ? 'Peinture résidentielle'
+      : 'Residential painting';
 
   // Build breadcrumb schema
   const breadcrumbSchema = {
@@ -385,9 +380,9 @@ export default function SousServicePage() {
   // Build guides array from data
   const guides = pageData.guides
     ? pageData.guides.map((guide) => ({
-      title: guide.title[isFr ? 'fr' : 'en'],
-      href: guide.href,
-    }))
+        title: guide.title[isFr ? 'fr' : 'en'],
+        href: guide.href,
+      }))
     : [];
 
   return (
@@ -557,10 +552,16 @@ export default function SousServicePage() {
             {/* Why Us Section */}
             <ServiceWhyUsSection
               title={pageData.whyUsTitle[isFr ? 'fr' : 'en']}
-              introText={pageData.whyUsIntro ? pageData.whyUsIntro[isFr ? 'fr' : 'en'] : null}
+              introText={
+                pageData.whyUsIntro
+                  ? pageData.whyUsIntro[isFr ? 'fr' : 'en']
+                  : null
+              }
               content={pageData.whyUsContent[isFr ? 'fr' : 'en']}
               outroText={
-                pageData.whyUsOutro ? pageData.whyUsOutro[isFr ? 'fr' : 'en'] : null
+                pageData.whyUsOutro
+                  ? pageData.whyUsOutro[isFr ? 'fr' : 'en']
+                  : null
               }
             />
 
@@ -607,7 +608,11 @@ export default function SousServicePage() {
 
                     {pageData.complementaryServicesIntro && (
                       <Text fontSize='md' color='gray.600'>
-                        {pageData.complementaryServicesIntro[isFr ? 'fr' : 'en']}
+                        {
+                          pageData.complementaryServicesIntro[
+                            isFr ? 'fr' : 'en'
+                          ]
+                        }
                       </Text>
                     )}
 
@@ -684,12 +689,12 @@ export default function SousServicePage() {
                     citySlug === 'montreal'
                       ? montrealSecteur
                       : citySlug === 'laval'
-                        ? lavalSecteur
-                        : citySlug === 'longueuil'
-                          ? longueuilSecteur
-                          : citySlug === 'brossard'
-                            ? brossardSecteur
-                            : null;
+                      ? lavalSecteur
+                      : citySlug === 'longueuil'
+                      ? longueuilSecteur
+                      : citySlug === 'brossard'
+                      ? brossardSecteur
+                      : null;
 
                   return {
                     name:
@@ -752,7 +757,12 @@ export default function SousServicePage() {
 
             {/* Services/Surfaces List Section (e.g. for Commercial Interior) */}
             {pageData.surfacesTitle && pageData.surfaces && (
-              <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }} bg='gray.50' borderRadius='xl'>
+              <Box
+                py={{ base: 12, md: 16 }}
+                mb={{ base: 8, md: 12 }}
+                bg='gray.50'
+                borderRadius='xl'
+              >
                 <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                   <Stack spacing={8}>
                     <Heading
@@ -775,7 +785,11 @@ export default function SousServicePage() {
                             borderColor='gray.200'
                             boxShadow='sm'
                           >
-                            <Text color='gray.700' fontSize='md' fontWeight='500'>
+                            <Text
+                              color='gray.700'
+                              fontSize='md'
+                              fontWeight='500'
+                            >
                               {surface}
                             </Text>
                           </Box>
@@ -807,7 +821,6 @@ export default function SousServicePage() {
                         </Link>
                       </Box>
                     )}
-
                   </Stack>
                 </Container>
               </Box>

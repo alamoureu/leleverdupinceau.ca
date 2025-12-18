@@ -342,8 +342,8 @@ export default function ServicesPage() {
                                     ? 'Voir peinture résidentielle'
                                     : 'View residential painting'
                                   : isFr
-                                    ? 'Voir peinture commerciale'
-                                    : 'View commercial painting'}
+                                  ? 'Voir peinture commerciale'
+                                  : 'View commercial painting'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
                             </HStack>
@@ -435,7 +435,7 @@ export default function ServicesPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#014CC4'
+          bg='#022A68'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -472,7 +472,7 @@ export default function ServicesPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#014CC4'
+                    color='#022A68'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

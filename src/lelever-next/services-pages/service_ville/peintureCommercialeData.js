@@ -66,69 +66,6 @@ export const peintureCommercialeData = {
           fr: 'Peinture commerciale intérieure et extérieure à Brossard',
           en: 'Interior and exterior commercial painting in Brossard',
         },
-        projectsTitle: {
-          fr: 'Projets réalisés dans des commerces et bureaux à Brossard',
-          en: 'Projects completed in stores and offices in Brossard',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              imageAlt:
-                'Peinture commerciale Brossard - Local commercial au Quartier DIX30',
-              title:
-                "Peinture intérieure d'un local commercial au Quartier DIX30",
-              description:
-                "Transformation complète d'un espace commercial au DIX30 avec une finition professionnelle. Travaux réalisés en dehors des heures d'ouverture pour ne pas perturber l'activité.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              imageAlt: 'Peinture commerciale Brossard - Bureaux secteur C',
-              title: 'Rafraîchissement de bureaux dans le secteur C',
-              description:
-                "Modernisation d'espaces de bureaux avec des couleurs adaptées à l'environnement professionnel. Planification flexible pour minimiser les interruptions.",
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              imageAlt:
-                'Peinture commerciale Brossard - Clinique professionnelle',
-              title:
-                "Modernisation d'une clinique ou d'un cabinet professionnel",
-              description:
-                "Peinture d'environnements professionnels avec des produits adaptés aux normes de santé. Finitions faciles à nettoyer et désinfecter.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              imageAlt:
-                'Commercial painting Brossard - Commercial space at DIX30 Quarter',
-              title: 'Interior painting of a commercial space at DIX30 Quarter',
-              description:
-                'Complete transformation of a commercial space at DIX30 with professional finish. Work done outside opening hours to avoid disrupting activity.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              imageAlt: 'Commercial painting Brossard - Office sector C',
-              title: 'Office refresh in sector C',
-              description:
-                'Modernization of office spaces with colors adapted to the professional environment. Flexible planning to minimize interruptions.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              imageAlt: 'Commercial painting Brossard - Professional clinic',
-              title: 'Modernization of a clinic or professional office',
-              description:
-                'Painting of professional environments with products adapted to health standards. Finishes easy to clean and disinfect.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien préparer vos travaux commerciaux',
           en: 'Prepare your commercial work well',
@@ -253,58 +190,6 @@ export const peintureCommercialeData = {
         subServicesTitle: {
           fr: 'Peinture commerciale intérieure et extérieure à Laval',
           en: 'Interior and exterior commercial painting in Laval',
-        },
-        projectsTitle: {
-          fr: 'Projets réalisés dans des commerces et bureaux lavallois',
-          en: 'Projects completed in Laval stores and offices',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: "Peinture d'un commerce dans le Centre Laval",
-              description:
-                "Rénovation complète d'un espace commercial avec des couleurs modernes. Travaux planifiés pour minimiser l'impact sur les ventes.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Rafraîchissement de bureaux à Chomedey',
-              description:
-                "Modernisation d'espaces de bureaux avec une finition professionnelle. Planification flexible pour éviter les interruptions.",
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: 'Travaux dans une clinique médicale à Sainte-Rose',
-              description:
-                "Peinture d'environnements médicaux avec des produits adaptés aux normes de santé. Finitions faciles à nettoyer.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: 'Painting of a store in Laval Center',
-              description:
-                'Complete renovation of a commercial space with modern colors. Work planned to minimize impact on sales.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Office refresh in Chomedey',
-              description:
-                'Modernization of office spaces with professional finish. Flexible planning to avoid interruptions.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: 'Work in a medical clinic in Sainte-Rose',
-              description:
-                'Painting of medical environments with products adapted to health standards. Easy-to-clean finishes.',
-            },
-          ],
         },
         guidesTitle: {
           fr: 'Bien planifier un projet de peinture commerciale à Laval',
@@ -437,58 +322,6 @@ export const peintureCommercialeData = {
           fr: 'Peinture commerciale intérieure et extérieure à Longueuil',
           en: 'Interior and exterior commercial painting in Longueuil',
         },
-        projectsTitle: {
-          fr: 'Projets réalisés dans les commerces et bureaux de Longueuil',
-          en: 'Projects completed in Longueuil stores and offices',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: "Peinture d'un restaurant à Saint-Hubert",
-              description:
-                "Transformation complète d'un espace restaurant avec des couleurs modernes. Travaux effectués en dehors des heures d'ouverture.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: "Rafraîchissement d'un bureau dans le Vieux-Longueuil",
-              description:
-                "Modernisation d'espaces de bureaux avec une finition professionnelle. Planification adaptée aux besoins.",
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: "Modernisation de salles d'attente et corridors",
-              description:
-                "Peinture d'espaces communs avec des produits adaptés au trafic élevé. Finitions durables.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: 'Painting of a restaurant in Saint-Hubert',
-              description:
-                'Complete transformation of a restaurant space with modern colors. Work done outside opening hours.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Office refresh in Vieux-Longueuil',
-              description:
-                'Modernization of office spaces with professional finish. Planning adapted to needs.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: 'Modernization of waiting rooms and corridors',
-              description:
-                'Painting of common spaces with products adapted to high traffic. Durable finishes.',
-            },
-          ],
-        },
         guidesTitle: {
           fr: 'Bien préparer votre projet commercial',
           en: 'Prepare your commercial project well',
@@ -619,58 +452,6 @@ export const peintureCommercialeData = {
         subServicesTitle: {
           fr: 'Peinture commerciale intérieure et extérieure à Montréal',
           en: 'Interior and exterior commercial painting in Montreal',
-        },
-        projectsTitle: {
-          fr: 'Projets réalisés dans des commerces et bureaux montréalais',
-          en: 'Projects completed in Montreal stores and offices',
-        },
-        projects: {
-          fr: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: "Peinture d'un restaurant au Plateau",
-              description:
-                "Transformation complète d'un espace restaurant avec des couleurs modernes. Travaux effectués en dehors des heures d'ouverture.",
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Rafraîchissement de bureaux au centre-ville',
-              description:
-                "Modernisation d'espaces de bureaux avec une finition professionnelle. Planification adaptée aux besoins des entreprises.",
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: "Mise à jour d'une clinique à Outremont",
-              description:
-                "Peinture d'environnements médicaux avec des produits adaptés aux normes de santé. Finitions faciles à nettoyer.",
-            },
-          ],
-          en: [
-            {
-              id: 1,
-              images: [CommercialProject],
-              title: 'Painting of a restaurant in Plateau',
-              description:
-                'Complete transformation of a restaurant space with modern colors. Work done outside opening hours.',
-            },
-            {
-              id: 2,
-              images: [CommercialProject],
-              title: 'Office refresh downtown',
-              description:
-                'Modernization of office spaces with professional finish. Planning adapted to business needs.',
-            },
-            {
-              id: 3,
-              images: [CommercialProject],
-              title: 'Update of a clinic in Outremont',
-              description:
-                'Painting of medical environments with products adapted to health standards. Easy-to-clean finishes.',
-            },
-          ],
         },
         guidesTitle: {
           fr: 'Bien planifier un projet de peinture commerciale à Montréal',

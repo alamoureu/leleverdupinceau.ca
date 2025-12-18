@@ -13,7 +13,6 @@ import {
   HStack,
   Flex,
   useDisclosure,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -28,7 +27,6 @@ import appContext from '../../AppProvider';
 import SubmissionForm from '../home-page/SubmissionForm';
 import SubmissionModal from '../home-page/SubmissionModal';
 import SectorsSection from '../home-page/SectorsSection';
-import heroImage from '../images/heroImage.png';
 
 export default function ContactPage() {
   const { currentLang } = useContext(appContext);
@@ -207,18 +205,6 @@ export default function ContactPage() {
                 Contact
               </Text>
             </HStack>
-
-            {/* Header Image */}
-            <Box mb={{ base: 8, md: 12 }}>
-              <Image
-                src={heroImage}
-                alt={isFr ? 'Contactez Le Lever du Pinceau' : 'Contact Le Lever du Pinceau'}
-                w="100%"
-                h={{ base: '200px', md: '350px' }}
-                objectFit="cover"
-                borderRadius="xl"
-              />
-            </Box>
 
             <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading

@@ -23,12 +23,12 @@ export const peintureCommercialeExterieureData = {
   },
   introduction: {
     fr: [
-      "La peinture commerciale extérieure est essentielle pour protéger votre bâtiment, attirer les clients et maintenir une image professionnelle cohérente avec votre marque. Le Lever du Pinceau réalise des projets extérieurs pour commerces, restaurants, bureaux, façades commerciales et immeubles dans tout le Grand Montréal.",
-      "Nos peintres professionnels utilisent des produits durables, résistants aux UV, à l'humidité, aux intempéries et aux variations de température."
+      'La peinture commerciale extérieure est essentielle pour protéger votre bâtiment, attirer les clients et maintenir une image professionnelle cohérente avec votre marque. Le Lever du Pinceau réalise des projets extérieurs pour commerces, restaurants, bureaux, façades commerciales et immeubles dans tout le Grand Montréal.',
+      "Nos peintres professionnels utilisent des produits durables, résistants aux UV, à l'humidité, aux intempéries et aux variations de température.",
     ],
     en: [
       'Commercial exterior painting is essential to protect your building, attract customers and maintain a professional image consistent with your brand. Le Lever du Pinceau carries out exterior projects for businesses, restaurants, offices, commercial facades and buildings throughout Greater Montreal.',
-      'Our professional painters use durable products, resistant to UV, humidity, weather and temperature variations.'
+      'Our professional painters use durable products, resistant to UV, humidity, weather and temperature variations.',
     ],
   },
   introFingerText: {
@@ -75,14 +75,14 @@ export const peintureCommercialeExterieureData = {
         fr: 'Peinture commerciale',
         en: 'Commercial painting',
       },
-      href: '/services/peinture-commerciale',
+      href: '/services/new-peinture-commerciale',
     },
     {
       title: {
         fr: 'Peinture extérieure',
         en: 'Exterior painting',
       },
-      href: '/services/peinture-exterieure',
+      href: '/services/new-peinture-exterieure',
     },
     {
       title: {

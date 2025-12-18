@@ -418,7 +418,7 @@ export const prixPeintureMontrealData = {
         fr: 'Voir Peinture intérieure',
         en: 'See Interior painting',
       },
-      href: '/services/peinture-interieure',
+      href: '/services/new-peinture-interieure',
     },
     {
       type: 'section',
@@ -727,4 +727,5 @@ export const prixPeintureMontrealData = {
     ],
   },
 };
+
 

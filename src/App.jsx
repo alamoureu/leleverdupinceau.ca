@@ -22,6 +22,7 @@ import ServiceQuartierPage from './lelever-next/services-pages/service_ville/Ser
 import ServiceQuartierSecteurPage from './lelever-next/services-pages/service_quartier/ServiceQuartierSecteurPage';
 import SousServiceVillePage from './lelever-next/services-pages/sous_service_ville/SousServiceVillePage';
 import SousServicePage from './lelever-next/services-pages/sous_service/SousServicePage';
+import SmartServiceRouter from './lelever-next/services-pages/SmartServiceRouter';
 import BlogPage from './lelever-next/pages/BlogPage';
 import CommentChoisirPeintreProfessionnelPage from './lelever-next/pages/CommentChoisirPeintreProfessionnelPage';
 import PrixPeintureMontrealPage from './lelever-next/pages/PrixPeintureMontrealPage';
@@ -48,11 +49,9 @@ import EmployeeDetails from './pages/EmployeeDetails';
 import ThermOfUsePage from './pages/ThermOfUse';
 import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
 
-
 export default function App() {
   return (
     <Router>
-
       <AppProvider>
         <Routes>
           <Route path='/' element={<WebsiteLayout />}>
@@ -106,7 +105,9 @@ export default function App() {
           <Route
             path='/peintre-professionnel'
             element={
-              <NewWebsiteLayout />
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
             }
           >
             <Route index element={<PeintreProfessionnelPage />} />
@@ -124,7 +125,9 @@ export default function App() {
           <Route
             path='/secteurs-desservis'
             element={
-              <NewWebsiteLayout />
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
             }
           >
             <Route index element={<SecteursDesservisPage />} />
@@ -167,15 +170,10 @@ export default function App() {
               path=':serviceSlug/:subServiceSlug'
               element={<SousServicePage />}
             />
-            {/* Dynamic Service × City × Neighborhood routes - MUST be before Service × SubService × City to prioritize neighborhoods */}
+            {/* Smart router for 3-segment routes - handles both SousServiceVille and ServiceQuartierSecteur */}
             <Route
-              path=':serviceSlug/:citySlug/:neighborhoodSlug'
-              element={<ServiceQuartierSecteurPage />}
-            />
-            {/* Dynamic Service × SubService × City routes */}
-            <Route
-              path=':serviceSlug/:subServiceSlug/:citySlug'
-              element={<SousServiceVillePage />}
+              path=':serviceSlug/:param2/:param3'
+              element={<SmartServiceRouter />}
             />
             {/* Dynamic Service × City routes - MUST be last to avoid conflicts */}
             <Route

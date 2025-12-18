@@ -5,7 +5,7 @@ export const boisFrancData = {
     en: 'Bois-Franc',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/bois-franc',
+    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/bois-franc',
   h1: 'Peinture intérieure à Bois-Franc – Le Lever du Pinceau',
   introduction:
     "Bois-Franc, dans Ville-Saint-Laurent, est l'un des quartiers résidentiels les plus modernes et structurés de l'île : maisons unifamiliales récentes, condos haut de gamme, unités de ville élégantes et constructions neuves. Ces espaces contemporains exigent une peinture intérieure professionnelle, propre et parfaitement uniforme, pour respecter la qualité architecturale du quartier. Le Lever du Pinceau offre un service spécialisé de peinture intérieure à Bois-Franc, adapté aux pièces modernes, aux matériaux neufs, aux murs en gypse impeccables et aux finitions de design. Pour une finition intérieure moderne, précise et durable dans votre maison ou condo de Bois-Franc, notre équipe est disponible rapidement.",
@@ -29,7 +29,7 @@ export const boisFrancData = {
     services: [
       {
         title: 'Peinture intérieure Montréal',
-        href: '/services/peinture-interieure/montreal',
+        href: '/services/new-peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',
@@ -100,3 +100,4 @@ export const boisFrancData = {
     buttonText: 'Soumission gratuite',
   },
 };
+

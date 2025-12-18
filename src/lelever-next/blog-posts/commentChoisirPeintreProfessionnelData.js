@@ -740,7 +740,7 @@ export const commentChoisirPeintreProfessionnelData = {
         fr: 'Voir nos services de peinture intérieure',
         en: 'See our interior painting services',
       },
-      href: '/services/peinture-interieure',
+      href: '/services/new-peinture-interieure',
     },
     {
       type: 'heading',
@@ -939,4 +939,5 @@ export const commentChoisirPeintreProfessionnelData = {
     ],
   },
 };
+
 

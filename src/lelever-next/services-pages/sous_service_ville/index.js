@@ -8,25 +8,27 @@ import { peintureResidentielleInterieureData } from './peintureResidentielleInte
 
 // Merge all sous-service data into one object
 export const allSousServiceVilleData = {
-  'peinture-commerciale': {
+  'new-peinture-commerciale': {
     name: {
       fr: 'Peinture commerciale',
       en: 'Commercial painting',
     },
     subServices: {
-      ...peintureCommercialeExterieureData['peinture-commerciale'].subServices,
-      ...peintureCommercialeInterieureData['peinture-commerciale'].subServices,
+      ...peintureCommercialeExterieureData['new-peinture-commerciale']
+        .subServices,
+      ...peintureCommercialeInterieureData['new-peinture-commerciale']
+        .subServices,
     },
   },
-  'peinture-residentielle': {
+  'new-peinture-residentielle': {
     name: {
       fr: 'Peinture résidentielle',
       en: 'Residential painting',
     },
     subServices: {
-      ...peintureResidentielleExterieureData['peinture-residentielle']
+      ...peintureResidentielleExterieureData['new-peinture-residentielle']
         .subServices,
-      ...peintureResidentielleInterieureData['peinture-residentielle']
+      ...peintureResidentielleInterieureData['new-peinture-residentielle']
         .subServices,
     },
   },
@@ -53,8 +55,14 @@ export function getSousServiceVilleData(serviceSlug, subServiceSlug, citySlug) {
   const serviceWithName = {
     ...service,
     name: service.name || {
-      fr: serviceSlug === 'peinture-commerciale' ? 'Peinture commerciale' : 'Peinture résidentielle',
-      en: serviceSlug === 'peinture-commerciale' ? 'Commercial painting' : 'Residential painting',
+      fr:
+        serviceSlug === 'peinture-commerciale'
+          ? 'Peinture commerciale'
+          : 'Peinture résidentielle',
+      en:
+        serviceSlug === 'peinture-commerciale'
+          ? 'Commercial painting'
+          : 'Residential painting',
     },
   };
 

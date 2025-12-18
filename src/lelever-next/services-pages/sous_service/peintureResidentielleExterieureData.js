@@ -21,14 +21,14 @@ export const peintureResidentielleExterieureData = {
   },
   introduction: {
     fr: [
-      "La peinture extérieure de votre maison est la première barrière de protection contre les intempéries et le premier élément visible de votre propriété.",
-      "Elle valorise votre investissement et prolonge la durée de vie de vos revêtements. Le Lever du Pinceau est spécialisé en peinture résidentielle extérieure dans le Grand Montréal.",
-      "Nous intervenons sur tous types de revêtements : brique, stuc, bois, vinyle, aluminium, agrégat."
+      'La peinture extérieure de votre maison est la première barrière de protection contre les intempéries et le premier élément visible de votre propriété.',
+      'Elle valorise votre investissement et prolonge la durée de vie de vos revêtements. Le Lever du Pinceau est spécialisé en peinture résidentielle extérieure dans le Grand Montréal.',
+      'Nous intervenons sur tous types de revêtements : brique, stuc, bois, vinyle, aluminium, agrégat.',
     ],
     en: [
-      "Exterior painting is essential to protect your home from the elements, improve its appearance and increase its value.",
-      "It enhances your investment and extends the life of your claddings. Le Lever du Pinceau specializes in residential exterior painting in Greater Montreal.",
-      "We work on all types of claddings: brick, stucco, wood, vinyl, aluminum, aggregate."
+      'Exterior painting is essential to protect your home from the elements, improve its appearance and increase its value.',
+      'It enhances your investment and extends the life of your claddings. Le Lever du Pinceau specializes in residential exterior painting in Greater Montreal.',
+      'We work on all types of claddings: brick, stucco, wood, vinyl, aluminum, aggregate.',
     ],
   },
   introFingerText: {
@@ -77,14 +77,14 @@ export const peintureResidentielleExterieureData = {
         fr: 'Peinture résidentielle',
         en: 'Residential painting',
       },
-      href: '/services/peinture-residentielle',
+      href: '/services/new-peinture-residentielle',
     },
     {
       title: {
         fr: 'Peinture extérieure',
         en: 'Exterior painting',
       },
-      href: '/services/peinture-exterieure',
+      href: '/services/new-peinture-exterieure',
     },
     {
       title: {

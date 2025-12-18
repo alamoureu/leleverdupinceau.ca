@@ -1,7 +1,7 @@
 // Data configuration for Peinture Commerciale Intérieure × City pages
 
 export const peintureCommercialeInterieureData = {
-  'peinture-commerciale': {
+  'new-peinture-commerciale': {
     subServices: {
       interieure: {
         name: {
@@ -578,7 +578,7 @@ export const peintureCommercialeInterieureData = {
               },
               {
                 title: {
-                  fr:   "Peinture commerciale Montréal (vue d'ensemble)",
+                  fr: "Peinture commerciale Montréal (vue d'ensemble)",
                   en: 'Commercial painting Montreal (overview)',
                 },
                 href: '/services/peinture-commerciale/montreal',
