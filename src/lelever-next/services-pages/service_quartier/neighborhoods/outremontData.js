@@ -27,7 +27,7 @@ export const outremontData = {
     title: 'Pour un projet de peinture complet dans Outremont',
     services: [
       {
-        title: 'Peinture intérieure Montréal',
+        title: "Peinture intérieure Montréal (vue d'ensemble)",
         href: '/services/new-peinture-interieure/montreal',
       },
       {
@@ -52,7 +52,7 @@ export const outremontData = {
       'Sous-sols finis',
       "Murs d'accent décoratifs (optionnel)",
     ],
-    expertise: ['Moulures complexes, boiseries et cadres en bois massif'],
+    expertise: ['Moulures complexes', 'Boiseries et cadres en bois massif'],
   },
   process: {
     title:
@@ -78,7 +78,7 @@ export const outremontData = {
     },
     {
       title: 'Erreurs à éviter avant des travaux intérieurs',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Comment bien préparer vos travaux intérieurs ?',
@@ -95,4 +95,3 @@ export const outremontData = {
     buttonText: 'Soumission gratuite',
   },
 };
-

@@ -33,7 +33,7 @@ const simpleHash = (str, salt) => {
 const PASSWORD_HASH = simpleHash('111tbel', 'leverDuPinceau_salt_2025');
 
 export default function PasswordProtectedPage({ children }) {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // PROTECTED: Requires password
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');

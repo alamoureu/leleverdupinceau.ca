@@ -53,8 +53,8 @@ export const peintureResidentielleInterieureData = {
               en: 'We work mainly in: new houses, recent condos, plexes, family residences, renovated housing, units near DIX30 Quarter.',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un projet complet de peinture à Brossard',
-              en: 'For a complete painting project in Brossard',
+              fr: 'Services complémentaires disponibles à Brossard',
+              en: 'Complementary services available in Brossard',
             },
             complementaryServices: [
               {
@@ -80,8 +80,8 @@ export const peintureResidentielleInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Quelles pièces pouvons-nous repeindre dans votre maison ou condo ?',
-              en: 'What rooms can we repaint in your house or condo?',
+              fr: 'Types de pièces et interventions',
+              en: 'Types of rooms and interventions',
             },
             surfaces: {
               fr: [
@@ -106,8 +106,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Comment se déroule un projet de peinture résidentielle intérieure à Brossard ?',
-              en: 'How does a residential interior painting project work in Brossard?',
+              fr: 'Notre processus de travail',
+              en: 'Our work process',
             },
             processSteps: {
               fr: [
@@ -130,8 +130,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Ressources utiles pour votre projet à Brossard',
-              en: 'Useful resources for your project in Brossard',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -153,7 +153,7 @@ export const peintureResidentielleInterieureData = {
                   fr: '7 erreurs à éviter avant de repeindre votre intérieur',
                   en: '7 mistakes to avoid before repainting your interior',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -223,8 +223,8 @@ export const peintureResidentielleInterieureData = {
               en: 'We work in: single-family houses, condos, plexes, rental housing, recent properties, renovated houses and duplexes/triplexes.',
             },
             complementaryServicesTitle: {
-              fr: 'Pour des projets plus larges à Laval',
-              en: 'For larger projects in Laval',
+              fr: 'Services complémentaires à Laval',
+              en: 'Complementary services in Laval',
             },
             complementaryServices: [
               {
@@ -250,8 +250,8 @@ export const peintureResidentielleInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Les pièces que nous peignons dans votre maison à Laval',
-              en: 'The rooms we paint in your house in Laval',
+              fr: 'Types de pièces et interventions',
+              en: 'Types of rooms and interventions',
             },
             surfaces: {
               fr: [
@@ -280,8 +280,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Comment se déroule un projet de peinture résidentielle intérieure à Laval ?',
-              en: 'How does a residential interior painting project work in Laval?',
+              fr: 'Notre processus de travail',
+              en: 'Our work process',
             },
             processSteps: {
               fr: [
@@ -302,8 +302,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Bien préparer votre peinture intérieure',
-              en: 'Properly prepare your interior painting',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -325,7 +325,7 @@ export const peintureResidentielleInterieureData = {
                   fr: 'Erreurs à éviter',
                   en: 'Mistakes to avoid',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -395,8 +395,8 @@ export const peintureResidentielleInterieureData = {
               en: 'We work in: single-family houses, condos, plexes, rental buildings, family properties and renovated housing.',
             },
             complementaryServicesTitle: {
-              fr: 'Pour des projets plus complets à Longueuil',
-              en: 'For more complete projects in Longueuil',
+              fr: 'Services complémentaires à Longueuil',
+              en: 'Complementary services in Longueuil',
             },
             complementaryServices: [
               {
@@ -422,8 +422,8 @@ export const peintureResidentielleInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Les pièces que nous peignons dans votre maison à Longueuil',
-              en: 'The rooms we paint in your house in Longueuil',
+              fr: 'Types de pièces et interventions',
+              en: 'Types of rooms and interventions',
             },
             surfaces: {
               fr: [
@@ -448,8 +448,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Comment se déroule un projet de peinture résidentielle intérieure à Longueuil ?',
-              en: 'How does a residential interior painting project work in Longueuil?',
+              fr: 'Notre processus de travail',
+              en: 'Our work process',
             },
             processSteps: {
               fr: [
@@ -470,8 +470,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Bien préparer vos travaux de peinture à Longueuil',
-              en: 'Properly prepare your painting work in Longueuil',
+              fr: 'Guides utiles pour vos projets intérieurs',
+              en: 'Useful guides for your interior projects',
             },
             guides: [
               {
@@ -493,7 +493,7 @@ export const peintureResidentielleInterieureData = {
                   fr: 'Erreurs à éviter avant de repeindre votre intérieur',
                   en: 'Mistakes to avoid before repainting your interior',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -565,8 +565,8 @@ export const peintureResidentielleInterieureData = {
               en: 'We work mainly in: single-family houses, plexes (duplexes, triplexes), condos, rental housing, family residences.',
             },
             complementaryServicesTitle: {
-              fr: 'Lien avec nos autres services à Montréal',
-              en: 'Link with our other services in Montreal',
+              fr: 'Services complémentaires de peinture à Montréal',
+              en: 'Complementary painting services in Montreal',
             },
             complementaryServices: [
               {
@@ -592,8 +592,8 @@ export const peintureResidentielleInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Quelles pièces pouvons-nous repeindre dans votre maison ou condo ?',
-              en: 'What rooms can we repaint in your house or condo?',
+              fr: 'Types de pièces et projets intérieurs',
+              en: 'Types of rooms and interior projects',
             },
             surfaces: {
               fr: [
@@ -616,8 +616,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Notre processus de peinture résidentielle intérieure à Montréal',
-              en: 'Our residential interior painting process in Montreal',
+              fr: 'Processus de travail',
+              en: 'Work process',
             },
             processSteps: {
               fr: [
@@ -638,8 +638,8 @@ export const peintureResidentielleInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Conseils avant de commencer vos travaux de peinture',
-              en: 'Advice before starting your painting work',
+              fr: 'Guides utiles pour votre projet à Montréal',
+              en: 'Useful guides for your project in Montreal',
             },
             guides: [
               {
@@ -661,7 +661,7 @@ export const peintureResidentielleInterieureData = {
                   fr: 'Erreurs à éviter avant de repeindre votre intérieur',
                   en: 'Mistakes to avoid before repainting your interior',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {

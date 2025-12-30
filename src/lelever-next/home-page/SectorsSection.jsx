@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
@@ -115,20 +115,22 @@ export default function SectorsSection({
                     disableLinks
                       ? {}
                       : {
-                        borderColor: '#014CC4',
-                        boxShadow: 'md',
-                        transform: 'translateY(-2px)',
-                      }
+                          borderColor: '#014CC4',
+                          boxShadow: 'md',
+                          transform: 'translateY(-2px)',
+                        }
                   }
                 >
                   <Image
                     src={sector.image}
                     alt={
                       isFr
-                        ? `Secteur desservi : ${sector.name}${pageContext ? ' - ' + pageContext : ''
-                        }`
-                        : `Service area: ${sector.name}${pageContext ? ' - ' + pageContext : ''
-                        }`
+                        ? `Secteur desservi : ${sector.name}${
+                            pageContext ? ' - ' + pageContext : ''
+                          }`
+                        : `Service area: ${sector.name}${
+                            pageContext ? ' - ' + pageContext : ''
+                          }`
                     }
                     position='absolute'
                     top={0}

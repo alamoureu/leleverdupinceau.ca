@@ -8,16 +8,16 @@ export const plateauMontRoyalData = {
     'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/plateau-mont-royal',
   h1: 'Peinture intérieure au Plateau-Mont-Royal – Le Lever du Pinceau',
   introduction:
-    "Le Plateau-Mont-Royal est reconnu pour ses triplex colorés, ses duplex traditionnels, ses condos modernes et ses logements patrimoniaux. Ce quartier dynamique et créatif demande une peinture intérieure professionnelle, propre et adaptée aux espaces de toutes tailles. Le Lever du Pinceau offre un service spécialisé de peinture intérieure au Plateau-Mont-Royal, adapté aux appartements habités, aux lofts artistiques et aux maisons anciennes nécessitant une préparation minutieuse. Si vous souhaitez une finition intérieure durable, esthétique et impeccable, notre équipe expérimentée est le choix idéal pour votre projet au Plateau.",
+    "Le Plateau-Mont-Royal est l'un des quartiers les plus iconiques de Montréal : triplex colorés, condos modernes, lofts, maisons centenaires et appartements au cachet unique. Ces espaces ont besoin d'une peinture intérieure professionnelle pour faire ressortir leur architecture, moderniser les pièces et préserver le charme authentique du Plateau. Le Lever du Pinceau offre un service spécialisé de peinture intérieure au Plateau-Mont-Royal, avec un savoir-faire adapté aux propriétés typiques du quartier. Pour une finition intérieure durable, propre et impeccable dans votre résidence ou condo du Plateau, notre équipe est prête à intervenir.",
   whyUs: {
-    title: "Une qualité de finition à la hauteur du caractère du Plateau",
-    introText: 'Notre service comprend :',
+    title: 'Un service adapté aux propriétés du Plateau',
+    introText: 'Nous offrons :',
     content: [
-      'Réparations professionnelles : trous, fissures, joints, surfaces anciennes',
-      'Préparation soignée (ponçage, nivellement, ajustements)',
-      'Protection complète : meubles, planchers, moulures, objets',
-      'Produits durables et premium (avec options bas COV)',
-      'Application uniforme et sans marques',
+      'Réparation de fissures, trous et joints',
+      'Préparation soignée, parfaite pour les murs anciens du Plateau',
+      'Protection complète : planchers, meubles, escaliers, moulures',
+      'Peintures professionnelles, options bas COV',
+      'Finition uniforme, murs parfaitement lisses',
       'Nettoyage complet après les travaux',
     ],
     outroText:
@@ -27,7 +27,7 @@ export const plateauMontRoyalData = {
     title: 'Pour un projet de peinture complet dans le quartier',
     services: [
       {
-        title: 'Peinture intérieure Montréal',
+        title: "Peinture intérieure Montréal (vue d'ensemble)",
         href: '/services/new-peinture-interieure/montreal',
       },
       {
@@ -82,7 +82,7 @@ export const plateauMontRoyalData = {
     },
     {
       title: '7 erreurs à éviter avant un projet de peinture',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien planifier vos travaux intérieurs',
@@ -100,4 +100,3 @@ export const plateauMontRoyalData = {
     buttonText: 'Soumission gratuite',
   },
 };
-

@@ -82,7 +82,7 @@ export const villerayData = {
     },
     {
       title: 'Les erreurs à éviter avant de repeindre',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien préparer vos travaux intérieurs',

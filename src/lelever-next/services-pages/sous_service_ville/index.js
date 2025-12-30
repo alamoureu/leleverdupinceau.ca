@@ -6,36 +6,59 @@ import { peintureCommercialeInterieureData } from './peintureCommercialeInterieu
 import { peintureResidentielleExterieureData } from './peintureResidentielleExterieureData';
 import { peintureResidentielleInterieureData } from './peintureResidentielleInterieureData';
 
+// Helper to get service data (handles both with and without "new-" prefix)
+function getServiceData(serviceSlug) {
+  const dataKey = serviceSlug.startsWith('new-')
+    ? serviceSlug
+    : `new-${serviceSlug}`;
+
+  if (dataKey === 'new-peinture-commerciale') {
+    return {
+      name: {
+        fr: 'Peinture commerciale',
+        en: 'Commercial painting',
+      },
+      subServices: {
+        ...peintureCommercialeExterieureData['new-peinture-commerciale']
+          .subServices,
+        ...peintureCommercialeInterieureData['new-peinture-commerciale']
+          .subServices,
+      },
+    };
+  }
+
+  if (dataKey === 'new-peinture-residentielle') {
+    return {
+      name: {
+        fr: 'Peinture résidentielle',
+        en: 'Residential painting',
+      },
+      subServices: {
+        ...peintureResidentielleExterieureData['new-peinture-residentielle']
+          .subServices,
+        ...peintureResidentielleInterieureData['new-peinture-residentielle']
+          .subServices,
+      },
+    };
+  }
+
+  return null;
+}
+
 // Merge all sous-service data into one object
+// Support both formats: with and without "new-" prefix
 export const allSousServiceVilleData = {
-  'new-peinture-commerciale': {
-    name: {
-      fr: 'Peinture commerciale',
-      en: 'Commercial painting',
-    },
-    subServices: {
-      ...peintureCommercialeExterieureData['new-peinture-commerciale']
-        .subServices,
-      ...peintureCommercialeInterieureData['new-peinture-commerciale']
-        .subServices,
-    },
-  },
-  'new-peinture-residentielle': {
-    name: {
-      fr: 'Peinture résidentielle',
-      en: 'Residential painting',
-    },
-    subServices: {
-      ...peintureResidentielleExterieureData['new-peinture-residentielle']
-        .subServices,
-      ...peintureResidentielleInterieureData['new-peinture-residentielle']
-        .subServices,
-    },
-  },
+  'new-peinture-commerciale': getServiceData('new-peinture-commerciale'),
+  'peinture-commerciale': getServiceData('peinture-commerciale'),
+  'new-peinture-residentielle': getServiceData('new-peinture-residentielle'),
+  'peinture-residentielle': getServiceData('peinture-residentielle'),
 };
 
 // Helper function to get page data
 export function getSousServiceVilleData(serviceSlug, subServiceSlug, citySlug) {
+  // Handle both formats: with and without "new-" prefix
+  // URLs use: peinture-commerciale, peinture-residentielle
+  // Data uses: new-peinture-commerciale, new-peinture-residentielle
   const service = allSousServiceVilleData[serviceSlug];
   if (!service) {
     return null;
@@ -56,11 +79,13 @@ export function getSousServiceVilleData(serviceSlug, subServiceSlug, citySlug) {
     ...service,
     name: service.name || {
       fr:
-        serviceSlug === 'peinture-commerciale'
+        serviceSlug === 'peinture-commerciale' ||
+        serviceSlug === 'new-peinture-commerciale'
           ? 'Peinture commerciale'
           : 'Peinture résidentielle',
       en:
-        serviceSlug === 'peinture-commerciale'
+        serviceSlug === 'peinture-commerciale' ||
+        serviceSlug === 'new-peinture-commerciale'
           ? 'Commercial painting'
           : 'Residential painting',
     },

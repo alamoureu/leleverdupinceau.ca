@@ -63,21 +63,21 @@ export default function PeintureInterieurePage() {
 
   const whyUsContent = isFr
     ? [
-      'Une préparation soignée (réparations, joints, calfeutrage)',
-      'Une protection complète des meubles, planchers et surfaces',
-      'Une application uniforme sans traces ni démarcations',
-      'Des conseils sur les couleurs, finis et produits',
-      'Une équipe ponctuelle, propre et expérimentée',
-      'Des produits adaptés : fini mat, perle, velours, semi-lustré, etc.',
-    ]
+        'Une préparation soignée (réparations, joints, calfeutrage)',
+        'Une protection complète des meubles, planchers et surfaces',
+        'Une application uniforme sans traces ni démarcations',
+        'Des conseils sur les couleurs, finis et produits',
+        'Une équipe ponctuelle, propre et expérimentée',
+        'Des produits adaptés : fini mat, perle, velours, semi-lustré, etc.',
+      ]
     : [
-      'Careful preparation (repairs, joints, caulking)',
-      'Complete protection of furniture, floors and surfaces',
-      'Uniform application without traces or demarcations',
-      'Advice on colors, finishes and products',
-      'A punctual, clean and experienced team',
-      'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
-    ];
+        'Careful preparation (repairs, joints, caulking)',
+        'Complete protection of furniture, floors and surfaces',
+        'Uniform application without traces or demarcations',
+        'Advice on colors, finishes and products',
+        'A punctual, clean and experienced team',
+        'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
+      ];
 
   // Images section removed to avoid duplication with project images above
   // Images section populated
@@ -195,29 +195,6 @@ export default function PeintureInterieurePage() {
               </Text>
             </Stack>
 
-            {/* Images Section */}
-            {images && images.length > 0 && (
-              <Box mb={{ base: 12, md: 16 }}>
-                <SimpleGrid
-                  columns={{ base: 1, md: 2, lg: 3 }}
-                  spacing={4}
-                  maxW='1200px'
-                >
-                  {images.map((img, index) => (
-                    <Image
-                      key={index}
-                      src={img.src}
-                      alt={img.alt}
-                      borderRadius='lg'
-                      w='100%'
-                      h={{ base: '200px', md: '250px' }}
-                      objectFit='cover'
-                    />
-                  ))}
-                </SimpleGrid>
-              </Box>
-            )}
-
             {/* Section 1 — Pourquoi choisir notre service */}
             <ServiceWhyUsSection
               title={
@@ -298,9 +275,106 @@ export default function PeintureInterieurePage() {
               ]}
             />
 
-            <ResourcesSection />
+            {/* Section 4 — Exemples de projets intérieurs */}
+            {images && images.length > 0 && (
+              <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
+                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                  <Stack spacing={6}>
+                    <Stack spacing={3} textAlign='left'>
+                      <Heading
+                        as='h2'
+                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                        fontWeight='bold'
+                        color='gray.800'
+                      >
+                        {isFr
+                          ? 'Quelques réalisations en peinture intérieure'
+                          : 'Some interior painting achievements'}
+                      </Heading>
+                    </Stack>
 
-            {/* Section 4 — À propos de nos peintres */}
+                    <SimpleGrid
+                      columns={{ base: 1, md: 2, lg: 3 }}
+                      spacing={4}
+                      maxW='1200px'
+                    >
+                      {images.map((img, index) => (
+                        <Image
+                          key={index}
+                          src={img.src}
+                          alt={img.alt}
+                          borderRadius='lg'
+                          w='100%'
+                          h={{ base: '200px', md: '250px' }}
+                          objectFit='cover'
+                        />
+                      ))}
+                    </SimpleGrid>
+
+                    <Stack spacing={2} mt={4}>
+                      <Text
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        color='gray.700'
+                        fontWeight='medium'
+                      >
+                        {isFr ? 'Projets typiques :' : 'Typical projects:'}
+                      </Text>
+                      <Stack spacing={1} pl={4}>
+                        {isFr ? (
+                          <>
+                            <Text fontSize='md' color='gray.600'>
+                              • Rafraîchissement de pièces complètes
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Rénovation intérieure moderne
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Peinture d'escaliers et boiseries
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Peinture de plafonds et murs haute précision
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Harmonisation des couleurs dans des espaces
+                              ouverts
+                            </Text>
+                          </>
+                        ) : (
+                          <>
+                            <Text fontSize='md' color='gray.600'>
+                              • Complete room refresh
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Modern interior renovation
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Stair and woodwork painting
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • High-precision ceiling and wall painting
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Color harmonization in open spaces
+                            </Text>
+                          </>
+                        )}
+                      </Stack>
+                    </Stack>
+                  </Stack>
+                </Container>
+              </Box>
+            )}
+
+            {/* Section 5 — Guides & ressources */}
+            <ResourcesSection
+              title={
+                isFr
+                  ? 'Conseils utiles pour vos projets intérieurs'
+                  : 'Useful tips for your interior projects'
+              }
+            />
+
+            {/* Section 6 — À propos de nos peintres */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'

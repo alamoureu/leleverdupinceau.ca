@@ -9,6 +9,8 @@ import {
   useBreakpointValue,
   HStack,
   IconButton,
+  Image,
+  Skeleton,
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,6 +25,8 @@ export default function CustomProjectsSection({
   const isFr = currentLang === 'fr';
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3 });
   const [currentImageIndex, setCurrentImageIndex] = useState({});
+  const [imageLoading, setImageLoading] = useState({});
+  const [imageErrors, setImageErrors] = useState({});
 
   const fadeVariants = {
     enter: {
@@ -40,6 +44,11 @@ export default function CustomProjectsSection({
     setCurrentImageIndex((prev) => ({
       ...prev,
       [projectId]: newIndex,
+    }));
+    // Set loading state for new image
+    setImageLoading((prev) => ({
+      ...prev,
+      [`${projectId}-${newIndex}`]: true,
     }));
   };
 
@@ -90,8 +99,11 @@ export default function CustomProjectsSection({
             {projects.map((project) => {
               const currentIndex = getCurrentImageIndex(project.id);
               // Filter out null, undefined, and empty string values
-              const rawImages = project.images || [project.image].filter(Boolean);
-              const images = rawImages.filter(img => img != null && img !== '');
+              const rawImages =
+                project.images || [project.image].filter(Boolean);
+              const images = rawImages.filter(
+                (img) => img != null && img !== ''
+              );
               const imageAlt = project.imageAlt || project.title || '';
 
               return (
@@ -109,7 +121,6 @@ export default function CustomProjectsSection({
                   <Box
                     position='relative'
                     overflow='hidden'
-                    h='200px'
                     bg='gray.200'
                     border='1px solid'
                     borderColor='gray.300'
@@ -117,6 +128,17 @@ export default function CustomProjectsSection({
                     display='flex'
                     alignItems='center'
                     justifyContent='center'
+                    minH='200px'
+                    sx={{
+                      aspectRatio: '16/9',
+                      '@supports not (aspect-ratio: 16/9)': {
+                        '&::before': {
+                          content: '""',
+                          display: 'block',
+                          paddingTop: '56.25%', // 16:9 ratio
+                        },
+                      },
+                    }}
                   >
                     {images.length === 0 && (
                       <Text color='gray.400' fontSize='sm' fontWeight='medium'>
@@ -125,33 +147,88 @@ export default function CustomProjectsSection({
                     )}
                     {images.length > 0 && (
                       <>
-                        <AnimatePresence initial={false}>
-                          <motion.div
-                            key={currentIndex}
-                            variants={fadeVariants}
-                            initial='enter'
-                            animate='center'
-                            exit='exit'
-                            transition={{
-                              opacity: { duration: 0.4, ease: 'easeInOut' },
-                            }}
-                            style={{
-                              position: 'absolute',
-                              width: '100%',
-                              height: '100%',
-                            }}
+                        {imageLoading[`${project.id}-${currentIndex}`] && (
+                          <Skeleton
+                            position='absolute'
+                            top={0}
+                            left={0}
+                            w='100%'
+                            h='100%'
+                            zIndex={1}
+                          />
+                        )}
+                        {imageErrors[`${project.id}-${currentIndex}`] ? (
+                          <Box
+                            w='100%'
+                            h='100%'
+                            display='flex'
+                            alignItems='center'
+                            justifyContent='center'
+                            bg='gray.100'
+                            position='absolute'
+                            top={0}
+                            left={0}
                           >
-                            <Box
-                              bgImage={`url(${images[currentIndex]})`}
-                              bgSize='cover'
-                              bgPosition='center'
-                              w='100%'
-                              h='100%'
-                              role='img'
-                              aria-label={imageAlt}
-                            />
-                          </motion.div>
-                        </AnimatePresence>
+                            <Text
+                              color='gray.400'
+                              fontSize='sm'
+                              fontWeight='medium'
+                            >
+                              {isFr
+                                ? 'Image non disponible'
+                                : 'Image unavailable'}
+                            </Text>
+                          </Box>
+                        ) : (
+                          <AnimatePresence initial={false} mode='wait'>
+                            <motion.div
+                              key={currentIndex}
+                              variants={fadeVariants}
+                              initial='enter'
+                              animate='center'
+                              exit='exit'
+                              transition={{
+                                opacity: { duration: 0.4, ease: 'easeInOut' },
+                              }}
+                              style={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%',
+                              }}
+                            >
+                              <Image
+                                src={images[currentIndex]}
+                                alt={imageAlt}
+                                w='100%'
+                                h='100%'
+                                loading='lazy'
+                                onLoad={() => {
+                                  setImageLoading((prev) => ({
+                                    ...prev,
+                                    [`${project.id}-${currentIndex}`]: false,
+                                  }));
+                                }}
+                                onError={() => {
+                                  setImageLoading((prev) => ({
+                                    ...prev,
+                                    [`${project.id}-${currentIndex}`]: false,
+                                  }));
+                                  setImageErrors((prev) => ({
+                                    ...prev,
+                                    [`${project.id}-${currentIndex}`]: true,
+                                  }));
+                                }}
+                                sx={{
+                                  objectFit: 'cover',
+                                  objectPosition: 'center',
+                                  display: 'block',
+                                }}
+                              />
+                            </motion.div>
+                          </AnimatePresence>
+                        )}
                         {images.length > 1 && (
                           <>
                             <IconButton

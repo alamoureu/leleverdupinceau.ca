@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- ========================================
+       NEW WEBSITE PAGES
+       (This sitemap contains only the new website pages.
+        Old production pages will be removed eventually.)
+       ======================================== -->
+  
+  <!-- Policies (Keep these - they're still relevant) -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/politiques/confidentialite</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/politiques/termes-conditions</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- New Home -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/new-home</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <!-- Standalone Pages -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/peintre-professionnel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/avis</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/new-contact</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/a-propos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+  <!-- ========================================
+       SECTEURS DESSERVIS (CITY PAGES)
+       ======================================== -->
+  
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs-desservis</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+  <!-- ========================================
+       MAIN SERVICES PAGES
+       ======================================== -->
+  
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Main Service Pages -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-exterieure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-industrielle</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+  <!-- ========================================
+       SERVICE × SUB-SERVICE
+       (e.g., peinture-commerciale/interieure)
+       ======================================== -->
+  
+  <!-- Peinture Commerciale × Sub-Services -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/exterieure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/interieure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Résidentielle × Sub-Services -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/exterieure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/interieure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+  <!-- ========================================
+       SERVICE × CITY
+       (All 5 main services × 4 cities = 20 routes)
+       ======================================== -->
+  
+  <!-- Peinture Intérieure × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Commerciale × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Résidentielle × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Extérieure × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-exterieure/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-exterieure/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-exterieure/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-exterieure/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Industrielle × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-industrielle/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-industrielle/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-industrielle/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-industrielle/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+  <!-- ========================================
+       SERVICE × SUB-SERVICE × CITY
+       (e.g., peinture-commerciale/interieure/brossard)
+       ======================================== -->
+  
+  <!-- Peinture Commerciale Intérieure × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/interieure/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/interieure/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/interieure/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/interieure/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Commerciale Extérieure × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/exterieure/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/exterieure/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/exterieure/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale/exterieure/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Résidentielle Intérieure × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/interieure/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/interieure/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/interieure/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/interieure/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  
+  <!-- Peinture Résidentielle Extérieure × Cities -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/exterieure/brossard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/exterieure/laval</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/exterieure/longueuil</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle/exterieure/montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+  <!-- ========================================
+       SERVICE × CITY × NEIGHBORHOOD
+       (Peinture Intérieure × Montreal × Neighborhoods)
+       ======================================== -->
+  
+  <!-- Montreal Neighborhoods -->
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/ahuntsic</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/bois-franc</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/centre-ville</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/cote-des-neiges</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/griffintown</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/hochelaga</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/ile-des-soeurs</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/lachine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/lasalle</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/le-village</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/mile-end</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/notre-dame-de-grace</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/outremont</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/plateau-mont-royal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/pointe-saint-charles</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/rosemont-petite-patrie</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/saint-henri</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/saint-leonard</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/verdun</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/ville-mont-royal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/ville-saint-laurent</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/villeray</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/services/new-peinture-interieure/montreal/westmount</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+  <!-- ========================================
+       BLOG PAGES
+       ======================================== -->
+  
+  <url>
+    <loc>https://www.leleverdupinceau.ca/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/blog/prix-peinture-montreal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <lastmod>2025-12-30</lastmod>
+  </url>
+
+</urlset>
+

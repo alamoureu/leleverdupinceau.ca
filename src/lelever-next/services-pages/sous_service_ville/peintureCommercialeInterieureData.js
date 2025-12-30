@@ -55,8 +55,8 @@ export const peintureCommercialeInterieureData = {
               en: 'We work in: Corporate offices, open spaces, meeting rooms, Shops, stores, street businesses, Restaurants, cafes, bars, Clinics, offices, treatment salons, Studios, training rooms, creative spaces, Service spaces, learning centers',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un projet commercial complet à Brossard',
-              en: 'For a complete commercial project in Brossard',
+              fr: 'Services commerciaux complémentaires à Brossard',
+              en: 'Complementary commercial services in Brossard',
             },
             complementaryServices: [
               {
@@ -82,8 +82,8 @@ export const peintureCommercialeInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Espaces commerciaux que nous prenons en charge à Brossard',
-              en: 'Commercial spaces we cover in Brossard',
+              fr: 'Types de locaux commerciaux intérieurs',
+              en: 'Types of commercial interior spaces',
             },
             surfaces: {
               fr: [
@@ -134,8 +134,8 @@ export const peintureCommercialeInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Bien préparer vos travaux de peinture commerciale à Brossard',
-              en: 'Properly prepare your commercial painting work in Brossard',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -157,7 +157,7 @@ export const peintureCommercialeInterieureData = {
                   fr: 'Erreurs à éviter avant des travaux de peinture commerciale',
                   en: 'Mistakes to avoid before commercial painting work',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -227,8 +227,8 @@ export const peintureCommercialeInterieureData = {
               en: 'We work in: Offices and corporate spaces, Shops, stores, businesses, Restaurants, cafes, bars, Clinics, offices, care centers, Creative studios, training rooms, Coworking spaces',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un service complet de peinture commerciale',
-              en: 'For a complete commercial painting service',
+              fr: 'Services commerciaux complémentaires à Laval',
+              en: 'Complementary commercial services in Laval',
             },
             complementaryServices: [
               {
@@ -240,8 +240,8 @@ export const peintureCommercialeInterieureData = {
               },
               {
                 title: {
-                  fr: 'Peinture commerciale Laval (vue générale)',
-                  en: 'Commercial painting Laval (general view)',
+                  fr: "Peinture commerciale Laval (vue d'ensemble)",
+                  en: 'Commercial painting Laval (overview)',
                 },
                 href: '/services/peinture-commerciale/laval',
               },
@@ -254,8 +254,8 @@ export const peintureCommercialeInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Espaces intérieurs pris en charge à Laval',
-              en: 'Interior spaces covered in Laval',
+              fr: "Types d'espaces commerciaux que nous peignons",
+              en: 'Types of commercial spaces we paint',
             },
             surfaces: {
               fr: [
@@ -304,8 +304,8 @@ export const peintureCommercialeInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Conseils avant de commencer votre projet',
-              en: 'Advice before starting your project',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -327,7 +327,7 @@ export const peintureCommercialeInterieureData = {
                   fr: 'Erreurs à éviter avant des travaux de peinture',
                   en: 'Mistakes to avoid before painting work',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -397,8 +397,8 @@ export const peintureCommercialeInterieureData = {
               en: 'We work in: Offices and corporate spaces, Retail stores, shops, street stores, Restaurants, cafes, neighborhood bars, Clinics, offices, treatment salons, Studios, training rooms, creative spaces, Service spaces for the public or businesses',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un projet de peinture commerciale complet à Longueuil',
-              en: 'For a complete commercial painting project in Longueuil',
+              fr: 'Services commerciaux complémentaires à Longueuil',
+              en: 'Complementary commercial services in Longueuil',
             },
             complementaryServices: [
               {
@@ -424,8 +424,8 @@ export const peintureCommercialeInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Quels types d"espaces pouvons-nous repeindre à Longueuil ?',
-              en: 'What types of spaces can we repaint in Longueuil?',
+              fr: 'Types de locaux commerciaux intérieurs',
+              en: 'Types of commercial interior spaces',
             },
             surfaces: {
               fr: [
@@ -472,8 +472,8 @@ export const peintureCommercialeInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Bien préparer vos travaux de peinture commerciale à Longueuil',
-              en: 'Properly prepare your commercial painting work in Longueuil',
+              fr: 'Guides utiles pour les entreprises et gestionnaires',
+              en: 'Useful guides for businesses and managers',
             },
             guides: [
               {
@@ -495,7 +495,7 @@ export const peintureCommercialeInterieureData = {
                   fr: 'Erreurs à éviter avant des travaux de peinture dans un commerce',
                   en: 'Mistakes to avoid before painting work in a business',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -565,8 +565,8 @@ export const peintureCommercialeInterieureData = {
               en: 'We work in: Offices and corporate spaces, Retail stores, shops, stores, Restaurants, cafes, bars, Clinics, offices, treatment salons, Studios, creative spaces, showrooms',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un projet de peinture commerciale complet à Montréal',
-              en: 'For a complete commercial painting project in Montreal',
+              fr: 'Services commerciaux complémentaires à Montréal',
+              en: 'Complementary commercial services in Montreal',
             },
             complementaryServices: [
               {
@@ -592,8 +592,8 @@ export const peintureCommercialeInterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Quels types de locaux commerciaux intérieurs pouvons-nous repeindre ?',
-              en: 'What types of commercial interior premises can we repaint?',
+              fr: 'Types de locaux commerciaux intérieurs',
+              en: 'Types of commercial interior spaces',
             },
             surfaces: {
               fr: [
@@ -618,8 +618,8 @@ export const peintureCommercialeInterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Comment se déroule un projet de peinture commerciale intérieure à Montréal ?',
-              en: 'How does a commercial interior painting project work in Montreal?',
+              fr: 'Processus de travail en milieu commercial',
+              en: 'Work process in commercial environment',
             },
             processSteps: {
               fr: [
@@ -642,8 +642,8 @@ export const peintureCommercialeInterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Préparer votre projet de peinture commerciale à Montréal',
-              en: 'Prepare your commercial painting project in Montreal',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -665,12 +665,12 @@ export const peintureCommercialeInterieureData = {
                   fr: 'Erreurs à éviter avant des travaux de peinture dans un commerce',
                   en: 'Mistakes to avoid before painting work in a business',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
-              fr: 'Une équipe habituée aux contraintes commerciales',
-              en: 'A team used to commercial constraints',
+              fr: 'À propos de nos peintres commerciaux',
+              en: 'About our commercial painters',
             },
             aboutDescription: {
               fr: 'Nos peintres commerciaux : comprennent les exigences des commerces montréalais, travaillent rapidement, en minimisant l"impact sur vos opérations, respectent les zones sensibles (équipement, marchandises, confidentialité), offrent une finition haut de gamme, adaptée à votre image de marque',

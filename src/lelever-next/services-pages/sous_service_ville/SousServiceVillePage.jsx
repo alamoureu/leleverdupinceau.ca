@@ -38,24 +38,24 @@ export default function SousServiceVillePage() {
     citySlug
   );
 
-  // If data doesn't exist, redirect to services page
+  // If data doesn't exist, redirect to 404 page
   if (!pageData) {
-    return <Navigate to='/services' replace />;
+    return <Navigate to='/404' replace />;
   }
 
   const { service, subService, city } = pageData;
 
   // Safety checks with fallbacks
   if (!service || !service.name) {
-    return <Navigate to='/services' replace />;
+    return <Navigate to='/404' replace />;
   }
 
   if (!subService || !subService.name) {
-    return <Navigate to='/services' replace />;
+    return <Navigate to='/404' replace />;
   }
 
   if (!city || !city.name) {
-    return <Navigate to='/services' replace />;
+    return <Navigate to='/404' replace />;
   }
 
   const serviceName =

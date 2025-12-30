@@ -1,4 +1,3 @@
-import CommercialProject from '../../images/Projets commerciaux.PNG';
 import img5969 from '../../images/before_after/IMG_5969.jpg';
 import img5970 from '../../images/before_after/IMG_5970.jpg';
 import img5971 from '../../images/before_after/IMG_5971.jpg';
@@ -25,15 +24,13 @@ export const peintureIndustrielleData = {
         introduction: {
           fr: [
             "Brossard est un secteur en pleine croissance, qui accueille plusieurs zones industrielles, centres logistiques, entrepôts, ateliers spécialisés et bâtiments à vocation manufacturière, notamment dans les secteurs R, S, T, C, V et P, ainsi qu'à proximité du Quartier DIX30.",
-            "Le Lever du Pinceau offre un service complet de peinture industrielle à Brossard, adapté aux environnements exigeants : abrasion, chocs, humidité, corrosion, variations climatiques et exposition directe aux intempéries.",
-            "Nos peintres industriels utilisent des produits professionnels haute durabilité conçus pour protéger et prolonger la vie des installations industrielles.",
-            "Pour moderniser vos infrastructures, améliorer leur sécurité ou prolonger leur durabilité, notre équipe intervient rapidement dans toute la ville de Brossard."
+            'Le Lever du Pinceau offre un service complet de peinture industrielle à Brossard, adapté aux environnements exigeants : abrasion, chocs, humidité, corrosion, variations climatiques et exposition directe aux intempéries.',
+            'Nos peintres industriels utilisent des produits professionnels haute durabilité conçus pour protéger et prolonger la vie des installations industrielles.',
           ],
           en: [
-            "Brossard is a growing sector, hosting several industrial zones, logistics centers, warehouses, specialized workshops and manufacturing buildings, particularly in sectors R, S, T, C, V and P, as well as near the DIX30 Quarter.",
-            "Le Lever du Pinceau offers a complete industrial painting service in Brossard, adapted to demanding environments: abrasion, shocks, humidity, corrosion, climate variations and direct exposure to weather.",
-            "Our industrial painters use high durability professional products designed to protect and extend the life of industrial installations.",
-            "To modernize your infrastructure, improve their security or extend their durability, our team works quickly throughout the city of Brossard."
+            'Brossard is a growing sector, hosting several industrial zones, logistics centers, warehouses, specialized workshops and manufacturing buildings, particularly in sectors R, S, T, C, V and P, as well as near the DIX30 Quarter.',
+            'Le Lever du Pinceau offers a complete industrial painting service in Brossard, adapted to demanding environments: abrasion, shocks, humidity, corrosion, climate variations and direct exposure to weather.',
+            'Our industrial painters use high durability professional products designed to protect and extend the life of industrial installations.',
           ],
         },
         introFingerText: {
@@ -93,14 +90,95 @@ export const peintureIndustrielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Les erreurs à éviter dans les travaux industriels',
+              en: 'Mistakes to avoid in industrial work',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents réalisés à Brossard',
+          en: 'Recent projects completed in Brossard',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'brossard-ind-1',
+              title: 'Revêtement époxy dans un entrepôt secteur R',
+              description:
+                "Application professionnelle d'un revêtement époxy haute résistance pour plancher industriel avec finition durable et résistante aux chocs.",
+            },
+            {
+              id: 'brossard-ind-2',
+              title:
+                'Peinture anticorrosion sur structure extérieure secteur S',
+              description:
+                'Traitement spécialisé et peinture anticorrosion pour protéger les structures métalliques contre les intempéries et la corrosion.',
+            },
+            {
+              id: 'brossard-ind-3',
+              title:
+                "Modernisation intérieure d'un bâtiment logistique secteur C",
+              description:
+                'Rénovation complète des espaces intérieurs avec produits adaptés aux environnements industriels et finition professionnelle.',
+            },
+            {
+              id: 'brossard-ind-4',
+              title:
+                'Rafraîchissement de murs techniques dans un atelier du secteur V',
+              description:
+                "Peinture spécialisée des murs techniques avec produits résistants aux produits chimiques et à l'humidité.",
+            },
+            {
+              id: 'brossard-ind-5',
+              title:
+                'Protection de poutres extérieures dans un parc industriel',
+              description:
+                'Traitement et peinture anticorrosion des poutres métalliques extérieures pour une protection durable contre les éléments.',
+            },
+          ],
+          en: [
+            {
+              id: 'brossard-ind-1',
+              title: 'Epoxy coating in a warehouse sector R',
+              description:
+                'Professional application of a high resistance epoxy coating for industrial floor with durable and shock-resistant finish.',
+            },
+            {
+              id: 'brossard-ind-2',
+              title: 'Anti-corrosion painting on exterior structure sector S',
+              description:
+                'Specialized treatment and anti-corrosion painting to protect metal structures against weather and corrosion.',
+            },
+            {
+              id: 'brossard-ind-3',
+              title: 'Interior modernization of a logistics building sector C',
+              description:
+                'Complete renovation of interior spaces with products adapted to industrial environments and professional finish.',
+            },
+            {
+              id: 'brossard-ind-4',
+              title: 'Refresh of technical walls in a workshop sector V',
+              description:
+                'Specialized painting of technical walls with products resistant to chemicals and humidity.',
+            },
+            {
+              id: 'brossard-ind-5',
+              title: 'Protection of exterior beams in an industrial park',
+              description:
+                'Treatment and anti-corrosion painting of exterior metal beams for durable protection against the elements.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe certifiée pour les environnements industriels',
           en: 'A certified team for industrial environments',
         },
         aboutDescription: {
-          fr: 'Nos peintres industriels respectent les normes strictes de sécurité et de conformité, incluant : travail en hauteur, zones restreintes, équipements lourds, surfaces sensibles.',
-          en: 'Our industrial painters respect strict safety and compliance standards, including: work at height, restricted areas, heavy equipment, sensitive surfaces.',
+          fr: 'Nos peintres industriels respectent les normes strictes de sécurité et de conformité, incluant : travail en hauteur, zones restreintes, équipements lourds, surfaces sensibles',
+          en: 'Our industrial painters respect strict safety and compliance standards, including: work at height, restricted areas, heavy equipment, sensitive surfaces',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet industriel à Brossard',
@@ -112,12 +190,12 @@ export const peintureIndustrielleData = {
         },
         sectors: [],
         images: [
-          { src: img5969, alt: 'peinture industrielle Brossard 1' },
-          { src: img5970, alt: 'peinture industrielle Brossard 2' },
-          { src: img5971, alt: 'peinture industrielle Brossard 3' },
-          { src: img5972, alt: 'peinture industrielle Brossard 4' },
-          { src: img5973, alt: 'peinture industrielle Brossard 5' },
-          { src: img5974, alt: 'peinture industrielle Brossard 6' },
+          { src: img5969, alt: 'Peinture industrielle Brossard' },
+          { src: img5970, alt: 'Peinture industrielle Brossard' },
+          { src: img5971, alt: 'Peinture industrielle Brossard' },
+          { src: img5972, alt: 'Peinture industrielle Brossard' },
+          { src: img5973, alt: 'Peinture industrielle Brossard' },
+          { src: img5974, alt: 'Peinture industrielle Brossard' },
         ],
       },
       laval: {
@@ -132,13 +210,13 @@ export const peintureIndustrielleData = {
         introduction: {
           fr: [
             "Laval est l'un des plus importants pôles industriels du Québec, regroupant plusieurs parcs industriels, entrepôts logistiques, centres de distribution, usines et installations techniques.",
-            "Le Lever du Pinceau offre des services complets de peinture industrielle à Laval, avec des revêtements haute résistance conçus pour supporter les conditions exigeantes : abrasion, chocs, humidité, changements de température et produits chimiques.",
-            "Nous intervenons dans Chomedey, Sainte-Dorothée, Laval-Ouest, Fabreville, Sainte-Rose, Vimont, Duvernay et dans les principaux parcs industriels lavallois."
+            'Le Lever du Pinceau offre des services complets de peinture industrielle à Laval, avec des revêtements haute résistance conçus pour supporter les conditions exigeantes : abrasion, chocs, humidité, changements de température et produits chimiques.',
+            'Nous intervenons dans Chomedey, Sainte-Dorothée, Laval-Ouest, Fabreville, Sainte-Rose, Vimont, Duvernay et dans les principaux parcs industriels lavallois.',
           ],
           en: [
-            "Laval is one of the most important industrial hubs in Quebec, bringing together several industrial parks, logistics warehouses, distribution centers, factories and technical installations.",
-            "Le Lever du Pinceau offers complete industrial painting services in Laval, with high resistance coatings designed to support demanding conditions: abrasion, shocks, humidity, temperature changes and chemicals.",
-            "We work in Chomedey, Sainte-Dorothée, Laval-Ouest, Fabreville, Sainte-Rose, Vimont, Duvernay and in the main Laval industrial parks."
+            'Laval is one of the most important industrial hubs in Quebec, bringing together several industrial parks, logistics warehouses, distribution centers, factories and technical installations.',
+            'Le Lever du Pinceau offers complete industrial painting services in Laval, with high resistance coatings designed to support demanding conditions: abrasion, shocks, humidity, temperature changes and chemicals.',
+            'We work in Chomedey, Sainte-Dorothée, Laval-Ouest, Fabreville, Sainte-Rose, Vimont, Duvernay and in the main Laval industrial parks.',
           ],
         },
         introFingerText: {
@@ -198,14 +276,97 @@ export const peintureIndustrielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Les erreurs à éviter dans les projets industriels',
+              en: 'Mistakes to avoid in industrial projects',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents dans des installations industrielles lavalloises',
+          en: 'Recent projects in Laval industrial installations',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'laval-ind-1',
+              title:
+                "Application d'un revêtement époxy dans un entrepôt de Chomedey",
+              description:
+                "Application professionnelle d'un revêtement époxy haute résistance pour plancher industriel avec finition durable et résistante aux chocs.",
+            },
+            {
+              id: 'laval-ind-2',
+              title:
+                'Peinture anticorrosion de structures métalliques à Duvernay',
+              description:
+                'Traitement spécialisé et peinture anticorrosion pour protéger les structures métalliques contre les intempéries et la corrosion.',
+            },
+            {
+              id: 'laval-ind-3',
+              title:
+                'Rafraîchissement de murs techniques dans un centre logistique',
+              description:
+                "Peinture spécialisée des murs techniques avec produits résistants aux produits chimiques et à l'humidité.",
+            },
+            {
+              id: 'laval-ind-4',
+              title:
+                "Peinture intérieure d'une zone de production à Laval-Ouest",
+              description:
+                'Rénovation complète des espaces de production avec produits adaptés aux environnements industriels et finition professionnelle.',
+            },
+            {
+              id: 'laval-ind-5',
+              title:
+                'Revêtement anti-humidité pour un bâtiment industriel à Sainte-Rose',
+              description:
+                "Application de revêtements spécialisés anti-humidité pour protéger les surfaces contre l'humidité et les moisissures.",
+            },
+          ],
+          en: [
+            {
+              id: 'laval-ind-1',
+              title: 'Application of an epoxy coating in a Chomedey warehouse',
+              description:
+                'Professional application of a high resistance epoxy coating for industrial floor with durable and shock-resistant finish.',
+            },
+            {
+              id: 'laval-ind-2',
+              title: 'Anti-corrosion painting of metal structures in Duvernay',
+              description:
+                'Specialized treatment and anti-corrosion painting to protect metal structures against weather and corrosion.',
+            },
+            {
+              id: 'laval-ind-3',
+              title: 'Refresh of technical walls in a logistics center',
+              description:
+                'Specialized painting of technical walls with products resistant to chemicals and humidity.',
+            },
+            {
+              id: 'laval-ind-4',
+              title: 'Interior painting of a production zone in Laval-Ouest',
+              description:
+                'Complete renovation of production spaces with products adapted to industrial environments and professional finish.',
+            },
+            {
+              id: 'laval-ind-5',
+              title:
+                'Anti-humidity coating for an industrial building in Sainte-Rose',
+              description:
+                'Application of specialized anti-humidity coatings to protect surfaces against humidity and mold.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: "Une équipe d'experts en environnement industriel",
           en: 'A team of experts in industrial environment',
         },
         aboutDescription: {
-          fr: "Nos peintres respectent rigoureusement : les normes de sécurité, les protocoles d'accès industriels, les procédures de protection de machinerie, la ventilation et gestion des produits.",
-          en: 'Our painters strictly respect: safety standards, industrial access protocols, machinery protection procedures, ventilation and product management.',
+          fr: "Nos peintres respectent rigoureusement : les normes de sécurité, les protocoles d'accès industriels, les procédures de protection de machinerie, la ventilation et gestion des produits",
+          en: 'Our painters strictly respect: safety standards, industrial access protocols, machinery protection procedures, ventilation and product management',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet industriel à Laval',
@@ -217,12 +378,12 @@ export const peintureIndustrielleData = {
         },
         sectors: [],
         images: [
-          { src: img5969, alt: 'peinture industrielle Laval 1' },
-          { src: img5970, alt: 'peinture industrielle Laval 2' },
-          { src: img5971, alt: 'peinture industrielle Laval 3' },
-          { src: img5972, alt: 'peinture industrielle Laval 4' },
-          { src: img5973, alt: 'peinture industrielle Laval 5' },
-          { src: img5974, alt: 'peinture industrielle Laval 6' },
+          { src: img5969, alt: 'Peinture industrielle Laval' },
+          { src: img5970, alt: 'Peinture industrielle Laval' },
+          { src: img5971, alt: 'Peinture industrielle Laval' },
+          { src: img5972, alt: 'Peinture industrielle Laval' },
+          { src: img5973, alt: 'Peinture industrielle Laval' },
+          { src: img5974, alt: 'Peinture industrielle Laval' },
         ],
       },
       longueuil: {
@@ -237,13 +398,13 @@ export const peintureIndustrielleData = {
         introduction: {
           fr: [
             "Longueuil, avec ses zones industrielles, ses parcs logistiques et ses installations manufacturières, est l'un des secteurs industriels majeurs de la Rive-Sud.",
-            "Le Lever du Pinceau propose des services complets de peinture industrielle à Longueuil, adaptés aux environnements techniques : usines, entrepôts, centres logistiques, ateliers, bâtiments mécaniques et structures extérieures.",
-            "Nous utilisons des revêtements professionnels conçus pour résister à l'abrasion, aux produits chimiques, à l'humidité et aux variations climatiques du Québec."
+            'Le Lever du Pinceau propose des services complets de peinture industrielle à Longueuil, adaptés aux environnements techniques : usines, entrepôts, centres logistiques, ateliers, bâtiments mécaniques et structures extérieures.',
+            "Nous utilisons des revêtements professionnels conçus pour résister à l'abrasion, aux produits chimiques, à l'humidité et aux variations climatiques du Québec.",
           ],
           en: [
-            "Longueuil, with its industrial zones, logistics parks and manufacturing installations, is one of the major industrial sectors of the South Shore.",
-            "Le Lever du Pinceau offers complete industrial painting services in Longueuil, adapted to technical environments: factories, warehouses, logistics centers, workshops, mechanical buildings and exterior structures.",
-            "We use professional coatings designed to resist abrasion, chemicals, humidity and Quebec climate variations."
+            'Longueuil, with its industrial zones, logistics parks and manufacturing installations, is one of the major industrial sectors of the South Shore.',
+            'Le Lever du Pinceau offers complete industrial painting services in Longueuil, adapted to technical environments: factories, warehouses, logistics centers, workshops, mechanical buildings and exterior structures.',
+            'We use professional coatings designed to resist abrasion, chemicals, humidity and Quebec climate variations.',
           ],
         },
         introFingerText: {
@@ -256,21 +417,29 @@ export const peintureIndustrielleData = {
         },
         whyUsContent: {
           fr: [
-            'travailler en hauteur',
-            'respecter les normes de sécurité lourde',
-            'intervenir dans des environnements complexes',
-            'protéger la machinerie et les zones sensibles',
+            'Revêtements anticorrosion pour structures métalliques',
+            'Peinture intérieure pour murs de béton et surfaces techniques',
+            'Époxy, polyuréthane et revêtements haute résistance',
+            'Préparation complète : sablage, brossage, dégraissage, réparation',
+            'Produits résistants aux chocs, abrasions et environnements chimiques',
+            'Application sécuritaire (hauteur, machinerie, ventilation)',
+            'Travail planifié pour éviter de perturber vos opérations',
+            'Solutions pour grands bâtiments et installations multi-zones',
           ],
           en: [
-            'work at height',
-            'respect heavy safety standards',
-            'work in complex environments',
-            'protect machinery and sensitive areas',
+            'Anti-corrosion coatings for metal structures',
+            'Interior painting for concrete walls and technical surfaces',
+            'Epoxy, polyurethane and high resistance coatings',
+            'Complete preparation: sandblasting, brushing, degreasing, repair',
+            'Products resistant to shocks, abrasions and chemical environments',
+            'Safe application (height, machinery, ventilation)',
+            'Planned work to avoid disrupting your operations',
+            'Solutions for large buildings and multi-zone installations',
           ],
         },
         whyUsIntro: {
-          fr: 'Nos peintres industriels sont formés pour :',
-          en: 'Our industrial painters are trained for:',
+          fr: 'Nos services industriels incluent :',
+          en: 'Our industrial services include:',
         },
         whyUsOutro: {
           fr: 'Nous intervenons dans : usines, entrepôts, ateliers, centres logistiques, bâtiments techniques, zones mécaniques, structures extérieures.',
@@ -295,14 +464,99 @@ export const peintureIndustrielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Erreurs courantes dans les projets industriels',
+              en: 'Common mistakes in industrial projects',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents dans les installations industrielles longuelloises',
+          en: 'Recent projects in Longueuil industrial installations',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'longueuil-ind-1',
+              title:
+                "Application d'un revêtement époxy dans un entrepôt de Saint-Hubert",
+              description:
+                "Application professionnelle d'un revêtement époxy haute résistance pour plancher industriel avec finition durable et résistante aux chocs.",
+            },
+            {
+              id: 'longueuil-ind-2',
+              title:
+                "Traitement anticorrosion d'une structure métallique à Greenfield Park",
+              description:
+                'Traitement spécialisé et peinture anticorrosion pour protéger les structures métalliques contre les intempéries et la corrosion.',
+            },
+            {
+              id: 'longueuil-ind-3',
+              title:
+                "Peinture intérieure d'une zone de production dans le Vieux-Longueuil",
+              description:
+                'Rénovation complète des espaces de production avec produits adaptés aux environnements industriels et finition professionnelle.',
+            },
+            {
+              id: 'longueuil-ind-4',
+              title:
+                'Rafraîchissement de murs techniques pour un atelier mécanique',
+              description:
+                "Peinture spécialisée des murs techniques avec produits résistants aux produits chimiques et à l'humidité.",
+            },
+            {
+              id: 'longueuil-ind-5',
+              title:
+                'Revêtement industriel pour un centre logistique de la Rive-Sud',
+              description:
+                'Application de revêtements industriels spécialisés pour protéger et moderniser les installations logistiques.',
+            },
+          ],
+          en: [
+            {
+              id: 'longueuil-ind-1',
+              title:
+                'Application of an epoxy coating in a Saint-Hubert warehouse',
+              description:
+                'Professional application of a high resistance epoxy coating for industrial floor with durable and shock-resistant finish.',
+            },
+            {
+              id: 'longueuil-ind-2',
+              title:
+                'Anti-corrosion treatment of a metal structure in Greenfield Park',
+              description:
+                'Specialized treatment and anti-corrosion painting to protect metal structures against weather and corrosion.',
+            },
+            {
+              id: 'longueuil-ind-3',
+              title:
+                'Interior painting of a production zone in Vieux-Longueuil',
+              description:
+                'Complete renovation of production spaces with products adapted to industrial environments and professional finish.',
+            },
+            {
+              id: 'longueuil-ind-4',
+              title: 'Refresh of technical walls for a mechanical workshop',
+              description:
+                'Specialized painting of technical walls with products resistant to chemicals and humidity.',
+            },
+            {
+              id: 'longueuil-ind-5',
+              title: 'Industrial coating for a South Shore logistics center',
+              description:
+                'Application of specialized industrial coatings to protect and modernize logistics installations.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe certifiée pour les environnements industriels',
           en: 'A certified team for industrial environments',
         },
         aboutDescription: {
-          fr: 'Nos peintres industriels sont formés pour : travailler en hauteur, respecter les normes de sécurité lourde, intervenir dans des environnements complexes, protéger la machinerie et les zones sensibles.',
-          en: 'Our industrial painters are trained to: work at height, respect heavy safety standards, work in complex environments, protect machinery and sensitive areas.',
+          fr: 'Nos peintres industriels sont formés pour : travailler en hauteur, respecter les normes de sécurité lourde, intervenir dans des environnements complexes, protéger la machinerie et les zones sensibles',
+          en: 'Our industrial painters are trained to: work at height, respect heavy safety standards, work in complex environments, protect machinery and sensitive areas',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet industriel à Longueuil',
@@ -314,12 +568,12 @@ export const peintureIndustrielleData = {
         },
         sectors: [],
         images: [
-          { src: img5969, alt: 'peinture industrielle Longueuil 1' },
-          { src: img5970, alt: 'peinture industrielle Longueuil 2' },
-          { src: img5971, alt: 'peinture industrielle Longueuil 3' },
-          { src: img5972, alt: 'peinture industrielle Longueuil 4' },
-          { src: img5973, alt: 'peinture industrielle Longueuil 5' },
-          { src: img5974, alt: 'peinture industrielle Longueuil 6' },
+          { src: img5969, alt: 'Peinture industrielle Longueuil' },
+          { src: img5970, alt: 'Peinture industrielle Longueuil' },
+          { src: img5971, alt: 'Peinture industrielle Longueuil' },
+          { src: img5972, alt: 'Peinture industrielle Longueuil' },
+          { src: img5973, alt: 'Peinture industrielle Longueuil' },
+          { src: img5974, alt: 'Peinture industrielle Longueuil' },
         ],
       },
       montreal: {
@@ -335,12 +589,12 @@ export const peintureIndustrielleData = {
           fr: [
             "Montréal regroupe un grand nombre d'installations industrielles : usines, entrepôts, centres logistiques, bâtiments techniques, ateliers spécialisés, structures métalliques et zones manufacturières.",
             "Le Lever du Pinceau offre un service de peinture industrielle complet à Montréal, incluant les zones de l'Est montréalais, Montréal-Nord, Saint-Laurent, Anjou, Lachine, Pointe-aux-Trembles et les parcs industriels.",
-            "Nos peintres industriels utilisent des revêtements professionnels résistants aux chocs, aux produits chimiques, à l'humidité et à l'abrasion."
+            "Nos peintres industriels utilisent des revêtements professionnels résistants aux chocs, aux produits chimiques, à l'humidité et à l'abrasion.",
           ],
           en: [
-            "Montreal brings together a large number of industrial installations: factories, warehouses, logistics centers, technical buildings, specialized workshops, metal structures and manufacturing zones.",
-            "Le Lever du Pinceau offers a complete industrial painting service in Montreal, including areas of East Montreal, Montreal-North, Saint-Laurent, Anjou, Lachine, Pointe-aux-Trembles and industrial parks.",
-            "Our industrial painters use professional coatings resistant to shocks, chemicals, humidity and abrasion."
+            'Montreal brings together a large number of industrial installations: factories, warehouses, logistics centers, technical buildings, specialized workshops, metal structures and manufacturing zones.',
+            'Le Lever du Pinceau offers a complete industrial painting service in Montreal, including areas of East Montreal, Montreal-North, Saint-Laurent, Anjou, Lachine, Pointe-aux-Trembles and industrial parks.',
+            'Our industrial painters use professional coatings resistant to shocks, chemicals, humidity and abrasion.',
           ],
         },
         introFingerText: {
@@ -353,21 +607,29 @@ export const peintureIndustrielleData = {
         },
         whyUsContent: {
           fr: [
-            'travail en hauteur',
-            'zones restreintes',
-            'environnements chimiques',
-            'équipements spécialisés',
+            'Revêtements haute résistance (anti-UV, anti-abrasion, haute durabilité)',
+            'Protection anticorrosion pour infrastructures métalliques',
+            'Peinture pour planchers industriels',
+            'Préparation complète : dégraissage, sablage, brossage, réparation',
+            'Produits adaptés aux environnements chimiques ou humides',
+            'Respect des normes de sécurité industrielles (EPI, harnais, protocole)',
+            "Travaux planifiés pour minimiser l'interruption des opérations",
+            'Solutions pour grandes surfaces et bâtiments complexes',
           ],
           en: [
-            'work at height',
-            'restricted areas',
-            'chemical environments',
-            'specialized equipment',
+            'High resistance coatings (anti-UV, anti-abrasion, high durability)',
+            'Anti-corrosion protection for metal infrastructures',
+            'Painting for industrial floors',
+            'Complete preparation: degreasing, sandblasting, brushing, repair',
+            'Products adapted to chemical or humid environments',
+            'Respect for industrial safety standards (PPE, harness, protocol)',
+            'Planned work to minimize interruption of operations',
+            'Solutions for large surfaces and complex buildings',
           ],
         },
         whyUsIntro: {
-          fr: 'Nos peintres industriels respectent les normes :',
-          en: 'Our industrial painters respect standards:',
+          fr: 'Nos interventions incluent :',
+          en: 'Our interventions include:',
         },
         whyUsOutro: {
           fr: 'Nous intervenons dans : entrepôts, usines, ateliers, stations techniques, centres logistiques, structures métalliques et installations extérieures.',
@@ -392,14 +654,96 @@ export const peintureIndustrielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: '7 erreurs à éviter dans les projets industriels',
+              en: '7 mistakes to avoid in industrial projects',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents dans les bâtiments industriels montréalais',
+          en: 'Recent projects in Montreal industrial buildings',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'montreal-ind-1',
+              title: "Revêtement époxy sur plancher d'usine à Saint-Laurent",
+              description:
+                "Application professionnelle d'un revêtement époxy haute résistance pour plancher industriel avec finition durable et résistante aux chocs.",
+            },
+            {
+              id: 'montreal-ind-2',
+              title:
+                "Peinture de murs de béton dans un entrepôt de l'Est de Montréal",
+              description:
+                "Peinture spécialisée des murs de béton avec produits résistants aux produits chimiques et à l'humidité.",
+            },
+            {
+              id: 'montreal-ind-3',
+              title:
+                'Traitement anticorrosion de structures métalliques à Anjou',
+              description:
+                'Traitement spécialisé et peinture anticorrosion pour protéger les structures métalliques contre les intempéries et la corrosion.',
+            },
+            {
+              id: 'montreal-ind-4',
+              title:
+                "Peinture extérieure d'un bâtiment industriel à Montréal-Nord",
+              description:
+                'Rénovation complète de la façade industrielle avec produits résistants aux intempéries et finition professionnelle.',
+            },
+            {
+              id: 'montreal-ind-5',
+              title:
+                "Rafraîchissement intérieur d'une zone de production dans Lachine",
+              description:
+                'Rénovation complète des espaces de production avec produits adaptés aux environnements industriels et finition professionnelle.',
+            },
+          ],
+          en: [
+            {
+              id: 'montreal-ind-1',
+              title: 'Epoxy coating on factory floor in Saint-Laurent',
+              description:
+                'Professional application of a high resistance epoxy coating for industrial floor with durable and shock-resistant finish.',
+            },
+            {
+              id: 'montreal-ind-2',
+              title: 'Concrete wall painting in an East Montreal warehouse',
+              description:
+                'Specialized painting of concrete walls with products resistant to chemicals and humidity.',
+            },
+            {
+              id: 'montreal-ind-3',
+              title: 'Anti-corrosion treatment of metal structures in Anjou',
+              description:
+                'Specialized treatment and anti-corrosion painting to protect metal structures against weather and corrosion.',
+            },
+            {
+              id: 'montreal-ind-4',
+              title:
+                'Exterior painting of an industrial building in Montreal-North',
+              description:
+                'Complete renovation of the industrial facade with weather-resistant products and professional finish.',
+            },
+            {
+              id: 'montreal-ind-5',
+              title: 'Interior refresh of a production zone in Lachine',
+              description:
+                'Complete renovation of production spaces with products adapted to industrial environments and professional finish.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe certifiée pour les environnements industriels',
           en: 'A certified team for industrial environments',
         },
         aboutDescription: {
-          fr: 'Nos peintres industriels respectent les normes : travail en hauteur, zones restreintes, environnements chimiques, équipements spécialisés.',
-          en: 'Our industrial painters respect standards: work at height, restricted areas, chemical environments, specialized equipment.',
+          fr: 'Nos peintres industriels respectent les normes : travail en hauteur, zones restreintes, environnements chimiques, équipements spécialisés',
+          en: 'Our industrial painters respect standards: work at height, restricted areas, chemical environments, specialized equipment',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet industriel à Montréal',
@@ -415,15 +759,19 @@ export const peintureIndustrielleData = {
           { name: 'Saint-Laurent', slug: 'saint-laurent', image: img5971 },
           { name: 'Anjou', slug: 'anjou', image: img5972 },
           { name: 'Lachine', slug: 'lachine', image: img5973 },
-          { name: 'Pointe-aux-Trembles', slug: 'pointe-aux-trembles', image: img5974 },
+          {
+            name: 'Pointe-aux-Trembles',
+            slug: 'pointe-aux-trembles',
+            image: img5974,
+          },
         ],
         images: [
-          { src: img5969, alt: 'peinture industrielle Montréal 1' },
-          { src: img5970, alt: 'peinture industrielle Montréal 2' },
-          { src: img5971, alt: 'peinture industrielle Montréal 3' },
-          { src: img5972, alt: 'peinture industrielle Montréal 4' },
-          { src: img5973, alt: 'peinture industrielle Montréal 5' },
-          { src: img5974, alt: 'peinture industrielle Montréal 6' },
+          { src: img5969, alt: 'Peinture industrielle Montréal' },
+          { src: img5970, alt: 'Peinture industrielle Montréal' },
+          { src: img5971, alt: 'Peinture industrielle Montréal' },
+          { src: img5972, alt: 'Peinture industrielle Montréal' },
+          { src: img5973, alt: 'Peinture industrielle Montréal' },
+          { src: img5974, alt: 'Peinture industrielle Montréal' },
         ],
       },
     },

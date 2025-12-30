@@ -28,7 +28,7 @@ export const notreDameDeGraceData = {
     title: 'Pour un projet complet de peinture résidentielle à NDG',
     services: [
       {
-        title: 'Peinture intérieure Montréal',
+        title: "Peinture intérieure Montréal (vue d'ensemble)",
         href: '/services/new-peinture-interieure/montreal',
       },
       {
@@ -82,7 +82,7 @@ export const notreDameDeGraceData = {
     },
     {
       title: 'Erreurs à éviter avant de repeindre votre intérieur',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Conseils pour planifier vos travaux intérieurs',
@@ -99,4 +99,3 @@ export const notreDameDeGraceData = {
     buttonText: 'Soumission gratuite',
   },
 };
-

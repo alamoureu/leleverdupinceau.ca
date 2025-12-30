@@ -57,8 +57,8 @@ export const peintureCommercialeExterieureData = {
               en: 'We work on: Commercial facades, Non-illuminated signs, Exterior doors and frames, Windows and frames, Exterior walls (wood, vinyl, metal, stucco, aluminum), Exterior stairs & ramps, Commercial balconies, Decorative exterior structures',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un projet de peinture commerciale complet',
-              en: 'For a complete commercial painting project',
+              fr: 'Services complémentaires à Brossard',
+              en: 'Complementary services in Brossard',
             },
             complementaryServices: [
               {
@@ -84,8 +84,8 @@ export const peintureCommercialeExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Sur quoi intervenons-nous à Brossard ?',
-              en: 'What do we work on in Brossard?',
+              fr: 'Types de surfaces commerciales extérieures',
+              en: 'Types of commercial exterior surfaces',
             },
             surfaces: {
               fr: [
@@ -138,8 +138,8 @@ export const peintureCommercialeExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Pour bien préparer vos travaux extérieurs',
-              en: 'To properly prepare your exterior work',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -161,7 +161,7 @@ export const peintureCommercialeExterieureData = {
                   fr: 'Erreurs à éviter avant une peinture extérieure commerciale',
                   en: 'Mistakes to avoid before commercial exterior painting',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -169,8 +169,8 @@ export const peintureCommercialeExterieureData = {
               en: 'A team specialized in Brossard businesses',
             },
             aboutDescription: {
-              fr: 'Nos peintres : comprennent les exigences des commerces modernes, utilisent des produits adaptés au climat de la Rive-Sud, respectent vos clients, votre image et vos échéances, travaillent en hauteur de façon sécuritaire, livrent une façade propre, durable et professionnelle',
-              en: 'Our painters: understand the requirements of modern businesses, use products adapted to the South Shore climate, respect your customers, your image and your deadlines, work at height safely, deliver a clean, durable and professional facade',
+              fr: 'Nos peintres : comprennent les exigences des commerces modernes, utilisent des produits adaptés au climat de la Rive-Sud, respectent vos clients, votre image et vos échéances, travaillent en hauteur de façon sécuritaire, livrent une façade propre, durable et professionnelle.',
+              en: 'Our painters: understand the requirements of modern businesses, use products adapted to the South Shore climate, respect your customers, your image and your deadlines, work at height safely, deliver a clean, durable and professional facade.',
             },
             aboutButtonText: {
               fr: 'En savoir plus sur nos peintres professionnels',
@@ -233,8 +233,8 @@ export const peintureCommercialeExterieureData = {
               en: 'We work on: Store facades, Non-illuminated exterior signs, Doors, frames, windows, Exterior claddings (aluminum, wood, vinyl, stucco, metal), Stairs, ramps, commercial balconies, Exterior walls of offices and clinics',
             },
             complementaryServicesTitle: {
-              fr: 'Pour une transformation complète de votre bâtiment commercial',
-              en: 'For a complete commercial building transformation',
+              fr: 'Services commerciaux complémentaires à Laval',
+              en: 'Complementary commercial services in Laval',
             },
             complementaryServices: [
               {
@@ -260,8 +260,8 @@ export const peintureCommercialeExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Surfaces que nous pouvons repeindre ou restaurer',
-              en: 'Surfaces we can repaint or restore',
+              fr: 'Types de surfaces commerciales extérieures',
+              en: 'Types of commercial exterior surfaces',
             },
             surfaces: {
               fr: [
@@ -312,8 +312,8 @@ export const peintureCommercialeExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Préparer votre projet de peinture commerciale extérieure',
-              en: 'Prepare your commercial exterior painting project',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -335,7 +335,7 @@ export const peintureCommercialeExterieureData = {
                   fr: 'Erreurs à éviter avant des travaux de peinture extérieure',
                   en: 'Mistakes to avoid before exterior painting work',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -407,8 +407,8 @@ export const peintureCommercialeExterieureData = {
               en: 'We work on: Store and business facades, Non-illuminated signs, Exterior doors, frames, trims, Exterior claddings (vinyl, aluminum, wood, stucco, metal), Commercial exterior stairs, Ramps, guardrails, balconies, Exterior walls of offices and clinics',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un projet complet de peinture commerciale à Longueuil',
-              en: 'For a complete commercial painting project in Longueuil',
+              fr: 'Services commerciaux complémentaires à Longueuil',
+              en: 'Complementary commercial services in Longueuil',
             },
             complementaryServices: [
               {
@@ -434,8 +434,8 @@ export const peintureCommercialeExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Surfaces prises en charge dans vos bâtiments commerciaux',
-              en: 'Surfaces covered in your commercial buildings',
+              fr: 'Types de surfaces commerciales extérieures',
+              en: 'Types of commercial exterior surfaces',
             },
             surfaces: {
               fr: [
@@ -490,8 +490,8 @@ export const peintureCommercialeExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Pour mieux préparer vos travaux commerciaux à Longueuil',
-              en: 'To better prepare your commercial work in Longueuil',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -513,7 +513,7 @@ export const peintureCommercialeExterieureData = {
                   fr: 'Erreurs à éviter avant une peinture extérieure commerciale',
                   en: 'Mistakes to avoid before commercial exterior painting',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -585,8 +585,8 @@ export const peintureCommercialeExterieureData = {
               en: 'We work on: Commercial facades, Fixed signs (non-illuminated), Exterior woodwork, frames, moldings, Doors and frames, exterior windows, Exterior structures (stairs, ramps, balconies), Exterior claddings (wood, aluminum, vinyl, metal, bricks)',
             },
             complementaryServicesTitle: {
-              fr: 'Obtenez un résultat cohérent pour votre commerce',
-              en: 'Get a consistent result for your business',
+              fr: 'Services commerciaux complémentaires à Montréal',
+              en: 'Complementary commercial services in Montreal',
             },
             complementaryServices: [
               {
@@ -612,8 +612,8 @@ export const peintureCommercialeExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Sur quoi pouvons-nous intervenir ?',
-              en: 'What can we work on?',
+              fr: 'Types de surfaces commerciales extérieures',
+              en: 'Types of commercial exterior surfaces',
             },
             surfaces: {
               fr: [
@@ -664,8 +664,8 @@ export const peintureCommercialeExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Conseils avant des travaux extérieurs',
-              en: 'Advice before exterior work',
+              fr: 'Guides utiles pour les commerces',
+              en: 'Useful guides for businesses',
             },
             guides: [
               {
@@ -687,7 +687,7 @@ export const peintureCommercialeExterieureData = {
                   fr: '7 erreurs à éviter avant de repeindre un commerce',
                   en: '7 mistakes to avoid before repainting a business',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {

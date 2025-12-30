@@ -82,7 +82,7 @@ export const lasalleData = {
     },
     {
       title: 'Les erreurs à éviter avant des travaux intérieurs',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien planifier vos travaux de peinture intérieure',

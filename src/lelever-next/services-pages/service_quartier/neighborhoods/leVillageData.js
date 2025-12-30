@@ -83,7 +83,7 @@ export const leVillageData = {
     },
     {
       title: 'Les erreurs à éviter avant de peindre',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Conseils pour préparer vos travaux intérieurs',

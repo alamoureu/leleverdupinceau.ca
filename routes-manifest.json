@@ -1,0 +1,651 @@
+{
+  "generatedAt": "2025-12-30",
+  "website": "Le Lever du Pinceau",
+  "baseUrl": "https://www.leleverdupinceau.ca",
+  "totalPublicRoutes": 98,
+  "totalRoutes": 106,
+  "categories": {
+    "mainPublicPages": {
+      "count": 9,
+      "routes": [
+        { "path": "/", "description": "Homepage", "priority": 1.0 },
+        {
+          "path": "/soumission",
+          "description": "Quote request page",
+          "priority": 0.8
+        },
+        { "path": "/contact", "description": "Contact page", "priority": 0.8 },
+        {
+          "path": "/a-propos-de-nous",
+          "description": "About us page",
+          "priority": 0.7
+        },
+        {
+          "path": "/emplois",
+          "description": "Jobs/Careers page",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/peinture-exterieure",
+          "description": "Exterior painting (old)",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/peinture-interieure",
+          "description": "Interior painting (old)",
+          "priority": 0.7
+        },
+        {
+          "path": "/politiques/confidentialite",
+          "description": "Privacy policy",
+          "priority": 0.3
+        },
+        {
+          "path": "/politiques/termes-conditions",
+          "description": "Terms and conditions",
+          "priority": 0.3
+        }
+      ]
+    },
+    "landingPages": {
+      "count": 3,
+      "routes": [
+        {
+          "path": "/peintre-montreal",
+          "language": "fr",
+          "description": "Main landing page",
+          "priority": 0.8
+        },
+        {
+          "path": "/fr/peintre-montreal",
+          "language": "fr",
+          "description": "French landing page",
+          "priority": 0.8
+        },
+        {
+          "path": "/en/painter-montreal",
+          "language": "en",
+          "description": "English landing page",
+          "priority": 0.8
+        }
+      ]
+    },
+    "newWebsitePages": {
+      "count": 8,
+      "passwordProtected": true,
+      "routes": [
+        { "path": "/new-home", "description": "New homepage", "priority": 0.9 },
+        {
+          "path": "/new-home/contact",
+          "description": "New contact page",
+          "priority": 0.8
+        },
+        {
+          "path": "/new-home/a-propos",
+          "description": "New about page",
+          "priority": 0.7
+        },
+        {
+          "path": "/peintre-professionnel",
+          "description": "Professional painter page",
+          "priority": 0.7
+        },
+        { "path": "/avis", "description": "Reviews page", "priority": 0.7 },
+        {
+          "path": "/new-contact",
+          "description": "New contact page (standalone)",
+          "priority": 0.8
+        },
+        {
+          "path": "/a-propos",
+          "description": "About page (standalone)",
+          "priority": 0.7
+        }
+      ]
+    },
+    "secteursDesservis": {
+      "count": 5,
+      "passwordProtected": true,
+      "routes": [
+        {
+          "path": "/secteurs-desservis",
+          "city": null,
+          "description": "Main sectors page",
+          "priority": 0.8
+        },
+        {
+          "path": "/secteurs-desservis/brossard",
+          "city": "Brossard",
+          "priority": 0.7
+        },
+        {
+          "path": "/secteurs-desservis/montreal",
+          "city": "Montreal",
+          "priority": 0.7
+        },
+        {
+          "path": "/secteurs-desservis/laval",
+          "city": "Laval",
+          "priority": 0.7
+        },
+        {
+          "path": "/secteurs-desservis/longueuil",
+          "city": "Longueuil",
+          "priority": 0.7
+        }
+      ]
+    },
+    "servicesMain": {
+      "count": 6,
+      "passwordProtected": true,
+      "routes": [
+        {
+          "path": "/services",
+          "description": "Main services page",
+          "priority": 0.9
+        },
+        {
+          "path": "/services/peinture-commerciale",
+          "service": "Commercial painting",
+          "priority": 0.8
+        },
+        {
+          "path": "/services/new-peinture-exterieure",
+          "service": "Exterior painting (new)",
+          "priority": 0.8
+        },
+        {
+          "path": "/services/peinture-residentielle",
+          "service": "Residential painting",
+          "priority": 0.8
+        },
+        {
+          "path": "/services/new-peinture-interieure",
+          "service": "Interior painting (new)",
+          "priority": 0.8
+        },
+        {
+          "path": "/services/peinture-industrielle",
+          "service": "Industrial painting",
+          "priority": 0.8
+        }
+      ]
+    },
+    "servicesSubServices": {
+      "count": 4,
+      "passwordProtected": true,
+      "routes": [
+        {
+          "path": "/services/peinture-commerciale/exterieure",
+          "service": "peinture-commerciale",
+          "subService": "exterieure",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/peinture-commerciale/interieure",
+          "service": "peinture-commerciale",
+          "subService": "interieure",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/peinture-residentielle/exterieure",
+          "service": "peinture-residentielle",
+          "subService": "exterieure",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/peinture-residentielle/interieure",
+          "service": "peinture-residentielle",
+          "subService": "interieure",
+          "priority": 0.7
+        }
+      ]
+    },
+    "servicesCities": {
+      "count": 4,
+      "passwordProtected": true,
+      "note": "Only Peinture Intérieure has service × city pages",
+      "routes": [
+        {
+          "path": "/services/new-peinture-interieure/brossard",
+          "service": "new-peinture-interieure",
+          "city": "brossard",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/new-peinture-interieure/laval",
+          "service": "new-peinture-interieure",
+          "city": "laval",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/new-peinture-interieure/longueuil",
+          "service": "new-peinture-interieure",
+          "city": "longueuil",
+          "priority": 0.7
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "priority": 0.7
+        }
+      ]
+    },
+    "servicesSubServicesCities": {
+      "count": 16,
+      "passwordProtected": true,
+      "routes": [
+        {
+          "path": "/services/peinture-commerciale/interieure/brossard",
+          "service": "peinture-commerciale",
+          "subService": "interieure",
+          "city": "brossard",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-commerciale/interieure/laval",
+          "service": "peinture-commerciale",
+          "subService": "interieure",
+          "city": "laval",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-commerciale/interieure/longueuil",
+          "service": "peinture-commerciale",
+          "subService": "interieure",
+          "city": "longueuil",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-commerciale/interieure/montreal",
+          "service": "peinture-commerciale",
+          "subService": "interieure",
+          "city": "montreal",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-commerciale/exterieure/brossard",
+          "service": "peinture-commerciale",
+          "subService": "exterieure",
+          "city": "brossard",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-commerciale/exterieure/laval",
+          "service": "peinture-commerciale",
+          "subService": "exterieure",
+          "city": "laval",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-commerciale/exterieure/longueuil",
+          "service": "peinture-commerciale",
+          "subService": "exterieure",
+          "city": "longueuil",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-commerciale/exterieure/montreal",
+          "service": "peinture-commerciale",
+          "subService": "exterieure",
+          "city": "montreal",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/interieure/brossard",
+          "service": "peinture-residentielle",
+          "subService": "interieure",
+          "city": "brossard",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/interieure/laval",
+          "service": "peinture-residentielle",
+          "subService": "interieure",
+          "city": "laval",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/interieure/longueuil",
+          "service": "peinture-residentielle",
+          "subService": "interieure",
+          "city": "longueuil",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/interieure/montreal",
+          "service": "peinture-residentielle",
+          "subService": "interieure",
+          "city": "montreal",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/exterieure/brossard",
+          "service": "peinture-residentielle",
+          "subService": "exterieure",
+          "city": "brossard",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/exterieure/laval",
+          "service": "peinture-residentielle",
+          "subService": "exterieure",
+          "city": "laval",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/exterieure/longueuil",
+          "service": "peinture-residentielle",
+          "subService": "exterieure",
+          "city": "longueuil",
+          "priority": 0.6
+        },
+        {
+          "path": "/services/peinture-residentielle/exterieure/montreal",
+          "service": "peinture-residentielle",
+          "subService": "exterieure",
+          "city": "montreal",
+          "priority": 0.6
+        }
+      ]
+    },
+    "servicesCitiesNeighborhoods": {
+      "count": 23,
+      "passwordProtected": true,
+      "note": "Only Peinture Intérieure × Montreal has neighborhood pages",
+      "routes": [
+        {
+          "path": "/services/new-peinture-interieure/montreal/ahuntsic",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "ahuntsic",
+          "neighborhoodName": "Ahuntsic",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/bois-franc",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "bois-franc",
+          "neighborhoodName": "Bois-Franc",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/centre-ville",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "centre-ville",
+          "neighborhoodName": "Centre-Ville / Ville-Marie",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/cote-des-neiges",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "cote-des-neiges",
+          "neighborhoodName": "Côte-des-Neiges",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/griffintown",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "griffintown",
+          "neighborhoodName": "Griffintown",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/hochelaga",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "hochelaga",
+          "neighborhoodName": "Hochelaga",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/ile-des-soeurs",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "ile-des-soeurs",
+          "neighborhoodName": "Île-des-Sœurs",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/lachine",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "lachine",
+          "neighborhoodName": "Lachine",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/lasalle",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "lasalle",
+          "neighborhoodName": "LaSalle",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/le-village",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "le-village",
+          "neighborhoodName": "Le Village / Centre-Sud",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/mile-end",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "mile-end",
+          "neighborhoodName": "Mile-End",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/notre-dame-de-grace",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "notre-dame-de-grace",
+          "neighborhoodName": "Notre-Dame-de-Grâce (NDG)",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/outremont",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "outremont",
+          "neighborhoodName": "Outremont",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/plateau-mont-royal",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "plateau-mont-royal",
+          "neighborhoodName": "Plateau-Mont-Royal",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/pointe-saint-charles",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "pointe-saint-charles",
+          "neighborhoodName": "Pointe-Saint-Charles",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/rosemont-petite-patrie",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "rosemont-petite-patrie",
+          "neighborhoodName": "Rosemont–La Petite-Patrie",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/saint-henri",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "saint-henri",
+          "neighborhoodName": "Saint-Henri",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/saint-leonard",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "saint-leonard",
+          "neighborhoodName": "Saint-Léonard",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/verdun",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "verdun",
+          "neighborhoodName": "Verdun",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/ville-mont-royal",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "ville-mont-royal",
+          "neighborhoodName": "Ville-Mont-Royal",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/ville-saint-laurent",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "ville-saint-laurent",
+          "neighborhoodName": "Ville-Saint-Laurent",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/villeray",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "villeray",
+          "neighborhoodName": "Villeray",
+          "priority": 0.5
+        },
+        {
+          "path": "/services/new-peinture-interieure/montreal/westmount",
+          "service": "new-peinture-interieure",
+          "city": "montreal",
+          "neighborhood": "westmount",
+          "neighborhoodName": "Westmount",
+          "priority": 0.5
+        }
+      ]
+    },
+    "blog": {
+      "count": 4,
+      "passwordProtected": true,
+      "routes": [
+        { "path": "/blog", "description": "Blog homepage", "priority": 0.7 },
+        {
+          "path": "/blog/comment-choisir-un-peintre-professionnel",
+          "topic": "How to choose a professional painter",
+          "priority": 0.6
+        },
+        {
+          "path": "/blog/prix-peinture-montreal",
+          "topic": "Painting prices in Montreal",
+          "priority": 0.6
+        },
+        {
+          "path": "/blog/erreurs-a-eviter-peinture-interieure",
+          "topic": "Mistakes to avoid in interior painting",
+          "priority": 0.6
+        }
+      ]
+    },
+    "admin": {
+      "count": 8,
+      "note": "These routes should NOT be included in public sitemaps",
+      "publiclyAccessible": false,
+      "routes": [
+        { "path": "/admin/dashboard", "description": "Admin dashboard" },
+        {
+          "path": "/admin/soumissions",
+          "description": "Submissions management"
+        },
+        {
+          "path": "/admin/emplois",
+          "description": "Job applications management"
+        },
+        {
+          "path": "/admin/contact",
+          "description": "Contact messages management"
+        },
+        { "path": "/admin/timesheets", "description": "Timesheets management" },
+        { "path": "/admin/employees", "description": "Employee management" },
+        {
+          "path": "/admin/employee-details",
+          "description": "Employee details"
+        },
+        { "path": "/timesheet", "description": "Timesheet entry" }
+      ]
+    }
+  },
+  "cities": [
+    { "slug": "brossard", "name": { "fr": "Brossard", "en": "Brossard" } },
+    { "slug": "laval", "name": { "fr": "Laval", "en": "Laval" } },
+    { "slug": "longueuil", "name": { "fr": "Longueuil", "en": "Longueuil" } },
+    { "slug": "montreal", "name": { "fr": "Montréal", "en": "Montreal" } }
+  ],
+  "montrealNeighborhoods": [
+    { "slug": "ahuntsic", "name": "Ahuntsic" },
+    { "slug": "bois-franc", "name": "Bois-Franc" },
+    { "slug": "centre-ville", "name": "Centre-Ville / Ville-Marie" },
+    { "slug": "cote-des-neiges", "name": "Côte-des-Neiges" },
+    { "slug": "griffintown", "name": "Griffintown" },
+    { "slug": "hochelaga", "name": "Hochelaga" },
+    { "slug": "ile-des-soeurs", "name": "Île-des-Sœurs" },
+    { "slug": "lachine", "name": "Lachine" },
+    { "slug": "lasalle", "name": "LaSalle" },
+    { "slug": "le-village", "name": "Le Village / Centre-Sud" },
+    { "slug": "mile-end", "name": "Mile-End" },
+    { "slug": "notre-dame-de-grace", "name": "Notre-Dame-de-Grâce (NDG)" },
+    { "slug": "outremont", "name": "Outremont" },
+    { "slug": "plateau-mont-royal", "name": "Plateau-Mont-Royal" },
+    { "slug": "pointe-saint-charles", "name": "Pointe-Saint-Charles" },
+    { "slug": "rosemont-petite-patrie", "name": "Rosemont–La Petite-Patrie" },
+    { "slug": "saint-henri", "name": "Saint-Henri" },
+    { "slug": "saint-leonard", "name": "Saint-Léonard" },
+    { "slug": "verdun", "name": "Verdun" },
+    { "slug": "ville-mont-royal", "name": "Ville-Mont-Royal" },
+    { "slug": "ville-saint-laurent", "name": "Ville-Saint-Laurent" },
+    { "slug": "villeray", "name": "Villeray" },
+    { "slug": "westmount", "name": "Westmount" }
+  ],
+  "services": [
+    {
+      "slug": "peinture-commerciale",
+      "name": { "fr": "Peinture commerciale", "en": "Commercial painting" }
+    },
+    {
+      "slug": "new-peinture-exterieure",
+      "name": { "fr": "Peinture extérieure", "en": "Exterior painting" }
+    },
+    {
+      "slug": "peinture-residentielle",
+      "name": { "fr": "Peinture résidentielle", "en": "Residential painting" }
+    },
+    {
+      "slug": "new-peinture-interieure",
+      "name": { "fr": "Peinture intérieure", "en": "Interior painting" }
+    },
+    {
+      "slug": "peinture-industrielle",
+      "name": { "fr": "Peinture industrielle", "en": "Industrial painting" }
+    }
+  ],
+  "subServices": [
+    { "slug": "interieure", "name": { "fr": "Intérieure", "en": "Interior" } },
+    { "slug": "exterieure", "name": { "fr": "Extérieure", "en": "Exterior" } }
+  ]
+}

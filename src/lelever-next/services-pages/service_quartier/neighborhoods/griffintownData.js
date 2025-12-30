@@ -84,7 +84,7 @@ export const griffintownData = {
     },
     {
       title: 'Les erreurs à éviter avant des travaux intérieurs',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Conseils pour bien planifier vos travaux intérieurs',

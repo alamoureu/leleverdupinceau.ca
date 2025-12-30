@@ -64,26 +64,19 @@ export default function PeintureCommercialePage() {
 
   const whyUsContent = isFr
     ? [
-      "Planification des travaux en dehors des heures d'ouverture si nécessaire",
-      'Protection complète des sols, meubles et équipements',
-      'Respect strict des délais et du calendrier convenu',
-      'Utilisation de produits adaptés aux environnements commerciaux (faible odeur, séchage rapide, résistance accrue)',
-      'Communication claire du début à la fin du projet',
-    ]
+        "Planification des travaux en dehors des heures d'ouverture si nécessaire",
+        'Protection complète des sols, meubles et équipements',
+        'Respect strict des délais et du calendrier convenu',
+        'Utilisation de produits adaptés aux environnements commerciaux (faible odeur, séchage rapide, résistance accrue)',
+        'Communication claire du début à la fin du projet',
+      ]
     : [
-      'Planning work outside opening hours if necessary',
-      'Complete protection of floors, furniture and equipment',
-      'Strict respect of deadlines and agreed schedule',
-      'Use of products adapted to commercial environments (low odor, fast drying, increased resistance)',
-      'Clear communication from start to finish of the project',
-    ];
-
-  const cities = [
-    { name: isFr ? 'Montréal' : 'Montreal', slug: 'montreal' },
-    { name: 'Laval', slug: 'laval' },
-    { name: 'Longueuil', slug: 'longueuil' },
-    { name: 'Brossard', slug: 'brossard' },
-  ];
+        'Planning work outside opening hours if necessary',
+        'Complete protection of floors, furniture and equipment',
+        'Strict respect of deadlines and agreed schedule',
+        'Use of products adapted to commercial environments (low odor, fast drying, increased resistance)',
+        'Clear communication from start to finish of the project',
+      ];
 
   return (
     <Fragment>
@@ -187,37 +180,9 @@ export default function PeintureCommercialePage() {
               >
                 {isFr
                   ? "👉 Nos peintres professionnels planifient les travaux pour minimiser l'impact sur vos opérations, tout en livrant une finition propre, durable et adaptée à votre environnement. Pour rafraîchir vos locaux, moderniser votre espace client ou rénover un immeuble complet, notre équipe de peinture commerciale est prête à intervenir."
-                  : "👉 Our professional painters plan the work to minimize the impact on your operations, while delivering a clean, durable finish adapted to your environment. To refresh your premises, modernize your customer space or renovate a complete building, our commercial painting team is ready to intervene."}
+                  : '👉 Our professional painters plan the work to minimize the impact on your operations, while delivering a clean, durable finish adapted to your environment. To refresh your premises, modernize your customer space or renovate a complete building, our commercial painting team is ready to intervene.'}
               </Text>
             </Stack>
-
-            {/* Images Section */}
-            <Box mb={{ base: 12, md: 16 }}>
-              <SimpleGrid
-                columns={{ base: 1, md: 2, lg: 3 }}
-                spacing={4}
-                maxW='1200px'
-              >
-                {[
-                  { src: img5969, alt: 'Projet commercial 1' },
-                  { src: img5970, alt: 'Projet commercial 2' },
-                  { src: img5971, alt: 'Projet commercial 3' },
-                  { src: img5972, alt: 'Projet commercial 4' },
-                  { src: img5973, alt: 'Projet commercial 5' },
-                  { src: img5974, alt: 'Projet commercial 6' },
-                ].map((img, index) => (
-                  <Image
-                    key={index}
-                    src={img.src}
-                    alt={img.alt}
-                    borderRadius='lg'
-                    w='100%'
-                    h={{ base: '200px', md: '250px' }}
-                    objectFit='cover'
-                  />
-                ))}
-              </SimpleGrid>
-            </Box>
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <Box
@@ -454,7 +419,143 @@ export default function PeintureCommercialePage() {
               ]}
             />
 
-            {/* Section 4 — À propos de nos peintres professionnels */}
+            {/* Section 4 — Exemples de projets commerciaux */}
+            <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={6}>
+                  <Stack spacing={3} textAlign='left'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Réalisations en peinture commerciale'
+                        : 'Commercial painting achievements'}
+                    </Heading>
+                  </Stack>
+
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2, lg: 3 }}
+                    spacing={4}
+                    maxW='1200px'
+                  >
+                    {[
+                      {
+                        src: img5969,
+                        alt: isFr
+                          ? 'Peinture commerciale Montréal 1'
+                          : 'Commercial painting Montreal 1',
+                      },
+                      {
+                        src: img5970,
+                        alt: isFr
+                          ? 'Peinture commerciale Montréal 2'
+                          : 'Commercial painting Montreal 2',
+                      },
+                      {
+                        src: img5971,
+                        alt: isFr
+                          ? 'Peinture commerciale Montréal 3'
+                          : 'Commercial painting Montreal 3',
+                      },
+                      {
+                        src: img5972,
+                        alt: isFr
+                          ? 'Peinture commerciale Montréal 4'
+                          : 'Commercial painting Montreal 4',
+                      },
+                      {
+                        src: img5973,
+                        alt: isFr
+                          ? 'Peinture commerciale Montréal 5'
+                          : 'Commercial painting Montreal 5',
+                      },
+                      {
+                        src: img5974,
+                        alt: isFr
+                          ? 'Peinture commerciale Montréal 6'
+                          : 'Commercial painting Montreal 6',
+                      },
+                    ].map((img, index) => (
+                      <Image
+                        key={index}
+                        src={img.src}
+                        alt={img.alt}
+                        borderRadius='lg'
+                        w='100%'
+                        h={{ base: '200px', md: '250px' }}
+                        objectFit='cover'
+                      />
+                    ))}
+                  </SimpleGrid>
+
+                  <Stack spacing={2} mt={4}>
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='gray.700'
+                      fontWeight='medium'
+                    >
+                      {isFr
+                        ? 'Exemples de projets réalisés :'
+                        : 'Examples of completed projects:'}
+                    </Text>
+                    <Stack spacing={1} pl={4}>
+                      {isFr ? (
+                        <>
+                          <Text fontSize='md' color='gray.600'>
+                            • Rafraîchissement complet de bureaux
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Mise à jour de commerces de détail
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Peinture de restaurants et cafés
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Rénovation de corridors et espaces communs
+                            d'immeubles
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Rafraîchissement d'entrées commerciales et façades
+                          </Text>
+                        </>
+                      ) : (
+                        <>
+                          <Text fontSize='md' color='gray.600'>
+                            • Complete office refresh
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Retail store update
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Restaurant and café painting
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Corridor and building common area renovation
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Commercial entrance and facade refresh
+                          </Text>
+                        </>
+                      )}
+                    </Stack>
+                  </Stack>
+                </Stack>
+              </Container>
+            </Box>
+
+            {/* Section 5 — Guides et ressources */}
+            <ResourcesSection
+              title={
+                isFr
+                  ? 'Conseils pour vos projets commerciaux'
+                  : 'Tips for your commercial projects'
+              }
+            />
+
+            {/* Section 6 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'
@@ -512,12 +613,10 @@ export default function PeintureCommercialePage() {
                 </Stack>
               </Container>
             </Box>
-
-            <ResourcesSection />
           </Stack>
         </Container>
 
-        {/* Section 5 — CTA final */}
+        {/* Section 7 — CTA final */}
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}

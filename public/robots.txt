@@ -1,10 +1,16 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
+
+# Block admin and private routes (IMPORTANT: Do not remove)
+Disallow: /admin/
+Disallow: /timesheet
+
+# Block new website pages (during development - remove when ready to launch)
 Disallow: /new-home
 Disallow: /peintre-professionnel
 Disallow: /secteurs-desservis
 Disallow: /services
 Disallow: /blog
 Disallow: /avis
-Disallow: /contact
+Disallow: /new-contact
 Disallow: /a-propos

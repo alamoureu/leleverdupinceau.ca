@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import {
   Box,
   Container,
@@ -9,6 +9,7 @@ import {
   Icon,
   SimpleGrid,
   Image,
+  Skeleton,
 } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -21,6 +22,8 @@ export default function CityProjectsSection({
 }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+  const [imageLoading, setImageLoading] = useState({});
+  const [imageErrors, setImageErrors] = useState({});
 
   return (
     <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
@@ -37,21 +40,21 @@ export default function CityProjectsSection({
                 ? cityName === 'Montréal'
                   ? 'Projets résidentiels, commerciaux et industriels à Montréal'
                   : cityName === 'Laval'
-                    ? 'Projets résidentiels, commerciaux et industriels à Laval'
-                    : cityName === 'Longueuil'
-                      ? 'Exemples de projets résidentiels, commerciaux et industriels'
-                      : cityName === 'Brossard'
-                        ? 'Exemples de projets réalisés dans la ville de Brossard'
-                        : `Exemples de projets réalisés dans la ville de ${cityName}`
+                  ? 'Projets résidentiels, commerciaux et industriels à Laval'
+                  : cityName === 'Longueuil'
+                  ? 'Exemples de projets résidentiels, commerciaux et industriels'
+                  : cityName === 'Brossard'
+                  ? 'Exemples de projets réalisés dans la ville de Brossard'
+                  : `Exemples de projets réalisés dans la ville de ${cityName}`
                 : cityName === 'Montreal'
-                  ? 'Residential, commercial and industrial projects in Montreal'
-                  : cityName === 'Laval'
-                    ? 'Residential, commercial and industrial projects in Laval'
-                    : cityName === 'Longueuil'
-                      ? 'Examples of residential, commercial and industrial projects'
-                      : cityName === 'Brossard'
-                        ? 'Examples of projects completed in the city of Brossard'
-                        : `Examples of projects completed in the city of ${cityName}`}
+                ? 'Residential, commercial and industrial projects in Montreal'
+                : cityName === 'Laval'
+                ? 'Residential, commercial and industrial projects in Laval'
+                : cityName === 'Longueuil'
+                ? 'Examples of residential, commercial and industrial projects'
+                : cityName === 'Brossard'
+                ? 'Examples of projects completed in the city of Brossard'
+                : `Examples of projects completed in the city of ${cityName}`}
             </Heading>
           </Stack>
 
@@ -121,7 +124,11 @@ export default function CityProjectsSection({
               )}
 
               {projectImages && projectImages.length > 0 && (
-                <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6} mt={8}>
+                <SimpleGrid
+                  columns={{ base: 1, md: 2, lg: 3 }}
+                  spacing={6}
+                  mt={8}
+                >
                   {projectImages.map((img, index) => (
                     <Box
                       key={index}
@@ -130,14 +137,82 @@ export default function CityProjectsSection({
                       boxShadow='md'
                       _hover={{ transform: 'scale(1.02)' }}
                       transition='all 0.3s ease'
+                      position='relative'
+                      minH='250px'
+                      sx={{
+                        aspectRatio: '16/9',
+                        '@supports not (aspect-ratio: 16/9)': {
+                          '&::before': {
+                            content: '""',
+                            display: 'block',
+                            paddingTop: '56.25%', // 16:9 ratio
+                          },
+                        },
+                      }}
                     >
-                      <Image
-                        src={img}
-                        alt={`Project ${cityName} ${index + 1}`}
-                        w='100%'
-                        h='250px'
-                        objectFit='cover'
-                      />
+                      {imageLoading[`${cityName}-${index}`] && (
+                        <Skeleton
+                          position='absolute'
+                          top={0}
+                          left={0}
+                          w='100%'
+                          h='100%'
+                          zIndex={1}
+                        />
+                      )}
+                      {imageErrors[`${cityName}-${index}`] ? (
+                        <Box
+                          w='100%'
+                          h='100%'
+                          display='flex'
+                          alignItems='center'
+                          justifyContent='center'
+                          bg='gray.100'
+                          minH='250px'
+                        >
+                          <Text
+                            color='gray.400'
+                            fontSize='sm'
+                            fontWeight='medium'
+                          >
+                            {isFr
+                              ? 'Image non disponible'
+                              : 'Image unavailable'}
+                          </Text>
+                        </Box>
+                      ) : (
+                        <Image
+                          src={img}
+                          alt={`Project ${cityName} ${index + 1}`}
+                          w='100%'
+                          h='100%'
+                          loading='lazy'
+                          onLoad={() => {
+                            setImageLoading((prev) => ({
+                              ...prev,
+                              [`${cityName}-${index}`]: false,
+                            }));
+                          }}
+                          onError={() => {
+                            setImageLoading((prev) => ({
+                              ...prev,
+                              [`${cityName}-${index}`]: false,
+                            }));
+                            setImageErrors((prev) => ({
+                              ...prev,
+                              [`${cityName}-${index}`]: true,
+                            }));
+                          }}
+                          sx={{
+                            objectFit: 'cover',
+                            objectPosition: 'center',
+                            display: 'block',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                          }}
+                        />
+                      )}
                     </Box>
                   ))}
                 </SimpleGrid>

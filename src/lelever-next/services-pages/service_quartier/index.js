@@ -1,20 +1,8 @@
-// Main data file for Service × City × Neighborhood pages
-// This file combines all service-specific neighborhood data files
-// Follow the same pattern as service_quartier/index.js
-
 import { peintureInterieureSecteursData } from './peintureInterieureSecteursData';
-// import { peintureExterieureSecteursData } from './peintureExterieureSecteursData';
-// import { peintureCommercialeSecteursData } from './peintureCommercialeSecteursData';
-// import { peintureResidentielleSecteursData } from './peintureResidentielleSecteursData';
-// import { peintureIndustrielleSecteursData } from './peintureIndustrielleSecteursData';
 
 // Merge all service data into one object
 export const allServiceQuartierSecteurData = {
   ...peintureInterieureSecteursData,
-  // ...peintureExterieureSecteursData,
-  // ...peintureCommercialeSecteursData,
-  // ...peintureResidentielleSecteursData,
-  // ...peintureIndustrielleSecteursData,
 };
 
 // Helper function to get page data

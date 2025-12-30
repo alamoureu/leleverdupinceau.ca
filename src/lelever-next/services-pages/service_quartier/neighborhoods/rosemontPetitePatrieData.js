@@ -84,7 +84,7 @@ export const rosemontPetitePatrieData = {
     },
     {
       title: 'Les erreurs à éviter avant de peindre',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Préparez vos travaux comme un pro',

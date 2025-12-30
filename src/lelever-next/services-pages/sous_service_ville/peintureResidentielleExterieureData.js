@@ -55,8 +55,8 @@ export const peintureResidentielleExterieureData = {
               en: 'We work on: wood, vinyl, aluminum, stucco claddings, complete facades, soffits, cornices, balconies, exterior stairs, fences, terraces and garages.',
             },
             complementaryServicesTitle: {
-              fr: 'Un projet résidentiel complet à Brossard',
-              en: 'A complete residential project in Brossard',
+              fr: 'Services complémentaires à Brossard',
+              en: 'Complementary services in Brossard',
             },
             complementaryServices: [
               {
@@ -82,8 +82,8 @@ export const peintureResidentielleExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Types de surfaces sur lesquelles nous intervenons à Brossard',
-              en: 'Types of surfaces we work on in Brossard',
+              fr: 'Surfaces résidentielles extérieures que nous peignons',
+              en: 'Residential exterior surfaces we paint',
             },
             surfaces: {
               fr: [
@@ -108,8 +108,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Comment se déroule un projet de peinture résidentielle extérieure à Brossard ?',
-              en: 'How does a residential exterior painting project work in Brossard?',
+              fr: 'Notre processus de travail',
+              en: 'Our work process',
             },
             processSteps: {
               fr: [
@@ -132,8 +132,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Bien préparer votre projet de peinture extérieure à Brossard',
-              en: 'Properly prepare your exterior painting project in Brossard',
+              fr: 'Guides utiles pour vos projets extérieurs',
+              en: 'Useful guides for your exterior projects',
             },
             guides: [
               {
@@ -155,7 +155,7 @@ export const peintureResidentielleExterieureData = {
                   fr: '7 erreurs à éviter avant de repeindre votre extérieur',
                   en: '7 mistakes to avoid before repainting your exterior',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -225,8 +225,8 @@ export const peintureResidentielleExterieureData = {
               en: 'We work on: exterior claddings (wood, vinyl, aluminum), facades, soffits, cornices, balconies, fences, terraces, exterior doors and frames.',
             },
             complementaryServicesTitle: {
-              fr: "Explorer d'autres services de peinture résidentielle à Laval",
-              en: 'Explore other residential painting services in Laval',
+              fr: 'Services complémentaires à Laval',
+              en: 'Complementary services in Laval',
             },
             complementaryServices: [
               {
@@ -252,8 +252,8 @@ export const peintureResidentielleExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Sur quelles surfaces résidentielles extérieures intervenons-nous ?',
-              en: 'What residential exterior surfaces do we work on?',
+              fr: 'Types de surfaces et travaux extérieurs',
+              en: 'Types of surfaces and exterior work',
             },
             surfaces: {
               fr: [
@@ -278,8 +278,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Notre processus de peinture résidentielle extérieure à Laval',
-              en: 'Our residential exterior painting process in Laval',
+              fr: 'Processus de travail',
+              en: 'Work process',
             },
             processSteps: {
               fr: [
@@ -302,8 +302,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Préparer votre projet de peinture extérieure à Laval',
-              en: 'Prepare your exterior painting project in Laval',
+              fr: 'Guides utiles pour vos projets extérieurs',
+              en: 'Useful guides for your exterior projects',
             },
             guides: [
               {
@@ -325,7 +325,7 @@ export const peintureResidentielleExterieureData = {
                   fr: 'Erreurs à éviter avant de repeindre votre extérieur',
                   en: 'Mistakes to avoid before repainting your exterior',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
@@ -397,8 +397,8 @@ export const peintureResidentielleExterieureData = {
               en: 'We work on: exterior claddings (vinyl, wood, aluminum, stucco), facades, soffits, woodwork, balconies, terraces, stairs, fences and secondary structures.',
             },
             complementaryServicesTitle: {
-              fr: 'Pour un projet résidentiel extérieur complet à Longueuil',
-              en: 'For a complete residential exterior project in Longueuil',
+              fr: 'Services complémentaires à Longueuil',
+              en: 'Complementary services in Longueuil',
             },
             complementaryServices: [
               {
@@ -424,8 +424,8 @@ export const peintureResidentielleExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Types de surfaces sur lesquelles nous intervenons',
-              en: 'Types of surfaces we work on',
+              fr: 'Surfaces résidentielles extérieures que nous peignons',
+              en: 'Residential exterior surfaces we paint',
             },
             surfaces: {
               fr: [
@@ -450,8 +450,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Comment se déroule un projet de peinture résidentielle extérieure à Longueuil ?',
-              en: 'How does a residential exterior painting project work in Longueuil?',
+              fr: 'Notre processus extérieur résidentiel',
+              en: 'Our residential exterior process',
             },
             processSteps: {
               fr: [
@@ -474,8 +474,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Ressources utiles pour bien planifier votre projet extérieur',
-              en: 'Useful resources to properly plan your exterior project',
+              fr: 'Guides utiles',
+              en: 'Useful guides',
             },
             guides: [
               {
@@ -497,12 +497,12 @@ export const peintureResidentielleExterieureData = {
                   fr: 'Les erreurs à éviter avant des travaux extérieurs',
                   en: 'Mistakes to avoid before exterior work',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
-              fr: 'Des peintres résidentiels spécialisés en extérieur',
-              en: 'Residential painters specialized in exterior',
+              fr: 'Notre équipe',
+              en: 'Our team',
             },
             aboutDescription: {
               fr: 'Nos peintres : utilisent des produits hautement résistants, connaissent parfaitement les matériaux des maisons de Longueuil, travaillent sécuritairement, même en hauteur, livrent une finition durable et élégante',
@@ -569,8 +569,8 @@ export const peintureResidentielleExterieureData = {
               en: 'We work on: single-family houses, duplexes, triplexes, typical Montreal plexes, small residential buildings, row condos.',
             },
             complementaryServicesTitle: {
-              fr: 'Compléter votre projet de peinture résidentielle à Montréal',
-              en: 'Complete your residential painting project in Montreal',
+              fr: 'Services complémentaires à Montréal',
+              en: 'Complementary services in Montreal',
             },
             complementaryServices: [
               {
@@ -596,8 +596,8 @@ export const peintureResidentielleExterieureData = {
               },
             ],
             surfacesTitle: {
-              fr: 'Sur quelles surfaces résidentielles extérieures intervenons-nous ?',
-              en: 'What residential exterior surfaces do we work on?',
+              fr: 'Types de surfaces et éléments extérieurs',
+              en: 'Types of surfaces and exterior elements',
             },
             surfaces: {
               fr: [
@@ -622,8 +622,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             processTitle: {
-              fr: 'Comment se déroule un projet extérieur résidentiel ?',
-              en: 'How does a residential exterior project work?',
+              fr: 'Notre processus de peinture résidentielle extérieure à Montréal',
+              en: 'Our residential exterior painting process in Montreal',
             },
             processSteps: {
               fr: [
@@ -646,8 +646,8 @@ export const peintureResidentielleExterieureData = {
               ],
             },
             guidesTitle: {
-              fr: 'Bien préparer vos travaux de peinture extérieure à Montréal',
-              en: 'Properly prepare your exterior painting work in Montreal',
+              fr: 'Guides utiles pour vos projets extérieurs',
+              en: 'Useful guides for your exterior projects',
             },
             guides: [
               {
@@ -669,12 +669,12 @@ export const peintureResidentielleExterieureData = {
                   fr: 'Erreurs à éviter avant des travaux de peinture extérieure',
                   en: 'Mistakes to avoid before exterior painting work',
                 },
-                href: '/blog/erreurs-a-eviter-peinture',
+                href: '/blog/erreurs-a-eviter-peinture-interieure',
               },
             ],
             aboutTitle: {
-              fr: 'Des peintres résidentiels habitués aux bâtiments montréalais',
-              en: 'Residential painters used to Montreal buildings',
+              fr: 'À propos de nos peintres résidentiels',
+              en: 'About our residential painters',
             },
             aboutDescription: {
               fr: 'Nos peintres : connaissent parfaitement les plex, maisons et façades montréalaises, utilisent des produits adaptés au climat local, savent travailler en hauteur de façon sécuritaire, protègent soigneusement votre terrain et vos accès',

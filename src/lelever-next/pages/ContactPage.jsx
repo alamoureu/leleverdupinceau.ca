@@ -122,7 +122,7 @@ export default function ContactPage() {
         '@type': 'ListItem',
         position: 2,
         name: 'Contact',
-        item: 'https://leleverdupinceau.ca/contact',
+        item: 'https://leleverdupinceau.ca/new-contact',
       },
     ],
   };
@@ -131,7 +131,7 @@ export default function ContactPage() {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: 'Contact',
-    url: 'https://leleverdupinceau.ca/contact',
+    url: 'https://leleverdupinceau.ca/new-contact',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'Le Lever du Pinceau',
@@ -164,7 +164,7 @@ export default function ContactPage() {
               : 'Contact our team of professional painters in Montreal Get a free quote for your residential or commercial painting project Fast response guaranteed'
           }
         />
-        <link rel='canonical' href='https://leleverdupinceau.ca/contact' />
+        <link rel='canonical' href='https://leleverdupinceau.ca/new-contact' />
         <meta name='robots' content='noindex, nofollow' />
         <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>

@@ -11,10 +11,7 @@ import {
   Link,
   SimpleGrid,
   Image,
-  Icon,
 } from '@chakra-ui/react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../../AppProvider';
 import ServiceWhyUsSection from '../components/ServiceWhyUsSection';
 import ServiceSubServicesSection from '../components/ServiceSubServicesSection';
@@ -33,9 +30,9 @@ export default function ServiceQuartierPage() {
   // Get data for this service-city combination
   const pageData = getServiceQuartierData(serviceSlug, citySlug);
 
-  // If data doesn't exist, redirect to services page
+  // If data doesn't exist, redirect to 404 page
   if (!pageData) {
-    return <Navigate to='/services' replace />;
+    return <Navigate to='/404' replace />;
   }
 
   const { service, city } = pageData;
@@ -97,7 +94,7 @@ export default function ServiceQuartierPage() {
           title: isFr
             ? 'Erreurs à éviter avant des travaux dans un commerce'
             : 'Mistakes to avoid before work in a business',
-          href: '/blog/erreurs-a-eviter-peinture',
+          href: '/blog/erreurs-a-eviter-peinture-interieure',
         },
       ];
 

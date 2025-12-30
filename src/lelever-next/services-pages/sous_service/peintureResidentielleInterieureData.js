@@ -69,13 +69,17 @@ export const peintureResidentielleInterieureData = {
     fr: 'Services complémentaires utiles',
     en: 'Useful complementary services',
   },
+  complementaryServicesIntro: {
+    fr: 'Pour un projet de peinture résidentielle complet, vous pouvez aussi consulter :',
+    en: 'For a complete residential painting project, you can also consult:',
+  },
   complementaryServices: [
     {
       title: {
         fr: 'Peinture résidentielle',
         en: 'Residential painting',
       },
-      href: '/services/new-peinture-residentielle',
+      href: '/services/peinture-residentielle',
     },
     {
       title: {
@@ -93,8 +97,12 @@ export const peintureResidentielleInterieureData = {
     },
   ],
   citiesTitle: {
-    fr: 'Secteurs desservis',
-    en: 'Service areas',
+    fr: 'Disponible dans toutes les villes du Grand Montréal',
+    en: 'Available in all cities of Greater Montreal',
+  },
+  citiesSubtitle: {
+    fr: 'Nous intervenons dans tout le Grand Montréal',
+    en: 'We serve all of Greater Montreal',
   },
   cities: [
     {
@@ -176,17 +184,17 @@ export const peintureResidentielleInterieureData = {
     },
     {
       title: {
-        fr: "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir",
-        en: 'Painting prices Montreal / South Shore – what you need to know',
+        fr: 'Prix peinture Montréal — intérieur',
+        en: 'Painting prices Montreal — interior',
       },
       href: '/blog/prix-peinture-montreal',
     },
     {
       title: {
-        fr: 'Erreurs à éviter avant des travaux de peinture intérieure',
-        en: 'Mistakes to avoid before interior painting work',
+        fr: 'Erreurs à éviter avant de repeindre votre intérieur',
+        en: 'Mistakes to avoid before repainting your interior',
       },
-      href: '/blog/erreurs-a-eviter-peinture-interieure', // Fixed link
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   aboutTitle: {
@@ -213,27 +221,45 @@ export const peintureResidentielleInterieureData = {
   images: [
     {
       src: img5969,
-      alt: 'peinture résidentielle intérieure 1',
+      alt: {
+        fr: 'Peinture résidentielle intérieure Montréal',
+        en: 'Residential interior painting Montreal',
+      },
     },
     {
       src: img5970,
-      alt: 'peinture résidentielle intérieure 2',
+      alt: {
+        fr: 'Peinture résidentielle intérieure Montréal',
+        en: 'Residential interior painting Montreal',
+      },
     },
     {
       src: img5971,
-      alt: 'peinture résidentielle intérieure 3',
+      alt: {
+        fr: 'Peinture résidentielle intérieure Montréal',
+        en: 'Residential interior painting Montreal',
+      },
     },
     {
       src: img5972,
-      alt: 'peinture résidentielle intérieure 4',
+      alt: {
+        fr: 'Peinture résidentielle intérieure Montréal',
+        en: 'Residential interior painting Montreal',
+      },
     },
     {
       src: img5973,
-      alt: 'peinture résidentielle intérieure 5',
+      alt: {
+        fr: 'Peinture résidentielle intérieure Montréal',
+        en: 'Residential interior painting Montreal',
+      },
     },
     {
       src: img5974,
-      alt: 'peinture résidentielle intérieure 6',
+      alt: {
+        fr: 'Peinture résidentielle intérieure Montréal',
+        en: 'Residential interior painting Montreal',
+      },
     },
   ],
 };

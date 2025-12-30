@@ -1,4 +1,3 @@
-import ExtProject from '../../images/projet_exterieur.jpg';
 import img5969 from '../../images/before_after/IMG_5969.jpg';
 import img5970 from '../../images/before_after/IMG_5970.jpg';
 import img5971 from '../../images/before_after/IMG_5971.jpg';
@@ -24,14 +23,14 @@ export const peintureExterieureData = {
         },
         introduction: {
           fr: [
-            "Brossard est une ville dynamique avec de nombreuses constructions modernes, maisons familiales, plex, condos récents et propriétés situées dans les secteurs R, S, T, C, A, V et P, ainsi que dans le secteur très actif du Quartier DIX30.",
-            "Le Lever du Pinceau offre un service complet de peinture extérieure à Brossard, adapté aux matériaux modernes et aux exigences climatiques de la Rive-Sud : UV, humidité, pluie, gel-dégel et chaleur estivale.",
-            "Nous intervenons sur les façades, revêtements, boiseries, terrasses, escaliers et autres surfaces extérieures, toujours avec une finition durable et professionnelle."
+            'Brossard est une ville dynamique avec de nombreuses constructions modernes, maisons familiales, plex, condos récents et propriétés situées dans les secteurs R, S, T, C, A, V et P, ainsi que dans le secteur très actif du Quartier DIX30.',
+            'Le Lever du Pinceau offre un service complet de peinture extérieure à Brossard, adapté aux matériaux modernes et aux exigences climatiques de la Rive-Sud : UV, humidité, pluie, gel-dégel et chaleur estivale.',
+            'Nous intervenons sur les façades, revêtements, boiseries, terrasses, escaliers et autres surfaces extérieures, toujours avec une finition durable et professionnelle.',
           ],
           en: [
-            "Brossard is a dynamic city with many modern constructions, family homes, plexes, recent condos and properties located in sectors R, S, T, C, A, V and P, as well as in the very active DIX30 Quarter sector.",
-            "Le Lever du Pinceau offers a complete exterior painting service in Brossard, adapted to modern materials and the climatic requirements of the South Shore: UV, humidity, rain, freeze-thaw and summer heat.",
-            "We work on facades, claddings, woodwork, terraces, stairs and other exterior surfaces, always with a durable and professional finish."
+            'Brossard is a dynamic city with many modern constructions, family homes, plexes, recent condos and properties located in sectors R, S, T, C, A, V and P, as well as in the very active DIX30 Quarter sector.',
+            'Le Lever du Pinceau offers a complete exterior painting service in Brossard, adapted to modern materials and the climatic requirements of the South Shore: UV, humidity, rain, freeze-thaw and summer heat.',
+            'We work on facades, claddings, woodwork, terraces, stairs and other exterior surfaces, always with a durable and professional finish.',
           ],
         },
         introFingerText: {
@@ -44,19 +43,25 @@ export const peintureExterieureData = {
         },
         whyUsContent: {
           fr: [
-            'les matériaux modernes typiques de Brossard',
-            'les problématiques d’usure liées au climat québécois',
-            'les exigences particulières des maisons neuves et récentes',
+            'Préparation complète : nettoyage, décapage, brossage',
+            'Réparations mineures avant peinture',
+            'Produits résistants au climat québécois (UV, gel, pluie, humidité)',
+            'Application nette et uniforme, compatible avec les maisons modernes',
+            'Protection complète de vos surfaces adjacentes (fenêtres, portes, jardins)',
+            'Travail en hauteur sécurisé, conforme aux normes',
           ],
           en: [
-            'typical modern materials of Brossard',
-            'wear problems related to Quebec climate',
-            'particular requirements of new and recent houses',
+            'Complete preparation: cleaning, stripping, brushing',
+            'Minor repairs before painting',
+            'Products resistant to Quebec climate (UV, frost, rain, humidity)',
+            'Clean and uniform application, compatible with modern houses',
+            'Complete protection of your adjacent surfaces (windows, doors, gardens)',
+            'Safe work at height, compliant with standards',
           ],
         },
         whyUsIntro: {
-          fr: 'Nos peintres extérieurs connaissent parfaitement :',
-          en: 'Our exterior painters know perfectly:',
+          fr: 'Notre service comprend :',
+          en: 'Our service includes:',
         },
         whyUsOutro: {
           fr: 'Nous travaillons sur : revêtements modernes (bois, vinyle, aluminium), soffites, façades, terrasses, clôtures, garages, escaliers extérieurs, balcons.',
@@ -85,14 +90,91 @@ export const peintureExterieureData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: '7 erreurs à éviter avant de repeindre votre extérieur',
+              en: '7 mistakes to avoid before repainting your exterior',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets de peinture extérieure réalisés à Brossard',
+          en: 'Exterior painting projects completed in Brossard',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'brossard-ext-1',
+              title: "Peinture extérieure d'une maison moderne secteur R",
+              description:
+                "Rafraîchissement complet d'une propriété moderne avec produits résistants aux intempéries et finition impeccable.",
+            },
+            {
+              id: 'brossard-ext-2',
+              title: "Protection d'un revêtement en bois dans le secteur S",
+              description:
+                "Traitement spécialisé et peinture d'un revêtement en bois pour une protection durable contre les éléments.",
+            },
+            {
+              id: 'brossard-ext-3',
+              title: "Modernisation d'une façade en vinyle près du DIX30",
+              description:
+                "Mise à jour esthétique d'une façade commerciale avec finition professionnelle et résistante.",
+            },
+            {
+              id: 'brossard-ext-4',
+              title: "Repeinture d'un balcon + escalier dans le secteur T",
+              description:
+                'Rénovation complète des éléments extérieurs avec protection renforcée contre les intempéries.',
+            },
+            {
+              id: 'brossard-ext-5',
+              title: "Rafraîchissement complet d'un condo secteur C",
+              description:
+                'Projet de grande envergure avec coordination efficace et respect des normes de copropriété.',
+            },
+          ],
+          en: [
+            {
+              id: 'brossard-ext-1',
+              title: 'Exterior painting of a modern house in sector R',
+              description:
+                'Complete refresh of a modern property with weather-resistant products and impeccable finish.',
+            },
+            {
+              id: 'brossard-ext-2',
+              title: 'Protection of a wood cladding in sector S',
+              description:
+                'Specialized treatment and painting of a wood cladding for durable protection against the elements.',
+            },
+            {
+              id: 'brossard-ext-3',
+              title: 'Modernization of a vinyl facade near DIX30',
+              description:
+                'Aesthetic update of a commercial facade with professional and resistant finish.',
+            },
+            {
+              id: 'brossard-ext-4',
+              title: 'Repainting of a balcony + stairs in sector T',
+              description:
+                'Complete renovation of exterior elements with enhanced protection against weather.',
+            },
+            {
+              id: 'brossard-ext-5',
+              title: 'Complete refresh of a condo in sector C',
+              description:
+                'Large-scale project with efficient coordination and respect for co-ownership standards.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe spécialisée en peinture extérieure à Brossard',
           en: 'A team specialized in exterior painting in Brossard',
         },
         aboutDescription: {
-          fr: "Nos peintres extérieurs s'assurent d'un travail de qualité.",
-          en: 'Our exterior painters ensure quality work.',
+          fr: "Nos peintres extérieurs connaissent parfaitement : les matériaux modernes typiques de Brossard, les problématiques d'usure liées au climat québécois, les exigences particulières des maisons neuves et récentes",
+          en: 'Our exterior painters know perfectly: typical modern materials of Brossard, wear problems related to Quebec climate, particular requirements of new and recent houses',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet extérieur à Brossard',
@@ -104,12 +186,12 @@ export const peintureExterieureData = {
         },
         sectors: [],
         images: [
-          { src: img5969, alt: 'peinture extérieure Brossard 1' },
-          { src: img5970, alt: 'peinture extérieure Brossard 2' },
-          { src: img5971, alt: 'peinture extérieure Brossard 3' },
-          { src: img5972, alt: 'peinture extérieure Brossard 4' },
-          { src: img5973, alt: 'peinture extérieure Brossard 5' },
-          { src: img5974, alt: 'peinture extérieure Brossard 6' },
+          { src: img5969, alt: 'Peinture extérieure Brossard' },
+          { src: img5970, alt: 'Peinture extérieure Brossard' },
+          { src: img5971, alt: 'Peinture extérieure Brossard' },
+          { src: img5972, alt: 'Peinture extérieure Brossard' },
+          { src: img5973, alt: 'Peinture extérieure Brossard' },
+          { src: img5974, alt: 'Peinture extérieure Brossard' },
         ],
         subServices: {
           residential: {
@@ -147,14 +229,14 @@ export const peintureExterieureData = {
         },
         introduction: {
           fr: [
-            "À Laval, les façades sont exposées à des conditions climatiques intenses : gel-dégel, humidité, chaleur, UV, pluie et neige.",
-            "Le Lever du Pinceau offre un service de peinture extérieure conçu pour les maisons, plex, condos, revêtements extérieurs, boiseries et structures propres à Laval.",
-            "Nous intervenons dans tous les quartiers : Chomedey, Sainte-Rose, Laval-des-Rapides, Fabreville, Vimont, Sainte-Dorothée et plus."
+            'À Laval, les façades sont exposées à des conditions climatiques intenses : gel-dégel, humidité, chaleur, UV, pluie et neige.',
+            'Le Lever du Pinceau offre un service de peinture extérieure conçu pour les maisons, plex, condos, revêtements extérieurs, boiseries et structures propres à Laval.',
+            'Nous intervenons dans tous les quartiers : Chomedey, Sainte-Rose, Laval-des-Rapides, Fabreville, Vimont, Sainte-Dorothée et plus.',
           ],
           en: [
-            "In Laval, facades are exposed to intense climatic conditions: freeze-thaw, humidity, heat, UV, rain and snow.",
-            "Le Lever du Pinceau offers an exterior painting service designed for houses, plexes, condos, exterior claddings, woodwork and structures specific to Laval.",
-            "We work in all neighborhoods: Chomedey, Sainte-Rose, Laval-des-Rapides, Fabreville, Vimont, Sainte-Dorothée and more."
+            'In Laval, facades are exposed to intense climatic conditions: freeze-thaw, humidity, heat, UV, rain and snow.',
+            'Le Lever du Pinceau offers an exterior painting service designed for houses, plexes, condos, exterior claddings, woodwork and structures specific to Laval.',
+            'We work in all neighborhoods: Chomedey, Sainte-Rose, Laval-des-Rapides, Fabreville, Vimont, Sainte-Dorothée and more.',
           ],
         },
         introFingerText: {
@@ -167,21 +249,25 @@ export const peintureExterieureData = {
         },
         whyUsContent: {
           fr: [
-            'comprennent les revêtements typiques de Laval',
-            'utilisent des produits haute durabilité',
-            'maîtrisent les défis du climat québécois',
-            'travaillent en hauteur de manière sécuritaire',
+            'Préparation complète des surfaces (nettoyage, décapage, brossage)',
+            'Réparations mineures (fissures, joints, retouches)',
+            "Produits conçus pour résister au soleil, à l'humidité et aux cycles de gel",
+            'Application uniforme pour un rendu esthétique et durable',
+            'Protection complète des surfaces avoisinantes (fenêtres, portes, végétation)',
+            'Travail sécuritaire, incluant le travail en hauteur',
           ],
           en: [
-            'understand typical Laval claddings',
-            'use high durability products',
-            'master Quebec climate challenges',
-            'work at height safely',
+            'Complete surface preparation (cleaning, stripping, brushing)',
+            'Minor repairs (cracks, joints, touch-ups)',
+            'Products designed to resist sun, humidity and freeze cycles',
+            'Uniform application for aesthetic and durable result',
+            'Complete protection of adjacent surfaces (windows, doors, vegetation)',
+            'Safe work, including work at height',
           ],
         },
         whyUsIntro: {
-          fr: 'Nos peintres extérieurs :',
-          en: 'Our exterior painters:',
+          fr: 'Notre service comprend :',
+          en: 'Our service includes:',
         },
         whyUsOutro: {
           fr: 'Nous intervenons sur : revêtements en bois, brique, crépi, aluminium, vinyle, soffites, galeries, escaliers, clôtures, garages et structures extérieures.',
@@ -210,14 +296,91 @@ export const peintureExterieureData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: '7 erreurs à éviter avant de repeindre votre extérieur',
+              en: '7 mistakes to avoid before repainting your exterior',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents de peinture extérieure à Laval',
+          en: 'Recent exterior painting projects in Laval',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'laval-ext-1',
+              title: "Peinture extérieure d'un bungalow à Sainte-Rose",
+              description:
+                "Rafraîchissement complet d'une propriété résidentielle avec produits résistants aux intempéries.",
+            },
+            {
+              id: 'laval-ext-2',
+              title: "Protection d'une façade en bois à Fabreville",
+              description:
+                "Traitement spécialisé et peinture d'une façade en bois pour une protection durable contre les éléments.",
+            },
+            {
+              id: 'laval-ext-3',
+              title: "Repeinture complète d'un duplex à Chomedey",
+              description:
+                'Projet complet de rénovation extérieure avec coordination efficace et finition professionnelle.',
+            },
+            {
+              id: 'laval-ext-4',
+              title: "Mise à jour d'un revêtement en aluminium dans Vimont",
+              description:
+                "Modernisation d'un revêtement extérieur avec produits adaptés et application uniforme.",
+            },
+            {
+              id: 'laval-ext-5',
+              title: "Rénovation extérieure d'un plex à Laval-des-Rapides",
+              description:
+                'Travaux de grande envergure avec respect des normes et protection complète des surfaces.',
+            },
+          ],
+          en: [
+            {
+              id: 'laval-ext-1',
+              title: 'Exterior painting of a bungalow in Sainte-Rose',
+              description:
+                'Complete refresh of a residential property with weather-resistant products.',
+            },
+            {
+              id: 'laval-ext-2',
+              title: 'Protection of a wood facade in Fabreville',
+              description:
+                'Specialized treatment and painting of a wood facade for durable protection against the elements.',
+            },
+            {
+              id: 'laval-ext-3',
+              title: 'Complete repainting of a duplex in Chomedey',
+              description:
+                'Complete exterior renovation project with efficient coordination and professional finish.',
+            },
+            {
+              id: 'laval-ext-4',
+              title: 'Update of an aluminum cladding in Vimont',
+              description:
+                'Modernization of an exterior cladding with adapted products and uniform application.',
+            },
+            {
+              id: 'laval-ext-5',
+              title: 'Exterior renovation of a plex in Laval-des-Rapides',
+              description:
+                'Large-scale work with respect for standards and complete protection of surfaces.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe spécialisée en peinture extérieure à Laval',
           en: 'A team specialized in exterior painting in Laval',
         },
         aboutDescription: {
-          fr: 'Nos peintres extérieurs s\'assurent d\'un travail de qualité.',
-          en: 'Our exterior painters ensure quality work.',
+          fr: 'Nos peintres extérieurs : comprennent les revêtements typiques de Laval, utilisent des produits haute durabilité, maîtrisent les défis du climat québécois, travaillent en hauteur de manière sécuritaire',
+          en: 'Our exterior painters: understand typical Laval claddings, use high durability products, master Quebec climate challenges, work at height safely',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet extérieur à Laval',
@@ -229,12 +392,12 @@ export const peintureExterieureData = {
         },
         sectors: [],
         images: [
-          { src: img5969, alt: 'peinture extérieure Laval 1' },
-          { src: img5970, alt: 'peinture extérieure Laval 2' },
-          { src: img5971, alt: 'peinture extérieure Laval 3' },
-          { src: img5972, alt: 'peinture extérieure Laval 4' },
-          { src: img5973, alt: 'peinture extérieure Laval 5' },
-          { src: img5974, alt: 'peinture extérieure Laval 6' },
+          { src: img5969, alt: 'Peinture extérieure Laval' },
+          { src: img5970, alt: 'Peinture extérieure Laval' },
+          { src: img5971, alt: 'Peinture extérieure Laval' },
+          { src: img5972, alt: 'Peinture extérieure Laval' },
+          { src: img5973, alt: 'Peinture extérieure Laval' },
+          { src: img5974, alt: 'Peinture extérieure Laval' },
         ],
         subServices: {
           residential: {
@@ -272,14 +435,14 @@ export const peintureExterieureData = {
         },
         introduction: {
           fr: [
-            "Longueuil possède une grande variété de propriétés : maisons unifamiliales, plex, condos, immeubles familiaux, bâtisses rénovées et constructions récentes.",
-            "Avec un climat rigoureux composé de gel-dégel, UV, pluie et humidité, les surfaces extérieures doivent être protégées avec des produits adaptés et une application professionnelle.",
-            "Le Lever du Pinceau offre un service complet de peinture extérieure à Longueuil, couvrant le Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité et plusieurs autres secteurs."
+            'Longueuil possède une grande variété de propriétés : maisons unifamiliales, plex, condos, immeubles familiaux, bâtisses rénovées et constructions récentes.',
+            'Avec un climat rigoureux composé de gel-dégel, UV, pluie et humidité, les surfaces extérieures doivent être protégées avec des produits adaptés et une application professionnelle.',
+            'Le Lever du Pinceau offre un service complet de peinture extérieure à Longueuil, couvrant le Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité et plusieurs autres secteurs.',
           ],
           en: [
-            "Longueuil has a great variety of properties: single-family homes, plexes, condos, family buildings, renovated houses and recent constructions.",
-            "With a rigorous climate composed of freeze-thaw, UV, rain and humidity, exterior surfaces must be protected with adapted products and professional application.",
-            "Le Lever du Pinceau offers a complete exterior painting service in Longueuil, covering Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité and several other sectors."
+            'Longueuil has a great variety of properties: single-family homes, plexes, condos, family buildings, renovated houses and recent constructions.',
+            'With a rigorous climate composed of freeze-thaw, UV, rain and humidity, exterior surfaces must be protected with adapted products and professional application.',
+            'Le Lever du Pinceau offers a complete exterior painting service in Longueuil, covering Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité and several other sectors.',
           ],
         },
         introFingerText: {
@@ -339,14 +502,93 @@ export const peintureExterieureData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Erreurs à éviter avant vos travaux extérieurs',
+              en: 'Mistakes to avoid before your exterior work',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents réalisés dans la ville de Longueuil',
+          en: 'Recent projects completed in the city of Longueuil',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'longueuil-ext-1',
+              title:
+                "Rafraîchissement complet d'un extérieur dans le Vieux-Longueuil",
+              description:
+                "Rénovation complète d'une propriété historique avec préservation du caractère architectural.",
+            },
+            {
+              id: 'longueuil-ext-2',
+              title: "Protection d'une façade en bois dans Saint-Hubert",
+              description:
+                "Traitement spécialisé et peinture d'une façade en bois pour une protection durable.",
+            },
+            {
+              id: 'longueuil-ext-3',
+              title: "Repeinture d'un plex dans Laflèche",
+              description:
+                'Projet complet de rénovation extérieure avec coordination efficace et finition professionnelle.',
+            },
+            {
+              id: 'longueuil-ext-4',
+              title:
+                "Modernisation d'un revêtement en vinyle dans Greenfield Park",
+              description:
+                "Mise à jour esthétique d'un revêtement extérieur avec produits adaptés et application uniforme.",
+            },
+            {
+              id: 'longueuil-ext-5',
+              title: "Peinture complète d'une galerie et escalier extérieur",
+              description:
+                'Rénovation complète des éléments extérieurs avec protection renforcée contre les intempéries.',
+            },
+          ],
+          en: [
+            {
+              id: 'longueuil-ext-1',
+              title: 'Complete refresh of an exterior in Vieux-Longueuil',
+              description:
+                'Complete renovation of a historic property with preservation of architectural character.',
+            },
+            {
+              id: 'longueuil-ext-2',
+              title: 'Protection of a wood facade in Saint-Hubert',
+              description:
+                'Specialized treatment and painting of a wood facade for durable protection.',
+            },
+            {
+              id: 'longueuil-ext-3',
+              title: 'Repainting of a plex in Laflèche',
+              description:
+                'Complete exterior renovation project with efficient coordination and professional finish.',
+            },
+            {
+              id: 'longueuil-ext-4',
+              title: 'Modernization of a vinyl cladding in Greenfield Park',
+              description:
+                'Aesthetic update of an exterior cladding with adapted products and uniform application.',
+            },
+            {
+              id: 'longueuil-ext-5',
+              title: 'Complete painting of a gallery and exterior stairs',
+              description:
+                'Complete renovation of exterior elements with enhanced protection against weather.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe spécialisée en peinture extérieure à Longueuil',
           en: 'A team specialized in exterior painting in Longueuil',
         },
         aboutDescription: {
-          fr: 'Nos peintres : maîtrisent les exigences du climat de la Rive-Sud, connaissent les matériaux typiques de Longueuil, travaillent proprement, rapidement et sécuritairement.',
-          en: 'Our painters: master the requirements of the South Shore climate, know the typical materials of Longueuil, work cleanly, quickly and safely.',
+          fr: 'Nos peintres : maîtrisent les exigences du climat de la Rive-Sud, connaissent les matériaux typiques de Longueuil, travaillent proprement, rapidement et sécuritairement',
+          en: 'Our painters: master the requirements of the South Shore climate, know the typical materials of Longueuil, work cleanly, quickly and safely',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet extérieur à Longueuil',
@@ -358,12 +600,12 @@ export const peintureExterieureData = {
         },
         sectors: [],
         images: [
-          { src: img5969, alt: 'peinture extérieure Longueuil 1' },
-          { src: img5970, alt: 'peinture extérieure Longueuil 2' },
-          { src: img5971, alt: 'peinture extérieure Longueuil 3' },
-          { src: img5972, alt: 'peinture extérieure Longueuil 4' },
-          { src: img5973, alt: 'peinture extérieure Longueuil 5' },
-          { src: img5974, alt: 'peinture extérieure Longueuil 6' },
+          { src: img5969, alt: 'Peinture extérieure Longueuil' },
+          { src: img5970, alt: 'Peinture extérieure Longueuil' },
+          { src: img5971, alt: 'Peinture extérieure Longueuil' },
+          { src: img5972, alt: 'Peinture extérieure Longueuil' },
+          { src: img5973, alt: 'Peinture extérieure Longueuil' },
+          { src: img5974, alt: 'Peinture extérieure Longueuil' },
         ],
         subServices: {
           residential: {
@@ -401,14 +643,14 @@ export const peintureExterieureData = {
         },
         introduction: {
           fr: [
-            "Le climat montréalais met les surfaces extérieures à rude épreuve : hiver rigoureux, gel-dégel, soleil, pluie et humidité.",
-            "Le Lever du Pinceau offre un service complet de peinture extérieure à Montréal pour protéger et embellir vos maisons, plex, condos, commerces et bâtiments. Nous intervenons sur les façades en brique, bois, aluminium, vinyle, crépi, ainsi que sur les balcons, clôtures, terrasses et éléments architecturaux.",
-            "Que vous soyez au Plateau, à Outremont, à Rosemont, à NDG ou dans un autre quartier, nos peintres extérieurs à Montréal vous offrent une finition durable et propre."
+            'Le climat montréalais met les surfaces extérieures à rude épreuve : hiver rigoureux, gel-dégel, soleil, pluie et humidité.',
+            'Le Lever du Pinceau offre un service complet de peinture extérieure à Montréal pour protéger et embellir vos maisons, plex, condos, commerces et bâtiments. Nous intervenons sur les façades en brique, bois, aluminium, vinyle, crépi, ainsi que sur les balcons, clôtures, terrasses et éléments architecturaux.',
+            'Que vous soyez au Plateau, à Outremont, à Rosemont, à NDG ou dans un autre quartier, nos peintres extérieurs à Montréal vous offrent une finition durable et propre.',
           ],
           en: [
-            "The Montreal climate puts exterior surfaces to the test: harsh winter, freeze-thaw, sun, rain and humidity.",
-            "Le Lever du Pinceau offers a complete exterior painting service in Montreal to protect and beautify your houses, plexes, condos, businesses and buildings. We work on brick, wood, aluminum, vinyl, stucco facades, as well as balconies, fences, terraces and architectural elements.",
-            "Whether you are in Plateau, Outremont, Rosemont, NDG or another neighborhood, our exterior painters in Montreal offer you a durable and clean finish."
+            'The Montreal climate puts exterior surfaces to the test: harsh winter, freeze-thaw, sun, rain and humidity.',
+            'Le Lever du Pinceau offers a complete exterior painting service in Montreal to protect and beautify your houses, plexes, condos, businesses and buildings. We work on brick, wood, aluminum, vinyl, stucco facades, as well as balconies, fences, terraces and architectural elements.',
+            'Whether you are in Plateau, Outremont, Rosemont, NDG or another neighborhood, our exterior painters in Montreal offer you a durable and clean finish.',
           ],
         },
         introFingerText: {
@@ -421,19 +663,25 @@ export const peintureExterieureData = {
         },
         whyUsContent: {
           fr: [
-            'les revêtements typiques montréalais (brique, bois, aluminium, vinyle)',
-            'les défis liés au climat (gel, chaleur, UV)',
-            'les réalités des plex, duplex, triplex et maisons de ville',
+            'Nettoyage et préparation complète des surfaces (décapage, brossage, nettoyage)',
+            'Réparations mineures (fissures, joints, petites imperfections)',
+            'Produits adaptés au climat québécois (UV, gel, humidité)',
+            'Application uniforme, sans coulisses ni traces',
+            'Protection des surfaces avoisinantes (fenêtres, végétation, revêtements)',
+            'Respect des normes de sécurité pour le travail en hauteur',
           ],
           en: [
-            'typical Montreal claddings (brick, wood, aluminum, vinyl)',
-            'challenges related to climate (frost, heat, UV)',
-            'realities of plexes, duplexes, triplexes and townhouses',
+            'Cleaning and complete surface preparation (stripping, brushing, cleaning)',
+            'Minor repairs (cracks, joints, small imperfections)',
+            'Products adapted to Quebec climate (UV, frost, humidity)',
+            'Uniform application, without runs or marks',
+            'Protection of adjacent surfaces (windows, vegetation, claddings)',
+            'Respect for safety standards for work at height',
           ],
         },
         whyUsIntro: {
-          fr: 'Nos peintres connaissent :',
-          en: 'Our painters know:',
+          fr: 'Notre service de peinture extérieure comprend :',
+          en: 'Our exterior painting service includes:',
         },
         whyUsOutro: {
           fr: 'Nous travaillons sur : façades de maisons et plex, revêtements, soffites, boiseries extérieures, balcons, escaliers, clôtures, garages, petites structures extérieures.',
@@ -462,14 +710,91 @@ export const peintureExterieureData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Erreurs à éviter avant des travaux de peinture extérieure',
+              en: 'Mistakes to avoid before exterior painting work',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents de peinture extérieure à Montréal',
+          en: 'Recent exterior painting projects in Montreal',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'montreal-ext-1',
+              title: "Rafraîchissement complet d'un duplex au Plateau",
+              description:
+                "Rénovation complète d'une propriété résidentielle avec préservation du caractère architectural montréalais.",
+            },
+            {
+              id: 'montreal-ext-2',
+              title: 'Peinture de balcon et escalier extérieur dans Villeray',
+              description:
+                'Travaux spécialisés sur les éléments extérieurs avec protection renforcée contre les intempéries.',
+            },
+            {
+              id: 'montreal-ext-3',
+              title: "Modernisation de la façade d'un plex à Rosemont",
+              description:
+                "Mise à jour esthétique d'une façade résidentielle avec produits adaptés et application uniforme.",
+            },
+            {
+              id: 'montreal-ext-4',
+              title: "Protection d'un revêtement en bois dans NDG",
+              description:
+                "Traitement spécialisé et peinture d'un revêtement en bois pour une protection durable.",
+            },
+            {
+              id: 'montreal-ext-5',
+              title: "Mise à jour d'une façade en brique à Verdun",
+              description:
+                "Rénovation complète d'une façade historique avec respect du patrimoine architectural.",
+            },
+          ],
+          en: [
+            {
+              id: 'montreal-ext-1',
+              title: 'Complete refresh of a duplex in Plateau',
+              description:
+                'Complete renovation of a residential property with preservation of Montreal architectural character.',
+            },
+            {
+              id: 'montreal-ext-2',
+              title: 'Painting of balcony and exterior stairs in Villeray',
+              description:
+                'Specialized work on exterior elements with enhanced protection against weather.',
+            },
+            {
+              id: 'montreal-ext-3',
+              title: 'Modernization of a plex facade in Rosemont',
+              description:
+                'Aesthetic update of a residential facade with adapted products and uniform application.',
+            },
+            {
+              id: 'montreal-ext-4',
+              title: 'Protection of a wood cladding in NDG',
+              description:
+                'Specialized treatment and painting of a wood cladding for durable protection.',
+            },
+            {
+              id: 'montreal-ext-5',
+              title: 'Update of a brick facade in Verdun',
+              description:
+                'Complete renovation of a historic facade with respect for architectural heritage.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Des peintres extérieurs habitués aux bâtiments montréalais',
           en: 'Exterior painters used to Montreal buildings',
         },
         aboutDescription: {
-          fr: "Nos peintres s'assurent d'un travail de qualité.",
-          en: 'Our painters ensure quality work.',
+          fr: 'Nos peintres connaissent : les revêtements typiques montréalais (brique, bois, aluminium, vinyle), les défis liés au climat (gel, chaleur, UV), les réalités des plex, duplex, triplex et maisons de ville',
+          en: 'Our painters know: typical Montreal claddings (brick, wood, aluminum, vinyl), challenges related to climate (frost, heat, UV), realities of plexes, duplexes, triplexes and townhouses',
         },
         ctaTitle: {
           fr: 'Obtenez votre soumission pour un projet extérieur à Montréal',
@@ -490,12 +815,12 @@ export const peintureExterieureData = {
           { name: 'Verdun', slug: 'verdun', image: img5970 },
         ],
         images: [
-          { src: img5969, alt: 'peinture extérieure Montréal 1' },
-          { src: img5970, alt: 'peinture extérieure Montréal 2' },
-          { src: img5971, alt: 'peinture extérieure Montréal 3' },
-          { src: img5972, alt: 'peinture extérieure Montréal 4' },
-          { src: img5973, alt: 'peinture extérieure Montréal 5' },
-          { src: img5974, alt: 'peinture extérieure Montréal 6' },
+          { src: img5969, alt: 'Peinture extérieure Montréal' },
+          { src: img5970, alt: 'Peinture extérieure Montréal' },
+          { src: img5971, alt: 'Peinture extérieure Montréal' },
+          { src: img5972, alt: 'Peinture extérieure Montréal' },
+          { src: img5973, alt: 'Peinture extérieure Montréal' },
+          { src: img5974, alt: 'Peinture extérieure Montréal' },
         ],
         subServices: {
           residential: {
@@ -525,4 +850,3 @@ export const peintureExterieureData = {
     },
   },
 };
-

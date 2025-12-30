@@ -64,28 +64,21 @@ export default function PeintureIndustriellePage() {
 
   const whyUsContent = isFr
     ? [
-      "Résistance aux chocs, à l'humidité et aux produits chimiques",
-      'Protection anticorrosion (revêtements spécialisés)',
-      'Produits à faible odeur ou à séchage rapide selon le site',
-      "Application conforme aux normes d'environnement industriel",
-      'Sécurité renforcée sur le chantier',
-      'Équipe formée pour environnements complexes',
-    ]
+        "Résistance aux chocs, à l'humidité et aux produits chimiques",
+        'Protection anticorrosion (revêtements spécialisés)',
+        'Produits à faible odeur ou à séchage rapide selon le site',
+        "Application conforme aux normes d'environnement industriel",
+        'Sécurité renforcée sur le chantier',
+        'Équipe formée pour environnements complexes',
+      ]
     : [
-      'Resistance to shocks, humidity and chemicals',
-      'Anti-corrosion protection (specialized coatings)',
-      'Low odor or fast drying products depending on the site',
-      'Application compliant with industrial environment standards',
-      'Enhanced safety on site',
-      'Team trained for complex environments',
-    ];
-
-  const cities = [
-    { name: isFr ? 'Montréal' : 'Montreal', slug: 'montreal' },
-    { name: 'Laval', slug: 'laval' },
-    { name: 'Longueuil', slug: 'longueuil' },
-    { name: 'Brossard', slug: 'brossard' },
-  ];
+        'Resistance to shocks, humidity and chemicals',
+        'Anti-corrosion protection (specialized coatings)',
+        'Low odor or fast drying products depending on the site',
+        'Application compliant with industrial environment standards',
+        'Enhanced safety on site',
+        'Team trained for complex environments',
+      ];
 
   return (
     <Fragment>
@@ -192,34 +185,6 @@ export default function PeintureIndustriellePage() {
               </Text>
             </Stack>
 
-            {/* Images Section */}
-            <Box mb={{ base: 12, md: 16 }}>
-              <SimpleGrid
-                columns={{ base: 1, md: 2, lg: 3 }}
-                spacing={4}
-                maxW='1200px'
-              >
-                {[
-                  { src: img5969, alt: 'Projet industriel 1' },
-                  { src: img5970, alt: 'Projet industriel 2' },
-                  { src: img5971, alt: 'Projet industriel 3' },
-                  { src: img5972, alt: 'Projet industriel 4' },
-                  { src: img5973, alt: 'Projet industriel 5' },
-                  { src: img5974, alt: 'Projet industriel 6' },
-                ].map((img, index) => (
-                  <Image
-                    key={index}
-                    src={img.src}
-                    alt={img.alt}
-                    borderRadius='lg'
-                    w='100%'
-                    h={{ base: '200px', md: '250px' }}
-                    objectFit='cover'
-                  />
-                ))}
-              </SimpleGrid>
-            </Box>
-
             {/* Section 1 — Pourquoi choisir notre service industriel */}
             <Box
               py={{ base: 12, md: 16 }}
@@ -304,8 +269,7 @@ export default function PeintureIndustriellePage() {
               </Container>
             </Box>
 
-
-            {/* Section 3 — Peinture industrielle par ville */}
+            {/* Section 2 — Peinture industrielle par ville */}
             <SectorsSection
               title={
                 isFr
@@ -336,9 +300,140 @@ export default function PeintureIndustriellePage() {
               ]}
             />
 
-            <ResourcesSection />
+            {/* Section 4 — Exemples de projets industriels */}
+            <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={6}>
+                  <Stack spacing={3} textAlign='left'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Projets industriels réalisés'
+                        : 'Completed industrial projects'}
+                    </Heading>
+                  </Stack>
 
-            {/* Section 4 — À propos de nos peintres professionnels */}
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2, lg: 3 }}
+                    spacing={4}
+                    maxW='1200px'
+                  >
+                    {[
+                      {
+                        src: img5969,
+                        alt: isFr
+                          ? 'Peinture industrielle Montréal 1'
+                          : 'Industrial painting Montreal 1',
+                      },
+                      {
+                        src: img5970,
+                        alt: isFr
+                          ? 'Peinture industrielle Montréal 2'
+                          : 'Industrial painting Montreal 2',
+                      },
+                      {
+                        src: img5971,
+                        alt: isFr
+                          ? 'Peinture industrielle Montréal 3'
+                          : 'Industrial painting Montreal 3',
+                      },
+                      {
+                        src: img5972,
+                        alt: isFr
+                          ? 'Peinture industrielle Montréal 4'
+                          : 'Industrial painting Montreal 4',
+                      },
+                      {
+                        src: img5973,
+                        alt: isFr
+                          ? 'Peinture industrielle Montréal 5'
+                          : 'Industrial painting Montreal 5',
+                      },
+                      {
+                        src: img5974,
+                        alt: isFr
+                          ? 'Peinture industrielle Montréal 6'
+                          : 'Industrial painting Montreal 6',
+                      },
+                    ].map((img, index) => (
+                      <Image
+                        key={index}
+                        src={img.src}
+                        alt={img.alt}
+                        borderRadius='lg'
+                        w='100%'
+                        h={{ base: '200px', md: '250px' }}
+                        objectFit='cover'
+                      />
+                    ))}
+                  </SimpleGrid>
+
+                  <Stack spacing={2} mt={4}>
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='gray.700'
+                      fontWeight='medium'
+                    >
+                      {isFr ? 'Exemples :' : 'Examples:'}
+                    </Text>
+                    <Stack spacing={1} pl={4}>
+                      {isFr ? (
+                        <>
+                          <Text fontSize='md' color='gray.600'>
+                            • Protection anticorrosive de structures métalliques
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Peinture de planchers industriels haute résistance
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Rafraîchissement intérieur d'entrepôts
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Peinture extérieure d'usines
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Revêtement spécialisé pour conduits et poutres
+                          </Text>
+                        </>
+                      ) : (
+                        <>
+                          <Text fontSize='md' color='gray.600'>
+                            • Anti-corrosive protection of metal structures
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • High-resistance industrial floor painting
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Interior warehouse refresh
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Factory exterior painting
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Specialized coating for ducts and beams
+                          </Text>
+                        </>
+                      )}
+                    </Stack>
+                  </Stack>
+                </Stack>
+              </Container>
+            </Box>
+
+            {/* Section 5 — Guides & ressources */}
+            <ResourcesSection
+              title={
+                isFr
+                  ? 'Conseils pour projets industriels'
+                  : 'Tips for industrial projects'
+              }
+            />
+
+            {/* Section 6 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'

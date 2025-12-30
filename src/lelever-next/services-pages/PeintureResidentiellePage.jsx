@@ -64,34 +64,33 @@ export default function PeintureResidentiellePage() {
 
   const whyUsContent = isFr
     ? [
-      'Une préparation soignée (réparations, sablage, calfeutrage)',
-      'Une protection complète des surfaces',
-      'Une application uniforme et durable',
-      'Des produits haut de gamme adaptés à chaque matériau',
-      'Un chantier propre et organisé',
-      'Un service rapide et respectueux de votre espace',
-    ]
+        'Une préparation soignée (réparations, sablage, calfeutrage)',
+        'Une protection complète des surfaces',
+        'Une application uniforme et durable',
+        'Des produits haut de gamme adaptés à chaque matériau',
+        'Un chantier propre et organisé',
+        'Un service rapide et respectueux de votre espace',
+      ]
     : [
-      'Careful preparation (repairs, sanding, caulking)',
-      'Complete protection of surfaces',
-      'Uniform and durable application',
-      'High-end products adapted to each material',
-      'Clean and organized worksite',
-      'Fast and respectful service of your space',
-    ];
-
-  const cities = [
-    { name: isFr ? 'Montréal' : 'Montreal', slug: 'montreal' },
-    { name: 'Laval', slug: 'laval' },
-    { name: 'Longueuil', slug: 'longueuil' },
-    { name: 'Brossard', slug: 'brossard' },
-  ];
+        'Careful preparation (repairs, sanding, caulking)',
+        'Complete protection of surfaces',
+        'Uniform and durable application',
+        'High-end products adapted to each material',
+        'Clean and organized worksite',
+        'Fast and respectful service of your space',
+      ];
 
   // Images section removed to avoid duplication with project images above
   // Images section populated
   const images = [
-    { src: img5969, alt: isFr ? 'Projet résidentiel avant' : 'Residential project before' },
-    { src: img5970, alt: isFr ? 'Projet résidentiel après' : 'Residential project after' },
+    {
+      src: img5969,
+      alt: isFr ? 'Projet résidentiel avant' : 'Residential project before',
+    },
+    {
+      src: img5970,
+      alt: isFr ? 'Projet résidentiel après' : 'Residential project after',
+    },
     { src: img5971, alt: isFr ? 'Peinture intérieure' : 'Interior painting' },
     { src: img5972, alt: isFr ? 'Peinture salon' : 'Living room painting' },
     { src: img5973, alt: isFr ? 'Rénovation' : 'Renovation' },
@@ -202,29 +201,6 @@ export default function PeintureResidentiellePage() {
                   : '👉 Our team of professional painters takes care of everything: surface preparation, space protection, uniform application and impeccable finish. To transform your interior or refresh the exterior of your home, you are in the right place.'}
               </Text>
             </Stack>
-
-            {/* Images Section */}
-            {images && images.length > 0 && (
-              <Box mb={{ base: 12, md: 16 }}>
-                <SimpleGrid
-                  columns={{ base: 1, md: 2, lg: 3 }}
-                  spacing={4}
-                  maxW='1200px'
-                >
-                  {images.map((img, index) => (
-                    <Image
-                      key={index}
-                      src={img.src}
-                      alt={img.alt}
-                      borderRadius='lg'
-                      w='100%'
-                      h={{ base: '200px', md: '250px' }}
-                      objectFit='cover'
-                    />
-                  ))}
-                </SimpleGrid>
-              </Box>
-            )}
 
             {/* Section 1 — Pourquoi choisir notre service résidentiel */}
             <Box
@@ -461,9 +437,103 @@ export default function PeintureResidentiellePage() {
               ]}
             />
 
-            <ResourcesSection />
+            {/* Section 4 — Exemples de projets résidentiels */}
+            {images && images.length > 0 && (
+              <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
+                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                  <Stack spacing={6}>
+                    <Stack spacing={3} textAlign='left'>
+                      <Heading
+                        as='h2'
+                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                        fontWeight='bold'
+                        color='gray.800'
+                      >
+                        {isFr
+                          ? 'Quelques réalisations en peinture résidentielle'
+                          : 'Some residential painting achievements'}
+                      </Heading>
+                    </Stack>
 
-            {/* Section 5 — À propos de nos peintres professionnels */}
+                    <SimpleGrid
+                      columns={{ base: 1, md: 2, lg: 3 }}
+                      spacing={4}
+                      maxW='1200px'
+                    >
+                      {images.map((img, index) => (
+                        <Image
+                          key={index}
+                          src={img.src}
+                          alt={img.alt}
+                          borderRadius='lg'
+                          w='100%'
+                          h={{ base: '200px', md: '250px' }}
+                          objectFit='cover'
+                        />
+                      ))}
+                    </SimpleGrid>
+
+                    <Stack spacing={2} mt={4}>
+                      <Text
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        color='gray.700'
+                        fontWeight='medium'
+                      >
+                        {isFr
+                          ? 'Projects typiques réalisés :'
+                          : 'Typical completed projects:'}
+                      </Text>
+                      <Stack spacing={1} pl={4}>
+                        {isFr ? (
+                          <>
+                            <Text fontSize='md' color='gray.600'>
+                              • Rafraîchissement complet d'intérieur
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Rénovation de maisons et condos
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Peinture de façade extérieure
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Finition de boiseries et escaliers
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Travaux dans plex et multi-logements
+                            </Text>
+                          </>
+                        ) : (
+                          <>
+                            <Text fontSize='md' color='gray.600'>
+                              • Complete interior refresh
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • House and condo renovation
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Exterior facade painting
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Woodwork and stair finishing
+                            </Text>
+                            <Text fontSize='md' color='gray.600'>
+                              • Work in plex and multi-unit buildings
+                            </Text>
+                          </>
+                        )}
+                      </Stack>
+                    </Stack>
+                  </Stack>
+                </Container>
+              </Box>
+            )}
+
+            {/* Section 5 — Guides et ressources */}
+            <ResourcesSection
+              title={isFr ? 'Conseils utiles' : 'Useful tips'}
+            />
+
+            {/* Section 6 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'

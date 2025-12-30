@@ -84,7 +84,7 @@ export const villeMontRoyalData = {
     },
     {
       title: '7 erreurs à éviter avant de repeindre',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien planifier vos travaux intérieurs',

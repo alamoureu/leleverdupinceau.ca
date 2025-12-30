@@ -6,8 +6,7 @@ export const translations = {
     heroButton: 'Recevoir ma soumission gratuite',
 
     servicesTitle: 'Nos services',
-    servicesSubtitle:
-      'Les travaux que nous réalisons le plus souvent',
+    servicesSubtitle: 'Les travaux que nous réalisons le plus souvent',
     serviceResidential: 'Résidentiel',
     serviceResidentialDesc: 'Maisons, condos, multi-étages',
     serviceCommercial: 'Commercial',
@@ -22,11 +21,13 @@ export const translations = {
 
     whyUsTitle: 'Pourquoi nous choisir ?',
     benefit1Title: 'Un travail impeccable',
-    benefit1Desc: 'Un travail propre, uniforme, détaillé et tout du premier coup',
+    benefit1Desc:
+      'Un travail propre, uniforme, détaillé et tout du premier coup',
     benefit2Title: 'Aucun stress, aucun dégât',
-    benefit2Desc: 'On protège tout. Votre maison reste intacte du début à la fin',
+    benefit2Desc:
+      'On protège tout. Votre maison reste intacte du début à la fin',
     benefit3Title: 'Rapidité et ponctualité',
-    benefit3Desc: 'On arrive à l\'heure. On termine à l\'heure. Pas d\'excuses',
+    benefit3Desc: "On arrive à l'heure. On termine à l'heure. Pas d'excuses",
     benefit4Title: 'Services 5 étoiles',
     benefit4Desc: 'Communication claire, équipe respectueuse, zéro devinette',
     freeSubmission: 'Soumission gratuite',
@@ -96,9 +97,10 @@ export const translations = {
     projectExteriorDesc:
       "Rafraîchissement complet de la façade d'une résidence. Protection contre les intempéries et résultat durable",
     projectResidentialDesc2:
-      "Peinture complète d'une maison avec préparation minutieuse des surfaces. Résultat professionnel et satisfaisant",
+      "Peinture complète d'un condo avec préparation minutieuse des surfaces. Résultat professionnel et satisfaisant",
     projectCommercialDesc2:
-      "Rénovation d'un espace de bureau avec peinture contemporaine. Ambiance professionnelle et accueillante créée",
+      "Peinture d'un plafond en steel deck complet. Ambiance professionnelle et accueillante créée",
+    projectIndustrial: 'Projet industriel',
     previousImage: 'Image précédente',
     nextImage: 'Image suivante',
 
@@ -149,7 +151,8 @@ export const translations = {
     benefit1Title: 'Impeccable work',
     benefit1Desc: 'Clean, uniform, detailed work, done right the first time',
     benefit2Title: 'No stress, no damage',
-    benefit2Desc: 'We protect everything. Your home remains intact from start to finish',
+    benefit2Desc:
+      'We protect everything. Your home remains intact from start to finish',
     benefit3Title: 'Speed and punctuality',
     benefit3Desc: 'We arrive on time. We finish on time. No excuses',
     benefit4Title: '5-star services',
@@ -199,8 +202,7 @@ export const translations = {
     formSuccessTitle: 'Submission sent!',
     formSuccessMessage: 'Your submission has been sent successfully!',
     formConfirmationTitle: 'Your request has been received successfully.',
-    formConfirmationMessage:
-      'Our team will contact you as soon as possible.',
+    formConfirmationMessage: 'Our team will contact you as soon as possible.',
 
     modalTitle: 'Get a free quote',
 
@@ -220,9 +222,10 @@ export const translations = {
     projectExteriorDesc:
       'Complete refresh of a residence facade. Weather protection and durable result',
     projectResidentialDesc2:
-      'Complete house painting with meticulous surface preparation. Professional and satisfying result',
+      'Complete condo painting with meticulous surface preparation. Professional and satisfying result',
     projectCommercialDesc2:
-      'Office space renovation with contemporary painting. Professional and welcoming atmosphere created',
+      'Complete steel deck ceiling painting. Professional and welcoming atmosphere created',
+    projectIndustrial: 'Industrial project',
     previousImage: 'Previous image',
     nextImage: 'Next image',
 

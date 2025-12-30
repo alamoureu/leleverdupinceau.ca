@@ -1,0 +1,183 @@
+# Le Lever du Pinceau - Complete Route List
+# This file lists ALL public routes on the website
+# Generated: December 30, 2025
+
+# ========================================
+# MAIN PUBLIC PAGES
+# ========================================
+/
+/soumission
+/contact
+/a-propos-de-nous
+/emplois
+/services/peinture-exterieure
+/services/peinture-interieure
+/politiques/confidentialite
+/politiques/termes-conditions
+
+# ========================================
+# LANDING PAGES
+# ========================================
+/peintre-montreal
+/fr/peintre-montreal
+/en/painter-montreal
+
+# ========================================
+# NEW WEBSITE PAGES (PASSWORD PROTECTED)
+# ========================================
+# New Home
+/new-home
+/new-home/contact
+/new-home/a-propos
+
+# Standalone Pages
+/peintre-professionnel
+/avis
+/new-contact
+/a-propos
+
+# ========================================
+# SECTEURS DESSERVIS (CITY PAGES)
+# ========================================
+/secteurs-desservis
+/secteurs-desservis/brossard
+/secteurs-desservis/montreal
+/secteurs-desservis/laval
+/secteurs-desservis/longueuil
+
+# ========================================
+# MAIN SERVICES PAGES
+# ========================================
+/services
+/services/peinture-commerciale
+/services/new-peinture-exterieure
+/services/peinture-residentielle
+/services/new-peinture-interieure
+/services/peinture-industrielle
+
+# ========================================
+# SERVICE × SUB-SERVICE
+# ========================================
+# Peinture Commerciale
+/services/peinture-commerciale/exterieure
+/services/peinture-commerciale/interieure
+
+# Peinture Résidentielle
+/services/peinture-residentielle/exterieure
+/services/peinture-residentielle/interieure
+
+# ========================================
+# SERVICE × CITY
+# (All 5 Services × 4 Cities = 20 Routes)
+# ========================================
+# Peinture Intérieure × Cities
+/services/new-peinture-interieure/brossard
+/services/new-peinture-interieure/laval
+/services/new-peinture-interieure/longueuil
+/services/new-peinture-interieure/montreal
+
+# Peinture Commerciale × Cities
+/services/peinture-commerciale/brossard
+/services/peinture-commerciale/laval
+/services/peinture-commerciale/longueuil
+/services/peinture-commerciale/montreal
+
+# Peinture Résidentielle × Cities
+/services/peinture-residentielle/brossard
+/services/peinture-residentielle/laval
+/services/peinture-residentielle/longueuil
+/services/peinture-residentielle/montreal
+
+# Peinture Extérieure × Cities
+/services/new-peinture-exterieure/brossard
+/services/new-peinture-exterieure/laval
+/services/new-peinture-exterieure/longueuil
+/services/new-peinture-exterieure/montreal
+
+# Peinture Industrielle × Cities
+/services/peinture-industrielle/brossard
+/services/peinture-industrielle/laval
+/services/peinture-industrielle/longueuil
+/services/peinture-industrielle/montreal
+
+# ========================================
+# SERVICE × SUB-SERVICE × CITY
+# ========================================
+# Peinture Commerciale Intérieure × Cities
+/services/peinture-commerciale/interieure/brossard
+/services/peinture-commerciale/interieure/laval
+/services/peinture-commerciale/interieure/longueuil
+/services/peinture-commerciale/interieure/montreal
+
+# Peinture Commerciale Extérieure × Cities
+/services/peinture-commerciale/exterieure/brossard
+/services/peinture-commerciale/exterieure/laval
+/services/peinture-commerciale/exterieure/longueuil
+/services/peinture-commerciale/exterieure/montreal
+
+# Peinture Résidentielle Intérieure × Cities
+/services/peinture-residentielle/interieure/brossard
+/services/peinture-residentielle/interieure/laval
+/services/peinture-residentielle/interieure/longueuil
+/services/peinture-residentielle/interieure/montreal
+
+# Peinture Résidentielle Extérieure × Cities
+/services/peinture-residentielle/exterieure/brossard
+/services/peinture-residentielle/exterieure/laval
+/services/peinture-residentielle/exterieure/longueuil
+/services/peinture-residentielle/exterieure/montreal
+
+# ========================================
+# SERVICE × CITY × NEIGHBORHOOD
+# (Peinture Intérieure × Montreal)
+# ========================================
+/services/new-peinture-interieure/montreal/ahuntsic
+/services/new-peinture-interieure/montreal/bois-franc
+/services/new-peinture-interieure/montreal/centre-ville
+/services/new-peinture-interieure/montreal/cote-des-neiges
+/services/new-peinture-interieure/montreal/griffintown
+/services/new-peinture-interieure/montreal/hochelaga
+/services/new-peinture-interieure/montreal/ile-des-soeurs
+/services/new-peinture-interieure/montreal/lachine
+/services/new-peinture-interieure/montreal/lasalle
+/services/new-peinture-interieure/montreal/le-village
+/services/new-peinture-interieure/montreal/mile-end
+/services/new-peinture-interieure/montreal/notre-dame-de-grace
+/services/new-peinture-interieure/montreal/outremont
+/services/new-peinture-interieure/montreal/plateau-mont-royal
+/services/new-peinture-interieure/montreal/pointe-saint-charles
+/services/new-peinture-interieure/montreal/rosemont-petite-patrie
+/services/new-peinture-interieure/montreal/saint-henri
+/services/new-peinture-interieure/montreal/saint-leonard
+/services/new-peinture-interieure/montreal/verdun
+/services/new-peinture-interieure/montreal/ville-mont-royal
+/services/new-peinture-interieure/montreal/ville-saint-laurent
+/services/new-peinture-interieure/montreal/villeray
+/services/new-peinture-interieure/montreal/westmount
+
+# ========================================
+# BLOG PAGES
+# ========================================
+/blog
+/blog/comment-choisir-un-peintre-professionnel
+/blog/prix-peinture-montreal
+/blog/erreurs-a-eviter-peinture-interieure
+
+# ========================================
+# ADMIN PAGES (NOT FOR PUBLIC SITEMAP)
+# ========================================
+# /admin/dashboard
+# /admin/soumissions
+# /admin/emplois
+# /admin/contact
+# /admin/timesheets
+# /admin/employees
+# /admin/employee-details
+# /timesheet
+
+# ========================================
+# ROUTE COUNT
+# ========================================
+# Total Public Routes: 98 (82 + 16 previously missing Service × City routes)
+# Total Including Admin: 106
+

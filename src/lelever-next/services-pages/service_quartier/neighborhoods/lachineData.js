@@ -82,7 +82,7 @@ export const lachineData = {
     },
     {
       title: 'Les erreurs à éviter avant un projet de peinture',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien préparer vos travaux intérieurs',
@@ -99,4 +99,3 @@ export const lachineData = {
     buttonText: 'Soumission gratuite',
   },
 };
-

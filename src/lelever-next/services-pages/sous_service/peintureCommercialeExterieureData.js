@@ -69,13 +69,17 @@ export const peintureCommercialeExterieureData = {
     fr: 'Services liés à la peinture commerciale extérieure',
     en: 'Services related to commercial exterior painting',
   },
+  complementaryServicesIntro: {
+    fr: 'Pour un projet de peinture commerciale complet, vous pouvez aussi consulter :',
+    en: 'For a complete commercial painting project, you can also consult:',
+  },
   complementaryServices: [
     {
       title: {
         fr: 'Peinture commerciale',
         en: 'Commercial painting',
       },
-      href: '/services/new-peinture-commerciale',
+      href: '/services/peinture-commerciale',
     },
     {
       title: {
@@ -95,6 +99,10 @@ export const peintureCommercialeExterieureData = {
   citiesTitle: {
     fr: 'Disponible dans toutes les villes principales',
     en: 'Available in all major cities',
+  },
+  citiesSubtitle: {
+    fr: 'Nous intervenons dans tout le Grand Montréal',
+    en: 'We serve all of Greater Montreal',
   },
   cities: [
     {
@@ -166,7 +174,29 @@ export const peintureCommercialeExterieureData = {
     fr: 'Conseils pour vos projets commerciaux extérieurs',
     en: 'Advice for your commercial exterior projects',
   },
-  guides: [],
+  guides: [
+    {
+      title: {
+        fr: 'Comment choisir un peintre professionnel ?',
+        en: 'How to choose a professional painter?',
+      },
+      href: '/blog/comment-choisir-un-peintre-professionnel',
+    },
+    {
+      title: {
+        fr: 'Prix peinture Montréal – projets extérieurs',
+        en: 'Painting prices Montreal – exterior projects',
+      },
+      href: '/blog/prix-peinture-montreal',
+    },
+    {
+      title: {
+        fr: 'Erreurs à éviter avant de peindre une façade commerciale',
+        en: 'Mistakes to avoid before painting a commercial facade',
+      },
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
+    },
+  ],
   aboutTitle: {
     fr: "Des peintres commerciaux qualifiés pour l'extérieur",
     en: 'Qualified commercial painters for exterior work',
@@ -191,27 +221,45 @@ export const peintureCommercialeExterieureData = {
   images: [
     {
       src: img5969,
-      alt: 'Peinture commerciale extérieure 1',
+      alt: {
+        fr: 'Peinture commerciale extérieure Montréal',
+        en: 'Commercial exterior painting Montreal',
+      },
     },
     {
       src: img5970,
-      alt: 'Peinture commerciale extérieure 2',
+      alt: {
+        fr: 'Peinture commerciale extérieure Montréal',
+        en: 'Commercial exterior painting Montreal',
+      },
     },
     {
       src: img5971,
-      alt: 'Peinture commerciale extérieure 3',
+      alt: {
+        fr: 'Peinture commerciale extérieure Montréal',
+        en: 'Commercial exterior painting Montreal',
+      },
     },
     {
       src: img5972,
-      alt: 'Peinture commerciale extérieure 4',
+      alt: {
+        fr: 'Peinture commerciale extérieure Montréal',
+        en: 'Commercial exterior painting Montreal',
+      },
     },
     {
       src: img5973,
-      alt: 'Peinture commerciale extérieure 5',
+      alt: {
+        fr: 'Peinture commerciale extérieure Montréal',
+        en: 'Commercial exterior painting Montreal',
+      },
     },
     {
       src: img5974,
-      alt: 'Peinture commerciale extérieure 6',
+      alt: {
+        fr: 'Peinture commerciale extérieure Montréal',
+        en: 'Commercial exterior painting Montreal',
+      },
     },
   ],
 };

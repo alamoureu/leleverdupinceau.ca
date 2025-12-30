@@ -39,7 +39,7 @@ export default function ServiceQuartierSecteurPage() {
   );
 
   if (!pageData) {
-    return <Navigate to='/services' replace />;
+    return <Navigate to='/404' replace />;
   }
 
   const { service, city, neighborhood } = pageData;

@@ -1,19 +1,19 @@
 // Main data file that merges all service data
-// This file combines all service-specific data files
+// All 5 main services have service × ville pages (5 services × 4 cities = 20 routes)
 
+import { peintureInterieureData } from './peintureInterieureData';
 import { peintureCommercialeData } from './peintureCommercialeData';
+import { peintureResidentielleData } from './peintureResidentielleData';
 import { peintureExterieureData } from './peintureExterieureData';
 import { peintureIndustrielleData } from './peintureIndustrielleData';
-import { peintureInterieureData } from './peintureInterieureData';
-import { peintureResidentielleData } from './peintureResidentielleData';
 
 // Merge all service data into one object
 export const allServiceQuartierData = {
+  ...peintureInterieureData,
   ...peintureCommercialeData,
+  ...peintureResidentielleData,
   ...peintureExterieureData,
   ...peintureIndustrielleData,
-  ...peintureInterieureData,
-  ...peintureResidentielleData,
 };
 
 // Helper function to get page data

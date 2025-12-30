@@ -52,7 +52,7 @@ export default function ServiceCitiesSectorsSection({
   return (
     <Box
       py={{ base: 12, md: 16 }}
-      bg='gray.50'
+      bg='#022A68'
       borderRadius='xl'
       mb={{ base: 8, md: 12 }}
     >
@@ -63,7 +63,7 @@ export default function ServiceCitiesSectorsSection({
               as='h2'
               fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
               fontWeight='bold'
-              color='gray.800'
+              color='white'
               lineHeight='1.3'
               letterSpacing='-0.02em'
             >

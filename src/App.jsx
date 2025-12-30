@@ -19,16 +19,16 @@ import PeintureResidentiellePage from './lelever-next/services-pages/PeintureRes
 import PeintureInterieurePage from './lelever-next/services-pages/PeintureInterieurePage';
 import PeintureIndustriellePage from './lelever-next/services-pages/PeintureIndustriellePage';
 import ServiceQuartierPage from './lelever-next/services-pages/service_ville/ServiceQuartierPage';
-import ServiceQuartierSecteurPage from './lelever-next/services-pages/service_quartier/ServiceQuartierSecteurPage';
-import SousServiceVillePage from './lelever-next/services-pages/sous_service_ville/SousServiceVillePage';
 import SousServicePage from './lelever-next/services-pages/sous_service/SousServicePage';
 import SmartServiceRouter from './lelever-next/services-pages/SmartServiceRouter';
 import BlogPage from './lelever-next/pages/BlogPage';
 import CommentChoisirPeintreProfessionnelPage from './lelever-next/pages/CommentChoisirPeintreProfessionnelPage';
 import PrixPeintureMontrealPage from './lelever-next/pages/PrixPeintureMontrealPage';
 import ErreursAEviterPeintureInterieurePage from './lelever-next/pages/ErreursAEviterPeintureInterieurePage';
+import NotFoundPage from './lelever-next/pages/NotFoundPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
+import ScrollToTop from './lelever-next/components/ScrollToTop';
 import PeintureExt from './pages/PeintureExterieur';
 import PeintureInt from './pages/PeintureInterieur';
 import Nousjoindre from './pages/Nousjoindre';
@@ -53,27 +53,28 @@ export default function App() {
   return (
     <Router>
       <AppProvider>
+        <ScrollToTop />
         <Routes>
           <Route path='/' element={<WebsiteLayout />}>
-            <Route path='/' element={<MainPage />} />
-            <Route path='/soumission' element={<FreeQuotationPage />} />
-            <Route path='/contact' element={<Nousjoindre />} />
-            <Route path='/a-propos-de-nous' element={<AboutUs />} />
-            <Route path='/emplois' element={<Emplois />} />
+            <Route index element={<MainPage />} />
+            <Route path='soumission' element={<FreeQuotationPage />} />
+            <Route path='contact' element={<Nousjoindre />} />
+            <Route path='a-propos-de-nous' element={<AboutUs />} />
+            <Route path='emplois' element={<Emplois />} />
             <Route
-              path='/services/peinture-exterieure'
+              path='services/peinture-exterieure'
               element={<PeintureExt />}
             />
             <Route
-              path='/services/peinture-interieure'
+              path='services/peinture-interieure'
               element={<PeintureInt />}
             />
             <Route
-              path='/politiques/confidentialite'
+              path='politiques/confidentialite'
               element={<ThermOfUsePage />}
             />
             <Route
-              path='/politiques/termes-conditions'
+              path='politiques/termes-conditions'
               element={<PrivacyPolicyPage />}
             />
           </Route>
@@ -233,6 +234,14 @@ export default function App() {
             <Route path='employee-details' element={<EmployeeDetails />} />
           </Route>
           <Route path='/timesheet' element={<TimeSheet />} />
+          {/* 404 Page - Use WebsiteLayout for old site compatibility */}
+          <Route path='/404' element={<WebsiteLayout />}>
+            <Route index element={<NotFoundPage />} />
+          </Route>
+          {/* 404 - Catch all unmatched routes - Use WebsiteLayout to preserve old site behavior */}
+          <Route path='*' element={<WebsiteLayout />}>
+            <Route index element={<NotFoundPage />} />
+          </Route>
         </Routes>
       </AppProvider>
     </Router>

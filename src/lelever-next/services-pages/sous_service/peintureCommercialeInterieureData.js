@@ -69,8 +69,8 @@ export const peintureCommercialeInterieureData = {
     en: 'For a complete commercial painting project',
   },
   complementaryServicesIntro: {
-    fr: 'Pour un projet de peinture commerciale complet vous pouvez aussi consulter :',
-    en: 'For a complete commercial painting project you can also consult:',
+    fr: 'Pour un projet de peinture commerciale complet, vous pouvez aussi consulter :',
+    en: 'For a complete commercial painting project, you can also consult:',
   },
   complementaryServices: [
     {
@@ -78,7 +78,7 @@ export const peintureCommercialeInterieureData = {
         fr: 'Peinture commerciale',
         en: 'Commercial painting',
       },
-      href: '/services/new-peinture-commerciale',
+      href: '/services/peinture-commerciale',
     },
     {
       title: {
@@ -96,8 +96,8 @@ export const peintureCommercialeInterieureData = {
     },
   ],
   surfacesTitle: {
-    fr: 'Une expertise adaptée aux milieux professionnels',
-    en: 'Expertise adapted to professional environments',
+    fr: 'Types de surfaces intérieures que nous peignons',
+    en: 'Types of interior surfaces we paint',
   },
   surfaces: {
     fr: [
@@ -144,8 +144,12 @@ export const peintureCommercialeInterieureData = {
     ],
   },
   citiesTitle: {
-    fr: 'Nos services de peinture commerciale intérieure sont offerts dans:',
-    en: 'Our commercial interior painting services are offered in:',
+    fr: 'Peinture commerciale intérieure dans le Grand Montréal',
+    en: 'Commercial interior painting in Greater Montreal',
+  },
+  citiesSubtitle: {
+    fr: 'Nous intervenons dans tout le Grand Montréal',
+    en: 'We serve all of Greater Montreal',
   },
   cities: [
     {
@@ -212,17 +216,39 @@ export const peintureCommercialeInterieureData = {
     ],
   },
   guidesTitle: {
-    fr: 'Bien préparer vos travaux de peinture commerciale à Brossard',
-    en: 'Properly prepare your commercial painting work in Brossard',
+    fr: 'Conseils pour vos projets commerciaux',
+    en: 'Tips for your commercial projects',
   },
-  guides: [],
+  guides: [
+    {
+      title: {
+        fr: 'Comment choisir un peintre professionnel ?',
+        en: 'How to choose a professional painter?',
+      },
+      href: '/blog/comment-choisir-un-peintre-professionnel',
+    },
+    {
+      title: {
+        fr: 'Prix peinture Montréal : quels coûts prévoir pour un projet commercial ?',
+        en: 'Painting prices Montreal: what costs to expect for a commercial project?',
+      },
+      href: '/blog/prix-peinture-montreal',
+    },
+    {
+      title: {
+        fr: 'Erreurs à éviter avant de lancer des travaux de peinture',
+        en: 'Mistakes to avoid before starting painting work',
+      },
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
+    },
+  ],
   aboutTitle: {
-    fr: 'Une équipe spécialisée dans les environnements commerciaux',
-    en: 'A team specialized in commercial environments',
+    fr: 'Des peintres commerciaux expérimentés',
+    en: 'Experienced commercial painters',
   },
   aboutDescription: {
-    fr: "Nos peintres : respectent vos contraintes horaires, protègent tout votre équipement et inventaire, s'adaptent aux zones à haut trafic, travaillent efficacement sans compromettre la qualité, livrent une finition alignée à votre image de marque",
-    en: 'Our painters: respect your time constraints, protect all your equipment and inventory, adapt to high-traffic areas, work efficiently without compromising quality, deliver a finish aligned with your brand image',
+    fr: "Nos peintres professionnels ont l'habitude de travailler dans des environnements commerciaux, avec des contraintes de temps, d'image de marque et d'achalandage.",
+    en: 'Our professional painters are used to working in commercial environments, with time constraints, brand image and traffic constraints.',
   },
   aboutButtonText: {
     fr: 'En savoir plus sur nos peintres professionnels',
@@ -240,27 +266,45 @@ export const peintureCommercialeInterieureData = {
   images: [
     {
       src: img5969,
-      alt: 'Peinture commerciale intérieure 1',
+      alt: {
+        fr: 'Peinture commerciale intérieure Montréal',
+        en: 'Commercial interior painting Montreal',
+      },
     },
     {
       src: img5970,
-      alt: 'Peinture commerciale intérieure 2',
+      alt: {
+        fr: 'Peinture commerciale intérieure Montréal',
+        en: 'Commercial interior painting Montreal',
+      },
     },
     {
       src: img5971,
-      alt: 'Peinture commerciale intérieure 3',
+      alt: {
+        fr: 'Peinture commerciale intérieure Montréal',
+        en: 'Commercial interior painting Montreal',
+      },
     },
     {
       src: img5972,
-      alt: 'Peinture commerciale intérieure 4',
+      alt: {
+        fr: 'Peinture commerciale intérieure Montréal',
+        en: 'Commercial interior painting Montreal',
+      },
     },
     {
       src: img5973,
-      alt: 'Peinture commerciale intérieure 5',
+      alt: {
+        fr: 'Peinture commerciale intérieure Montréal',
+        en: 'Commercial interior painting Montreal',
+      },
     },
     {
       src: img5974,
-      alt: 'Peinture commerciale intérieure 6',
+      alt: {
+        fr: 'Peinture commerciale intérieure Montréal',
+        en: 'Commercial interior painting Montreal',
+      },
     },
   ],
 };

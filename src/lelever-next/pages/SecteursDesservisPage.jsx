@@ -271,7 +271,7 @@ export default function SecteursDesservisPage() {
                             left={0}
                             right={0}
                             bottom={0}
-                            bgGradient='linear(to-b, rgba(0,0,0,0.2), rgba(0,0,0,0.85))'
+                            bgGradient='linear(to-b, rgba(2, 42, 104, 0.3), rgba(2, 42, 104, 0.85))'
                             zIndex={1}
                           />
 

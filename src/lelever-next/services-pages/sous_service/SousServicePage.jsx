@@ -10,7 +10,6 @@ import {
   Flex,
   Link,
   SimpleGrid,
-  Button,
   VStack,
   HStack,
   Icon,
@@ -330,9 +329,9 @@ export default function SousServicePage() {
   // Get data for this service-subService combination
   const pageData = getSousServiceData(serviceSlug, subServiceSlug);
 
-  // If data doesn't exist, redirect to services page
+  // If data doesn't exist, redirect to 404 page
   if (!pageData) {
-    return <Navigate to='/services' replace />;
+    return <Navigate to='/404' replace />;
   }
 
   const subServiceName = pageData.name[isFr ? 'fr' : 'en'];
@@ -520,36 +519,7 @@ export default function SousServicePage() {
               )}
             </Stack>
 
-            {/* Images */}
-            {pageData.images && pageData.images.length > 0 && (
-              <SimpleGrid
-                columns={{ base: 1, md: 3 }}
-                spacing={4}
-                mb={{ base: 8, md: 12 }}
-              >
-                {pageData.images
-                  .filter((img) => img.src)
-                  .map((img, index) => (
-                    <Box
-                      key={index}
-                      borderRadius='lg'
-                      overflow='hidden'
-                      h={{ base: '250px', md: '300px' }}
-                      boxShadow='md'
-                    >
-                      <Image
-                        src={img.src}
-                        alt={img.alt || 'Projet peinture'}
-                        w='100%'
-                        h='100%'
-                        objectFit='cover'
-                      />
-                    </Box>
-                  ))}
-              </SimpleGrid>
-            )}
-
-            {/* Why Us Section */}
+            {/* Section 1 — Pourquoi choisir notre service */}
             <ServiceWhyUsSection
               title={pageData.whyUsTitle[isFr ? 'fr' : 'en']}
               introText={
@@ -565,34 +535,7 @@ export default function SousServicePage() {
               }
             />
 
-            {/* CTA below Why Us (if configured) */}
-            {pageData.ctaBelowWhyUs && (
-              <Box mt={8} mb={{ base: 8, md: 12 }} textAlign='center'>
-                <Link
-                  as={RouterLink}
-                  to='/peintre-professionnel'
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    rightIcon={<ArrowForwardIcon />}
-                    variant='outline'
-                    borderColor='#014CC4'
-                    color='#014CC4'
-                    borderRadius='full'
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                    _hover={{ bg: '#014CC4', color: 'white' }}
-                  >
-                    {isFr
-                      ? 'En savoir plus sur nos peintres professionnels'
-                      : 'Learn more about our professional painters'}
-                  </Button>
-                </Link>
-              </Box>
-            )}
-
-            {/* Complementary Services Section */}
+            {/* Section 2 — Sous-service parent + services reliés */}
             {pageData.complementaryServices && (
               <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
                 <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -673,7 +616,109 @@ export default function SousServicePage() {
               </Box>
             )}
 
-            {/* Cities Section */}
+            {/* Section 3 — Types de surfaces (for Commercial Interior only) */}
+            {pageData.surfacesTitle &&
+              pageData.surfaces &&
+              serviceSlug === 'peinture-commerciale' &&
+              subServiceSlug === 'interieure' && (
+                <Box
+                  py={{ base: 12, md: 16 }}
+                  mb={{ base: 8, md: 12 }}
+                  bg='gray.50'
+                  borderRadius='xl'
+                >
+                  <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                    <Stack spacing={8}>
+                      <Heading
+                        as='h2'
+                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                        fontWeight='bold'
+                        color='gray.800'
+                      >
+                        {pageData.surfacesTitle[isFr ? 'fr' : 'en']}
+                      </Heading>
+                      <SimpleGrid
+                        columns={{ base: 1, md: 2 }}
+                        spacing={4}
+                        maxW='900px'
+                      >
+                        {pageData.surfaces[isFr ? 'fr' : 'en'].map(
+                          (surface, index) => (
+                            <Flex key={index} align='center' gap={3}>
+                              <Icon
+                                as={FontAwesomeIcon}
+                                icon={faCheckCircle}
+                                color='#014CC4'
+                                boxSize={4}
+                              />
+                              <Text color='gray.700' fontSize='md'>
+                                {surface}
+                              </Text>
+                            </Flex>
+                          )
+                        )}
+                      </SimpleGrid>
+                    </Stack>
+                  </Container>
+                </Box>
+              )}
+
+            {/* Section 4 — Processus (for Commercial Interior only) */}
+            {pageData.processTitle &&
+              pageData.processSteps &&
+              serviceSlug === 'peinture-commerciale' &&
+              subServiceSlug === 'interieure' && (
+                <Box
+                  py={{ base: 12, md: 16 }}
+                  mb={{ base: 8, md: 12 }}
+                  bg='gray.50'
+                >
+                  <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                    <Stack spacing={8}>
+                      <Heading
+                        as='h2'
+                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                        fontWeight='bold'
+                        color='gray.800'
+                      >
+                        {pageData.processTitle[isFr ? 'fr' : 'en']}
+                      </Heading>
+                      <Stack spacing={4}>
+                        {pageData.processSteps[isFr ? 'fr' : 'en'].map(
+                          (step, index) => (
+                            <Flex key={index} align='flex-start' gap={4}>
+                              <Box
+                                minW='32px'
+                                h='32px'
+                                borderRadius='full'
+                                bg='#014CC4'
+                                color='white'
+                                display='flex'
+                                alignItems='center'
+                                justifyContent='center'
+                                fontWeight='bold'
+                                fontSize='sm'
+                                flexShrink={0}
+                              >
+                                {index + 1}
+                              </Box>
+                              <Text
+                                color='gray.700'
+                                fontSize='md'
+                                lineHeight='1.7'
+                              >
+                                {step}
+                              </Text>
+                            </Flex>
+                          )
+                        )}
+                      </Stack>
+                    </Stack>
+                  </Container>
+                </Box>
+              )}
+
+            {/* Section 3/5 — Par ville (Section 3 for others, Section 5 for Commercial Interior) */}
             {pageData.cities && (
               <SectorsSection
                 title={pageData.citiesTitle[isFr ? 'fr' : 'en']}
@@ -711,213 +756,74 @@ export default function SousServicePage() {
               />
             )}
 
-            {/* Projects Section */}
+            {/* Section 4/6 — Exemples de projets (Section 4 for others, Section 6 for Commercial Interior) */}
             {pageData.projects && (
-              <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+              <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
                 <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={8}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {pageData.projectsTitle[isFr ? 'fr' : 'en']}
-                    </Heading>
-                    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-                      {pageData.projects[isFr ? 'fr' : 'en'].map(
-                        (project, index) => (
-                          <Box
-                            key={index}
-                            p={6}
-                            bg='gray.50'
-                            borderRadius='lg'
-                            border='1px solid'
-                            borderColor='gray.200'
-                          >
-                            <HStack spacing={3}>
-                              <Icon
-                                as={FontAwesomeIcon}
-                                icon={faCheckCircle}
-                                color='#014CC4'
-                                boxSize={5}
-                              />
-                              <Text color='gray.700' fontSize='md'>
-                                {project}
-                              </Text>
-                            </HStack>
-                          </Box>
-                        )
-                      )}
-                    </SimpleGrid>
-                  </Stack>
-                </Container>
-              </Box>
-            )}
+                  <Stack spacing={6}>
+                    <Stack spacing={3} textAlign='left'>
+                      <Heading
+                        as='h2'
+                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                        fontWeight='bold'
+                        color='gray.800'
+                      >
+                        {pageData.projectsTitle[isFr ? 'fr' : 'en']}
+                      </Heading>
+                    </Stack>
 
-            {/* Services/Surfaces List Section (e.g. for Commercial Interior) */}
-            {pageData.surfacesTitle && pageData.surfaces && (
-              <Box
-                py={{ base: 12, md: 16 }}
-                mb={{ base: 8, md: 12 }}
-                bg='gray.50'
-                borderRadius='xl'
-              >
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={8}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {pageData.surfacesTitle[isFr ? 'fr' : 'en']}
-                    </Heading>
-                    <SimpleGrid columns={{ base: 1, md: 2, lg: 4 }} spacing={6}>
-                      {pageData.surfaces[isFr ? 'fr' : 'en'].map(
-                        (surface, index) => (
-                          <Box
+                    {/* Images Grid */}
+                    {pageData.images && pageData.images.length > 0 && (
+                      <SimpleGrid
+                        columns={{ base: 1, md: 2, lg: 3 }}
+                        spacing={4}
+                        maxW='1200px'
+                      >
+                        {pageData.images.map((img, index) => (
+                          <Image
                             key={index}
-                            p={6}
-                            bg='white'
+                            src={img.src}
+                            alt={
+                              typeof img.alt === 'object'
+                                ? img.alt[isFr ? 'fr' : 'en']
+                                : img.alt
+                            }
                             borderRadius='lg'
-                            border='1px solid'
-                            borderColor='gray.200'
-                            boxShadow='sm'
-                          >
-                            <Text
-                              color='gray.700'
-                              fontSize='md'
-                              fontWeight='500'
-                            >
-                              {surface}
-                            </Text>
-                          </Box>
-                        )
-                      )}
-                    </SimpleGrid>
-
-                    {/* Optional button below surfaces */}
-                    {pageData.aboutButtonLink && pageData.aboutButtonText && (
-                      <Box textAlign='center' mt={8}>
-                        <Link
-                          as={RouterLink}
-                          to={pageData.aboutButtonLink}
-                          _hover={{ textDecoration: 'none' }}
-                        >
-                          <Button
-                            rightIcon={<ArrowForwardIcon />}
-                            variant='outline'
-                            borderColor='#014CC4'
-                            color='#014CC4'
-                            borderRadius='full'
-                            fontSize={{ base: 'sm', md: 'md' }}
-                            px={{ base: 5, md: 7 }}
-                            py={{ base: 3, md: 4 }}
-                            _hover={{ bg: '#014CC4', color: 'white' }}
-                          >
-                            {pageData.aboutButtonText[isFr ? 'fr' : 'en']}
-                          </Button>
-                        </Link>
-                      </Box>
+                            w='100%'
+                            h={{ base: '200px', md: '250px' }}
+                            objectFit='cover'
+                          />
+                        ))}
+                      </SimpleGrid>
                     )}
-                  </Stack>
-                </Container>
-              </Box>
-            )}
 
-            {/* Process Section (if exists) */}
-            {pageData.processTitle && pageData.processSteps && (
-              <Box
-                py={{ base: 12, md: 16 }}
-                mb={{ base: 8, md: 12 }}
-                bg='gray.50'
-              >
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={8}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {pageData.processTitle[isFr ? 'fr' : 'en']}
-                    </Heading>
-                    <Stack spacing={4}>
-                      {pageData.processSteps[isFr ? 'fr' : 'en'].map(
-                        (step, index) => (
-                          <Flex key={index} align='flex-start' gap={4}>
-                            <Box
-                              minW='32px'
-                              h='32px'
-                              borderRadius='full'
-                              bg='#014CC4'
-                              color='white'
-                              display='flex'
-                              alignItems='center'
-                              justifyContent='center'
-                              fontWeight='bold'
-                              fontSize='sm'
-                              flexShrink={0}
-                            >
-                              {index + 1}
-                            </Box>
-                            <Text
-                              color='gray.700'
-                              fontSize='md'
-                              lineHeight='1.7'
-                            >
-                              {step}
+                    {/* Projects List */}
+                    <Stack spacing={2} mt={4}>
+                      <Text
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        color='gray.700'
+                        fontWeight='medium'
+                      >
+                        {isFr
+                          ? 'Exemples de projets :'
+                          : 'Examples of projects:'}
+                      </Text>
+                      <Stack spacing={1} pl={4}>
+                        {pageData.projects[isFr ? 'fr' : 'en'].map(
+                          (project, index) => (
+                            <Text key={index} fontSize='md' color='gray.600'>
+                              • {project}
                             </Text>
-                          </Flex>
-                        )
-                      )}
+                          )
+                        )}
+                      </Stack>
                     </Stack>
                   </Stack>
                 </Container>
               </Box>
             )}
 
-            {/* Surfaces Section (if exists) */}
-            {pageData.surfacesTitle && pageData.surfaces && (
-              <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={8}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {pageData.surfacesTitle[isFr ? 'fr' : 'en']}
-                    </Heading>
-                    <SimpleGrid
-                      columns={{ base: 1, md: 2 }}
-                      spacing={4}
-                      maxW='900px'
-                    >
-                      {pageData.surfaces[isFr ? 'fr' : 'en'].map(
-                        (surface, index) => (
-                          <Flex key={index} align='center' gap={3}>
-                            <Icon
-                              as={FontAwesomeIcon}
-                              icon={faCheckCircle}
-                              color='#014CC4'
-                              boxSize={4}
-                            />
-                            <Text color='gray.700' fontSize='md'>
-                              {surface}
-                            </Text>
-                          </Flex>
-                        )
-                      )}
-                    </SimpleGrid>
-                  </Stack>
-                </Container>
-              </Box>
-            )}
-
-            {/* Guides Section */}
+            {/* Section 5 — Guides & ressources */}
             {guides.length > 0 && (
               <ServiceQuartierGuidesSection
                 title={pageData.guidesTitle[isFr ? 'fr' : 'en']}
@@ -925,7 +831,7 @@ export default function SousServicePage() {
               />
             )}
 
-            {/* About Section */}
+            {/* Section 6 — À propos de nos peintres professionnels */}
             <ServiceQuartierAboutSection
               title={pageData.aboutTitle[isFr ? 'fr' : 'en']}
               description={pageData.aboutDescription[isFr ? 'fr' : 'en']}

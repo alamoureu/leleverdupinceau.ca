@@ -64,28 +64,21 @@ export default function PeintureExterieurePage() {
 
   const whyUsContent = isFr
     ? [
-      'Nettoyage, préparation et réparation des surfaces',
-      'Décapage ou sablage selon le type de revêtement',
-      'Protection complète des fenêtres, portes et végétation',
-      'Application uniforme et durable',
-      'Produits spécialisés : bois, aluminium, brique, crépi, vinyle',
-      'Finition résistante aux intempéries et aux UV',
-    ]
+        'Nettoyage, préparation et réparation des surfaces',
+        'Décapage ou sablage selon le type de revêtement',
+        'Protection complète des fenêtres, portes et végétation',
+        'Application uniforme et durable',
+        'Produits spécialisés : bois, aluminium, brique, crépi, vinyle',
+        'Finition résistante aux intempéries et aux UV',
+      ]
     : [
-      'Cleaning, preparation and surface repair',
-      'Stripping or sandblasting depending on coating type',
-      'Complete protection of windows, doors and vegetation',
-      'Uniform and durable application',
-      'Specialized products: wood, aluminum, brick, stucco, vinyl',
-      'Finish resistant to weather and UV',
-    ];
-
-  const cities = [
-    { name: isFr ? 'Montréal' : 'Montreal', slug: 'montreal' },
-    { name: 'Laval', slug: 'laval' },
-    { name: 'Longueuil', slug: 'longueuil' },
-    { name: 'Brossard', slug: 'brossard' },
-  ];
+        'Cleaning, preparation and surface repair',
+        'Stripping or sandblasting depending on coating type',
+        'Complete protection of windows, doors and vegetation',
+        'Uniform and durable application',
+        'Specialized products: wood, aluminum, brick, stucco, vinyl',
+        'Finish resistant to weather and UV',
+      ];
 
   const metaDescription = isFr
     ? 'Le Lever du Pinceau offre des services de peinture extérieure pour maisons, commerces et bâtiments industriels dans le Grand Montréal. Produits résistants aux intempéries, protection durable, finition professionnelle.'
@@ -172,7 +165,7 @@ export default function PeintureExterieurePage() {
                 maxW='900px'
               >
                 {isFr
-                  ? "La peinture extérieure protège votre propriété contre les intempéries, rehausse son apparence et augmente sa valeur. Le Lever du Pinceau réalise des projets de peinture extérieure pour maisons, plex, condos, immeubles résidentiels, commerces et bâtiments industriels dans tout le Grand Montréal."
+                  ? 'La peinture extérieure protège votre propriété contre les intempéries, rehausse son apparence et augmente sa valeur. Le Lever du Pinceau réalise des projets de peinture extérieure pour maisons, plex, condos, immeubles résidentiels, commerces et bâtiments industriels dans tout le Grand Montréal.'
                   : 'Exterior painting protects your property against the elements, enhances its appearance and increases its value. Le Lever du Pinceau carries out exterior painting projects for houses, plex, condos, residential buildings, businesses and industrial buildings throughout Greater Montreal.'}
               </Text>
               <Text
@@ -188,34 +181,6 @@ export default function PeintureExterieurePage() {
                   : '👉 Our professional painters use high-end products, resistant to UV, humidity, temperature variations and Quebec climate. To refresh your facade, modernize an exterior structure or protect a coating, our team is ready to intervene.'}
               </Text>
             </Stack>
-
-            {/* Images Section */}
-            <Box mb={{ base: 12, md: 16 }}>
-              <SimpleGrid
-                columns={{ base: 1, md: 2, lg: 3 }}
-                spacing={4}
-                maxW='1200px'
-              >
-                {[
-                  { src: img5969, alt: 'Projet extérieur 1' },
-                  { src: img5970, alt: 'Projet extérieur 2' },
-                  { src: img5971, alt: 'Projet extérieur 3' },
-                  { src: img5972, alt: 'Projet extérieur 4' },
-                  { src: img5973, alt: 'Projet extérieur 5' },
-                  { src: img5974, alt: 'Projet extérieur 6' },
-                ].map((img, index) => (
-                  <Image
-                    key={index}
-                    src={img.src}
-                    alt={img.alt}
-                    borderRadius='lg'
-                    w='100%'
-                    h={{ base: '200px', md: '250px' }}
-                    objectFit='cover'
-                  />
-                ))}
-              </SimpleGrid>
-            </Box>
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <Box
@@ -416,8 +381,6 @@ export default function PeintureExterieurePage() {
                         </Stack>
                       </Box>
                     </Link>
-
-
                   </SimpleGrid>
                 </Stack>
               </Container>
@@ -454,11 +417,140 @@ export default function PeintureExterieurePage() {
               ]}
             />
 
+            {/* Section 4 — Exemples de projets extérieurs */}
+            <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={6}>
+                  <Stack spacing={3} textAlign='left'>
+                    <Heading
+                      as='h2'
+                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      fontWeight='bold'
+                      color='gray.800'
+                    >
+                      {isFr
+                        ? 'Quelques réalisations en peinture extérieure'
+                        : 'Some exterior painting achievements'}
+                    </Heading>
+                  </Stack>
+
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2, lg: 3 }}
+                    spacing={4}
+                    maxW='1200px'
+                  >
+                    {[
+                      {
+                        src: img5969,
+                        alt: isFr
+                          ? 'Peinture extérieure Montréal 1'
+                          : 'Exterior painting Montreal 1',
+                      },
+                      {
+                        src: img5970,
+                        alt: isFr
+                          ? 'Peinture extérieure Montréal 2'
+                          : 'Exterior painting Montreal 2',
+                      },
+                      {
+                        src: img5971,
+                        alt: isFr
+                          ? 'Peinture extérieure Montréal 3'
+                          : 'Exterior painting Montreal 3',
+                      },
+                      {
+                        src: img5972,
+                        alt: isFr
+                          ? 'Peinture extérieure Montréal 4'
+                          : 'Exterior painting Montreal 4',
+                      },
+                      {
+                        src: img5973,
+                        alt: isFr
+                          ? 'Peinture extérieure Montréal 5'
+                          : 'Exterior painting Montreal 5',
+                      },
+                      {
+                        src: img5974,
+                        alt: isFr
+                          ? 'Peinture extérieure Montréal 6'
+                          : 'Exterior painting Montreal 6',
+                      },
+                    ].map((img, index) => (
+                      <Image
+                        key={index}
+                        src={img.src}
+                        alt={img.alt}
+                        borderRadius='lg'
+                        w='100%'
+                        h={{ base: '200px', md: '250px' }}
+                        objectFit='cover'
+                      />
+                    ))}
+                  </SimpleGrid>
+
+                  <Stack spacing={2} mt={4}>
+                    <Text
+                      fontSize={{ base: 'md', md: 'lg' }}
+                      color='gray.700'
+                      fontWeight='medium'
+                    >
+                      {isFr ? 'Projets typiques :' : 'Typical projects:'}
+                    </Text>
+                    <Stack spacing={1} pl={4}>
+                      {isFr ? (
+                        <>
+                          <Text fontSize='md' color='gray.600'>
+                            • Rafraîchissement de façade résidentielle
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Peinture de revêtement aluminium
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Protection de structures extérieures
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Mise à jour de commerces ou entrées commerciales
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Peinture de terrasses et clôtures
+                          </Text>
+                        </>
+                      ) : (
+                        <>
+                          <Text fontSize='md' color='gray.600'>
+                            • Residential facade refresh
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Aluminum siding painting
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Exterior structure protection
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Commercial store or entrance update
+                          </Text>
+                          <Text fontSize='md' color='gray.600'>
+                            • Terrace and fence painting
+                          </Text>
+                        </>
+                      )}
+                    </Stack>
+                  </Stack>
+                </Stack>
+              </Container>
+            </Box>
+
+            {/* Section 5 — Guides & ressources */}
             <ResourcesSection
-              excludeSlugs={['/blog/erreurs-a-eviter-peinture-interieure']}
+              title={
+                isFr
+                  ? 'Conseils pour vos projets extérieurs'
+                  : 'Tips for your exterior projects'
+              }
             />
 
-            {/* Section 5 — À propos de nos peintres */}
+            {/* Section 6 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'
@@ -466,7 +558,6 @@ export default function PeintureExterieurePage() {
               mb={{ base: 8, md: 12 }}
             >
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-
                 <Stack spacing={6} textAlign='center' align='center'>
                   <Heading
                     as='h2'

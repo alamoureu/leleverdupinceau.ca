@@ -83,7 +83,7 @@ export const ahuntsicData = {
     },
     {
       title: 'Les erreurs à éviter avant de repeindre votre intérieur',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien préparer votre projet de peinture',

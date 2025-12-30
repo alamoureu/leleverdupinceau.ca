@@ -82,7 +82,7 @@ export const coteDesNeigesData = {
     },
     {
       title: '7 erreurs à éviter avant de peindre',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien préparer vos travaux de peinture intérieure',

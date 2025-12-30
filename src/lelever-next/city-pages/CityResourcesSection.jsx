@@ -35,7 +35,7 @@ export default function CityResourcesSection({ cityName }) {
             title: isFr
               ? 'Erreurs à éviter avant de repeindre votre propriété'
               : 'Mistakes to avoid before repainting your property',
-            link: '/blog/erreurs-a-eviter-peinture',
+            link: '/blog/erreurs-a-eviter-peinture-interieure',
           },
         ]
       : cityName === 'Laval'
@@ -56,7 +56,7 @@ export default function CityResourcesSection({ cityName }) {
             title: isFr
               ? 'Erreurs à éviter avant de repeindre votre propriété'
               : 'Mistakes to avoid before repainting your property',
-            link: '/blog/erreurs-a-eviter-peinture',
+            link: '/blog/erreurs-a-eviter-peinture-interieure',
           },
         ]
       : cityName === 'Longueuil'
@@ -77,7 +77,7 @@ export default function CityResourcesSection({ cityName }) {
             title: isFr
               ? 'Les erreurs à éviter avant de repeindre'
               : 'Mistakes to avoid before repainting',
-            link: '/blog/erreurs-a-eviter-peinture',
+            link: '/blog/erreurs-a-eviter-peinture-interieure',
           },
         ]
       : [
@@ -97,7 +97,7 @@ export default function CityResourcesSection({ cityName }) {
             title: isFr
               ? 'Les erreurs à éviter avant de repeindre votre maison ou commerce'
               : 'Mistakes to avoid before repainting your house or business',
-            link: '/blog/erreurs-a-eviter-peinture',
+            link: '/blog/erreurs-a-eviter-peinture-interieure',
           },
         ];
 

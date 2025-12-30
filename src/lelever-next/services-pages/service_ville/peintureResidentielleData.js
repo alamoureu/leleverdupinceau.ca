@@ -1,4 +1,3 @@
-import ResidentialProject from '../../images/Projets résidentiels.PNG';
 import img5969 from '../../images/before_after/IMG_5969.jpg';
 import img5970 from '../../images/before_after/IMG_5970.jpg';
 import img5971 from '../../images/before_after/IMG_5971.jpg';
@@ -25,13 +24,13 @@ export const peintureResidentielleData = {
         introduction: {
           fr: [
             "Brossard est l'un des secteurs résidentiels les plus dynamiques de la Rive-Sud, avec des maisons familiales, condos modernes, plex et propriétés en développement autour du Quartier DIX30.",
-            "Le Lever du Pinceau offre un service complet de peinture résidentielle à Brossard, pour des projets intérieurs et extérieurs, dans les secteurs R, S, T, C, A, V, P et le quartier du DIX30.",
-            "Nos peintres résidentiels interviennent rapidement avec une finition impeccable et durable."
+            'Le Lever du Pinceau offre un service complet de peinture résidentielle à Brossard, pour des projets intérieurs et extérieurs, dans les secteurs R, S, T, C, A, V, P et le quartier du DIX30.',
+            'Nos peintres résidentiels interviennent rapidement avec une finition impeccable et durable.',
           ],
           en: [
-            "Brossard is one of the most dynamic residential sectors on the South Shore, with family houses, modern condos, plexes and properties under development around the DIX30 Quarter.",
-            "Le Lever du Pinceau offers a complete residential painting service in Brossard, for interior and exterior projects, in sectors R, S, T, C, A, V, P and the DIX30 quarter.",
-            "Our residential painters work quickly with an impeccable and durable finish."
+            'Brossard is one of the most dynamic residential sectors on the South Shore, with family houses, modern condos, plexes and properties under development around the DIX30 Quarter.',
+            'Le Lever du Pinceau offers a complete residential painting service in Brossard, for interior and exterior projects, in sectors R, S, T, C, A, V, P and the DIX30 quarter.',
+            'Our residential painters work quickly with an impeccable and durable finish.',
           ],
         },
         introFingerText: {
@@ -91,7 +90,74 @@ export const peintureResidentielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Les erreurs à éviter avant de repeindre votre maison',
+              en: 'Mistakes to avoid before repainting your house',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents réalisés à Brossard',
+          en: 'Recent projects completed in Brossard',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'brossard-res-1',
+              title: 'Peinture intérieure complète d’une maison secteur R',
+              description:
+                'Rénovation complète de l’intérieur d’une maison avec préparation soignée et finition impeccable.',
+            },
+            {
+              id: 'brossard-res-2',
+              title: 'Modernisation d’un condo près du DIX30',
+              description:
+                'Transformation complète de l’intérieur d’un condo moderne avec finition haut de gamme.',
+            },
+            {
+              id: 'brossard-res-3',
+              title: 'Rafraîchissement extérieur d’une maison secteur S',
+              description:
+                'Mise à jour complète de la façade avec produits résistants aux intempéries et finition professionnelle.',
+            },
+            {
+              id: 'brossard-res-4',
+              title:
+                'Peinture de salon + cuisine dans un bungalow du secteur C',
+              description:
+                'Rafraîchissement des espaces de vie avec application uniforme et protection totale des surfaces.',
+            },
+          ],
+          en: [
+            {
+              id: 'brossard-res-1',
+              title: 'Complete interior painting of a house in sector R',
+              description:
+                'Complete interior renovation of a house with careful preparation and impeccable finish.',
+            },
+            {
+              id: 'brossard-res-2',
+              title: 'Modernization of a condo near DIX30',
+              description:
+                'Complete interior transformation of a modern condo with high-end finish.',
+            },
+            {
+              id: 'brossard-res-3',
+              title: 'Exterior refresh of a house in sector S',
+              description:
+                'Complete facade update with weather-resistant products and professional finish.',
+            },
+            {
+              id: 'brossard-res-4',
+              title:
+                'Painting of living room + kitchen in a bungalow in sector C',
+              description:
+                'Refresh of living spaces with uniform application and total surface protection.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Des peintres résidentiels experts à Brossard',
           en: 'Expert residential painters in Brossard',
@@ -108,7 +174,16 @@ export const peintureResidentielleData = {
           fr: 'Nous pouvons intervenir rapidement dans tous les secteurs de Brossard.',
           en: 'We can work quickly in all sectors of Brossard.',
         },
-        sectors: [],
+        sectors: [
+          { name: 'Secteur R', slug: 'secteur-r', image: img5969 },
+          { name: 'Secteur S', slug: 'secteur-s', image: img5970 },
+          { name: 'Secteur T', slug: 'secteur-t', image: img5971 },
+          { name: 'Secteur C', slug: 'secteur-c', image: img5972 },
+          { name: 'Secteur A', slug: 'secteur-a', image: img5973 },
+          { name: 'Secteur V', slug: 'secteur-v', image: img5974 },
+          { name: 'Secteur P', slug: 'secteur-p', image: img5969 },
+          { name: 'Quartier DIX30', slug: 'quartier-dix30', image: img5970 },
+        ],
         images: [
           { src: img5969, alt: 'peinture résidentielle Brossard 1' },
           { src: img5970, alt: 'peinture résidentielle Brossard 2' },
@@ -153,14 +228,14 @@ export const peintureResidentielleData = {
         },
         introduction: {
           fr: [
-            "La ville de Laval possède une grande variété de propriétés : maisons unifamiliales, condos, plex, résidences familiales, constructions récentes et immeubles plus anciens.",
-            "Le Lever du Pinceau offre un service complet de peinture résidentielle dans tous les quartiers de Laval, incluant Chomedey, Sainte-Rose, Fabreville, Vimont, Laval-des-Rapides et plusieurs autres.",
-            "Nos peintres résidentiels interviennent autant pour des projets intérieurs qu'extérieurs, avec une finition propre, professionnelle et durable."
+            'La ville de Laval possède une grande variété de propriétés : maisons unifamiliales, condos, plex, résidences familiales, constructions récentes et immeubles plus anciens.',
+            'Le Lever du Pinceau offre un service complet de peinture résidentielle dans tous les quartiers de Laval, incluant Chomedey, Sainte-Rose, Fabreville, Vimont, Laval-des-Rapides et plusieurs autres.',
+            "Nos peintres résidentiels interviennent autant pour des projets intérieurs qu'extérieurs, avec une finition propre, professionnelle et durable.",
           ],
           en: [
-            "The city of Laval has a great variety of properties: single-family houses, condos, plexes, family residences, recent constructions and older buildings.",
-            "Le Lever du Pinceau offers a complete residential painting service in all neighborhoods of Laval, including Chomedey, Sainte-Rose, Fabreville, Vimont, Laval-des-Rapides and several others.",
-            "Our residential painters work for both interior and exterior projects, with a clean, professional and durable finish."
+            'The city of Laval has a great variety of properties: single-family houses, condos, plexes, family residences, recent constructions and older buildings.',
+            'Le Lever du Pinceau offers a complete residential painting service in all neighborhoods of Laval, including Chomedey, Sainte-Rose, Fabreville, Vimont, Laval-des-Rapides and several others.',
+            'Our residential painters work for both interior and exterior projects, with a clean, professional and durable finish.',
           ],
         },
         introFingerText: {
@@ -220,7 +295,73 @@ export const peintureResidentielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Erreurs à éviter avant de repeindre votre maison',
+              en: 'Mistakes to avoid before repainting your house',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets récents en peinture résidentielle',
+          en: 'Recent residential painting projects',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'laval-res-1',
+              title:
+                'Peinture intérieure complète dans une maison à Fabreville',
+              description:
+                'Rénovation complète de l’intérieur d’une maison avec préparation soignée et finition impeccable.',
+            },
+            {
+              id: 'laval-res-2',
+              title: 'Rafraîchissement d’un condo dans Chomedey',
+              description:
+                'Mise à jour complète des espaces intérieurs avec application uniforme et produits durables.',
+            },
+            {
+              id: 'laval-res-3',
+              title: 'Peinture extérieure d’une maison en brique à Sainte-Rose',
+              description:
+                'Rénovation complète de la façade avec produits résistants aux intempéries et finition professionnelle.',
+            },
+            {
+              id: 'laval-res-4',
+              title: 'Modernisation d’un duplex à Vimont',
+              description:
+                'Transformation complète de l’intérieur et extérieur avec finition haut de gamme.',
+            },
+          ],
+          en: [
+            {
+              id: 'laval-res-1',
+              title: 'Complete interior painting in a house in Fabreville',
+              description:
+                'Complete interior renovation of a house with careful preparation and impeccable finish.',
+            },
+            {
+              id: 'laval-res-2',
+              title: 'Refresh of a condo in Chomedey',
+              description:
+                'Complete update of interior spaces with uniform application and durable products.',
+            },
+            {
+              id: 'laval-res-3',
+              title: 'Exterior painting of a brick house in Sainte-Rose',
+              description:
+                'Complete facade renovation with weather-resistant products and professional finish.',
+            },
+            {
+              id: 'laval-res-4',
+              title: 'Modernization of a duplex in Vimont',
+              description:
+                'Complete interior and exterior transformation with high-end finish.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe spécialisée en peinture résidentielle à Laval',
           en: 'A team specialized in residential painting in Laval',
@@ -237,7 +378,20 @@ export const peintureResidentielleData = {
           fr: 'Nos peintres peuvent intervenir rapidement dans tous les quartiers de Laval.',
           en: 'Our painters can work quickly in all neighborhoods of Laval.',
         },
-        sectors: [],
+        sectors: [
+          { name: 'Chomedey', slug: 'chomedey', image: img5969 },
+          { name: 'Sainte-Rose', slug: 'sainte-rose', image: img5970 },
+          { name: 'Fabreville', slug: 'fabreville', image: img5971 },
+          { name: 'Vimont', slug: 'vimont', image: img5972 },
+          {
+            name: 'Laval-des-Rapides',
+            slug: 'laval-des-rapides',
+            image: img5973,
+          },
+          { name: 'Sainte-Dorothée', slug: 'sainte-dorothee', image: img5974 },
+          { name: 'Laval-Ouest', slug: 'laval-ouest', image: img5969 },
+          { name: 'Duvernay', slug: 'duvernay', image: img5970 },
+        ],
         images: [
           { src: img5969, alt: 'peinture résidentielle Laval 1' },
           { src: img5970, alt: 'peinture résidentielle Laval 2' },
@@ -282,14 +436,14 @@ export const peintureResidentielleData = {
         },
         introduction: {
           fr: [
-            "Longueuil regroupe des secteurs résidentiels variés : maisons unifamiliales, multiplex, condos, logements et nouvelles constructions, notamment dans le Vieux-Longueuil, Saint-Hubert et Greenfield Park.",
+            'Longueuil regroupe des secteurs résidentiels variés : maisons unifamiliales, multiplex, condos, logements et nouvelles constructions, notamment dans le Vieux-Longueuil, Saint-Hubert et Greenfield Park.',
             "Le Lever du Pinceau offre un service complet de peinture résidentielle à Longueuil, autant pour l'intérieur que pour l'extérieur. Nous intervenons dans les maisons, condos et plex avec une approche professionnelle, propre et durable.",
-            "Que vous soyez dans le Vieux-Longueuil, Saint-Hubert, Greenfield Park ou un autre secteur de Longueuil, notre équipe de peintres résidentiels peut se déplacer rapidement pour votre projet."
+            'Que vous soyez dans le Vieux-Longueuil, Saint-Hubert, Greenfield Park ou un autre secteur de Longueuil, notre équipe de peintres résidentiels peut se déplacer rapidement pour votre projet.',
           ],
           en: [
-            "Longueuil brings together varied residential sectors: single-family houses, multiplexes, condos, housing and new constructions, particularly in Vieux-Longueuil, Saint-Hubert and Greenfield Park.",
-            "Le Lever du Pinceau offers a complete residential painting service in Longueuil, both for interior and exterior. We work in houses, condos and plexes with a professional, clean and durable approach.",
-            "Whether you are in Vieux-Longueuil, Saint-Hubert, Greenfield Park or another sector of Longueuil, our team of residential painters can move quickly for your project."
+            'Longueuil brings together varied residential sectors: single-family houses, multiplexes, condos, housing and new constructions, particularly in Vieux-Longueuil, Saint-Hubert and Greenfield Park.',
+            'Le Lever du Pinceau offers a complete residential painting service in Longueuil, both for interior and exterior. We work in houses, condos and plexes with a professional, clean and durable approach.',
+            'Whether you are in Vieux-Longueuil, Saint-Hubert, Greenfield Park or another sector of Longueuil, our team of residential painters can move quickly for your project.',
           ],
         },
         introFingerText: {
@@ -349,7 +503,74 @@ export const peintureResidentielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: 'Les erreurs à éviter avant de repeindre votre maison',
+              en: 'Mistakes to avoid before repainting your house',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets de peinture résidentielle réalisés à Longueuil',
+          en: 'Residential painting projects completed in Longueuil',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'longueuil-res-1',
+              title:
+                'Peinture intérieure complète d’une maison dans le Vieux-Longueuil',
+              description:
+                'Rénovation complète de l’intérieur d’une maison avec préparation soignée et finition impeccable.',
+            },
+            {
+              id: 'longueuil-res-2',
+              title:
+                'Modernisation de l’aire de vie d’un bungalow à Saint-Hubert',
+              description:
+                'Transformation complète de l’aire de vie avec application uniforme et finition haut de gamme.',
+            },
+            {
+              id: 'longueuil-res-3',
+              title: 'Rafraîchissement d’un condo à Greenfield Park',
+              description:
+                'Mise à jour complète des espaces intérieurs avec produits durables et finition professionnelle.',
+            },
+            {
+              id: 'longueuil-res-4',
+              title: 'Peinture extérieure d’une maison en crépi à Laflèche',
+              description:
+                'Rénovation complète de la façade avec produits résistants aux intempéries et finition durable.',
+            },
+          ],
+          en: [
+            {
+              id: 'longueuil-res-1',
+              title: 'Complete interior painting of a house in Vieux-Longueuil',
+              description:
+                'Complete interior renovation of a house with careful preparation and impeccable finish.',
+            },
+            {
+              id: 'longueuil-res-2',
+              title: 'Modernization of a bungalow living area in Saint-Hubert',
+              description:
+                'Complete living area transformation with uniform application and high-end finish.',
+            },
+            {
+              id: 'longueuil-res-3',
+              title: 'Refresh of a condo in Greenfield Park',
+              description:
+                'Complete update of interior spaces with durable products and professional finish.',
+            },
+            {
+              id: 'longueuil-res-4',
+              title: 'Exterior painting of a stucco house in Laflèche',
+              description:
+                'Complete facade renovation with weather-resistant products and durable finish.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Des peintres résidentiels présents sur la Rive-Sud',
           en: 'Residential painters present on the South Shore',
@@ -366,7 +587,19 @@ export const peintureResidentielleData = {
           fr: 'Nous pouvons planifier vos travaux rapidement, avec un résultat propre, durable et professionnel.',
           en: 'We can plan your work quickly, with a clean, durable and professional result.',
         },
-        sectors: [],
+        sectors: [
+          { name: 'Vieux-Longueuil', slug: 'vieux-longueuil', image: img5969 },
+          { name: 'Saint-Hubert', slug: 'saint-hubert', image: img5970 },
+          { name: 'Greenfield Park', slug: 'greenfield-park', image: img5971 },
+          { name: 'Laflèche', slug: 'lafleche', image: img5972 },
+          {
+            name: 'Le Vieux-Longueuil',
+            slug: 'le-vieux-longueuil',
+            image: img5973,
+          },
+          { name: 'Saint-Charles', slug: 'saint-charles', image: img5974 },
+          { name: 'Mackayville', slug: 'mackayville', image: img5969 },
+        ],
         images: [
           { src: img5969, alt: 'peinture résidentielle Longueuil 1' },
           { src: img5970, alt: 'peinture résidentielle Longueuil 2' },
@@ -411,14 +644,14 @@ export const peintureResidentielleData = {
         },
         introduction: {
           fr: [
-            "La peinture résidentielle à Montréal exige une solide connaissance du style des propriétés locales : plex, condos, maisons anciennes, nouvelles constructions et bâtiments rénovés.",
-            "Le Lever du Pinceau offre un service complet de peinture résidentielle intérieure et extérieure partout à Montréal, incluant Outremont, NDG, Plateau-Mont-Royal, Rosemont, Villeray et plus de 25 quartiers.",
-            "Nos peintres professionnels interviennent dans les maisons, condos et appartements avec une approche soignée, propre et durable. Que vous souhaitiez moderniser une pièce, rafraîchir votre façade ou rénover un intérieur complet, notre équipe offre des résultats impeccables dans tous les quartiers de Montréal."
+            'La peinture résidentielle à Montréal exige une solide connaissance du style des propriétés locales : plex, condos, maisons anciennes, nouvelles constructions et bâtiments rénovés.',
+            'Le Lever du Pinceau offre un service complet de peinture résidentielle intérieure et extérieure partout à Montréal, incluant Outremont, NDG, Plateau-Mont-Royal, Rosemont, Villeray et plus de 25 quartiers.',
+            'Nos peintres professionnels interviennent dans les maisons, condos et appartements avec une approche soignée, propre et durable. Que vous souhaitiez moderniser une pièce, rafraîchir votre façade ou rénover un intérieur complet, notre équipe offre des résultats impeccables dans tous les quartiers de Montréal.',
           ],
           en: [
-            "Residential painting in Montreal requires solid knowledge of local property styles: plexes, condos, old houses, new constructions and renovated buildings.",
-            "Le Lever du Pinceau offers a complete residential interior and exterior painting service everywhere in Montreal, including Outremont, NDG, Plateau-Mont-Royal, Rosemont, Villeray and more than 25 neighborhoods.",
-            "Our professional painters work in houses, condos and apartments with a careful, clean and durable approach. Whether you want to modernize a room, refresh your facade or renovate a complete interior, our team offers impeccable results in all neighborhoods of Montreal."
+            'Residential painting in Montreal requires solid knowledge of local property styles: plexes, condos, old houses, new constructions and renovated buildings.',
+            'Le Lever du Pinceau offers a complete residential interior and exterior painting service everywhere in Montreal, including Outremont, NDG, Plateau-Mont-Royal, Rosemont, Villeray and more than 25 neighborhoods.',
+            'Our professional painters work in houses, condos and apartments with a careful, clean and durable approach. Whether you want to modernize a room, refresh your facade or renovate a complete interior, our team offers impeccable results in all neighborhoods of Montreal.',
           ],
         },
         introFingerText: {
@@ -478,7 +711,84 @@ export const peintureResidentielleData = {
             },
             href: '/blog/prix-peinture-montreal',
           },
+          {
+            title: {
+              fr: '7 erreurs à éviter avant de repeindre votre intérieur',
+              en: '7 mistakes to avoid before repainting your interior',
+            },
+            href: '/blog/erreurs-a-eviter-peinture-interieure',
+          },
         ],
+        projectsTitle: {
+          fr: 'Projets réalisés dans les maisons, condos et plex montréalais',
+          en: 'Projects completed in Montreal houses, condos and plexes',
+        },
+        projects: {
+          fr: [
+            {
+              id: 'montreal-res-1',
+              title: 'Rafraîchissement intérieur complet d’un condo au Plateau',
+              description:
+                'Mise à jour complète de l’intérieur d’un condo avec application uniforme et finition impeccable.',
+            },
+            {
+              id: 'montreal-res-2',
+              title: 'Peinture de salon et cuisine dans une maison de NDG',
+              description:
+                'Rafraîchissement des espaces de vie avec produits adaptés et protection totale des surfaces.',
+            },
+            {
+              id: 'montreal-res-3',
+              title: 'Modernisation d’un plex dans Rosemont',
+              description:
+                'Transformation complète de l’intérieur d’un plex avec préparation soignée et finition professionnelle.',
+            },
+            {
+              id: 'montreal-res-4',
+              title: 'Peinture extérieure d’un duplex à Villeray',
+              description:
+                'Rénovation complète de la façade avec produits résistants aux intempéries et finition durable.',
+            },
+            {
+              id: 'montreal-res-5',
+              title: 'Finition intérieure haut de gamme dans Outremont',
+              description:
+                'Rénovation complète avec finition haut de gamme et protection totale des surfaces.',
+            },
+          ],
+          en: [
+            {
+              id: 'montreal-res-1',
+              title: 'Complete interior refresh of a condo in Plateau',
+              description:
+                'Complete interior update of a condo with uniform application and impeccable finish.',
+            },
+            {
+              id: 'montreal-res-2',
+              title: 'Painting of living room and kitchen in a house in NDG',
+              description:
+                'Refresh of living spaces with adapted products and total surface protection.',
+            },
+            {
+              id: 'montreal-res-3',
+              title: 'Modernization of a plex in Rosemont',
+              description:
+                'Complete interior transformation of a plex with careful preparation and professional finish.',
+            },
+            {
+              id: 'montreal-res-4',
+              title: 'Exterior painting of a duplex in Villeray',
+              description:
+                'Complete facade renovation with weather-resistant products and durable finish.',
+            },
+            {
+              id: 'montreal-res-5',
+              title: 'High-end interior finish in Outremont',
+              description:
+                'Complete renovation with high-end finish and total surface protection.',
+            },
+          ],
+        },
         aboutTitle: {
           fr: 'Une équipe spécialisée en peinture résidentielle à Montréal',
           en: 'A team specialized in residential painting in Montreal',

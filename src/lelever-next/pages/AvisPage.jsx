@@ -322,11 +322,11 @@ export default function AvisPage() {
     },
     {
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
-      link: '/services/new-peinture-residentielle',
+      link: '/services/peinture-residentielle',
     },
     {
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
-      link: '/services/new-peinture-commerciale',
+      link: '/services/peinture-commerciale',
     },
     {
       title: isFr ? 'Peintres professionnels' : 'Professional painters',

@@ -82,7 +82,7 @@ export const saintLeonardData = {
     },
     {
       title: 'Les erreurs à éviter avant de repeindre',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Conseils essentiels avant de peindre',

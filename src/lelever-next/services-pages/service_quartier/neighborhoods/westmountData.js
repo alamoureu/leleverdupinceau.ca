@@ -28,7 +28,7 @@ export const westmountData = {
     title: 'Pour un projet complet de peinture résidentielle',
     services: [
       {
-        title: 'Peinture intérieure Montréal',
+        title: "Peinture intérieure Montréal (vue d'ensemble)",
         href: '/services/new-peinture-interieure/montreal',
       },
       {
@@ -83,7 +83,7 @@ export const westmountData = {
     },
     {
       title: 'Erreurs à éviter lors de travaux de peinture intérieure',
-      href: '/blog/erreurs-a-eviter-peinture',
+      href: '/blog/erreurs-a-eviter-peinture-interieure',
     },
   ],
   guidesTitle: 'Bien préparer vos travaux intérieurs',
@@ -100,4 +100,3 @@ export const westmountData = {
     buttonText: 'Soumission gratuite',
   },
 };
-
