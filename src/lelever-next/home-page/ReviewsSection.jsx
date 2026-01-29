@@ -35,8 +35,8 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? 'Je suis très satisfaite du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
-          : 'I am very satisfied with the service received! Competent, fast and courteous team. I warmly recommend!',
+          ? 'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
+          : 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
     },
     {
       name: 'Michiel Schrey',
@@ -59,8 +59,8 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
       time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
       content:
         currentLang === 'fr'
-          ? "Je suis très satisfaite des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
-          : 'I am very satisfied with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
+          ? "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
+          : 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
     },
     {
       name: 'Frédéric Choinière',
@@ -75,8 +75,8 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
       time: currentLang === 'fr' ? 'Il y a 6 jours' : '6 days ago',
       content:
         currentLang === 'fr'
-          ? "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très satisfaite des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets."
-          : 'Le Lever Du Pinceau has done multiple painting projects for me. I was very satisfied with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
+          ? "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très ravie des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets."
+          : 'Le Lever Du Pinceau has done multiple painting projects for me. I was very delighted with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
     },
     {
       name: 'A Mayer',

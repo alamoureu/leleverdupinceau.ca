@@ -22,16 +22,16 @@ export default function ReviewsDrawer({ isOpen, onClose, lang }) {
       name: 'Maureen Beech',
       time: '6 days ago',
       content: {
-        fr: "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très satisfaite des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets.",
-        en: 'Le Lever Du Pinceau has done multiple painting projects for me. I was very satisfied with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
+        fr: "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très ravie des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets.",
+        en: 'Le Lever Du Pinceau has done multiple painting projects for me. I was very delighted with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
       },
     },
     {
       name: 'Zoé Boudreau',
       time: 'a month ago',
       content: {
-        fr: 'Je suis très satisfaite du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!',
-        en: 'I am very satisfied with the service received! Competent, fast and courteous team. I warmly recommend!',
+        fr: 'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!',
+        en: 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
       },
     },
     {

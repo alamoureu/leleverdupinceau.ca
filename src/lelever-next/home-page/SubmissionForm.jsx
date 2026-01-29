@@ -278,6 +278,18 @@ export default function SubmissionForm({
             >
               {t.formConfirmationMessage}
             </Text>
+
+            {/* Closing line */}
+            {t.formSuccessClosing && (
+              <Text
+                fontSize='sm'
+                color='gray.500'
+                fontStyle='italic'
+                pt={2}
+              >
+                {t.formSuccessClosing}
+              </Text>
+            )}
           </Stack>
         </Box>
       </ChakraProvider>

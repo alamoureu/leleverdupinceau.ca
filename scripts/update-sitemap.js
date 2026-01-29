@@ -29,15 +29,22 @@ content = content.replace(
   ''
 );
 
-// 2. Remove /new-contact (keep /contact as canonical)
-console.log('2. Removing /new-contact (keeping /contact as canonical)...');
+// 2. Remove /new-landing (dev/preview route, not for sitemap)
+console.log('2. Removing /new-landing...');
+content = content.replace(
+  /<url>\s*<loc>https:\/\/www\.leleverdupinceau\.ca\/new-landing<\/loc>[\s\S]*?<\/url>\s*/g,
+  ''
+);
+
+// 3. Remove /new-contact (keep /contact as canonical)
+console.log('3. Removing /new-contact (keeping /contact as canonical)...');
 content = content.replace(
   /<url>\s*<loc>https:\/\/www\.leleverdupinceau\.ca\/new-contact<\/loc>[\s\S]*?<\/url>\s*/g,
   ''
 );
 
-// 3. Add <lastmod> to all URLs
-console.log('3. Adding <lastmod> tags to all URLs...');
+// 4. Add <lastmod> to all URLs
+console.log('4. Adding <lastmod> tags to all URLs...');
 content = content.replace(
   /(<url>\s*<loc>.*?<\/loc>\s*<changefreq>.*?<\/changefreq>\s*<priority>.*?<\/priority>)(\s*<\/url>)/g,
   `$1\n    <lastmod>${today}</lastmod>$2`
@@ -51,5 +58,6 @@ fs.writeFileSync(sitemapPath, content, 'utf-8');
 console.log('\n✓ Sitemap updated successfully!');
 console.log(`  - Removed /new-home/contact`);
 console.log(`  - Removed /new-home/a-propos`);
+console.log(`  - Removed /new-landing`);
 console.log(`  - Removed /new-contact`);
 console.log(`  - Added <lastmod>${today}</lastmod> to all URLs`);

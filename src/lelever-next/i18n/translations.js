@@ -40,7 +40,7 @@ export const translations = {
 
     reviewsTitle: 'Avis de nos clients',
     reviewsSubtitle:
-      'Des centaines de clients satisfaits à Montréal et partout dans le Grand Montréal',
+      'Des centaines de clients ravis à Montréal et partout dans le Grand Montréal',
     reviewTime2Months: 'Il y a 2 mois',
     reviewTime6Days: 'Il y a 6 jours',
     reviewTime1Month: 'Il y a 1 mois',
@@ -48,11 +48,11 @@ export const translations = {
     readLess: 'Lire moins',
     viewAllReviews: 'Voir tous nos avis',
     review1Content:
-      "Je suis très satisfaite des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!",
+      "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!",
     review2Content:
-      "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très satisfaite des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés.",
+      "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très ravie des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés.",
     review3Content:
-      'Je suis très satisfaite du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!',
+      'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!',
 
     contactFormTitle: 'Obtenir une soumission gratuite',
 
@@ -75,9 +75,26 @@ export const translations = {
       'Vous devez accepter les termes et conditions pour continuer',
     formSuccessTitle: 'Soumission envoyée!',
     formSuccessMessage: 'Votre soumission a été envoyée avec succès!',
-    formConfirmationTitle: 'Votre demande a été reçue avec succès.',
+    formConfirmationTitle: 'Merci ! Votre demande est bien reçue.',
     formConfirmationMessage:
-      'Notre équipe va vous contacter dans les plus brefs délais.',
+      "Un membre de notre équipe vous contactera très bientôt pour discuter de votre projet. D'ici là, n'hésitez pas à nous appeler au (438) 868-0772 si vous avez des questions.",
+    formSuccessClosing: "À très bientôt ! — L'équipe Le Lever du Pinceau",
+
+    controlTitle: 'Quand tout est sous contrôle, tout devient simple',
+    controlSubtitle:
+      "Voici ce qui permet à nos clients d'éviter les complications inutiles.",
+    controlCard1Title: 'Prise en charge de A à Z',
+    controlCard1Subtitle: 'zéro gestion de votre part',
+    controlCard1Desc:
+      'Déléguez votre projet en sachant que tout sera fait correctement, sans supervision ni rappels.',
+    controlCard2Title: 'Échéancier clair',
+    controlCard2Subtitle: "un projet qui ne s'éternise pas",
+    controlCard2Desc:
+      'Vous planifiez votre vie et votre déménagement sans stress ni incertitude.',
+    controlCard3Title: 'Finitions nettes',
+    controlCard3Subtitle: 'aucuns défaut visibles',
+    controlCard3Desc:
+      'Votre propriété paraît immédiatement plus propre, plus soignée et plus valorisée.',
 
     modalTitle: 'Obtenir une soumission gratuite',
 
@@ -115,6 +132,25 @@ export const translations = {
     article3Title: 'Erreurs à éviter avant de peindre',
     readArticle: "Lire l'article",
 
+    methodTopText: 'en moins de 24h',
+    methodTitle: 'Notre méthode structurée, appliquée à chaque projet',
+    methodSubtitle: 'un processus clair, sans aucune improvisation',
+    methodStep1Title: 'Offre de service gratuite',
+    methodStep1Desc:
+      'Nous faisons une visite rapide pour comprendre le projet, surfaces, délais, contraintes et vous donner des recommandations de produits',
+    methodStep2Title: 'Préparation des surfaces',
+    methodStep2Desc:
+      'Nous faisons la protection des lieux, la réparation de plâtre et le calfeutrage',
+    methodStep3Title: 'Application professionnelle',
+    methodStep3Desc:
+      "Nos peintres ayant chacun plus de 10 ans d'expérience utilise des méthodes précises et des produits de qualités",
+    methodStep4Title: 'Inspection finale',
+    methodStep4Desc:
+      'Avant de vous livrer le projet nous laissons les lieux propres et validons les travaux avec vous',
+    promiseText:
+      "Notre promesse : Nous travaillons jusqu'à ce que vous soyez ravi des travaux effectués.",
+    ctaSubtitle: 'en moins de 24h',
+
     ctaTitle: 'Prêt à commencer ?',
     ctaButton: 'Soumission gratuite',
 
@@ -123,7 +159,7 @@ export const translations = {
 
     trustBannerRbqAlt: 'Régie du bâtiment du Québec',
     trustBannerRbqText: 'RBQ 5864-1481-01',
-    trustBannerClientsSatisfaits: 'Clients satisfaits',
+    trustBannerClientsSatisfaits: 'Clients ravis',
     trustBannerAssurance: 'Assurance 5M$',
     trustBannerTrushieldAlt: 'TruShield Insurance',
   },
@@ -167,7 +203,7 @@ export const translations = {
 
     reviewsTitle: 'Client reviews',
     reviewsSubtitle:
-      'Hundreds of satisfied clients in Montreal and throughout Greater Montreal',
+      'Hundreds of delighted clients in Montreal and throughout Greater Montreal',
     reviewTime2Months: '2 months ago',
     reviewTime6Days: '6 days ago',
     reviewTime1Month: '1 month ago',
@@ -175,11 +211,11 @@ export const translations = {
     readLess: 'Read less',
     viewAllReviews: 'View all our reviews',
     review1Content:
-      'I am very satisfied with the work that was done at our residence. I received a quote quickly and the work started as agreed, despite inclement weather. The result exceeded my expectations; attention to detail is apparent!',
+      'I am very delighted with the work that was done at our residence. I received a quote quickly and the work started as agreed, despite inclement weather. The result exceeded my expectations; attention to detail is apparent!',
     review2Content:
-      'Le Lever Du Pinceau completed several painting projects for me. I was very satisfied with the results and I highly recommend them. They were professional and pleasant. They started and finished the project within the requested timeframe.',
+      'Le Lever Du Pinceau completed several painting projects for me. I was very delighted with the results and I highly recommend them. They were professional and pleasant. They started and finished the project within the requested timeframe.',
     review3Content:
-      'I am very satisfied with the service received! Competent, fast and courteous team. I warmly recommend!',
+      'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
 
     contactFormTitle: 'Get a free quote',
 
@@ -201,8 +237,26 @@ export const translations = {
     formConsentRequired: 'You must accept the terms and conditions to continue',
     formSuccessTitle: 'Submission sent!',
     formSuccessMessage: 'Your submission has been sent successfully!',
-    formConfirmationTitle: 'Your request has been received successfully.',
-    formConfirmationMessage: 'Our team will contact you as soon as possible.',
+    formConfirmationTitle: 'Thank you! Your request has been received.',
+    formConfirmationMessage:
+      'A member of our team will contact you shortly to discuss your project. In the meantime, feel free to call us at (438) 868-0772 if you have any questions.',
+    formSuccessClosing: 'Talk soon! — The Le Lever du Pinceau team',
+
+    controlTitle: 'When everything is under control, everything becomes simple',
+    controlSubtitle:
+      'Here’s what allows our clients to avoid unnecessary complications.',
+    controlCard1Title: 'A-to-Z management',
+    controlCard1Subtitle: 'zero management on your part',
+    controlCard1Desc:
+      'Delegate your project knowing that everything will be done correctly, without supervision or reminders.',
+    controlCard2Title: 'Clear schedule',
+    controlCard2Subtitle: "a project that doesn't drag on",
+    controlCard2Desc:
+      'You plan your life and your move without stress or uncertainty.',
+    controlCard3Title: 'Clean finishes',
+    controlCard3Subtitle: 'no visible defects',
+    controlCard3Desc:
+      'Your property looks immediately cleaner, more well-maintained and more valued.',
 
     modalTitle: 'Get a free quote',
 
@@ -240,6 +294,24 @@ export const translations = {
     article3Title: 'Mistakes to avoid before painting',
     readArticle: 'Read article',
 
+    methodTopText: 'in less than 24h',
+    methodTitle: 'Our structured method, applied to every project',
+    methodSubtitle: 'a clear process, with no improvisation',
+    methodStep1Title: 'Free service offer',
+    methodStep1Desc:
+      'We make a quick visit to understand the project, surfaces, deadlines, constraints and give you product recommendations.',
+    methodStep2Title: 'Surface preparation',
+    methodStep2Desc: 'We protect the premises, repair plaster and caulk.',
+    methodStep3Title: 'Professional application',
+    methodStep3Desc:
+      'Our painters, each with over 10 years of experience, use precise methods and quality products.',
+    methodStep4Title: 'Final inspection',
+    methodStep4Desc:
+      'Before delivering the project we leave the premises clean and validate the work with you.',
+    promiseText:
+      'Our promise: We work until you are delighted with the work done.',
+    ctaSubtitle: 'in less than 24h',
+
     ctaTitle: 'Ready to get started?',
     ctaButton: 'Free quote',
 
@@ -248,7 +320,7 @@ export const translations = {
 
     trustBannerRbqAlt: 'Quebec Building Authority',
     trustBannerRbqText: 'RBQ 5864-1481-01',
-    trustBannerClientsSatisfaits: 'Satisfied Clients',
+    trustBannerClientsSatisfaits: 'Delighted Clients',
     trustBannerAssurance: '$5M Insurance',
     trustBannerTrushieldAlt: 'TruShield Insurance',
   },

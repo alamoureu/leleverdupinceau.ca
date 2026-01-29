@@ -1,60 +1,57 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
   Heading,
   Text,
-  SimpleGrid,
   Stack,
+  SimpleGrid,
   Button,
 } from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import ServiceCard from './ServiceCard';
-import peintureResidentielleImg from '../images/peinture_residentielle.PNG';
-import peintureCommercialeImg from '../images/peinture_commercial.jpg';
-import peintureInterieurImg from '../images/peinture_interieur.jpg';
+import control1 from '../images/new-landing/control-1.jpeg';
+import control2 from '../images/new-landing/control-2.png';
+import control3 from '../images/new-landing/control-3.jpeg';
 
-const serviceImages = [
-  peintureResidentielleImg,
-  peintureCommercialeImg,
-  peintureInterieurImg,
-];
+const cardImages = [control1, control2, control3];
 
-export default function ServicesSection() {
+export default function ControlSection({ onSubmissionOpen }) {
   const { t } = useTranslation();
 
-  const services = [
+  const cards = [
     {
-      image: serviceImages[0],
-      title: t.serviceResidential,
-      subtitle: t.serviceResidentialDesc,
-      description: t.serviceResidentialDesc,
-      link: '/services/peinture-residentielle',
+      image: cardImages[0],
+      title: t.controlCard1Title,
+      subtitle: t.controlCard1Subtitle,
+      description: t.controlCard1Desc,
     },
     {
-      image: serviceImages[1],
-      title: t.serviceCommercial,
-      subtitle: t.serviceCommercialDesc,
-      description: t.serviceCommercialDesc,
-      link: '/services/peinture-commerciale',
+      image: cardImages[1],
+      title: t.controlCard2Title,
+      subtitle: t.controlCard2Subtitle,
+      description: t.controlCard2Desc,
     },
     {
-      image: serviceImages[2],
-      title: t.serviceInterior,
-      subtitle: t.serviceInteriorDesc,
-      description: t.serviceInteriorDesc,
-      link: '/services/new-peinture-interieure',
+      image: cardImages[2],
+      title: t.controlCard3Title,
+      subtitle: t.controlCard3Subtitle,
+      description: t.controlCard3Desc,
     },
   ];
 
   return (
     <Box
+      pt={{
+        base: '75px',
+        sm: '50px',
+        md: '50px',
+        lg: '50px',
+        xl: 47,
+        '2xl': 50,
+      }}
+      pb={{ base: 4, sm: 5, md: 10, lg: 14, xl: 22, '2xl': 26 }}
       bg="white"
-      position="relative"
-      pt={{ base: 14, sm: 16, md: 26, lg: 32, xl: 52, '2xl': 60 }}
-      pb={{ base: 8, md: 12, lg: 16 }}
     >
       <Container
         maxW="1440px"
@@ -83,6 +80,7 @@ export default function ServicesSection() {
             }}
             w="100%"
             mb={{ base: 0, md: 4 }}
+            pt={{ base: 0, sm: 1, md: 7, lg: 10, xl: 16, '2xl': 20 }}
           >
             <Heading
               as="h2"
@@ -98,13 +96,13 @@ export default function ServicesSection() {
               color="gray.800"
               whiteSpace={{ base: 'normal', md: 'nowrap' }}
             >
-              {t.servicesTitle}
+              {t.controlTitle}
             </Heading>
             <Text
               fontSize={{ base: 'xs', sm: 'sm', md: 'md', lg: 'lg' }}
               color="gray.600"
             >
-              {t.servicesSubtitle}
+              {t.controlSubtitle}
             </Text>
           </Stack>
 
@@ -121,23 +119,15 @@ export default function ServicesSection() {
               '2xl': '1320px',
             }}
           >
-            {services.map((service, index) => (
-              <Box
+            {cards.map((card, index) => (
+              <ServiceCard
                 key={index}
-                as={RouterLink}
-                to={service.link}
-                _hover={{ textDecoration: 'none' }}
-                w="100%"
-                display="block"
-              >
-                <ServiceCard
-                  image={service.image}
-                  title={service.title}
-                  subtitle={service.subtitle}
-                  description={service.description}
-                  noHoverBorder
-                />
-              </Box>
+                image={card.image}
+                title={card.title}
+                subtitle={card.subtitle}
+                description={card.description}
+                noHoverBorder
+              />
             ))}
           </SimpleGrid>
 
@@ -148,20 +138,30 @@ export default function ServicesSection() {
             w="100%"
           >
             <Button
-              as={RouterLink}
-              to="/services"
-              variant="outline"
-              borderColor="#014CC4"
-              color="#014CC4"
+              onClick={onSubmissionOpen}
+              bg="#014CC4"
+              color="white"
+              fontSize={{ base: 'md', sm: 'lg', md: 'lg' }}
+              fontWeight="semibold"
+              px={{ base: 6, sm: 8, md: 10 }}
+              py={{ base: 3, sm: 3, md: 4 }}
+              h="auto"
+              minH={{ base: '44px', sm: '46px', md: '52px' }}
+              w="fit-content"
+              maxW={{ base: '220px', sm: '240px', md: 'none' }}
               borderRadius="full"
-              fontSize={{ base: 'sm', md: 'md' }}
-              px={{ base: 5, md: 7 }}
-              py={{ base: 3, md: 4 }}
-              rightIcon={<ArrowForwardIcon />}
-              _hover={{ bg: '#014CC4', color: 'white' }}
+              boxShadow="md"
+              _hover={{ bg: '#0139A0', boxShadow: 'lg' }}
             >
-              {t.viewAllServices}
+              {t.freeSubmission}
             </Button>
+            <Text
+              fontSize={{ base: 'xs', sm: 'sm', md: 'lg' }}
+              color="gray.600"
+              fontWeight="medium"
+            >
+              {t.ctaSubtitle}
+            </Text>
           </Stack>
         </Stack>
       </Container>

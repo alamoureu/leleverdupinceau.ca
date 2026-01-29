@@ -11,8 +11,8 @@ export const testimonials = [
     nameFr: 'Elias',
     namEn: 'Elias',
     quoteEn:
-      'Satisfied with the work accomplished Staff dedicated to the work, courteous and respectful.',
+      'Delighted with the work accomplished Staff dedicated to the work, courteous and respectful.',
     quoteFr:
-      'Satisfait avec le travail accompli Personnel dedié au travail, courtois et respectueux.',
+      'Ravi du travail accompli Personnel dédié au travail, courtois et respectueux.',
   },
 ];

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 
 import MainPage from './pages/WebSiteLandingPage';
+import LandingPageV2 from './pages/LandingPageV2';
 import NewHomePage from './lelever-next/pages/NewHomePage';
 import ContactPage from './lelever-next/pages/ContactPage';
 import AvisPage from './lelever-next/pages/AvisPage';
@@ -55,44 +56,54 @@ export default function App() {
       <AppProvider>
         <ScrollToTop />
         <Routes>
-          <Route path='/' element={<WebsiteLayout />}>
+          <Route path="/" element={<WebsiteLayout />}>
             <Route index element={<MainPage />} />
-            <Route path='soumission' element={<FreeQuotationPage />} />
-            <Route path='contact' element={<Nousjoindre />} />
-            <Route path='a-propos-de-nous' element={<AboutUs />} />
-            <Route path='emplois' element={<Emplois />} />
+            <Route path="soumission" element={<FreeQuotationPage />} />
+            <Route path="contact" element={<Nousjoindre />} />
+            <Route path="a-propos-de-nous" element={<AboutUs />} />
+            <Route path="emplois" element={<Emplois />} />
             <Route
-              path='services/peinture-exterieure'
+              path="services/peinture-exterieure"
               element={<PeintureExt />}
             />
             <Route
-              path='services/peinture-interieure'
+              path="services/peinture-interieure"
               element={<PeintureInt />}
             />
             <Route
-              path='politiques/confidentialite'
+              path="politiques/confidentialite"
               element={<ThermOfUsePage />}
             />
             <Route
-              path='politiques/termes-conditions'
+              path="politiques/termes-conditions"
               element={<PrivacyPolicyPage />}
             />
           </Route>
-          <Route path='peintre-montreal' element={<LandingPage lang='fr' />} />
-          <Route path='/fr' element={<LandingPageLayout lang='fr' />}>
+          <Route path="peintre-montreal" element={<LandingPage lang="fr" />} />
+          <Route path="/fr" element={<LandingPageLayout lang="fr" />}>
             <Route
-              path='peintre-montreal'
-              element={<LandingPage lang='fr' />}
+              path="peintre-montreal"
+              element={<LandingPage lang="fr" />}
             />
           </Route>
-          <Route path='/en' element={<LandingPageLayout lang='en' />}>
+          <Route path="/en" element={<LandingPageLayout lang="en" />}>
             <Route
-              path='painter-montreal'
-              element={<LandingPage lang='en' />}
+              path="painter-montreal"
+              element={<LandingPage lang="en" />}
             />
           </Route>
           <Route
-            path='/new-home'
+            path="/new-landing"
+            element={
+              <PasswordProtectedPage>
+                <NewWebsiteLayout />
+              </PasswordProtectedPage>
+            }
+          >
+            <Route index element={<LandingPageV2 />} />
+          </Route>
+          <Route
+            path="/new-home"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -100,11 +111,11 @@ export default function App() {
             }
           >
             <Route index element={<NewHomePage />} />
-            <Route path='contact' element={<ContactPage />} />
-            <Route path='a-propos' element={<AboutPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="a-propos" element={<AboutPage />} />
           </Route>
           <Route
-            path='/peintre-professionnel'
+            path="/peintre-professionnel"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -114,7 +125,7 @@ export default function App() {
             <Route index element={<PeintreProfessionnelPage />} />
           </Route>
           <Route
-            path='/avis'
+            path="/avis"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -124,7 +135,7 @@ export default function App() {
             <Route index element={<AvisPage />} />
           </Route>
           <Route
-            path='/secteurs-desservis'
+            path="/secteurs-desservis"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -132,13 +143,13 @@ export default function App() {
             }
           >
             <Route index element={<SecteursDesservisPage />} />
-            <Route path='brossard' element={<BrossardCityPage />} />
-            <Route path='montreal' element={<MontrealCityPage />} />
-            <Route path='laval' element={<LavalCityPage />} />
-            <Route path='longueuil' element={<LongueuilCityPage />} />
+            <Route path="brossard" element={<BrossardCityPage />} />
+            <Route path="montreal" element={<MontrealCityPage />} />
+            <Route path="laval" element={<LavalCityPage />} />
+            <Route path="longueuil" element={<LongueuilCityPage />} />
           </Route>
           <Route
-            path='/services'
+            path="/services"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -147,43 +158,43 @@ export default function App() {
           >
             <Route index element={<ServicesPage />} />
             <Route
-              path='peinture-commerciale'
+              path="peinture-commerciale"
               element={<PeintureCommercialePage />}
             />
             <Route
-              path='new-peinture-exterieure'
+              path="new-peinture-exterieure"
               element={<PeintureExterieurePage />}
             />
             <Route
-              path='peinture-residentielle'
+              path="peinture-residentielle"
               element={<PeintureResidentiellePage />}
             />
             <Route
-              path='new-peinture-interieure'
+              path="new-peinture-interieure"
               element={<PeintureInterieurePage />}
             />
             <Route
-              path='peinture-industrielle'
+              path="peinture-industrielle"
               element={<PeintureIndustriellePage />}
             />
             {/* Dynamic Service × SubService routes - MUST be before Service × SubService × City */}
             <Route
-              path=':serviceSlug/:subServiceSlug'
+              path=":serviceSlug/:subServiceSlug"
               element={<SousServicePage />}
             />
             {/* Smart router for 3-segment routes - handles both SousServiceVille and ServiceQuartierSecteur */}
             <Route
-              path=':serviceSlug/:param2/:param3'
+              path=":serviceSlug/:param2/:param3"
               element={<SmartServiceRouter />}
             />
             {/* Dynamic Service × City routes - MUST be last to avoid conflicts */}
             <Route
-              path=':serviceSlug/:citySlug'
+              path=":serviceSlug/:citySlug"
               element={<ServiceQuartierPage />}
             />
           </Route>
           <Route
-            path='/blog'
+            path="/blog"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -192,20 +203,20 @@ export default function App() {
           >
             <Route index element={<BlogPage />} />
             <Route
-              path='comment-choisir-un-peintre-professionnel'
+              path="comment-choisir-un-peintre-professionnel"
               element={<CommentChoisirPeintreProfessionnelPage />}
             />
             <Route
-              path='prix-peinture-montreal'
+              path="prix-peinture-montreal"
               element={<PrixPeintureMontrealPage />}
             />
             <Route
-              path='erreurs-a-eviter-peinture-interieure'
+              path="erreurs-a-eviter-peinture-interieure"
               element={<ErreursAEviterPeintureInterieurePage />}
             />
           </Route>
           <Route
-            path='/new-contact'
+            path="/new-contact"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -215,7 +226,7 @@ export default function App() {
             <Route index element={<ContactPage />} />
           </Route>
           <Route
-            path='/a-propos'
+            path="/a-propos"
             element={
               <PasswordProtectedPage>
                 <NewWebsiteLayout />
@@ -224,22 +235,22 @@ export default function App() {
           >
             <Route index element={<AboutPage />} />
           </Route>
-          <Route path='/admin'>
-            <Route path='dashboard' element={<AdminDashboard />} />
-            <Route path='soumissions' element={<SoumissionDashboard />} />
-            <Route path='emplois' element={<EmploiesDashboard />} />
-            <Route path='contact' element={<ContactDashboard />} />
-            <Route path='timesheets' element={<TimeSheetDashboard />} />
-            <Route path='employees' element={<EmployeeManagement />} />
-            <Route path='employee-details' element={<EmployeeDetails />} />
+          <Route path="/admin">
+            <Route path="dashboard" element={<AdminDashboard />} />
+            <Route path="soumissions" element={<SoumissionDashboard />} />
+            <Route path="emplois" element={<EmploiesDashboard />} />
+            <Route path="contact" element={<ContactDashboard />} />
+            <Route path="timesheets" element={<TimeSheetDashboard />} />
+            <Route path="employees" element={<EmployeeManagement />} />
+            <Route path="employee-details" element={<EmployeeDetails />} />
           </Route>
-          <Route path='/timesheet' element={<TimeSheet />} />
+          <Route path="/timesheet" element={<TimeSheet />} />
           {/* 404 Page - Use WebsiteLayout for old site compatibility */}
-          <Route path='/404' element={<WebsiteLayout />}>
+          <Route path="/404" element={<WebsiteLayout />}>
             <Route index element={<NotFoundPage />} />
           </Route>
           {/* 404 - Catch all unmatched routes - Use WebsiteLayout to preserve old site behavior */}
-          <Route path='*' element={<WebsiteLayout />}>
+          <Route path="*" element={<WebsiteLayout />}>
             <Route index element={<NotFoundPage />} />
           </Route>
         </Routes>

@@ -89,16 +89,16 @@ export default function AvisPage() {
       time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
       content:
         currentLang === 'fr'
-          ? "Je suis très satisfaite des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
-          : 'I am very satisfied with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
+          ? "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
+          : 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
     },
     {
       name: 'Zoé Boudreau',
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? 'Je suis très satisfaite du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
-          : 'I am very satisfied with the service received! Competent, fast and courteous team. I warmly recommend!',
+          ? 'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
+          : 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
     },
     {
       name: 'Michiel Schrey',
@@ -129,8 +129,8 @@ export default function AvisPage() {
       time: currentLang === 'fr' ? 'Il y a 6 jours' : '6 days ago',
       content:
         currentLang === 'fr'
-          ? "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très satisfaite des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets."
-          : 'Le Lever Du Pinceau has done multiple painting projects for me. I was very satisfied with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
+          ? "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très ravie des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets."
+          : 'Le Lever Du Pinceau has done multiple painting projects for me. I was very delighted with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
     },
     {
       name: 'A Mayer',
@@ -185,8 +185,8 @@ export default function AvisPage() {
       time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
       content:
         currentLang === 'fr'
-          ? "Très satisfait du travail effectué. L'équipe a été ponctuelle, propre et le résultat est parfait. Je les recommande vivement!"
-          : 'Very satisfied with the work done. The team was punctual, clean and the result is perfect. I highly recommend them!',
+          ? "Très ravi du travail effectué. L'équipe a été ponctuelle, propre et le résultat est parfait. Je les recommande vivement!"
+          : 'Very delighted with the work done. The team was punctual, clean and the result is perfect. I highly recommend them!',
     },
     {
       name: 'Caroline Gagnon',
@@ -225,8 +225,8 @@ export default function AvisPage() {
       time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
       content:
         currentLang === 'fr'
-          ? "Très satisfaite! L'équipe a peint mon appartement rapidement et avec beaucoup de soin. Tout était propre à la fin."
-          : 'Very satisfied! The team painted my apartment quickly and with great care. Everything was clean at the end.',
+          ? "Très ravie! L'équipe a peint mon appartement rapidement et avec beaucoup de soin. Tout était propre à la fin."
+          : 'Very delighted! The team painted my apartment quickly and with great care. Everything was clean at the end.',
     },
     {
       name: 'Pierre Bergeron',
@@ -273,8 +273,8 @@ export default function AvisPage() {
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? "Très satisfaite du service! L'équipe a peint mon condo avec beaucoup de soin. Le résultat est impeccable et tout était propre."
-          : 'Very satisfied with the service! The team painted my condo with great care. The result is impeccable and everything was clean.',
+          ? "Très ravie du service! L'équipe a peint mon condo avec beaucoup de soin. Le résultat est impeccable et tout était propre."
+          : 'Very delighted with the service! The team painted my condo with great care. The result is impeccable and everything was clean.',
     },
     {
       name: 'Patrick Simard',
@@ -381,8 +381,8 @@ export default function AvisPage() {
           name: 'Chantal Baril',
         },
         reviewBody: isFr
-          ? "Je suis très satisfaite des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
-          : 'I am very satisfied with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
+          ? "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
+          : 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
         reviewRating: {
           '@type': 'Rating',
           ratingValue: '5',
@@ -395,8 +395,8 @@ export default function AvisPage() {
           name: 'Zoé Boudreau',
         },
         reviewBody: isFr
-          ? 'Je suis très satisfaite du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
-          : 'I am very satisfied with the service received! Competent, fast and courteous team. I warmly recommend!',
+          ? 'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
+          : 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
         reviewRating: {
           '@type': 'Rating',
           ratingValue: '5',
@@ -482,8 +482,8 @@ export default function AvisPage() {
                 maxW='800px'
               >
                 {isFr
-                  ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur, toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable.'
-                  : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior, all our interventions are carried out with precision, cleanliness and impeccable attention to detail.'}
+                  ? 'Chez Le Lever du Pinceau, le bonheur de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur, toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable.'
+                  : 'At Le Lever du Pinceau, customer delight is at the heart of everything we do. Residential, commercial, interior or exterior, all our interventions are carried out with precision, cleanliness and impeccable attention to detail.'}
               </Text>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}

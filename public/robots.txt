@@ -7,6 +7,7 @@ Disallow: /timesheet
 
 # Block new website pages (during development - remove when ready to launch)
 Disallow: /new-home
+Disallow: /new-landing
 Disallow: /peintre-professionnel
 Disallow: /secteurs-desservis
 Disallow: /services

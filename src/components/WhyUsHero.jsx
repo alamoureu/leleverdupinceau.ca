@@ -42,8 +42,8 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
           </Text>
           <Text fontSize="md">
             {lang === 'fr'
-              ? 'Plus de 800 clients satisfaits'
-              : 'Over 800 satisfied clients'}
+              ? 'Plus de 800 clients ravis'
+              : 'Over 800 delighted clients'}
           </Text>
         </Box>
         <Box textAlign="center">

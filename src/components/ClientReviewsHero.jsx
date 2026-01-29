@@ -66,8 +66,8 @@ export default function ClientReviewsHero({ lang, onDrawerOpen }) {
         </Box>
         <Text fontSize="md" color="gray.700">
           {lang === 'fr'
-            ? 'Je suis très satisfaite des travaux qui ont été effectués à notre résidence. J’ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!'
-            : 'I am very satisfied with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!'}
+            ? 'Je suis très ravie des travaux qui ont été effectués à notre résidence. J’ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!'
+            : 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!'}
         </Text>
         <Box mt={2} display="flex" justifyContent="flex-start">
           <Icon as={FiThumbsUp} color="gray.500" fontSize="lg" />

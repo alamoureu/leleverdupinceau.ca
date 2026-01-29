@@ -87,6 +87,7 @@ try {
 
   const requiredBlocks = [
     'Disallow: /new-home',
+    'Disallow: /new-landing',
     'Disallow: /services',
     'Disallow: /blog',
   ];
@@ -168,6 +169,9 @@ try {
   // Check for exact dev routes (not production routes that might match)
   if (content.includes('<loc>https://www.leleverdupinceau.ca/new-home</loc>')) {
     devRoutesInSitemap.push('/new-home');
+  }
+  if (content.includes('<loc>https://www.leleverdupinceau.ca/new-landing</loc>')) {
+    devRoutesInSitemap.push('/new-landing');
   }
   if (
     content.includes(
