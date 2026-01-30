@@ -25,7 +25,7 @@ export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
   const location = useLocation();
-  const isNewLanding = location.pathname === '/new-landing'; // hide footer on new-landing
+  const isNewLanding = location.pathname === '/fr/peintre-montreal' || location.pathname === '/en/peintre-montreal'; // hide footer on landing
 
   return (
     <Fragment>

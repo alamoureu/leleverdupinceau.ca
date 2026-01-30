@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
@@ -6,48 +6,82 @@ import HeroSection from '../lelever-next/home-page/HeroSection';
 import TrustBanner from '../lelever-next/home-page/TrustBanner';
 import ControlSection from '../lelever-next/home-page/ControlSection';
 import MethodSection from '../lelever-next/home-page/MethodSection';
+import ReviewsSection from '../lelever-next/home-page/ReviewsSection';
+import FAQSection from '../lelever-next/home-page/FAQSection';
+import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
+import EmbeddedSubmissionForm from '../components/EmbeddedSubmissionForm';
 import SubmissionModal from '../components/SubmissionModal';
 import { useTranslation } from '../lelever-next/i18n';
 
+const META = {
+  fr: {
+    title: 'Entreprise de Peinture à Montréal | Le Lever du Pinceau',
+    description:
+      "Découvrez les meilleurs services de peinture intérieure et extérieure à Montréal avec Le Lever du Pinceau. Travail professionnel, matériaux de qualité et prix compétitifs. Demandez votre soumission gratuite dès aujourd'hui.",
+    keywords:
+      'Peinture intérieure Montréal, Peinture extérieure Montréal, Services de peinture résidentielle, Peintres professionnels, Devis peinture Montréal',
+  },
+  en: {
+    title: 'Painting Company Montreal | Le Lever du Pinceau',
+    description:
+      'Discover the best interior and exterior painting services in Montreal with Le Lever du Pinceau. Professional work, quality materials and competitive prices. Request your free quote today.',
+    keywords:
+      'Interior painting Montreal, Exterior painting Montreal, Residential painting services, Professional painters, Painting quote Montreal',
+  },
+};
+
+const CANONICAL_BASE = 'https://leleverdupinceau.ca';
+
 /**
- * New landing page — will eventually replace WebSiteLandingPage (current /).
- * Same form (SubmissionModal + ContactFormSection) and same Google Tag.
- * Password-protected; not in sitemap. UI matches screenshot: new-home hero/navbar,
- * services with image fade, method section with fade on photos.
+ * New landing page. Used at /fr/peintre-montreal and /en/peintre-montreal (indexable)
+ * When indexable=true, lang sets default language and SEO meta.
  */
-export default function LandingPageV2() {
-  const { currentLang } = useContext(appContext);
+function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
+  const { currentLang, setCurrentLang } = useContext(appContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t } = useTranslation();
-  const isFr = currentLang === 'fr';
+
+  const lang = indexable && langProp ? langProp : currentLang;
+  const isFr = lang === 'fr';
   const pageContext = isFr ? 'Accueil' : 'Home';
+
+  useEffect(() => {
+    if (indexable && langProp) setCurrentLang(langProp);
+  }, [indexable, langProp, setCurrentLang]);
+
+  const meta = META[lang] || META.fr;
 
   return (
     <Fragment>
       <Helmet>
-        <title>Entreprise de Peinture à Montréal | Le Lever du Pinceau</title>
-        <meta
-          name="description"
-          content="Découvrez les meilleurs services de peinture intérieure et extérieure à Montréal avec Le Lever du Pinceau. Travail professionnel, matériaux de qualité et prix compétitifs. Demandez votre soumission gratuite dès aujourd'hui."
-        />
-        <meta
-          name="keywords"
-          content="Peinture intérieure Montréal, Peinture extérieure Montréal, Services de peinture résidentielle, Peintres professionnels, Devis peinture Montréal"
-        />
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
+        <html lang={lang} />
+        <title>{meta.title}</title>
+        <meta name="description" content={meta.description} />
+        <meta name="keywords" content={meta.keywords} />
+        {indexable && (
+          <link rel="canonical" href={`${CANONICAL_BASE}/${lang}/peintre-montreal`} />
+        )}
+        {!indexable && <meta name="robots" content="noindex, nofollow" />}
+        {!indexable && <meta name="googlebot" content="noindex, nofollow" />}
+        {indexable && <meta property="og:type" content="website" />}
+        {indexable && <meta property="og:title" content={meta.title} />}
+        {indexable && <meta property="og:description" content={meta.description} />}
+        {indexable && <meta property="og:url" content={`${CANONICAL_BASE}/${lang}/peintre-montreal`} />}
+        {indexable && <meta property="og:locale" content={lang === 'fr' ? 'fr_CA' : 'en_CA'} />}
         <script
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-81FGM6EH3M"
         />
-        <script>
-          {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-81FGM6EH3M');
-    `}
-        </script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-81FGM6EH3M');
+            `,
+          }}
+        />
       </Helmet>
 
       <Box w="100%" bg="white" overflowX="hidden" position="relative">
@@ -109,9 +143,37 @@ export default function LandingPageV2() {
             </Text>
           </Box>
         </Stack>
+
+        <Stack
+          py={{ base: 8, sm: 10, md: 12, lg: 14 }}
+          align="center"
+          px={{ base: 3, sm: 4, md: 6, lg: 8 }}
+        >
+          <Box
+            w="100%"
+            maxW={{
+              base: '100%',
+              sm: '520px',
+              md: '720px',
+              lg: '900px',
+              xl: '960px',
+              '2xl': '1000px',
+            }}
+          >
+            <EmbeddedSubmissionForm isModal={false} trackConversion={true} />
+          </Box>
+        </Stack>
       </Box>
 
-      <SubmissionModal isOpen={isOpen} onClose={onClose} lang={currentLang} />
+      <ReviewsSection />
+
+      <FAQSection />
+
+      <FinalCTASection onSubmissionOpen={onOpen} />
+
+      <SubmissionModal isOpen={isOpen} onClose={onClose} trackConversion={true} />
     </Fragment>
   );
 }
+
+export default LandingPageV2;

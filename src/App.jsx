@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 
 import MainPage from './pages/WebSiteLandingPage';
@@ -79,28 +79,22 @@ export default function App() {
               element={<PrivacyPolicyPage />}
             />
           </Route>
-          <Route path="peintre-montreal" element={<LandingPage lang="fr" />} />
-          <Route path="/fr" element={<LandingPageLayout lang="fr" />}>
+          <Route path="peintre-montreal" element={<Navigate to="/fr/peintre-montreal" replace />} />
+          <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
-              element={<LandingPage lang="fr" />}
+              element={<LandingPageV2 lang="fr" indexable />}
             />
           </Route>
-          <Route path="/en" element={<LandingPageLayout lang="en" />}>
+          <Route path="/en" element={<NewWebsiteLayout />}>
+            <Route
+              path="peintre-montreal"
+              element={<LandingPageV2 lang="en" indexable />}
+            />
             <Route
               path="painter-montreal"
-              element={<LandingPage lang="en" />}
+              element={<Navigate to="/en/peintre-montreal" replace />}
             />
-          </Route>
-          <Route
-            path="/new-landing"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<LandingPageV2 />} />
           </Route>
           <Route
             path="/new-home"

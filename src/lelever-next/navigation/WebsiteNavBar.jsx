@@ -32,7 +32,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
-      : location.pathname === '/new-landing';
+      : (location.pathname === '/fr/peintre-montreal' || location.pathname === '/en/peintre-montreal');
 
   return (
     <Box spacing={0} gap={0} bg="white">

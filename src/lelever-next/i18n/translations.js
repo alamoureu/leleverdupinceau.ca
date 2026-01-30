@@ -77,7 +77,7 @@ export const translations = {
     formSuccessMessage: 'Votre soumission a été envoyée avec succès!',
     formConfirmationTitle: 'Merci ! Votre demande est bien reçue.',
     formConfirmationMessage:
-      "Un membre de notre équipe vous contactera très bientôt pour discuter de votre projet. D'ici là, n'hésitez pas à nous appeler au (438) 868-0772 si vous avez des questions.",
+      "Nous vous recontacterons dans les plus brefs délais pour discuter de votre projet. D'ici là, n'hésitez pas à nous appeler au (438) 868-0772 si vous avez des questions.",
     formSuccessClosing: "À très bientôt ! — L'équipe Le Lever du Pinceau",
 
     controlTitle: 'Quand tout est sous contrôle, tout devient simple',
@@ -239,7 +239,7 @@ export const translations = {
     formSuccessMessage: 'Your submission has been sent successfully!',
     formConfirmationTitle: 'Thank you! Your request has been received.',
     formConfirmationMessage:
-      'A member of our team will contact you shortly to discuss your project. In the meantime, feel free to call us at (438) 868-0772 if you have any questions.',
+      'We will get back to you at our earliest convenience to discuss your project. In the meantime, feel free to call us at (438) 868-0772 if you have any questions.',
     formSuccessClosing: 'Talk soon! — The Le Lever du Pinceau team',
 
     controlTitle: 'When everything is under control, everything becomes simple',
