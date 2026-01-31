@@ -21,10 +21,6 @@ export default function SubmissionModal({ isOpen, onClose }) {
     }
   }, [isOpen]);
 
-  const handleSubmit = (formData) => {
-    console.log('Form submitted:', formData);
-  };
-
   const handleSubmissionStateChange = (submitted) => {
     setIsSubmitted(submitted);
   };
@@ -52,12 +48,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
           </>
         )}
         <ModalBody pb={isSubmitted ? 0 : 6} px={isSubmitted ? 0 : undefined}>
-          <SubmissionForm
-            onSubmit={handleSubmit}
-            onClose={onClose}
-            isModal={true}
-            onSubmissionStateChange={handleSubmissionStateChange}
-          />
+          <SubmissionForm onSubmissionStateChange={handleSubmissionStateChange} />
         </ModalBody>
       </ModalContent>
     </Modal>

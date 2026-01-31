@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
@@ -10,7 +10,7 @@ import MethodSection from '../lelever-next/home-page/MethodSection';
 import ReviewsSection from '../lelever-next/home-page/ReviewsSection';
 import FAQSection from '../lelever-next/home-page/FAQSection';
 import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
-import EmbeddedSubmissionForm from '../components/EmbeddedSubmissionForm';
+import SubmissionForm from '../lelever-next/home-page/SubmissionForm';
 import SubmissionModal from '../components/SubmissionModal';
 import { useTranslation } from '../lelever-next/i18n';
 
@@ -33,18 +33,15 @@ const META = {
 
 const CANONICAL_BASE = 'https://www.leleverdupinceau.ca';
 
-/**
- * New landing page. Used at /fr/peintre-montreal and /en/peintre-montreal (indexable)
- * When indexable=true, lang sets default language and SEO meta.
- */
 function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
   const { currentLang, setCurrentLang } = useContext(appContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t } = useTranslation();
+  const [isFormSuccess, setIsFormSuccess] = useState(false);
 
   const lang = (indexable && langProp ? langProp : currentLang) || 'fr';
   const isFr = lang === 'fr';
-  const pageContext = isFr ? 'Accueil' : 'Home';
+  const pageContext = t.pageContextName ?? (isFr ? 'Accueil' : 'Home');
 
   useEffect(() => {
     if (indexable && langProp) setCurrentLang(langProp);
@@ -161,7 +158,21 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
               '2xl': '1000px',
             }}
           >
-            <EmbeddedSubmissionForm isModal={false} trackConversion={true} />
+            {!isFormSuccess && (
+              <Text
+                as="h2"
+                id="submission-form-title"
+                fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl', xl: '4xl', '2xl': '4xl' }}
+                fontWeight="bold"
+                color="gray.900"
+                textAlign="center"
+                pb={4}
+                textTransform="uppercase"
+              >
+                {t.contactFormTitle}
+              </Text>
+            )}
+            <SubmissionForm onSubmissionStateChange={setIsFormSuccess} />
           </Box>
         </Stack>
       </Box>
@@ -172,7 +183,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
 
       <FinalCTASection onSubmissionOpen={onOpen} />
 
-      <SubmissionModal isOpen={isOpen} onClose={onClose} trackConversion={true} />
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

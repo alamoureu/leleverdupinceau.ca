@@ -5,9 +5,6 @@ import SubmissionForm from './SubmissionForm';
 
 export default function ContactFormSection() {
   const { t } = useTranslation();
-  const handleSubmit = (formData) => {
-    console.log('Form submitted:', formData);
-  };
 
   return (
     <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
@@ -33,7 +30,7 @@ export default function ContactFormSection() {
             w={{ base: '100%', md: '600px' }}
             mx='auto'
           >
-            <SubmissionForm onSubmit={handleSubmit} />
+            <SubmissionForm />
           </Box>
         </Stack>
       </Container>

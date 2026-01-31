@@ -32,10 +32,6 @@ export default function ContactPage() {
   const { currentLang } = useContext(appContext);
   const { isOpen, onClose } = useDisclosure();
 
-  const handleSubmit = (formData) => {
-    console.log('Form submitted:', formData);
-  };
-
   const isFr = currentLang === 'fr';
 
   const contactInfo = [
@@ -266,7 +262,7 @@ export default function ContactPage() {
                     w={{ base: '100%', md: '600px' }}
                     mx='auto'
                   >
-                    <SubmissionForm onSubmit={handleSubmit} />
+                    <SubmissionForm />
                   </Box>
                 </Stack>
               </Container>

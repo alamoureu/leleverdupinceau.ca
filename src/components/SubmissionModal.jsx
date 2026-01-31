@@ -1,56 +1,90 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal,
   ModalBody,
   ModalCloseButton,
   ModalContent,
+  ModalHeader,
   ModalOverlay,
 } from '@chakra-ui/react';
-import EmbeddedSubmissionForm from './EmbeddedSubmissionForm';
+import SubmissionForm from '../lelever-next/home-page/SubmissionForm';
+import { useTranslation } from '../lelever-next/i18n';
 
-function SubmissionModal({ isOpen, onClose, trackConversion = false }) {
+function SubmissionModal({ isOpen, onClose }) {
+  const { t } = useTranslation();
+  const title = t.contactFormTitle;
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) setIsSuccess(false);
+  }, [isOpen]);
+
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
-      size={{ base: 'full', sm: 'md', md: 'lg', lg: 'xl' }}
+      isCentered
+      size={{ base: 'sm', sm: 'md', md: 'lg', lg: 'xl' }}
       scrollBehavior="inside"
       blockScrollOnMount
       closeOnOverlayClick
-      motionPreset="slideInBottom"
-      trapFocus={false}
-      aria-labelledby="submission-form-title"
+      motionPreset="scale"
+      trapFocus
+      returnFocusOnClose
+      aria-labelledby={isSuccess ? undefined : 'submission-modal-title'}
     >
-      <ModalOverlay bg="blackAlpha.600" />
+      <ModalOverlay bg="blackAlpha.600" backdropFilter="blur(4px)" />
       <ModalContent
-        margin={0}
-        minH={{ base: '100vh', sm: '800px' }}
-        maxH="100vh"
-        maxW={{ base: '100vw', sm: 'min(420px, 94vw)', md: 'min(500px, 92vw)', lg: 'min(580px, 90vw)' }}
-        mx={{ base: 0, sm: 4 }}
-        my={{ base: 0, sm: 4 }}
+        margin={{ base: 4, sm: 4 }}
+        minH="auto"
+        maxH={{ base: 'calc(100vh - 2rem)', sm: '90vh' }}
+        maxW={{ base: 'calc(100vw - 2rem)', sm: 'min(440px, 94vw)', md: 'min(520px, 92vw)', lg: 'min(560px, 90vw)' }}
+        mx="auto"
+        my={{ base: 4, sm: 4 }}
+        borderRadius="xl"
+        boxShadow="xl"
         display="flex"
         flexDirection="column"
       >
+        {!isSuccess && (
+          <ModalHeader
+            id="submission-modal-title"
+            pt={{ base: 5, sm: 6 }}
+            pb={{ base: 3, sm: 4 }}
+            px={{ base: 4, sm: 6 }}
+            pr={{ base: 12, sm: 14 }}
+            fontSize={{ base: 'lg', sm: 'xl', md: '2xl' }}
+            fontWeight="bold"
+            color="gray.900"
+            lineHeight="tight"
+            flexShrink={0}
+            textTransform="uppercase"
+          >
+            {title}
+          </ModalHeader>
+        )}
         <ModalCloseButton
-          size="lg"
-          borderRadius="full"
+          position="absolute"
+          top={{ base: 4, sm: 5 }}
+          right={{ base: 4, sm: 5 }}
+          size="md"
           bg="white"
-          color="gray.700"
-          _hover={{ bg: 'gray.100' }}
-          zIndex={10}
-          top={3}
-          right={3}
+          color="gray.600"
+          _hover={{ bg: 'white', color: 'gray.800' }}
+          _focus={{ boxShadow: '0 0 0 2px var(--chakra-colors-blue-400)' }}
+          aria-label={t.modalCloseLabel}
         />
         <ModalBody
-          p={{ base: 3, sm: 4 }}
-          pt={12}
+          pt={{ base: 2, sm: 3 }}
+          px={{ base: 4, sm: 6 }}
+          pb={0}
           flex="1"
           minH={0}
-          overflowY="auto"
-          overscrollBehavior="contain"
+          overflow="hidden"
+          display="flex"
+          flexDirection="column"
         >
-          <EmbeddedSubmissionForm isModal trackConversion={trackConversion} />
+          <SubmissionForm isModal onSubmissionStateChange={setIsSuccess} />
         </ModalBody>
       </ModalContent>
     </Modal>

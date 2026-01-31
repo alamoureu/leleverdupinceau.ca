@@ -79,6 +79,13 @@ export const translations = {
     formConfirmationMessage:
       "Nous vous recontacterons dans les plus brefs délais pour discuter de votre projet. D'ici là, n'hésitez pas à nous appeler au (438) 868-0772 si vous avez des questions.",
     formSuccessClosing: "À très bientôt ! — L'équipe Le Lever du Pinceau",
+    formRequiredSuffix: ' requis',
+    formErrorTitle: 'Erreur',
+    formErrorDescription: 'Veuillez remplir tous les champs obligatoires.',
+    formErrorTryAgain: "Une erreur s'est produite. Veuillez réessayer.",
+    formSubmitting: 'Envoi en cours...',
+    modalCloseLabel: 'Fermer',
+    pageContextName: 'Accueil',
 
     controlTitle: 'Quand tout est sous contrôle, tout devient simple',
     controlSubtitle:
@@ -241,6 +248,13 @@ export const translations = {
     formConfirmationMessage:
       'We will get back to you at our earliest convenience to discuss your project. In the meantime, feel free to call us at (438) 868-0772 if you have any questions.',
     formSuccessClosing: 'Talk soon! — The Le Lever du Pinceau team',
+    formRequiredSuffix: ' required',
+    formErrorTitle: 'Error',
+    formErrorDescription: 'Please fill in all required fields.',
+    formErrorTryAgain: 'An error occurred. Please try again.',
+    formSubmitting: 'Sending...',
+    modalCloseLabel: 'Close',
+    pageContextName: 'Home',
 
     controlTitle: 'When everything is under control, everything becomes simple',
     controlSubtitle:

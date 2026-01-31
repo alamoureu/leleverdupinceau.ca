@@ -3,13 +3,6 @@ import appContext from '../AppProvider';
 import { Box, Text } from '@chakra-ui/react';
 import { GA_MEASUREMENT_ID } from '../config/analytics';
 
-/**
- * Fires gtag conversion when the iframe sends a postMessage on form submit.
- * In Go High Level, configure the form's thank-you / success action to send
- * a postMessage to the parent, e.g.:
- *   window.parent.postMessage(JSON.stringify({ type: 'form_submit' }), '*');
- * Accepted types: form_submit, formsubmit, form_complete, submit
- */
 function useConversionTracking(trackConversion) {
   useEffect(() => {
     if (!trackConversion) return;
@@ -23,9 +16,7 @@ function useConversionTracking(trackConversion) {
         if (['form_submit', 'formsubmit', 'form_complete', 'submit'].includes(type) && typeof window.gtag === 'function') {
           window.gtag('event', 'conversion', { send_to: GA_MEASUREMENT_ID });
         }
-      } catch (_) {
-        // ignore
-      }
+      } catch (_) {}
     };
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
@@ -44,9 +35,7 @@ export default function EmbeddedSubmissionForm({ isModal = false, trackConversio
     return () => {
       try {
         if (script.parentNode) script.parentNode.removeChild(script);
-      } catch (_) {
-        // ignore if already removed
-      }
+      } catch (_) {}
     };
   }, []);
 

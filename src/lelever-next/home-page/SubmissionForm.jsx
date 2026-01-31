@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import {
   Stack,
   FormControl,
+  FormErrorMessage,
   FormLabel,
   Input,
   Textarea,
@@ -22,10 +23,14 @@ import { useTranslation } from '../i18n';
 import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
+import { GA_MEASUREMENT_ID } from '../../config/analytics';
 
 const activeLabelStyles = {
   transform: 'scale(0.85) translateY(-24px)',
 };
+
+const BRAND_BLUE = '#014CC4';
+const BRAND_BLUE_HOVER = '#0139A0';
 
 const theme = extendTheme({
   fonts: {
@@ -38,15 +43,8 @@ const theme = extendTheme({
       variants: {
         floating: {
           container: {
-            _focusWithin: {
-              label: {
-                ...activeLabelStyles,
-              },
-            },
-            'input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label':
-              {
-                ...activeLabelStyles,
-              },
+            _focusWithin: { label: { ...activeLabelStyles } },
+            'input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label': { ...activeLabelStyles },
             label: {
               top: 0,
               left: 0,
@@ -60,14 +58,77 @@ const theme = extendTheme({
               transformOrigin: 'left top',
               transition: 'all 0.2s',
             },
-            input: {
-              backgroundColor: 'white',
-            },
-            textarea: {
-              backgroundColor: 'white',
-            },
+            input: { backgroundColor: 'white' },
+            textarea: { backgroundColor: 'white' },
           },
         },
+      },
+    },
+    Radio: {
+      baseStyle: {
+        control: {
+          w: 6,
+          h: 6,
+          border: '2px solid',
+          borderColor: 'gray.300',
+          borderRadius: 'full',
+          bg: 'white',
+          transition: 'border-color 0.2s, background 0.2s, box-shadow 0.2s',
+          _hover: { borderColor: 'gray.400', bg: 'gray.50' },
+          _checked: {
+            bg: BRAND_BLUE,
+            borderColor: BRAND_BLUE,
+            borderWidth: '2px',
+            color: 'white',
+            _before: {
+              content: '""',
+              display: 'block',
+              w: 2,
+              h: 2,
+              borderRadius: 'full',
+              bg: 'white',
+              transform: 'scale(1)',
+            },
+            _hover: { bg: BRAND_BLUE_HOVER, borderColor: BRAND_BLUE_HOVER },
+          },
+          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}40` },
+        },
+        label: {
+          ml: 3,
+          fontWeight: 'medium',
+          color: 'gray.800',
+          cursor: 'pointer',
+        },
+      },
+      sizes: {
+        md: { control: { w: 6, h: 6 } },
+        lg: { control: { w: 6, h: 6 } },
+      },
+    },
+    Checkbox: {
+      baseStyle: {
+        control: {
+          w: 6,
+          h: 6,
+          minW: 6,
+          minH: 6,
+          borderRadius: 'md',
+          border: '2px solid',
+          borderColor: 'gray.300',
+          transition: 'border-color 0.2s, background 0.2s',
+          _hover: { borderColor: 'gray.400' },
+          _checked: {
+            bg: BRAND_BLUE,
+            borderColor: BRAND_BLUE,
+            color: 'white',
+            _hover: { bg: BRAND_BLUE_HOVER, borderColor: BRAND_BLUE_HOVER },
+          },
+          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}40` },
+        },
+      },
+      sizes: {
+        md: { control: { w: 6, h: 6, minW: 6, minH: 6 } },
+        lg: { control: { w: 6, h: 6, minW: 6, minH: 6 } },
       },
     },
   },
@@ -75,14 +136,14 @@ const theme = extendTheme({
 
 export default function SubmissionForm({
   onSubmit,
-  onClose,
-  isModal: _isModal = false,
   onSubmissionStateChange,
+  isModal = false,
 }) {
-  const { t } = useTranslation();
+  const { t, currentLang } = useTranslation();
   const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [touched, setTouched] = useState({});
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -108,7 +169,6 @@ export default function SubmissionForm({
     });
   };
 
-  // Notify parent of submission state
   useEffect(() => {
     if (isSubmitted && onSubmissionStateChange) {
       onSubmissionStateChange(true);
@@ -117,30 +177,28 @@ export default function SubmissionForm({
     }
   }, [isSubmitted, onSubmissionStateChange]);
 
+  const getErrors = () => {
+    const suffix = t.formRequiredSuffix ?? ' required';
+    const err = {};
+    if (!formData.name?.trim()) err.name = (t.formName ?? '') + suffix;
+    if (!formData.email?.trim()) err.email = (t.formEmail ?? '') + suffix;
+    if (!formData.phone?.trim()) err.phone = (t.formPhone ?? '') + suffix;
+    if (!formData.address?.trim()) err.address = (t.formAddress ?? '') + suffix;
+    if (!formData.projectDetails?.trim()) err.projectDetails = (t.formProjectDetails ?? '') + suffix;
+    if (!formData.paintingType) err.paintingType = (t.formPaintingType ?? '') + suffix;
+    if (!formData.consentAccepted) err.consentAccepted = t.formConsentRequired ?? '';
+    return err;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const errors = getErrors();
+    setTouched(Object.fromEntries(Object.keys(errors).map((k) => [k, true])));
 
-    if (!formData.consentAccepted) {
+    if (Object.keys(errors).length > 0) {
       toast({
-        title: t.formConsentRequired || 'Consent required',
-        description:
-          t.formConsentRequired || 'Please accept the terms and conditions.',
-        status: 'warning',
-        duration: 4000,
-        isClosable: true,
-      });
-      return;
-    }
-
-    if (
-      !formData.name ||
-      !formData.email ||
-      !formData.phone ||
-      !formData.address
-    ) {
-      toast({
-        title: 'Error',
-        description: 'Please fill in all required fields.',
+        title: t.formErrorTitle ?? 'Error',
+        description: t.formErrorDescription ?? 'Please fill in all required fields.',
         status: 'warning',
         duration: 4000,
         isClosable: true,
@@ -151,7 +209,6 @@ export default function SubmissionForm({
     setIsSubmitting(true);
 
     try {
-      // Prepare data for Firebase
       const firebaseData = {
         name: formData.name,
         email: formData.email,
@@ -163,31 +220,23 @@ export default function SubmissionForm({
         source: 'Website Form',
       };
 
-      // Save to Firebase
       await addDoc(collection(db, 'Soumission'), firebaseData);
 
-      // Send to GoHighLevel webhook
+      const termsText = [t.formConsentText, t.formTermsAndConditions, t.formAnd, t.formPrivacyPolicy, t.formOf].filter(Boolean).join(' ');
+      const ghlData = { ...formData, terms_and_conditions: termsText };
       try {
-        await sendToGoHighLevel(formData);
+        await sendToGoHighLevel(ghlData, { language: currentLang });
       } catch (webhookError) {
-        // Log webhook error but don't fail the submission
         console.error('GoHighLevel webhook error:', webhookError);
-        // Optionally show a warning but continue
       }
 
-      // Call custom onSubmit if provided
-      if (onSubmit) {
-        onSubmit(formData);
-      }
-
-      // Show success state
+      if (onSubmit) onSubmit(formData);
       setIsSubmitted(true);
-      // Notify parent of submission state change
-      if (onSubmissionStateChange) {
-        onSubmissionStateChange(true);
+      if (onSubmissionStateChange) onSubmissionStateChange(true);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'conversion', { send_to: GA_MEASUREMENT_ID });
       }
 
-      // Reset form
       setFormData({
         name: '',
         email: '',
@@ -197,18 +246,11 @@ export default function SubmissionForm({
         paintingType: '',
         consentAccepted: false,
       });
-
-      // Close modal if provided (after showing confirmation)
-      if (onClose) {
-        setTimeout(() => {
-          onClose();
-        }, 5000);
-      }
     } catch (error) {
       console.error('Submission error:', error);
       toast({
-        title: 'Error',
-        description: 'An error occurred. Please try again.',
+        title: t.formErrorTitle ?? 'Error',
+        description: t.formErrorTryAgain ?? 'An error occurred. Please try again.',
         status: 'error',
         duration: 5000,
         isClosable: true,
@@ -218,13 +260,11 @@ export default function SubmissionForm({
     }
   };
 
-  // Show confirmation message if submitted
   if (isSubmitted) {
     return (
       <ChakraProvider theme={theme}>
-        <Box w='100%' p={{ base: 8, md: 10 }} textAlign='center'>
+        <Box w="100%" p={{ base: 6, sm: 8, md: 10 }} textAlign="center">
           <Stack spacing={6}>
-            {/* Success Icon with Animation */}
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
@@ -242,9 +282,9 @@ export default function SubmissionForm({
                 w={{ base: '60px', md: '80px' }}
                 h={{ base: '60px', md: '80px' }}
                 mx='auto'
-                bg='#014CC4'
-                borderRadius='full'
-                boxShadow='0 4px 15px rgba(1, 76, 196, 0.3)'
+                bg={BRAND_BLUE}
+                borderRadius="full"
+                boxShadow="0 4px 15px rgba(1, 76, 196, 0.3)"
               >
                 <Text
                   fontSize={{ base: '2xl', md: '3xl' }}
@@ -256,18 +296,16 @@ export default function SubmissionForm({
               </Box>
             </motion.div>
 
-            {/* Title */}
             <Heading
               as='h3'
               fontSize={{ base: 'xl', md: '2xl' }}
               fontWeight='bold'
-              color='#014CC4'
+              color={BRAND_BLUE}
               textAlign='center'
             >
               {t.formConfirmationTitle}
             </Heading>
 
-            {/* Subtitle */}
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
               color='gray.600'
@@ -279,7 +317,6 @@ export default function SubmissionForm({
               {t.formConfirmationMessage}
             </Text>
 
-            {/* Closing line */}
             {t.formSuccessClosing && (
               <Text
                 fontSize='sm'
@@ -296,238 +333,215 @@ export default function SubmissionForm({
     );
   }
 
+  const errors = getErrors();
+  const showError = (field) => touched[field] && errors[field];
+
   return (
     <ChakraProvider theme={theme}>
-      <form onSubmit={handleSubmit}>
-        <Stack spacing={6}>
-          <FormControl variant='floating' isRequired>
+      <Box
+        as="form"
+        onSubmit={handleSubmit}
+        w="100%"
+        maxW={{ base: '100%', sm: '480px', md: '520px' }}
+        mx="auto"
+        display="flex"
+        flexDirection="column"
+        flex={isModal ? '1' : undefined}
+        minH={isModal ? '0' : undefined}
+        py={isModal ? 0 : { base: 6, md: 8 }}
+        px={isModal ? 0 : { base: 2, sm: 4 }}
+      >
+        <Box
+          flex={isModal ? '1' : undefined}
+          minH={isModal ? 0 : undefined}
+          overflowY={isModal ? 'auto' : undefined}
+          overscrollBehavior="contain"
+          w="100%"
+          pt={isModal ? { base: 2, sm: 3 } : 0}
+        >
+          <Stack
+            spacing={isModal ? { base: 4, md: 5 } : { base: 6, md: 7 }}
+            align="stretch"
+            w="100%"
+            pb={isModal ? 2 : { base: 4, md: 6 }}
+          >
+          <FormControl variant="floating" isRequired isInvalid={showError('name')}>
             <Input
-              name='name'
+              name="name"
               value={formData.name}
               onChange={handleChange}
-              placeholder=' '
-              size='lg'
-              borderColor='gray.300'
-              _focus={{
-                borderColor: '#014CC4',
-                boxShadow: '0 0 0 1px #014CC4',
-              }}
+              onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+              placeholder=" "
+              size="lg"
+              borderColor="gray.300"
+              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
-            <FormLabel
-              color='gray.700'
-              requiredIndicator={
-                <Text as='span' color='red.500'>
-                  *
-                </Text>
-              }
-            >
+            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
               {t.formName}
             </FormLabel>
+            <FormErrorMessage>{errors.name}</FormErrorMessage>
           </FormControl>
 
-          <FormControl variant='floating' isRequired>
+          <FormControl variant="floating" isRequired isInvalid={showError('email')}>
             <Input
-              name='email'
-              type='email'
+              name="email"
+              type="email"
               value={formData.email}
               onChange={handleChange}
-              placeholder=' '
-              size='lg'
-              borderColor='gray.300'
-              _focus={{
-                borderColor: '#014CC4',
-                boxShadow: '0 0 0 1px #014CC4',
-              }}
+              onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
+              placeholder=" "
+              size="lg"
+              borderColor="gray.300"
+              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
-            <FormLabel
-              color='gray.700'
-              requiredIndicator={
-                <Text as='span' color='red.500'>
-                  *
-                </Text>
-              }
-            >
-              {t.formEmail || 'Email'}
+            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+              {t.formEmail}
             </FormLabel>
+            <FormErrorMessage>{errors.email}</FormErrorMessage>
           </FormControl>
 
-          <FormControl variant='floating' isRequired>
+          <FormControl variant="floating" isRequired isInvalid={showError('phone')}>
             <Input
-              name='phone'
-              type='tel'
+              name="phone"
+              type="tel"
               value={formData.phone}
               onChange={handleChange}
-              placeholder=' '
-              size='lg'
-              borderColor='gray.300'
-              _focus={{
-                borderColor: '#014CC4',
-                boxShadow: '0 0 0 1px #014CC4',
-              }}
+              onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
+              placeholder=" "
+              size="lg"
+              borderColor="gray.300"
+              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
-            <FormLabel
-              color='gray.700'
-              requiredIndicator={
-                <Text as='span' color='red.500'>
-                  *
-                </Text>
-              }
-            >
+            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
               {t.formPhone}
             </FormLabel>
+            <FormErrorMessage>{errors.phone}</FormErrorMessage>
           </FormControl>
 
-          <FormControl variant='floating' isRequired>
+          <FormControl variant="floating" isRequired isInvalid={showError('address')}>
             <Input
-              name='address'
+              name="address"
               value={formData.address}
               onChange={handleChange}
-              placeholder=' '
-              size='lg'
-              borderColor='gray.300'
-              _focus={{
-                borderColor: '#014CC4',
-                boxShadow: '0 0 0 1px #014CC4',
-              }}
+              onBlur={() => setTouched((prev) => ({ ...prev, address: true }))}
+              placeholder=" "
+              size="lg"
+              borderColor="gray.300"
+              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
-            <FormLabel
-              color='gray.700'
-              requiredIndicator={
-                <Text as='span' color='red.500'>
-                  *
-                </Text>
-              }
-            >
+            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
               {t.formAddress}
             </FormLabel>
+            <FormErrorMessage>{errors.address}</FormErrorMessage>
           </FormControl>
 
-          <FormControl variant='floating' isRequired>
+          <FormControl variant="floating" isRequired isInvalid={showError('projectDetails')}>
             <Textarea
-              name='projectDetails'
+              name="projectDetails"
               value={formData.projectDetails}
               onChange={handleChange}
-              placeholder=' '
-              rows={5}
-              size='lg'
-              borderColor='gray.300'
-              _focus={{
-                borderColor: '#014CC4',
-                boxShadow: '0 0 0 1px #014CC4',
-              }}
+              onBlur={() => setTouched((prev) => ({ ...prev, projectDetails: true }))}
+              placeholder=" "
+              rows={4}
+              size="lg"
+              borderColor="gray.300"
+              resize="vertical"
+              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
-            <FormLabel
-              color='gray.700'
-              requiredIndicator={
-                <Text as='span' color='red.500'>
-                  *
-                </Text>
-              }
-            >
+            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
               {t.formProjectDetails}
             </FormLabel>
+            <FormErrorMessage>{errors.projectDetails}</FormErrorMessage>
           </FormControl>
 
-          <FormControl isRequired>
-            <FormLabel
-              color='gray.700'
-              mb={3}
-              requiredIndicator={
-                <Text as='span' color='red.500'>
-                  *
-                </Text>
-              }
-            >
+          <FormControl isRequired isInvalid={showError('paintingType')} w="100%">
+            <FormLabel color="gray.700" mb={2} requiredIndicator={<Text as="span" color="red.500">*</Text>}>
               {t.formPaintingType}
             </FormLabel>
             <RadioGroup
               value={formData.paintingType}
-              onChange={handleRadioChange}
+              onChange={(value) => {
+                handleRadioChange(value);
+                setTouched((prev) => ({ ...prev, paintingType: true }));
+              }}
             >
-              <Stack direction='column' spacing={3}>
-                <Radio value='interior' colorScheme='blue'>
-                  {t.formInteriorPainting ||
-                    t.serviceInterior ||
-                    'Peinture intérieure'}
+              <Stack direction="column" spacing={3} w="100%">
+                <Radio value="interior" colorScheme="blue" size="lg">
+                  {t.formInteriorPainting ?? t.serviceInterior}
                 </Radio>
-                <Radio value='exterior' colorScheme='blue'>
-                  {t.formExteriorPainting ||
-                    t.serviceExterior ||
-                    'Peinture extérieure'}
+                <Radio value="exterior" colorScheme="blue" size="lg">
+                  {t.formExteriorPainting ?? t.serviceExterior}
                 </Radio>
               </Stack>
             </RadioGroup>
+            <FormErrorMessage>{errors.paintingType}</FormErrorMessage>
           </FormControl>
 
-          <FormControl isRequired>
-            <Stack direction='row' spacing={3} alignItems='flex-start'>
+          <FormControl isRequired isInvalid={showError('consentAccepted')} w="100%">
+            <Stack direction="row" spacing={3} alignItems="flex-start" w="100%">
               <Checkbox
-                name='consentAccepted'
+                name="consentAccepted"
                 isChecked={formData.consentAccepted}
                 onChange={handleChange}
-                size='md'
-                mt={1}
-                borderColor='gray.300'
-                _checked={{
-                  bg: '#014CC4',
-                  borderColor: '#014CC4',
-                  color: 'white',
-                  _hover: {
-                    bg: '#0139A0',
-                    borderColor: '#0139A0',
-                  },
-                }}
-                _focus={{
-                  boxShadow: '0 0 0 3px rgba(1, 76, 196, 0.2)',
-                }}
+                size="md"
+                mt={0.5}
               />
-              <Box fontSize='sm' color='gray.700' flex={1}>
+              <Box fontSize="xs" color="gray.700" flex={1} lineHeight="1.5">
                 {t.formConsentText}{' '}
-                <Link
-                  href='/politiques/termes-conditions'
-                  color='#014CC4'
-                  textDecoration='underline'
-                  _hover={{ color: '#0139A0' }}
-                >
+                <Link href="/politiques/termes-conditions" color="#014CC4" textDecoration="underline" _hover={{ color: '#0139A0' }}>
                   {t.formTermsAndConditions}
                 </Link>{' '}
                 {t.formAnd}{' '}
-                <Link
-                  href='/politiques/confidentialite'
-                  color='#014CC4'
-                  textDecoration='underline'
-                  _hover={{ color: '#0139A0' }}
-                >
+                <Link href="/politiques/confidentialite" color="#014CC4" textDecoration="underline" _hover={{ color: '#0139A0' }}>
                   {t.formPrivacyPolicy}
                 </Link>{' '}
                 {t.formOf}
               </Box>
             </Stack>
+            <FormErrorMessage mt={2}>{errors.consentAccepted}</FormErrorMessage>
           </FormControl>
 
+          </Stack>
+        </Box>
+
+        <Box
+          flexShrink={0}
+          w="100%"
+          pt={isModal ? 4 : { base: 6, md: 8 }}
+          pb={isModal ? { base: 6, sm: 8 } : 0}
+          borderTopWidth={isModal ? '1px' : 0}
+          borderColor="gray.100"
+          mt="auto"
+          bg="white"
+        >
           <Button
-            type='submit'
-            bg='#014CC4'
-            color='white'
-            w='100%'
+            type="submit"
+            bg={BRAND_BLUE}
+            color="white"
+            w="100%"
             fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
             py={{ base: 4, md: 5, lg: 6 }}
-            fontWeight='semibold'
-            borderRadius='full'
-            _hover={{ bg: '#0139A0' }}
+            fontWeight="semibold"
+            borderRadius="full"
+            _hover={{ bg: BRAND_BLUE_HOVER }}
             _loading={{
               opacity: 0.8,
               cursor: 'not-allowed',
             }}
             isLoading={isSubmitting}
-            loadingText={t.formSubmitting || 'Envoi en cours...'}
-            spinnerPlacement='start'
+            loadingText={t.formSubmitting}
+            spinnerPlacement="start"
             disabled={isSubmitting}
           >
-            {t.formSubmit || 'Envoyer'}
+            {t.formSubmit}
           </Button>
-        </Stack>
-      </form>
+        </Box>
+      </Box>
     </ChakraProvider>
   );
 }

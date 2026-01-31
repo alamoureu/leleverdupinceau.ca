@@ -31,6 +31,7 @@
     "start": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "test": "node src/test/verify-routes.js",
     "open:routes": "node src/test/open-all-routes.js",
     "open:all": "node src/test/open-all-routes.js --all"
@@ -56,6 +57,9 @@
   "devDependencies": {
     "@vitejs/plugin-basic-ssl": "^2.1.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
     "vite": "^6.0.3"
   }
 }
