@@ -92,9 +92,9 @@ export default function FAQSection() {
           </Stack>
 
           <Accordion allowToggle allowMultiple w="100%" maxW="800px" mx="auto">
-            {faqs.map((faq, index) => (
+            {faqs.map((faq) => (
               <AccordionItem
-                key={index}
+                key={faq.question}
                 bg="white"
                 mb={4}
                 border="1px solid"

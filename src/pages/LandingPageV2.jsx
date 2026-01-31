@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
+import { GA_MEASUREMENT_ID } from '../config/analytics';
 import HeroSection from '../lelever-next/home-page/HeroSection';
 import TrustBanner from '../lelever-next/home-page/TrustBanner';
 import ControlSection from '../lelever-next/home-page/ControlSection';
@@ -30,7 +31,7 @@ const META = {
   },
 };
 
-const CANONICAL_BASE = 'https://leleverdupinceau.ca';
+const CANONICAL_BASE = 'https://www.leleverdupinceau.ca';
 
 /**
  * New landing page. Used at /fr/peintre-montreal and /en/peintre-montreal (indexable)
@@ -41,7 +42,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t } = useTranslation();
 
-  const lang = indexable && langProp ? langProp : currentLang;
+  const lang = (indexable && langProp ? langProp : currentLang) || 'fr';
   const isFr = lang === 'fr';
   const pageContext = isFr ? 'Accueil' : 'Home';
 
@@ -70,7 +71,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
         {indexable && <meta property="og:locale" content={lang === 'fr' ? 'fr_CA' : 'en_CA'} />}
         <script
           async
-          src="https://www.googletagmanager.com/gtag/js?id=G-81FGM6EH3M"
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
         />
         <script
           dangerouslySetInnerHTML={{
@@ -78,7 +79,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-81FGM6EH3M');
+              gtag('config', '${GA_MEASUREMENT_ID}');
             `,
           }}
         />

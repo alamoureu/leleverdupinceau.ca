@@ -158,7 +158,7 @@ export const translations = {
     googleRating: '4,9',
 
     trustBannerRbqAlt: 'Régie du bâtiment du Québec',
-    trustBannerRbqText: 'RBQ 5864-1481-01',
+    trustBannerRbqText: '5864-1481-01',
     trustBannerClientsSatisfaits: 'Clients ravis',
     trustBannerAssurance: 'Assurance 5M$',
     trustBannerTrushieldAlt: 'TruShield Insurance',
@@ -319,7 +319,7 @@ export const translations = {
     googleRating: '4.9',
 
     trustBannerRbqAlt: 'Quebec Building Authority',
-    trustBannerRbqText: 'RBQ 5864-1481-01',
+    trustBannerRbqText: '5864-1481-01',
     trustBannerClientsSatisfaits: 'Delighted Clients',
     trustBannerAssurance: '$5M Insurance',
     trustBannerTrushieldAlt: 'TruShield Insurance',

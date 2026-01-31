@@ -114,7 +114,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
       <Box
         w="100%"
         bg="#022A68"
-        py={{ base: 1.5, sm: 2 }}
+        py={{ base: 1.5, sm: 2, md: 3, lg: 4 }}
         px={{ base: 4, sm: 6, lg: 8 }}
         shadow="md"
         position="relative"
@@ -135,8 +135,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               src={
                 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
               }
-              h="56px"
-              maxH="56px"
+              h={{ base: '56px', md: '64px', lg: '68px' }}
+              maxH={{ base: '56px', md: '64px', lg: '68px' }}
               w="auto"
               objectFit="contain"
               flexShrink={0}
@@ -253,59 +253,74 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               <MobileDrawer />
             </Box>
           </HStack>
+        </Box>
 
-          {(isHomePage || isNewLanding) && (
-            <Box
-              position="absolute"
-              top="100%"
-              right={{ base: '-5px', md: '10px', lg: '10px' }}
-              zIndex={10}
-              bg="white"
-              borderTopRadius="none"
-              borderBottomRadius={{ base: '70px', md: '80px', lg: '100px' }}
-              p={{ base: 2, md: 3 }}
-              boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
-              minW={{ base: '65px', md: '90px' }}
-              maxW={{ base: '75px', md: '110px' }}
-              mt={2}
+        {/* Google badge: anchored to bottom of full navbar, then shifted down so it sits just below */}
+        {(isHomePage || isNewLanding) && (
+          <Box
+            position="absolute"
+            bottom={0}
+            left={0}
+            right={0}
+            zIndex={10}
+            pointerEvents="none"
+          >
+            <Flex
+              maxW="1440px"
+              mx="auto"
+              px={{ base: 4, sm: 6, lg: 8 }}
+              justify="flex-end"
+              pointerEvents="auto"
             >
-              <Stack spacing={0} align="center">
-                <Text
-                  fontSize={{ base: '2xs', md: 'sm' }}
-                  color="gray.600"
-                  fontWeight="600"
-                >
-                  {t.googleReviews}
-                </Text>
-                <Flex align="center" gap={0.5}>
+              <Box
+                mt={2}
+                transform="translateY(100%)"
+                bg="white"
+                borderTopRadius="none"
+                borderBottomRadius={{ base: '70px', md: '80px', lg: '100px' }}
+                p={{ base: 2, md: 3 }}
+                boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
+                minW={{ base: '65px', md: '90px' }}
+                maxW={{ base: '75px', md: '110px' }}
+              >
+                <Stack spacing={0} align="center">
                   <Text
                     fontSize={{ base: '2xs', md: 'sm' }}
                     color="gray.600"
                     fontWeight="600"
                   >
-                    {t.googleRating}
+                    {t.googleReviews}
                   </Text>
-                  <Flex gap={0.5}>
-                    {[...Array(5)].map((_, i) => (
-                      <StarIcon
-                        key={i}
-                        color="#FBBC04"
-                        boxSize={{ base: 2, md: 3 }}
-                      />
-                    ))}
+                  <Flex align="center" gap={0.5}>
+                    <Text
+                      fontSize={{ base: '2xs', md: 'sm' }}
+                      color="gray.600"
+                      fontWeight="600"
+                    >
+                      {t.googleRating}
+                    </Text>
+                    <Flex gap={0.5}>
+                      {[...Array(5)].map((_, i) => (
+                        <StarIcon
+                          key={i}
+                          color="#FBBC04"
+                          boxSize={{ base: 2, md: 3 }}
+                        />
+                      ))}
+                    </Flex>
                   </Flex>
-                </Flex>
-                <Image
-                  src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
-                  alt="Google"
-                  h={{ base: '30px', md: '40px' }}
-                  w={{ base: '30px', md: '40px' }}
-                  mt={1}
-                />
-              </Stack>
-            </Box>
-          )}
-        </Box>
+                  <Image
+                    src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
+                    alt="Google"
+                    h={{ base: '30px', md: '40px' }}
+                    w={{ base: '30px', md: '40px' }}
+                    mt={1}
+                  />
+                </Stack>
+              </Box>
+            </Flex>
+          </Box>
+        )}
       </Box>
     </Box>
   );

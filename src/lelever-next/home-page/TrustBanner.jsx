@@ -7,14 +7,14 @@ import trushieldLogo from '../images/trushieldlogo.png';
 const translations = {
   fr: {
     rbqAlt: 'Régie du bâtiment du Québec',
-    rbqText: 'RBQ 5864-1481-01',
+    rbqText: '5864-1481-01',
     clientsSatisfaits: 'Clients ravis',
     assurance: 'Assurance 5M$',
     trushieldAlt: 'TruShield Insurance',
   },
   en: {
     rbqAlt: 'Quebec Building Authority',
-    rbqText: 'RBQ 5864-1481-01',
+    rbqText: '5864-1481-01',
     clientsSatisfaits: 'Delighted Clients',
     assurance: '$5M Insurance',
     trushieldAlt: 'TruShield Insurance',

@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import appContext from '../AppProvider';
 import { Box, Text } from '@chakra-ui/react';
-
-const GA_MEASUREMENT_ID = 'G-81FGM6EH3M';
+import { GA_MEASUREMENT_ID } from '../config/analytics';
 
 /**
  * Fires gtag conversion when the iframe sends a postMessage on form submit.
@@ -60,7 +59,7 @@ export default function EmbeddedSubmissionForm({ isModal = false, trackConversio
   return (
     <Box
       w="100%"
-      minH={isModal ? '750px' : { base: '400px', sm: '520px', md: '668px' }}
+      minH="775px"
       maxH={isModal ? undefined : { base: 'calc(100vh - 80px)', sm: 'none' }}
       overflow="hidden"
       display="flex"
@@ -72,7 +71,7 @@ export default function EmbeddedSubmissionForm({ isModal = false, trackConversio
         id="submission-form-title"
         fontSize={
           isModal
-            ? { base: 'sm', sm: 'md', md: 'lg' }
+            ? { base: 'lg', sm: 'xl', md: '2xl' }
             : {
                 base: 'lg',
                 sm: 'xl',
@@ -89,13 +88,16 @@ export default function EmbeddedSubmissionForm({ isModal = false, trackConversio
         pt={{ base: 2, sm: isModal ? 2 : 0 }}
         pb={3}
         flexShrink={0}
+        maxW="100%"
+        whiteSpace="normal"
+        overflowWrap="break-word"
       >
         {currentLang === 'fr' ? 'OBTENIR UNE SOUMISSION GRATUITE' : 'GET A FREE QUOTE'}
       </Text>
       <Box
         flex="1"
-        minH={isModal ? '680px' : { base: '360px', sm: '480px' }}
-        h={isModal ? '680px' : undefined}
+        minH="750px"
+        h={isModal ? '750px' : undefined}
         w="100%"
         position="relative"
         overflow="hidden"
@@ -108,7 +110,7 @@ export default function EmbeddedSubmissionForm({ isModal = false, trackConversio
             left: 0,
             width: '100%',
             height: '100%',
-            minHeight: isModal ? '680px' : '360px',
+            minHeight: '750px',
             border: 'none',
           }}
           id={`inline-${form.id}`}
