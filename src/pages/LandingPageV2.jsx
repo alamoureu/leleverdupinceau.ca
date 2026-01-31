@@ -2,7 +2,6 @@ import React, { Fragment, useContext, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
-import { GA_MEASUREMENT_ID } from '../config/analytics';
 import HeroSection from '../lelever-next/home-page/HeroSection';
 import TrustBanner from '../lelever-next/home-page/TrustBanner';
 import ControlSection from '../lelever-next/home-page/ControlSection';
@@ -66,20 +65,6 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
         {indexable && <meta property="og:description" content={meta.description} />}
         {indexable && <meta property="og:url" content={`${CANONICAL_BASE}/${lang}/peintre-montreal`} />}
         {indexable && <meta property="og:locale" content={lang === 'fr' ? 'fr_CA' : 'en_CA'} />}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}');
-            `,
-          }}
-        />
       </Helmet>
 
       <Box w="100%" bg="white" overflowX="hidden" position="relative">

@@ -7,7 +7,6 @@ import {
   useBreakpointValue,
 } from '@chakra-ui/react';
 import appContext from '../AppProvider';
-import { GA_MEASUREMENT_ID } from '../config/analytics';
 import MainHero from '../components/MainHero';
 import SubmissionModal from '../components/SubmissionModal';
 import NosServices from '../components/NosServices';
@@ -42,20 +41,6 @@ export default function WebSiteLandingPage() {
         <meta
           name="keywords"
           content="Peinture intérieure Montréal, Peinture extérieure Montréal, Services de peinture résidentielle, Peintres professionnels, Devis peinture Montréal"
-        />
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${GA_MEASUREMENT_ID}');
-            `,
-          }}
         />
       </Helmet>
 

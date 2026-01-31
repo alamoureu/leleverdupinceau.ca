@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import appContext from '../AppProvider';
 import { Box, Text } from '@chakra-ui/react';
-import { GA_MEASUREMENT_ID } from '../config/analytics';
+import { GA_MEASUREMENT_ID, FORM_COMPLETION_EVENT } from '../config/analytics';
 
 function useConversionTracking(trackConversion) {
   useEffect(() => {
@@ -14,7 +14,7 @@ function useConversionTracking(trackConversion) {
         if (!data) return;
         const type = String(data.type || data.event || '').toLowerCase();
         if (['form_submit', 'formsubmit', 'form_complete', 'submit'].includes(type) && typeof window.gtag === 'function') {
-          window.gtag('event', 'conversion', { send_to: GA_MEASUREMENT_ID });
+          window.gtag('event', FORM_COMPLETION_EVENT, { send_to: GA_MEASUREMENT_ID });
         }
       } catch (_) {}
     };

@@ -23,7 +23,7 @@ import { useTranslation } from '../i18n';
 import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
-import { GA_MEASUREMENT_ID } from '../../config/analytics';
+import { GA_MEASUREMENT_ID, FORM_COMPLETION_EVENT } from '../../config/analytics';
 
 const activeLabelStyles = {
   transform: 'scale(0.85) translateY(-24px)',
@@ -233,8 +233,25 @@ export default function SubmissionForm({
       if (onSubmit) onSubmit(formData);
       setIsSubmitted(true);
       if (onSubmissionStateChange) onSubmissionStateChange(true);
+
       if (typeof window.gtag === 'function') {
-        window.gtag('event', 'conversion', { send_to: GA_MEASUREMENT_ID });
+        const userData = {};
+        if (formData.email?.trim()) userData.email = formData.email.trim();
+        const phoneRaw = formData.phone ?? '';
+        const digits = String(phoneRaw).replace(/\D/g, '');
+        const phone = digits.length === 10 && /^[2-9]/.test(digits) ? `+1${digits}` : digits.length === 11 && digits.startsWith('1') ? `+${digits}` : phoneRaw.trim() || undefined;
+        if (phone) userData.phone_number = phone;
+        const nameTrim = formData.name?.trim();
+        if (nameTrim) {
+          const [first, ...rest] = nameTrim.split(/\s+/);
+          userData.first_name = first;
+          if (rest.length) userData.last_name = rest.join(' ').trim();
+        }
+        if (formData.address?.trim()) userData.address = { street: formData.address.trim() };
+        if (Object.keys(userData).length > 0) {
+          window.gtag('set', 'user_data', userData);
+        }
+        window.gtag('event', FORM_COMPLETION_EVENT, { send_to: GA_MEASUREMENT_ID });
       }
 
       setFormData({

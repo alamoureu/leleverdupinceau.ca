@@ -129,8 +129,8 @@ export default function PeintreProfessionnelPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text: isFr
-            ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 2$ et 6$ par pied carré. Pour obtenir une estimation précise adaptée à votre projet, consultez notre article sur les prix de la peinture à Montréal."
-            : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $2 and $6 per square foot. For an accurate estimate tailored to your project, see our article on painting prices in Montreal.',
+            ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 1 et 3 $ par pied carré. Pour obtenir une estimation précise adaptée à votre projet, consultez notre article sur les prix de la peinture à Montréal."
+            : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $1 and $3 per square foot. For an accurate estimate tailored to your project, see our article on painting prices in Montreal.',
         },
       },
       {
@@ -177,8 +177,8 @@ export default function PeintreProfessionnelPage() {
         acceptedAnswer: {
           '@type': 'Answer',
           text: isFr
-            ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Benjamin Moore Natura, Aura et Eco Spec. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
-            : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands like Benjamin Moore Natura, Aura and Eco Spec. We will advise you on the best choice based on your project and budget.",
+            ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
+            : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands such as Bétonel Dulux, using in particular the VIP, Diamond and Lifemaster ranges, known for their durability, excellent coverage and low VOC emissions. We will advise you on the best choice based on your project and budget.",
         },
       },
     ],
@@ -285,8 +285,8 @@ export default function PeintreProfessionnelPage() {
         ? 'Combien coûte un peintre professionnel à Montréal ?'
         : 'How much does a professional painter cost in Montreal?',
       answer: isFr
-        ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 2$ et 6$ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,"
-        : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $2 and $6 per square foot. For an accurate estimate tailored to your project,',
+        ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 1 et 3 $ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,"
+        : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $1 and $3 per square foot. For an accurate estimate tailored to your project,',
       link: isFr
         ? '/blog/prix-peinture-montreal'
         : '/blog/prix-peinture-montreal',
@@ -320,8 +320,8 @@ export default function PeintreProfessionnelPage() {
         ? 'Utilisez-vous des peintures écologiques et sans odeur ?'
         : 'Do you use eco-friendly and odorless paints?',
       answer: isFr
-        ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Benjamin Moore Natura, Aura et Eco Spec. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
-        : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands like Benjamin Moore Natura, Aura and Eco Spec. We will advise you on the best choice based on your project and budget.",
+        ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
+        : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands such as Bétonel Dulux, using in particular the VIP, Diamond and Lifemaster ranges, known for their durability, excellent coverage and low VOC emissions. We will advise you on the best choice based on your project and budget.",
     },
   ];
 
