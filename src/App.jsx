@@ -83,13 +83,13 @@ export default function App() {
           <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
-              element={<LandingPageV2 lang="fr" indexable />}
+              element={<LandingPageV2 lang="fr" indexable={false} />}
             />
           </Route>
           <Route path="/en" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
-              element={<LandingPageV2 lang="en" indexable />}
+              element={<LandingPageV2 lang="en" indexable={false} />}
             />
             <Route
               path="painter-montreal"

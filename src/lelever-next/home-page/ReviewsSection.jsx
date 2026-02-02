@@ -104,7 +104,7 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
     },
   ];
 
-  const [currentIndex, setCurrentIndex] = useState(2); // Start at third position
+  const [currentIndex, setCurrentIndex] = useState(0); // Start at first review
   const [direction, setDirection] = useState(0);
 
   const slideVariants = {

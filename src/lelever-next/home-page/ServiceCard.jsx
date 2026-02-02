@@ -27,6 +27,15 @@ export default function ServiceCard({
     xl: '260px',
     '2xl': '280px',
   };
+  /** Fade height = image + 1px so it overlaps the seam and removes the 1px line */
+  const fadeHeights = {
+    base: '151px',
+    sm: '166px',
+    md: '221px',
+    lg: '241px',
+    xl: '261px',
+    '2xl': '281px',
+  };
 
   return (
     <Box
@@ -106,14 +115,14 @@ export default function ServiceCard({
         </Box>
       </Box>
 
-      {/* White bottom fade: full width of card, positioned over bottom of image */}
+      {/* Soft white fade: extends 1px past image bottom to cover the seam */}
       <Box
         position="absolute"
         top={0}
         left={0}
         right={0}
         w="100%"
-        h={imageHeights}
+        h={fadeHeights}
         pointerEvents="none"
         zIndex={2}
         display="flex"
@@ -121,8 +130,8 @@ export default function ServiceCard({
       >
         <Box
           w="100%"
-          h="45%"
-          bgGradient="linear(to-t, white 0%, white 15%, rgba(255,255,255,0.85) 35%, rgba(255,255,255,0.4) 60%, transparent 100%)"
+          h="40%"
+          bgGradient="linear(to-t, white 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.4) 50%, transparent 100%)"
         />
       </Box>
 
