@@ -11,7 +11,8 @@ const mockReact = {
   useRef: (initial) => ({ current: initial }),
 };
 
-// Mock Chakra UI components
+// Mock Chakra UI components (kept for reference; tests use mockReact)
+// eslint-disable-next-line no-unused-vars
 const mockChakraUI = {
   Box: ({ children, ...props }) => ({ type: 'Box', children, props }),
   Button: ({ children, onClick, ...props }) => ({

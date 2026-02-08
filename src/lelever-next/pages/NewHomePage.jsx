@@ -10,7 +10,6 @@ import RecentProjectsSection from '../home-page/RecentProjectsSection';
 import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import ContactFormSection from '../home-page/ContactFormSection';
-import TrustBanner from '../home-page/TrustBanner';
 import FinalCTASection from '../home-page/FinalCTASection';
 import appContext from '../../AppProvider';
 
@@ -37,14 +36,10 @@ export default function NewHomePage() {
           name='keywords'
           content='Peinture résidentielle Montréal, Peinture commerciale Montréal, Services de peinture, Devis peinture Montréal'
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
       </Helmet>
 
       <Box w='100%' bg='white' overflowX='hidden'>
         <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
-
-        <TrustBanner />
 
         <ServicesSection />
 

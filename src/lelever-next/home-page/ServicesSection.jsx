@@ -12,9 +12,9 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import ServiceCard from './ServiceCard';
-import peintureResidentielleImg from '../images/peinture_residentielle.PNG';
-import peintureCommercialeImg from '../images/peinture_commercial.jpg';
-import peintureInterieurImg from '../images/peinture_interieur.jpg';
+import peintureResidentielleImg from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import peintureCommercialeImg from '../images/1-page-principale/service hub/Peinture commerciale/IMG_6766.PNG';
+import peintureInterieurImg from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 
 const serviceImages = [
   peintureResidentielleImg,
@@ -30,22 +30,19 @@ export default function ServicesSection() {
       image: serviceImages[0],
       title: t.serviceResidential,
       subtitle: t.serviceResidentialDesc,
-      description: t.serviceResidentialDesc,
       link: '/services/peinture-residentielle',
     },
     {
       image: serviceImages[1],
       title: t.serviceCommercial,
       subtitle: t.serviceCommercialDesc,
-      description: t.serviceCommercialDesc,
       link: '/services/peinture-commerciale',
     },
     {
       image: serviceImages[2],
       title: t.serviceInterior,
       subtitle: t.serviceInteriorDesc,
-      description: t.serviceInteriorDesc,
-      link: '/services/new-peinture-interieure',
+      link: '/services/peinture-interieure',
     },
   ];
 
@@ -53,7 +50,7 @@ export default function ServicesSection() {
     <Box
       bg="white"
       position="relative"
-      pt={{ base: 14, sm: 16, md: 26, lg: 32, xl: 52, '2xl': 60 }}
+      pt={{ base: 16, sm: 20, md: 28, lg: 36, xl: 52, '2xl': 60 }}
       pb={{ base: 8, md: 12, lg: 16 }}
     >
       <Container
@@ -61,7 +58,7 @@ export default function ServicesSection() {
         px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
       >
         <Stack
-          spacing={{ base: 5, sm: 5, md: 7, lg: 9, xl: 14, '2xl': 16 }}
+          spacing={{ base: 4, md: 6 }}
           align="center"
           w="100%"
           maxW={{
@@ -72,7 +69,7 @@ export default function ServicesSection() {
           mx="auto"
         >
           <Stack
-            spacing={{ base: 1, sm: 2, md: 3 }}
+            spacing={{ base: 2, md: 3 }}
             textAlign="center"
             maxW={{
               base: '100%',
@@ -82,26 +79,17 @@ export default function ServicesSection() {
               '2xl': '1280px',
             }}
             w="100%"
-            mb={{ base: 0, md: 4 }}
           >
             <Heading
               as="h2"
-              fontSize={{
-                base: 'lg',
-                sm: 'xl',
-                md: '2xl',
-                lg: '3xl',
-                xl: '3xl',
-                '2xl': '4xl',
-              }}
-              fontWeight="bold"
+              size="section"
               color="gray.800"
               whiteSpace={{ base: 'normal', md: 'nowrap' }}
             >
               {t.servicesTitle}
             </Heading>
             <Text
-              fontSize={{ base: 'xs', sm: 'sm', md: 'md', lg: 'lg' }}
+              textStyle="bodyLarge"
               color="gray.600"
             >
               {t.servicesSubtitle}
@@ -110,7 +98,7 @@ export default function ServicesSection() {
 
           <SimpleGrid
             columns={{ base: 1, md: 3 }}
-            spacing={{ base: 5, sm: 6, md: 6, lg: 8, xl: 12, '2xl': 14 }}
+            spacing={{ base: 4, md: 6 }}
             w="100%"
             maxW={{
               base: '280px',
@@ -134,7 +122,6 @@ export default function ServicesSection() {
                   image={service.image}
                   title={service.title}
                   subtitle={service.subtitle}
-                  description={service.description}
                   noHoverBorder
                 />
               </Box>
@@ -144,21 +131,21 @@ export default function ServicesSection() {
           <Stack
             spacing={2}
             align="center"
-            pt={{ base: 3, sm: 4, md: 8, lg: 10, xl: 12 }}
+            pt={{ base: 4, md: 6 }}
             w="100%"
           >
             <Button
               as={RouterLink}
               to="/services"
               variant="outline"
-              borderColor="#014CC4"
-              color="#014CC4"
+              borderColor="brand.500"
+              color="brand.500"
               borderRadius="full"
-              fontSize={{ base: 'sm', md: 'md' }}
+              textStyle="nav"
               px={{ base: 5, md: 7 }}
               py={{ base: 3, md: 4 }}
               rightIcon={<ArrowForwardIcon />}
-              _hover={{ bg: '#014CC4', color: 'white' }}
+              _hover={{ bg: 'brand.500', color: 'white' }}
             >
               {t.viewAllServices}
             </Button>

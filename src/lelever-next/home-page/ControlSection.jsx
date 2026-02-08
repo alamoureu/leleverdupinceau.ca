@@ -99,7 +99,7 @@ export default function ControlSection({ onSubmissionOpen }) {
               {t.controlTitle}
             </Heading>
             <Text
-              fontSize={{ base: 'xs', sm: 'sm', md: 'md', lg: 'lg' }}
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
               color="gray.600"
             >
               {t.controlSubtitle}
@@ -139,7 +139,7 @@ export default function ControlSection({ onSubmissionOpen }) {
           >
             <Button
               onClick={onSubmissionOpen}
-              bg="#014CC4"
+              bg="brand.500"
               color="white"
               fontSize={{ base: 'md', sm: 'lg', md: 'lg' }}
               fontWeight="semibold"
@@ -151,12 +151,12 @@ export default function ControlSection({ onSubmissionOpen }) {
               maxW={{ base: '220px', sm: '240px', md: 'none' }}
               borderRadius="full"
               boxShadow="md"
-              _hover={{ bg: '#0139A0', boxShadow: 'lg' }}
+              _hover={{ bg: 'brand.600', boxShadow: 'lg' }}
             >
               {t.freeSubmission}
             </Button>
             <Text
-              fontSize={{ base: 'xs', sm: 'sm', md: 'lg' }}
+              fontSize={{ base: 'sm', md: 'lg' }}
               color="gray.600"
               fontWeight="medium"
             >

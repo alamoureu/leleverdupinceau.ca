@@ -17,15 +17,15 @@ import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
-import ResidentialProject from '../images/Projets résidentiels.PNG';
-import ExtProject from '../images/projet_exterieur.jpg';
-import CommercialProject from '../images/Projets commerciaux.PNG';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import ResidentialProject from '../images/3-ville/laval/résidentielle/IMG_6763.PNG';
+import ExtProject from '../images/3-ville/laval/extérieure/IMG_6756.PNG';
+import CommercialProject from '../images/3-ville/laval/commerciale/IMG_6760.PNG';
+import img5969 from '../images/3-ville/laval/1. réalisations/IMG_5976.PNG';
+import img5970 from '../images/3-ville/laval/2. réalisations/IMG_6765.PNG';
+import img5971 from '../images/3-ville/laval/3. réalisations/IMG_6753.PNG';
+import img5972 from '../images/3-ville/laval/intérieure/IMG_6764.PNG';
+import img5973 from '../images/3-ville/laval/industrielle/IMG_6780.PNG';
+import img5974 from '../images/3-ville/laval/résidentielle/IMG_6763.PNG';
 
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);
@@ -110,8 +110,6 @@ export default function LavalCityPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis/laval'
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -133,7 +131,7 @@ export default function LavalCityPage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}

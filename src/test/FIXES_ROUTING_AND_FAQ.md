@@ -28,7 +28,6 @@ And sent it to the **wrong component** (`ServiceQuartierSecteurPage` instead of 
 **Reordered routes in `src/App.jsx`:**
 
 ```javascript
-// ✅ NEW ORDER
 {/* Dynamic Service × SubService routes */}
 <Route
   path=':serviceSlug/:subServiceSlug'
@@ -126,7 +125,7 @@ bg='#014CC4'  // ✅ Same as footer
 - [ ] `/services/peinture-commerciale/montreal` → Click "Peinture commerciale intérieure Montréal" → Works
 - [ ] `/services/peinture-commerciale/montreal` → Click "Peinture commerciale extérieure Montréal" → Works
 - [ ] All 16 sous-service × city combinations load correctly
-- [ ] Neighborhood routes still work (e.g., `/services/new-peinture-interieure/montreal/plateau`)
+- [ ] Neighborhood routes still work (e.g., `/services/peinture-interieure/montreal/plateau`)
 
 ### ✅ FAQ:
 - [ ] All 6 questions visible on `/peintre-professionnel`
@@ -136,7 +135,7 @@ bg='#014CC4'  // ✅ Same as footer
 
 ### ✅ CTA:
 - [ ] CTA button is #014CC4 blue (matches footer)
-- [ ] Button links to `/new-contact`
+- [ ] Button links to `/contact`
 
 ---
 

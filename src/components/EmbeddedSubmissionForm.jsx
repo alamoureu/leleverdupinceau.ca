@@ -1,13 +1,18 @@
 import React, { useContext, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import appContext from '../AppProvider';
 import { Box, Text } from '@chakra-ui/react';
 import { GA_MEASUREMENT_ID, FORM_COMPLETION_EVENT } from '../config/analytics';
 
+const SOUMISSION_PATH = '/soumission';
+
 function useConversionTracking(trackConversion) {
+  const location = useLocation();
   useEffect(() => {
     if (!trackConversion) return;
     const handleMessage = (event) => {
       try {
+        if (location.pathname !== SOUMISSION_PATH) return;
         const origin = (event.origin || '').toLowerCase();
         if (!origin.includes('marketermania.com') && !origin.includes('gohighlevel')) return;
         const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
@@ -20,7 +25,7 @@ function useConversionTracking(trackConversion) {
     };
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [trackConversion]);
+  }, [trackConversion, location.pathname]);
 }
 
 export default function EmbeddedSubmissionForm({ isModal = false, trackConversion = false } = {}) {

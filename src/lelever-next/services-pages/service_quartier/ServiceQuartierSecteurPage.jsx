@@ -121,8 +121,6 @@ export default function ServiceQuartierSecteurPage() {
             `https://leleverdupinceau.ca/services/${serviceSlug}/${citySlug}/${neighborhoodSlug}`
           }
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -146,7 +144,7 @@ export default function ServiceQuartierSecteurPage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}

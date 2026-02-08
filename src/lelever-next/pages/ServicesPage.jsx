@@ -60,14 +60,14 @@ export default function ServicesPage() {
       description: isFr
         ? 'Murs, plafonds, portes, escaliers, finitions.'
         : 'Walls, ceilings, doors, stairs, finishes.',
-      link: '/services/new-peinture-interieure',
+      link: '/services/peinture-interieure',
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       description: isFr
         ? 'Revêtements extérieurs, brique, bois, aluminium, crépi.'
         : 'Exterior coatings, brick, wood, aluminum, stucco.',
-      link: '/services/new-peinture-exterieure',
+      link: '/services/peinture-exterieure',
     },
     {
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
@@ -122,7 +122,6 @@ export default function ServicesPage() {
           }
         />
         <link rel='canonical' href='https://leleverdupinceau.ca/services' />
-        <meta name='robots' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -137,56 +136,31 @@ export default function ServicesPage() {
           <Stack spacing={0}>
             <HStack
               spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
+              textStyle='bodyLarge'
               color='gray.600'
               mb={{ base: 4, md: 6 }}
             >
-              <Link
-                href='/'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
+              <Link href='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
                 {isFr ? 'Accueil' : 'Home'}
               </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
+              <Text textStyle='bodyLarge'>›</Text>
+              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
                 {isFr ? 'Services' : 'Services'}
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
+            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
+              <Heading as='h1' size='page' color='gray.800'>
                 {isFr
                   ? 'Services de peinture – Le Lever du Pinceau'
                   : 'Painting Services – Le Lever du Pinceau'}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='800px'
-              >
+              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
                 {isFr
                   ? "Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Nos équipes de peintres professionnels réalisent des projets résidentiels, commerciaux, intérieurs, extérieurs et industriels avec une finition impeccable. Cette page regroupe l'ensemble de nos services afin de vous orienter rapidement vers la page correspondant à votre besoin."
                   : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Our teams of professional painters carry out residential, commercial, interior, exterior and industrial projects with impeccable finish. This page brings together all our services to quickly guide you to the page corresponding to your need.'}
               </Text>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='800px'
-                fontWeight='500'
-              >
+              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
                 {isFr
                   ? '👉 Choisissez un service pour découvrir les détails et les options disponibles.'
                   : '👉 Choose a service to discover the details and available options.'}
@@ -196,13 +170,8 @@ export default function ServicesPage() {
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='left'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Nos services de peinture'
                         : 'Our painting services'}
@@ -229,34 +198,21 @@ export default function ServicesPage() {
                           display='flex'
                           flexDirection='column'
                           _hover={{
-                            borderColor: '#014CC4',
+                            borderColor: 'brand.500',
                             transform: 'translateY(-2px)',
                             boxShadow: 'md',
                           }}
                           transition='all 0.2s'
                         >
                           <Stack spacing={4} flex={1}>
-                            <Heading
-                              as='h3'
-                              fontSize='xl'
-                              fontWeight='bold'
-                              color='gray.800'
-                            >
+                            <Heading as='h3' size='subsection' color='gray.800'>
                               {service.title}
                             </Heading>
-                            <Text
-                              color='gray.600'
-                              fontSize='md'
-                              lineHeight='1.6'
-                            >
+                            <Text color='gray.600' textStyle='body' lineHeight='1.6'>
                               {service.description}
                             </Text>
-                            <HStack spacing={2} color='#014CC4' mt='auto'>
-                              <Text
-                                fontSize='sm'
-                                fontWeight='medium'
-                                _hover={{ textDecoration: 'underline' }}
-                              >
+                            <HStack spacing={2} color='brand.500' mt='auto'>
+                              <Text textStyle='caption' fontWeight='medium' _hover={{ textDecoration: 'underline' }}>
                                 {isFr ? 'Voir la page' : 'View page'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
@@ -273,23 +229,13 @@ export default function ServicesPage() {
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='left'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Sous-services disponibles'
                         : 'Available sub-services'}
                     </Heading>
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.600'
-                      lineHeight='1.7'
-                      maxW='800px'
-                    >
+                    <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
                       {isFr
                         ? 'Découvrez nos services spécialisés par type de projet et environnement.'
                         : 'Discover our specialized services by project type and environment.'}
@@ -316,27 +262,18 @@ export default function ServicesPage() {
                           display='flex'
                           flexDirection='column'
                           _hover={{
-                            borderColor: '#014CC4',
+                            borderColor: 'brand.500',
                             transform: 'translateY(-2px)',
                             boxShadow: 'md',
                           }}
                           transition='all 0.2s'
                         >
                           <Stack spacing={4} flex={1}>
-                            <Heading
-                              as='h3'
-                              fontSize='xl'
-                              fontWeight='bold'
-                              color='gray.800'
-                            >
+                            <Heading as='h3' size='subsection' color='gray.800'>
                               {service.title}
                             </Heading>
-                            <HStack spacing={2} color='#014CC4' mt='auto'>
-                              <Text
-                                fontSize='sm'
-                                fontWeight='medium'
-                                _hover={{ textDecoration: 'underline' }}
-                              >
+                            <HStack spacing={2} color='brand.500' mt='auto'>
+                              <Text textStyle='caption' fontWeight='medium' _hover={{ textDecoration: 'underline' }}>
                                 {service.link.includes('residentielle')
                                   ? isFr
                                     ? 'Voir peinture résidentielle'
@@ -358,24 +295,15 @@ export default function ServicesPage() {
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} align='center' textAlign='center'>
-                  <Stack spacing={3} maxW='800px'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 4, md: 6 }} align='center' textAlign='center'>
+                  <Stack spacing={{ base: 2, md: 3 }} maxW='800px'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Des peintres professionnels pour chaque type de projet'
                         : 'Professional painters for every type of project'}
                     </Heading>
 
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.600'
-                      lineHeight='1.7'
-                    >
+                    <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
                       {isFr
                         ? 'Tous nos services sont réalisés par des peintres professionnels qualifiés, formés pour garantir une application uniforme, une finition durable et un chantier propre.'
                         : 'All our services are carried out by qualified professional painters, trained to guarantee uniform application, durable finish and a clean worksite.'}
@@ -390,13 +318,13 @@ export default function ServicesPage() {
                       <Button
                         rightIcon={<ArrowForwardIcon />}
                         variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
+                        borderColor='brand.500'
+                        color='brand.500'
                         borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
+                        textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
+                        _hover={{ bg: 'brand.500', color: 'white' }}
                         whiteSpace='normal'
                         textAlign='center'
                         lineHeight='1.4'
@@ -435,28 +363,18 @@ export default function ServicesPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#022A68'
+          bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} textAlign='center'>
-              <Stack spacing={3}>
-                <Heading
-                  as='h2'
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
-                  color='white'
-                >
+            <Stack spacing={{ base: 4, md: 6 }} textAlign='center'>
+              <Stack spacing={{ base: 2, md: 3 }}>
+                <Heading as='h2' size='section' color='white'>
                   {isFr
                     ? 'Obtenez votre soumission gratuite'
                     : 'Get your free quote'}
                 </Heading>
-                <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color='whiteAlpha.900'
-                  maxW='800px'
-                  mx='auto'
-                >
+                <Text textStyle='bodyLarge' color='whiteAlpha.900' maxW='800px' mx='auto'>
                   {isFr
                     ? 'Nos équipes sont disponibles rapidement pour tous vos projets de peinture résidentielle, commerciale, intérieure, extérieure ou industrielle.'
                     : 'Our teams are quickly available for all your residential, commercial, interior, exterior or industrial painting projects.'}
@@ -466,15 +384,15 @@ export default function ServicesPage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/new-contact'
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#022A68'
+                    color='brand.700'
                     borderRadius='full'
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    textStyle='nav'
                     px={{ base: 5, md: 7 }}
                     py={{ base: 3, md: 4 }}
                     _hover={{ bg: 'gray.100' }}

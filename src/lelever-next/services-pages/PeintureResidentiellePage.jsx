@@ -26,12 +26,12 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5969 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import img5970 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
+import img5971 from '../images/2-services/Page peinture résidentielle/3. réalisations/IMG_6764.PNG';
+import img5972 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import img5973 from '../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
+import img5974 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
 
 export default function PeintureResidentiellePage() {
   const { currentLang } = useContext(appContext);
@@ -80,8 +80,6 @@ export default function PeintureResidentiellePage() {
         'Fast and respectful service of your space',
       ];
 
-  // Images section removed to avoid duplication with project images above
-  // Images section populated
   const images = [
     {
       src: img5969,
@@ -117,7 +115,6 @@ export default function PeintureResidentiellePage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/services/peinture-residentielle'
         />
-        <meta name='robots' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -139,7 +136,7 @@ export default function PeintureResidentiellePage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -245,7 +242,7 @@ export default function PeintureResidentiellePage() {
                         border='1px solid'
                         borderColor='gray.200'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'sm',
                           transform: 'translateX(4px)',
                         }}
@@ -254,7 +251,7 @@ export default function PeintureResidentiellePage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={0.5}
                           flexShrink={0}
@@ -323,7 +320,7 @@ export default function PeintureResidentiellePage() {
                         display='flex'
                         flexDirection='column'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
@@ -345,7 +342,7 @@ export default function PeintureResidentiellePage() {
                               ? 'Murs, plafonds, portes, boiseries, pièces complètes.'
                               : 'Walls, ceilings, doors, woodwork, complete rooms.'}
                           </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
+                          <HStack spacing={2} color='brand.500' mt='auto'>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -370,7 +367,7 @@ export default function PeintureResidentiellePage() {
                         display='flex'
                         flexDirection='column'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
@@ -392,7 +389,7 @@ export default function PeintureResidentiellePage() {
                               ? 'Revêtement, brique, bois, aluminium, crépi, terrasses.'
                               : 'Coating, brick, wood, aluminum, stucco, terraces.'}
                           </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
+                          <HStack spacing={2} color='brand.500' mt='auto'>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -570,13 +567,13 @@ export default function PeintureResidentiellePage() {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
+                      borderColor='brand.500'
+                      color='brand.500'
                       borderRadius='full'
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
+                      _hover={{ bg: 'brand.500', color: 'white' }}
                       whiteSpace='normal'
                       textAlign='center'
                       lineHeight='1.4'
@@ -598,7 +595,7 @@ export default function PeintureResidentiellePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#022A68'
+          bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -629,13 +626,13 @@ export default function PeintureResidentiellePage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/new-contact'
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#022A68'
+                    color='brand.700'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

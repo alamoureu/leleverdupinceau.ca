@@ -121,7 +121,7 @@ The website uses a hierarchical structure:
 │   │   │   └── [same cities]
 │   │   └── /exterieure
 │   │       └── [same cities]
-│   └── /new-peinture-interieure
+│   └── /peinture-interieure
 │       ├── /brossard
 │       ├── /laval
 │       ├── /longueuil

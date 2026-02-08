@@ -26,7 +26,6 @@ export default function ServiceQuartierSectorsSection({
   // Other services (commercial, extérieur, industriel, résidentiel) do NOT have neighborhood pages
   // Therefore, only make sectors clickable for peinture intérieure
   const isInteriorPainting =
-    serviceSlug === 'new-peinture-interieure' ||
     serviceSlug === 'peinture-interieure';
 
   return (
@@ -76,7 +75,7 @@ export default function ServiceQuartierSectorsSection({
                   alignItems='center'
                   {...(isInteriorPainting && {
                     _hover: {
-                      borderColor: '#014CC4',
+                      borderColor: 'brand.500',
                       transform: 'translateY(-2px)',
                       boxShadow: 'md',
                     },
@@ -86,7 +85,7 @@ export default function ServiceQuartierSectorsSection({
                 >
                   <Text
                     fontWeight='600'
-                    color={isInteriorPainting ? '#014CC4' : 'gray.800'}
+                    color={isInteriorPainting ? 'brand.500' : 'gray.800'}
                     fontSize={{ base: 'sm', md: 'md' }}
                     lineHeight='1.4'
                     noOfLines={2}

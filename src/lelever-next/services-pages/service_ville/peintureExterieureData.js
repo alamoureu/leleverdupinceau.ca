@@ -1,12 +1,12 @@
-import img5969 from '../../images/before_after/IMG_5969.jpg';
-import img5970 from '../../images/before_after/IMG_5970.jpg';
-import img5971 from '../../images/before_after/IMG_5971.jpg';
-import img5972 from '../../images/before_after/IMG_5972.jpg';
-import img5973 from '../../images/before_after/IMG_5973.jpg';
-import img5974 from '../../images/before_after/IMG_5974.jpg';
+import img5969 from '../../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import img5970 from '../../images/2-services/Page peinture extérieure/2. réalisations/IMG_6761.PNG';
+import img5971 from '../../images/2-services/Page peinture extérieure/3. réalisations/IMG_6756.PNG';
+import img5972 from '../../images/2-services/Page peinture extérieure/Peinture résidentielle extérieure/IMG_6763.PNG';
+import img5973 from '../../images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG';
+import img5974 from '../../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 
 export const peintureExterieureData = {
-  'new-peinture-exterieure': {
+  'peinture-exterieure': {
     name: {
       fr: 'Peinture extérieure',
       en: 'Exterior painting',
@@ -16,7 +16,7 @@ export const peintureExterieureData = {
         name: { fr: 'Brossard', en: 'Brossard' },
         slug: 'brossard',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-exterieure/brossard',
+          'https://leleverdupinceau.ca/services/peinture-exterieure/brossard',
         h1: {
           fr: 'Peinture extérieure à Brossard – Le Lever du Pinceau',
           en: 'Exterior painting in Brossard – Le Lever du Pinceau',
@@ -222,7 +222,7 @@ export const peintureExterieureData = {
         name: { fr: 'Laval', en: 'Laval' },
         slug: 'laval',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-exterieure/laval',
+          'https://leleverdupinceau.ca/services/peinture-exterieure/laval',
         h1: {
           fr: 'Peinture extérieure à Laval – Le Lever du Pinceau',
           en: 'Exterior painting in Laval – Le Lever du Pinceau',
@@ -428,7 +428,7 @@ export const peintureExterieureData = {
         name: { fr: 'Longueuil', en: 'Longueuil' },
         slug: 'longueuil',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-exterieure/longueuil',
+          'https://leleverdupinceau.ca/services/peinture-exterieure/longueuil',
         h1: {
           fr: 'Peinture extérieure à Longueuil – Le Lever du Pinceau',
           en: 'Exterior painting in Longueuil – Le Lever du Pinceau',
@@ -636,7 +636,7 @@ export const peintureExterieureData = {
         name: { fr: 'Montréal', en: 'Montreal' },
         slug: 'montreal',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-exterieure/montreal',
+          'https://leleverdupinceau.ca/services/peinture-exterieure/montreal',
         h1: {
           fr: 'Peinture extérieure à Montréal – Le Lever du Pinceau',
           en: 'Exterior painting in Montreal – Le Lever du Pinceau',

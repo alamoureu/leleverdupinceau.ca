@@ -10,14 +10,14 @@ import { describe, it, expect } from '@jest/globals';
 // Main routes
 const mainRoutes = [
   '/',
-  '/new-home',
+  '/',
   '/peintre-professionnel',
   '/secteurs-desservis',
   '/services',
   '/blog',
   '/a-propos',
   '/avis',
-  '/new-contact',
+  '/contact',
 ];
 
 // City routes
@@ -32,8 +32,8 @@ const cityRoutes = [
 const mainServiceRoutes = [
   '/services/peinture-commerciale',
   '/services/peinture-residentielle',
-  '/services/new-peinture-interieure',
-  '/services/new-peinture-exterieure',
+  '/services/peinture-interieure',
+  '/services/peinture-exterieure',
   '/services/peinture-industrielle',
 ];
 

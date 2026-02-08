@@ -65,27 +65,26 @@ export default function SectorsSection({
   const isFr = currentLang === 'fr';
 
   return (
-    <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
-      <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-        <Stack spacing={8} align='center'>
-          <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>
+    <Box py={{ base: 12, md: 16 }} bg="gray.50" borderRadius="xl">
+      <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+        <Stack spacing={8} align="center">
+          <Stack spacing={{ base: 3, md: 4 }} textAlign="center">
             <Heading
-              as='h2'
-              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-              fontWeight='bold'
-              color='gray.800'
-              lineHeight='1.3'
-              letterSpacing='-0.02em'
+              as="h2"
+              size="section"
+              color="gray.800"
+              lineHeight="1.3"
+              letterSpacing="-0.02em"
               mb={{ base: 2, md: 3 }}
             >
               {displayTitle}
             </Heading>
             {displaySubtitle && (
               <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                letterSpacing='0.01em'
+                textStyle="bodyLarge"
+                color="gray.600"
+                lineHeight="1.7"
+                letterSpacing="0.01em"
               >
                 {displaySubtitle}
               </Text>
@@ -95,27 +94,27 @@ export default function SectorsSection({
           <SimpleGrid
             columns={{ base: 2, sm: 4 }}
             spacing={6}
-            w='100%'
-            maxW='900px'
+            w="100%"
+            maxW="900px"
           >
             {sectorsToDisplay.map((sector, index) => {
               const InnerContent = (
                 <Box
-                  position='relative'
-                  borderRadius='2xl'
-                  overflow='hidden'
-                  border='1px solid'
-                  borderColor='gray.200'
+                  position="relative"
+                  borderRadius="2xl"
+                  overflow="hidden"
+                  border="1px solid"
+                  borderColor="gray.200"
                   cursor={disableLinks ? 'default' : 'pointer'}
-                  transition='all 0.2s'
+                  transition="all 0.2s"
                   minH={{ base: '180px', md: '200px' }}
-                  h='100%'
-                  w='100%'
+                  h="100%"
+                  w="100%"
                   _hover={
                     disableLinks
                       ? {}
                       : {
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'md',
                           transform: 'translateY(-2px)',
                         }
@@ -132,52 +131,48 @@ export default function SectorsSection({
                             pageContext ? ' - ' + pageContext : ''
                           }`
                     }
-                    position='absolute'
-                    top={0}
+                    position="absolute"
+                    top={sector.name === 'Montréal' ? '-20px' : 0}
                     left={0}
-                    w='100%'
-                    h='100%'
-                    objectFit='cover'
+                    w="100%"
+                    h="100%"
+                    objectFit="cover"
                     zIndex={0}
+                    transform={
+                      sector.name === 'Montréal' ? 'scale(1.25)' : 'none'
+                    }
                   />
                   {/* Color Overlay Filter */}
                   <Box
-                    position='absolute'
+                    position="absolute"
                     top={0}
                     left={0}
                     right={0}
                     bottom={0}
-                    bgGradient='linear(to-b, rgba(1, 76, 196, 0.55), rgba(1, 76, 196, 0.15))'
+                    bgGradient="linear(to-b, rgba(1, 76, 196, 0.55), rgba(1, 76, 196, 0.15))"
                     zIndex={1}
                   />
 
                   {/* Content */}
                   <Box
-                    position='relative'
+                    position="relative"
                     zIndex={2}
                     p={8}
-                    h='100%'
-                    display='flex'
-                    flexDirection='column'
-                    alignItems='center'
-                    justifyContent='center'
+                    h="100%"
+                    display="flex"
+                    flexDirection="column"
+                    alignItems="center"
+                    justifyContent="center"
                   >
-                    <Stack spacing={4} align='center'>
+                    <Stack spacing={4} align="center">
                       <Icon
                         as={FontAwesomeIcon}
                         icon={faMapMarkerAlt}
                         boxSize={6}
-                        color='white'
-                        filter='drop-shadow(0 2px 4px rgba(0,0,0,0.3))'
+                        color="white"
+                        filter="drop-shadow(0 2px 4px rgba(0,0,0,0.3))"
                       />
-                      <Text
-                        fontWeight='700'
-                        color='white'
-                        fontSize='xl'
-                        letterSpacing='-0.02em'
-                        lineHeight='1.4'
-                        textShadow='0 2px 4px rgba(0,0,0,0.3)'
-                      >
+                      <Text fontWeight="700" color="white" textStyle="bodyLarge" as="span" letterSpacing="-0.02em" lineHeight="1.4" textShadow="0 2px 4px rgba(0,0,0,0.3)">
                         {sector.name}
                       </Text>
                     </Stack>
@@ -186,29 +181,21 @@ export default function SectorsSection({
               );
 
               return (
-                <Stack key={index} spacing={3} align='center' w='100%'>
+                <Stack key={index} spacing={3} align="center" w="100%">
                   {disableLinks ? (
-                    <Box w='100%'>{InnerContent}</Box>
+                    <Box w="100%">{InnerContent}</Box>
                   ) : (
                     <Link
                       as={RouterLink}
                       to={sector.link}
                       _hover={{ textDecoration: 'none' }}
-                      w='100%'
+                      w="100%"
                     >
                       {InnerContent}
                     </Link>
                   )}
                   {sector.subText && (
-                    <Text
-                      fontSize='sm'
-                      textAlign='center'
-                      color='gray.600'
-                      lineHeight='1.4'
-                      maxW='180px'
-                      mx='auto'
-                      fontWeight='normal'
-                    >
+                    <Text textStyle="caption" textAlign="center" color="gray.600" lineHeight="1.4" maxW="180px" mx="auto" fontWeight="normal">
                       {sector.subText}
                     </Text>
                   )}
@@ -225,15 +212,14 @@ export default function SectorsSection({
             >
               <Button
                 rightIcon={<ArrowForwardIcon />}
-                variant='outline'
-                colorScheme='blue'
-                borderColor='#014CC4'
-                color='#014CC4'
-                borderRadius='full'
-                fontSize={{ base: 'sm', md: 'md' }}
+                variant="outline"
+                borderColor="brand.500"
+                color="brand.500"
+                borderRadius="full"
+                textStyle="nav"
                 px={{ base: 5, md: 7 }}
                 py={{ base: 3, md: 4 }}
-                _hover={{ bg: '#014CC4', color: 'white' }}
+                _hover={{ bg: 'brand.500', color: 'white' }}
               >
                 {displayButtonText}
               </Button>

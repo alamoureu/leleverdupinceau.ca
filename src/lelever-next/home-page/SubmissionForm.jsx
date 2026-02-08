@@ -23,7 +23,7 @@ import { useTranslation } from '../i18n';
 import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
-import { GA_MEASUREMENT_ID, FORM_COMPLETION_EVENT } from '../../config/analytics';
+import { fontFamily } from '../../theme';
 
 const activeLabelStyles = {
   transform: 'scale(0.85) translateY(-24px)',
@@ -34,8 +34,8 @@ const BRAND_BLUE_HOVER = '#0139A0';
 
 const theme = extendTheme({
   fonts: {
-    heading: `-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
-    body: `-apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"`,
+    heading: fontFamily,
+    body: fontFamily,
     mono: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace`,
   },
   components: {
@@ -91,7 +91,7 @@ const theme = extendTheme({
             },
             _hover: { bg: BRAND_BLUE_HOVER, borderColor: BRAND_BLUE_HOVER },
           },
-          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}40` },
+          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}` },
         },
         label: {
           ml: 3,
@@ -123,7 +123,7 @@ const theme = extendTheme({
             color: 'white',
             _hover: { bg: BRAND_BLUE_HOVER, borderColor: BRAND_BLUE_HOVER },
           },
-          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}40` },
+          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}` },
         },
       },
       sizes: {
@@ -138,6 +138,7 @@ export default function SubmissionForm({
   onSubmit,
   onSubmissionStateChange,
   isModal = false,
+  initialFocusRef,
 }) {
   const { t, currentLang } = useTranslation();
   const toast = useToast();
@@ -234,26 +235,6 @@ export default function SubmissionForm({
       setIsSubmitted(true);
       if (onSubmissionStateChange) onSubmissionStateChange(true);
 
-      if (typeof window.gtag === 'function') {
-        const userData = {};
-        if (formData.email?.trim()) userData.email = formData.email.trim();
-        const phoneRaw = formData.phone ?? '';
-        const digits = String(phoneRaw).replace(/\D/g, '');
-        const phone = digits.length === 10 && /^[2-9]/.test(digits) ? `+1${digits}` : digits.length === 11 && digits.startsWith('1') ? `+${digits}` : phoneRaw.trim() || undefined;
-        if (phone) userData.phone_number = phone;
-        const nameTrim = formData.name?.trim();
-        if (nameTrim) {
-          const [first, ...rest] = nameTrim.split(/\s+/);
-          userData.first_name = first;
-          if (rest.length) userData.last_name = rest.join(' ').trim();
-        }
-        if (formData.address?.trim()) userData.address = { street: formData.address.trim() };
-        if (Object.keys(userData).length > 0) {
-          window.gtag('set', 'user_data', userData);
-        }
-        window.gtag('event', FORM_COMPLETION_EVENT, { send_to: GA_MEASUREMENT_ID });
-      }
-
       setFormData({
         name: '',
         email: '',
@@ -336,7 +317,7 @@ export default function SubmissionForm({
 
             {t.formSuccessClosing && (
               <Text
-                fontSize='sm'
+                fontSize={{ base: 'sm', md: 'sm' }}
                 color='gray.500'
                 fontStyle='italic'
                 pt={2}
@@ -384,6 +365,7 @@ export default function SubmissionForm({
           >
           <FormControl variant="floating" isRequired isInvalid={showError('name')}>
             <Input
+              ref={initialFocusRef}
               name="name"
               value={formData.name}
               onChange={handleChange}
@@ -391,7 +373,7 @@ export default function SubmissionForm({
               placeholder=" "
               size="lg"
               borderColor="gray.300"
-              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
               _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
             <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
@@ -410,7 +392,7 @@ export default function SubmissionForm({
               placeholder=" "
               size="lg"
               borderColor="gray.300"
-              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
               _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
             <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
@@ -429,7 +411,7 @@ export default function SubmissionForm({
               placeholder=" "
               size="lg"
               borderColor="gray.300"
-              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
               _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
             <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
@@ -447,7 +429,7 @@ export default function SubmissionForm({
               placeholder=" "
               size="lg"
               borderColor="gray.300"
-              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
               _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
             <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
@@ -467,7 +449,7 @@ export default function SubmissionForm({
               size="lg"
               borderColor="gray.300"
               resize="vertical"
-              _focus={{ borderColor: '#014CC4', boxShadow: '0 0 0 1px #014CC4' }}
+              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
               _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
             />
             <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
@@ -508,7 +490,7 @@ export default function SubmissionForm({
                 size="md"
                 mt={0.5}
               />
-              <Box fontSize="xs" color="gray.700" flex={1} lineHeight="1.5">
+              <Box fontSize={{ base: 'xs', sm: 'sm' }} color="gray.700" flex={1} lineHeight="1.5">
                 {t.formConsentText}{' '}
                 <Link href="/politiques/termes-conditions" color="#014CC4" textDecoration="underline" _hover={{ color: '#0139A0' }}>
                   {t.formTermsAndConditions}
@@ -541,7 +523,7 @@ export default function SubmissionForm({
             bg={BRAND_BLUE}
             color="white"
             w="100%"
-            fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
+            fontSize={{ base: 'md', md: 'md' }}
             py={{ base: 4, md: 5, lg: 6 }}
             fontWeight="semibold"
             borderRadius="full"

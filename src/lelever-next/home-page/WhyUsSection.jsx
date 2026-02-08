@@ -50,10 +50,9 @@ export default function WhyUsSection({ onSubmissionOpen }) {
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Heading
           as='h2'
-          fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-          fontWeight='bold'
+          size='section'
           color='gray.800'
-          mb={{ base: 8, md: 10 }}
+          mb={{ base: 6, md: 8 }}
           textAlign='center'
         >
           {t.whyUsTitle}
@@ -67,15 +66,15 @@ export default function WhyUsSection({ onSubmissionOpen }) {
                   <Icon
                     as={FontAwesomeIcon}
                     icon={faClock}
-                    color='#014CC4'
-                    boxSize={{ base: 6, md: 7 }}
+                    color='brand.500'
+                    boxSize={{ base: 5, md: 6 }}
                     mt={1}
                   />
                   <Icon
                     as={FontAwesomeIcon}
                     icon={faCheckCircle}
-                    color='#014CC4'
-                    boxSize={{ base: 3, md: 4 }}
+                    color='brand.500'
+                    boxSize={{ base: 2.5, md: 3 }}
                     position='absolute'
                     bottom='-2px'
                     right='-2px'
@@ -85,40 +84,44 @@ export default function WhyUsSection({ onSubmissionOpen }) {
                 <Icon
                   as={FontAwesomeIcon}
                   icon={benefit.icon}
-                  color='#014CC4'
-                  boxSize={{ base: 6, md: 7 }}
+                  color='brand.500'
+                  boxSize={{ base: 5, md: 6 }}
                   mt={1}
                   flexShrink={0}
                 />
               )}
 
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.700'
-                lineHeight='1.6'
-                textAlign='left'
-                flex={1}
-              >
-                <Text as='span' fontWeight='bold' color='gray.800'>
+              <Stack spacing={{ base: 1, md: 2 }} flex={1}>
+                <Text
+                  textStyle='bodyLarge'
+                  fontWeight='600'
+                  color='gray.800'
+                  lineHeight='1.4'
+                >
                   {benefit.title}
                 </Text>
-                {' — '}
-                {benefit.description}
-              </Text>
+                <Text
+                  textStyle='body'
+                  color='gray.600'
+                  lineHeight='1.6'
+                >
+                  {benefit.description}
+                </Text>
+              </Stack>
             </Flex>
           ))}
 
           <Box pt={4} textAlign='center'>
             <Button
               onClick={onSubmissionOpen}
-              bg='#014CC4'
+              bg='brand.500'
               color='white'
-              fontSize={{ base: 'sm', md: 'md' }}
+              textStyle='nav'
               px={{ base: 8, md: 10 }}
               h={{ base: '45px', md: '55px' }}
               borderRadius='full'
               boxShadow='lg'
-              _hover={{ bg: '#0139A0' }}
+              _hover={{ bg: 'brand.600' }}
               w={{ base: '100%', md: 'auto' }}
             >
               {t.freeSubmission}

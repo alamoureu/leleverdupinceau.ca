@@ -19,19 +19,18 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection, {
   montrealSecteur,
   lavalSecteur,
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5969 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import img5970 from '../images/2-services/Page peinture extérieure/2. réalisations/IMG_6761.PNG';
+import img5971 from '../images/2-services/Page peinture extérieure/3. réalisations/IMG_6756.PNG';
+import img5972 from '../images/2-services/Page peinture extérieure/Peinture résidentielle extérieure/IMG_6763.PNG';
+import img5973 from '../images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG';
+import img5974 from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 
 export default function PeintureExterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -57,7 +56,7 @@ export default function PeintureExterieurePage() {
         '@type': 'ListItem',
         position: 3,
         name: isFr ? 'Peinture extérieure' : 'Exterior painting',
-        item: 'https://leleverdupinceau.ca/services/new-peinture-exterieure',
+        item: 'https://leleverdupinceau.ca/services/peinture-exterieure',
       },
     ],
   };
@@ -93,10 +92,9 @@ export default function PeintureExterieurePage() {
             : 'Exterior painting – Le Lever du Pinceau | Facade protection and renovation'}
         </title>
         <meta name='description' content={metaDescription} />
-        <meta name='robots' content='noindex, nofollow' />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/new-peinture-exterieure'
+          href='https://leleverdupinceau.ca/services/peinture-exterieure'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -110,7 +108,6 @@ export default function PeintureExterieurePage() {
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={0}>
-            {/* Breadcrumb */}
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -119,7 +116,7 @@ export default function PeintureExterieurePage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -146,7 +143,6 @@ export default function PeintureExterieurePage() {
               </Text>
             </HStack>
 
-            {/* H1 et Introduction */}
             <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
@@ -182,7 +178,6 @@ export default function PeintureExterieurePage() {
               </Text>
             </Stack>
 
-            {/* Section 1 — Pourquoi choisir notre service */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'
@@ -225,7 +220,7 @@ export default function PeintureExterieurePage() {
                         border='1px solid'
                         borderColor='gray.200'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'sm',
                           transform: 'translateX(4px)',
                         }}
@@ -234,7 +229,7 @@ export default function PeintureExterieurePage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={0.5}
                           flexShrink={0}
@@ -266,7 +261,6 @@ export default function PeintureExterieurePage() {
               </Container>
             </Box>
 
-            {/* Section 2 — Sous-services */}
             <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -303,7 +297,7 @@ export default function PeintureExterieurePage() {
                         display='flex'
                         flexDirection='column'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
@@ -325,7 +319,7 @@ export default function PeintureExterieurePage() {
                               ? 'Façades, revêtements, brique, bois, terrasses résidentielles.'
                               : 'Facades, coatings, brick, wood, residential terraces.'}
                           </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
+                          <HStack spacing={2} color='brand.500' mt='auto'>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -350,7 +344,7 @@ export default function PeintureExterieurePage() {
                         display='flex'
                         flexDirection='column'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
@@ -372,7 +366,7 @@ export default function PeintureExterieurePage() {
                               ? 'Façades, entrées commerciales, structures extérieures, enseignes.'
                               : 'Facades, commercial entrances, exterior structures, signs.'}
                           </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
+                          <HStack spacing={2} color='brand.500' mt='auto'>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -386,7 +380,6 @@ export default function PeintureExterieurePage() {
               </Container>
             </Box>
 
-            {/* Section 3 — Peinture extérieure par ville */}
             <SectorsSection
               title={
                 isFr
@@ -396,28 +389,27 @@ export default function PeintureExterieurePage() {
               sectors={[
                 {
                   name: 'Montréal',
-                  link: '/services/new-peinture-exterieure/montreal',
+                  link: '/services/peinture-exterieure/montreal',
                   image: montrealSecteur,
                 },
                 {
                   name: 'Laval',
-                  link: '/services/new-peinture-exterieure/laval',
+                  link: '/services/peinture-exterieure/laval',
                   image: lavalSecteur,
                 },
                 {
                   name: 'Longueuil',
-                  link: '/services/new-peinture-exterieure/longueuil',
+                  link: '/services/peinture-exterieure/longueuil',
                   image: longueuilSecteur,
                 },
                 {
                   name: 'Brossard',
-                  link: '/services/new-peinture-exterieure/brossard',
+                  link: '/services/peinture-exterieure/brossard',
                   image: brossardSecteur,
                 },
               ]}
             />
 
-            {/* Section 4 — Exemples de projets extérieurs */}
             <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6}>
@@ -541,16 +533,6 @@ export default function PeintureExterieurePage() {
               </Container>
             </Box>
 
-            {/* Section 5 — Guides & ressources */}
-            <ResourcesSection
-              title={
-                isFr
-                  ? 'Conseils pour vos projets extérieurs'
-                  : 'Tips for your exterior projects'
-              }
-            />
-
-            {/* Section 6 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'
@@ -589,13 +571,13 @@ export default function PeintureExterieurePage() {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
+                      borderColor='brand.500'
+                      color='brand.500'
                       borderRadius='full'
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
+                      _hover={{ bg: 'brand.500', color: 'white' }}
                       whiteSpace='normal'
                       textAlign='center'
                       lineHeight='1.4'
@@ -613,11 +595,10 @@ export default function PeintureExterieurePage() {
           </Stack>
         </Container>
 
-        {/* Section 7 — CTA final */}
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#022A68'
+          bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -648,13 +629,13 @@ export default function PeintureExterieurePage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/new-contact'
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#022A68'
+                    color='brand.700'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

@@ -148,7 +148,7 @@ export default function CityResourcesSection({ cityName }) {
                   display='flex'
                   flexDirection='column'
                   _hover={{
-                    borderColor: '#014CC4',
+                    borderColor: 'brand.500',
                     transform: 'translateY(-2px)',
                     boxShadow: 'md',
                   }}
@@ -163,7 +163,7 @@ export default function CityResourcesSection({ cityName }) {
                     >
                       {article.title}
                     </Text>
-                    <HStack spacing={2} color='#014CC4' mt='auto'>
+                    <HStack spacing={2} color='brand.500' mt='auto'>
                       <Text fontSize='sm' fontWeight='medium'>
                         {isFr ? 'Lire' : 'Read'}
                       </Text>

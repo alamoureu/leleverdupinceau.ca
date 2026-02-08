@@ -19,19 +19,18 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection, {
   montrealSecteur,
   lavalSecteur,
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5969 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import img5970 from '../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
+import img5971 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
+import img5972 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5973 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5974 from '../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -98,8 +97,6 @@ export default function PeintureCommercialePage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/services/peinture-commerciale'
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -121,7 +118,7 @@ export default function PeintureCommercialePage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -227,7 +224,7 @@ export default function PeintureCommercialePage() {
                         border='1px solid'
                         borderColor='gray.200'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'sm',
                           transform: 'translateX(4px)',
                         }}
@@ -236,7 +233,7 @@ export default function PeintureCommercialePage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={0.5}
                           flexShrink={0}
@@ -305,7 +302,7 @@ export default function PeintureCommercialePage() {
                         display='flex'
                         flexDirection='column'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
@@ -327,7 +324,7 @@ export default function PeintureCommercialePage() {
                               ? "Bureaux, salles de réunion, espaces clients, corridors, cages d'escaliers."
                               : 'Offices, meeting rooms, customer spaces, corridors, stairwells.'}
                           </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
+                          <HStack spacing={2} color='brand.500' mt='auto'>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -352,7 +349,7 @@ export default function PeintureCommercialePage() {
                         display='flex'
                         flexDirection='column'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
@@ -374,7 +371,7 @@ export default function PeintureCommercialePage() {
                               ? 'Façades, entrées commerciales, structures extérieures, enseignes, revêtements.'
                               : 'Facades, commercial entrances, exterior structures, signs, coatings.'}
                           </Text>
-                          <HStack spacing={2} color='#014CC4' mt='auto'>
+                          <HStack spacing={2} color='brand.500' mt='auto'>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -546,16 +543,7 @@ export default function PeintureCommercialePage() {
               </Container>
             </Box>
 
-            {/* Section 5 — Guides et ressources */}
-            <ResourcesSection
-              title={
-                isFr
-                  ? 'Conseils pour vos projets commerciaux'
-                  : 'Tips for your commercial projects'
-              }
-            />
-
-            {/* Section 6 — À propos de nos peintres professionnels */}
+            {/* Section 5 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='gray.50'
@@ -592,13 +580,13 @@ export default function PeintureCommercialePage() {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
+                      borderColor='brand.500'
+                      color='brand.500'
                       borderRadius='full'
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
+                      _hover={{ bg: 'brand.500', color: 'white' }}
                       whiteSpace='normal'
                       textAlign='center'
                       lineHeight='1.4'
@@ -620,7 +608,7 @@ export default function PeintureCommercialePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#022A68'
+          bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -651,13 +639,13 @@ export default function PeintureCommercialePage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/new-contact'
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#022A68'
+                    color='brand.700'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

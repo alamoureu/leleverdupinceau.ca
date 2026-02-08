@@ -29,19 +29,20 @@ import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfter from '../components/BeforeAfter';
-import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
-import img5975 from '../images/before_after/IMG_5975.jpg';
-import img5976 from '../images/before_after/IMG_5976.jpg';
-import img5977 from '../images/before_after/IMG_5977.jpg';
-import img5978 from '../images/before_after/IMG_5978.jpg';
-import img5982 from '../images/before_after/IMG_5982.jpg';
-import img5984 from '../images/before_after/IMG_5984.jpg';
+import ProcessStepsSection from '../components/ProcessStepsSection';
+import peintureProfessionnelleImg from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
+import img5969 from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG';
+import img5970 from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG';
+import img5971 from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG';
+import img5972 from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG';
+import img5973 from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
+import img5974 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5975 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5976 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import img5977 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import img5978 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
+import img5982 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import img5984 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
 
 export default function PeintreProfessionnelPage() {
   const { currentLang } = useContext(appContext);
@@ -253,14 +254,14 @@ export default function PeintreProfessionnelPage() {
       description: isFr
         ? 'Murs, plafonds, portes, escaliers.'
         : 'Walls, ceilings, doors, stairs.',
-      link: '/services/new-peinture-interieure',
+      link: '/services/peinture-interieure',
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       description: isFr
         ? 'Revêtements, clôtures, bois, brique, aluminium.'
         : 'Coatings, fences, wood, brick, aluminum.',
-      link: '/services/new-peinture-exterieure',
+      link: '/services/peinture-exterieure',
     },
     {
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
@@ -390,8 +391,6 @@ export default function PeintreProfessionnelPage() {
           rel="canonical"
           href="https://leleverdupinceau.ca/peintre-professionnel"
         />
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -402,38 +401,27 @@ export default function PeintreProfessionnelPage() {
       </Helmet>
 
       <Box w="100%" bg="white" overflowX="hidden">
-        {/* Breadcrumb - Above Hero */}
         <Container
           maxW="1440px"
           px={{ base: 4, md: 6, lg: 8 }}
-          pt={{ base: 6, md: 8 }}
+          pt={{ base: 8, md: 12 }}
         >
           <HStack
             spacing={3}
-            fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
+            textStyle="bodyLarge"
             color="gray.600"
             mb={{ base: 4, md: 6 }}
           >
-            <Link
-              href="/new-home"
-              _hover={{ textDecoration: 'underline' }}
-              color="gray.600"
-              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-            >
+            <Link href="/" _hover={{ textDecoration: 'underline' }} color="gray.600" textStyle="bodyLarge">
               {isFr ? 'Accueil' : 'Home'}
             </Link>
-            <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}>›</Text>
-            <Text
-              color="gray.800"
-              fontWeight="medium"
-              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-            >
+            <Text textStyle="bodyLarge">›</Text>
+            <Text color="gray.800" fontWeight="medium" textStyle="bodyLarge">
               {isFr ? 'Peintres professionnels' : 'Professional Painters'}
             </Text>
           </HStack>
         </Container>
 
-        {/* Hero Section */}
         <Box
           position="relative"
           w="100%"
@@ -447,7 +435,6 @@ export default function PeintreProfessionnelPage() {
               spacing={{ base: 6, md: 8, lg: 12 }}
               alignItems="center"
             >
-              {/* Left Content */}
               <Stack
                 spacing={{ base: 4, md: 6, lg: 8 }}
                 order={{ base: 2, lg: 1 }}
@@ -479,7 +466,7 @@ export default function PeintreProfessionnelPage() {
                       lg: '4xl',
                       xl: '4.5xl',
                     }}
-                    color="#014CC4"
+                    color="brand.500"
                     mt={{ base: 1, md: 2 }}
                   >
                     Le Lever du Pinceau
@@ -487,7 +474,7 @@ export default function PeintreProfessionnelPage() {
                 </Heading>
 
                 <Text
-                  fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
+                  textStyle="bodyLarge"
                   color="gray.600"
                   lineHeight={{ base: '1.6', md: '1.8' }}
                   maxW="600px"
@@ -498,7 +485,6 @@ export default function PeintreProfessionnelPage() {
                 </Text>
               </Stack>
 
-              {/* Right Image */}
               <Box order={{ base: 1, lg: 2 }} position="relative">
                 <Box
                   position="relative"
@@ -535,7 +521,6 @@ export default function PeintreProfessionnelPage() {
           pt={{ base: 12, md: 16 }}
         >
           <Stack spacing={0}>
-            {/* Section 1 — Pourquoi choisir nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16 }}
               bg="gray.50"
@@ -547,7 +532,7 @@ export default function PeintreProfessionnelPage() {
                   <Stack spacing={3} textAlign="left">
                     <Heading
                       as="h2"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      size="section"
                       fontWeight="bold"
                       color="gray.800"
                     >
@@ -556,7 +541,7 @@ export default function PeintreProfessionnelPage() {
                         : 'Expertise, precision and guaranteed results'}
                     </Heading>
                     <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
+                      textStyle="bodyLarge"
                       color="gray.600"
                       lineHeight="1.7"
                     >
@@ -578,7 +563,7 @@ export default function PeintreProfessionnelPage() {
                         border="1px solid"
                         borderColor="gray.200"
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'sm',
                           transform: 'translateX(4px)',
                         }}
@@ -587,13 +572,13 @@ export default function PeintreProfessionnelPage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color="#014CC4"
+                          color="brand.500"
                           boxSize={5}
                           mt={0.5}
                           flexShrink={0}
                         />
                         <Text
-                          fontSize="md"
+                          textStyle="body"
                           color="gray.700"
                           lineHeight="1.6"
                           fontWeight="500"
@@ -606,7 +591,7 @@ export default function PeintreProfessionnelPage() {
                   </Stack>
 
                   <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
+                    textStyle="bodyLarge"
                     color="gray.600"
                     lineHeight="1.7"
                     mt={4}
@@ -619,75 +604,17 @@ export default function PeintreProfessionnelPage() {
               </Container>
             </Box>
 
-            {/* Section 2 — Processus */}
-            <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign="left">
-                    <Heading
-                      as="h2"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight="bold"
-                      color="gray.800"
-                    >
-                      {isFr
-                        ? 'Un processus simple, efficace et orienté qualité'
-                        : 'A simple, efficient and quality-oriented process'}
-                    </Heading>
-                  </Stack>
+            <ProcessStepsSection
+              title={
+                isFr
+                  ? 'Un processus simple, efficace et orienté qualité'
+                  : 'A simple, efficient and quality-oriented process'
+              }
+              steps={processSteps}
+              buttonText={isFr ? 'Recevoir ma soumission gratuite' : 'Get my free quote'}
+              onButtonClick={onOpen}
+            />
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2 }}
-                    spacing={{ base: 6, md: 8 }}
-                    maxW="1000px"
-                  >
-                    {processSteps.map((step, index) => (
-                      <Box
-                        key={index}
-                        p={{ base: 6, md: 8 }}
-                        bg="white"
-                        borderRadius="xl"
-                        border="1px solid"
-                        borderColor="gray.200"
-                      >
-                        <Stack spacing={3}>
-                          <HStack spacing={3}>
-                            <Box
-                              bg="#014CC4"
-                              color="white"
-                              borderRadius="full"
-                              w="40px"
-                              h="40px"
-                              display="flex"
-                              alignItems="center"
-                              justifyContent="center"
-                              fontWeight="bold"
-                              fontSize="lg"
-                              flexShrink={0}
-                            >
-                              {index + 1}
-                            </Box>
-                            <Heading
-                              as="h3"
-                              fontSize="xl"
-                              fontWeight="bold"
-                              color="gray.800"
-                            >
-                              {step.title}
-                            </Heading>
-                          </HStack>
-                          <Text color="gray.600" fontSize="md" lineHeight="1.6">
-                            {step.description}
-                          </Text>
-                        </Stack>
-                      </Box>
-                    ))}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
-
-            {/* Section 3 — Services */}
             <Box
               py={{ base: 12, md: 16 }}
               bg="gray.50"
@@ -699,7 +626,7 @@ export default function PeintreProfessionnelPage() {
                   <Stack spacing={3} textAlign="left">
                     <Heading
                       as="h2"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      size="section"
                       fontWeight="bold"
                       color="gray.800"
                     >
@@ -728,7 +655,7 @@ export default function PeintreProfessionnelPage() {
                           border="1px solid"
                           borderColor="gray.200"
                           _hover={{
-                            borderColor: '#014CC4',
+                            borderColor: 'brand.500',
                             transform: 'translateY(-2px)',
                             boxShadow: 'md',
                           }}
@@ -740,7 +667,7 @@ export default function PeintreProfessionnelPage() {
                           <Stack spacing={4} flex={1}>
                             <Heading
                               as="h3"
-                              fontSize="xl"
+                              size="subsection"
                               fontWeight="bold"
                               color="gray.800"
                             >
@@ -748,14 +675,14 @@ export default function PeintreProfessionnelPage() {
                             </Heading>
                             <Text
                               color="gray.600"
-                              fontSize="md"
+                              textStyle="body"
                               lineHeight="1.6"
                               flex={1}
                             >
                               {service.description}
                             </Text>
-                            <HStack spacing={2} color="#014CC4" mt="auto">
-                              <Text fontSize="sm" fontWeight="medium">
+                            <HStack spacing={2} color="brand.500" mt="auto">
+                              <Text textStyle="caption" fontWeight="medium">
                                 {isFr ? 'Voir le service' : 'View service'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
@@ -782,7 +709,6 @@ export default function PeintreProfessionnelPage() {
               }
             />
 
-            {/* Section 4.6 — Avant/Après */}
             <Box
               py={{ base: 12, md: 16 }}
               bg="white"
@@ -794,7 +720,7 @@ export default function PeintreProfessionnelPage() {
                   <Stack spacing={3} textAlign="left">
                     <Heading
                       as="h2"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      size="section"
                       fontWeight="bold"
                       color="gray.800"
                     >
@@ -803,7 +729,7 @@ export default function PeintreProfessionnelPage() {
                         : 'Professional Painters Results in Montreal'}
                     </Heading>
                     <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
+                      textStyle="bodyLarge"
                       color="gray.600"
                       lineHeight="1.7"
                     >
@@ -817,7 +743,6 @@ export default function PeintreProfessionnelPage() {
               </Container>
             </Box>
 
-            {/* Section 5 — Questions fréquentes */}
             <Box
               py={{ base: 12, md: 16 }}
               bg="gray.50"
@@ -829,7 +754,7 @@ export default function PeintreProfessionnelPage() {
                   <Stack spacing={3} textAlign="center">
                     <Heading
                       as="h2"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                      size="section"
                       fontWeight="bold"
                       color="gray.800"
                     >
@@ -855,7 +780,7 @@ export default function PeintreProfessionnelPage() {
                         borderColor="gray.200"
                         borderRadius="xl"
                         overflow="hidden"
-                        _hover={{ borderColor: '#014CC4', boxShadow: 'sm' }}
+                        _hover={{ borderColor: 'brand.500', boxShadow: 'sm' }}
                         transition="all 0.2s"
                         boxShadow="sm"
                         _last={{ mb: 0 }}
@@ -871,11 +796,11 @@ export default function PeintreProfessionnelPage() {
                               textAlign="left"
                               fontWeight="bold"
                               color="gray.800"
-                              fontSize={{ base: 'md', md: 'lg' }}
+                              textStyle="bodyLarge"
                             >
                               {faq.question}
                             </Box>
-                            <AccordionIcon color="#014CC4" />
+                            <AccordionIcon color="brand.500" />
                           </AccordionButton>
                         </h2>
                         <AccordionPanel pb={6} px={8} pt={0}>
@@ -884,7 +809,7 @@ export default function PeintreProfessionnelPage() {
                             {faq.link && (
                               <Link
                                 href={faq.link}
-                                color="#014CC4"
+                                color="brand.500"
                                 ml={1}
                                 fontWeight="medium"
                                 _hover={{ textDecoration: 'underline' }}
@@ -910,7 +835,7 @@ export default function PeintreProfessionnelPage() {
         <Box
           w="100%"
           py={{ base: 12, md: 16 }}
-          bg="#022A68"
+          bg="brand.700"
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -918,7 +843,7 @@ export default function PeintreProfessionnelPage() {
               <Stack spacing={3}>
                 <Heading
                   as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                  size="section"
                   fontWeight="bold"
                   color="white"
                 >
@@ -927,7 +852,7 @@ export default function PeintreProfessionnelPage() {
                     : 'Get your free quote'}
                 </Heading>
                 <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
+                  textStyle="bodyLarge"
                   color="whiteAlpha.900"
                   maxW="800px"
                   mx="auto"
@@ -941,15 +866,15 @@ export default function PeintreProfessionnelPage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to="/new-contact"
+                  to="/contact"
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg="white"
-                    color="#022A68"
+                    color="brand.700"
                     borderRadius="full"
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    textStyle="nav"
                     px={{ base: 5, md: 7 }}
                     py={{ base: 3, md: 4 }}
                     _hover={{ bg: 'gray.100' }}

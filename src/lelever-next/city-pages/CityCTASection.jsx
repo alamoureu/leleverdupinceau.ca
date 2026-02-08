@@ -20,7 +20,7 @@ export default function CityCTASection({ cityName }) {
     <Box
       w='100%'
       py={{ base: 12, md: 16 }}
-      bg='#022A68'
+      bg='brand.700'
       mt={{ base: 8, md: 12 }}
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -67,13 +67,13 @@ export default function CityCTASection({ cityName }) {
           <Box>
             <Link
               as={RouterLink}
-              to='/new-contact'
+              to='/contact'
               _hover={{ textDecoration: 'none' }}
             >
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 bg='white'
-                color='#022A68'
+                color='brand.700'
                 borderRadius='full'
                 fontSize={{ base: 'sm', md: 'md' }}
                 px={{ base: 5, md: 7 }}

@@ -1,6 +1,6 @@
 # Verification Checklist for Le Lever du Pinceau Website Updates
 
-## ✅ Home Page (`/new-home`)
+## ✅ Home Page (`/`)
 
 - [x] Service bubbles (commercial, residential, interior) are clickable
 - [x] Reviews section uses "centaines" instead of "dizaines"
@@ -51,7 +51,7 @@
 - [ ] Remove "projets récents" section
 - [ ] Add before/after section from peintre pro with proper copy
 
-## 📋 Contact (`/new-contact`)
+## 📋 Contact (`/contact`)
 
 - [ ] Intro text separated with 👉 emoji
 - [ ] H2: "Nous servons tout le Grand Montréal"

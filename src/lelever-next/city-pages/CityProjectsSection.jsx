@@ -83,7 +83,7 @@ export default function CityProjectsSection({
                         border='1px solid'
                         borderColor='gray.200'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'sm',
                           transform: 'translateX(4px)',
                         }}
@@ -92,7 +92,7 @@ export default function CityProjectsSection({
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={0.5}
                           flexShrink={0}

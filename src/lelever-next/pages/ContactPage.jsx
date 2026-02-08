@@ -30,7 +30,7 @@ import SectorsSection from '../home-page/SectorsSection';
 
 export default function ContactPage() {
   const { currentLang } = useContext(appContext);
-  const { isOpen, onClose } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const isFr = currentLang === 'fr';
 
@@ -118,7 +118,7 @@ export default function ContactPage() {
         '@type': 'ListItem',
         position: 2,
         name: 'Contact',
-        item: 'https://leleverdupinceau.ca/new-contact',
+        item: 'https://www.leleverdupinceau.ca/contact',
       },
     ],
   };
@@ -127,7 +127,7 @@ export default function ContactPage() {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: 'Contact',
-    url: 'https://leleverdupinceau.ca/new-contact',
+    url: 'https://www.leleverdupinceau.ca/contact',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'Le Lever du Pinceau',
@@ -160,9 +160,7 @@ export default function ContactPage() {
               : 'Contact our team of professional painters in Montreal Get a free quote for your residential or commercial painting project Fast response guaranteed'
           }
         />
-        <link rel='canonical' href='https://leleverdupinceau.ca/new-contact' />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
+        <link rel='canonical' href='https://www.leleverdupinceau.ca/contact' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -180,41 +178,32 @@ export default function ContactPage() {
           <Stack spacing={0}>
             <HStack
               spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
+              textStyle='bodyLarge'
               color='gray.600'
               mb={{ base: 4, md: 6 }}
             >
               <Link
-                href='/new-home'
+                href='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
               >
                 {isFr ? 'Accueil' : 'Home'}
               </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
+              <Text textStyle='bodyLarge'>›</Text>
+              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
                 Contact
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
+            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
+              <Heading as='h1' size='page' color='gray.800'>
                 {isFr
                   ? 'Contactez Le Lever du Pinceau'
                   : 'Contact Le Lever du Pinceau'}
               </Heading>
               <Text
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='800px'
@@ -224,7 +213,7 @@ export default function ContactPage() {
                   : 'Would you like to refresh your interior, modernize your spaces, or get a quick quote for your painting project? Our team of professional painters is available throughout Greater Montreal, Montreal, Laval, Longueuil, Brossard and all surrounding neighborhoods. We respond quickly, offer clear and accurate quotes, and guarantee professional service from start to finish.'}
               </Text>
               <Text
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='800px'
@@ -235,18 +224,40 @@ export default function ContactPage() {
                   ? '👉 Remplissez le formulaire ci-dessous ou contactez-nous directement, nous serons ravis de vous aider.'
                   : '👉 Fill out the form below or contact us directly, we will be happy to help you.'}
               </Text>
+
+              <Box mt={6}>
+                <Button
+                  onClick={onOpen}
+                  colorScheme="red"
+                  color="white"
+                  textStyle="nav"
+                  px={{ base: 5, md: 6 }}
+                  py={{ base: 4, md: 6 }}
+                  h="auto"
+                  borderRadius="full"
+                  boxShadow="md"
+                  leftIcon={
+                    <Icon
+                      as={FontAwesomeIcon}
+                      icon={faClock}
+                      boxSize={4}
+                    />
+                  }
+                  _hover={{ boxShadow: 'lg', transform: 'translateY(-2px)' }}
+                  transition="all 0.2s"
+                >
+                  {isFr
+                    ? 'Disponible pour projets urgents sur demande'
+                    : 'Available for urgent projects on demand'}
+                </Button>
+              </Box>
             </Stack>
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Obtenez votre soumission gratuite'
                         : 'Get your free quote'}
@@ -271,13 +282,8 @@ export default function ContactPage() {
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr ? 'Nos coordonnées' : 'Our contact information'}
                     </Heading>
                   </Stack>
@@ -301,34 +307,26 @@ export default function ContactPage() {
                             as={FontAwesomeIcon}
                             icon={info.icon}
                             boxSize={6}
-                            color='#014CC4'
+                            color='brand.500'
                           />
-                          <Text
-                            fontSize='sm'
-                            color='gray.600'
-                            fontWeight='medium'
-                          >
+                          <Text textStyle='caption' color='gray.600' fontWeight='medium'>
                             {info.label}
                           </Text>
                           {info.href ? (
                             <Link
                               href={info.href}
                               color='gray.800'
-                              fontSize='md'
+                              textStyle='body'
                               fontWeight='medium'
                               _hover={{
                                 textDecoration: 'underline',
-                                color: '#014CC4',
+                                color: 'brand.500',
                               }}
                             >
                               {info.value}
                             </Link>
                           ) : (
-                            <Text
-                              color='gray.800'
-                              fontSize='md'
-                              fontWeight='medium'
-                            >
+                            <Text color='gray.800' textStyle='body' fontWeight='medium'>
                               {info.value}
                             </Text>
                           )}
@@ -338,7 +336,7 @@ export default function ContactPage() {
                   </SimpleGrid>
 
                   <Box
-                    bg='#F5F6F8'
+                    bg='gray.50'
                     p={{ base: 6, md: 8 }}
                     borderRadius='xl'
                     textAlign='center'
@@ -352,18 +350,18 @@ export default function ContactPage() {
                         as={FontAwesomeIcon}
                         icon={faClock}
                         boxSize={6}
-                        color='#014CC4'
+                        color='brand.500'
                       />
-                      <Text fontWeight='bold' color='gray.800' fontSize='lg'>
+                      <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge'>
                         {isFr ? "Heures d'ouverture" : 'Opening hours'}
                       </Text>
                       <Stack spacing={1}>
-                        <Text color='gray.700' fontSize='sm'>
+                        <Text color='gray.700' textStyle='body'>
                           {isFr
                             ? 'Lundi au vendredi 5h30 – 23h30'
                             : 'Monday to Friday: 5:30 AM – 11:30 PM'}
                         </Text>
-                        <Text color='gray.700' fontSize='sm'>
+                        <Text color='gray.700' textStyle='body'>
                           {isFr
                             ? 'Samedi et Dimanche 5h30 – 23h30'
                             : 'Saturday and Sunday: 5:30 AM – 11:30 PM'}
@@ -372,17 +370,12 @@ export default function ContactPage() {
                       <Box
                         mt={4}
                         p={3}
-                        bg='#014CC4'
+                        bg='brand.500'
                         borderRadius='md'
                         border='1px solid'
-                        borderColor='#014CC4'
+                        borderColor='brand.500'
                       >
-                        <Text
-                          color='white'
-                          fontSize='sm'
-                          fontWeight='bold'
-                          textAlign='center'
-                        >
+                        <Text color='white' textStyle='body' fontWeight='bold' textAlign='center'>
                           {isFr
                             ? 'Disponible pour projets urgents sur demande'
                             : 'Available for urgent projects upon request'}
@@ -397,18 +390,13 @@ export default function ContactPage() {
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Un service rapide, professionnel et fiable'
                         : 'A fast, professional and reliable service'}
                     </Heading>
-                    <Text fontSize={{ base: 'md', md: 'lg' }} color='gray.600'>
+                    <Text textStyle='bodyLarge' color='gray.600'>
                       {isFr
                         ? 'Nos clients apprécient'
                         : 'Our clients appreciate'}
@@ -426,12 +414,12 @@ export default function ContactPage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={1}
                           flexShrink={0}
                         />
-                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                        <Text color='gray.700' textStyle='body' lineHeight='1.6'>
                           {benefit}
                         </Text>
                       </Flex>
@@ -440,19 +428,19 @@ export default function ContactPage() {
 
                   <Box textAlign='center' pt={4}>
                     <Link
-                      href='/new-home#reviews'
+                      href='/#reviews'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Button
                         rightIcon={<ArrowForwardIcon />}
                         variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
+                        borderColor='brand.500'
+                        color='brand.500'
                         borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
+                        textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
+                        _hover={{ bg: 'brand.500', color: 'white' }}
                       >
                         {isFr ? 'Voir les avis' : 'View reviews'}
                       </Button>
@@ -465,13 +453,8 @@ export default function ContactPage() {
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Questions fréquentes avant de nous contacter'
                         : 'Frequently asked questions before contacting us'}
@@ -489,14 +472,10 @@ export default function ContactPage() {
                         borderColor='gray.200'
                       >
                         <Stack spacing={2}>
-                          <Text
-                            fontWeight='bold'
-                            color='gray.800'
-                            fontSize='lg'
-                          >
+                          <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge'>
                             {faq.question}
                           </Text>
-                          <Text color='gray.600' fontSize='md' lineHeight='1.6'>
+                          <Text color='gray.600' textStyle='body' lineHeight='1.6'>
                             {faq.answer}
                           </Text>
                         </Stack>
@@ -505,25 +484,25 @@ export default function ContactPage() {
                   </Stack>
 
                   <Box textAlign='center' pt={4}>
-                    <Text color='gray.600' fontSize='md' mb={4}>
+                    <Text color='gray.600' textStyle='body' mb={4}>
                       {isFr
                         ? 'Vous souhaitez en savoir plus sur notre équipe?'
                         : 'Would you like to know more about our team?'}
                     </Text>
                     <Link
-                      href='/new-home#team'
+                      href='/#team'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Button
                         rightIcon={<ArrowForwardIcon />}
                         variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
+                        borderColor='brand.500'
+                        color='brand.500'
                         borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
+                        textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
+                        _hover={{ bg: 'brand.500', color: 'white' }}
                       >
                         {isFr
                           ? 'Découvrez nos peintres professionnels'
@@ -556,24 +535,19 @@ export default function ContactPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#022A68'
+          bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
             <Stack spacing={8} textAlign='center'>
-              <Stack spacing={3}>
-                <Heading
-                  as='h2'
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
-                  color='white'
-                >
+              <Stack spacing={{ base: 2, md: 3 }}>
+                <Heading as='h2' size='section' color='white'>
                   {isFr
                     ? 'Prêt à commencer votre projet de peinture ?'
                     : 'Ready to start your painting project?'}
                 </Heading>
                 <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
+                  textStyle='bodyLarge'
                   color='whiteAlpha.900'
                   maxW='800px'
                   mx='auto'
@@ -596,9 +570,9 @@ export default function ContactPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#022A68'
+                    color='brand.700'
                     borderRadius='full'
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    textStyle='nav'
                     px={{ base: 5, md: 7 }}
                     py={{ base: 3, md: 4 }}
                     _hover={{ bg: 'gray.100' }}

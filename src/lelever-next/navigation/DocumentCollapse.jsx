@@ -25,7 +25,7 @@ export const DocumentCollapse = ({ onClose }) => {
     {
       fr: 'Peinture intérieure',
       en: 'Interior Painting',
-      path: '/services/new-peinture-interieure',
+      path: '/services/peinture-interieure',
     },
   ];
 
@@ -37,18 +37,20 @@ export const DocumentCollapse = ({ onClose }) => {
   return (
     <>
       <Button
+        type='button'
         variant='tertiary'
         size='md'
         onClick={onToggle}
         leftIcon={<FontAwesomeIcon icon={faPaintRoller} />}
         py={{ base: 3, sm: 4 }}
-        fontSize={{ base: 'md', sm: 'lg' }}
+        textStyle='drawer'
         fontWeight='medium'
         _hover={{ bg: 'gray.50' }}
         justifyContent='start'
+        cursor='pointer'
       >
         <Stack justifyContent='space-between' direction='row' w='100%'>
-          <Text as='span'>
+          <Text as='span' textStyle='drawer' fontWeight='medium'>
             {currentLang === 'fr' ? 'Services' : 'Services'}
           </Text>
           <PopoverIcon isOpen={isOpen} />
@@ -63,29 +65,33 @@ export const DocumentCollapse = ({ onClose }) => {
           {services.map((service, id) => (
             <Button
               key={id}
+              type='button'
               variant='tertiary'
               size='md'
               justifyContent='start'
               textColor='black'
               onClick={() => handleNav(service.path)}
               py={{ base: 3, sm: 4 }}
-              fontSize={{ base: 'md', sm: 'lg' }}
+              textStyle='drawer'
               fontWeight='medium'
               _hover={{ bg: 'gray.50' }}
+              cursor='pointer'
             >
               {currentLang === 'fr' ? service.fr : service.en}
             </Button>
           ))}
           <Button
+            type='button'
             variant='tertiary'
             size='md'
             justifyContent='start'
             textColor='black'
             onClick={() => handleNav('/services')}
             py={{ base: 3, sm: 4 }}
-            fontSize={{ base: 'md', sm: 'lg' }}
+            textStyle='drawer'
             fontWeight='semibold'
             _hover={{ bg: 'gray.50' }}
+            cursor='pointer'
           >
             {currentLang === 'fr'
               ? 'Voir tous les services'

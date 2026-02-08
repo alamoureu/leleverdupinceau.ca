@@ -50,9 +50,9 @@
 # ========================================
 /services
 /services/peinture-commerciale
-/services/new-peinture-exterieure
+/services/peinture-exterieure
 /services/peinture-residentielle
-/services/new-peinture-interieure
+/services/peinture-interieure
 /services/peinture-industrielle
 
 # ========================================
@@ -71,10 +71,10 @@
 # (All 5 Services × 4 Cities = 20 Routes)
 # ========================================
 # Peinture Intérieure × Cities
-/services/new-peinture-interieure/brossard
-/services/new-peinture-interieure/laval
-/services/new-peinture-interieure/longueuil
-/services/new-peinture-interieure/montreal
+/services/peinture-interieure/brossard
+/services/peinture-interieure/laval
+/services/peinture-interieure/longueuil
+/services/peinture-interieure/montreal
 
 # Peinture Commerciale × Cities
 /services/peinture-commerciale/brossard
@@ -89,10 +89,10 @@
 /services/peinture-residentielle/montreal
 
 # Peinture Extérieure × Cities
-/services/new-peinture-exterieure/brossard
-/services/new-peinture-exterieure/laval
-/services/new-peinture-exterieure/longueuil
-/services/new-peinture-exterieure/montreal
+/services/peinture-exterieure/brossard
+/services/peinture-exterieure/laval
+/services/peinture-exterieure/longueuil
+/services/peinture-exterieure/montreal
 
 # Peinture Industrielle × Cities
 /services/peinture-industrielle/brossard
@@ -131,29 +131,29 @@
 # SERVICE × CITY × NEIGHBORHOOD
 # (Peinture Intérieure × Montreal)
 # ========================================
-/services/new-peinture-interieure/montreal/ahuntsic
-/services/new-peinture-interieure/montreal/bois-franc
-/services/new-peinture-interieure/montreal/centre-ville
-/services/new-peinture-interieure/montreal/cote-des-neiges
-/services/new-peinture-interieure/montreal/griffintown
-/services/new-peinture-interieure/montreal/hochelaga
-/services/new-peinture-interieure/montreal/ile-des-soeurs
-/services/new-peinture-interieure/montreal/lachine
-/services/new-peinture-interieure/montreal/lasalle
-/services/new-peinture-interieure/montreal/le-village
-/services/new-peinture-interieure/montreal/mile-end
-/services/new-peinture-interieure/montreal/notre-dame-de-grace
-/services/new-peinture-interieure/montreal/outremont
-/services/new-peinture-interieure/montreal/plateau-mont-royal
-/services/new-peinture-interieure/montreal/pointe-saint-charles
-/services/new-peinture-interieure/montreal/rosemont-petite-patrie
-/services/new-peinture-interieure/montreal/saint-henri
-/services/new-peinture-interieure/montreal/saint-leonard
-/services/new-peinture-interieure/montreal/verdun
-/services/new-peinture-interieure/montreal/ville-mont-royal
-/services/new-peinture-interieure/montreal/ville-saint-laurent
-/services/new-peinture-interieure/montreal/villeray
-/services/new-peinture-interieure/montreal/westmount
+/services/peinture-interieure/montreal/ahuntsic
+/services/peinture-interieure/montreal/bois-franc
+/services/peinture-interieure/montreal/centre-ville
+/services/peinture-interieure/montreal/cote-des-neiges
+/services/peinture-interieure/montreal/griffintown
+/services/peinture-interieure/montreal/hochelaga
+/services/peinture-interieure/montreal/ile-des-soeurs
+/services/peinture-interieure/montreal/lachine
+/services/peinture-interieure/montreal/lasalle
+/services/peinture-interieure/montreal/le-village
+/services/peinture-interieure/montreal/mile-end
+/services/peinture-interieure/montreal/notre-dame-de-grace
+/services/peinture-interieure/montreal/outremont
+/services/peinture-interieure/montreal/plateau-mont-royal
+/services/peinture-interieure/montreal/pointe-saint-charles
+/services/peinture-interieure/montreal/rosemont-petite-patrie
+/services/peinture-interieure/montreal/saint-henri
+/services/peinture-interieure/montreal/saint-leonard
+/services/peinture-interieure/montreal/verdun
+/services/peinture-interieure/montreal/ville-mont-royal
+/services/peinture-interieure/montreal/ville-saint-laurent
+/services/peinture-interieure/montreal/villeray
+/services/peinture-interieure/montreal/westmount
 
 # ========================================
 # BLOG PAGES

@@ -174,10 +174,8 @@ export default function TimeSheetDashboard() {
         timesheetData = allData.filter((record) => record.clockInTime != null);
       }
 
-      // Check for duplicates and log them
       const duplicates = findDuplicateRecords(timesheetData);
       if (duplicates.length > 0) {
-        console.warn('Duplicate records detected:', duplicates);
         toast({
           title: 'Attention',
           description: `${duplicates.length} doublon(s) détecté(s) dans les données.`,

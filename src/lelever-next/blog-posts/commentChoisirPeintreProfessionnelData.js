@@ -1,16 +1,15 @@
-// Blog post data: Comment choisir un peintre professionnel
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
-import img5975 from '../images/before_after/IMG_5975.jpg';
-import img5976 from '../images/before_after/IMG_5976.jpg';
-import img5977 from '../images/before_after/IMG_5977.jpg';
-import img5978 from '../images/before_after/IMG_5978.jpg';
-import img5982 from '../images/before_after/IMG_5982.jpg';
-import img5984 from '../images/before_after/IMG_5984.jpg';
+import img5969 from '../images/1-page-principale/blog hub/Peinture intérieure/IMG_6764.PNG';
+import img5970 from '../images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG';
+import img5971 from '../images/1-page-principale/blog hub/Peinture industrielle/IMG_6752.PNG';
+import img5972 from '../images/1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG';
+import img5973 from '../images/1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG';
+import img5974 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5975 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5976 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import img5977 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import img5978 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import img5982 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
+import img5984 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
 
 export const commentChoisirPeintreProfessionnelData = {
   slug: 'comment-choisir-un-peintre-professionnel',
@@ -740,7 +739,7 @@ export const commentChoisirPeintreProfessionnelData = {
         fr: 'Voir nos services de peinture intérieure',
         en: 'See our interior painting services',
       },
-      href: '/services/new-peinture-interieure',
+      href: '/services/peinture-interieure',
     },
     {
       type: 'heading',
@@ -845,7 +844,7 @@ export const commentChoisirPeintreProfessionnelData = {
       fr: 'Guide complet pour choisir un peintre professionnel fiable à Montréal : expérience, avis, garanties, comparaison de soumissions, questions à poser et erreurs à éviter.',
       en: 'Complete guide to choosing a reliable professional painter in Montreal: experience, reviews, guarantees, quote comparison, questions to ask and mistakes to avoid.',
     },
-    image: 'https://leleverdupinceau.ca/path-vers-ton-image-de-blog.jpg',
+    image: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
     author: {
       '@type': 'Organization',
       name: 'Le Lever du Pinceau',
@@ -856,7 +855,7 @@ export const commentChoisirPeintreProfessionnelData = {
       name: 'Le Lever du Pinceau',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://leleverdupinceau.ca/path-vers-ton-logo.png',
+        url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png',
       },
     },
     datePublished: '2025-01-01',

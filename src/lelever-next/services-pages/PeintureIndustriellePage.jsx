@@ -26,12 +26,12 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5969 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
+import img5970 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
+import img5971 from '../images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG';
+import img5972 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5973 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5974 from '../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
 
 export default function PeintureIndustriellePage() {
   const { currentLang } = useContext(appContext);
@@ -96,7 +96,6 @@ export default function PeintureIndustriellePage() {
               : 'Le Lever du Pinceau offers industrial painting services for factories, warehouses, logistics centers and industrial buildings in Greater Montreal. Resistant coatings, anti-corrosion protection, trained team.'
           }
         />
-        <meta name='robots' content='noindex, nofollow' />
         <link
           rel='canonical'
           href='https://leleverdupinceau.ca/services/peinture-industrielle'
@@ -122,7 +121,7 @@ export default function PeintureIndustriellePage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -228,7 +227,7 @@ export default function PeintureIndustriellePage() {
                         border='1px solid'
                         borderColor='gray.200'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'sm',
                           transform: 'translateX(4px)',
                         }}
@@ -237,7 +236,7 @@ export default function PeintureIndustriellePage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={0.5}
                           flexShrink={0}
@@ -470,13 +469,13 @@ export default function PeintureIndustriellePage() {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
+                      borderColor='brand.500'
+                      color='brand.500'
                       borderRadius='full'
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
+                      _hover={{ bg: 'brand.500', color: 'white' }}
                       whiteSpace='normal'
                       textAlign='center'
                       lineHeight='1.4'
@@ -498,7 +497,7 @@ export default function PeintureIndustriellePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#022A68'
+          bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -529,13 +528,13 @@ export default function PeintureIndustriellePage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/new-contact'
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#022A68'
+                    color='brand.700'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

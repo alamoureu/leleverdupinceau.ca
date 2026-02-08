@@ -69,7 +69,7 @@ export default function ServiceSubServicesSection({
                   display='flex'
                   flexDirection='column'
                   _hover={{
-                    borderColor: '#014CC4',
+                    borderColor: 'brand.500',
                     transform: 'translateY(-2px)',
                     boxShadow: 'md',
                   }}
@@ -78,19 +78,19 @@ export default function ServiceSubServicesSection({
                   <Stack spacing={4} flex={1}>
                     <Heading
                       as='h3'
-                      fontSize='xl'
+                      fontSize={{ base: 'lg', md: 'xl' }}
                       fontWeight='bold'
                       color='gray.800'
                     >
                       {service.title}
                     </Heading>
                     {service.description && (
-                      <Text color='gray.600' fontSize='md' lineHeight='1.6'>
+                      <Text color='gray.600' fontSize={{ base: 'sm', md: 'md' }} lineHeight='1.6'>
                         {service.description}
                       </Text>
                     )}
-                    <HStack spacing={2} color='#014CC4' mt='auto'>
-                      <Text fontSize='sm' fontWeight='medium'>
+                    <HStack spacing={2} color='brand.500' mt='auto'>
+                      <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight='medium'>
                         {service.linkText ||
                           (isFr ? 'Voir la page' : 'View page')}
                       </Text>

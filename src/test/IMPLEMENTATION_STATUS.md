@@ -8,7 +8,7 @@ Generated: December 15, 2025
 
 ## ✅ COMPLETED UPDATES
 
-### Home Page (`/new-home`)
+### Home Page (`/`)
 
 - ✅ Service bubbles (commercial, residential, interior) are clickable
 - ✅ Reviews section uses "centaines" instead of "dizaines"
@@ -45,7 +45,7 @@ Generated: December 15, 2025
 - ✅ No "projets récents" section (removed)
 - ✅ Before/after section from peintre pro with proper copy
 
-### Contact (`/new-contact`)
+### Contact (`/contact`)
 
 - ✅ Intro text separated with 👉 emoji
 - ✅ H2: "Nous servons tout le Grand Montréal"

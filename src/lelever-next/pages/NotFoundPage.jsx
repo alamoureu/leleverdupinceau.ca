@@ -55,9 +55,9 @@ export default function NotFoundPage() {
             <Box position='relative' display='inline-block'>
               <Heading
                 as='h1'
-                fontSize={{ base: '6xl', sm: '7xl', md: '9xl', lg: '10xl' }}
+                fontSize={{ base: '6xl', sm: '7xl', md: '8xl', lg: '9xl' }}
                 fontWeight='900'
-                color='#014CC4'
+                color='brand.500'
                 lineHeight='1'
                 letterSpacing={{ base: '-0.01em', md: '-0.02em' }}
                 w='100%'
@@ -72,22 +72,10 @@ export default function NotFoundPage() {
               w='100%'
               px={{ base: 2, sm: 0 }}
             >
-              <Heading
-                as='h2'
-                fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-                lineHeight='1.2'
-                px={{ base: 4, sm: 0 }}
-              >
+              <Heading as='h2' size='page' color='gray.800' lineHeight='1.2' px={{ base: 4, sm: 0 }}>
                 {isFr ? 'Page non trouvée' : 'Page Not Found'}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
-                color='gray.600'
-                lineHeight={{ base: '1.6', md: '1.7' }}
-                px={{ base: 2, sm: 0 }}
-              >
+              <Text textStyle='bodyLarge' color='gray.600' lineHeight={{ base: '1.6', md: '1.7' }} px={{ base: 2, sm: 0 }}>
                 {isFr
                   ? "Désolé, la page que vous recherchez n'existe pas ou a été déplacée."
                   : "Sorry, the page you're looking for doesn't exist or has been moved."}
@@ -106,18 +94,18 @@ export default function NotFoundPage() {
               <Button
                 as={RouterLink}
                 to='/'
-                bg='#014CC4'
+                bg='brand.500'
                 color='white'
                 size={{ base: 'md', sm: 'lg' }}
                 w={{ base: '100%', sm: 'auto' }}
                 minW={{ base: '100%', sm: '200px' }}
                 px={{ base: 8, sm: 10 }}
-                fontSize={{ base: 'sm', sm: 'md' }}
+                textStyle='nav'
                 fontWeight='600'
                 h={{ base: '44px', sm: '48px' }}
                 borderRadius='md'
                 _hover={{
-                  bg: '#0139a0',
+                  bg: 'brand.600',
                   transform: 'translateY(-2px)',
                   boxShadow: 'lg',
                 }}
@@ -133,7 +121,7 @@ export default function NotFoundPage() {
                 w={{ base: '100%', sm: 'auto' }}
                 minW={{ base: '100%', sm: '180px' }}
                 px={{ base: 8, sm: 10 }}
-                fontSize={{ base: 'sm', sm: 'md' }}
+                textStyle='nav'
                 fontWeight='600'
                 h={{ base: '44px', sm: '48px' }}
                 borderColor='gray.300'
@@ -142,8 +130,8 @@ export default function NotFoundPage() {
                 borderRadius='md'
                 _hover={{
                   bg: 'gray.50',
-                  borderColor: '#014CC4',
-                  color: '#014CC4',
+                  borderColor: 'brand.500',
+                  color: 'brand.500',
                   transform: 'translateY(-2px)',
                   boxShadow: 'sm',
                 }}

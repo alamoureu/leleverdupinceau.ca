@@ -53,7 +53,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                 top={0}
                 bottom={0}
                 w='4px'
-                bg='#014CC4'
+                bg='brand.500'
                 borderRadius='full'
               />
               <Heading
@@ -99,7 +99,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               left: 0,
               width: '60px',
               height: '3px',
-              bg: '#014CC4',
+              bg: 'brand.500',
               borderRadius: 'full',
             }}
           >
@@ -160,7 +160,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                   {' '}
                   <Link
                     href={linkHrefPara}
-                    color='#014CC4'
+                    color='brand.500'
                     fontWeight='600'
                     textDecoration='underline'
                     _hover={{ textDecoration: 'none' }}
@@ -196,7 +196,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                   {' '}
                   <Link
                     href={linkHrefPara}
-                    color='#014CC4'
+                    color='brand.500'
                     fontWeight='600'
                     textDecoration='underline'
                     _hover={{ textDecoration: 'none' }}
@@ -228,7 +228,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                 {' '}
                 <Link
                   href={linkHrefPara}
-                  color='#014CC4'
+                  color='brand.500'
                   fontWeight='600'
                   textDecoration='underline'
                   _hover={{ textDecoration: 'none' }}
@@ -259,7 +259,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                     border='1px solid'
                     borderColor='gray.200'
                     _hover={{
-                      borderColor: '#014CC4',
+                      borderColor: 'brand.500',
                       boxShadow: 'sm',
                     }}
                     transition='all 0.2s'
@@ -271,7 +271,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       minW='32px'
                       minH='32px'
                       borderRadius='md'
-                      bg='#014CC4'
+                      bg='brand.500'
                       color='white'
                       display='flex'
                       alignItems='center'
@@ -385,7 +385,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       borderColor='gray.200'
                       boxShadow='sm'
                       _hover={{
-                        borderColor: '#014CC4',
+                        borderColor: 'brand.500',
                         boxShadow: 'md',
                         transform: 'translateY(-2px)',
                       }}
@@ -396,7 +396,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                           <Text
                             fontSize='xs'
                             fontWeight='bold'
-                            color='#014CC4'
+                            color='brand.500'
                             textTransform='uppercase'
                             letterSpacing='wide'
                             mb={1}
@@ -427,7 +427,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                           >
                             <Text
                               fontSize={{ base: 'lg', md: 'xl' }}
-                              color='#014CC4'
+                              color='brand.500'
                               fontWeight='bold'
                               dangerouslySetInnerHTML={{
                                 __html: preventOrphanedPunctuation(price),
@@ -459,7 +459,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                     borderColor='gray.200'
                     boxShadow='sm'
                     _hover={{
-                      borderColor: '#014CC4',
+                      borderColor: 'brand.500',
                       boxShadow: 'md',
                       transform: 'translateY(-2px)',
                     }}
@@ -475,7 +475,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       minW='40px'
                       minH='40px'
                       borderRadius='full'
-                      bg='#014CC4'
+                      bg='brand.500'
                       color='white'
                       display='flex'
                       alignItems='center'
@@ -518,7 +518,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                     borderColor='gray.200'
                     boxShadow='sm'
                     _hover={{
-                      borderColor: '#014CC4',
+                      borderColor: 'brand.500',
                       bg: 'blue.50',
                       transform: 'translateY(-2px)',
                       boxShadow: 'md',
@@ -621,7 +621,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       border='1px solid'
                       borderColor='gray.200'
                       _hover={{
-                        borderColor: '#014CC4',
+                        borderColor: 'brand.500',
                         bg: 'blue.50',
                       }}
                       transition='all 0.2s'
@@ -637,7 +637,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       {price && (
                         <Text
                           fontSize={{ base: 'md', md: 'lg' }}
-                          color='#014CC4'
+                          color='brand.500'
                           fontWeight='bold'
                           ml={4}
                           whiteSpace='nowrap'
@@ -674,7 +674,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       minW='24px'
                       minH='24px'
                       borderRadius='full'
-                      bg='#014CC4'
+                      bg='brand.500'
                       color='white'
                       display='flex'
                       alignItems='center'
@@ -720,7 +720,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                     minW='6px'
                     minH='6px'
                     borderRadius='full'
-                    bg='#014CC4'
+                    bg='brand.500'
                     mt={2}
                   />
                   <Text
@@ -758,7 +758,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               <Box
                 bg='blue.50'
                 borderLeft='4px solid'
-                borderColor='#014CC4'
+                borderColor='brand.500'
                 p={{ base: 4, md: 5 }}
                 borderRadius='md'
                 mb={shouldCombineWithLink ? 0 : { base: 4, md: 6 }}
@@ -777,7 +777,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       {' '}
                       <Link
                         href={linkHref}
-                        color='#014CC4'
+                        color='brand.500'
                         fontWeight='600'
                         textDecoration='underline'
                         _hover={{ textDecoration: 'none' }}
@@ -797,7 +797,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               <Box
                 bg='white'
                 border='2px solid'
-                borderColor='#014CC4'
+                borderColor='brand.500'
                 p={{ base: 4, md: 5 }}
                 borderRadius='xl'
                 mb={shouldCombineWithLink ? 0 : { base: 4, md: 6 }}
@@ -817,7 +817,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                       {' '}
                       <Link
                         href={linkHref}
-                        color='#014CC4'
+                        color='brand.500'
                         fontWeight='600'
                         textDecoration='underline'
                         _hover={{ textDecoration: 'none' }}
@@ -835,7 +835,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           return (
             <Box key={index}>
               <Box
-                bg='linear-gradient(135deg, #014CC4 0%, #0139A0 100%)'
+                bg='linear-gradient(135deg, var(--chakra-colors-brand-500) 0%, var(--chakra-colors-brand-600) 100%)'
                 p={{ base: 4, md: 5 }}
                 borderRadius='xl'
                 mb={shouldCombineWithLink ? 0 : { base: 4, md: 6 }}
@@ -889,8 +889,8 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               borderColor='gray.200'
             >
               <Text
-                fontSize='4xl'
-                color='#014CC4'
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                color='brand.500'
                 position='absolute'
                 top={2}
                 left={4}
@@ -917,7 +917,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
             <Box
               key={index}
               borderLeft='4px solid'
-              borderColor='#014CC4'
+              borderColor='brand.500'
               pl={{ base: 4, md: 5 }}
               my={{ base: 6, md: 8 }}
               bg='blue.50'
@@ -949,7 +949,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           <Box key={index} mb={{ base: 4, md: 5 }} mt={{ base: 2, md: 3 }}>
             <Link
               href={item.href}
-              color='#014CC4'
+              color='brand.500'
               fontWeight='600'
               fontSize={{ base: 'md', md: 'lg' }}
               textDecoration='underline'
@@ -970,7 +970,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           return (
             <Box key={index} mt={{ base: 10, md: 12 }} mb={{ base: 6, md: 8 }}>
               <Box
-                bg='#014CC4'
+                bg='brand.500'
                 color='white'
                 px={{ base: 4, md: 6 }}
                 py={3}
@@ -997,12 +997,12 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               mb={{ base: 6, md: 8 }}
               pb={2}
               borderBottom='3px solid'
-              borderColor='#014CC4'
+              borderColor='brand.500'
             >
               <Text
                 fontSize={{ base: 'sm', md: 'md' }}
                 fontWeight='bold'
-                color='#014CC4'
+                color='brand.500'
                 textTransform='uppercase'
                 letterSpacing='wide'
               >
@@ -1019,12 +1019,12 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
               mb={{ base: 6, md: 8 }}
               pl={4}
               borderLeft='4px solid'
-              borderColor='#014CC4'
+              borderColor='brand.500'
             >
               <Text
                 fontSize={{ base: 'sm', md: 'md' }}
                 fontWeight='bold'
-                color='#014CC4'
+                color='brand.500'
                 textTransform='uppercase'
                 letterSpacing='wide'
               >
@@ -1049,12 +1049,12 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                 minW='12px'
                 minH='12px'
                 borderRadius='full'
-                bg='#014CC4'
+                bg='brand.500'
               />
               <Text
                 fontSize={{ base: 'sm', md: 'md' }}
                 fontWeight='bold'
-                color='#014CC4'
+                color='brand.500'
                 textTransform='uppercase'
                 letterSpacing='wide'
               >

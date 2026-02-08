@@ -18,21 +18,20 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
-// RecentProjectsSection removed
 import { FaStar } from 'react-icons/fa';
 import BeforeAfter from '../components/BeforeAfter';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
-import img5975 from '../images/before_after/IMG_5975.jpg';
-import img5976 from '../images/before_after/IMG_5976.jpg';
-import img5977 from '../images/before_after/IMG_5977.jpg';
-import img5978 from '../images/before_after/IMG_5978.jpg';
-import img5982 from '../images/before_after/IMG_5982.jpg';
-import img5984 from '../images/before_after/IMG_5984.jpg';
+import img5969 from '../images/1-page-principale/avis/Peinture intérieure/IMG_6758.PNG';
+import img5970 from '../images/1-page-principale/avis/Peinture résidentielle/IMG_6755.PNG';
+import img5971 from '../images/1-page-principale/avis/Peinture commerciale/IMG_6760.PNG';
+import img5972 from '../images/1-page-principale/avis/Peinture extérieure/IMG_6761.PNG';
+import img5973 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5974 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5975 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import img5976 from '../images/2-services/Page peinture extérieure/2. réalisations/IMG_6761.PNG';
+import img5977 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import img5978 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import img5982 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
+import img5984 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
@@ -314,11 +313,11 @@ export default function AvisPage() {
   const services = [
     {
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
-      link: '/services/new-peinture-interieure',
+      link: '/services/peinture-interieure',
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
-      link: '/services/new-peinture-exterieure',
+      link: '/services/peinture-exterieure',
     },
     {
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
@@ -327,10 +326,6 @@ export default function AvisPage() {
     {
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
       link: '/services/peinture-commerciale',
-    },
-    {
-      title: isFr ? 'Peintres professionnels' : 'Professional painters',
-      link: '/peintre-professionnel',
     },
   ];
 
@@ -422,8 +417,6 @@ export default function AvisPage() {
           }
         />
         <link rel='canonical' href='https://leleverdupinceau.ca/avis' />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -441,34 +434,29 @@ export default function AvisPage() {
           <Stack spacing={0}>
             <HStack
               spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
+              textStyle='bodyLarge'
               color='gray.600'
-              mb={{ base: 4, md: 6 }}
+              mb={{ base: 3, md: 6 }}
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
               >
                 {isFr ? 'Accueil' : 'Home'}
               </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
+              <Text textStyle='bodyLarge'>›</Text>
+              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
                 {isFr ? 'Avis' : 'Reviews'}
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
+            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 8, md: 16 }}>
               <Heading
                 as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
+                size='page'
                 color='gray.800'
               >
                 {isFr
@@ -476,7 +464,7 @@ export default function AvisPage() {
                   : 'Client Reviews – Le Lever du Pinceau'}
               </Heading>
               <Text
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='800px'
@@ -486,11 +474,11 @@ export default function AvisPage() {
                   : 'At Le Lever du Pinceau, customer delight is at the heart of everything we do. Residential, commercial, interior or exterior, all our interventions are carried out with precision, cleanliness and impeccable attention to detail.'}
               </Text>
               <Text
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='800px'
-                mt={4}
+                mt={{ base: 2, md: 4 }}
                 fontWeight='medium'
               >
                 {isFr
@@ -501,12 +489,11 @@ export default function AvisPage() {
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8} align='center'>
-                  <Stack spacing={3} textAlign='center'>
+                <Stack spacing={{ base: 4, md: 6 }} align='center'>
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
                     <Heading
                       as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
+                      size='section'
                       color='gray.800'
                     >
                       {isFr
@@ -515,7 +502,7 @@ export default function AvisPage() {
                     </Heading>
                   </Stack>
 
-                  <Box textAlign='center' pb={6}>
+                  <Box textAlign='center' pb={{ base: 3, md: 6 }}>
                     <Link
                       href='https://www.google.com/search?sca_esv=04ccc06d6a14a3bd&cs=0&output=search&kgmid=/g/11ldw9sdvg&q=Le+Lever+Du+Pinceau&shndl=30&shem=uaasic&source=sh/x/loc/uni/m1/1&kgs=a53523f1a2b1d98f#lrd=0x68f987b7d3c06763:0xde27a613b1baf982,3,,,,'
                       rel='nofollow'
@@ -524,13 +511,13 @@ export default function AvisPage() {
                     >
                       <Button
                         rightIcon={<ArrowForwardIcon />}
-                        bg='#022A68'
+                        bg='brand.700'
                         color='white'
                         borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
+                        textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#0139A0' }}
+                        _hover={{ bg: 'brand.600' }}
                       >
                         {isFr
                           ? 'Laisser un avis Google'
@@ -541,14 +528,14 @@ export default function AvisPage() {
 
                   <SimpleGrid
                     columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
+                    spacing={{ base: 3, md: 6 }}
                     w='100%'
                   >
                     {allReviews.map((review, index) => (
                       <Box
                         key={index}
                         bg='white'
-                        p={{ base: 4, md: 6 }}
+                        p={{ base: 3, md: 6 }}
                         borderRadius='xl'
                         border='1px solid'
                         borderColor='gray.200'
@@ -556,21 +543,21 @@ export default function AvisPage() {
                         display='flex'
                         flexDirection='column'
                         _hover={{
-                          borderColor: '#014CC4',
+                          borderColor: 'brand.500',
                           boxShadow: 'md',
                         }}
                         transition='all 0.2s'
                       >
-                        <Stack spacing={3} flex={1}>
+                        <Stack spacing={{ base: 2, md: 3 }} flex={1}>
                           <Box>
                             <Text
                               fontWeight='bold'
-                              fontSize={{ base: 'md', md: 'lg' }}
+                              textStyle='bodyLarge'
                               color='gray.800'
                             >
                               {review.name}
                             </Text>
-                            <Text fontSize='sm' color='gray.500' mt={0.5}>
+                            <Text textStyle='caption' color='gray.500' mt={0.5}>
                               {review.time}
                             </Text>
                           </Box>
@@ -585,7 +572,7 @@ export default function AvisPage() {
                             ))}
                           </Box>
                           <Text
-                            fontSize={{ base: 'sm', md: 'md' }}
+                            textStyle='body'
                             color='gray.700'
                             lineHeight='1.6'
                             flex={1}
@@ -602,19 +589,18 @@ export default function AvisPage() {
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
+                <Stack spacing={{ base: 4, md: 6 }}>
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
                     <Heading
                       as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
+                      size='section'
                       color='gray.800'
                     >
                       {isFr
                         ? 'Qualité, précision et service irréprochable'
                         : 'Quality, precision and impeccable service'}
                     </Heading>
-                    <Text fontSize={{ base: 'md', md: 'lg' }} color='gray.600'>
+                    <Text textStyle='bodyLarge' color='gray.600'>
                       {isFr
                         ? 'Nos clients mentionnent le plus souvent'
                         : 'Our clients most often mention'}
@@ -623,7 +609,7 @@ export default function AvisPage() {
 
                   <SimpleGrid
                     columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
+                    spacing={{ base: 3, md: 6 }}
                     maxW='1000px'
                     mx='auto'
                   >
@@ -632,12 +618,12 @@ export default function AvisPage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={1}
                           flexShrink={0}
                         />
-                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                        <Text color='gray.700' textStyle='body' lineHeight='1.6'>
                           {item}
                         </Text>
                       </Flex>
@@ -647,7 +633,6 @@ export default function AvisPage() {
               </Container>
             </Box>
 
-            {/* Before/After Section */}
             <Box
               py={{ base: 12, md: 16 }}
               bg='white'
@@ -655,12 +640,11 @@ export default function AvisPage() {
               mb={{ base: 8, md: 12 }}
             >
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
+                <Stack spacing={{ base: 4, md: 6 }}>
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='left'>
                     <Heading
                       as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
+                      size='section'
                       color='gray.800'
                     >
                       {isFr
@@ -668,7 +652,7 @@ export default function AvisPage() {
                         : 'Professional Painters Results in Montreal'}
                     </Heading>
                     <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
+                      textStyle='bodyLarge'
                       color='gray.600'
                       lineHeight='1.7'
                     >
@@ -684,19 +668,18 @@ export default function AvisPage() {
 
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
+                <Stack spacing={{ base: 4, md: 6 }}>
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
                     <Heading
                       as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
+                      size='section'
                       color='gray.800'
                     >
                       {isFr
                         ? 'Ils nous font confiance pour tous leurs projets'
                         : 'They trust us for all their projects'}
                     </Heading>
-                    <Text fontSize={{ base: 'md', md: 'lg' }} color='gray.600'>
+                    <Text textStyle='bodyLarge' color='gray.600'>
                       {isFr
                         ? 'Services les plus appréciés'
                         : 'Most appreciated services'}
@@ -704,8 +687,8 @@ export default function AvisPage() {
                   </Stack>
 
                   <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
+                    columns={{ base: 1, md: 2, lg: 4 }}
+                    spacing={{ base: 3, md: 6 }}
                     maxW='1000px'
                     mx='auto'
                   >
@@ -717,13 +700,13 @@ export default function AvisPage() {
                       >
                         <Box
                           bg='white'
-                          p={{ base: 4, md: 6 }}
+                          p={{ base: 3, md: 6 }}
                           borderRadius='xl'
                           border='1px solid'
                           borderColor='gray.200'
                           textAlign='center'
                           _hover={{
-                            borderColor: '#014CC4',
+                            borderColor: 'brand.500',
                             transform: 'translateY(-2px)',
                             boxShadow: 'md',
                           }}
@@ -733,12 +716,12 @@ export default function AvisPage() {
                             <Text
                               fontWeight='bold'
                               color='gray.800'
-                              fontSize='lg'
+                              textStyle='bodyLarge'
                             >
                               {service.title}
                             </Text>
-                            <HStack spacing={2} color='#014CC4'>
-                              <Text fontSize='sm' fontWeight='medium'>
+                            <HStack spacing={2} color='brand.500'>
+                              <Text textStyle='body' fontWeight='medium'>
                                 {isFr ? 'Voir' : 'View'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
@@ -748,6 +731,66 @@ export default function AvisPage() {
                       </Link>
                     ))}
                   </SimpleGrid>
+
+                  <Box pt={{ base: 4, md: 8 }} maxW='600px' mx='auto'>
+                    <Link
+                      href='/peintre-professionnel'
+                      _hover={{ textDecoration: 'none' }}
+                    >
+                      <Box
+                        bg='linear-gradient(135deg, var(--chakra-colors-brand-500) 0%, var(--chakra-colors-brand-600) 100%)'
+                        p={{ base: 4, md: 8 }}
+                        borderRadius='xl'
+                        textAlign='center'
+                        _hover={{
+                          transform: 'translateY(-2px)',
+                          boxShadow: '0 8px 24px rgba(1, 76, 196, 0.3)',
+                        }}
+                        transition='all 0.2s'
+                        position='relative'
+                        overflow='hidden'
+                      >
+                        <Box
+                          position='absolute'
+                          top='-50%'
+                          right='-20%'
+                          w='200px'
+                          h='200px'
+                          bg='whiteAlpha.100'
+                          borderRadius='full'
+                          filter='blur(60px)'
+                        />
+                        <Stack spacing={{ base: 2, md: 3 }} align='center' position='relative' zIndex={1}>
+                          <Icon
+                            as={FontAwesomeIcon}
+                            icon={faCheckCircle}
+                            color='white'
+                            boxSize={8}
+                          />
+                          <Heading
+                            as='h3'
+                            size='subsection'
+                            color='white'
+                          >
+                            {isFr
+                              ? 'Voir nos peintres professionnels'
+                              : 'See our professional painters'}
+                          </Heading>
+                          <Text color='whiteAlpha.900' textStyle='body'>
+                            {isFr
+                              ? 'Découvrez notre équipe expérimentée'
+                              : 'Discover our experienced team'}
+                          </Text>
+                          <HStack spacing={2} color='white' pt={2}>
+                            <Text textStyle='body' fontWeight='semibold'>
+                              {isFr ? 'En savoir plus' : 'Learn more'}
+                            </Text>
+                            <ArrowForwardIcon boxSize={5} />
+                          </HStack>
+                        </Stack>
+                      </Box>
+                    </Link>
+                  </Box>
                 </Stack>
               </Container>
             </Box>
@@ -757,16 +800,15 @@ export default function AvisPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16 }}
-          bg='#022A68'
+          bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} textAlign='center'>
-              <Stack spacing={3}>
+            <Stack spacing={{ base: 4, md: 6 }} textAlign='center'>
+              <Stack spacing={{ base: 2, md: 3 }}>
                 <Heading
                   as='h2'
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
+                  size='section'
                   color='white'
                 >
                   {isFr
@@ -774,7 +816,7 @@ export default function AvisPage() {
                     : 'A team of professional painters recommended throughout Greater Montreal'}
                 </Heading>
                 <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
+                  textStyle='bodyLarge'
                   color='whiteAlpha.900'
                   maxW='800px'
                   mx='auto'
@@ -788,15 +830,15 @@ export default function AvisPage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/new-contact'
+                  to='/contact'
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='#022A68'
+                    color='brand.700'
                     borderRadius='full'
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    textStyle='nav'
                     px={{ base: 5, md: 7 }}
                     py={{ base: 3, md: 4 }}
                     _hover={{ bg: 'gray.100' }}

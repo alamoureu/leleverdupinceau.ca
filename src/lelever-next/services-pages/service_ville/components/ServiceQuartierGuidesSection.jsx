@@ -10,11 +10,10 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../../../AppProvider';
-import commentChoisirPeintre from '../../../images/comment_choisir_un_peintre.jpg';
-import prixProjetPeinture from '../../../images/prix_projet_peinture_montreal.jpg';
-import erreurEviterProjet from '../../../images/erreur_eviter_projet_peinture.jpg';
+import commentChoisirPeintre from '../../../images/1-page-principale/blog hub/Peinture intérieure/IMG_6764.PNG';
+import prixProjetPeinture from '../../../images/1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG';
+import erreurEviterProjet from '../../../images/1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG';
 
-// Helper function to get image based on blog href
 const getBlogImage = (href) => {
   if (href.includes('comment-choisir')) {
     return commentChoisirPeintre;
@@ -75,7 +74,7 @@ export default function ServiceQuartierGuidesSection({ title, guides }) {
                     display='flex'
                     flexDirection='column'
                     _hover={{
-                      borderColor: '#014CC4',
+                      borderColor: 'brand.500',
                       transform: 'translateY(-2px)',
                       boxShadow: 'md',
                     }}
@@ -104,7 +103,7 @@ export default function ServiceQuartierGuidesSection({ title, guides }) {
                       <Box
                         display='flex'
                         alignItems='center'
-                        color='#014CC4'
+                        color='brand.500'
                         fontWeight='semibold'
                         fontSize='sm'
                         mt='auto'

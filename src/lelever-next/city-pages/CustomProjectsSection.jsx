@@ -243,11 +243,11 @@ export default function CustomProjectsSection({
                               bg='white'
                               border='1px solid'
                               borderColor='gray.200'
-                              color='#014CC4'
+                              color='brand.500'
                               borderRadius='full'
                               size='sm'
                               zIndex={2}
-                              _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
+                              _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
                               onClick={() =>
                                 goToPreviousImage(project.id, images.length)
                               }
@@ -264,11 +264,11 @@ export default function CustomProjectsSection({
                               bg='white'
                               border='1px solid'
                               borderColor='gray.200'
-                              color='#014CC4'
+                              color='brand.500'
                               borderRadius='full'
                               size='sm'
                               zIndex={2}
-                              _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
+                              _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
                               onClick={() =>
                                 goToNextImage(project.id, images.length)
                               }

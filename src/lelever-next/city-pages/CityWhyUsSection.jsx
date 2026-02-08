@@ -5,7 +5,6 @@ import {
   Heading,
   Text,
   Stack,
-  SimpleGrid,
   Button,
   Link,
   Flex,
@@ -100,7 +99,7 @@ export default function CityWhyUsSection({
                       <Icon
                         as={FontAwesomeIcon}
                         icon={faCheckCircle}
-                        color='#014CC4'
+                        color='brand.500'
                         boxSize={5}
                         mt={0.5}
                         flexShrink={0}
@@ -139,13 +138,13 @@ export default function CityWhyUsSection({
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 variant='outline'
-                borderColor='#014CC4'
-                color='#014CC4'
+                borderColor='brand.500'
+                color='brand.500'
                 borderRadius='full'
                 fontSize={{ base: 'sm', md: 'md' }}
                 px={{ base: 5, md: 7 }}
                 py={{ base: 3, md: 4 }}
-                _hover={{ bg: '#014CC4', color: 'white' }}
+                _hover={{ bg: 'brand.500', color: 'white' }}
                 whiteSpace='normal'
                 textAlign='center'
                 lineHeight='1.4'

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
@@ -8,14 +8,11 @@ import {
   SimpleGrid,
   Link,
   Text,
-  HStack,
   Icon,
   Image,
 } from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
-import appContext from '../../../AppProvider';
 import {
   montrealSecteur,
   lavalSecteur,
@@ -37,9 +34,6 @@ export default function ServiceCitiesSectorsSection({
   cities = defaultCities,
   showViewLink = true,
 }) {
-  const { currentLang } = useContext(appContext);
-  const isFr = currentLang === 'fr';
-
   // Merge default images if not provided in cities prop
   const citiesWithImages = cities.map((city) => {
     const defaultCity = defaultCities.find((c) => c.slug === city.slug);
@@ -52,7 +46,7 @@ export default function ServiceCitiesSectorsSection({
   return (
     <Box
       py={{ base: 12, md: 16 }}
-      bg='#022A68'
+      bg='brand.700'
       borderRadius='xl'
       mb={{ base: 8, md: 12 }}
     >
@@ -93,7 +87,7 @@ export default function ServiceCitiesSectorsSection({
                     h='100%'
                     w='100%'
                     _hover={{
-                      borderColor: '#014CC4',
+                      borderColor: 'brand.500',
                       boxShadow: 'md',
                       transform: 'translateY(-2px)',
                     }}

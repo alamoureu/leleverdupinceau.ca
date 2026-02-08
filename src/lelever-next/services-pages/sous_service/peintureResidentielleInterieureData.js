@@ -1,10 +1,9 @@
-// Forces HMR update
-import img5969 from '../../images/before_after/IMG_5969.jpg';
-import img5970 from '../../images/before_after/IMG_5970.jpg';
-import img5971 from '../../images/before_after/IMG_5971.jpg';
-import img5972 from '../../images/before_after/IMG_5972.jpg';
-import img5973 from '../../images/before_after/IMG_5973.jpg';
-import img5974 from '../../images/before_after/IMG_5974.jpg';
+import img5969 from '../../images/4-sous-services/résdientielle x intérieure/1. réalisations/IMG_6764.PNG';
+import img5970 from '../../images/4-sous-services/résdientielle x intérieure/2. réalisations/IMG_5976.PNG';
+import img5971 from '../../images/4-sous-services/résdientielle x intérieure/3. réalisations/IMG_6024.PNG';
+import img5972 from '../../images/4-sous-services/résdientielle x intérieure/4. réalisations/IMG_5900.PNG';
+import img5973 from '../../images/4-sous-services/résdientielle x intérieure/5. réalisations/IMG_5873.PNG';
+import img5974 from '../../images/4-sous-services/résdientielle x intérieure/6. réalisations/IMG_5982.PNG';
 
 export const peintureResidentielleInterieureData = {
   serviceSlug: 'peinture-residentielle',
@@ -86,7 +85,7 @@ export const peintureResidentielleInterieureData = {
         fr: 'Peinture intérieure',
         en: 'Interior painting',
       },
-      href: '/services/new-peinture-interieure',
+      href: '/services/peinture-interieure',
     },
     {
       title: {

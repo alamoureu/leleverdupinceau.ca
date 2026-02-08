@@ -40,7 +40,7 @@ export const translations = {
 
     reviewsTitle: 'Avis de nos clients',
     reviewsSubtitle:
-      'Des centaines de clients ravis à Montréal et partout dans le Grand Montréal',
+      'Des centaines de clients ravis partout dans le Grand Montréal',
     reviewTime2Months: 'Il y a 2 mois',
     reviewTime6Days: 'Il y a 6 jours',
     reviewTime1Month: 'Il y a 1 mois',
@@ -210,7 +210,7 @@ export const translations = {
 
     reviewsTitle: 'Client reviews',
     reviewsSubtitle:
-      'Hundreds of delighted clients in Montreal and throughout Greater Montreal',
+      'Hundreds of delighted clients throughout Greater Montreal',
     reviewTime2Months: '2 months ago',
     reviewTime6Days: '6 days ago',
     reviewTime1Month: '1 month ago',

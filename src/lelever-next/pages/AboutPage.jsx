@@ -13,7 +13,6 @@ import {
   Icon,
   HStack,
   Flex,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -184,9 +183,7 @@ export default function AboutPage() {
               : 'Discover Le Lever du Pinceau, a team of passionate professional painters specialized in residential and commercial painting throughout Greater Montreal. Mission, values and quality commitment'
           }
         />
-        <link rel='canonical' href='https://leleverdupinceau.ca/a-propos' />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
+        <link rel='canonical' href='https://www.leleverdupinceau.ca/a-propos' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -205,43 +202,34 @@ export default function AboutPage() {
             {/* Breadcrumbs */}
             <HStack
               spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
+              textStyle='bodyLarge'
               color='gray.600'
               mb={{ base: 4, md: 6 }}
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
               >
                 {isFr ? 'Accueil' : 'Home'}
               </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
+              <Text textStyle='bodyLarge'>›</Text>
+              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
                 {isFr ? 'À propos' : 'About'}
               </Text>
             </HStack>
 
             {/* Intro Content */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
+            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
+              <Heading as='h1' size='page' color='gray.800'>
                 {isFr
                   ? 'À propos de Le Lever du Pinceau'
                   : 'About Le Lever du Pinceau'}
               </Heading>
               <Text
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
                 color='gray.600'
                 lineHeight='1.7'
                 maxW='900px'
@@ -251,7 +239,7 @@ export default function AboutPage() {
                   : 'Le Lever du Pinceau is a team of passionate professional painters, specialized in residential, commercial, interior and exterior painting throughout Greater Montreal. We believe that every project deserves a personalized approach, impeccable service and a durable quality finish. For several years, we have been helping homeowners, businesses, property managers and renovators transform their spaces with precision, cleanliness and attention to detail.'}
               </Text>
               <Text
-                fontSize={{ base: 'md', md: 'lg' }}
+                textStyle='bodyLarge'
                 color='gray.700'
                 fontWeight='medium'
                 lineHeight='1.7'
@@ -265,16 +253,11 @@ export default function AboutPage() {
             </Stack>
 
             {/* Values Section (Moved Up) */}
-            <Box py={{ base: 8, md: 12 }}>
+            <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 0 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Les principes qui guident chaque projet'
                         : 'The principles that guide every project'}
@@ -301,19 +284,14 @@ export default function AboutPage() {
                           <Icon
                             as={FontAwesomeIcon}
                             icon={faCheckCircle}
-                            color='#014CC4'
+                            color='brand.500'
                             boxSize={6}
                             mx='auto'
                           />
-                          <Heading
-                            as='h3'
-                            fontSize='xl'
-                            fontWeight='bold'
-                            color='gray.800'
-                          >
+                          <Heading as='h3' size='subsection' color='gray.800'>
                             {value.title}
                           </Heading>
-                          <Text color='gray.600' fontSize='md' lineHeight='1.6'>
+                          <Text color='gray.600' textStyle='body' lineHeight='1.6'>
                             {value.description}
                           </Text>
                         </Stack>
@@ -330,25 +308,15 @@ export default function AboutPage() {
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Améliorer vos espaces, un coup de pinceau à la fois'
                         : 'Improve your spaces, one brushstroke at a time'}
                     </Heading>
                   </Stack>
 
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.700'
-                    textAlign='center'
-                    mb={4}
-                  >
+                  <Text textStyle='bodyLarge' color='gray.700' textAlign='center' mb={4}>
                     {isFr
                       ? 'Notre mission est simple'
                       : 'Our mission is simple'}
@@ -364,12 +332,12 @@ export default function AboutPage() {
                           <Icon
                             as={FontAwesomeIcon}
                             icon={faCheckCircle}
-                            color='#014CC4'
+                            color='brand.500'
                             boxSize={5}
                             mt={1}
                             flexShrink={0}
                           />
-                          <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                          <Text color='gray.700' textStyle='body' lineHeight='1.6'>
                             {point}
                           </Text>
                         </Flex>
@@ -393,12 +361,12 @@ export default function AboutPage() {
                           <Icon
                             as={FontAwesomeIcon}
                             icon={faCheckCircle}
-                            color='#014CC4'
+                            color='brand.500'
                             boxSize={5}
                             mt={1}
                             flexShrink={0}
                           />
-                          <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                          <Text color='gray.700' textStyle='body' lineHeight='1.6'>
                             {point}
                           </Text>
                         </Flex>
@@ -412,28 +380,18 @@ export default function AboutPage() {
 
 
             {/* Project Types (De la petite retouche...) */}
-            <Box py={{ base: 4, md: 8 }}>
+            <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'De la petite retouche aux grands projets'
                         : 'From small touch-ups to large projects'}
                     </Heading>
                   </Stack>
 
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    textAlign='center'
-                    mb={4}
-                  >
+                  <Text textStyle='bodyLarge' color='gray.600' textAlign='center' mb={4}>
                     {isFr ? 'Nous intervenons pour :' : 'We work on:'}
                   </Text>
 
@@ -448,12 +406,12 @@ export default function AboutPage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={1}
                           flexShrink={0}
                         />
-                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                        <Text color='gray.700' textStyle='body' lineHeight='1.6'>
                           {type}
                         </Text>
                       </Flex>
@@ -469,13 +427,13 @@ export default function AboutPage() {
                       <Button
                         rightIcon={<ArrowForwardIcon />}
                         variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
+                        borderColor='brand.500'
+                        color='brand.500'
                         borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
+                        textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
+                        _hover={{ bg: 'brand.500', color: 'white' }}
                       >
                         {isFr
                           ? 'Voir tous nos services'
@@ -491,24 +449,15 @@ export default function AboutPage() {
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6} maxW='800px' mx='auto'>
-                  <Stack spacing={3}>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }}>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Des peintres professionnels expérimentés'
                         : 'Experienced professional painters'}
                     </Heading>
                   </Stack>
 
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    lineHeight='1.7'
-                  >
+                  <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
                     {isFr
                       ? 'Notre équipe est composée de peintres :'
                       : 'Our team is made up of painters who are:'}
@@ -520,12 +469,12 @@ export default function AboutPage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={1}
                           flexShrink={0}
                         />
-                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                        <Text color='gray.700' textStyle='body' lineHeight='1.6'>
                           {point}
                         </Text>
                       </Flex>
@@ -541,13 +490,13 @@ export default function AboutPage() {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
+                      borderColor='brand.500'
+                      color='brand.500'
                       borderRadius='full'
-                      fontSize={{ base: 'sm', md: 'md' }}
+                      textStyle='nav'
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
+                      _hover={{ bg: 'brand.500', color: 'white' }}
                     >
                       {isFr
                         ? 'Voir notre page Peintres professionnels'
@@ -562,25 +511,15 @@ export default function AboutPage() {
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? "La tranquillité d'esprit, c'est notre promesse"
                         : 'Peace of mind is our promise'}
                     </Heading>
                   </Stack>
 
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    textAlign='center'
-                    mb={4}
-                  >
+                  <Text textStyle='bodyLarge' color='gray.600' textAlign='center' mb={4}>
                     {isFr ? 'Nous garantissons :' : 'We guarantee:'}
                   </Text>
 
@@ -595,12 +534,12 @@ export default function AboutPage() {
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='#014CC4'
+                          color='brand.500'
                           boxSize={5}
                           mt={1}
                           flexShrink={0}
                         />
-                        <Text color='gray.700' fontSize='md' lineHeight='1.6'>
+                        <Text color='gray.700' textStyle='body' lineHeight='1.6'>
                           {guarantee}
                         </Text>
                       </Flex>
@@ -627,13 +566,8 @@ export default function AboutPage() {
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6} mb={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Ce que nos clients disent de nous'
                         : 'What our clients say about us'}
@@ -641,68 +575,11 @@ export default function AboutPage() {
                   </Stack>
                 </Stack>
               </Container>
-              <ReviewsSection hideTitle={true} hideButton={true} />
+              <ReviewsSection hideTitle={true} hideButton={false} />
             </Box>
           </Stack>
         </Container>
 
-        <Box
-          w='100%'
-          py={{ base: 12, md: 16 }}
-          bg='#022A68'
-          mt={{ base: 8, md: 12 }}
-        >
-          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} textAlign='center'>
-              <Stack spacing={3}>
-                <Heading
-                  as='h2'
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
-                  color='white'
-                >
-                  {isFr
-                    ? 'Prêt à transformer votre espace ?'
-                    : 'Ready to transform your space?'}
-                </Heading>
-                <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color='whiteAlpha.900'
-                  maxW='800px'
-                  mx='auto'
-                >
-                  {isFr
-                    ? 'Nous offrons des soumissions rapides et détaillées pour tous les types de projets'
-                    : 'We offer fast and detailed quotes for all types of projects'}
-                </Text>
-              </Stack>
-
-              <Box>
-                <Link
-                  as={RouterLink}
-                  to='/new-contact'
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    rightIcon={<ArrowForwardIcon />}
-                    bg='white'
-                    color='#022A68'
-                    borderRadius='full'
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                    _hover={{ bg: 'gray.100' }}
-                    size='lg'
-                  >
-                    {isFr
-                      ? 'Obtenir votre soumission gratuite'
-                      : 'Get your free quote'}
-                  </Button>
-                </Link>
-              </Box>
-            </Stack>
-          </Container>
-        </Box>
       </Box>
     </Fragment>
   );

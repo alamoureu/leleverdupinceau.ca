@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { Box, useDisclosure, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
 import HeroSection from '../lelever-next/home-page/HeroSection';
-import TrustBanner from '../lelever-next/home-page/TrustBanner';
 import ControlSection from '../lelever-next/home-page/ControlSection';
 import MethodSection from '../lelever-next/home-page/MethodSection';
 import ReviewsSection from '../lelever-next/home-page/ReviewsSection';
@@ -56,22 +55,34 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
         {indexable && (
-          <link rel="canonical" href={`${CANONICAL_BASE}/${lang}/peintre-montreal`} />
+          <link
+            rel="canonical"
+            href={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
+          />
         )}
         {!indexable && <meta name="robots" content="noindex, nofollow" />}
         {!indexable && <meta name="googlebot" content="noindex, nofollow" />}
         {indexable && <meta property="og:type" content="website" />}
         {indexable && <meta property="og:title" content={meta.title} />}
-        {indexable && <meta property="og:description" content={meta.description} />}
-        {indexable && <meta property="og:url" content={`${CANONICAL_BASE}/${lang}/peintre-montreal`} />}
-        {indexable && <meta property="og:locale" content={lang === 'fr' ? 'fr_CA' : 'en_CA'} />}
+        {indexable && (
+          <meta property="og:description" content={meta.description} />
+        )}
+        {indexable && (
+          <meta
+            property="og:url"
+            content={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
+          />
+        )}
+        {indexable && (
+          <meta
+            property="og:locale"
+            content={lang === 'fr' ? 'fr_CA' : 'en_CA'}
+          />
+        )}
       </Helmet>
 
       <Box w="100%" bg="white" overflowX="hidden" position="relative">
-        <Box position="relative">
-          <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
-          <TrustBanner />
-        </Box>
+        <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
 
         <ControlSection onSubmissionOpen={onOpen} />
 
@@ -147,7 +158,14 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
               <Text
                 as="h2"
                 id="submission-form-title"
-                fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl', xl: '4xl', '2xl': '4xl' }}
+                fontSize={{
+                  base: 'lg',
+                  sm: 'xl',
+                  md: '2xl',
+                  lg: '3xl',
+                  xl: '4xl',
+                  '2xl': '4xl',
+                }}
                 fontWeight="bold"
                 color="gray.900"
                 textAlign="center"
@@ -162,7 +180,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
         </Stack>
       </Box>
 
-      <ReviewsSection />
+      <ReviewsSection hideButton />
 
       <FAQSection />
 

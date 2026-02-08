@@ -5,7 +5,7 @@ export const plateauMontRoyalData = {
     en: 'Plateau-Mont-Royal',
   },
   canonical:
-    'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal/plateau-mont-royal',
+    'https://leleverdupinceau.ca/services/peinture-interieure/montreal/plateau-mont-royal',
   h1: 'Peinture intérieure au Plateau-Mont-Royal – Le Lever du Pinceau',
   introduction:
     "Le Plateau-Mont-Royal est l'un des quartiers les plus iconiques de Montréal : triplex colorés, condos modernes, lofts, maisons centenaires et appartements au cachet unique. Ces espaces ont besoin d'une peinture intérieure professionnelle pour faire ressortir leur architecture, moderniser les pièces et préserver le charme authentique du Plateau. Le Lever du Pinceau offre un service spécialisé de peinture intérieure au Plateau-Mont-Royal, avec un savoir-faire adapté aux propriétés typiques du quartier. Pour une finition intérieure durable, propre et impeccable dans votre résidence ou condo du Plateau, notre équipe est prête à intervenir.",
@@ -28,7 +28,7 @@ export const plateauMontRoyalData = {
     services: [
       {
         title: "Peinture intérieure Montréal (vue d'ensemble)",
-        href: '/services/new-peinture-interieure/montreal',
+        href: '/services/peinture-interieure/montreal',
       },
       {
         title: 'Peinture résidentielle Montréal',

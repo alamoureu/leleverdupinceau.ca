@@ -28,23 +28,32 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
 
-  const isHomePage = location.pathname === '/new-home';
+  const isHomePage = location.pathname === '/';
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
       : (location.pathname === '/fr/peintre-montreal' || location.pathname === '/en/peintre-montreal');
 
   return (
-    <Box spacing={0} gap={0} bg="white">
+    <Box
+      as="header"
+      spacing={0}
+      gap={0}
+      bg="white"
+      position="sticky"
+      top={0}
+      left={0}
+      right={0}
+      zIndex={9999}
+      pointerEvents="auto"
+    >
       {!isNewLanding && (
         <Box
-          position="fixed"
-          top={0}
-          left={0}
-          right={0}
+          position="relative"
           w="100%"
-          zIndex={1000}
+          zIndex={1}
           bg="black"
+          pointerEvents="auto"
         >
           <Box
             maxW="1440px"
@@ -56,7 +65,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               <HStack spacing={4}>
                 <HStack spacing={2} h="20px" alignItems="center">
                   <Text
-                    fontSize={{ base: 'sm', sm: 'md' }}
+                    textStyle="nav"
                     color="white"
                     fontWeight="light"
                   >
@@ -71,7 +80,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     color="white"
                     variant="ghost"
                     _hover={{ bg: 'gray.800' }}
-                    fontSize={{ base: '16px', sm: '18px' }}
+                    textStyle="nav"
                     mr="-10px"
                   />
                   <IconButton
@@ -83,7 +92,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     color="white"
                     variant="ghost"
                     _hover={{ bg: 'gray.800' }}
-                    fontSize={{ base: '16px', sm: '18px' }}
+                    textStyle="nav"
                   />
                 </HStack>
               </HStack>
@@ -93,11 +102,11 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   as={FontAwesomeIcon}
                   icon={faPhoneAlt}
                   color="white"
-                  fontSize={{ base: '14px', sm: '16px' }}
+                  textStyle="nav"
                 />
                 <a href="tel:4388680772">
                   <Text
-                    fontSize={{ base: 'sm', sm: 'md' }}
+                    textStyle="nav"
                     color="white"
                     fontWeight="medium"
                     _hover={{ textDecoration: 'underline' }}
@@ -113,14 +122,15 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
 
       <Box
         w="100%"
-        bg="#022A68"
+        bg="brand.700"
         py={{ base: 1.5, sm: 2, md: 3, lg: 4 }}
         px={{ base: 4, sm: 6, lg: 8 }}
         shadow="md"
         position="relative"
-        mt={isNewLanding ? 0 : { base: '30px', sm: '37px' }}
+        zIndex={2}
+        pointerEvents="auto"
       >
-        <Box maxW="1440px" w="100%" mx="auto" position="relative">
+        <Box maxW="1440px" w="100%" mx="auto" position="relative" zIndex={1}>
           <HStack
             spacing={{ base: 3, sm: 4 }}
             alignItems="center"
@@ -128,29 +138,38 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             w="100%"
             flexWrap="nowrap"
             minW={0}
+            position="relative"
+            zIndex={2}
+            pointerEvents="auto"
           >
-            {/* Logo: left (not clickable on new-landing) */}
-            <Image
-              loading="lazy"
-              src={
-                'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
-              }
-              h={{ base: '56px', md: '64px', lg: '68px' }}
-              maxH={{ base: '56px', md: '64px', lg: '68px' }}
-              w="auto"
-              objectFit="contain"
+            <Box
+              as="button"
+              type="button"
               flexShrink={0}
-              sx={{ imageRendering: 'auto' }}
-              onClick={isNewLanding ? undefined : () => navigate('/new-home')}
+              onClick={isNewLanding ? undefined : () => navigate('/')}
               cursor={isNewLanding ? 'default' : 'pointer'}
-              pointerEvents={isNewLanding ? 'none' : 'auto'}
-            />
+              pointerEvents="auto"
+              aria-label={currentLang === 'fr' ? 'Accueil' : 'Home'}
+              display="flex"
+              alignItems="center"
+              h={{ base: '52px', sm: '56px', md: '64px', lg: '68px' }}
+              maxW={{ base: '160px', sm: '180px', md: 'none' }}
+            >
+              <Image
+                loading="lazy"
+                src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
+                h="100%"
+                w="auto"
+                maxW="100%"
+                objectFit="contain"
+                pointerEvents="none"
+              />
+            </Box>
 
             <Spacer
               display={isNewLanding ? 'block' : { base: 'none', lg: 'block' }}
             />
 
-            {/* Phone + icon: only on new-landing (logo left, phone right) */}
             {isNewLanding && (
               <HStack
                 spacing={2}
@@ -163,11 +182,11 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   as={FontAwesomeIcon}
                   icon={faPhoneAlt}
                   color="white"
-                  fontSize="15px"
+                  textStyle="nav"
                 />
                 <a href="tel:4388680772">
                   <Text
-                    fontSize="sm"
+                    textStyle="nav"
                     color="white"
                     fontWeight="medium"
                     _hover={{ textDecoration: 'underline' }}
@@ -193,14 +212,14 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               <ServicesPopover />
               <Button
                 onClick={() => navigate('/secteurs-desservis')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
               >
                 {currentLang === 'fr' ? 'Secteurs desservis' : 'Service Areas'}
               </Button>
               <Button
                 onClick={() => navigate('/peintre-professionnel')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
               >
                 {currentLang === 'fr'
@@ -209,35 +228,35 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               </Button>
               <Button
                 onClick={() => navigate('/a-propos')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
               >
                 {currentLang === 'fr' ? 'À propos' : 'About'}
               </Button>
               <Button
                 onClick={() => navigate('/avis')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
               >
                 {currentLang === 'fr' ? 'Avis' : 'Reviews'}
               </Button>
               <Button
                 onClick={() => navigate('/blog')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
               >
                 {currentLang === 'fr' ? 'Blog' : 'Blog'}
               </Button>
               <Button
-                onClick={() => navigate('/new-contact')}
-                fontSize={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'sm' }}
+                onClick={() => navigate('/contact')}
+                textStyle="nav"
                 px={{ base: 4, lg: 5, xl: 6 }}
                 py={{ base: 2, lg: 2.5, xl: 3 }}
-                bg="#014CC4"
+                bg="brand.500"
                 color="white"
                 borderRadius="full"
                 fontWeight="semibold"
-                _hover={{ bg: '#0139A0' }}
+                _hover={{ bg: 'brand.600' }}
                 transition="all 0.2s"
               >
                 {currentLang === 'fr' ? 'Contact' : 'Contact'}
@@ -246,23 +265,27 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
 
             <Box
               display={{
-                base: isNewLanding ? 'none' : 'block',
+                base: isNewLanding ? 'none' : 'flex',
                 lg: 'none',
               }}
+              alignItems="center"
+              flexShrink={0}
+              position="relative"
+              zIndex={10}
+              pointerEvents="auto"
             >
               <MobileDrawer />
             </Box>
           </HStack>
         </Box>
 
-        {/* Google badge: anchored to bottom of full navbar, then shifted down so it sits just below */}
         {(isHomePage || isNewLanding) && (
           <Box
             position="absolute"
             bottom={0}
             left={0}
             right={0}
-            zIndex={10}
+            zIndex={1}
             pointerEvents="none"
           >
             <Flex
@@ -270,12 +293,13 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               mx="auto"
               px={{ base: 4, sm: 6, lg: 8 }}
               justify="flex-end"
-              pointerEvents="auto"
+              pointerEvents="none"
             >
               <Box
                 mt={2}
                 transform="translateY(100%)"
                 bg="white"
+                pointerEvents="auto"
                 borderTopRadius="none"
                 borderBottomRadius={{ base: '70px', md: '80px', lg: '100px' }}
                 p={{ base: 2, md: 3 }}
@@ -285,7 +309,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               >
                 <Stack spacing={0} align="center">
                   <Text
-                    fontSize={{ base: '2xs', md: 'sm' }}
+                    textStyle="caption"
                     color="gray.600"
                     fontWeight="600"
                   >
@@ -293,7 +317,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   </Text>
                   <Flex align="center" gap={0.5}>
                     <Text
-                      fontSize={{ base: '2xs', md: 'sm' }}
+                      textStyle="caption"
                       color="gray.600"
                       fontWeight="600"
                     >

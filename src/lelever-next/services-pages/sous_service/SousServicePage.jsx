@@ -166,8 +166,6 @@ export default function SousServicePage() {
               `https://leleverdupinceau.ca/services/${serviceSlug}/${citySlug}`
             }
           />
-          <meta name='robots' content='noindex, nofollow' />
-          <meta name='googlebot' content='noindex, nofollow' />
           <script type='application/ld+json'>
             {JSON.stringify(breadcrumbSchema)}
           </script>
@@ -191,7 +189,7 @@ export default function SousServicePage() {
               >
                 <Link
                   as={RouterLink}
-                  to='/new-home'
+                  to='/'
                   _hover={{ textDecoration: 'underline' }}
                   color='gray.600'
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -407,7 +405,6 @@ export default function SousServicePage() {
             `https://leleverdupinceau.ca/services/${serviceSlug}/${subServiceSlug}`
           }
         />
-        <meta name='robots' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -431,7 +428,7 @@ export default function SousServicePage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -581,7 +578,7 @@ export default function SousServicePage() {
                             display='flex'
                             flexDirection='column'
                             _hover={{
-                              borderColor: '#014CC4',
+                              borderColor: 'brand.500',
                               transform: 'translateY(-2px)',
                               boxShadow: 'md',
                             }}
@@ -600,7 +597,7 @@ export default function SousServicePage() {
                               >
                                 {service.title[isFr ? 'fr' : 'en']}
                               </Text>
-                              <HStack spacing={2} color='#014CC4' mt='auto'>
+                              <HStack spacing={2} color='brand.500' mt='auto'>
                                 <Text fontSize='sm' fontWeight='medium'>
                                   {isFr ? 'Voir' : 'View'}
                                 </Text>
@@ -648,7 +645,7 @@ export default function SousServicePage() {
                               <Icon
                                 as={FontAwesomeIcon}
                                 icon={faCheckCircle}
-                                color='#014CC4'
+                                color='brand.500'
                                 boxSize={4}
                               />
                               <Text color='gray.700' fontSize='md'>
@@ -691,7 +688,7 @@ export default function SousServicePage() {
                                 minW='32px'
                                 h='32px'
                                 borderRadius='full'
-                                bg='#014CC4'
+                                bg='brand.500'
                                 color='white'
                                 display='flex'
                                 alignItems='center'

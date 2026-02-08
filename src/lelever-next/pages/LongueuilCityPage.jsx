@@ -17,15 +17,15 @@ import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
-import ResidentialProject from '../images/Projets résidentiels.PNG';
-import ExtProject from '../images/projet_exterieur.jpg';
-import CommercialProject from '../images/Projets commerciaux.PNG';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import ResidentialProject from '../images/3-ville/longueuil/résidentielle/IMG_6763.PNG';
+import ExtProject from '../images/3-ville/longueuil/extérieure/IMG_6778.PNG';
+import CommercialProject from '../images/3-ville/longueuil/commerciale/IMG_6777.PNG';
+import img5969 from '../images/3-ville/longueuil/1. réalisations/IMG_5974.PNG';
+import img5970 from '../images/3-ville/longueuil/2. réalisations/IMG_6028.PNG';
+import img5971 from '../images/3-ville/longueuil/3. réalisations/IMG_6024.PNG';
+import img5972 from '../images/3-ville/longueuil/intérieure/IMG_6758.PNG';
+import img5973 from '../images/3-ville/longueuil/industrielle/IMG_6752.PNG';
+import img5974 from '../images/3-ville/longueuil/résidentielle/IMG_6763.PNG';
 
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
@@ -114,8 +114,6 @@ export default function LongueuilCityPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis/longueuil'
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -128,7 +126,6 @@ export default function LongueuilCityPage() {
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={0}>
-            {/* Breadcrumb */}
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
@@ -137,7 +134,7 @@ export default function LongueuilCityPage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -164,7 +161,6 @@ export default function LongueuilCityPage() {
               </Text>
             </HStack>
 
-            {/* H1 et Introduction */}
             <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
               <Heading
                 as='h1'
@@ -204,17 +200,14 @@ export default function LongueuilCityPage() {
               </Box>
             </Stack>
 
-            {/* Section 1 — Services de peinture */}
             <CityServicesSection cityName='Longueuil' citySlug='longueuil' />
 
-            {/* Section 2 — Projets réalisés */}
             <CityProjectsSection
               cityName='Longueuil'
               projectsContent={projectsContent}
               projectImages={projectImages}
             />
 
-            {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}
             <CityWhyUsSection
               cityName='Longueuil'
               whyUsContent={whyUsContent}
@@ -225,7 +218,6 @@ export default function LongueuilCityPage() {
           </Stack>
         </Container>
 
-        {/* Section 5 — CTA final - Full width */}
         <CityCTASection cityName='Longueuil' />
       </Box>
     </Fragment>

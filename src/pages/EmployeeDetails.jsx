@@ -158,7 +158,7 @@ export default function EmployeeDetails() {
 
       // Selected month hours
       // Parse the date string properly to avoid timezone issues
-      const [year, month, day] = selectedDate.split('-').map(Number);
+      const [year, month] = selectedDate.split('-').map(Number);
       const startOfMonth = new Date(year, month - 1, 1);
       const endOfMonth = new Date(year, month, 0);
 

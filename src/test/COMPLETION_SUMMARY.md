@@ -125,7 +125,7 @@ Pending Verification:    2 (5%)
 
 ### Main Routes
 
-- ✅ `/` or `/new-home` - Home
+- ✅ `/` - Home
 - ✅ `/peintre-professionnel` - Professional Painters
 - ✅ `/blog` - Blog Hub
 - ✅ `/about` - About
@@ -144,8 +144,8 @@ Pending Verification:    2 (5%)
 ### Service Routes (5)
 
 - ⚠️ `/services/peinture-commerciale`
-- ⚠️ `/services/new-peinture-exterieure`
-- ⚠️ `/services/new-peinture-interieure`
+- `/services/peinture-exterieure`
+- `/services/peinture-interieure`
 - ⚠️ `/services/peinture-industrielle`
 - ⚠️ `/services/peinture-residentielle`
 

@@ -15,12 +15,12 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import { motion, AnimatePresence } from 'framer-motion';
-import peintureResidentielle from '../images/peinture_residentielle.jpg';
-import projetResidentielle from '../images/projet_residentielle.jpg';
-import projetResidentielle2 from '../images/projet_residentielle_2.jpg';
-import projetCommercial from '../images/projet_commercial.jpg';
-import projetCommercial2 from '../images/projet_commercial_2.jpg';
-import projetExterieur from '../images/projet_exterieur.jpg';
+import peintureResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import projetResidentielle from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
+import projetResidentielle2 from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import projetCommercial from '../images/1-page-principale/service hub/Peinture commerciale/IMG_6766.PNG';
+import projetCommercial2 from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
+import projetExterieur from '../images/1-page-principale/Home/Projet extérieur/IMG_6755.PNG';
 
 export default function RecentProjectsSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
@@ -94,7 +94,6 @@ export default function RecentProjectsSection({ pageContext = '' }) {
       ...prev,
       [projectId]: newIndex,
     }));
-    // Set loading state for new image
     setImageLoading((prev) => ({
       ...prev,
       [`${projectId}-${newIndex}`]: true,
@@ -123,15 +122,10 @@ export default function RecentProjectsSection({ pageContext = '' }) {
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={6}>
           <Stack spacing={2} textAlign='center'>
-            <Heading
-              as='h2'
-              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-              fontWeight='bold'
-              color='gray.800'
-            >
+            <Heading as='h2' size='section' color='gray.800'>
               {t.recentProjectsTitle}
             </Heading>
-            <Text fontSize={{ base: 'md', md: 'lg' }} color='gray.600'>
+            <Text textStyle='bodyLarge' color='gray.600'>
               {t.recentProjectsSubtitle}
             </Text>
           </Stack>
@@ -172,13 +166,13 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                         '&::before': {
                           content: '""',
                           display: 'block',
-                          paddingTop: '56.25%', // 16:9 ratio
+                          paddingTop: '56.25%',
                         },
                       },
                     }}
                   >
                     {(!project.images || project.images.length === 0) && (
-                      <Text color='gray.400' fontSize='sm' fontWeight='medium'>
+                      <Text color='gray.400' textStyle='caption' fontWeight='medium'>
                         {currentLang === 'fr'
                           ? 'Image à ajouter'
                           : 'Image to add'}
@@ -205,11 +199,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                             justifyContent='center'
                             bg='gray.100'
                           >
-                            <Text
-                              color='gray.400'
-                              fontSize='sm'
-                              fontWeight='medium'
-                            >
+                            <Text color='gray.400' textStyle='caption' fontWeight='medium'>
                               {currentLang === 'fr'
                                 ? 'Image non disponible'
                                 : 'Image unavailable'}
@@ -277,11 +267,11 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                               bg='white'
                               border='1px solid'
                               borderColor='gray.200'
-                              color='#014CC4'
+                              color='brand.500'
                               borderRadius='full'
                               size='sm'
                               zIndex={2}
-                              _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
+                              _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
                               onClick={() =>
                                 goToPreviousImage(
                                   project.id,
@@ -299,11 +289,11 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                               bg='white'
                               border='1px solid'
                               borderColor='gray.200'
-                              color='#014CC4'
+                              color='brand.500'
                               borderRadius='full'
                               size='sm'
                               zIndex={2}
-                              _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
+                              _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
                               onClick={() =>
                                 goToNextImage(project.id, project.images.length)
                               }
@@ -343,20 +333,10 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                   </Box>
 
                   <Stack p={5} spacing={3} flex={1}>
-                    <Text
-                      fontWeight='bold'
-                      color='gray.800'
-                      fontSize='lg'
-                      lineHeight='1.4'
-                    >
+                    <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge' lineHeight='1.4'>
                       {project.title}
                     </Text>
-                    <Text
-                      fontSize='sm'
-                      color='gray.600'
-                      lineHeight='1.6'
-                      noOfLines={3}
-                    >
+                    <Text textStyle='body' color='gray.600' lineHeight='1.6' noOfLines={3}>
                       {project.description}
                     </Text>
                   </Stack>

@@ -1,10 +1,9 @@
-// Forces HMR update
-import img5969 from '../../images/before_after/IMG_5969.jpg';
-import img5970 from '../../images/before_after/IMG_5970.jpg';
-import img5971 from '../../images/before_after/IMG_5971.jpg';
-import img5972 from '../../images/before_after/IMG_5972.jpg';
-import img5973 from '../../images/before_after/IMG_5973.jpg';
-import img5974 from '../../images/before_after/IMG_5974.jpg';
+import img5969 from '../../images/4-sous-services/résidentielle x éxtérieure/1. réalisations/IMG_6778.PNG';
+import img5970 from '../../images/4-sous-services/résidentielle x éxtérieure/2. réalisations/IMG_6755.PNG';
+import img5971 from '../../images/4-sous-services/résidentielle x éxtérieure/3. réalisations/IMG_6761.PNG';
+import img5972 from '../../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import img5973 from '../../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
+import img5974 from '../../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 
 export const peintureResidentielleExterieureData = {
   serviceSlug: 'peinture-residentielle',
@@ -88,7 +87,7 @@ export const peintureResidentielleExterieureData = {
         fr: 'Peinture extérieure',
         en: 'Exterior painting',
       },
-      href: '/services/new-peinture-exterieure',
+      href: '/services/peinture-exterieure',
     },
     {
       title: {

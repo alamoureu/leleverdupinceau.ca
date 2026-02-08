@@ -1,13 +1,12 @@
-import ResidentialProject from '../../images/Projets résidentiels.PNG';
-import img5969 from '../../images/before_after/IMG_5969.jpg';
-import img5970 from '../../images/before_after/IMG_5970.jpg';
-import img5971 from '../../images/before_after/IMG_5971.jpg';
-import img5972 from '../../images/before_after/IMG_5972.jpg';
-import img5973 from '../../images/before_after/IMG_5973.jpg';
-import img5974 from '../../images/before_after/IMG_5974.jpg';
+import img5969 from '../../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5970 from '../../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5971 from '../../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
+import img5972 from '../../images/2-services/Page peinture intérieure/4. réalisations/IMG_6751.PNG';
+import img5973 from '../../images/2-services/Page peinture intérieure/5. réalisations/IMG_6754.PNG';
+import img5974 from '../../images/2-services/Page peinture intérieure/6. réalisations/IMG_5976.PNG';
 
 export const peintureInterieureData = {
-  'new-peinture-interieure': {
+  'peinture-interieure': {
     name: {
       fr: 'Peinture intérieure',
       en: 'Interior painting',
@@ -17,7 +16,7 @@ export const peintureInterieureData = {
         name: { fr: 'Brossard', en: 'Brossard' },
         slug: 'brossard',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-interieure/brossard',
+          'https://leleverdupinceau.ca/services/peinture-interieure/brossard',
         h1: {
           fr: 'Peinture intérieure à Brossard – Le Lever du Pinceau',
           en: 'Interior painting in Brossard – Le Lever du Pinceau',
@@ -235,7 +234,7 @@ export const peintureInterieureData = {
         name: { fr: 'Laval', en: 'Laval' },
         slug: 'laval',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-interieure/laval',
+          'https://leleverdupinceau.ca/services/peinture-interieure/laval',
         h1: {
           fr: 'Peinture intérieure à Laval – Le Lever du Pinceau',
           en: 'Interior painting in Laval – Le Lever du Pinceau',
@@ -454,7 +453,7 @@ export const peintureInterieureData = {
         name: { fr: 'Longueuil', en: 'Longueuil' },
         slug: 'longueuil',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-interieure/longueuil',
+          'https://leleverdupinceau.ca/services/peinture-interieure/longueuil',
         h1: {
           fr: 'Peinture intérieure à Longueuil – Le Lever du Pinceau',
           en: 'Interior painting in Longueuil – Le Lever du Pinceau',
@@ -662,7 +661,7 @@ export const peintureInterieureData = {
         name: { fr: 'Montréal', en: 'Montreal' },
         slug: 'montreal',
         canonical:
-          'https://leleverdupinceau.ca/services/new-peinture-interieure/montreal',
+          'https://leleverdupinceau.ca/services/peinture-interieure/montreal',
         h1: {
           fr: 'Peinture intérieure à Montréal – Le Lever du Pinceau',
           en: 'Interior painting in Montreal – Le Lever du Pinceau',

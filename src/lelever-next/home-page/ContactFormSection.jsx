@@ -10,13 +10,8 @@ export default function ContactFormSection() {
     <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
-          <Stack spacing={3} textAlign='center'>
-            <Heading
-              as='h2'
-              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-              fontWeight='bold'
-              color='gray.800'
-            >
+          <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+            <Heading as='h2' size='section' color='gray.800'>
               {t.contactFormTitle}
             </Heading>
           </Stack>

@@ -169,7 +169,7 @@
 ### ✅ Liens internes
 
 - ✅ Tous les liens vers sous-services sont corrects
-- ✅ Tous les liens vers quartiers utilisent `new-peinture-interieure`
+- ✅ Tous les liens vers quartiers utilisent `peinture-interieure`
 - ✅ Aucun lien cassé détecté
 - ✅ Structure du silo SEO respectée
 

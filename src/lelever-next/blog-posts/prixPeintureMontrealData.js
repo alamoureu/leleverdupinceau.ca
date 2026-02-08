@@ -418,7 +418,7 @@ export const prixPeintureMontrealData = {
         fr: 'Voir Peinture intérieure',
         en: 'See Interior painting',
       },
-      href: '/services/new-peinture-interieure',
+      href: '/services/peinture-interieure',
     },
     {
       type: 'section',
@@ -606,7 +606,7 @@ export const prixPeintureMontrealData = {
         url: 'https://leleverdupinceau.ca',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://leleverdupinceau.ca/path-vers-ton-logo.png',
+          url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png',
         },
         address: {
           '@type': 'PostalAddress',
@@ -633,7 +633,7 @@ export const prixPeintureMontrealData = {
         },
         image: {
           '@type': 'ImageObject',
-          url: 'https://leleverdupinceau.ca/path-vers-image-de-blog.jpg',
+          url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
         },
         author: {
           '@id': 'https://leleverdupinceau.ca#organization',

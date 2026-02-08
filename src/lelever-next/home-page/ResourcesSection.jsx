@@ -12,9 +12,9 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
-import commentChoisirPeintre from '../images/comment_choisir_un_peintre.jpg';
-import prixProjetPeinture from '../images/prix_projet_peinture_montreal.jpg';
-import erreurEviterProjet from '../images/erreur_eviter_projet_peinture.jpg';
+import commentChoisirPeintre from '../images/1-page-principale/blog hub/Peinture intérieure/IMG_6764.PNG';
+import prixProjetPeinture from '../images/1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG';
+import erreurEviterProjet from '../images/1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG';
 
 export default function ResourcesSection({ title, subtitle, excludeSlugs = [] }) {
   const { t } = useTranslation();
@@ -43,23 +43,10 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [] })
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>
-            <Heading
-              as='h2'
-              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-              fontWeight='bold'
-              color='gray.800'
-              lineHeight='1.3'
-              letterSpacing='-0.02em'
-              mb={{ base: 2, md: 3 }}
-            >
+            <Heading as='h2' size='section' color='gray.800' lineHeight='1.3' letterSpacing='-0.02em' mb={{ base: 2, md: 3 }}>
               {title || t.resourcesTitle}
             </Heading>
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              lineHeight='1.7'
-              letterSpacing='0.01em'
-            >
+            <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' letterSpacing='0.01em'>
               {subtitle || t.resourcesSubtitle}
             </Text>
           </Stack>
@@ -97,24 +84,10 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [] })
                   </Box>
 
                   <Stack p={6} spacing={4} flex={1}>
-                    <Text
-                      fontWeight='bold'
-                      color='gray.800'
-                      fontSize='lg'
-                      lineHeight='1.5'
-                      letterSpacing='-0.01em'
-                      mb={{ base: 2, md: 3 }}
-                      noOfLines={2}
-                    >
+                    <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge' lineHeight='1.5' letterSpacing='-0.01em' mb={{ base: 2, md: 3 }} noOfLines={2}>
                       {article.title}
                     </Text>
-                    <Box
-                      display='flex'
-                      alignItems='center'
-                      color='#014CC4'
-                      fontWeight='semibold'
-                      fontSize='sm'
-                    >
+                    <Box display='flex' alignItems='center' color='brand.500' fontWeight='semibold' textStyle='caption'>
                       <Text mr={2}>{t.readArticle}</Text>
                       <ArrowForwardIcon boxSize={4} />
                     </Box>

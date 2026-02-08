@@ -36,7 +36,7 @@ export default function SoumissionPage() {
       >
         <Stack id="soumission" w="100%" align="center">
           <Stack align="center" w={{ base: '100%', md: '500px' }}>
-            <EmbeddedSubmissionForm isModal={false} />
+            <EmbeddedSubmissionForm isModal={false} trackConversion={true} />
           </Stack>
         </Stack>
       </Flex>

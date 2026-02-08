@@ -20,23 +20,19 @@ export default function BlogPostPage({ blogData }) {
           index === 0
             ? 'https://leleverdupinceau.ca/'
             : index === 1
-            ? 'https://leleverdupinceau.ca/blog'
-            : blogData.url,
-      })
+              ? 'https://leleverdupinceau.ca/blog'
+              : blogData.url,
+      }),
     ),
   };
 
-  // Build schema with language-specific content
   const buildSchema = () => {
     const lang = isFr ? 'fr' : 'en';
     const schema = { ...blogData.schema };
 
-    // Handle different schema structures
     if (schema['@graph']) {
-      // Handle graph structure (like prixPeintureMontrealData)
       return schema;
     } else {
-      // Handle single object structure (like commentChoisirPeintreProfessionnelData)
       const blogSchema = {
         ...schema,
         headline: schema.headline?.[lang] || schema.headline,
@@ -44,7 +40,6 @@ export default function BlogPostPage({ blogData }) {
       };
 
       if (schema.faqSchema) {
-        // Handle FAQ schema separately
         const faqSchema = {
           ...schema.faqSchema,
           mainEntity: schema.faqSchema.mainEntity.map((item) => ({
@@ -73,45 +68,42 @@ export default function BlogPostPage({ blogData }) {
           {blogData.seo.title[isFr ? 'fr' : 'en']} | Le Lever du Pinceau
         </title>
         <meta
-          name='description'
+          name="description"
           content={blogData.seo.metaDescription[isFr ? 'fr' : 'en']}
         />
-        <link rel='canonical' href={blogData.url} />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
-        <script type='application/ld+json'>
+        <link rel="canonical" href={blogData.url} />
+        <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
         {schemas.blogSchema && (
-          <script type='application/ld+json'>
+          <script type="application/ld+json">
             {JSON.stringify(schemas.blogSchema)}
           </script>
         )}
         {schemas.faqSchema && (
-          <script type='application/ld+json'>
+          <script type="application/ld+json">
             {JSON.stringify(schemas.faqSchema)}
           </script>
         )}
         {schemas['@graph'] && (
-          <script type='application/ld+json'>{JSON.stringify(schemas)}</script>
+          <script type="application/ld+json">{JSON.stringify(schemas)}</script>
         )}
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w="100%" bg="white" overflowX="hidden">
         <Container
-          maxW='1440px'
+          maxW="1440px"
           px={{ base: 4, md: 6 }}
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={0}>
-            {/* Breadcrumb - Same width as body */}
             <Box mb={{ base: 4, md: 6 }}>
               <Box
                 fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                display='flex'
-                flexWrap='wrap'
-                alignItems='center'
+                color="gray.600"
+                display="flex"
+                flexWrap="wrap"
+                alignItems="center"
                 gap={2}
               >
                 {blogData.breadcrumb[isFr ? 'fr' : 'en'].map((item, index) => (
@@ -119,7 +111,7 @@ export default function BlogPostPage({ blogData }) {
                     {index > 0 && (
                       <Text
                         fontSize={{ base: 'md', md: 'lg' }}
-                        whiteSpace='nowrap'
+                        whiteSpace="nowrap"
                         mx={1}
                       >
                         ›
@@ -128,26 +120,20 @@ export default function BlogPostPage({ blogData }) {
                     {index <
                     blogData.breadcrumb[isFr ? 'fr' : 'en'].length - 1 ? (
                       <Link
-                        href={
-                          index === 0
-                            ? '/new-home'
-                            : index === 1
-                            ? '/blog'
-                            : '#'
-                        }
+                        href={index === 0 ? '/' : index === 1 ? '/blog' : '#'}
                         _hover={{ textDecoration: 'underline' }}
-                        color='gray.600'
+                        color="gray.600"
                         fontSize={{ base: 'md', md: 'lg' }}
-                        whiteSpace='nowrap'
+                        whiteSpace="nowrap"
                       >
                         {item}
                       </Link>
                     ) : (
                       <Text
-                        color='gray.800'
-                        fontWeight='medium'
+                        color="gray.800"
+                        fontWeight="medium"
                         fontSize={{ base: 'md', md: 'lg' }}
-                        whiteSpace='nowrap'
+                        whiteSpace="nowrap"
                       >
                         {item}
                       </Text>
@@ -157,32 +143,28 @@ export default function BlogPostPage({ blogData }) {
               </Box>
             </Box>
 
-            {/* Header and Introduction - Same width as body, left-aligned */}
             <Box mb={{ base: 8, md: 10 }}>
-              {/* H1 */}
               <Heading
-                as='h1'
+                as="h1"
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
+                fontWeight="bold"
+                color="gray.800"
                 mb={{ base: 6, md: 8 }}
-                lineHeight='1.2'
+                lineHeight="1.2"
               >
                 {blogData.h1[isFr ? 'fr' : 'en']}
               </Heading>
 
-              {/* Introduction */}
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                whiteSpace='pre-line'
+                color="gray.600"
+                lineHeight="1.7"
+                whiteSpace="pre-line"
               >
                 {blogData.introduction[isFr ? 'fr' : 'en']}
               </Text>
             </Box>
 
-            {/* Content - Same width as body, left-aligned */}
             <Box
               mb={{ base: 10, md: 12 }}
               sx={{
@@ -203,21 +185,20 @@ export default function BlogPostPage({ blogData }) {
           </Stack>
         </Container>
 
-        {/* CTA Section - Full Width */}
         <Box
-          w='100%'
-          py={{ base: 10, md: 12 }}
-          bg='#014CC4'
+          w="100%"
+          py={{ base: 12, md: 16 }}
+          bg="brand.500"
           mt={{ base: 8, md: 10 }}
         >
-          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={6} textAlign='center'>
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={6} textAlign="center">
               <Stack spacing={3}>
                 <Heading
-                  as='h2'
+                  as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
-                  color='white'
+                  fontWeight="bold"
+                  color="white"
                 >
                   {isFr
                     ? 'Prêt à discuter de votre projet ?'
@@ -225,9 +206,9 @@ export default function BlogPostPage({ blogData }) {
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
-                  color='whiteAlpha.900'
-                  maxW='800px'
-                  mx='auto'
+                  color="whiteAlpha.900"
+                  maxW="800px"
+                  mx="auto"
                 >
                   {isFr
                     ? 'Demandez votre soumission gratuite dès maintenant.'
@@ -235,17 +216,17 @@ export default function BlogPostPage({ blogData }) {
                 </Text>
               </Stack>
               <Box>
-                <Link href='/new-contact' _hover={{ textDecoration: 'none' }}>
+                <Link href="/contact" _hover={{ textDecoration: 'none' }}>
                   <Box
-                    as='button'
-                    bg='white'
-                    color='#014CC4'
-                    borderRadius='full'
+                    as="button"
+                    bg="white"
+                    color="brand.500"
+                    borderRadius="full"
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}
                     py={{ base: 3, md: 4 }}
                     _hover={{ bg: 'gray.100' }}
-                    fontWeight='semibold'
+                    fontWeight="semibold"
                   >
                     {isFr ? 'Soumission gratuite' : 'Free quote'}
                   </Box>

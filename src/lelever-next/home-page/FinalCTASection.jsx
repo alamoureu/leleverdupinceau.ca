@@ -6,7 +6,6 @@ import {
   Stack,
   Button,
   Text,
-  Icon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
@@ -22,32 +21,19 @@ export default function FinalCTASection({
   return (
     <Box
       w='100%'
-      py={{ base: 16, md: 24 }}
-      bg='#022A68' // Deep Navy Blue for premium feel
+      py={{ base: 12, md: 16 }}
+      bg='brand.700'
       position='relative'
       overflow='hidden'
     >
       <Container maxW='1000px' px={{ base: 4, md: 6 }} position='relative' zIndex={1}>
-        <Stack spacing={{ base: 8, md: 10 }} align='center' textAlign='center'>
-          <Stack spacing={4}>
-            <Heading
-              as='h2'
-              fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-              fontWeight='800' // Extra bold
-              color='white'
-              letterSpacing='tight'
-              lineHeight='1.1'
-            >
+        <Stack spacing={{ base: 4, md: 6 }} align='center' textAlign='center'>
+          <Stack spacing={{ base: 2, md: 3 }}>
+            <Heading as='h2' size='page' color='white' letterSpacing='tight' lineHeight='1.1' fontWeight='800'>
               {title || t.ctaTitle}
             </Heading>
             {subtitle && (
-              <Text
-                fontSize={{ base: 'lg', md: 'xl' }}
-                color='gray.200'
-                maxW='700px'
-                mx='auto'
-                lineHeight='1.6'
-              >
+              <Text textStyle='bodyLarge' color='gray.200' maxW='700px' mx='auto' lineHeight='1.6'>
                 {subtitle}
               </Text>
             )}
@@ -56,11 +42,12 @@ export default function FinalCTASection({
           <Button
             rightIcon={<ArrowForwardIcon />}
             bg='white'
-            color='#022A68'
+            color='brand.700'
             onClick={onSubmissionOpen}
-            fontSize={{ base: 'md', md: 'lg' }}
+            textStyle='bodyLarge'
+            fontWeight='bold'
             px={{ base: 10, md: 12 }}
-            py={{ base: 7, md: 8 }}
+            py={{ base: 3, md: 4 }}
             fontWeight='bold' // Bold text
             borderRadius='full'
             _hover={{

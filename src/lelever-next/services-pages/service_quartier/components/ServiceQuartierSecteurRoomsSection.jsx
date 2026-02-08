@@ -57,7 +57,7 @@ export default function ServiceQuartierSecteurRoomsSection({
                   border='1px solid'
                   borderColor='gray.200'
                   _hover={{
-                    borderColor: '#014CC4',
+                    borderColor: 'brand.500',
                     boxShadow: 'sm',
                   }}
                   transition='all 0.2s ease'
@@ -65,7 +65,7 @@ export default function ServiceQuartierSecteurRoomsSection({
                   <Icon
                     as={FontAwesomeIcon}
                     icon={faCheckCircle}
-                    color='#014CC4'
+                    color='brand.500'
                     boxSize={4}
                     mt={0.5}
                     flexShrink={0}
@@ -112,7 +112,7 @@ export default function ServiceQuartierSecteurRoomsSection({
                       <Icon
                         as={FontAwesomeIcon}
                         icon={faCheckCircle}
-                        color='#014CC4'
+                        color='brand.500'
                         boxSize={4}
                         mt={0.5}
                         flexShrink={0}

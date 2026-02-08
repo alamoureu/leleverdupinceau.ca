@@ -56,19 +56,19 @@ function loadAllRoutes() {
       .filter((line) => line.startsWith('/') && !line.startsWith('//'))
       .map((route) => route.replace(/\/$/, '')); // Remove trailing slashes
 
-    return new Set([...routes, '/404', '/new-home']); // Add 404 and new-home
+    return new Set([...routes, '/404', '/', '/contact']); // Add 404 and main routes
   } catch (error) {
     console.error(
       `${colors.red}Error loading ALL_ROUTES.txt:${colors.reset}`,
       error.message
     );
-    return new Set(['/404', '/new-home']);
+    return new Set(['/404', '/', '/contact']);
   }
 }
 
 // Check if a route is valid (supports dynamic routes)
 function isValidRoute(link, validRoutes) {
-  // Remove hash anchors for validation (e.g., /new-home#reviews -> /new-home)
+  // Remove hash anchors for validation (e.g., /#reviews -> /)
   const linkWithoutHash = link.split('#')[0];
 
   // Exact match

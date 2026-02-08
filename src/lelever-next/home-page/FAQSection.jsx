@@ -78,13 +78,8 @@ export default function FAQSection() {
     <Box w="100%" py={{ base: 12, md: 16 }} bg="gray.50" mb={{ base: 8, md: 12 }}>
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
-          <Stack spacing={3} textAlign="center">
-            <Heading
-              as="h2"
-              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-              fontWeight="bold"
-              color="gray.800"
-            >
+          <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
+            <Heading as="h2" size="section" color="gray.800">
               {isFr
                 ? 'Questions fréquentes sur nos peintres professionnels'
                 : 'Frequently asked questions about our professional painters'}
@@ -101,33 +96,27 @@ export default function FAQSection() {
                 borderColor="gray.200"
                 borderRadius="xl"
                 overflow="hidden"
-                _hover={{ borderColor: '#014CC4', boxShadow: 'sm' }}
+                _hover={{ borderColor: 'brand.500', boxShadow: 'sm' }}
                 transition="all 0.2s"
                 boxShadow="sm"
                 _last={{ mb: 0 }}
               >
                 <h2>
                   <AccordionButton py={6} px={8} _hover={{ bg: 'gray.50' }}>
-                    <Box
-                      flex="1"
-                      textAlign="left"
-                      fontWeight="bold"
-                      color="gray.800"
-                      fontSize={{ base: 'md', md: 'lg' }}
-                    >
+                    <Box flex="1" textAlign="left" fontWeight="bold" color="gray.800" textStyle="bodyLarge">
                       {faq.question}
                     </Box>
-                    <AccordionIcon color="#014CC4" />
+                    <AccordionIcon color="brand.500" />
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={6} px={8} pt={0}>
-                  <Text color="gray.600" lineHeight="1.7">
+                  <Text textStyle="body" color="gray.600" lineHeight="1.7">
                     {faq.answer}
                     {faq.link && (
                       <Link
                         as={RouterLink}
                         to="/blog/prix-peinture-montreal"
-                        color="#014CC4"
+                        color="brand.500"
                         ml={1}
                         fontWeight="medium"
                         _hover={{ textDecoration: 'underline' }}

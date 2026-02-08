@@ -25,12 +25,12 @@ import SectorsSection, {
   brossardSecteur,
 } from '../home-page/SectorsSection';
 import ServiceCTASection from './components/ServiceCTASection';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5969 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5970 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5971 from '../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
+import img5972 from '../images/2-services/Page peinture intérieure/4. réalisations/IMG_6751.PNG';
+import img5973 from '../images/2-services/Page peinture intérieure/5. réalisations/IMG_6754.PNG';
+import img5974 from '../images/2-services/Page peinture intérieure/6. réalisations/IMG_5976.PNG';
 
 export default function PeintureInterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -56,7 +56,7 @@ export default function PeintureInterieurePage() {
         '@type': 'ListItem',
         position: 3,
         name: isFr ? 'Peinture intérieure' : 'Interior painting',
-        item: 'https://leleverdupinceau.ca/services/new-peinture-interieure',
+        item: 'https://leleverdupinceau.ca/services/peinture-interieure',
       },
     ],
   };
@@ -79,8 +79,6 @@ export default function PeintureInterieurePage() {
         'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
       ];
 
-  // Images section removed to avoid duplication with project images above
-  // Images section populated
   const images = [
     { src: img5969, alt: isFr ? 'Projet intérieur 1' : 'Interior project 1' },
     { src: img5970, alt: isFr ? 'Projet intérieur 2' : 'Interior project 2' },
@@ -108,9 +106,8 @@ export default function PeintureInterieurePage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/new-peinture-interieure'
+          href='https://leleverdupinceau.ca/services/peinture-interieure'
         />
-        <meta name='robots' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -132,7 +129,7 @@ export default function PeintureInterieurePage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}
@@ -254,22 +251,22 @@ export default function PeintureInterieurePage() {
               sectors={[
                 {
                   name: 'Montréal',
-                  link: '/services/new-peinture-interieure/montreal',
+                  link: '/services/peinture-interieure/montreal',
                   image: montrealSecteur,
                 },
                 {
                   name: 'Laval',
-                  link: '/services/new-peinture-interieure/laval',
+                  link: '/services/peinture-interieure/laval',
                   image: lavalSecteur,
                 },
                 {
                   name: 'Longueuil',
-                  link: '/services/new-peinture-interieure/longueuil',
+                  link: '/services/peinture-interieure/longueuil',
                   image: longueuilSecteur,
                 },
                 {
                   name: 'Brossard',
-                  link: '/services/new-peinture-interieure/brossard',
+                  link: '/services/peinture-interieure/brossard',
                   image: brossardSecteur,
                 },
               ]}
@@ -411,13 +408,13 @@ export default function PeintureInterieurePage() {
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant='outline'
-                      borderColor='#014CC4'
-                      color='#014CC4'
+                      borderColor='brand.500'
+                      color='brand.500'
                       borderRadius='full'
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
-                      _hover={{ bg: '#014CC4', color: 'white' }}
+                      _hover={{ bg: 'brand.500', color: 'white' }}
                       whiteSpace='normal'
                       textAlign='center'
                       lineHeight='1.4'

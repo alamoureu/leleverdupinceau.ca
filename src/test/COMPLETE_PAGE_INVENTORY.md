@@ -26,8 +26,8 @@
 | #   | Service                | Route                               | Status      |
 | --- | ---------------------- | ----------------------------------- | ----------- |
 | 1   | Peinture Commerciale   | `/services/peinture-commerciale`    | ✅ Complete |
-| 2   | Peinture Extérieure    | `/services/new-peinture-exterieure` | ✅ Complete |
-| 3   | Peinture Intérieure    | `/services/new-peinture-interieure` | ✅ Complete |
+| 2   | Peinture Extérieure    | `/services/peinture-exterieure` | ✅ Complete |
+| 3   | Peinture Intérieure    | `/services/peinture-interieure` | ✅ Complete |
 | 4   | Peinture Industrielle  | `/services/peinture-industrielle`   | ✅ Complete |
 | 5   | Peinture Résidentielle | `/services/peinture-residentielle`  | ✅ Complete |
 
@@ -61,19 +61,19 @@ Generated via 5 data files in `service_ville/`:
 
 | #   | City      | Route                                         | Status      |
 | --- | --------- | --------------------------------------------- | ----------- |
-| 5   | Montréal  | `/services/new-peinture-exterieure/montreal`  | ✅ Complete |
-| 6   | Laval     | `/services/new-peinture-exterieure/laval`     | ✅ Complete |
-| 7   | Longueuil | `/services/new-peinture-exterieure/longueuil` | ✅ Complete |
-| 8   | Brossard  | `/services/new-peinture-exterieure/brossard`  | ✅ Complete |
+| 5   | Montréal  | `/services/peinture-exterieure/montreal`  | ✅ Complete |
+| 6   | Laval     | `/services/peinture-exterieure/laval`     | ✅ Complete |
+| 7   | Longueuil | `/services/peinture-exterieure/longueuil` | ✅ Complete |
+| 8   | Brossard  | `/services/peinture-exterieure/brossard`  | ✅ Complete |
 
 #### Peinture Intérieure × 4 Cities
 
 | #   | City      | Route                                         | Status      |
 | --- | --------- | --------------------------------------------- | ----------- |
-| 9   | Montréal  | `/services/new-peinture-interieure/montreal`  | ✅ Complete |
-| 10  | Laval     | `/services/new-peinture-interieure/laval`     | ✅ Complete |
-| 11  | Longueuil | `/services/new-peinture-interieure/longueuil` | ✅ Complete |
-| 12  | Brossard  | `/services/new-peinture-interieure/brossard`  | ✅ Complete |
+| 9   | Montréal  | `/services/peinture-interieure/montreal`  | ✅ Complete |
+| 10  | Laval     | `/services/peinture-interieure/laval`     | ✅ Complete |
+| 11  | Longueuil | `/services/peinture-interieure/longueuil` | ✅ Complete |
+| 12  | Brossard  | `/services/peinture-interieure/brossard`  | ✅ Complete |
 
 #### Peinture Industrielle × 4 Cities
 

@@ -145,16 +145,11 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8} align='center'>
           {!hideTitle && (
-            <Stack spacing={3} textAlign='center'>
-              <Heading
-                as='h2'
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
+            <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+              <Heading as='h2' size='section' color='gray.800'>
                 {t.reviewsTitle}
               </Heading>
-              <Text fontSize={{ base: 'md', md: 'lg' }} color='gray.600'>
+              <Text textStyle='bodyLarge' color='gray.600'>
                 {t.reviewsSubtitle}
               </Text>
             </Stack>
@@ -206,7 +201,7 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                 >
                   <Box
                     position='relative'
-                    bg='#F5F6F8'
+                    bg='gray.50'
                     p={{ base: 4, md: 6 }}
                     borderRadius='xl'
                     border='1px solid'
@@ -219,14 +214,10 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                     <Stack spacing={2} flexShrink={0}>
                       <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
                         <Box>
-                          <Text
-                            fontWeight='bold'
-                            fontSize={{ base: 'md', md: 'lg' }}
-                            color='gray.800'
-                          >
+                          <Text fontWeight='bold' textStyle='bodyLarge' color='gray.800'>
                             {allReviews[currentIndex].name}
                           </Text>
-                          <Text fontSize='sm' color='gray.500' mt={0.5}>
+                          <Text textStyle='caption' color='gray.500' mt={0.5}>
                             {allReviews[currentIndex].time}
                           </Text>
                         </Box>
@@ -271,11 +262,7 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                         },
                       }}
                     >
-                      <Text
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        color='gray.700'
-                        lineHeight='1.6'
-                      >
+                      <Text textStyle='body' color='gray.700' lineHeight='1.6'>
                         {allReviews[currentIndex].content}
                       </Text>
                     </Box>
@@ -302,8 +289,8 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                 bg='white'
                 border='1px solid'
                 borderColor='gray.200'
-                _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
-                color='#014CC4'
+                _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
+                color='brand.500'
                 size='md'
                 position='absolute'
                 left={{ base: '0px', md: '0px' }}
@@ -322,8 +309,8 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                 bg='white'
                 border='1px solid'
                 borderColor='gray.200'
-                _hover={{ bg: 'gray.50', borderColor: '#014CC4' }}
-                color='#014CC4'
+                _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
+                color='brand.500'
                 size='md'
                 position='absolute'
                 right={{ base: '0px', md: '0px' }}
@@ -348,7 +335,7 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                   w={currentIndex === index ? '10px' : '8px'}
                   h={currentIndex === index ? '10px' : '8px'}
                   borderRadius='full'
-                  bg={currentIndex === index ? '#014CC4' : 'gray.300'}
+                  bg={currentIndex === index ? 'brand.500' : 'gray.300'}
                   cursor='pointer'
                   onClick={() => {
                     setDirection(index > currentIndex ? 1 : -1);
@@ -369,14 +356,14 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 variant='outline'
-                borderColor='#014CC4'
-                color='#014CC4'
+                borderColor='brand.500'
+                color='brand.500'
                 bg='white'
                 borderRadius='full'
-                fontSize={{ base: 'sm', md: 'md' }}
+                textStyle='nav'
                 px={{ base: 5, md: 7 }}
                 py={{ base: 3, md: 4 }}
-                _hover={{ bg: '#014CC4', color: 'white' }}
+                _hover={{ bg: 'brand.500', color: 'white' }}
               >
                 {t.viewAllReviews}
               </Button>

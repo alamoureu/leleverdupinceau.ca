@@ -52,7 +52,7 @@ export default function ServiceQuartierSecteurComplementaryServices({
                   border='1px solid'
                   borderColor='gray.200'
                   _hover={{
-                    borderColor: '#014CC4',
+                    borderColor: 'brand.500',
                     transform: 'translateY(-2px)',
                     boxShadow: 'md',
                   }}
@@ -65,7 +65,7 @@ export default function ServiceQuartierSecteurComplementaryServices({
                     <Text fontWeight='600' color='gray.800' fontSize='lg'>
                       {service.title}
                     </Text>
-                    <HStack spacing={2} color='#014CC4' mt='auto'>
+                    <HStack spacing={2} color='brand.500' mt='auto'>
                       <Text fontSize='sm' fontWeight='medium'>
                         {isFr ? 'Voir' : 'View'}
                       </Text>

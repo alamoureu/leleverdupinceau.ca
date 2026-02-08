@@ -44,7 +44,7 @@ export default function ServiceQuartierSecteurProcessSection({
                 border='1px solid'
                 borderColor='gray.200'
                 _hover={{
-                  borderColor: '#014CC4',
+                  borderColor: 'brand.500',
                   boxShadow: 'sm',
                   transform: 'translateX(4px)',
                 }}
@@ -54,7 +54,7 @@ export default function ServiceQuartierSecteurProcessSection({
                   minW='32px'
                   h='32px'
                   borderRadius='full'
-                  bg='#014CC4'
+                  bg='brand.500'
                   color='white'
                   display='flex'
                   alignItems='center'

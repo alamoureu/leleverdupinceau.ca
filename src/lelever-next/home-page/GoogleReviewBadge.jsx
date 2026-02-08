@@ -25,7 +25,7 @@ export default function GoogleReviewBadge() {
     >
       <Stack spacing='3%' align='center' w='100%' h='100%' justify='center'>
         <Text
-          fontSize='clamp(7px, 8.5%, 11px)'
+          fontSize={{ base: '2xs', sm: 'xs', md: 'sm' }}
           color='gray.600'
           fontWeight='600'
           lineHeight='1.2'
@@ -36,7 +36,7 @@ export default function GoogleReviewBadge() {
         <Flex align='center' gap='2%' flexWrap='nowrap' justify='center'>
           <Text
             fontWeight='700'
-            fontSize='clamp(20px, 24%, 34px)'
+            fontSize={{ base: 'lg', sm: 'xl', md: '2xl' }}
             color='gray.800'
             lineHeight='1'
           >

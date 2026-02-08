@@ -9,7 +9,6 @@ import {
   Stack,
   Link,
   HStack,
-  Image,
 } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
@@ -19,15 +18,15 @@ import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 
-import ResidentialProject from '../images/Projets résidentiels.PNG';
-import ExtProject from '../images/projet_exterieur.jpg';
-import CommercialProject from '../images/Projets commerciaux.PNG';
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
+import ResidentialProject from '../images/3-ville/Montréal/résidentielle/IMG_6763.PNG';
+import ExtProject from '../images/3-ville/Montréal/extérieure/IMG_6778.PNG';
+import CommercialProject from '../images/3-ville/Montréal/commerciale/IMG_6760.PNG';
+import img5969 from '../images/3-ville/Montréal/1. réalisations/IMG_6767.PNG';
+import img5970 from '../images/3-ville/Montréal/2. réalisations/IMG_6760.PNG';
+import img5971 from '../images/3-ville/Montréal/3. réalisations/IMG_6759.PNG';
+import img5972 from '../images/3-ville/Montréal/4. réalisations/IMG_6756.PNG';
+import img5973 from '../images/3-ville/Montréal/5. réalisations/IMG_5877.JPG';
+import img5974 from '../images/3-ville/Montréal/6. réalisations/IMG_6779.PNG';
 
 export default function MontrealCityPage() {
   const { currentLang } = useContext(appContext);
@@ -126,8 +125,6 @@ export default function MontrealCityPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis/montreal'
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -149,7 +146,7 @@ export default function MontrealCityPage() {
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to='/'
                 _hover={{ textDecoration: 'underline' }}
                 color='gray.600'
                 fontSize={{ base: 'md', md: 'lg' }}

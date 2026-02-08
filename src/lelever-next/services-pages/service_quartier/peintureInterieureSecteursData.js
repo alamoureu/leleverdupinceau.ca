@@ -26,7 +26,7 @@ import { villerayData } from './neighborhoods/villerayData';
 import { westmountData } from './neighborhoods/westmountData';
 
 export const peintureInterieureSecteursData = {
-  'new-peinture-interieure': {
+  'peinture-interieure': {
     name: {
       fr: 'Peinture intérieure',
       en: 'Interior Painting',

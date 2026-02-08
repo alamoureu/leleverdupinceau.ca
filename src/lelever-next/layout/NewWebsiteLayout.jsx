@@ -25,7 +25,9 @@ export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
   const location = useLocation();
-  const isNewLanding = location.pathname === '/fr/peintre-montreal' || location.pathname === '/en/peintre-montreal'; // hide footer on landing
+  const isLocaleLanding =
+    location.pathname === '/fr/peintre-montreal' ||
+    location.pathname === '/en/peintre-montreal';
 
   return (
     <Fragment>
@@ -37,7 +39,7 @@ export default function NewWebsiteLayout() {
             name: 'Le Lever du Pinceau',
             description:
               'Entreprise spécialisée en peinture intérieure et extérieure à Montréal. Travail méticuleux et résultats exceptionnels.',
-            url: 'https://www.leleverdupinceau.com',
+            url: 'https://www.leleverdupinceau.ca',
             telephone: '+14388680772',
             email: 'leleverdupinceau@gmail.com',
             address: {
@@ -72,13 +74,15 @@ export default function NewWebsiteLayout() {
         spacing="0"
         flex="1"
       >
-        <WebsiteNavBar isNewLanding={isNewLanding} />
+        <WebsiteNavBar isNewLanding={isLocaleLanding} />
 
         <Stack
+          id="main"
           gap="0"
           overflowX="none"
           overflowY="auto"
           h="100%"
+          tabIndex={-1}
           css={{
             '&::-webkit-scrollbar': {
               width: '2px',
@@ -94,22 +98,22 @@ export default function NewWebsiteLayout() {
           <Outlet />
         </Stack>
 
-        {!isNewLanding && (
+        {!isLocaleLanding && (
           <Box
             position="static"
             bottom="0"
             w="100%"
-            bg="#022A68"
+            bg="brand.700"
             py={{ base: 8, md: 12 }}
             px={{ base: 4, md: 6, lg: 12 }}
           >
             <Box maxW="1440px" mx="auto">
               <Stack
-                spacing={3}
+                spacing={{ base: 4, md: 6 }}
                 align={{ base: 'center', md: 'flex-start' }}
                 mb={{ base: 8, md: 10 }}
               >
-                <RouterLink to="/new-home">
+                <RouterLink to="/">
                   <Image
                     loading="lazy"
                     src={
@@ -122,12 +126,12 @@ export default function NewWebsiteLayout() {
                 </RouterLink>
                 <Box
                   as={RouterLink}
-                  to="/new-home"
+                  to="/"
                   cursor="pointer"
                   _hover={{ textDecoration: 'underline' }}
                 >
                   <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
+                    textStyle="bodyLarge"
                     color="white"
                     fontWeight="medium"
                     _hover={{ color: 'gray.300' }}
@@ -140,17 +144,16 @@ export default function NewWebsiteLayout() {
                 </Box>
               </Stack>
 
-              <Divider borderColor="gray.600" mb={{ base: 6, md: 8 }} />
+              <Divider borderColor="gray.600" mb={{ base: 4, md: 6 }} />
 
               <SimpleGrid
                 columns={{ base: 1, sm: 2, md: 3 }}
-                spacing={{ base: 6, md: 8 }}
+                spacing={{ base: 4, md: 6 }}
                 mb={{ base: 8, md: 10 }}
               >
-                <Stack spacing={3}>
+                <Stack spacing={2}>
                   <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    fontWeight="bold"
+                    textStyle="footerHeading"
                     color="white"
                     mb={2}
                   >
@@ -159,9 +162,9 @@ export default function NewWebsiteLayout() {
                   <Stack spacing={2}>
                     <Link
                       as={RouterLink}
-                      to="/services/new-peinture-interieure"
+                      to="/services/peinture-interieure"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -171,9 +174,9 @@ export default function NewWebsiteLayout() {
                     </Link>
                     <Link
                       as={RouterLink}
-                      to="/services/new-peinture-exterieure"
+                      to="/services/peinture-exterieure"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -185,7 +188,7 @@ export default function NewWebsiteLayout() {
                       as={RouterLink}
                       to="/services"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -196,10 +199,9 @@ export default function NewWebsiteLayout() {
                   </Stack>
                 </Stack>
 
-                <Stack spacing={3}>
+                <Stack spacing={2}>
                   <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    fontWeight="bold"
+                    textStyle="footerHeading"
                     color="white"
                     mb={2}
                   >
@@ -210,7 +212,7 @@ export default function NewWebsiteLayout() {
                       as={RouterLink}
                       to="/a-propos"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -222,7 +224,7 @@ export default function NewWebsiteLayout() {
                       as={RouterLink}
                       to="/avis"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -235,7 +237,7 @@ export default function NewWebsiteLayout() {
                       as={RouterLink}
                       to="/peintre-professionnel"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -249,10 +251,9 @@ export default function NewWebsiteLayout() {
                   </Stack>
                 </Stack>
 
-                <Stack spacing={3}>
+                <Stack spacing={2}>
                   <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    fontWeight="bold"
+                    textStyle="footerHeading"
                     color="white"
                     mb={2}
                   >
@@ -263,7 +264,7 @@ export default function NewWebsiteLayout() {
                       as={RouterLink}
                       to="/blog"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -273,9 +274,9 @@ export default function NewWebsiteLayout() {
                     </Link>
                     <Link
                       as={RouterLink}
-                      to="/new-contact"
+                      to="/contact"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -287,7 +288,7 @@ export default function NewWebsiteLayout() {
                       as={RouterLink}
                       to="/secteurs-desservis"
                       color="white"
-                      fontSize="sm"
+                      textStyle="footerLink"
                       _hover={{
                         textDecoration: 'underline',
                         color: 'gray.300',
@@ -302,7 +303,7 @@ export default function NewWebsiteLayout() {
                 </Stack>
               </SimpleGrid>
 
-              <Divider borderColor="gray.600" mb={{ base: 6, md: 8 }} />
+              <Divider borderColor="gray.600" mb={{ base: 4, md: 6 }} />
 
               <Flex
                 direction={{ base: 'column', md: 'row' }}
@@ -315,7 +316,7 @@ export default function NewWebsiteLayout() {
                   <Link
                     href="tel:4388680772"
                     color="white"
-                    fontSize="sm"
+                    textStyle="footerLink"
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
                   >
                     (438) 868-0772
@@ -323,12 +324,13 @@ export default function NewWebsiteLayout() {
                   <Link
                     href="mailto:leleverdupinceau@gmail.com"
                     color="white"
-                    fontSize="sm"
+                    textStyle="footerLink"
+                    wordBreak="break-all"
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
                   >
                     leleverdupinceau@gmail.com
                   </Link>
-                  <Text color="white" fontSize="sm">
+                  <Text color="white" textStyle="footerLink" wordBreak="break-word">
                     2175 Rue Saint-Patrick, Montréal, QC H3K 1B4
                   </Text>
                 </Stack>
@@ -338,7 +340,7 @@ export default function NewWebsiteLayout() {
                     textColor="white"
                     href="https://www.instagram.com/leleverdupinceau/"
                     aria-label="Instagram"
-                    fontSize="24px"
+                    fontSize={{ base: 'lg', md: 'xl' }}
                     icon={<FontAwesomeIcon icon={faInstagram} />}
                     _hover={{ color: 'gray.300' }}
                   />
@@ -346,7 +348,7 @@ export default function NewWebsiteLayout() {
                     as="a"
                     href="https://www.facebook.com/profile.php?id=100094900160859"
                     textColor="white"
-                    fontSize="24px"
+                    fontSize={{ base: 'lg', md: 'xl' }}
                     aria-label="Facebook"
                     icon={<FontAwesomeIcon icon={faFacebook} />}
                     _hover={{ color: 'gray.300' }}
@@ -365,19 +367,19 @@ export default function NewWebsiteLayout() {
                   as={RouterLink}
                   to="/politiques/termes-conditions"
                   color="white"
-                  fontSize="sm"
+                  textStyle="footerLink"
                   _hover={{ textDecoration: 'underline', color: 'gray.300' }}
                 >
                   {currentLang === 'fr' ? 'Mentions légales' : 'Legal notice'}
                 </Link>
-                <Text color="white" fontSize="sm">
+                <Text color="white" textStyle="footerLink">
                   |
                 </Text>
                 <Link
                   as={RouterLink}
                   to="/politiques/confidentialite"
                   color="white"
-                  fontSize="sm"
+                  textStyle="footerLink"
                   _hover={{ textDecoration: 'underline', color: 'gray.300' }}
                 >
                   {currentLang === 'fr'

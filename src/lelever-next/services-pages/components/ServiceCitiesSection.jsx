@@ -35,7 +35,7 @@ export default function ServiceCitiesSection({
     : 'Available throughout Greater Montreal';
 
   return (
-    <Box py={{ base: 16, md: 20 }} mb={{ base: 8, md: 12 }} bg='gray.50'>
+    <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }} bg='gray.50'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={12}>
           <Stack spacing={4} textAlign='center'>
@@ -101,12 +101,12 @@ export default function ServiceCitiesSection({
                     left: 0,
                     right: 0,
                     height: '4px',
-                    bg: 'linear-gradient(90deg, #014CC4 0%, #0066FF 100%)',
+                    bg: 'linear-gradient(90deg, var(--chakra-colors-brand-500) 0%, var(--chakra-colors-brand-400) 100%)',
                     opacity: 0,
                     transition: 'opacity 0.3s ease',
                   }}
                   _hover={{
-                    borderColor: '#014CC4',
+                    borderColor: 'brand.500',
                     transform: 'translateY(-4px)',
                     boxShadow: 'xl',
                     _before: {
@@ -150,7 +150,7 @@ export default function ServiceCitiesSection({
 
                     <HStack
                       spacing={2}
-                      color='#014CC4'
+                      color='brand.500'
                       mt='auto'
                       pt={5}
                       borderTop='1px solid'

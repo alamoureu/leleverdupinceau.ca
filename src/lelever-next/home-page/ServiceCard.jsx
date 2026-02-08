@@ -8,7 +8,7 @@ import { Box, Image, Stack, Heading, Text } from '@chakra-ui/react';
  * @param {string} image - Image src (imported asset or URL)
  * @param {string} title - Main title (shown in white on image overlay)
  * @param {string} [subtitle] - Optional subtitle (shown in white on image overlay)
- * @param {string} description - Body text below the image (dark grey, left-aligned)
+ * @param {string} [description] - Optional body text below the image (dark grey). Omit to show only the overlay.
  * @param {string} [alt] - Alt text for image (defaults to title)
  */
 export default function ServiceCard({
@@ -49,7 +49,7 @@ export default function ServiceCard({
       transition="box-shadow 0.2s, border-color 0.2s"
       _hover={{
         boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-        ...(noHoverBorder ? {} : { borderColor: '#014CC4' }),
+        ...(noHoverBorder ? {} : { borderColor: 'brand.500' }),
       }}
       w="100%"
       maxW={{
@@ -95,8 +95,7 @@ export default function ServiceCard({
           <Stack spacing={0.5} textAlign="left">
             <Heading
               as="h3"
-              fontSize={{ base: 'md', sm: 'lg', md: '2xl', lg: '2xl' }}
-              fontWeight="bold"
+              size="card"
               color="white"
               lineHeight="1.2"
             >
@@ -104,7 +103,7 @@ export default function ServiceCard({
             </Heading>
             {subtitle && (
               <Text
-                fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}
+                textStyle="body"
                 color="white"
                 fontWeight="normal"
               >
@@ -135,20 +134,22 @@ export default function ServiceCard({
         />
       </Box>
 
-      <Box
-        pt={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
-        pb={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
-        px={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
-        textAlign="left"
-      >
-        <Text
-          fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
-          color="gray.700"
-          lineHeight="1.6"
+      {description && (
+        <Box
+          pt={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
+          pb={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
+          px={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
+          textAlign="left"
         >
-          {description}
-        </Text>
-      </Box>
+          <Text
+            textStyle="body"
+            color="gray.700"
+            lineHeight="1.6"
+          >
+            {description}
+          </Text>
+        </Box>
+      )}
     </Box>
   );
 }

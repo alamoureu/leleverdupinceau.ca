@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
-import peintureProfessionnelleImg from '../images/peinture_pro.jpg';
+import peintureProfessionnelleImg from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
 
 export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
@@ -22,8 +22,7 @@ export default function TeamSection({ pageContext = '' }) {
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           spacing={{ base: 8, md: 12, lg: 16 }}
-          align='center'
-          mt={{ base: '-55px', md: '0px' }}
+          alignItems='center'
         >
           <Box
             borderRadius='xl'
@@ -44,23 +43,14 @@ export default function TeamSection({ pageContext = '' }) {
             />
           </Box>
 
-          <Stack spacing={6} order={{ base: 2, md: 2 }}>
-            <Stack spacing={3}>
-              <Heading
-                as='h2'
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
+          <Stack spacing={6} order={{ base: 2, md: 2 }} justifyContent='center'>
+            <Stack spacing={{ base: 2, md: 3 }}>
+              <Heading as='h2' size='section' color='gray.800'>
                 {t.teamTitle}
               </Heading>
             </Stack>
 
-            <Text
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              lineHeight='1.7'
-            >
+            <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
               {t.teamDescription}
             </Text>
 
@@ -72,17 +62,17 @@ export default function TeamSection({ pageContext = '' }) {
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 variant='outline'
-                borderColor='#014CC4'
-                color='#014CC4'
+                borderColor='brand.500'
+                color='brand.500'
                 borderRadius='full'
-                fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
+                textStyle='nav'
                 px={{ base: 4, sm: 5, md: 7 }}
                 py={{ base: 3, md: 4 }}
                 w={{ base: '100%', sm: 'auto' }}
                 maxW={{ base: '100%', sm: '100%', md: 'none' }}
                 whiteSpace='normal'
                 wordBreak='break-word'
-                _hover={{ bg: '#014CC4', color: 'white' }}
+                _hover={{ bg: 'brand.500', color: 'white' }}
               >
                 {t.learnMorePainters}
               </Button>

@@ -39,7 +39,7 @@ export default function CityServicesSection({ cityName, citySlug, serviceDescrip
       name: isFr
         ? `Peinture intérieure ${cityName}`
         : `Interior painting ${cityName}`,
-      link: `/services/new-peinture-interieure/${citySlug}`,
+      link: `/services/peinture-interieure/${citySlug}`,
       description: serviceDescriptions?.interior,
     },
     {
@@ -47,7 +47,7 @@ export default function CityServicesSection({ cityName, citySlug, serviceDescrip
       name: isFr
         ? `Peinture extérieure ${cityName}`
         : `Exterior painting ${cityName}`,
-      link: `/services/new-peinture-exterieure/${citySlug}`,
+      link: `/services/peinture-exterieure/${citySlug}`,
       description: serviceDescriptions?.exterior,
     },
     {
@@ -106,24 +106,24 @@ export default function CityServicesSection({ cityName, citySlug, serviceDescrip
                   display='flex'
                   flexDirection='column'
                   _hover={{
-                    borderColor: '#014CC4',
+                    borderColor: 'brand.500',
                     transform: 'translateY(-2px)',
                     boxShadow: 'md',
                   }}
                   transition='all 0.2s'
                 >
                   <Stack spacing={2} align='center' flex={1} justify='center'>
-                    <Text fontWeight='bold' color='gray.800' fontSize='lg'>
+                    <Text fontWeight='bold' color='gray.800' fontSize={{ base: 'md', md: 'lg' }}>
                       {service.name}
                     </Text>
                     {service.description && (
-                      <Text fontSize='sm' color='gray.600' mt={1}>
+                      <Text fontSize={{ base: 'xs', md: 'sm' }} color='gray.600' mt={1}>
                         {service.description}
                       </Text>
                     )}
-                    <HStack spacing={2} color='#014CC4' mt={2}>
-                      <Text fontSize='sm' fontWeight='medium'>
-                        {isFr ? 'Voir' : 'View'}
+                    <HStack spacing={2} color='brand.500' mt={2}>
+<Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight='medium'>
+                      {isFr ? 'Voir' : 'View'}
                       </Text>
                       <ArrowForwardIcon boxSize={4} />
                     </HStack>

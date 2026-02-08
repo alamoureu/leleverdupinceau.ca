@@ -39,7 +39,6 @@ export default function MethodSection() {
         px={{ base: 4, sm: 5, md: 5, lg: 8, xl: 10, '2xl': 12 }}
       >
         <Stack spacing={{ base: 4, sm: 6, md: 6, lg: 8, xl: 10, '2xl': 12 }}>
-          {/* Title + subtitle */}
           <Stack
             spacing={{ base: 1, md: 2 }}
             textAlign="center"
@@ -73,7 +72,7 @@ export default function MethodSection() {
               )}
             </Heading>
             <Text
-              fontSize={{ base: 'xs', sm: 'sm', md: 'md', lg: 'lg' }}
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
               color="gray.600"
               fontWeight="normal"
             >
@@ -81,9 +80,8 @@ export default function MethodSection() {
             </Text>
           </Stack>
 
-          {/* Steps: same horizontal layout for all views (text | number | image or image | number | text), scaled down on mobile */}
           {steps.map((step, index) => {
-            const isImageRight = index % 2 === 0; // Step 1 & 3: text left, image right. Step 2 & 4: image left, text right.
+            const isImageRight = index % 2 === 0;
             const textBlock = (
               <Stack
                 flex={{ base: '1 1 0', md: 1 }}
@@ -116,7 +114,7 @@ export default function MethodSection() {
                 </Heading>
                 <Text
                   color="gray.600"
-                  fontSize={{ base: 'xs', sm: 'xs', md: 'sm', lg: 'md' }}
+                  fontSize={{ base: 'sm', md: 'sm', lg: 'md' }}
                   lineHeight="1.6"
                   textAlign="left"
                   css={{ hyphens: 'none', wordBreak: 'normal' }}
@@ -163,7 +161,6 @@ export default function MethodSection() {
                     display="block"
                   />
                 </Box>
-                {/* Badge flush with left (steps 1,3) or right (steps 2,4) edge, vertically centered */}
                 <Flex
                   position="absolute"
                   top="50%"
@@ -177,7 +174,7 @@ export default function MethodSection() {
                   zIndex={10}
                   align="center"
                   justify="center"
-                  bg="#014CC4"
+                  bg="brand.500"
                   color="white"
                   borderRadius="full"
                   w={{

@@ -28,7 +28,7 @@ import {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import peintureProImg from '../images/peinture_pro.jpg';
+import peintureProImg from '../images/1-page-principale/sector hub/Peinture intérieure/IMG_6759.PNG';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -100,11 +100,11 @@ export default function SecteursDesservisPage() {
     },
     {
       name: isFr ? 'Peinture intérieure' : 'Interior painting',
-      link: '/services/new-peinture-interieure',
+      link: '/services/peinture-interieure',
     },
     {
       name: isFr ? 'Peinture extérieure' : 'Exterior painting',
-      link: '/services/new-peinture-exterieure',
+      link: '/services/peinture-exterieure',
     },
     {
       name: isFr ? 'Peinture industrielle' : 'Industrial painting',
@@ -132,8 +132,6 @@ export default function SecteursDesservisPage() {
           rel='canonical'
           href='https://leleverdupinceau.ca/secteurs-desservis'
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <meta name='googlebot' content='noindex, nofollow' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -148,57 +146,31 @@ export default function SecteursDesservisPage() {
           <Stack spacing={0}>
             <HStack
               spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
+              textStyle='bodyLarge'
               color='gray.600'
               mb={{ base: 4, md: 6 }}
             >
-              <Link
-                as={RouterLink}
-                to='/new-home'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
+              <Link as={RouterLink} to='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
                 {isFr ? 'Accueil' : 'Home'}
               </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
+              <Text textStyle='bodyLarge'>›</Text>
+              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
                 {isFr ? 'Secteurs desservis' : 'Service areas'}
               </Text>
             </HStack>
 
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
+            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
+              <Heading as='h1' size='page' color='gray.800'>
                 {isFr
                   ? 'Secteurs desservis – Le Lever du Pinceau'
                   : 'Service areas – Le Lever du Pinceau'}
               </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='800px'
-              >
+              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
                 {isFr
                   ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal, incluant Montréal, Laval, Longueuil et Brossard. Cette page regroupe toutes les zones desservies par Le Lever du Pinceau : villes principales, sous-villes et quartiers majeurs. Sélectionnez votre secteur pour découvrir les services disponibles, les projets réalisés et les détails propres à votre localité."
                   : 'Our teams of professional painters serve all of Greater Montreal, including Montreal, Laval, Longueuil and Brossard. This page brings together all areas served by Le Lever du Pinceau: main cities, sub-cities and major neighborhoods. Select your area to discover available services, completed projects and details specific to your location.'}
               </Text>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='800px'
-                fontWeight='500'
-              >
+              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
                 {isFr
                   ? '👉 Nous sommes disponibles rapidement dans votre quartier pour des projets résidentiels, commerciaux, intérieurs et extérieurs.'
                   : '👉 We are quickly available in your neighborhood for residential, commercial, interior and exterior projects.'}
@@ -208,13 +180,8 @@ export default function SecteursDesservisPage() {
             <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Nos services de peinture par ville'
                         : 'Our painting services by city'}
@@ -247,12 +214,11 @@ export default function SecteursDesservisPage() {
                           minH={{ base: '280px', md: '320px' }}
                           h='100%'
                           _hover={{
-                            borderColor: '#014CC4',
+                            borderColor: 'brand.500',
                             boxShadow: 'xl',
                             transform: 'translateY(-4px)',
                           }}
                         >
-                          {/* Image Background */}
                           <Image
                             src={city.image}
                             alt={city.name}
@@ -264,7 +230,6 @@ export default function SecteursDesservisPage() {
                             objectFit='cover'
                             zIndex={0}
                           />
-                          {/* Overlay */}
                           <Box
                             position='absolute'
                             top={0}
@@ -275,7 +240,6 @@ export default function SecteursDesservisPage() {
                             zIndex={1}
                           />
 
-                          {/* Content */}
                           <Stack
                             position='relative'
                             zIndex={2}
@@ -291,25 +255,15 @@ export default function SecteursDesservisPage() {
                                 color='white' // Changed to white due to dark overlay
                                 boxSize={5}
                               />
-                              <Heading
-                                as='h3'
-                                fontSize={{ base: 'xl', md: '2xl' }}
-                                fontWeight='bold'
-                                color='white'
-                              >
+                              <Heading as='h3' size='subsection' color='white'>
                                 {city.name}
                               </Heading>
                             </HStack>
-                            <Text
-                              color='whiteAlpha.900'
-                              fontSize={{ base: 'md', md: 'lg' }}
-                              lineHeight='1.6'
-                              fontWeight='medium'
-                            >
+                            <Text color='whiteAlpha.900' textStyle='bodyLarge' lineHeight='1.6' fontWeight='medium'>
                               {city.description}
                             </Text>
                             <HStack spacing={2} color='white' pt={2}>
-                              <Text fontSize='sm' fontWeight='bold'>
+                              <Text textStyle='caption' fontWeight='bold'>
                                 {isFr ? 'Voir le secteur' : 'View area'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
@@ -327,7 +281,7 @@ export default function SecteursDesservisPage() {
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <SimpleGrid
                   columns={{ base: 1, md: 2 }}
-                  spacing={{ base: 8, md: 12 }}
+                  spacing={{ base: 4, md: 6 }}
                   align='center'
                 >
                   <Box
@@ -355,24 +309,15 @@ export default function SecteursDesservisPage() {
                     />
                   </Box>
                   <Stack spacing={6}>
-                    <Stack spacing={3}>
-                      <Heading
-                        as='h2'
-                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                        fontWeight='bold'
-                        color='gray.800'
-                      >
+                    <Stack spacing={{ base: 2, md: 3 }}>
+                      <Heading as='h2' size='section' color='gray.800'>
                         {isFr
                           ? 'Une équipe de peintres professionnels à proximité'
                           : 'A team of professional painters nearby'}
                       </Heading>
                     </Stack>
 
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.600'
-                      lineHeight='1.7'
-                    >
+                    <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
                       {isFr
                         ? "Peu importe votre secteur, nos peintres professionnels assurent un travail précis, propre et durable. Nous adaptons nos méthodes selon les surfaces, le type d'habitation et le style architectural de chaque quartier."
                         : 'Regardless of your area, our professional painters ensure precise, clean and durable work. We adapt our methods according to surfaces, type of housing and architectural style of each neighborhood.'}
@@ -387,13 +332,13 @@ export default function SecteursDesservisPage() {
                       <Button
                         rightIcon={<ArrowForwardIcon />}
                         variant='outline'
-                        borderColor='#014CC4'
-                        color='#014CC4'
+                        borderColor='brand.500'
+                        color='brand.500'
                         borderRadius='full'
-                        fontSize={{ base: 'sm', md: 'md' }}
+                        textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: '#014CC4', color: 'white' }}
+                        _hover={{ bg: 'brand.500', color: 'white' }}
                         whiteSpace='normal'
                         textAlign='center'
                         lineHeight='1.4'
@@ -413,13 +358,8 @@ export default function SecteursDesservisPage() {
             <Box py={{ base: 12, md: 16 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='center'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' color='gray.800'>
                       {isFr
                         ? 'Services de peinture accessibles dans votre région'
                         : 'Painting services available in your region'}
@@ -447,22 +387,18 @@ export default function SecteursDesservisPage() {
                           borderColor='gray.200'
                           textAlign='center'
                           _hover={{
-                            borderColor: '#014CC4',
+                            borderColor: 'brand.500',
                             transform: 'translateY(-2px)',
                             boxShadow: 'md',
                           }}
                           transition='all 0.2s'
                         >
                           <Stack spacing={2} align='center'>
-                            <Text
-                              fontWeight='bold'
-                              color='gray.800'
-                              fontSize='lg'
-                            >
+                            <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge'>
                               {service.name}
                             </Text>
-                            <HStack spacing={2} color='#014CC4'>
-                              <Text fontSize='sm' fontWeight='medium'>
+                            <HStack spacing={2} color='brand.500'>
+                              <Text textStyle='caption' fontWeight='medium'>
                                 {isFr ? 'Voir' : 'View'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
@@ -476,7 +412,6 @@ export default function SecteursDesservisPage() {
               </Container>
             </Box>
 
-            {/* Section 5 — Guides & ressources */}
             <ResourcesSection
               subtitle={
                 isFr

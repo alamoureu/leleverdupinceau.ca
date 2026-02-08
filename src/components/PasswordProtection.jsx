@@ -45,6 +45,7 @@ export default function PasswordProtection({
         handleSubmit({ preventDefault: () => {} });
       }, 100);
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps -- handleSubmit is stable, intentional single run
   }, [autoSubmit, autoFillPassword]);
 
   const handleSubmit = async (e) => {

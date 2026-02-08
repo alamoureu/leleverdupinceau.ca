@@ -2,6 +2,63 @@
   publish = "dist"
   command = "npm run build"
 
+# Old site gone: /legacy → home (301)
+[[redirects]]
+  from = "/legacy/*"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/legacy"
+  to = "/"
+  status = 301
+  force = true
+
+# Legacy URL redirects (SEO-friendly 301)
+[[redirects]]
+  from = "/new-home/contact"
+  to = "/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/new-home/a-propos"
+  to = "/a-propos"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/new-home"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/new-contact"
+  to = "/contact"
+  status = 301
+  force = true
+
+# Old painting service URLs → canonical
+[[redirects]]
+  from = "/services/new-peinture-interieure/*"
+  to = "/services/peinture-interieure/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/services/new-peinture-interieure"
+  to = "/services/peinture-interieure"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/services/new-peinture-exterieure/*"
+  to = "/services/peinture-exterieure/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/services/new-peinture-exterieure"
+  to = "/services/peinture-exterieure"
+  status = 301
+  force = true
+
+# SPA fallback
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -7,7 +7,7 @@ export const ToggleButton = (props) => {
     <Icon
       variant='unstyled'
       display='inline-flex'
-      fontSize={{ base: '24px', sm: '30px' }}
+      fontSize={{ base: '2xl', sm: '3xl' }}
       w='fit-content'
       zIndex={9999999}
       as={FiMenu}

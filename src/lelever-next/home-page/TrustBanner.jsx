@@ -63,6 +63,8 @@ export default function TrustBanner() {
     <Box
       position="absolute"
       left="50%"
+      bottom={0}
+      transform="translate(-50%, 50%)"
       maxW="1440px"
       w={{
         base: 'calc(100% - 24px)',
@@ -72,8 +74,6 @@ export default function TrustBanner() {
         xl: 'calc(100% - 96px)',
         '2xl': 'calc(100% - 120px)',
       }}
-      bottom={{ base: '-28px', sm: '-32px', md: '-36px', lg: '-40px', xl: '-44px' }}
-      transform="translate(-50%, 0)"
       zIndex={10}
       bg="white"
       borderRadius="2xl"
@@ -85,7 +85,7 @@ export default function TrustBanner() {
     >
       <Flex
         direction="row"
-        align="flex-end"
+        align="stretch"
         justify="space-between"
         gap={{ base: 3, sm: 4, md: 5, lg: 6, xl: 8, '2xl': 10 }}
         minW={0}
@@ -95,35 +95,48 @@ export default function TrustBanner() {
             <Stack
               flex={1}
               minW={0}
+              w="100%"
               spacing={{ base: 1, md: 2 }}
               align="center"
-              justify="flex-end"
+              justify="flex-start"
               textAlign="center"
             >
-              {item.isMetric ? (
-                <Text
-                  fontSize={{ base: '16px', sm: '18px', md: 'xl', lg: '2xl', xl: '3xl', '2xl': '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                  lineHeight="1"
-                >
-                  {item.value}
-                </Text>
-              ) : (
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  h={item.imageHeight}
-                  w="auto"
-                  objectFit="contain"
-                  mx="auto"
-                />
-              )}
+              {/* Fixed-height top row so bottom captions (licence, clients, assurance) align across columns */}
+              <Box
+                minH={{ base: '24px', sm: '26px', md: '28px', lg: '32px', xl: '36px', '2xl': '40px' }}
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+                w="100%"
+              >
+                {item.isMetric ? (
+                  <Text
+                    fontSize={{ base: 'md', md: 'lg' }}
+                    fontWeight="bold"
+                    lineHeight="1"
+                    color="gray.800"
+                    textAlign="center"
+                  >
+                    {item.value}
+                  </Text>
+                ) : (
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    h={item.imageHeight}
+                    w="auto"
+                    objectFit="contain"
+                    display="block"
+                  />
+                )}
+              </Box>
               <Text
-                fontSize={{ base: 'xs', sm: 'xs', md: 'sm', lg: 'md', xl: 'md' }}
+                fontSize={{ base: 'xs', sm: 'sm' }}
                 color="gray.700"
                 fontWeight="medium"
                 lineHeight="1.2"
+                textAlign="center"
+                w="100%"
               >
                 {item.isMetric ? item.label : item.text}
               </Text>

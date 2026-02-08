@@ -1,9 +1,9 @@
-import img5969 from '../../images/before_after/IMG_5969.jpg';
-import img5970 from '../../images/before_after/IMG_5970.jpg';
-import img5971 from '../../images/before_after/IMG_5971.jpg';
-import img5972 from '../../images/before_after/IMG_5972.jpg';
-import img5973 from '../../images/before_after/IMG_5973.jpg';
-import img5974 from '../../images/before_after/IMG_5974.jpg';
+import img5969 from '../../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import img5970 from '../../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
+import img5971 from '../../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
+import img5972 from '../../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
+import img5973 from '../../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
+import img5974 from '../../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 
 export const peintureCommercialeData = {
   'peinture-commerciale': {

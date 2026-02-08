@@ -12,16 +12,15 @@ const BASE_URL = 'http://localhost:5173';
 const DELAY_MS = 500; // Delay between opening each route
 
 const allRoutes = {
-  'Main Routes (9)': [
+  'Main Routes (8)': [
     '/',
-    '/new-home',
+    '/contact',
     '/peintre-professionnel',
     '/secteurs-desservis',
     '/services',
     '/blog',
     '/a-propos',
     '/avis',
-    '/new-contact',
   ],
   'City Routes (4)': [
     '/secteurs-desservis/montreal',
@@ -32,8 +31,8 @@ const allRoutes = {
   'Main Service Routes (5)': [
     '/services/peinture-commerciale',
     '/services/peinture-residentielle',
-    '/services/new-peinture-interieure',
-    '/services/new-peinture-exterieure',
+    '/services/peinture-interieure',
+    '/services/peinture-exterieure',
     '/services/peinture-industrielle',
   ],
   'Sub-Service Routes (4)': [
@@ -51,14 +50,14 @@ const allRoutes = {
     '/services/peinture-residentielle/laval',
     '/services/peinture-residentielle/longueuil',
     '/services/peinture-residentielle/brossard',
-    '/services/new-peinture-interieure/montreal',
-    '/services/new-peinture-interieure/laval',
-    '/services/new-peinture-interieure/longueuil',
-    '/services/new-peinture-interieure/brossard',
-    '/services/new-peinture-exterieure/montreal',
-    '/services/new-peinture-exterieure/laval',
-    '/services/new-peinture-exterieure/longueuil',
-    '/services/new-peinture-exterieure/brossard',
+    '/services/peinture-interieure/montreal',
+    '/services/peinture-interieure/laval',
+    '/services/peinture-interieure/longueuil',
+    '/services/peinture-interieure/brossard',
+    '/services/peinture-exterieure/montreal',
+    '/services/peinture-exterieure/laval',
+    '/services/peinture-exterieure/longueuil',
+    '/services/peinture-exterieure/brossard',
     '/services/peinture-industrielle/montreal',
     '/services/peinture-industrielle/laval',
     '/services/peinture-industrielle/longueuil',

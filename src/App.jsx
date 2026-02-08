@@ -1,7 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 
-import MainPage from './pages/WebSiteLandingPage';
 import LandingPageV2 from './pages/LandingPageV2';
 import NewHomePage from './lelever-next/pages/NewHomePage';
 import ContactPage from './lelever-next/pages/ContactPage';
@@ -28,17 +32,8 @@ import PrixPeintureMontrealPage from './lelever-next/pages/PrixPeintureMontrealP
 import ErreursAEviterPeintureInterieurePage from './lelever-next/pages/ErreursAEviterPeintureInterieurePage';
 import NotFoundPage from './lelever-next/pages/NotFoundPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
-import PasswordProtectedPage from './lelever-next/components/PasswordProtectedPage';
 import ScrollToTop from './lelever-next/components/ScrollToTop';
-import PeintureExt from './pages/PeintureExterieur';
-import PeintureInt from './pages/PeintureInterieur';
-import Nousjoindre from './pages/Nousjoindre';
-import AboutUs from './pages/AboutUs';
-import Emplois from './pages/Emplois';
 import FreeQuotationPage from './pages/SoumissionPage';
-import LandingPageLayout from './layout/LandingPageLayout';
-import LandingPage from './pages/LandingPage';
-import WebsiteLayout from './layout/WebsiteLayout';
 import SoumissionDashboard from './pages/SoumissionDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import EmploiesDashboard from './pages/EmploiesDashboard';
@@ -56,30 +51,112 @@ export default function App() {
       <AppProvider>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<WebsiteLayout />}>
-            <Route index element={<MainPage />} />
+          <Route path="/new-home" element={<Navigate to="/" replace />} />
+          <Route
+            path="/new-home/contact"
+            element={<Navigate to="/contact" replace />}
+          />
+          <Route
+            path="/new-home/a-propos"
+            element={<Navigate to="/a-propos" replace />}
+          />
+          <Route
+            path="/new-contact"
+            element={<Navigate to="/contact" replace />}
+          />
+
+          <Route path="/" element={<NewWebsiteLayout />}>
+            <Route index element={<NewHomePage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="a-propos" element={<AboutPage />} />
             <Route path="soumission" element={<FreeQuotationPage />} />
-            <Route path="contact" element={<Nousjoindre />} />
-            <Route path="a-propos-de-nous" element={<AboutUs />} />
-            <Route path="emplois" element={<Emplois />} />
-            <Route
-              path="services/peinture-exterieure"
-              element={<PeintureExt />}
-            />
-            <Route
-              path="services/peinture-interieure"
-              element={<PeintureInt />}
-            />
             <Route
               path="politiques/confidentialite"
-              element={<ThermOfUsePage />}
+              element={<PrivacyPolicyPage />}
             />
             <Route
               path="politiques/termes-conditions"
-              element={<PrivacyPolicyPage />}
+              element={<ThermOfUsePage />}
             />
           </Route>
-          <Route path="peintre-montreal" element={<Navigate to="/fr/peintre-montreal" replace />} />
+          <Route path="/peintre-professionnel" element={<NewWebsiteLayout />}>
+            <Route index element={<PeintreProfessionnelPage />} />
+          </Route>
+          <Route path="/avis" element={<NewWebsiteLayout />}>
+            <Route index element={<AvisPage />} />
+          </Route>
+          <Route path="/secteurs-desservis" element={<NewWebsiteLayout />}>
+            <Route index element={<SecteursDesservisPage />} />
+            <Route path="brossard" element={<BrossardCityPage />} />
+            <Route path="montreal" element={<MontrealCityPage />} />
+            <Route path="laval" element={<LavalCityPage />} />
+            <Route path="longueuil" element={<LongueuilCityPage />} />
+          </Route>
+          <Route path="/services" element={<NewWebsiteLayout />}>
+            <Route index element={<ServicesPage />} />
+            <Route
+              path="peinture-commerciale"
+              element={<PeintureCommercialePage />}
+            />
+            <Route
+              path="new-peinture-exterieure"
+              element={
+                <Navigate to="/services/peinture-exterieure" replace />
+              }
+            />
+            <Route
+              path="peinture-exterieure"
+              element={<PeintureExterieurePage />}
+            />
+            <Route
+              path="peinture-residentielle"
+              element={<PeintureResidentiellePage />}
+            />
+            <Route
+              path="new-peinture-interieure"
+              element={<Navigate to="/services/peinture-interieure" replace />}
+            />
+            <Route
+              path="peinture-interieure"
+              element={<PeintureInterieurePage />}
+            />
+            <Route
+              path="peinture-industrielle"
+              element={<PeintureIndustriellePage />}
+            />
+            <Route
+              path=":serviceSlug/:subServiceSlug"
+              element={<SousServicePage />}
+            />
+            <Route
+              path=":serviceSlug/:param2/:param3"
+              element={<SmartServiceRouter />}
+            />
+            <Route
+              path=":serviceSlug/:citySlug"
+              element={<ServiceQuartierPage />}
+            />
+          </Route>
+          <Route path="/blog" element={<NewWebsiteLayout />}>
+            <Route index element={<BlogPage />} />
+            <Route
+              path="comment-choisir-un-peintre-professionnel"
+              element={<CommentChoisirPeintreProfessionnelPage />}
+            />
+            <Route
+              path="prix-peinture-montreal"
+              element={<PrixPeintureMontrealPage />}
+            />
+            <Route
+              path="erreurs-a-eviter-peinture-interieure"
+              element={<ErreursAEviterPeintureInterieurePage />}
+            />
+          </Route>
+
+          <Route
+            path="peintre-montreal"
+            element={<Navigate to="/fr/peintre-montreal" replace />}
+          />
           <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
@@ -96,139 +173,7 @@ export default function App() {
               element={<Navigate to="/en/peintre-montreal" replace />}
             />
           </Route>
-          <Route
-            path="/new-home"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<NewHomePage />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="a-propos" element={<AboutPage />} />
-          </Route>
-          <Route
-            path="/peintre-professionnel"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<PeintreProfessionnelPage />} />
-          </Route>
-          <Route
-            path="/avis"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<AvisPage />} />
-          </Route>
-          <Route
-            path="/secteurs-desservis"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<SecteursDesservisPage />} />
-            <Route path="brossard" element={<BrossardCityPage />} />
-            <Route path="montreal" element={<MontrealCityPage />} />
-            <Route path="laval" element={<LavalCityPage />} />
-            <Route path="longueuil" element={<LongueuilCityPage />} />
-          </Route>
-          <Route
-            path="/services"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<ServicesPage />} />
-            <Route
-              path="peinture-commerciale"
-              element={<PeintureCommercialePage />}
-            />
-            <Route
-              path="new-peinture-exterieure"
-              element={<PeintureExterieurePage />}
-            />
-            <Route
-              path="peinture-residentielle"
-              element={<PeintureResidentiellePage />}
-            />
-            <Route
-              path="new-peinture-interieure"
-              element={<PeintureInterieurePage />}
-            />
-            <Route
-              path="peinture-industrielle"
-              element={<PeintureIndustriellePage />}
-            />
-            {/* Dynamic Service × SubService routes - MUST be before Service × SubService × City */}
-            <Route
-              path=":serviceSlug/:subServiceSlug"
-              element={<SousServicePage />}
-            />
-            {/* Smart router for 3-segment routes - handles both SousServiceVille and ServiceQuartierSecteur */}
-            <Route
-              path=":serviceSlug/:param2/:param3"
-              element={<SmartServiceRouter />}
-            />
-            {/* Dynamic Service × City routes - MUST be last to avoid conflicts */}
-            <Route
-              path=":serviceSlug/:citySlug"
-              element={<ServiceQuartierPage />}
-            />
-          </Route>
-          <Route
-            path="/blog"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<BlogPage />} />
-            <Route
-              path="comment-choisir-un-peintre-professionnel"
-              element={<CommentChoisirPeintreProfessionnelPage />}
-            />
-            <Route
-              path="prix-peinture-montreal"
-              element={<PrixPeintureMontrealPage />}
-            />
-            <Route
-              path="erreurs-a-eviter-peinture-interieure"
-              element={<ErreursAEviterPeintureInterieurePage />}
-            />
-          </Route>
-          <Route
-            path="/new-contact"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<ContactPage />} />
-          </Route>
-          <Route
-            path="/a-propos"
-            element={
-              <PasswordProtectedPage>
-                <NewWebsiteLayout />
-              </PasswordProtectedPage>
-            }
-          >
-            <Route index element={<AboutPage />} />
-          </Route>
+
           <Route path="/admin">
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="soumissions" element={<SoumissionDashboard />} />
@@ -239,12 +184,10 @@ export default function App() {
             <Route path="employee-details" element={<EmployeeDetails />} />
           </Route>
           <Route path="/timesheet" element={<TimeSheet />} />
-          {/* 404 Page - Use WebsiteLayout for old site compatibility */}
-          <Route path="/404" element={<WebsiteLayout />}>
+          <Route path="/404" element={<NewWebsiteLayout />}>
             <Route index element={<NotFoundPage />} />
           </Route>
-          {/* 404 - Catch all unmatched routes - Use WebsiteLayout to preserve old site behavior */}
-          <Route path="*" element={<WebsiteLayout />}>
+          <Route path="*" element={<NewWebsiteLayout />}>
             <Route index element={<NotFoundPage />} />
           </Route>
         </Routes>

@@ -1,16 +1,10 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 
-# Block admin and private routes (IMPORTANT: Do not remove)
+# Block admin, private, and ad-only landing pages
 Disallow: /admin/
 Disallow: /timesheet
+Disallow: /fr/peintre-montreal
+Disallow: /en/peintre-montreal
 
-# Block new website pages (during development - remove when ready to launch)
-Disallow: /new-home
-Disallow: /peintre-professionnel
-Disallow: /secteurs-desservis
-Disallow: /services
-Disallow: /blog
-Disallow: /avis
-Disallow: /new-contact
-Disallow: /a-propos
+Sitemap: https://www.leleverdupinceau.ca/sitemap.xml

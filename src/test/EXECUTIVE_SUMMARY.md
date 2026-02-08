@@ -160,7 +160,7 @@ Development Server:       ✅ Running
 
 2. **Test Key Routes**
 
-   - Home: `http://localhost:5174/new-home`
+   - Home: `http://localhost:5174/`
    - Peintre Pro: `http://localhost:5174/peintre-professionnel`
    - City Example: `http://localhost:5174/secteurs-desservis/montreal`
    - Service Example: `http://localhost:5174/services/peinture-commerciale/brossard`

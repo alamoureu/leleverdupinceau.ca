@@ -24,38 +24,32 @@ export default function SousServiceVillePage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
-  // Support both param naming conventions:
-  // - Direct: subServiceSlug, citySlug
-  // - From SmartRouter: param2, param3
   const serviceSlug = params.serviceSlug;
   const subServiceSlug = params.subServiceSlug || params.param2;
   const citySlug = params.citySlug || params.param3;
 
-  // Get data for this service-subService-city combination
   const pageData = getSousServiceVilleData(
     serviceSlug,
     subServiceSlug,
-    citySlug
+    citySlug,
   );
 
-  // If data doesn't exist, redirect to 404 page
   if (!pageData) {
-    return <Navigate to='/404' replace />;
+    return <Navigate to="/404" replace />;
   }
 
   const { service, subService, city } = pageData;
 
-  // Safety checks with fallbacks
   if (!service || !service.name) {
-    return <Navigate to='/404' replace />;
+    return <Navigate to="/404" replace />;
   }
 
   if (!subService || !subService.name) {
-    return <Navigate to='/404' replace />;
+    return <Navigate to="/404" replace />;
   }
 
   if (!city || !city.name) {
-    return <Navigate to='/404' replace />;
+    return <Navigate to="/404" replace />;
   }
 
   const serviceName =
@@ -130,7 +124,7 @@ export default function SousServiceVillePage() {
             : `${subServiceName} in ${cityName} – Le Lever du Pinceau`}
         </title>
         <meta
-          name='description'
+          name="description"
           content={
             isFr
               ? `Le Lever du Pinceau offre un service complet de ${subServiceName.toLowerCase()} à ${cityName}. Peintres professionnels, service rapide et propre.`
@@ -138,52 +132,51 @@ export default function SousServiceVillePage() {
           }
         />
         <link
-          rel='canonical'
+          rel="canonical"
           href={
             city.canonical ||
             `https://leleverdupinceau.ca/services/${serviceSlug}/${subServiceSlug}/${citySlug}`
           }
         />
-        <meta name='robots' content='noindex, nofollow' />
-        <script type='application/ld+json'>
+        <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w="100%" bg="white" overflowX="hidden">
         <Container
-          maxW='1440px'
+          maxW="1440px"
           px={{ base: 4, md: 6 }}
           pt={{ base: 8, md: 12 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumb */}
             <Flex
-              wrap='wrap'
+              wrap="wrap"
               gap={2}
               fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
+              color="gray.600"
               mb={{ base: 4, md: 6 }}
-              alignItems='center'
+              alignItems="center"
             >
               <Link
                 as={RouterLink}
-                to='/new-home'
+                to="/"
                 _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
+                color="gray.600"
                 fontSize={{ base: 'md', md: 'lg' }}
-                whiteSpace='nowrap'
+                whiteSpace="nowrap"
               >
                 {isFr ? 'Accueil' : 'Home'}
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
                 as={RouterLink}
-                to='/services'
+                to="/services"
                 _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
+                color="gray.600"
                 fontSize={{ base: 'md', md: 'lg' }}
-                whiteSpace='nowrap'
+                whiteSpace="nowrap"
               >
                 {isFr ? 'Services' : 'Services'}
               </Link>
@@ -192,9 +185,9 @@ export default function SousServiceVillePage() {
                 as={RouterLink}
                 to={`/services/${serviceSlug}`}
                 _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
+                color="gray.600"
                 fontSize={{ base: 'md', md: 'lg' }}
-                whiteSpace='normal'
+                whiteSpace="normal"
               >
                 {serviceName}
               </Link>
@@ -203,42 +196,42 @@ export default function SousServiceVillePage() {
                 as={RouterLink}
                 to={`/services/${serviceSlug}/${subServiceSlug}`}
                 _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
+                color="gray.600"
                 fontSize={{ base: 'md', md: 'lg' }}
-                whiteSpace='normal'
+                whiteSpace="normal"
               >
                 {subServiceName}
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Text
-                color='gray.800'
-                fontWeight='medium'
+                color="gray.800"
+                fontWeight="medium"
                 fontSize={{ base: 'md', md: 'lg' }}
-                whiteSpace='nowrap'
+                whiteSpace="nowrap"
               >
                 {cityName}
               </Text>
             </Flex>
 
             {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
+            <Stack spacing={4} textAlign="left" mb={{ base: 12, md: 16 }}>
               <Heading
-                as='h1'
+                as="h1"
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
+                fontWeight="bold"
+                color="gray.800"
               >
                 {city.h1
                   ? city.h1[isFr ? 'fr' : 'en']
                   : isFr
-                  ? `${subServiceName} à ${cityName} – Le Lever du Pinceau`
-                  : `${subServiceName} in ${cityName} – Le Lever du Pinceau`}
+                    ? `${subServiceName} à ${cityName} – Le Lever du Pinceau`
+                    : `${subServiceName} in ${cityName} – Le Lever du Pinceau`}
               </Heading>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
+                color="gray.600"
+                lineHeight="1.7"
+                maxW="900px"
               >
                 {city.introduction[isFr ? 'fr' : 'en']}
               </Text>
@@ -250,17 +243,17 @@ export default function SousServiceVillePage() {
                 <SimpleGrid
                   columns={{ base: 1, md: 2, lg: 3 }}
                   spacing={4}
-                  maxW='1200px'
+                  maxW="1200px"
                 >
                   {city.images.map((image, index) => (
                     <Image
                       key={index}
                       src={image.src}
                       alt={image.alt}
-                      borderRadius='lg'
-                      w='100%'
+                      borderRadius="lg"
+                      w="100%"
                       h={{ base: '200px', md: '250px' }}
-                      objectFit='cover'
+                      objectFit="cover"
                     />
                   ))}
                 </SimpleGrid>
@@ -281,13 +274,13 @@ export default function SousServiceVillePage() {
             {city.complementaryServices &&
               city.complementaryServices.length > 0 && (
                 <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-                  <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                  <Container maxW="1440px" px={{ base: 4, md: 6 }}>
                     <Stack spacing={6}>
                       <Heading
-                        as='h2'
+                        as="h2"
                         fontSize={{ base: '2xl', md: '3xl' }}
-                        fontWeight='bold'
-                        color='gray.800'
+                        fontWeight="bold"
+                        color="gray.800"
                       >
                         {city.complementaryServicesTitle[isFr ? 'fr' : 'en']}
                       </Heading>
@@ -296,8 +289,8 @@ export default function SousServiceVillePage() {
                           <Link
                             key={index}
                             href={service.href}
-                            color='#014CC4'
-                            fontWeight='500'
+                            color="brand.500"
+                            fontWeight="500"
                             fontSize={{ base: 'md', md: 'lg' }}
                             _hover={{ textDecoration: 'underline' }}
                           >
@@ -313,44 +306,44 @@ export default function SousServiceVillePage() {
             {/* Section 4 — Processus */}
             {city.processSteps && city.processSteps[isFr ? 'fr' : 'en'] && (
               <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Container maxW="1440px" px={{ base: 4, md: 6 }}>
                   <Stack spacing={6}>
                     <Heading
-                      as='h2'
+                      as="h2"
                       fontSize={{ base: '2xl', md: '3xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
+                      fontWeight="bold"
+                      color="gray.800"
                     >
                       {city.processTitle[isFr ? 'fr' : 'en']}
                     </Heading>
                     <Stack spacing={3}>
                       {city.processSteps[isFr ? 'fr' : 'en'].map(
                         (step, index) => (
-                          <Flex key={index} align='flex-start' gap={4}>
+                          <Flex key={index} align="flex-start" gap={4}>
                             <Box
-                              minW='32px'
-                              h='32px'
-                              borderRadius='full'
-                              bg='#014CC4'
-                              color='white'
-                              display='flex'
-                              alignItems='center'
-                              justifyContent='center'
-                              fontWeight='bold'
-                              fontSize='sm'
+                              minW="32px"
+                              h="32px"
+                              borderRadius="full"
+                              bg="brand.500"
+                              color="white"
+                              display="flex"
+                              alignItems="center"
+                              justifyContent="center"
+                              fontWeight="bold"
+                              fontSize="sm"
                               flexShrink={0}
                             >
                               {index + 1}
                             </Box>
                             <Text
                               fontSize={{ base: 'md', md: 'lg' }}
-                              color='gray.700'
+                              color="gray.700"
                               flex={1}
                             >
                               {step}
                             </Text>
                           </Flex>
-                        )
+                        ),
                       )}
                     </Stack>
                   </Stack>

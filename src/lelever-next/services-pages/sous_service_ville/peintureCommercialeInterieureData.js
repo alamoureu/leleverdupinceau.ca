@@ -1,7 +1,7 @@
 // Data configuration for Peinture Commerciale Intérieure × City pages
 
 export const peintureCommercialeInterieureData = {
-  'new-peinture-commerciale': {
+  'peinture-commerciale': {
     subServices: {
       interieure: {
         name: {

@@ -1,3 +1,8 @@
 {
-  "name": "Le Lever Du Pinceau"
+  "name": "Le Lever du Pinceau",
+  "short_name": "Le Lever du Pinceau",
+  "start_url": "/",
+  "display": "browser",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
 }

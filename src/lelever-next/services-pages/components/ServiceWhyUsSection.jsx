@@ -83,7 +83,7 @@ export default function ServiceWhyUsSection({
                     border='1px solid'
                     borderColor='gray.200'
                     _hover={{
-                      borderColor: '#014CC4',
+                      borderColor: 'brand.500',
                       boxShadow: 'sm',
                       transform: 'translateX(4px)',
                     }}
@@ -92,13 +92,13 @@ export default function ServiceWhyUsSection({
                     <Icon
                       as={FontAwesomeIcon}
                       icon={faCheckCircle}
-                      color='#014CC4'
+                      color='brand.500'
                       boxSize={5}
                       mt={0.5}
                       flexShrink={0}
                     />
                     <Text
-                      fontSize='md'
+                      fontSize={{ base: 'sm', md: 'md' }}
                       color='gray.700'
                       lineHeight='1.6'
                       fontWeight='500'

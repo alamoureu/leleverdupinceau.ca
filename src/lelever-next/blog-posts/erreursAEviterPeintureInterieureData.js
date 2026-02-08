@@ -697,7 +697,7 @@ export const erreursAEviterPeintureInterieureData = {
         fr: 'Découvrez nos services de peinture intérieure à Montréal',
         en: 'Discover our interior painting services in Montreal',
       },
-      href: '/services/new-peinture-interieure',
+      href: '/services/peinture-interieure',
     },
     {
       type: 'link',
@@ -757,7 +757,7 @@ export const erreursAEviterPeintureInterieureData = {
         url: 'https://leleverdupinceau.ca',
         logo: {
           '@type': 'ImageObject',
-          url: 'https://leleverdupinceau.ca/path-vers-ton-logo.png',
+          url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png',
         },
         address: {
           '@type': 'PostalAddress',
@@ -784,7 +784,7 @@ export const erreursAEviterPeintureInterieureData = {
         },
         image: {
           '@type': 'ImageObject',
-          url: 'https://leleverdupinceau.ca/path-vers-image-de-blog-erreurs-peinture.jpg',
+          url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
         },
         author: {
           '@id': 'https://leleverdupinceau.ca#organization',
