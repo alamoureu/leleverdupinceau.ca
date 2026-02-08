@@ -58,14 +58,14 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
           <Box
             maxW="1440px"
             mx="auto"
-            py={{ base: 1.5, sm: 2 }}
+            py={{ base: 0.5, sm: 1 }}
             px={{ base: 4, sm: 6, lg: 8, xl: 8, '2xl': 0 }}
           >
             <HStack justify="space-between" spacing={4}>
               <HStack spacing={4}>
-                <HStack spacing={2} h="20px" alignItems="center">
+                <HStack spacing={2} h="18px" alignItems="center">
                   <Text
-                    textStyle="nav"
+                    fontSize={{ base: 'xs', sm: 'sm' }}
                     color="white"
                     fontWeight="light"
                   >
@@ -80,7 +80,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     color="white"
                     variant="ghost"
                     _hover={{ bg: 'gray.800' }}
-                    textStyle="nav"
+                    fontSize={{ base: 'sm', sm: 'md' }}
                     mr="-10px"
                   />
                   <IconButton
@@ -92,7 +92,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     color="white"
                     variant="ghost"
                     _hover={{ bg: 'gray.800' }}
-                    textStyle="nav"
+                    fontSize={{ base: 'sm', sm: 'md' }}
                   />
                 </HStack>
               </HStack>
@@ -102,11 +102,11 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   as={FontAwesomeIcon}
                   icon={faPhoneAlt}
                   color="white"
-                  textStyle="nav"
+                  fontSize={{ base: 'xs', sm: 'sm' }}
                 />
                 <a href="tel:4388680772">
                   <Text
-                    textStyle="nav"
+                    fontSize={{ base: 'xs', sm: 'sm' }}
                     color="white"
                     fontWeight="medium"
                     _hover={{ textDecoration: 'underline' }}
@@ -301,15 +301,15 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 bg="white"
                 pointerEvents="auto"
                 borderTopRadius="none"
-                borderBottomRadius={{ base: '70px', md: '80px', lg: '100px' }}
-                p={{ base: 2, md: 3 }}
+                borderBottomRadius={{ base: '50px', sm: '60px', md: '80px', lg: '100px' }}
+                p={{ base: 1.5, sm: 2, md: 3 }}
                 boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
-                minW={{ base: '65px', md: '90px' }}
-                maxW={{ base: '75px', md: '110px' }}
+                minW={{ base: '52px', sm: '60px', md: '90px' }}
+                maxW={{ base: '60px', sm: '70px', md: '110px' }}
               >
                 <Stack spacing={0} align="center">
                   <Text
-                    textStyle="caption"
+                    fontSize={{ base: '2xs', sm: 'xs', md: 'sm' }}
                     color="gray.600"
                     fontWeight="600"
                   >
@@ -317,7 +317,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   </Text>
                   <Flex align="center" gap={0.5}>
                     <Text
-                      textStyle="caption"
+                      fontSize={{ base: '2xs', sm: 'xs', md: 'sm' }}
                       color="gray.600"
                       fontWeight="600"
                     >
@@ -328,7 +328,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                         <StarIcon
                           key={i}
                           color="#FBBC04"
-                          boxSize={{ base: 2, md: 3 }}
+                          boxSize={{ base: 1.5, sm: 2, md: 3 }}
                         />
                       ))}
                     </Flex>
@@ -336,9 +336,10 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   <Image
                     src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
                     alt="Google"
-                    h={{ base: '30px', md: '40px' }}
-                    w={{ base: '30px', md: '40px' }}
-                    mt={1}
+                    h={{ base: '14px', sm: '18px', md: '40px' }}
+                    w={{ base: '14px', sm: '18px', md: '40px' }}
+                    mt={{ base: 0.5, md: 1 }}
+                    objectFit="contain"
                   />
                 </Stack>
               </Box>

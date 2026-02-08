@@ -1,15 +1,14 @@
 import React from 'react';
-import { Box, Image, Stack, Heading, Text } from '@chakra-ui/react';
+import { Box, Image, Heading, Text } from '@chakra-ui/react';
 
 /**
- * Reusable service card matching the UI: image with title/subtitle overlay (dark gradient),
- * then description below. All content passed via props.
+ * Reusable service card: image with title overlay, white fade, subtitle in white strip below.
  *
- * @param {string} image - Image src (imported asset or URL)
- * @param {string} title - Main title (shown in white on image overlay)
- * @param {string} [subtitle] - Optional subtitle (shown in white on image overlay)
- * @param {string} [description] - Optional body text below the image (dark grey). Omit to show only the overlay.
- * @param {string} [alt] - Alt text for image (defaults to title)
+ * @param {string} image - Image src
+ * @param {string} title - Main title (white on image overlay)
+ * @param {string} [subtitle] - Subtitle in white strip below image
+ * @param {string} [description] - Optional body text below
+ * @param {string} [alt] - Alt text for image
  */
 export default function ServiceCard({
   image,
@@ -79,7 +78,7 @@ export default function ServiceCard({
           objectPosition="center center"
           display="block"
         />
-        {/* Dark overlay top-left for text readability */}
+        {/* Dark overlay: title only */}
         <Box
           position="absolute"
           inset={0}
@@ -92,47 +91,46 @@ export default function ServiceCard({
           p={{ base: 4, sm: 5, md: 5, lg: 6, xl: 6 }}
           pointerEvents="none"
         >
-          <Stack spacing={0.5} textAlign="left">
-            <Heading
-              as="h3"
-              size="card"
-              color="white"
-              lineHeight="1.2"
-            >
-              {title}
-            </Heading>
-            {subtitle && (
-              <Text
-                textStyle="body"
-                color="white"
-                fontWeight="normal"
-              >
-                {subtitle}
-              </Text>
-            )}
-          </Stack>
+          <Heading as="h3" size="card" color="white" lineHeight="1.2">
+            {title}
+          </Heading>
+        </Box>
+        {/* White fade at bottom of image */}
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          w="100%"
+          h={fadeHeights}
+          pointerEvents="none"
+          zIndex={2}
+          display="flex"
+          alignItems="flex-end"
+        >
+          <Box
+            w="100%"
+            h="40%"
+            bgGradient="linear(to-t, white 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.4) 50%, transparent 100%)"
+          />
         </Box>
       </Box>
 
-      {/* Soft white fade: extends 1px past image bottom to cover the seam */}
-      <Box
-        position="absolute"
-        top={0}
-        left={0}
-        right={0}
-        w="100%"
-        h={fadeHeights}
-        pointerEvents="none"
-        zIndex={2}
-        display="flex"
-        alignItems="flex-end"
-      >
+      {/* Subtitle in white strip below image (above fade in stack so text is visible) */}
+      {subtitle && (
         <Box
-          w="100%"
-          h="40%"
-          bgGradient="linear(to-t, white 0%, rgba(255,255,255,0.9) 20%, rgba(255,255,255,0.4) 50%, transparent 100%)"
-        />
-      </Box>
+          bg="white"
+          py={{ base: 3, sm: 4, md: 4, lg: 5 }}
+          px={{ base: 4, sm: 5, md: 5, lg: 6 }}
+          textAlign="left"
+          position="relative"
+          zIndex={3}
+        >
+          <Text textStyle="body" color="gray.700" fontWeight="medium" lineHeight="1.5">
+            {subtitle}
+          </Text>
+        </Box>
+      )}
 
       {description && (
         <Box
@@ -141,11 +139,7 @@ export default function ServiceCard({
           px={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
           textAlign="left"
         >
-          <Text
-            textStyle="body"
-            color="gray.700"
-            lineHeight="1.6"
-          >
+          <Text textStyle="body" color="gray.700" lineHeight="1.6">
             {description}
           </Text>
         </Box>

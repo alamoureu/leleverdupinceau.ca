@@ -88,10 +88,7 @@ export default function ServicesSection() {
             >
               {t.servicesTitle}
             </Heading>
-            <Text
-              textStyle="bodyLarge"
-              color="gray.600"
-            >
+            <Text textStyle="bodyLarge" color="gray.600">
               {t.servicesSubtitle}
             </Text>
           </Stack>
@@ -128,12 +125,7 @@ export default function ServicesSection() {
             ))}
           </SimpleGrid>
 
-          <Stack
-            spacing={2}
-            align="center"
-            pt={{ base: 4, md: 6 }}
-            w="100%"
-          >
+          <Stack spacing={2} align="center" pt={{ base: 4, md: 6 }} w="100%">
             <Button
               as={RouterLink}
               to="/services"

@@ -18,6 +18,7 @@ export const translations = {
     serviceIndustrial: 'Peinture industrielle',
     serviceIndustrialDesc: 'Entrepôts, usines, bâtiments spécialisés',
     viewAllServices: 'Voir tous nos services',
+    servicesTrustLine: 'Soumission gratuite • Sans engagement',
 
     whyUsTitle: 'Pourquoi nous choisir ?',
     benefit1Title: 'Un travail impeccable',
@@ -189,6 +190,7 @@ export const translations = {
     serviceIndustrial: 'Industrial painting',
     serviceIndustrialDesc: 'Warehouses, factories, specialized buildings',
     viewAllServices: 'View all our services',
+    servicesTrustLine: 'Free quote • No obligation',
 
     whyUsTitle: 'Why choose us?',
     benefit1Title: 'Impeccable work',
