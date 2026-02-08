@@ -157,7 +157,7 @@ export const PasswordProtection = ({ onPasswordCorrect }) => {
   return (
     <Center p={4} alignSelf="center">
       <VStack>
-        <Heading fontSize="30px">Enter password to access</Heading>
+        <Heading size="lg" fontSize={{ base: 'xl', md: '2xl' }}>Enter password to access</Heading>
         <Stack spacing={4} w="250px">
           <Input
             type="password"
