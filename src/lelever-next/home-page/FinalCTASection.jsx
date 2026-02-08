@@ -48,7 +48,6 @@ export default function FinalCTASection({
             fontWeight='bold'
             px={{ base: 10, md: 12 }}
             py={{ base: 3, md: 4 }}
-            fontWeight='bold' // Bold text
             borderRadius='full'
             _hover={{
               bg: 'gray.100',
