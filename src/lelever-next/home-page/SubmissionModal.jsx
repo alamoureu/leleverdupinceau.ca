@@ -3,19 +3,22 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
-  ModalHeader,
   ModalBody,
   ModalCloseButton,
+  Box,
+  Flex,
+  Heading,
 } from '@chakra-ui/react';
 import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
+
+const MODAL_PX = { base: 5, md: 6 };
 
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const initialFocusRef = useRef(null);
 
-  // Reset submission state when modal closes
   useEffect(() => {
     if (!isOpen) {
       setIsSubmitted(false);
@@ -37,40 +40,61 @@ export default function SubmissionModal({ isOpen, onClose }) {
     >
       <ModalOverlay />
       <ModalContent
-        mx={{ base: 0, md: 4 }}
+        mx={{ base: 2, md: 4 }}
         borderRadius='xl'
-        maxH={{ base: '90vh', md: '85vh' }}
+        maxH={{ base: '95vh', md: '90vh' }}
         display='flex'
         flexDirection='column'
+        overflow='hidden'
       >
-        {!isSubmitted && (
-          <>
-            <ModalHeader
-              textStyle="stat"
-              fontWeight='bold'
-              color='gray.800'
+        <Box
+          flex={1}
+          minH={0}
+          display='flex'
+          flexDirection='column'
+          px={MODAL_PX}
+          overflow='hidden'
+        >
+          {!isSubmitted && (
+            <Flex
+              align='center'
+              justify='space-between'
+              gap={3}
+              pt={4}
               pb={2}
               flexShrink={0}
             >
-              {t.modalTitle}
-            </ModalHeader>
-            <ModalCloseButton />
-          </>
-        )}
-        <ModalBody
-          pb={isSubmitted ? 0 : 6}
-          px={isSubmitted ? 0 : undefined}
-          flex={1}
-          minH={0}
-          overflow='hidden'
-          display='flex'
-          flexDirection='column'
-        >
-          <SubmissionForm
-            onSubmissionStateChange={handleSubmissionStateChange}
-            initialFocusRef={initialFocusRef}
-          />
-        </ModalBody>
+              <Heading
+                as='h2'
+                size='md'
+                textStyle='stat'
+                fontWeight='bold'
+                color='gray.800'
+                flex={1}
+                noOfLines={1}
+              >
+                {t.modalTitle}
+              </Heading>
+              <ModalCloseButton position='relative' top={0} right={0} />
+            </Flex>
+          )}
+          <ModalBody
+            p={0}
+            flex={1}
+            minH={0}
+            overflowY='auto'
+            overflowX='visible'
+            display='flex'
+            flexDirection='column'
+            pb={isSubmitted ? 0 : 3}
+          >
+            <SubmissionForm
+              isModal
+              onSubmissionStateChange={handleSubmissionStateChange}
+              initialFocusRef={initialFocusRef}
+            />
+          </ModalBody>
+        </Box>
       </ModalContent>
     </Modal>
   );

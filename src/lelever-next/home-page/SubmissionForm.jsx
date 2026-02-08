@@ -347,7 +347,8 @@ export default function SubmissionForm({
         flex={isModal ? '1' : undefined}
         minH={isModal ? '0' : undefined}
         py={isModal ? 0 : { base: 6, md: 8 }}
-        px={isModal ? 0 : { base: 2, sm: 4 }}
+        px={isModal ? { base: 0, sm: 0 } : { base: 2, sm: 4 }}
+        pr={isModal ? 3 : undefined}
       >
         <Box
           flex={isModal ? '1' : undefined}
@@ -512,7 +513,7 @@ export default function SubmissionForm({
           flexShrink={0}
           w="100%"
           pt={isModal ? 4 : { base: 6, md: 8 }}
-          pb={isModal ? { base: 6, sm: 8 } : 0}
+          pb={isModal ? 2 : 0}
           borderTopWidth={isModal ? '1px' : 0}
           borderColor="gray.100"
           mt="auto"
