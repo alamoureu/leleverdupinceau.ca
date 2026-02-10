@@ -41,8 +41,7 @@ export default function NotFoundPage() {
         alignItems='center'
         justifyContent='center'
         bg='white'
-        pt={{ base: 12, md: 16, lg: 20 }}
-        pb={{ base: '60px', md: '90px', lg: '125px' }}
+        py={{ base: 12, md: 16, lg: 20 }}
         px={{ base: 4, sm: 6, md: 8 }}
         w='100%'
       >

@@ -34,7 +34,9 @@
     "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "test": "node src/test/verify-routes.js",
     "open:routes": "node src/test/open-all-routes.js",
-    "open:all": "node src/test/open-all-routes.js --all"
+    "open:all": "node src/test/open-all-routes.js --all",
+    "audit:pages": "node scripts/open-all-pages-for-audit.js",
+    "audit:pages:tabs": "node scripts/open-all-pages-for-audit.js --tabs"
   },
   "eslintConfig": {
     "extends": [

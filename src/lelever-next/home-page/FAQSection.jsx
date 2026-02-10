@@ -75,7 +75,7 @@ export default function FAQSection() {
   const faqs = getFaqs(isFr);
 
   return (
-    <Box w="100%" py={{ base: 12, md: 16 }} bg="gray.50" mb={{ base: 8, md: 12 }}>
+    <Box w="100%" py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center">

@@ -90,7 +90,7 @@ export default function BlogPage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             <HStack
@@ -130,7 +130,7 @@ export default function BlogPage() {
               title={isFr ? 'Guides essentiels' : 'Essential Guides'}
             />
 
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <SimpleGrid
                   columns={{ base: 1, md: 2 }}
@@ -197,7 +197,7 @@ export default function BlogPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -257,7 +257,7 @@ export default function BlogPage() {
 
         <Box
           w='100%'
-          py={{ base: 12, md: 16 }}
+          py={{ base: 12, md: 16, lg: 20 }}
           bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >

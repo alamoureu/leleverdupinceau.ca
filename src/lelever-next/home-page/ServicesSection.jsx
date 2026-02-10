@@ -30,18 +30,21 @@ export default function ServicesSection() {
       image: serviceImages[0],
       title: t.serviceResidential,
       subtitle: t.serviceResidentialDesc,
+      stripText: t.serviceResidentialStrip,
       link: '/services/peinture-residentielle',
     },
     {
       image: serviceImages[1],
       title: t.serviceCommercial,
       subtitle: t.serviceCommercialDesc,
+      stripText: t.serviceCommercialStrip,
       link: '/services/peinture-commerciale',
     },
     {
       image: serviceImages[2],
       title: t.serviceInterior,
       subtitle: t.serviceInteriorDesc,
+      stripText: t.serviceInteriorStrip,
       link: '/services/peinture-interieure',
     },
   ];
@@ -50,8 +53,7 @@ export default function ServicesSection() {
     <Box
       bg="white"
       position="relative"
-      pt={{ base: 16, sm: 20, md: 28, lg: 36, xl: 52, '2xl': 60 }}
-      pb={{ base: 8, md: 12, lg: 16 }}
+      py={{ base: 12, md: 16, lg: 20 }}
     >
       <Container
         maxW="1440px"
@@ -119,6 +121,7 @@ export default function ServicesSection() {
                   image={service.image}
                   title={service.title}
                   subtitle={service.subtitle}
+                  stripText={service.stripText}
                   noHoverBorder
                 />
               </Box>

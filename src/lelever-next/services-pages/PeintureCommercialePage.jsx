@@ -25,12 +25,13 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import img5969 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import img5970 from '../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
-import img5971 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
-import img5972 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
-import img5973 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
-import img5974 from '../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
+// Réalisations: mix Page peinture commerciale + sous-services + Montréal pour plus de variété
+import imgCom1 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import imgCom2 from '../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
+import imgCom3 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
+import imgCom4 from '../images/4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.PNG';
+import imgCom5 from '../images/4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.PNG';
+import imgCom6 from '../images/3-ville/Montréal/1. réalisations/IMG_6767.PNG';
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -86,7 +87,7 @@ export default function PeintureCommercialePage() {
             : 'Commercial painting – Le Lever du Pinceau | Professional services for businesses'}
         </title>
         <meta
-          name='description'
+          name="description"
           content={
             isFr
               ? 'Le Lever du Pinceau offre des services de peinture commerciale pour bureaux, commerces, restaurants et immeubles dans le Grand Montréal. Peintres professionnels, planification efficace, finition durable.'
@@ -94,33 +95,33 @@ export default function PeintureCommercialePage() {
           }
         />
         <link
-          rel='canonical'
-          href='https://leleverdupinceau.ca/services/peinture-commerciale'
+          rel="canonical"
+          href="https://leleverdupinceau.ca/services/peinture-commerciale"
         />
-        <script type='application/ld+json'>
+        <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w="100%" bg="white" overflowX="hidden">
         <Container
-          maxW='1440px'
+          maxW="1440px"
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumb */}
             <HStack
               spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
+              color="gray.600"
               mb={{ base: 4, md: 6 }}
             >
               <Link
                 as={RouterLink}
-                to='/'
+                to="/"
                 _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
+                color="gray.600"
                 fontSize={{ base: 'md', md: 'lg' }}
               >
                 {isFr ? 'Accueil' : 'Home'}
@@ -128,17 +129,17 @@ export default function PeintureCommercialePage() {
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Link
                 as={RouterLink}
-                to='/services'
+                to="/services"
                 _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
+                color="gray.600"
                 fontSize={{ base: 'md', md: 'lg' }}
               >
                 {isFr ? 'Services' : 'Services'}
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Text
-                color='gray.800'
-                fontWeight='medium'
+                color="gray.800"
+                fontWeight="medium"
                 fontSize={{ base: 'md', md: 'lg' }}
               >
                 {isFr ? 'Peinture commerciale' : 'Commercial painting'}
@@ -146,12 +147,12 @@ export default function PeintureCommercialePage() {
             </HStack>
 
             {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
+            <Stack spacing={4} textAlign="left" mb={{ base: 12, md: 16 }}>
               <Heading
-                as='h1'
+                as="h1"
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
+                fontWeight="bold"
+                color="gray.800"
               >
                 {isFr
                   ? 'Peinture commerciale – Le Lever du Pinceau'
@@ -159,9 +160,9 @@ export default function PeintureCommercialePage() {
               </Heading>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
+                color="gray.600"
+                lineHeight="1.7"
+                maxW="900px"
               >
                 {isFr
                   ? "La peinture commerciale demande une organisation efficace, des délais respectés et un résultat professionnel qui renforce l'image de votre entreprise. Le Lever du Pinceau accompagne commerces, bureaux, restaurants, cliniques, immeubles et bâtiments commerciaux dans tout le Grand Montréal."
@@ -169,11 +170,11 @@ export default function PeintureCommercialePage() {
               </Text>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
+                color="gray.600"
+                lineHeight="1.7"
+                maxW="900px"
                 mt={2}
-                fontWeight='medium'
+                fontWeight="medium"
               >
                 {isFr
                   ? "👉 Nos peintres professionnels planifient les travaux pour minimiser l'impact sur vos opérations, tout en livrant une finition propre, durable et adaptée à votre environnement. Pour rafraîchir vos locaux, moderniser votre espace client ou rénover un immeuble complet, notre équipe de peinture commerciale est prête à intervenir."
@@ -183,19 +184,19 @@ export default function PeintureCommercialePage() {
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <Box
-              py={{ base: 12, md: 16 }}
-              bg='gray.50'
-              borderRadius='xl'
+              py={{ base: 12, md: 16, lg: 20 }}
+              bg="gray.50"
+              borderRadius="xl"
               mb={{ base: 8, md: 12 }}
             >
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
+                  <Stack spacing={3} textAlign="left">
                     <Heading
-                      as='h2'
+                      as="h2"
                       fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
+                      fontWeight="bold"
+                      color="gray.800"
                     >
                       {isFr
                         ? 'Une équipe organisée pour vos espaces commerciaux'
@@ -203,8 +204,8 @@ export default function PeintureCommercialePage() {
                     </Heading>
                     <Text
                       fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.600'
-                      lineHeight='1.7'
+                      color="gray.600"
+                      lineHeight="1.7"
                     >
                       {isFr
                         ? 'Nous adaptons nos interventions à la réalité des entreprises :'
@@ -216,34 +217,34 @@ export default function PeintureCommercialePage() {
                     {whyUsContent.map((item, index) => (
                       <Flex
                         key={index}
-                        align='start'
+                        align="start"
                         gap={4}
                         p={4}
-                        bg='white'
-                        borderRadius='lg'
-                        border='1px solid'
-                        borderColor='gray.200'
+                        bg="white"
+                        borderRadius="lg"
+                        border="1px solid"
+                        borderColor="gray.200"
                         _hover={{
                           borderColor: 'brand.500',
                           boxShadow: 'sm',
                           transform: 'translateX(4px)',
                         }}
-                        transition='all 0.2s ease'
+                        transition="all 0.2s ease"
                       >
                         <Icon
                           as={FontAwesomeIcon}
                           icon={faCheckCircle}
-                          color='brand.500'
+                          color="brand.500"
                           boxSize={5}
                           mt={0.5}
                           flexShrink={0}
                         />
                         <Text
-                          fontSize='md'
-                          color='gray.700'
-                          lineHeight='1.6'
-                          fontWeight='500'
-                          textAlign='left'
+                          fontSize="md"
+                          color="gray.700"
+                          lineHeight="1.6"
+                          fontWeight="500"
+                          textAlign="left"
                         >
                           {item}
                         </Text>
@@ -253,8 +254,8 @@ export default function PeintureCommercialePage() {
 
                   <Text
                     fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    lineHeight='1.7'
+                    color="gray.600"
+                    lineHeight="1.7"
                     mt={4}
                   >
                     {isFr
@@ -266,15 +267,15 @@ export default function PeintureCommercialePage() {
             </Box>
 
             {/* Section 2 — Sous-services */}
-            <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
+                  <Stack spacing={3} textAlign="left">
                     <Heading
-                      as='h2'
+                      as="h2"
                       fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
+                      fontWeight="bold"
+                      color="gray.800"
                     >
                       {isFr
                         ? 'Peinture commerciale intérieure et extérieure'
@@ -285,47 +286,47 @@ export default function PeintureCommercialePage() {
                   <SimpleGrid
                     columns={{ base: 1, md: 2 }}
                     spacing={{ base: 6, md: 8 }}
-                    maxW='800px'
+                    maxW="800px"
                   >
                     <Link
                       as={RouterLink}
-                      to='/services/peinture-commerciale/interieure'
+                      to="/services/peinture-commerciale/interieure"
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
                         p={6}
-                        bg='white'
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
+                        bg="white"
+                        borderRadius="xl"
+                        border="1px solid"
+                        borderColor="gray.200"
+                        h="100%"
+                        display="flex"
+                        flexDirection="column"
                         _hover={{
                           borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
-                        transition='all 0.2s'
+                        transition="all 0.2s"
                       >
                         <Stack spacing={3} flex={1}>
                           <Heading
-                            as='h3'
-                            fontSize='xl'
-                            fontWeight='bold'
-                            color='gray.800'
+                            as="h3"
+                            fontSize="xl"
+                            fontWeight="bold"
+                            color="gray.800"
                           >
                             {isFr
                               ? 'Peinture commerciale intérieure'
                               : 'Interior commercial painting'}
                           </Heading>
-                          <Text fontSize='md' color='gray.600' lineHeight='1.6'>
+                          <Text fontSize="md" color="gray.600" lineHeight="1.6">
                             {isFr
                               ? "Bureaux, salles de réunion, espaces clients, corridors, cages d'escaliers."
                               : 'Offices, meeting rooms, customer spaces, corridors, stairwells.'}
                           </Text>
-                          <HStack spacing={2} color='brand.500' mt='auto'>
-                            <Text fontSize='sm' fontWeight='medium'>
+                          <HStack spacing={2} color="brand.500" mt="auto">
+                            <Text fontSize="sm" fontWeight="medium">
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
                             <ArrowForwardIcon boxSize={4} />
@@ -336,43 +337,43 @@ export default function PeintureCommercialePage() {
 
                     <Link
                       as={RouterLink}
-                      to='/services/peinture-commerciale/exterieure'
+                      to="/services/peinture-commerciale/exterieure"
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
                         p={6}
-                        bg='white'
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        h='100%'
-                        display='flex'
-                        flexDirection='column'
+                        bg="white"
+                        borderRadius="xl"
+                        border="1px solid"
+                        borderColor="gray.200"
+                        h="100%"
+                        display="flex"
+                        flexDirection="column"
                         _hover={{
                           borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
                           boxShadow: 'md',
                         }}
-                        transition='all 0.2s'
+                        transition="all 0.2s"
                       >
                         <Stack spacing={3} flex={1}>
                           <Heading
-                            as='h3'
-                            fontSize='xl'
-                            fontWeight='bold'
-                            color='gray.800'
+                            as="h3"
+                            fontSize="xl"
+                            fontWeight="bold"
+                            color="gray.800"
                           >
                             {isFr
                               ? 'Peinture commerciale extérieure'
                               : 'Exterior commercial painting'}
                           </Heading>
-                          <Text fontSize='md' color='gray.600' lineHeight='1.6'>
+                          <Text fontSize="md" color="gray.600" lineHeight="1.6">
                             {isFr
                               ? 'Façades, entrées commerciales, structures extérieures, enseignes, revêtements.'
                               : 'Facades, commercial entrances, exterior structures, signs, coatings.'}
                           </Text>
-                          <HStack spacing={2} color='brand.500' mt='auto'>
-                            <Text fontSize='sm' fontWeight='medium'>
+                          <HStack spacing={2} color="brand.500" mt="auto">
+                            <Text fontSize="sm" fontWeight="medium">
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
                             <ArrowForwardIcon boxSize={4} />
@@ -418,14 +419,14 @@ export default function PeintureCommercialePage() {
 
             {/* Section 4 — Exemples de projets commerciaux */}
             <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
                 <Stack spacing={6}>
-                  <Stack spacing={3} textAlign='left'>
+                  <Stack spacing={3} textAlign="left">
                     <Heading
-                      as='h2'
+                      as="h2"
                       fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
+                      fontWeight="bold"
+                      color="gray.800"
                     >
                       {isFr
                         ? 'Réalisations en peinture commerciale'
@@ -436,54 +437,54 @@ export default function PeintureCommercialePage() {
                   <SimpleGrid
                     columns={{ base: 1, md: 2, lg: 3 }}
                     spacing={4}
-                    maxW='1200px'
+                    maxW="1200px"
                   >
                     {[
                       {
-                        src: img5969,
+                        src: imgCom1,
                         alt: isFr
-                          ? 'Peinture commerciale Montréal 1'
-                          : 'Commercial painting Montreal 1',
+                          ? 'Réalisation peinture commerciale 1'
+                          : 'Commercial painting project 1',
                       },
                       {
-                        src: img5970,
+                        src: imgCom2,
                         alt: isFr
-                          ? 'Peinture commerciale Montréal 2'
-                          : 'Commercial painting Montreal 2',
+                          ? 'Réalisation peinture commerciale 2'
+                          : 'Commercial painting project 2',
                       },
                       {
-                        src: img5971,
+                        src: imgCom3,
                         alt: isFr
-                          ? 'Peinture commerciale Montréal 3'
-                          : 'Commercial painting Montreal 3',
+                          ? 'Réalisation peinture commerciale 3'
+                          : 'Commercial painting project 3',
                       },
                       {
-                        src: img5972,
+                        src: imgCom4,
                         alt: isFr
-                          ? 'Peinture commerciale Montréal 4'
-                          : 'Commercial painting Montreal 4',
+                          ? 'Réalisation peinture commerciale 4'
+                          : 'Commercial painting project 4',
                       },
                       {
-                        src: img5973,
+                        src: imgCom5,
                         alt: isFr
-                          ? 'Peinture commerciale Montréal 5'
-                          : 'Commercial painting Montreal 5',
+                          ? 'Réalisation peinture commerciale 5'
+                          : 'Commercial painting project 5',
                       },
                       {
-                        src: img5974,
+                        src: imgCom6,
                         alt: isFr
-                          ? 'Peinture commerciale Montréal 6'
-                          : 'Commercial painting Montreal 6',
+                          ? 'Réalisation peinture commerciale 6'
+                          : 'Commercial painting project 6',
                       },
                     ].map((img, index) => (
                       <Image
                         key={index}
                         src={img.src}
                         alt={img.alt}
-                        borderRadius='lg'
-                        w='100%'
+                        borderRadius="lg"
+                        w="100%"
                         h={{ base: '200px', md: '250px' }}
-                        objectFit='cover'
+                        objectFit="cover"
                       />
                     ))}
                   </SimpleGrid>
@@ -491,8 +492,8 @@ export default function PeintureCommercialePage() {
                   <Stack spacing={2} mt={4}>
                     <Text
                       fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.700'
-                      fontWeight='medium'
+                      color="gray.700"
+                      fontWeight="medium"
                     >
                       {isFr
                         ? 'Exemples de projets réalisés :'
@@ -501,38 +502,38 @@ export default function PeintureCommercialePage() {
                     <Stack spacing={1} pl={4}>
                       {isFr ? (
                         <>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Rafraîchissement complet de bureaux
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Mise à jour de commerces de détail
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Peinture de restaurants et cafés
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Rénovation de corridors et espaces communs
                             d'immeubles
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Rafraîchissement d'entrées commerciales et façades
                           </Text>
                         </>
                       ) : (
                         <>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Complete office refresh
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Retail store update
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Restaurant and café painting
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Corridor and building common area renovation
                           </Text>
-                          <Text fontSize='md' color='gray.600'>
+                          <Text fontSize="md" color="gray.600">
                             • Commercial entrance and facade refresh
                           </Text>
                         </>
@@ -545,18 +546,18 @@ export default function PeintureCommercialePage() {
 
             {/* Section 5 — À propos de nos peintres professionnels */}
             <Box
-              py={{ base: 12, md: 16 }}
-              bg='gray.50'
-              borderRadius='xl'
+              py={{ base: 12, md: 16, lg: 20 }}
+              bg="gray.50"
+              borderRadius="xl"
               mb={{ base: 8, md: 12 }}
             >
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} textAlign='center' align='center'>
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+                <Stack spacing={6} textAlign="center" align="center">
                   <Heading
-                    as='h2'
+                    as="h2"
                     fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                    fontWeight='bold'
-                    color='gray.800'
+                    fontWeight="bold"
+                    color="gray.800"
                   >
                     {isFr
                       ? 'Des peintres commerciaux expérimentés'
@@ -564,8 +565,8 @@ export default function PeintureCommercialePage() {
                   </Heading>
                   <Text
                     fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    lineHeight='1.7'
+                    color="gray.600"
+                    lineHeight="1.7"
                   >
                     {isFr
                       ? "Nos peintres professionnels ont l'habitude de travailler dans des environnements commerciaux, avec des contraintes de temps, d'image de marque et d'achalandage."
@@ -573,25 +574,25 @@ export default function PeintureCommercialePage() {
                   </Text>
                   <Link
                     as={RouterLink}
-                    to='/peintre-professionnel'
+                    to="/peintre-professionnel"
                     _hover={{ textDecoration: 'none' }}
                     w={{ base: '100%', md: 'auto' }}
                   >
                     <Button
                       rightIcon={<ArrowForwardIcon />}
-                      variant='outline'
-                      borderColor='brand.500'
-                      color='brand.500'
-                      borderRadius='full'
+                      variant="outline"
+                      borderColor="brand.500"
+                      color="brand.500"
+                      borderRadius="full"
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
                       _hover={{ bg: 'brand.500', color: 'white' }}
-                      whiteSpace='normal'
-                      textAlign='center'
-                      lineHeight='1.4'
-                      h='auto'
-                      minH='48px'
+                      whiteSpace="normal"
+                      textAlign="center"
+                      lineHeight="1.4"
+                      h="auto"
+                      minH="48px"
                     >
                       {isFr
                         ? 'En savoir plus sur nos peintres professionnels'
@@ -606,19 +607,19 @@ export default function PeintureCommercialePage() {
 
         {/* Section 7 — CTA final */}
         <Box
-          w='100%'
-          py={{ base: 12, md: 16 }}
-          bg='brand.700'
+          w="100%"
+          py={{ base: 12, md: 16, lg: 20 }}
+          bg="brand.700"
           mt={{ base: 8, md: 12 }}
         >
-          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} textAlign='center'>
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={8} textAlign="center">
               <Stack spacing={3}>
                 <Heading
-                  as='h2'
+                  as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
-                  color='white'
+                  fontWeight="bold"
+                  color="white"
                 >
                   {isFr
                     ? 'Obtenez une soumission pour votre projet commercial'
@@ -626,9 +627,9 @@ export default function PeintureCommercialePage() {
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
-                  color='whiteAlpha.900'
-                  maxW='800px'
-                  mx='auto'
+                  color="whiteAlpha.900"
+                  maxW="800px"
+                  mx="auto"
                 >
                   {isFr
                     ? 'Que ce soit pour des bureaux, un commerce, un restaurant ou un immeuble, nous vous proposons une estimation claire et un plan de travail adapté.'
@@ -639,19 +640,19 @@ export default function PeintureCommercialePage() {
               <Box>
                 <Link
                   as={RouterLink}
-                  to='/contact'
+                  to="/contact"
                   _hover={{ textDecoration: 'none' }}
                 >
                   <Button
                     rightIcon={<ArrowForwardIcon />}
-                    bg='white'
-                    color='brand.700'
-                    borderRadius='full'
+                    bg="white"
+                    color="brand.700"
+                    borderRadius="full"
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}
                     py={{ base: 3, md: 4 }}
                     _hover={{ bg: 'gray.100' }}
-                    size='lg'
+                    size="lg"
                   >
                     {isFr ? 'Soumission gratuite' : 'Free quote'}
                   </Button>

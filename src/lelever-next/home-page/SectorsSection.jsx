@@ -65,7 +65,7 @@ export default function SectorsSection({
   const isFr = currentLang === 'fr';
 
   return (
-    <Box py={{ base: 12, md: 16 }} bg="gray.50" borderRadius="xl">
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50" borderRadius="xl">
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={8} align="center">
           <Stack spacing={{ base: 3, md: 4 }} textAlign="center">
@@ -142,14 +142,13 @@ export default function SectorsSection({
                       sector.name === 'Montréal' ? 'scale(1.25)' : 'none'
                     }
                   />
-                  {/* Color Overlay Filter */}
                   <Box
                     position="absolute"
                     top={0}
                     left={0}
                     right={0}
                     bottom={0}
-                    bgGradient="linear(to-b, rgba(1, 76, 196, 0.55), rgba(1, 76, 196, 0.15))"
+                    bgGradient="linear(to-b, rgba(2, 42, 104, 0.3), rgba(2, 42, 104, 0.85))"
                     zIndex={1}
                   />
 

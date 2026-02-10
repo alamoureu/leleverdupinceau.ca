@@ -17,7 +17,7 @@ import peintureProfessionnelleImg from '../images/1-page-principale/peintre pro/
 export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
   return (
-    <Box py={{ base: 12, md: 16 }} bg='white'>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <SimpleGrid
           columns={{ base: 1, md: 2 }}

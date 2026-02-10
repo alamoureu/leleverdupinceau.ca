@@ -26,12 +26,10 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import img5969 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
-import img5970 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
-import img5971 from '../images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG';
-import img5972 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
-import img5973 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
-import img5974 from '../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
+// Only from Page peinture industrielle folder
+import imgInd1 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
+import imgInd2 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
+import imgInd3 from '../images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG';
 
 export default function PeintureIndustriellePage() {
   const { currentLang } = useContext(appContext);
@@ -109,7 +107,7 @@ export default function PeintureIndustriellePage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumb */}
@@ -186,7 +184,7 @@ export default function PeintureIndustriellePage() {
 
             {/* Section 1 — Pourquoi choisir notre service industriel */}
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg='gray.50'
               borderRadius='xl'
               mb={{ base: 8, md: 12 }}
@@ -323,40 +321,16 @@ export default function PeintureIndustriellePage() {
                   >
                     {[
                       {
-                        src: img5969,
-                        alt: isFr
-                          ? 'Peinture industrielle Montréal 1'
-                          : 'Industrial painting Montreal 1',
+                        src: imgInd1,
+                        alt: isFr ? 'Projet peinture industrielle 1' : 'Industrial painting project 1',
                       },
                       {
-                        src: img5970,
-                        alt: isFr
-                          ? 'Peinture industrielle Montréal 2'
-                          : 'Industrial painting Montreal 2',
+                        src: imgInd2,
+                        alt: isFr ? 'Projet peinture industrielle 2' : 'Industrial painting project 2',
                       },
                       {
-                        src: img5971,
-                        alt: isFr
-                          ? 'Peinture industrielle Montréal 3'
-                          : 'Industrial painting Montreal 3',
-                      },
-                      {
-                        src: img5972,
-                        alt: isFr
-                          ? 'Peinture industrielle Montréal 4'
-                          : 'Industrial painting Montreal 4',
-                      },
-                      {
-                        src: img5973,
-                        alt: isFr
-                          ? 'Peinture industrielle Montréal 5'
-                          : 'Industrial painting Montreal 5',
-                      },
-                      {
-                        src: img5974,
-                        alt: isFr
-                          ? 'Peinture industrielle Montréal 6'
-                          : 'Industrial painting Montreal 6',
+                        src: imgInd3,
+                        alt: isFr ? 'Projet peinture industrielle 3' : 'Industrial painting project 3',
                       },
                     ].map((img, index) => (
                       <Image
@@ -434,7 +408,7 @@ export default function PeintureIndustriellePage() {
 
             {/* Section 6 — À propos de nos peintres professionnels */}
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg='gray.50'
               borderRadius='xl'
               mb={{ base: 8, md: 12 }}
@@ -496,7 +470,7 @@ export default function PeintureIndustriellePage() {
         {/* Section 7 — CTA final */}
         <Box
           w='100%'
-          py={{ base: 12, md: 16 }}
+          py={{ base: 12, md: 16, lg: 20 }}
           bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >

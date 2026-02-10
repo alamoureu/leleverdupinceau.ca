@@ -94,7 +94,7 @@ export default function BlogPostPage({ blogData }) {
         <Container
           maxW="1440px"
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             <Box mb={{ base: 4, md: 6 }}>
@@ -187,7 +187,7 @@ export default function BlogPostPage({ blogData }) {
 
         <Box
           w="100%"
-          py={{ base: 12, md: 16 }}
+          py={{ base: 12, md: 16, lg: 20 }}
           bg="brand.500"
           mt={{ base: 8, md: 10 }}
         >

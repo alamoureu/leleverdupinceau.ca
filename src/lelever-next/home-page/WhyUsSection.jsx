@@ -46,7 +46,7 @@ export default function WhyUsSection({ onSubmissionOpen }) {
     },
   ];
   return (
-    <Box py={{ base: 12, md: 16 }} bg='white'>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Heading
           as='h2'

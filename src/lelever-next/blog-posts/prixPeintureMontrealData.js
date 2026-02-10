@@ -21,7 +21,7 @@ export const prixPeintureMontrealData = {
     en: 'Painting prices Montreal 2025: How much does it really cost?',
   },
   introduction: {
-    fr: 'Les prix de peinture à Montréal varient énormément selon le type de projet, l\'état des murs, la hauteur des plafonds, la qualité de la finition et le niveau de préparation requis.\n\nCe guide vous donne les vrais prix du marché en 2025, basés sur des projets résidentiels et commerciaux réalisés partout dans le Grand Montréal.',
+    fr: "Les prix de peinture à Montréal varient énormément selon le type de projet, l'état des murs, la hauteur des plafonds, la qualité de la finition et le niveau de préparation requis.\n\nCe guide vous donne les vrais prix du marché en 2025, basés sur des projets résidentiels et commerciaux réalisés partout dans le Grand Montréal.",
     en: 'Painting prices in Montreal vary enormously depending on the type of project, condition of walls, ceiling height, quality of finish and level of preparation required.\n\nThis guide gives you the real market prices in 2025, based on residential and commercial projects completed throughout Greater Montreal.',
   },
   content: [
@@ -84,7 +84,7 @@ export const prixPeintureMontrealData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Combien coûte la peinture d\'une pièce ?',
+        fr: "Combien coûte la peinture d'une pièce ?",
         en: 'How much does it cost to paint a room?',
       },
     },
@@ -307,7 +307,7 @@ export const prixPeintureMontrealData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Les 5 façons d\'obtenir le meilleur prix',
+        fr: "Les 5 façons d'obtenir le meilleur prix",
         en: 'The 5 ways to get the best price',
       },
     },
@@ -315,9 +315,9 @@ export const prixPeintureMontrealData = {
       type: 'list',
       items: {
         fr: [
-          'Enlever les cadres et objets avant l\'arrivée des peintres',
+          "Enlever les cadres et objets avant l'arrivée des peintres",
           'Déplacer les meubles au centre de la pièce',
-          'Réserver d\'avance (au lieu d\'un projet urgent)',
+          "Réserver d'avance (au lieu d'un projet urgent)",
           'Choisir des couleurs proches de la couleur actuelle',
           'Faire plusieurs pièces en même temps (tarifs combinés)',
         ],
@@ -521,7 +521,7 @@ export const prixPeintureMontrealData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Mais une chose ne change jamais : le résultat dépend de l\'équipe que vous choisissez.',
+        fr: "Mais une chose ne change jamais : le résultat dépend de l'équipe que vous choisissez.",
         en: 'But one thing never changes: the result depends on the team you choose.',
       },
     },
@@ -551,7 +551,7 @@ export const prixPeintureMontrealData = {
     {
       type: 'link',
       text: {
-        fr: 'Lire l\'article',
+        fr: "Lire l'article",
         en: 'Read the article',
       },
       href: '/blog/comment-choisir-un-peintre-professionnel',
@@ -622,7 +622,8 @@ export const prixPeintureMontrealData = {
       },
       {
         '@type': 'BlogPosting',
-        '@id': 'https://leleverdupinceau.ca/blog/prix-peinture-montreal#blogposting',
+        '@id':
+          'https://leleverdupinceau.ca/blog/prix-peinture-montreal#blogposting',
         headline: {
           fr: 'Prix peinture Montréal 2025 : Combien ça coûte vraiment ?',
           en: 'Painting prices Montreal 2025: How much does it really cost?',
@@ -689,7 +690,7 @@ export const prixPeintureMontrealData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'La peinture commerciale à Montréal coûte généralement entre 2,50 $ et 6,00 $ le pied carré. Les prix varient selon la complexité, la hauteur des plafonds, l\'accès, le type de commerce et les travaux de nuit ou de fin de semaine.',
+                fr: "La peinture commerciale à Montréal coûte généralement entre 2,50 $ et 6,00 $ le pied carré. Les prix varient selon la complexité, la hauteur des plafonds, l'accès, le type de commerce et les travaux de nuit ou de fin de semaine.",
                 en: 'Commercial painting in Montreal generally costs between $2.50 and $6.00 per square foot. Prices vary according to complexity, ceiling height, access, type of business and night or weekend work.',
               },
             },
@@ -703,7 +704,7 @@ export const prixPeintureMontrealData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'Les principaux facteurs qui influencent le prix sont la préparation des murs, le nombre de couches, la qualité de la peinture, la hauteur des plafonds, l\'accès au chantier, la protection requise et la complexité du projet (escaliers, boiseries, niches).',
+                fr: "Les principaux facteurs qui influencent le prix sont la préparation des murs, le nombre de couches, la qualité de la peinture, la hauteur des plafonds, l'accès au chantier, la protection requise et la complexité du projet (escaliers, boiseries, niches).",
                 en: 'The main factors that influence the price are wall preparation, number of coats, paint quality, ceiling height, site access, protection required and project complexity (stairs, woodwork, niches).',
               },
             },
@@ -717,7 +718,7 @@ export const prixPeintureMontrealData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'Pour économiser, déplacez les meubles à l\'avance, enlevez les objets décoratifs, réservez à l\'avance, faites plusieurs pièces en même temps et choisissez des couleurs proches de la couleur actuelle pour réduire le nombre de couches.',
+                fr: "Pour économiser, déplacez les meubles à l'avance, enlevez les objets décoratifs, réservez à l'avance, faites plusieurs pièces en même temps et choisissez des couleurs proches de la couleur actuelle pour réduire le nombre de couches.",
                 en: 'To save, move furniture in advance, remove decorative objects, book in advance, do multiple rooms at the same time and choose colors close to the current color to reduce the number of coats.',
               },
             },
@@ -727,5 +728,3 @@ export const prixPeintureMontrealData = {
     ],
   },
 };
-
-

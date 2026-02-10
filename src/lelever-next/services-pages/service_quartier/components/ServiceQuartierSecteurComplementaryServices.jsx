@@ -24,7 +24,7 @@ export default function ServiceQuartierSecteurComplementaryServices({
     : 'Complementary services';
 
   return (
-    <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+    <Box py={{ base: 12, md: 16, lg: 20 }}>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={3} textAlign='left'>

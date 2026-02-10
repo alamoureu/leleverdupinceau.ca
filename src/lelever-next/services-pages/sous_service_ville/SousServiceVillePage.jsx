@@ -147,7 +147,7 @@ export default function SousServiceVillePage() {
         <Container
           maxW="1440px"
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumb */}
@@ -273,7 +273,7 @@ export default function SousServiceVillePage() {
             {/* Section 2 — Services complémentaires */}
             {city.complementaryServices &&
               city.complementaryServices.length > 0 && (
-                <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+                <Box py={{ base: 12, md: 16, lg: 20 }}>
                   <Container maxW="1440px" px={{ base: 4, md: 6 }}>
                     <Stack spacing={6}>
                       <Heading
@@ -305,7 +305,7 @@ export default function SousServiceVillePage() {
 
             {/* Section 4 — Processus */}
             {city.processSteps && city.processSteps[isFr ? 'fr' : 'en'] && (
-              <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+              <Box py={{ base: 12, md: 16, lg: 20 }}>
                 <Container maxW="1440px" px={{ base: 4, md: 6 }}>
                   <Stack spacing={6}>
                     <Heading

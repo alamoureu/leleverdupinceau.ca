@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Flex, Text, Image, Divider, Stack } from '@chakra-ui/react';
+import { Box, Flex, Text, Image, Divider } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import quebecLogo from '../images/rbqlogo.png';
 import trushieldLogo from '../images/trushieldlogo.png';
@@ -85,30 +85,23 @@ export default function TrustBanner() {
     >
       <Flex
         direction="row"
-        align="stretch"
+        align="flex-end"
         justify="space-between"
         gap={{ base: 3, sm: 4, md: 5, lg: 6, xl: 8, '2xl': 10 }}
         minW={0}
       >
         {TRUST_ITEMS.map((item, index) => (
           <React.Fragment key={index}>
-            <Stack
+            <Flex
               flex={1}
               minW={0}
-              w="100%"
-              spacing={{ base: 1, md: 2 }}
+              direction="column"
               align="center"
-              justify="flex-start"
+              justify="flex-end"
               textAlign="center"
+              h={{ base: '52px', sm: '56px', md: '60px', lg: '64px', xl: '68px', '2xl': '72px' }}
             >
-              {/* Fixed-height top row so bottom captions (licence, clients, assurance) align across columns */}
-              <Box
-                minH={{ base: '24px', sm: '26px', md: '28px', lg: '32px', xl: '36px', '2xl': '40px' }}
-                display="flex"
-                alignItems="center"
-                justifyContent="center"
-                w="100%"
-              >
+              <Box flex={1} display="flex" alignItems="center" justifyContent="center" w="100%">
                 {item.isMetric ? (
                   <Text
                     fontSize={{ base: 'md', md: 'lg' }}
@@ -137,10 +130,11 @@ export default function TrustBanner() {
                 lineHeight="1.2"
                 textAlign="center"
                 w="100%"
+                flexShrink={0}
               >
                 {item.isMetric ? item.label : item.text}
               </Text>
-            </Stack>
+            </Flex>
             {index < TRUST_ITEMS.length - 1 && (
               <Divider
                 orientation="vertical"

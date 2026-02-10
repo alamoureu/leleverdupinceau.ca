@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Heading, Text, Link, Stack, SimpleGrid } from '@chakra-ui/react';
+import BeforeAfter from '../../components/BeforeAfter';
 
 // Helper function to prevent orphaned punctuation
 function preventOrphanedPunctuation(text) {
@@ -1065,8 +1066,15 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
         }
 
       case 'beforeAfter':
-        // BeforeAfter component removed - skip rendering
-        return null;
+        return (
+          <Box key={index} mt={{ base: 8, md: 10 }} mb={{ base: 6, md: 8 }}>
+            <BeforeAfter
+              images={item.images || []}
+              title={item.title?.[isFr ? 'fr' : 'en']}
+              isFr={isFr}
+            />
+          </Box>
+        );
 
       default:
         return null;

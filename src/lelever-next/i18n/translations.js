@@ -9,10 +9,13 @@ export const translations = {
     servicesSubtitle: 'Les travaux que nous réalisons le plus souvent',
     serviceResidential: 'Résidentiel',
     serviceResidentialDesc: 'Maisons, condos, multi-étages',
+    serviceResidentialStrip: 'Peinture soignée pour votre maison ou votre copropriété.',
     serviceCommercial: 'Commercial',
     serviceCommercialDesc: 'Bureaux, commerces, restaurants',
+    serviceCommercialStrip: 'Des espaces professionnels impeccables, du petit commerce au grand projet.',
     serviceInterior: 'Intérieure',
     serviceInteriorDesc: 'Murs, plafonds, escaliers, boiseries',
+    serviceInteriorStrip: 'Tous vos espaces intérieurs, avec finitions soignées.',
     serviceExterior: 'Peinture extérieure',
     serviceExteriorDesc: 'Revêtements, brique, aluminium',
     serviceIndustrial: 'Peinture industrielle',
@@ -28,9 +31,9 @@ export const translations = {
     benefit2Desc:
       'On protège tout. Votre maison reste intacte du début à la fin',
     benefit3Title: 'Rapidité et ponctualité',
-    benefit3Desc: "On arrive à l'heure. On termine à l'heure. Pas d'excuses",
+    benefit3Desc: "On arrive à l'heure. On termine à l'heure. Pas d'excuses.",
     benefit4Title: 'Services 5 étoiles',
-    benefit4Desc: 'Communication claire, équipe respectueuse, zéro devinette',
+    benefit4Desc: 'Communication claire, équipe respectueuse, zéro devinette.',
     freeSubmission: 'Soumission gratuite',
     professionalPainterAlt: 'Peintre professionnel au travail',
 
@@ -92,15 +95,15 @@ export const translations = {
     controlSubtitle:
       "Voici ce qui permet à nos clients d'éviter les complications inutiles.",
     controlCard1Title: 'Prise en charge de A à Z',
-    controlCard1Subtitle: 'zéro gestion de votre part',
+    controlCard1Subtitle: 'De la préparation à la livraison',
     controlCard1Desc:
-      'Déléguez votre projet en sachant que tout sera fait correctement, sans supervision ni rappels.',
+      'Nous nous occupons de chaque étape : estimation, planification, exécution et nettoyage.',
     controlCard2Title: 'Échéancier clair',
     controlCard2Subtitle: "un projet qui ne s'éternise pas",
     controlCard2Desc:
       'Vous planifiez votre vie et votre déménagement sans stress ni incertitude.',
     controlCard3Title: 'Finitions nettes',
-    controlCard3Subtitle: 'aucuns défaut visibles',
+    controlCard3Subtitle: 'aucun défaut visible',
     controlCard3Desc:
       'Votre propriété paraît immédiatement plus propre, plus soignée et plus valorisée.',
 
@@ -114,18 +117,20 @@ export const translations = {
     projectInterior: 'Projet intérieur',
     projectExterior: 'Projet extérieur',
     projectResidentialDesc1:
-      "Rénovation complète d'une maison familiale avec peinture intérieure et extérieure. Travail soigné et attention aux détails",
+      "Rénovation complète d'une maison familiale avec peinture intérieure et extérieure. Travail soigné et attention aux détails.",
     projectCommercialDesc1:
-      "Peinture d'un espace commercial avec finition professionnelle. Respect des délais et qualité irréprochable",
+      "Peinture d'un espace commercial avec finition professionnelle. Respect des délais et qualité irréprochable.",
     projectInteriorDesc:
-      "Transformation d'un appartement avec peinture moderne et élégante. Choix de couleurs harmonieux et finition impeccable",
+      "Transformation d'un appartement avec peinture moderne et élégante. Choix de couleurs harmonieux et finition impeccable.",
     projectExteriorDesc:
-      "Rafraîchissement complet de la façade d'une résidence. Protection contre les intempéries et résultat durable",
+      "Rafraîchissement complet de la façade d'une résidence. Protection contre les intempéries et résultat durable.",
     projectResidentialDesc2:
-      "Peinture complète d'un condo avec préparation minutieuse des surfaces. Résultat professionnel et satisfaisant",
+      "Peinture complète d'un condo avec préparation minutieuse des surfaces. Résultat professionnel et satisfaisant.",
     projectCommercialDesc2:
-      "Peinture d'un plafond en steel deck complet. Ambiance professionnelle et accueillante créée",
+      "Peinture d'un plafond en steel deck complet. Ambiance professionnelle et accueillante créée.",
     projectIndustrial: 'Projet industriel',
+    projectIndustrialDesc:
+      "Peinture d'entrepôt et de locaux industriels. Plafonds, structures et murs à l'épreuve des environnements exigeants.",
     previousImage: 'Image précédente',
     nextImage: 'Image suivante',
 
@@ -151,10 +156,10 @@ export const translations = {
       'Nous faisons la protection des lieux, la réparation de plâtre et le calfeutrage',
     methodStep3Title: 'Application professionnelle',
     methodStep3Desc:
-      "Nos peintres ayant chacun plus de 10 ans d'expérience utilise des méthodes précises et des produits de qualités",
+      "Nos peintres ayant chacun plus de 10 ans d'expérience utilisent des méthodes précises et des produits de qualité",
     methodStep4Title: 'Inspection finale',
     methodStep4Desc:
-      'Avant de vous livrer le projet nous laissons les lieux propres et validons les travaux avec vous',
+      'Avant de vous livrer le projet, nous laissons les lieux propres et validons les travaux avec vous.',
     promiseText:
       "Notre promesse : Nous travaillons jusqu'à ce que vous soyez ravi des travaux effectués.",
     ctaSubtitle: 'en moins de 24h',
@@ -181,10 +186,13 @@ export const translations = {
     servicesSubtitle: 'The painting work we do most often',
     serviceResidential: 'Residential painting',
     serviceResidentialDesc: 'Houses, condos, multi-story',
+    serviceResidentialStrip: 'Quality painting for your home or condo.',
     serviceCommercial: 'Commercial painting',
     serviceCommercialDesc: 'Offices, stores, restaurants',
+    serviceCommercialStrip: 'Impeccable professional spaces, from small shops to large projects.',
     serviceInterior: 'Interior painting',
     serviceInteriorDesc: 'Walls, ceilings, stairs, woodwork',
+    serviceInteriorStrip: 'All your interior spaces, with careful finishes.',
     serviceExterior: 'Exterior painting',
     serviceExteriorDesc: 'Siding, brick, aluminum',
     serviceIndustrial: 'Industrial painting',
@@ -199,9 +207,9 @@ export const translations = {
     benefit2Desc:
       'We protect everything. Your home remains intact from start to finish',
     benefit3Title: 'Speed and punctuality',
-    benefit3Desc: 'We arrive on time. We finish on time. No excuses',
+    benefit3Desc: 'We arrive on time. We finish on time. No excuses.',
     benefit4Title: '5-star services',
-    benefit4Desc: 'Clear communication, respectful team, zero guesswork',
+    benefit4Desc: 'Clear communication, respectful team, zero guesswork.',
     freeSubmission: 'Free quote',
     professionalPainterAlt: 'Professional painter at work',
 
@@ -262,9 +270,9 @@ export const translations = {
     controlSubtitle:
       'Here’s what allows our clients to avoid unnecessary complications.',
     controlCard1Title: 'A-to-Z management',
-    controlCard1Subtitle: 'zero management on your part',
+    controlCard1Subtitle: 'From prep to delivery',
     controlCard1Desc:
-      'Delegate your project knowing that everything will be done correctly, without supervision or reminders.',
+      'We take care of every step: estimate, planning, execution and cleanup.',
     controlCard2Title: 'Clear schedule',
     controlCard2Subtitle: "a project that doesn't drag on",
     controlCard2Desc:
@@ -284,18 +292,20 @@ export const translations = {
     projectInterior: 'Interior project',
     projectExterior: 'Exterior project',
     projectResidentialDesc1:
-      'Complete renovation of a family home with interior and exterior painting. Careful work and attention to detail',
+      'Complete renovation of a family home with interior and exterior painting. Careful work and attention to detail.',
     projectCommercialDesc1:
-      'Commercial space painting with professional finish. On-time delivery and impeccable quality',
+      'Commercial space painting with professional finish. On-time delivery and impeccable quality.',
     projectInteriorDesc:
-      'Apartment transformation with modern and elegant painting. Harmonious color choices and impeccable finish',
+      'Apartment transformation with modern and elegant painting. Harmonious color choices and impeccable finish.',
     projectExteriorDesc:
-      'Complete refresh of a residence facade. Weather protection and durable result',
+      'Complete refresh of a residence facade. Weather protection and durable result.',
     projectResidentialDesc2:
-      'Complete condo painting with meticulous surface preparation. Professional and satisfying result',
+      'Complete condo painting with meticulous surface preparation. Professional and satisfying result.',
     projectCommercialDesc2:
-      'Complete steel deck ceiling painting. Professional and welcoming atmosphere created',
+      'Complete steel deck ceiling painting. Professional and welcoming atmosphere created.',
     projectIndustrial: 'Industrial project',
+    projectIndustrialDesc:
+      'Warehouse and industrial premises painting. Ceilings, structures and walls for demanding environments.',
     previousImage: 'Previous image',
     nextImage: 'Next image',
 
@@ -323,7 +333,7 @@ export const translations = {
       'Our painters, each with over 10 years of experience, use precise methods and quality products.',
     methodStep4Title: 'Final inspection',
     methodStep4Desc:
-      'Before delivering the project we leave the premises clean and validate the work with you.',
+      'Before delivering the project, we leave the premises clean and validate the work with you.',
     promiseText:
       'Our promise: We work until you are delighted with the work done.',
     ctaSubtitle: 'in less than 24h',

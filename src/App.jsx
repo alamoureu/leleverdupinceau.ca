@@ -31,9 +31,9 @@ import CommentChoisirPeintreProfessionnelPage from './lelever-next/pages/Comment
 import PrixPeintureMontrealPage from './lelever-next/pages/PrixPeintureMontrealPage';
 import ErreursAEviterPeintureInterieurePage from './lelever-next/pages/ErreursAEviterPeintureInterieurePage';
 import NotFoundPage from './lelever-next/pages/NotFoundPage';
+import AuditImagesPage from './lelever-next/pages/AuditImagesPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import ScrollToTop from './lelever-next/components/ScrollToTop';
-import FreeQuotationPage from './pages/SoumissionPage';
 import SoumissionDashboard from './pages/SoumissionDashboard';
 import AdminDashboard from './pages/AdminDashboard';
 import EmploiesDashboard from './pages/EmploiesDashboard';
@@ -69,7 +69,6 @@ export default function App() {
             <Route index element={<NewHomePage />} />
             <Route path="contact" element={<ContactPage />} />
             <Route path="a-propos" element={<AboutPage />} />
-            <Route path="soumission" element={<FreeQuotationPage />} />
             <Route
               path="politiques/confidentialite"
               element={<PrivacyPolicyPage />}
@@ -78,6 +77,7 @@ export default function App() {
               path="politiques/termes-conditions"
               element={<ThermOfUsePage />}
             />
+            <Route path="audit-images" element={<AuditImagesPage />} />
           </Route>
           <Route path="/peintre-professionnel" element={<NewWebsiteLayout />}>
             <Route index element={<PeintreProfessionnelPage />} />
@@ -174,6 +174,7 @@ export default function App() {
             />
           </Route>
 
+          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="/admin">
             <Route path="dashboard" element={<AdminDashboard />} />
             <Route path="soumissions" element={<SoumissionDashboard />} />

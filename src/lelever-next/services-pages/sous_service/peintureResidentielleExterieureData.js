@@ -1,9 +1,8 @@
 import img5969 from '../../images/4-sous-services/résidentielle x éxtérieure/1. réalisations/IMG_6778.PNG';
 import img5970 from '../../images/4-sous-services/résidentielle x éxtérieure/2. réalisations/IMG_6755.PNG';
 import img5971 from '../../images/4-sous-services/résidentielle x éxtérieure/3. réalisations/IMG_6761.PNG';
-import img5972 from '../../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import img5972 from '../../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
 import img5973 from '../../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
-import img5974 from '../../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 
 export const peintureResidentielleExterieureData = {
   serviceSlug: 'peinture-residentielle',
@@ -250,13 +249,6 @@ export const peintureResidentielleExterieureData = {
     },
     {
       src: img5973,
-      alt: {
-        fr: 'Peinture résidentielle extérieure Montréal',
-        en: 'Residential exterior painting Montreal',
-      },
-    },
-    {
-      src: img5974,
       alt: {
         fr: 'Peinture résidentielle extérieure Montréal',
         en: 'Residential exterior painting Montreal',

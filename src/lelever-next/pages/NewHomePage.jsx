@@ -2,8 +2,8 @@ import React, { Fragment, useContext } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import HeroSection from '../home-page/HeroSection';
+import ControlSection from '../home-page/ControlSection';
 import ServicesSection from '../home-page/ServicesSection';
-import WhyUsSection from '../home-page/WhyUsSection';
 import TeamSection from '../home-page/TeamSection';
 import ReviewsSection from '../home-page/ReviewsSection';
 import RecentProjectsSection from '../home-page/RecentProjectsSection';
@@ -41,11 +41,11 @@ export default function NewHomePage() {
       <Box w='100%' bg='white' overflowX='hidden'>
         <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
 
+        <ControlSection onSubmissionOpen={onOpen} />
+
         <ServicesSection />
 
         <RecentProjectsSection pageContext={pageContext} />
-
-        <WhyUsSection onSubmissionOpen={onOpen} />
 
         <TeamSection pageContext={pageContext} />
 

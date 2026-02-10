@@ -17,9 +17,9 @@ import { useTranslation } from '../i18n';
 import { motion, AnimatePresence } from 'framer-motion';
 import peintureResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
 import projetResidentielle from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
-import projetResidentielle2 from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import projetResidentielle2 from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 import projetCommercial from '../images/1-page-principale/service hub/Peinture commerciale/IMG_6766.PNG';
-import projetCommercial2 from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
+import projetIndustriel from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
 import projetExterieur from '../images/1-page-principale/Home/Projet extérieur/IMG_6755.PNG';
 
 export default function RecentProjectsSection({ pageContext = '' }) {
@@ -66,9 +66,9 @@ export default function RecentProjectsSection({ pageContext = '' }) {
     },
     {
       id: 6,
-      images: [projetCommercial2],
+      images: [projetIndustriel],
       title: t.projectIndustrial,
-      description: t.projectCommercialDesc2,
+      description: t.projectIndustrialDesc,
     },
   ];
 
@@ -118,7 +118,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
   };
 
   return (
-    <Box py={{ base: 12, md: 16 }} bg='white'>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={6}>
           <Stack spacing={2} textAlign='center'>

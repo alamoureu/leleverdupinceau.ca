@@ -108,12 +108,14 @@ export const peintureCommercialeData = {
                 "Peinture intérieure d'un local commercial au Quartier DIX30",
               description:
                 "Transformation complète d'un espace commercial moderne avec finition impeccable et respect des délais.",
+              image: img5969,
             },
             {
               id: 'brossard-2',
               title: 'Rafraîchissement de bureaux dans le secteur C',
               description:
                 'Mise à jour professionnelle des espaces de travail avec produits à faible odeur pour minimiser les interruptions.',
+              image: img5970,
             },
             {
               id: 'brossard-3',
@@ -121,12 +123,14 @@ export const peintureCommercialeData = {
                 "Modernisation d'une clinique ou d'un cabinet professionnel",
               description:
                 "Rénovation complète des espaces de soins avec attention particulière à la propreté et à l'hygiène.",
+              image: img5971,
             },
             {
               id: 'brossard-4',
               title: 'Travaux dans un restaurant ou café près du DIX30',
               description:
                 'Peinture adaptée aux environnements alimentaires avec produits résistants et faciles à nettoyer.',
+              image: img5972,
             },
             {
               id: 'brossard-5',
@@ -134,6 +138,7 @@ export const peintureCommercialeData = {
                 "Mise à jour de l'intérieur d'un commerce de détail dans un centre commercial",
               description:
                 "Rafraîchissement rapide et efficace pour améliorer l'expérience client sans perturber les ventes.",
+              image: img5973,
             },
           ],
           en: [
@@ -142,24 +147,28 @@ export const peintureCommercialeData = {
               title: 'Interior painting of a commercial space in DIX30 Quarter',
               description:
                 'Complete transformation of a modern commercial space with impeccable finish and respect for deadlines.',
+              image: img5969,
             },
             {
               id: 'brossard-2',
               title: 'Office refresh in sector C',
               description:
                 'Professional update of work spaces with low-odor products to minimize interruptions.',
+              image: img5970,
             },
             {
               id: 'brossard-3',
               title: 'Modernization of a clinic or professional office',
               description:
                 'Complete renovation of care spaces with particular attention to cleanliness and hygiene.',
+              image: img5971,
             },
             {
               id: 'brossard-4',
               title: 'Work in a restaurant or cafe near DIX30',
               description:
                 'Painting adapted to food environments with resistant and easy-to-clean products.',
+              image: img5972,
             },
             {
               id: 'brossard-5',
@@ -167,6 +176,7 @@ export const peintureCommercialeData = {
                 'Update of the interior of a retail store in a shopping center',
               description:
                 'Quick and efficient refresh to improve customer experience without disrupting sales.',
+              image: img5973,
             },
           ],
         },
@@ -313,30 +323,35 @@ export const peintureCommercialeData = {
               title: "Peinture d'un commerce dans le Centre Laval",
               description:
                 "Rénovation complète d'un espace commercial avec finition professionnelle et respect des normes commerciales.",
+              image: img5969,
             },
             {
               id: 'laval-2',
               title: 'Rafraîchissement de bureaux à Chomedey',
               description:
                 'Mise à jour moderne des espaces de travail avec produits adaptés aux environnements professionnels.',
+              image: img5970,
             },
             {
               id: 'laval-3',
               title: 'Travaux dans une clinique médicale à Sainte-Rose',
               description:
                 "Peinture spécialisée pour établissements de santé avec attention particulière à l'hygiène et à la propreté.",
+              image: img5971,
             },
             {
               id: 'laval-4',
               title: "Mise à jour d'un restaurant à Fabreville",
               description:
                 "Transformation d'un espace de restauration avec produits résistants et faciles à entretenir.",
+              image: img5972,
             },
             {
               id: 'laval-5',
               title: 'Projet commercial multi-étages à Laval-des-Rapides',
               description:
                 "Gestion complète d'un projet de grande envergure avec coordination efficace et respect des délais.",
+              image: img5973,
             },
           ],
           en: [
@@ -345,30 +360,35 @@ export const peintureCommercialeData = {
               title: 'Store painting in Centre Laval',
               description:
                 'Complete renovation of a commercial space with professional finish and respect for commercial standards.',
+              image: img5969,
             },
             {
               id: 'laval-2',
               title: 'Office refresh in Chomedey',
               description:
                 'Modern update of work spaces with products adapted to professional environments.',
+              image: img5970,
             },
             {
               id: 'laval-3',
               title: 'Work in a medical clinic in Sainte-Rose',
               description:
                 'Specialized painting for health facilities with particular attention to hygiene and cleanliness.',
+              image: img5971,
             },
             {
               id: 'laval-4',
               title: 'Restaurant update in Fabreville',
               description:
                 'Transformation of a dining space with resistant and easy-to-maintain products.',
+              image: img5972,
             },
             {
               id: 'laval-5',
               title: 'Multi-story commercial project in Laval-des-Rapides',
               description:
                 'Complete management of a large-scale project with efficient coordination and respect for deadlines.',
+              image: img5973,
             },
           ],
         },
@@ -521,18 +541,21 @@ export const peintureCommercialeData = {
               title: "Peinture d'un restaurant à Saint-Hubert",
               description:
                 "Rénovation complète d'un espace de restauration avec produits adaptés aux environnements alimentaires.",
+              image: img5969,
             },
             {
               id: 'longueuil-2',
               title: "Rafraîchissement d'un bureau dans le Vieux-Longueuil",
               description:
                 'Mise à jour professionnelle des espaces de travail avec finition impeccable et respect des délais.',
+              image: img5970,
             },
             {
               id: 'longueuil-3',
               title: "Modernisation de salles d'attente et corridors",
               description:
                 "Transformation des espaces communs avec attention particulière à la durabilité et à l'entretien.",
+              image: img5971,
             },
             {
               id: 'longueuil-4',
@@ -540,12 +563,14 @@ export const peintureCommercialeData = {
                 'Projet commercial dans un bâtiment professionnel à Greenfield Park',
               description:
                 "Gestion complète d'un projet commercial avec coordination efficace et résultats professionnels.",
+              image: img5972,
             },
             {
               id: 'longueuil-5',
               title: "Peinture extérieure d'un commerce local",
               description:
                 'Protection et amélioration de la façade commerciale avec produits résistants aux intempéries.',
+              image: img5973,
             },
           ],
           en: [
@@ -554,18 +579,21 @@ export const peintureCommercialeData = {
               title: 'Restaurant painting in Saint-Hubert',
               description:
                 'Complete renovation of a dining space with products adapted to food environments.',
+              image: img5969,
             },
             {
               id: 'longueuil-2',
               title: 'Office refresh in Vieux-Longueuil',
               description:
                 'Professional update of work spaces with impeccable finish and respect for deadlines.',
+              image: img5970,
             },
             {
               id: 'longueuil-3',
               title: 'Modernization of waiting rooms and corridors',
               description:
                 'Transformation of common spaces with particular attention to durability and maintenance.',
+              image: img5971,
             },
             {
               id: 'longueuil-4',
@@ -573,12 +601,14 @@ export const peintureCommercialeData = {
                 'Commercial project in a professional building in Greenfield Park',
               description:
                 'Complete management of a commercial project with efficient coordination and professional results.',
+              image: img5972,
             },
             {
               id: 'longueuil-5',
               title: 'Exterior painting of a local business',
               description:
                 'Protection and improvement of commercial facade with weather-resistant products.',
+              image: img5973,
             },
           ],
         },
@@ -731,30 +761,35 @@ export const peintureCommercialeData = {
               title: "Peinture d'un restaurant au Plateau",
               description:
                 "Transformation complète d'un espace de restauration avec produits adaptés aux environnements alimentaires et finition professionnelle.",
+              image: img5969,
             },
             {
               id: 'montreal-2',
               title: 'Rafraîchissement de bureaux au centre-ville',
               description:
                 'Mise à jour moderne des espaces de travail corporatifs avec produits à faible odeur pour minimiser les interruptions.',
+              image: img5970,
             },
             {
               id: 'montreal-3',
               title: "Mise à jour d'une clinique à Outremont",
               description:
                 "Rénovation complète des espaces de soins avec attention particulière à l'hygiène et à la propreté des environnements médicaux.",
+              image: img5971,
             },
             {
               id: 'montreal-4',
               title: "Peinture d'un commerce sur Saint-Laurent",
               description:
                 "Rafraîchissement professionnel d'un espace commercial avec finition durable et respect de l'image de marque.",
+              image: img5972,
             },
             {
               id: 'montreal-5',
               title: 'Travaux dans une agence au Vieux-Montréal',
               description:
                 "Gestion complète d'un projet commercial dans un bâtiment historique avec préservation du caractère architectural.",
+              image: img5973,
             },
           ],
           en: [
@@ -763,30 +798,35 @@ export const peintureCommercialeData = {
               title: 'Restaurant painting in Plateau',
               description:
                 'Complete transformation of a dining space with products adapted to food environments and professional finish.',
+              image: img5969,
             },
             {
               id: 'montreal-2',
               title: 'Office refresh in downtown',
               description:
                 'Modern update of corporate work spaces with low-odor products to minimize interruptions.',
+              image: img5970,
             },
             {
               id: 'montreal-3',
               title: 'Clinic update in Outremont',
               description:
                 'Complete renovation of care spaces with particular attention to hygiene and cleanliness of medical environments.',
+              image: img5971,
             },
             {
               id: 'montreal-4',
               title: 'Store painting on Saint-Laurent',
               description:
                 'Professional refresh of a commercial space with durable finish and respect for brand image.',
+              image: img5972,
             },
             {
               id: 'montreal-5',
               title: 'Work in an agency in Old Montreal',
               description:
                 'Complete management of a commercial project in a historic building with preservation of architectural character.',
+              image: img5973,
             },
           ],
         },

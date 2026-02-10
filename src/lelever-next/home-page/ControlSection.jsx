@@ -42,15 +42,8 @@ export default function ControlSection({ onSubmissionOpen }) {
 
   return (
     <Box
-      pt={{
-        base: '75px',
-        sm: '50px',
-        md: '50px',
-        lg: '50px',
-        xl: 47,
-        '2xl': 50,
-      }}
-      pb={{ base: 4, sm: 5, md: 10, lg: 14, xl: 22, '2xl': 26 }}
+      pt={{ base: 20, sm: 20, md: 24, lg: 24, xl: 28, '2xl': 28 }}
+      pb={{ base: 12, md: 16, lg: 20 }}
       bg="white"
     >
       <Container
@@ -98,12 +91,6 @@ export default function ControlSection({ onSubmissionOpen }) {
             >
               {t.controlTitle}
             </Heading>
-            <Text
-              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-              color="gray.600"
-            >
-              {t.controlSubtitle}
-            </Text>
           </Stack>
 
           <SimpleGrid
@@ -125,7 +112,7 @@ export default function ControlSection({ onSubmissionOpen }) {
                 image={card.image}
                 title={card.title}
                 subtitle={card.subtitle}
-                description={card.description}
+                stripText={card.description}
                 noHoverBorder
               />
             ))}

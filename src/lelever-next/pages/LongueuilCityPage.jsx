@@ -123,7 +123,7 @@ export default function LongueuilCityPage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             <HStack

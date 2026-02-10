@@ -26,7 +26,7 @@ export default function ProcessStepsSection({
 }) {
   return (
     <Box
-      py={{ base: 12, md: 16 }}
+      py={{ base: 12, md: 16, lg: 20 }}
       bg="white"
     >
       <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>

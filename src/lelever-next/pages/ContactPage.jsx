@@ -156,8 +156,8 @@ export default function ContactPage() {
           name='description'
           content={
             isFr
-              ? 'Contactez notre équipe de peintres professionnels à Montréal Obtenez une soumission gratuite pour votre projet de peinture résidentielle ou commerciale Réponse rapide garantie'
-              : 'Contact our team of professional painters in Montreal Get a free quote for your residential or commercial painting project Fast response guaranteed'
+              ? 'Contactez notre équipe de peintres professionnels à Montréal. Obtenez une soumission gratuite pour votre projet de peinture résidentielle ou commerciale. Réponse rapide garantie.'
+              : 'Contact our team of professional painters in Montreal. Get a free quote for your residential or commercial painting project. Fast response guaranteed.'
           }
         />
         <link rel='canonical' href='https://www.leleverdupinceau.ca/contact' />
@@ -173,7 +173,7 @@ export default function ContactPage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             <HStack
@@ -253,7 +253,7 @@ export default function ContactPage() {
               </Box>
             </Stack>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -279,7 +279,7 @@ export default function ContactPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -387,7 +387,7 @@ export default function ContactPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -450,7 +450,7 @@ export default function ContactPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -534,7 +534,7 @@ export default function ContactPage() {
         {/* Section 6 — CTA Final */}
         <Box
           w='100%'
-          py={{ base: 12, md: 16 }}
+          py={{ base: 12, md: 16, lg: 20 }}
           bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >

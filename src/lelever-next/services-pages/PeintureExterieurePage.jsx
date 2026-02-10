@@ -105,7 +105,7 @@ export default function PeintureExterieurePage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             <HStack
@@ -179,7 +179,7 @@ export default function PeintureExterieurePage() {
             </Stack>
 
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg='gray.50'
               borderRadius='xl'
               mb={{ base: 8, md: 12 }}
@@ -261,7 +261,7 @@ export default function PeintureExterieurePage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={3} textAlign='left'>
@@ -534,7 +534,7 @@ export default function PeintureExterieurePage() {
             </Box>
 
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg='gray.50'
               borderRadius='xl'
               mb={{ base: 8, md: 12 }}
@@ -597,7 +597,7 @@ export default function PeintureExterieurePage() {
 
         <Box
           w='100%'
-          py={{ base: 12, md: 16 }}
+          py={{ base: 12, md: 16, lg: 20 }}
           bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >

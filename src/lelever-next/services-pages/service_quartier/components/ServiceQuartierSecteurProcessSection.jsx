@@ -14,10 +14,9 @@ export default function ServiceQuartierSecteurProcessSection({
 }) {
   return (
     <Box
-      py={{ base: 12, md: 16 }}
+      py={{ base: 12, md: 16, lg: 20 }}
       bg='gray.50'
       borderRadius='xl'
-      mb={{ base: 8, md: 12 }}
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>

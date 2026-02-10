@@ -1,9 +1,8 @@
 import img5969 from '../../images/4-sous-services/commercial x intérieure/1. réalisations/IMG_6759.PNG';
 import img5970 from '../../images/4-sous-services/commercial x intérieure/2. réalisations/IMG_6760.PNG';
 import img5971 from '../../images/4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.PNG';
-import img5972 from '../../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
-import img5973 from '../../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
-import img5974 from '../../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import img5972 from '../../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
+import img5973 from '../../images/4-sous-services/commercial x intérieure/+header/IMG_6821.PNG';
 
 export const peintureCommercialeInterieureData = {
   serviceSlug: 'peinture-commerciale',
@@ -293,13 +292,6 @@ export const peintureCommercialeInterieureData = {
     },
     {
       src: img5973,
-      alt: {
-        fr: 'Peinture commerciale intérieure Montréal',
-        en: 'Commercial interior painting Montreal',
-      },
-    },
-    {
-      src: img5974,
       alt: {
         fr: 'Peinture commerciale intérieure Montréal',
         en: 'Commercial interior painting Montreal',

@@ -1,3 +1,4 @@
+// Folder name "résdientielle" is intentional (matches filesystem); do not "fix" to résidentielle.
 import img5969 from '../../images/4-sous-services/résdientielle x intérieure/1. réalisations/IMG_6764.PNG';
 import img5970 from '../../images/4-sous-services/résdientielle x intérieure/2. réalisations/IMG_5976.PNG';
 import img5971 from '../../images/4-sous-services/résdientielle x intérieure/3. réalisations/IMG_6024.PNG';

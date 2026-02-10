@@ -7,7 +7,7 @@ export default function ContactFormSection() {
   const { t } = useTranslation();
 
   return (
-    <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>

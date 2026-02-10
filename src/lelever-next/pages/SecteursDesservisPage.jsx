@@ -28,7 +28,7 @@ import {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import peintureProImg from '../images/1-page-principale/sector hub/Peinture intérieure/IMG_6759.PNG';
+import secteursHeroImage from '../images/secteurs_desservis.jpg';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -141,7 +141,7 @@ export default function SecteursDesservisPage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             <HStack
@@ -177,7 +177,7 @@ export default function SecteursDesservisPage() {
               </Text>
             </Stack>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -277,7 +277,7 @@ export default function SecteursDesservisPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <SimpleGrid
                   columns={{ base: 1, md: 2 }}
@@ -292,7 +292,7 @@ export default function SecteursDesservisPage() {
                     boxShadow='lg'
                   >
                     <Image
-                      src={peintureProImg}
+                      src={secteursHeroImage}
                       alt={
                         isFr
                           ? 'Secteurs desservis Le Lever du Pinceau - Peintres Montréal'
@@ -355,7 +355,7 @@ export default function SecteursDesservisPage() {
               </Container>
             </Box>
 
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>

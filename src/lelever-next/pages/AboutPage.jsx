@@ -196,7 +196,7 @@ export default function AboutPage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumbs */}
@@ -253,7 +253,7 @@ export default function AboutPage() {
             </Stack>
 
             {/* Values Section (Moved Up) */}
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 0 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -305,7 +305,7 @@ export default function AboutPage() {
 
 
             {/* Mission Section (Background Gray) */}
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -322,57 +322,28 @@ export default function AboutPage() {
                       : 'Our mission is simple'}
                   </Text>
 
-                  <Box maxW='1000px' mx='auto'>
-                    <SimpleGrid
-                      columns={{ base: 1, md: 2, lg: 3 }}
-                      spacing={{ base: 6, md: 8 }}
-                    >
-                      {missionPoints.slice(0, 3).map((point, index) => (
-                        <Flex key={index} align='start' gap={3}>
-                          <Icon
-                            as={FontAwesomeIcon}
-                            icon={faCheckCircle}
-                            color='brand.500'
-                            boxSize={5}
-                            mt={1}
-                            flexShrink={0}
-                          />
-                          <Text color='gray.700' textStyle='body' lineHeight='1.6'>
-                            {point}
-                          </Text>
-                        </Flex>
-                      ))}
-                    </SimpleGrid>
-                    {/* Last row - centered on desktop */}
-                    <Flex
-                      direction={{ base: 'column', lg: 'row' }}
-                      justify='center'
-                      gap={{ base: 4, lg: 6 }}
-                      mt={{ base: 4, lg: 6 }}
-                    >
-                      {missionPoints.slice(3).map((point, index) => (
-                        <Flex
-                          key={index + 3}
-                          align='start'
-                          gap={3}
-                          w={{ base: '100%', lg: 'auto' }}
-                          maxW={{ base: '100%', lg: 'calc(33.333% - 12px)' }}
-                        >
-                          <Icon
-                            as={FontAwesomeIcon}
-                            icon={faCheckCircle}
-                            color='brand.500'
-                            boxSize={5}
-                            mt={1}
-                            flexShrink={0}
-                          />
-                          <Text color='gray.700' textStyle='body' lineHeight='1.6'>
-                            {point}
-                          </Text>
-                        </Flex>
-                      ))}
-                    </Flex>
-                  </Box>
+                  <SimpleGrid
+                    columns={{ base: 1, md: 2 }}
+                    spacing={{ base: 4, md: 5 }}
+                    maxW='900px'
+                    mx='auto'
+                  >
+                    {missionPoints.map((point, index) => (
+                      <Flex key={index} align='flex-start' gap={3}>
+                        <Icon
+                          as={FontAwesomeIcon}
+                          icon={faCheckCircle}
+                          color='brand.500'
+                          boxSize={5}
+                          mt={0.5}
+                          flexShrink={0}
+                        />
+                        <Text color='gray.700' textStyle='body' lineHeight='1.6'>
+                          {point}
+                        </Text>
+                      </Flex>
+                    ))}
+                  </SimpleGrid>
                 </Stack>
               </Container>
             </Box>
@@ -380,7 +351,7 @@ export default function AboutPage() {
 
 
             {/* Project Types (De la petite retouche...) */}
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -446,7 +417,7 @@ export default function AboutPage() {
             </Box>
 
             {/* Team Points (Des peintres professionnels...) */}
-            <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6} maxW='800px' mx='auto'>
                   <Stack spacing={{ base: 2, md: 3 }}>
@@ -508,7 +479,7 @@ export default function AboutPage() {
             </Box>
 
             {/* Guarantees */}
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
@@ -563,7 +534,7 @@ export default function AboutPage() {
               pageContext={isFr ? 'Page À propos' : 'About Page'}
             />
 
-            <Box py={{ base: 12, md: 16 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={6} mb={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>

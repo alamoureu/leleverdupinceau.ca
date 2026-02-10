@@ -128,6 +128,7 @@ export const peintureResidentielleData = {
                 'Peinture de salon + cuisine dans un bungalow du secteur C',
               description:
                 'Rafraîchissement des espaces de vie avec application uniforme et protection totale des surfaces.',
+              image: img5972,
             },
           ],
           en: [
@@ -136,18 +137,21 @@ export const peintureResidentielleData = {
               title: 'Complete interior painting of a house in sector R',
               description:
                 'Complete interior renovation of a house with careful preparation and impeccable finish.',
+              image: img5969,
             },
             {
               id: 'brossard-res-2',
               title: 'Modernization of a condo near DIX30',
               description:
                 'Complete interior transformation of a modern condo with high-end finish.',
+              image: img5970,
             },
             {
               id: 'brossard-res-3',
               title: 'Exterior refresh of a house in sector S',
               description:
                 'Complete facade update with weather-resistant products and professional finish.',
+              image: img5971,
             },
             {
               id: 'brossard-res-4',
@@ -155,6 +159,7 @@ export const peintureResidentielleData = {
                 'Painting of living room + kitchen in a bungalow in sector C',
               description:
                 'Refresh of living spaces with uniform application and total surface protection.',
+              image: img5972,
             },
           ],
         },

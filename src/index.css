@@ -13,6 +13,37 @@ body {
   margin: 0;
 }
 
+/* Custom scrollbar - applies to main scroll container (#main) and fallback for html */
+html,
+#main {
+  scrollbar-width: thin;
+  scrollbar-color: #014CC4 rgba(0, 0, 0, 0.08);
+}
+
+#main::-webkit-scrollbar,
+html::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+#main::-webkit-scrollbar-track,
+html::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.06);
+  border-radius: 10px;
+}
+
+#main::-webkit-scrollbar-thumb,
+html::-webkit-scrollbar-thumb {
+  background: #014CC4;
+  border-radius: 10px;
+  border: 2px solid rgba(0, 0, 0, 0.06);
+}
+
+#main::-webkit-scrollbar-thumb:hover,
+html::-webkit-scrollbar-thumb:hover {
+  background: #0139A0;
+}
+
 .skip-link {
   position: absolute;
   top: -100px;

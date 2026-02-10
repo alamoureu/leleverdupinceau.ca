@@ -1,9 +1,5 @@
 import img5969 from '../../images/4-sous-services/commercial x éxtérieure/1. réalisations/IMG_6777.PNG';
 import img5970 from '../../images/4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.PNG';
-import img5971 from '../../images/4-sous-services/commercial x éxtérieure/3. réalisations/IMG_6767.PNG';
-import img5972 from '../../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import img5973 from '../../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
-import img5974 from '../../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 
 export const peintureCommercialeExterieureData = {
   serviceSlug: 'peinture-commerciale',
@@ -219,43 +215,15 @@ export const peintureCommercialeExterieureData = {
     {
       src: img5969,
       alt: {
-        fr: 'Peinture commerciale extérieure Montréal',
-        en: 'Commercial exterior painting Montreal',
+        fr: 'Réalisation peinture commerciale extérieure 1',
+        en: 'Commercial exterior painting project 1',
       },
     },
     {
       src: img5970,
       alt: {
-        fr: 'Peinture commerciale extérieure Montréal',
-        en: 'Commercial exterior painting Montreal',
-      },
-    },
-    {
-      src: img5971,
-      alt: {
-        fr: 'Peinture commerciale extérieure Montréal',
-        en: 'Commercial exterior painting Montreal',
-      },
-    },
-    {
-      src: img5972,
-      alt: {
-        fr: 'Peinture commerciale extérieure Montréal',
-        en: 'Commercial exterior painting Montreal',
-      },
-    },
-    {
-      src: img5973,
-      alt: {
-        fr: 'Peinture commerciale extérieure Montréal',
-        en: 'Commercial exterior painting Montreal',
-      },
-    },
-    {
-      src: img5974,
-      alt: {
-        fr: 'Peinture commerciale extérieure Montréal',
-        en: 'Commercial exterior painting Montreal',
+        fr: 'Réalisation peinture commerciale extérieure 2',
+        en: 'Commercial exterior painting project 2',
       },
     },
   ],

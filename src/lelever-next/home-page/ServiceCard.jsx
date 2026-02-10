@@ -6,7 +6,8 @@ import { Box, Image, Heading, Text } from '@chakra-ui/react';
  *
  * @param {string} image - Image src
  * @param {string} title - Main title (white on image overlay)
- * @param {string} [subtitle] - Subtitle in white strip below image
+ * @param {string} [subtitle] - Subtitle on image overlay (and in strip if stripText not set)
+ * @param {string} [stripText] - Optional different text for white strip below image (overrides subtitle there)
  * @param {string} [description] - Optional body text below
  * @param {string} [alt] - Alt text for image
  */
@@ -14,10 +15,12 @@ export default function ServiceCard({
   image,
   title,
   subtitle,
+  stripText,
   description,
   alt,
   noHoverBorder = false,
 }) {
+  const bottomText = stripText ?? subtitle;
   const imageHeights = {
     base: '150px',
     sm: '165px',
@@ -78,7 +81,7 @@ export default function ServiceCard({
           objectPosition="center center"
           display="block"
         />
-        {/* Dark overlay: title only */}
+        {/* Dark overlay: title + subtitle */}
         <Box
           position="absolute"
           inset={0}
@@ -94,6 +97,17 @@ export default function ServiceCard({
           <Heading as="h3" size="card" color="white" lineHeight="1.2">
             {title}
           </Heading>
+          {subtitle && (
+            <Text
+              mt={1}
+              textStyle="body"
+              color="white"
+              fontWeight="normal"
+              fontSize={{ base: 'sm', md: 'md' }}
+            >
+              {subtitle}
+            </Text>
+          )}
         </Box>
         {/* White fade at bottom of image */}
         <Box
@@ -116,8 +130,8 @@ export default function ServiceCard({
         </Box>
       </Box>
 
-      {/* Subtitle in white strip below image (above fade in stack so text is visible) */}
-      {subtitle && (
+      {/* Text in white strip below image */}
+      {bottomText && (
         <Box
           bg="white"
           py={{ base: 3, sm: 4, md: 4, lg: 5 }}
@@ -127,7 +141,7 @@ export default function ServiceCard({
           zIndex={3}
         >
           <Text textStyle="body" color="gray.700" fontWeight="medium" lineHeight="1.5">
-            {subtitle}
+            {bottomText}
           </Text>
         </Box>
       )}

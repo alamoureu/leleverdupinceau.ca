@@ -30,8 +30,7 @@ export default function MethodSection() {
 
   return (
     <Box
-      pt={{ base: 10, sm: 12, md: 24, lg: 30, xl: 46, '2xl': 54 }}
-      pb={{ base: 4, sm: 6, md: 6, lg: 8, xl: 12, '2xl': 16 }}
+      py={{ base: 12, md: 16, lg: 20 }}
       bg="white"
     >
       <Container

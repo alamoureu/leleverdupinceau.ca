@@ -104,7 +104,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   color="white"
                   fontSize={{ base: 'xs', sm: 'sm' }}
                 />
-                <a href="tel:4388680772">
+                <a href="tel:+14388680772">
                   <Text
                     fontSize={{ base: 'xs', sm: 'sm' }}
                     color="white"
@@ -184,7 +184,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   color="white"
                   textStyle="nav"
                 />
-                <a href="tel:4388680772">
+                <a href="tel:+14388680772">
                   <Text
                     textStyle="nav"
                     color="white"

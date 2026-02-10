@@ -26,12 +26,10 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import img5969 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
-import img5970 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
-import img5971 from '../images/2-services/Page peinture résidentielle/3. réalisations/IMG_6764.PNG';
-import img5972 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import img5973 from '../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
-import img5974 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
+// Only from Page peinture résidentielle folder
+import imgRes1 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import imgRes2 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
+import imgRes3 from '../images/2-services/Page peinture résidentielle/3. réalisations/IMG_6764.PNG';
 
 export default function PeintureResidentiellePage() {
   const { currentLang } = useContext(appContext);
@@ -81,18 +79,9 @@ export default function PeintureResidentiellePage() {
       ];
 
   const images = [
-    {
-      src: img5969,
-      alt: isFr ? 'Projet résidentiel avant' : 'Residential project before',
-    },
-    {
-      src: img5970,
-      alt: isFr ? 'Projet résidentiel après' : 'Residential project after',
-    },
-    { src: img5971, alt: isFr ? 'Peinture intérieure' : 'Interior painting' },
-    { src: img5972, alt: isFr ? 'Peinture salon' : 'Living room painting' },
-    { src: img5973, alt: isFr ? 'Rénovation' : 'Renovation' },
-    { src: img5974, alt: isFr ? 'Finition impeccable' : 'Impeccable finish' },
+    { src: imgRes1, alt: isFr ? 'Réalisation peinture résidentielle 1' : 'Residential painting project 1' },
+    { src: imgRes2, alt: isFr ? 'Réalisation peinture résidentielle 2' : 'Residential painting project 2' },
+    { src: imgRes3, alt: isFr ? 'Réalisation peinture résidentielle 3' : 'Residential painting project 3' },
   ];
 
   return (
@@ -124,7 +113,7 @@ export default function PeintureResidentiellePage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumb */}
@@ -201,7 +190,7 @@ export default function PeintureResidentiellePage() {
 
             {/* Section 1 — Pourquoi choisir notre service résidentiel */}
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg='gray.50'
               borderRadius='xl'
               mb={{ base: 8, md: 12 }}
@@ -284,7 +273,7 @@ export default function PeintureResidentiellePage() {
             </Box>
 
             {/* Section 2 — Sous-services : intérieur & extérieur */}
-            <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+            <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={3} textAlign='left'>
@@ -532,7 +521,7 @@ export default function PeintureResidentiellePage() {
 
             {/* Section 6 — À propos de nos peintres professionnels */}
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg='gray.50'
               borderRadius='xl'
               mb={{ base: 8, md: 12 }}
@@ -594,7 +583,7 @@ export default function PeintureResidentiellePage() {
         {/* Section 7 — CTA final */}
         <Box
           w='100%'
-          py={{ base: 12, md: 16 }}
+          py={{ base: 12, md: 16, lg: 20 }}
           bg='brand.700'
           mt={{ base: 8, md: 12 }}
         >

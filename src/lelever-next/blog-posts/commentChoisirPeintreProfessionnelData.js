@@ -1,16 +1,3 @@
-import img5969 from '../images/1-page-principale/blog hub/Peinture intérieure/IMG_6764.PNG';
-import img5970 from '../images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG';
-import img5971 from '../images/1-page-principale/blog hub/Peinture industrielle/IMG_6752.PNG';
-import img5972 from '../images/1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG';
-import img5973 from '../images/1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG';
-import img5974 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
-import img5975 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
-import img5976 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
-import img5977 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
-import img5978 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import img5982 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
-import img5984 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
-
 export const commentChoisirPeintreProfessionnelData = {
   slug: 'comment-choisir-un-peintre-professionnel',
   url: 'https://leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel',
@@ -20,7 +7,7 @@ export const commentChoisirPeintreProfessionnelData = {
       en: 'How to choose a professional painter in Montreal (Complete guide 2025)',
     },
     metaDescription: {
-      fr: 'Découvrez comment choisir un peintre professionnel fiable : expérience, avis, garanties, prix, photos de projets et questions à poser avant d\'engager. Guide Montréal 2025.',
+      fr: "Découvrez comment choisir un peintre professionnel fiable : expérience, avis, garanties, prix, photos de projets et questions à poser avant d'engager. Guide Montréal 2025.",
       en: 'Discover how to choose a reliable professional painter: experience, reviews, guarantees, prices, project photos and questions to ask before hiring. Montreal guide 2025.',
     },
   },
@@ -33,7 +20,7 @@ export const commentChoisirPeintreProfessionnelData = {
     en: 'How to choose a professional painter? (Complete guide 2025)',
   },
   introduction: {
-    fr: 'Choisir un peintre professionnel peut sembler simple… jusqu\'à ce que surviennent les mauvaises surprises : retouches, dégâts, retards, murs mal couverts, peinture qui s\'écaille en quelques mois ou artisans impossibles à joindre.\n\nLa bonne nouvelle ? Tout cela peut être évité si vous savez exactement quoi vérifier avant d\'engager.\n\nCe guide vous explique pas à pas comment choisir un peintre professionnel fiable, compétent et transparent — que ce soit pour une maison, un condo, un commerce ou un appartement.',
+    fr: "Choisir un peintre professionnel peut sembler simple… jusqu'à ce que surviennent les mauvaises surprises : retouches, dégâts, retards, murs mal couverts, peinture qui s'écaille en quelques mois ou artisans impossibles à joindre.\n\nLa bonne nouvelle ? Tout cela peut être évité si vous savez exactement quoi vérifier avant d'engager.\n\nCe guide vous explique pas à pas comment choisir un peintre professionnel fiable, compétent et transparent — que ce soit pour une maison, un condo, un commerce ou un appartement.",
     en: 'Choosing a professional painter may seem simple... until bad surprises occur: touch-ups, damage, delays, poorly covered walls, paint that peels in a few months or impossible-to-reach craftsmen.\n\nThe good news? All of this can be avoided if you know exactly what to check before hiring.\n\nThis guide explains step by step how to choose a reliable, competent and transparent professional painter — whether for a house, condo, business or apartment.',
   },
   content: [
@@ -48,14 +35,14 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Tous les peintres ne se valent pas. Certains sont spécialisés en résidentiel, d\'autres en commercial, d\'autres en peinture intérieure ou extérieure.',
+        fr: "Tous les peintres ne se valent pas. Certains sont spécialisés en résidentiel, d'autres en commercial, d'autres en peinture intérieure ou extérieure.",
         en: 'Not all painters are equal. Some specialize in residential, others in commercial, others in interior or exterior painting.',
       },
     },
     {
       type: 'paragraph',
       text: {
-        fr: 'Ce qu\'il faut vérifier :',
+        fr: "Ce qu'il faut vérifier :",
         en: 'What to check:',
       },
     },
@@ -63,8 +50,8 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'list',
       items: {
         fr: [
-          'Depuis combien de temps l\'entreprise existe',
-          'Le type de projets qu\'elle réalise le plus souvent',
+          "Depuis combien de temps l'entreprise existe",
+          "Le type de projets qu'elle réalise le plus souvent",
           'Si elle est spécialisée dans votre type de projet (intérieur, extérieur, condo, commerce, etc.)',
           'Si elle travaille avec les bons produits selon la surface (gypse, brique, bois, métal, etc.)',
         ],
@@ -91,7 +78,7 @@ export const commentChoisirPeintreProfessionnelData = {
           'pourquoi,',
           'comment,',
           'dans quel ordre,',
-          'et ce qui peut aller mal si ce n\'est pas fait correctement.',
+          "et ce qui peut aller mal si ce n'est pas fait correctement.",
         ],
         en: [
           'what to use,',
@@ -120,7 +107,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Avant d\'engager qui que ce soit, consultez :',
+        fr: "Avant d'engager qui que ce soit, consultez :",
         en: 'Before hiring anyone, check:',
       },
     },
@@ -142,7 +129,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Signaux d\'alerte à surveiller :',
+        fr: "Signaux d'alerte à surveiller :",
         en: 'Warning signs to watch for:',
       },
     },
@@ -153,7 +140,7 @@ export const commentChoisirPeintreProfessionnelData = {
           'Plusieurs avis négatifs pour "travail bâclé" ou "retouches"',
           'Commentaires sur des retards répétés',
           'Manque de communication ou difficulté à les joindre',
-          'Clients qui mentionnent que le résultat n\'a pas duré dans le temps',
+          "Clients qui mentionnent que le résultat n'a pas duré dans le temps",
         ],
         en: [
           'Several negative reviews for "sloppy work" or "touch-ups"',
@@ -177,13 +164,13 @@ export const commentChoisirPeintreProfessionnelData = {
           'Clients qui mentionnent la propreté du chantier',
           'Des commentaires sur la ponctualité et le respect des délais',
           'Des photos avant / après convaincantes',
-          'Des mentions du professionnalisme de l\'équipe',
+          "Des mentions du professionnalisme de l'équipe",
         ],
         en: [
           'Clients who mention the cleanliness of the site',
           'Comments about punctuality and respect for deadlines',
           'Convincing before / after photos',
-          'Mentions of the team\'s professionalism',
+          "Mentions of the team's professionalism",
         ],
       },
     },
@@ -191,7 +178,7 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'callout',
       text: {
         fr: 'Ne regardez pas seulement la note globale : lisez quelques avis récents en détail.',
-        en: 'Don\'t just look at the overall rating: read a few recent reviews in detail.',
+        en: "Don't just look at the overall rating: read a few recent reviews in detail.",
       },
     },
     {
@@ -215,13 +202,13 @@ export const commentChoisirPeintreProfessionnelData = {
         fr: [
           'des projets de peinture intérieure (salon, chambres, couloirs, escaliers, etc.)',
           'des projets résidentiels (maisons, condos)',
-          'éventuellement des projets commerciaux (si c\'est votre besoin)',
+          "éventuellement des projets commerciaux (si c'est votre besoin)",
           'des surfaces similaires aux vôtres',
         ],
         en: [
           'interior painting projects (living room, bedrooms, hallways, stairs, etc.)',
           'residential projects (houses, condos)',
-          'possibly commercial projects (if that\'s your need)',
+          "possibly commercial projects (if that's your need)",
           'surfaces similar to yours',
         ],
       },
@@ -243,7 +230,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Un peintre qui refuse de montrer des exemples ou qui n\'a aucune photo récente peut être un mauvais signe.',
+        fr: "Un peintre qui refuse de montrer des exemples ou qui n'a aucune photo récente peut être un mauvais signe.",
         en: 'A painter who refuses to show examples or has no recent photos may be a bad sign.',
       },
     },
@@ -253,38 +240,7 @@ export const commentChoisirPeintreProfessionnelData = {
         fr: 'Exemples de nos réalisations',
         en: 'Examples of our work',
       },
-      images: [
-        {
-          before: img5969,
-          after: img5970,
-          vertical: true,
-        },
-        {
-          before: img5971,
-          after: img5972,
-          vertical: true,
-        },
-        {
-          before: img5973,
-          after: img5974,
-          vertical: true,
-        },
-        {
-          before: img5975,
-          after: img5976,
-          vertical: true,
-        },
-        {
-          before: img5977,
-          after: img5978,
-          vertical: true,
-        },
-        {
-          before: img5982,
-          after: img5984,
-          vertical: true,
-        },
-      ],
+      // No custom images: BeforeAfter uses its default before/after pairs from before_after folder (same as Avis + Peintre pro pages)
     },
     {
       type: 'heading',
@@ -297,8 +253,8 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Le prix est important, mais ce n\'est jamais le seul critère.',
-        en: 'Price is important, but it\'s never the only criterion.',
+        fr: "Le prix est important, mais ce n'est jamais le seul critère.",
+        en: "Price is important, but it's never the only criterion.",
       },
     },
     {
@@ -344,7 +300,7 @@ export const commentChoisirPeintreProfessionnelData = {
         fr: [
           'est détaillée',
           'est claire',
-          'n\'a pas de zones floues',
+          "n'a pas de zones floues",
           'permet de comprendre ce pour quoi vous payez',
         ],
         en: [
@@ -390,7 +346,7 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Les questions essentielles à poser avant d\'engager',
+        fr: "Les questions essentielles à poser avant d'engager",
         en: 'Essential questions to ask before hiring',
       },
     },
@@ -398,7 +354,7 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'paragraph',
       text: {
         fr: 'Voici quelques questions simples qui permettent de savoir rapidement à qui vous avez affaire :',
-        en: 'Here are some simple questions that quickly let you know who you\'re dealing with:',
+        en: "Here are some simple questions that quickly let you know who you're dealing with:",
       },
     },
     {
@@ -411,7 +367,7 @@ export const commentChoisirPeintreProfessionnelData = {
           'Quels produits allez-vous utiliser et pourquoi ? → Marque, type de peinture, fini (mat, velouté, perle, etc.)',
           'Est-ce que vous faites la préparation des surfaces ? → Petit plâtre, sablage, nettoyage.',
           'Est-ce que vous offrez une garantie écrite ? → Important pour les travaux à moyen / long terme.',
-          'Pouvez-vous me montrer des travaux récents similaires ? → Vous validez ainsi qu\'ils ont déjà fait ce type de projet.',
+          "Pouvez-vous me montrer des travaux récents similaires ? → Vous validez ainsi qu'ils ont déjà fait ce type de projet.",
           'Qui sera sur place pendant les travaux ? → Le propriétaire ? Une équipe ? Un sous-traitant ?',
         ],
         en: [
@@ -429,7 +385,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'callout',
       text: {
-        fr: 'Un bon peintre répond avec calme, précision et transparence.\n\nUn peintre qui esquive les questions, change de sujet ou s\'énerve : red flag.',
+        fr: "Un bon peintre répond avec calme, précision et transparence.\n\nUn peintre qui esquive les questions, change de sujet ou s'énerve : red flag.",
         en: 'A good painter responds with calm, precision and transparency.\n\nA painter who dodges questions, changes the subject or gets angry: red flag.',
       },
     },
@@ -437,7 +393,7 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Observez la propreté et l\'organisation de l\'équipe',
+        fr: "Observez la propreté et l'organisation de l'équipe",
         en: 'Observe the cleanliness and organization of the team',
       },
     },
@@ -452,11 +408,11 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'list',
       items: {
         fr: [
-          'est-ce qu\'ils arrivent à l\'heure ?',
-          'est-ce qu\'ils semblent pressés ou à l\'écoute ?',
-          'est-ce qu\'ils regardent vraiment les détails (angles, fissures, joints, etc.) ?',
-          'est-ce qu\'ils parlent de protection des surfaces ?',
-          'est-ce qu\'ils prennent des notes ou des photos ?',
+          "est-ce qu'ils arrivent à l'heure ?",
+          "est-ce qu'ils semblent pressés ou à l'écoute ?",
+          "est-ce qu'ils regardent vraiment les détails (angles, fissures, joints, etc.) ?",
+          "est-ce qu'ils parlent de protection des surfaces ?",
+          "est-ce qu'ils prennent des notes ou des photos ?",
         ],
         en: [
           'do they arrive on time?',
@@ -494,7 +450,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'callout',
       text: {
-        fr: 'Un chantier propre est presque toujours le reflet d\'un travail bien fait.',
+        fr: "Un chantier propre est presque toujours le reflet d'un travail bien fait.",
         en: 'A clean site is almost always a reflection of well-done work.',
       },
     },
@@ -521,7 +477,7 @@ export const commentChoisirPeintreProfessionnelData = {
           'respecte les rendez-vous',
           'confirme les dates de début et de fin',
           'vous explique le déroulement des travaux',
-          'vous avertit s\'il y a un imprévu',
+          "vous avertit s'il y a un imprévu",
         ],
         en: [
           'responds to your messages within a reasonable time',
@@ -542,8 +498,8 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Si déjà à l\'étape de soumission c\'est difficile d\'avoir des nouvelles… imaginez pendant les travaux.',
-        en: 'If it\'s already difficult to get news at the quote stage... imagine during the work.',
+        fr: "Si déjà à l'étape de soumission c'est difficile d'avoir des nouvelles… imaginez pendant les travaux.",
+        en: "If it's already difficult to get news at the quote stage... imagine during the work.",
       },
     },
     {
@@ -572,8 +528,8 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'list',
       items: {
         fr: [
-          'l\'adhérence de la peinture',
-          'l\'apparition prématurée de défauts',
+          "l'adhérence de la peinture",
+          "l'apparition prématurée de défauts",
           'certaines retouches nécessaires après les travaux',
         ],
         en: [
@@ -600,7 +556,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'callout',
       text: {
-        fr: 'Un professionnel sérieux n\'a aucun problème à mettre quelque chose par écrit.',
+        fr: "Un professionnel sérieux n'a aucun problème à mettre quelque chose par écrit.",
         en: 'A serious professional has no problem putting something in writing.',
       },
     },
@@ -636,8 +592,18 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'list',
       items: {
-        fr: ['maisons', 'condos', 'logements', 'projets où l\'esthétique et les détails sont importants'],
-        en: ['houses', 'condos', 'housing', 'projects where aesthetics and details are important'],
+        fr: [
+          'maisons',
+          'condos',
+          'logements',
+          "projets où l'esthétique et les détails sont importants",
+        ],
+        en: [
+          'houses',
+          'condos',
+          'housing',
+          'projects where aesthetics and details are important',
+        ],
       },
     },
     {
@@ -650,8 +616,16 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'list',
       items: {
-        fr: ['respectueux des lieux', 'minutieux', 'habitué à travailler dans des espaces de vie'],
-        en: ['respectful of the premises', 'meticulous', 'accustomed to working in living spaces'],
+        fr: [
+          'respectueux des lieux',
+          'minutieux',
+          'habitué à travailler dans des espaces de vie',
+        ],
+        en: [
+          'respectful of the premises',
+          'meticulous',
+          'accustomed to working in living spaces',
+        ],
       },
     },
     {
@@ -679,7 +653,12 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'list',
       items: {
-        fr: ['bureaux', 'commerces', 'restaurants', 'espaces ouverts au public'],
+        fr: [
+          'bureaux',
+          'commerces',
+          'restaurants',
+          'espaces ouverts au public',
+        ],
         en: ['offices', 'stores', 'restaurants', 'spaces open to the public'],
       },
     },
@@ -693,8 +672,16 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'list',
       items: {
-        fr: ['s\'adapter aux horaires', 'minimiser les interruptions', 'respecter des délais serrés'],
-        en: ['adapt to schedules', 'minimize interruptions', 'respect tight deadlines'],
+        fr: [
+          "s'adapter aux horaires",
+          'minimiser les interruptions',
+          'respecter des délais serrés',
+        ],
+        en: [
+          'adapt to schedules',
+          'minimize interruptions',
+          'respect tight deadlines',
+        ],
       },
     },
     {
@@ -715,7 +702,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'C\'est la spécialité la plus recherchée par les propriétaires :',
+        fr: "C'est la spécialité la plus recherchée par les propriétaires :",
         en: 'This is the most sought-after specialty by owners:',
       },
     },
@@ -729,7 +716,7 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'callout',
       text: {
-        fr: 'Si votre priorité est de rafraîchir l\'intérieur de votre maison ou condo, vous avez intérêt à travailler avec une équipe spécialisée en peinture intérieure.',
+        fr: "Si votre priorité est de rafraîchir l'intérieur de votre maison ou condo, vous avez intérêt à travailler avec une équipe spécialisée en peinture intérieure.",
         en: 'If your priority is to refresh the interior of your house or condo, you would benefit from working with a team specialized in interior painting.',
       },
     },
@@ -745,21 +732,21 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Conclusion — choisir un peintre professionnel, ce n\'est pas une question de chance',
+        fr: "Conclusion — choisir un peintre professionnel, ce n'est pas une question de chance",
         en: 'Conclusion — choosing a professional painter is not a matter of luck',
       },
     },
     {
       type: 'paragraph',
       text: {
-        fr: 'Choisir un peintre professionnel, ce n\'est pas une question de chance : c\'est une question de critères.',
-        en: 'Choosing a professional painter is not a matter of luck: it\'s a matter of criteria.',
+        fr: "Choisir un peintre professionnel, ce n'est pas une question de chance : c'est une question de critères.",
+        en: "Choosing a professional painter is not a matter of luck: it's a matter of criteria.",
       },
     },
     {
       type: 'paragraph',
       text: {
-        fr: 'En résumé, avant d\'engager :',
+        fr: "En résumé, avant d'engager :",
         en: 'In summary, before hiring:',
       },
     },
@@ -767,7 +754,7 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'list',
       items: {
         fr: [
-          'Vérifiez l\'expérience et les spécialités',
+          "Vérifiez l'expérience et les spécialités",
           'Lisez les avis Google et regardez les photos',
           'Comparez les soumissions sur les détails, pas seulement le prix',
           'Posez des questions claires sur les produits, la préparation et les garanties',
@@ -834,7 +821,8 @@ export const commentChoisirPeintreProfessionnelData = {
     '@type': 'BlogPosting',
     mainEntityOfPage: {
       '@type': 'WebPage',
-      '@id': 'https://leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel',
+      '@id':
+        'https://leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel',
     },
     headline: {
       fr: 'Comment choisir un peintre professionnel ? (Guide complet 2025)',
@@ -844,7 +832,8 @@ export const commentChoisirPeintreProfessionnelData = {
       fr: 'Guide complet pour choisir un peintre professionnel fiable à Montréal : expérience, avis, garanties, comparaison de soumissions, questions à poser et erreurs à éviter.',
       en: 'Complete guide to choosing a reliable professional painter in Montreal: experience, reviews, guarantees, quote comparison, questions to ask and mistakes to avoid.',
     },
-    image: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
+    image:
+      'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
     author: {
       '@type': 'Organization',
       name: 'Le Lever du Pinceau',
@@ -874,7 +863,7 @@ export const commentChoisirPeintreProfessionnelData = {
         acceptedAnswer: {
           '@type': 'Answer',
           text: {
-            fr: 'Pour choisir un bon peintre professionnel, vérifiez son expérience, ses avis en ligne, ses photos de projets récents, la clarté de sa soumission, les produits utilisés, les garanties offertes et la qualité de sa communication. Un vrai professionnel est capable d\'expliquer sa méthode et de répondre clairement à vos questions.',
+            fr: "Pour choisir un bon peintre professionnel, vérifiez son expérience, ses avis en ligne, ses photos de projets récents, la clarté de sa soumission, les produits utilisés, les garanties offertes et la qualité de sa communication. Un vrai professionnel est capable d'expliquer sa méthode et de répondre clairement à vos questions.",
             en: 'To choose a good professional painter, check their experience, online reviews, recent project photos, clarity of their quote, products used, guarantees offered and quality of their communication. A true professional is able to explain their method and answer your questions clearly.',
           },
         },
@@ -889,20 +878,20 @@ export const commentChoisirPeintreProfessionnelData = {
           '@type': 'Answer',
           text: {
             fr: 'Ne comparez pas seulement le prix. Regardez les détails inclus dans chaque soumission : type de peinture, nombre de couches, préparation des surfaces, protection des planchers et meubles, délais, garanties et nettoyage final. Une soumission sérieuse est détaillée et transparente.',
-            en: 'Don\'t just compare price. Look at the details included in each quote: type of paint, number of coats, surface preparation, protection of floors and furniture, deadlines, guarantees and final cleanup. A serious quote is detailed and transparent.',
+            en: "Don't just compare price. Look at the details included in each quote: type of paint, number of coats, surface preparation, protection of floors and furniture, deadlines, guarantees and final cleanup. A serious quote is detailed and transparent.",
           },
         },
       },
       {
         '@type': 'Question',
         name: {
-          fr: 'Quelles questions poser avant d\'engager un peintre ?',
+          fr: "Quelles questions poser avant d'engager un peintre ?",
           en: 'What questions to ask before hiring a painter?',
         },
         acceptedAnswer: {
           '@type': 'Answer',
           text: {
-            fr: 'Posez des questions sur la durée du projet, les assurances, la préparation des surfaces, les produits utilisés, la protection du chantier, les garanties offertes, les projets récents réalisés et sur l\'équipe qui sera sur place. Les réponses doivent être claires, précises et rassurantes.',
+            fr: "Posez des questions sur la durée du projet, les assurances, la préparation des surfaces, les produits utilisés, la protection du chantier, les garanties offertes, les projets récents réalisés et sur l'équipe qui sera sur place. Les réponses doivent être claires, précises et rassurantes.",
             en: 'Ask questions about project duration, insurance, surface preparation, products used, site protection, guarantees offered, recent projects completed and the team that will be on site. Answers should be clear, precise and reassuring.',
           },
         },
@@ -938,5 +927,3 @@ export const commentChoisirPeintreProfessionnelData = {
     ],
   },
 };
-
-

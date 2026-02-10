@@ -39,7 +39,7 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [] })
   const columns = useBreakpointValue({ base: 1, md: 3 });
 
   return (
-    <Box py={{ base: 12, md: 16 }} bg='white'>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>

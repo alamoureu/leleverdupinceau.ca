@@ -141,7 +141,7 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
   };
 
   return (
-    <Box py={{ base: 12, md: 16 }} bg='gray.50' borderRadius='xl'>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8} align='center'>
           {!hideTitle && (
@@ -201,7 +201,7 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                 >
                   <Box
                     position='relative'
-                    bg='gray.50'
+                    bg='white'
                     p={{ base: 4, md: 6 }}
                     borderRadius='xl'
                     border='1px solid'

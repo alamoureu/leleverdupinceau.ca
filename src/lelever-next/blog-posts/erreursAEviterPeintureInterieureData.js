@@ -13,7 +13,11 @@ export const erreursAEviterPeintureInterieureData = {
     },
   },
   breadcrumb: {
-    fr: ['Accueil', 'Blog', 'Erreurs à éviter avant de repeindre votre intérieur'],
+    fr: [
+      'Accueil',
+      'Blog',
+      'Erreurs à éviter avant de repeindre votre intérieur',
+    ],
     en: ['Home', 'Blog', 'Mistakes to avoid before repainting your interior'],
   },
   h1: {
@@ -21,8 +25,8 @@ export const erreursAEviterPeintureInterieureData = {
     en: 'Mistakes to avoid before repainting your interior (Guide 2025)',
   },
   introduction: {
-    fr: 'Repeindre l\'intérieur de votre maison ou de votre condo semble simple : quelques rouleaux, deux couches et c\'est réglé… en théorie.\n\nEn pratique, les mêmes erreurs reviennent souvent : murs mal préparés, traces visibles, coulisses, finition inégale, couleur décevante une fois sèche ou, pire encore, peinture qui s\'écaille après quelques mois.\n\nDans ce guide, on voit ensemble les erreurs les plus fréquentes avant de repeindre un intérieur, et comment les éviter pour obtenir un résultat propre, durable et agréable à regarder tous les jours.',
-    en: 'Repainting the interior of your house or condo seems simple: a few rollers, two coats and it\'s done… in theory.\n\nIn practice, the same mistakes often recur: poorly prepared walls, visible marks, drips, uneven finish, disappointing color once dry or, worse, paint that peels after a few months.\n\nIn this guide, we look together at the most common mistakes before repainting an interior, and how to avoid them to get a clean, durable result that\'s pleasant to look at every day.',
+    fr: "Repeindre l'intérieur de votre maison ou de votre condo semble simple : quelques rouleaux, deux couches et c'est réglé… en théorie.\n\nEn pratique, les mêmes erreurs reviennent souvent : murs mal préparés, traces visibles, coulisses, finition inégale, couleur décevante une fois sèche ou, pire encore, peinture qui s'écaille après quelques mois.\n\nDans ce guide, on voit ensemble les erreurs les plus fréquentes avant de repeindre un intérieur, et comment les éviter pour obtenir un résultat propre, durable et agréable à regarder tous les jours.",
+    en: "Repainting the interior of your house or condo seems simple: a few rollers, two coats and it's done… in theory.\n\nIn practice, the same mistakes often recur: poorly prepared walls, visible marks, drips, uneven finish, disappointing color once dry or, worse, paint that peels after a few months.\n\nIn this guide, we look together at the most common mistakes before repainting an interior, and how to avoid them to get a clean, durable result that's pleasant to look at every day.",
   },
   content: [
     {
@@ -36,7 +40,7 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'La préparation, c\'est ce qui fait 80 % du résultat.',
+        fr: "La préparation, c'est ce qui fait 80 % du résultat.",
         en: 'Preparation is what makes 80% of the result.',
       },
     },
@@ -54,8 +58,8 @@ export const erreursAEviterPeintureInterieureData = {
           'le nettoyage des murs (graisse, poussière, taches)',
           'le rebouchage des trous et fissures',
           'le sablage des réparations',
-          'l\'égalisation des surfaces brillantes ou irrégulières',
-          'parfois, une couche d\'apprêt (primer)',
+          "l'égalisation des surfaces brillantes ou irrégulières",
+          "parfois, une couche d'apprêt (primer)",
         ],
         en: [
           'wall cleaning (grease, dust, stains)',
@@ -69,7 +73,7 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Pourquoi c\'est un problème de négliger ça ?',
+        fr: "Pourquoi c'est un problème de négliger ça ?",
         en: 'Why is it a problem to neglect this?',
       },
     },
@@ -91,7 +95,7 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'callout',
       text: {
-        fr: 'Règle simple : plus la préparation est sérieuse, plus le résultat a l\'air professionnel.',
+        fr: "Règle simple : plus la préparation est sérieuse, plus le résultat a l'air professionnel.",
         en: 'Simple rule: the more serious the preparation, the more professional the result looks.',
       },
     },
@@ -122,7 +126,7 @@ export const erreursAEviterPeintureInterieureData = {
       items: {
         fr: [
           'Mat / ultra-mat : idéal pour plafonds et murs peu sollicités',
-          'Velours / coquille d\'œuf : parfait pour salons, chambres, couloirs',
+          "Velours / coquille d'œuf : parfait pour salons, chambres, couloirs",
           'Perle / semi-lustré : bon pour salles de bain, cuisines, boiseries (se nettoie mieux)',
         ],
         en: [
@@ -167,7 +171,7 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°3 — Sous-estimer le temps et l\'effort nécessaires',
+        fr: "Erreur n°3 — Sous-estimer le temps et l'effort nécessaires",
         en: 'Mistake #3 — Underestimating the time and effort required',
       },
     },
@@ -213,7 +217,7 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'list',
       items: {
         fr: [
-          'projet qui s\'étire sur plusieurs semaines',
+          "projet qui s'étire sur plusieurs semaines",
           'fatigue, découragement',
           'tentation de "bâcler la fin"',
         ],
@@ -249,20 +253,8 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'list',
       items: {
-        fr: [
-          'planchers',
-          'escaliers',
-          'meubles',
-          'comptoirs',
-          'tapis',
-        ],
-        en: [
-          'floors',
-          'stairs',
-          'furniture',
-          'counters',
-          'carpets',
-        ],
+        fr: ['planchers', 'escaliers', 'meubles', 'comptoirs', 'tapis'],
+        en: ['floors', 'stairs', 'furniture', 'counters', 'carpets'],
       },
     },
     {
@@ -292,7 +284,7 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'callout',
       text: {
-        fr: 'Si vous passez plus de temps à nettoyer la peinture qu\'à l\'appliquer, quelque chose cloche dans la préparation.',
+        fr: "Si vous passez plus de temps à nettoyer la peinture qu'à l'appliquer, quelque chose cloche dans la préparation.",
         en: 'If you spend more time cleaning paint than applying it, something is wrong with the preparation.',
       },
     },
@@ -382,7 +374,7 @@ export const erreursAEviterPeintureInterieureData = {
       items: {
         fr: [
           'pièce trop froide ou trop chaude',
-          'humidité élevée (ex : salle de bain qui vient d\'être utilisée)',
+          "humidité élevée (ex : salle de bain qui vient d'être utilisée)",
           'pièces mal aérées',
           'poussière en suspension (ponçage en même temps que la peinture)',
         ],
@@ -471,7 +463,7 @@ export const erreursAEviterPeintureInterieureData = {
           'lignes zigzag',
           'débordements',
           'retouches visibles',
-          'impression d\'amateurisme même si la couleur est belle',
+          "impression d'amateurisme même si la couleur est belle",
         ],
         en: [
           'zigzag lines',
@@ -484,8 +476,8 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'callout',
       text: {
-        fr: 'Les détails sont ce que vos yeux voient tous les jours. C\'est là que la qualité se joue.',
-        en: 'Details are what your eyes see every day. That\'s where quality matters.',
+        fr: "Les détails sont ce que vos yeux voient tous les jours. C'est là que la qualité se joue.",
+        en: "Details are what your eyes see every day. That's where quality matters.",
       },
     },
     {
@@ -530,8 +522,8 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Si vous n\'avez ni le temps, ni l\'expérience, ni l\'envie de vivre dans un chantier pendant des semaines, il peut être plus rentable de faire appel à une équipe professionnelle.',
-        en: 'If you don\'t have the time, experience, or desire to live in a construction site for weeks, it may be more cost-effective to call in a professional team.',
+        fr: "Si vous n'avez ni le temps, ni l'expérience, ni l'envie de vivre dans un chantier pendant des semaines, il peut être plus rentable de faire appel à une équipe professionnelle.",
+        en: "If you don't have the time, experience, or desire to live in a construction site for weeks, it may be more cost-effective to call in a professional team.",
       },
     },
     {
@@ -554,7 +546,7 @@ export const erreursAEviterPeintureInterieureData = {
           'if you have a complete interior painting project',
           'if you want an impeccable result the first time',
           'if you have a tight schedule',
-          'if you don\'t want to manage preparation, protection, product purchases and cleanup',
+          "if you don't want to manage preparation, protection, product purchases and cleanup",
         ],
       },
     },
@@ -616,8 +608,8 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'En évitant ces erreurs, vous maximisez vos chances d\'obtenir un résultat propre, durable et agréable à vivre au quotidien.',
-        en: 'By avoiding these mistakes, you maximize your chances of getting a clean, durable result that\'s pleasant to live with daily.',
+        fr: "En évitant ces erreurs, vous maximisez vos chances d'obtenir un résultat propre, durable et agréable à vivre au quotidien.",
+        en: "By avoiding these mistakes, you maximize your chances of getting a clean, durable result that's pleasant to live with daily.",
       },
     },
     {
@@ -648,7 +640,7 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Besoin d\'aide pour un projet de peinture intérieure ?',
+        fr: "Besoin d'aide pour un projet de peinture intérieure ?",
         en: 'Need help with an interior painting project?',
       },
     },
@@ -666,7 +658,7 @@ export const erreursAEviterPeintureInterieureData = {
           'un résultat impeccable',
           'un chantier propre',
           'un projet bien planifié',
-          'une équipe fiable qui s\'occupe de tout',
+          "une équipe fiable qui s'occupe de tout",
         ],
         en: [
           'an impeccable result',
@@ -687,7 +679,7 @@ export const erreursAEviterPeintureInterieureData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Pour plus d\'informations sur nos services en demandes',
+        fr: "Pour plus d'informations sur nos services en demandes",
         en: 'For more information on our services',
       },
     },
@@ -773,7 +765,8 @@ export const erreursAEviterPeintureInterieureData = {
       },
       {
         '@type': 'BlogPosting',
-        '@id': 'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure#blogposting',
+        '@id':
+          'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure#blogposting',
         headline: {
           fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide 2025)',
           en: 'Mistakes to avoid before repainting your interior (Guide 2025)',
@@ -794,14 +787,16 @@ export const erreursAEviterPeintureInterieureData = {
         },
         mainEntityOfPage: {
           '@type': 'WebPage',
-          '@id': 'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure',
+          '@id':
+            'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure',
         },
         datePublished: '2025-01-01',
         dateModified: '2025-01-01',
       },
       {
         '@type': 'FAQPage',
-        '@id': 'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure#faq',
+        '@id':
+          'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure#faq',
         mainEntity: [
           {
             '@type': 'Question',
@@ -812,7 +807,7 @@ export const erreursAEviterPeintureInterieureData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'Les erreurs les plus fréquentes sont la mauvaise préparation des surfaces, le choix d\'une peinture ou d\'un fini inadéquat, la protection insuffisante des planchers et meubles, la peinture dans de mauvaises conditions (froid, humidité, poussière) et la tendance à bâcler les découpes et détails.',
+                fr: "Les erreurs les plus fréquentes sont la mauvaise préparation des surfaces, le choix d'une peinture ou d'un fini inadéquat, la protection insuffisante des planchers et meubles, la peinture dans de mauvaises conditions (froid, humidité, poussière) et la tendance à bâcler les découpes et détails.",
                 en: 'The most common mistakes are poor surface preparation, choosing inadequate paint or finish, insufficient protection of floors and furniture, painting in bad conditions (cold, humidity, dust) and the tendency to rush cuts and details.',
               },
             },
@@ -820,13 +815,13 @@ export const erreursAEviterPeintureInterieureData = {
           {
             '@type': 'Question',
             name: {
-              fr: 'Faut-il toujours appliquer une couche d\'apprêt avant de peindre ?',
+              fr: "Faut-il toujours appliquer une couche d'apprêt avant de peindre ?",
               en: 'Should you always apply a primer coat before painting?',
             },
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'Une couche d\'apprêt n\'est pas toujours obligatoire, mais elle est fortement recommandée dans plusieurs cas : murs très abîmés, changement de couleur important, surfaces très brillantes, taches difficiles ou odeurs à bloquer. Un professionnel saura vous dire si un apprêt est nécessaire selon votre surface.',
+                fr: "Une couche d'apprêt n'est pas toujours obligatoire, mais elle est fortement recommandée dans plusieurs cas : murs très abîmés, changement de couleur important, surfaces très brillantes, taches difficiles ou odeurs à bloquer. Un professionnel saura vous dire si un apprêt est nécessaire selon votre surface.",
                 en: 'A primer coat is not always mandatory, but it is strongly recommended in several cases: very damaged walls, significant color change, very shiny surfaces, difficult stains or odors to block. A professional will know if a primer is necessary according to your surface.',
               },
             },
@@ -840,7 +835,7 @@ export const erreursAEviterPeintureInterieureData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'En général, on recommande un fini mat ou ultra-mat pour les plafonds, un fini velours ou coquille d\'œuf pour les salons, chambres et couloirs, et un fini perle ou semi-lustré pour les cuisines, salles de bain et boiseries. Le choix dépend aussi de l\'état des murs, de la luminosité et de l\'usage de la pièce.',
+                fr: "En général, on recommande un fini mat ou ultra-mat pour les plafonds, un fini velours ou coquille d'œuf pour les salons, chambres et couloirs, et un fini perle ou semi-lustré pour les cuisines, salles de bain et boiseries. Le choix dépend aussi de l'état des murs, de la luminosité et de l'usage de la pièce.",
                 en: 'In general, a matte or ultra-matte finish is recommended for ceilings, a satin or eggshell finish for living rooms, bedrooms and hallways, and a pearl or semi-gloss finish for kitchens, bathrooms and woodwork. The choice also depends on the condition of the walls, brightness and use of the room.',
               },
             },
@@ -854,7 +849,7 @@ export const erreursAEviterPeintureInterieureData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'Une bonne préparation comprend le nettoyage des murs, le rebouchage des trous et fissures, le sablage des réparations, l\'égalisation des zones brillantes et, au besoin, l\'application d\'une couche d\'apprêt. Cette étape est essentielle pour obtenir une adhérence optimale et une finition uniforme.',
+                fr: "Une bonne préparation comprend le nettoyage des murs, le rebouchage des trous et fissures, le sablage des réparations, l'égalisation des zones brillantes et, au besoin, l'application d'une couche d'apprêt. Cette étape est essentielle pour obtenir une adhérence optimale et une finition uniforme.",
                 en: 'Good preparation includes wall cleaning, filling holes and cracks, sanding repairs, leveling shiny areas and, if needed, applying a primer coat. This step is essential to obtain optimal adhesion and uniform finish.',
               },
             },
@@ -868,7 +863,7 @@ export const erreursAEviterPeintureInterieureData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'Pour de petits projets simples, le bricolage peut être envisageable. Mais pour un projet complet (maison, condo, plafonds, escaliers), cela peut devenir très long, fatigant et coûteux en cas d\'erreurs. Dans ces cas-là, faire appel à une équipe de peintres professionnels permet de gagner du temps, d\'éviter le stress et d\'obtenir un résultat plus durable.',
+                fr: "Pour de petits projets simples, le bricolage peut être envisageable. Mais pour un projet complet (maison, condo, plafonds, escaliers), cela peut devenir très long, fatigant et coûteux en cas d'erreurs. Dans ces cas-là, faire appel à une équipe de peintres professionnels permet de gagner du temps, d'éviter le stress et d'obtenir un résultat plus durable.",
                 en: 'For small simple projects, DIY may be feasible. But for a complete project (house, condo, ceilings, stairs), it can become very long, tiring and expensive in case of errors. In these cases, calling in a team of professional painters saves time, avoids stress and gets a more durable result.',
               },
             },
@@ -878,5 +873,3 @@ export const erreursAEviterPeintureInterieureData = {
     ],
   },
 };
-
-

@@ -31,18 +31,6 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfter from '../components/BeforeAfter';
 import ProcessStepsSection from '../components/ProcessStepsSection';
 import peintureProfessionnelleImg from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
-import img5969 from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG';
-import img5970 from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG';
-import img5971 from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG';
-import img5972 from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG';
-import img5973 from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
-import img5974 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
-import img5975 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
-import img5976 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
-import img5977 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
-import img5978 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
-import img5982 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import img5984 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
 
 export default function PeintreProfessionnelPage() {
   const { currentLang } = useContext(appContext);
@@ -326,50 +314,6 @@ export default function PeintreProfessionnelPage() {
     },
   ];
 
-  const beforeAfterImages = [
-    {
-      before: img5969,
-      after: img5970,
-      description: isFr
-        ? 'Appartement locatif peinturé et plâtré au plateau'
-        : 'Rental apartment painted and plastered in the Plateau',
-    },
-    {
-      before: img5971,
-      after: img5972,
-      description: isFr
-        ? '3e niveau d’un triplex, changement de couleur à Outremont'
-        : '3rd level of a triplex, color change in Outremont',
-    },
-    {
-      before: img5973,
-      after: img5974,
-      description: isFr
-        ? 'Sablage et teinture de terrasse à Longueuil'
-        : 'Terrace sanding and staining in Longueuil',
-    },
-    {
-      before: img5975,
-      after: img5976,
-      description: isFr
-        ? 'Peinture de cabinetterie à Laval'
-        : 'Cabinetry painting in Laval',
-    },
-    {
-      before: img5977,
-      after: img5978,
-      description: isFr
-        ? 'Peinture de Plafond en Steel Deck industrielle'
-        : 'Industrial Steel Deck ceiling painting',
-    },
-    {
-      before: img5984,
-      after: img5982,
-      description: isFr
-        ? 'Protection et peinture complète d’une maison à Westmount'
-        : 'Protection and complete house painting in Westmount',
-    },
-  ];
 
   return (
     <Fragment>
@@ -404,7 +348,7 @@ export default function PeintreProfessionnelPage() {
         <Container
           maxW="1440px"
           px={{ base: 4, md: 6, lg: 8 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <HStack
             spacing={3}
@@ -518,11 +462,11 @@ export default function PeintreProfessionnelPage() {
         <Container
           maxW="1440px"
           px={{ base: 4, md: 6 }}
-          pt={{ base: 12, md: 16 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg="gray.50"
               borderRadius="xl"
               mb={{ base: 8, md: 12 }}
@@ -616,7 +560,7 @@ export default function PeintreProfessionnelPage() {
             />
 
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg="gray.50"
               borderRadius="xl"
               mb={{ base: 8, md: 12 }}
@@ -710,7 +654,7 @@ export default function PeintreProfessionnelPage() {
             />
 
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg="white"
               borderRadius="xl"
               mb={{ base: 8, md: 12 }}
@@ -738,13 +682,13 @@ export default function PeintreProfessionnelPage() {
                         : 'We have completed hundreds of residential, commercial and exterior projects in the region.'}
                     </Text>
                   </Stack>
-                  <BeforeAfter images={beforeAfterImages} isFr={isFr} />
+                  <BeforeAfter isFr={isFr} />
                 </Stack>
               </Container>
             </Box>
 
             <Box
-              py={{ base: 12, md: 16 }}
+              py={{ base: 12, md: 16, lg: 20 }}
               bg="gray.50"
               borderRadius="xl"
               mb={{ base: 8, md: 12 }}
@@ -834,7 +778,7 @@ export default function PeintreProfessionnelPage() {
 
         <Box
           w="100%"
-          py={{ base: 12, md: 16 }}
+          py={{ base: 12, md: 16, lg: 20 }}
           bg="brand.700"
           mt={{ base: 8, md: 12 }}
         >

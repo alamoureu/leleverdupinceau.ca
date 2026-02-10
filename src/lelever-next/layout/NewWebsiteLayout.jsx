@@ -66,37 +66,27 @@ export default function NewWebsiteLayout() {
         </script>
       </Helmet>
 
-      <Flex
-        direction="column"
-        overflow="hidden"
-        h="100%"
-        px="0"
-        spacing="0"
-        flex="1"
-      >
-        <WebsiteNavBar isNewLanding={isLocaleLanding} />
-
-        <Stack
-          id="main"
-          gap="0"
-          overflowX="none"
-          overflowY="auto"
+      <Box w="100%" maxW="1920px" mx="auto" minH="100%">
+        <Flex
+          direction="column"
+          overflow="hidden"
           h="100%"
-          tabIndex={-1}
-          css={{
-            '&::-webkit-scrollbar': {
-              width: '2px',
-            },
-            '&::-webkit-scrollbar-track': {
-              width: '2px',
-            },
-            '&::-webkit-scrollbar-thumb': {
-              background: 'gray',
-            },
-          }}
+          px="0"
+          spacing="0"
+          flex="1"
         >
-          <Outlet />
-        </Stack>
+          <WebsiteNavBar isNewLanding={isLocaleLanding} />
+
+          <Stack
+            id="main"
+            gap="0"
+            overflowX="hidden"
+            overflowY="auto"
+            h="100%"
+            tabIndex={-1}
+          >
+            <Outlet />
+          </Stack>
 
         {!isLocaleLanding && (
           <Box
@@ -245,7 +235,7 @@ export default function NewWebsiteLayout() {
                     >
                       -{' '}
                       {currentLang === 'fr'
-                        ? 'Peintres pro'
+                        ? 'Peintres professionnels'
                         : 'Professional painters'}
                     </Link>
                   </Stack>
@@ -330,7 +320,7 @@ export default function NewWebsiteLayout() {
                   >
                     leleverdupinceau@gmail.com
                   </Link>
-                  <Text color="white" textStyle="footerLink" wordBreak="break-word">
+                  <Text color="white" textStyle="footerLink" fontSize={{ base: 'sm', sm: 'sm' }} wordBreak="break-word">
                     2175 Rue Saint-Patrick, Montréal, QC H3K 1B4
                   </Text>
                 </Stack>
@@ -392,6 +382,7 @@ export default function NewWebsiteLayout() {
         )}
         <FloatingLanguageToggle />
       </Flex>
+      </Box>
     </Fragment>
   );
 }

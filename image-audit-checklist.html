@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image audit – Le Lever du Pinceau</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, sans-serif; max-width: 1100px; margin: 0 auto; padding: 1.5rem; background: #f5f5f5; }
+    h1 { margin: 0 0 0.5rem; font-size: 1.5rem; }
+    .info { background: #e3f2fd; padding: 0.75rem 1rem; border-radius: 8px; margin-bottom: 1.5rem; font-size: 0.9rem; }
+    .info strong { display: block; margin-bottom: 0.25rem; }
+    .progress { margin-bottom: 1rem; font-size: 0.9rem; color: #555; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+    th, td { padding: 0.5rem 0.75rem; text-align: left; border-bottom: 1px solid #eee; }
+    th { background: #333; color: #fff; font-weight: 600; }
+    td.num { width: 2.5rem; color: #666; }
+    td.path code { font-size: 0.8rem; background: #f0f0f0; padding: 0.2rem 0.4rem; border-radius: 4px; }
+    td.open a { color: #1976d2; text-decoration: none; }
+    td.open a:hover { text-decoration: underline; }
+    tr.checked td { background: #e8f5e9; }
+    tr.checked td.check { color: #2e7d32; }
+    td.notes { min-width: 220px; }
+    .notes-input { width: 100%; min-width: 200px; max-width: 280px; min-height: 72px; padding: 0.5rem 0.6rem; font-size: 0.9rem; border: 1px solid #ddd; border-radius: 6px; resize: vertical; font-family: inherit; }
+    .notes-input:focus { outline: none; border-color: #1976d2; }
+  </style>
+</head>
+<body>
+  <h1>🖼️ Audit des images – toutes les pages</h1>
+  <div class="info">
+    <strong>Avant de commencer</strong>
+    Assurez-vous que le serveur de dev tourne (<code>npm start</code>). Les liens pointent vers <code>http://localhost:5173</code>.
+    Cliquez sur « Ouvrir » pour chaque page, vérifiez que les images correspondent et ont du sens, cochez « Images OK » et ajoutez un commentaire si besoin. Progression et commentaires sont enregistrés dans ce navigateur.
+  </div>
+  <div class="progress" id="progress">Progression: <span id="done">0</span> / 85 cochées</div>
+  <table>
+    <thead><tr><th>#</th><th>Page</th><th>URL</th><th></th><th>Images OK</th><th>Commentaire</th></tr></thead>
+    <tbody>
+    <tr data-path="/">
+      <td class="num">1</td>
+      <td class="label">Accueil</td>
+      <td class="path"><code>/</code></td>
+      <td class="open"><a href="http://localhost:5173/" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-0" data-path="/"> Images OK</label></td>
+      <td class="notes"><textarea id="note-0" data-path="/" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/contact">
+      <td class="num">2</td>
+      <td class="label">Contact</td>
+      <td class="path"><code>/contact</code></td>
+      <td class="open"><a href="http://localhost:5173/contact" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-1" data-path="/contact"> Images OK</label></td>
+      <td class="notes"><textarea id="note-1" data-path="/contact" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/a-propos">
+      <td class="num">3</td>
+      <td class="label">À propos</td>
+      <td class="path"><code>/a-propos</code></td>
+      <td class="open"><a href="http://localhost:5173/a-propos" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-2" data-path="/a-propos"> Images OK</label></td>
+      <td class="notes"><textarea id="note-2" data-path="/a-propos" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/peintre-professionnel">
+      <td class="num">4</td>
+      <td class="label">Peintre professionnel</td>
+      <td class="path"><code>/peintre-professionnel</code></td>
+      <td class="open"><a href="http://localhost:5173/peintre-professionnel" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-3" data-path="/peintre-professionnel"> Images OK</label></td>
+      <td class="notes"><textarea id="note-3" data-path="/peintre-professionnel" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/avis">
+      <td class="num">5</td>
+      <td class="label">Avis clients</td>
+      <td class="path"><code>/avis</code></td>
+      <td class="open"><a href="http://localhost:5173/avis" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-4" data-path="/avis"> Images OK</label></td>
+      <td class="notes"><textarea id="note-4" data-path="/avis" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/secteurs-desservis">
+      <td class="num">6</td>
+      <td class="label">Secteurs desservis</td>
+      <td class="path"><code>/secteurs-desservis</code></td>
+      <td class="open"><a href="http://localhost:5173/secteurs-desservis" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-5" data-path="/secteurs-desservis"> Images OK</label></td>
+      <td class="notes"><textarea id="note-5" data-path="/secteurs-desservis" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services">
+      <td class="num">7</td>
+      <td class="label">Services</td>
+      <td class="path"><code>/services</code></td>
+      <td class="open"><a href="http://localhost:5173/services" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-6" data-path="/services"> Images OK</label></td>
+      <td class="notes"><textarea id="note-6" data-path="/services" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/blog">
+      <td class="num">8</td>
+      <td class="label">Blog</td>
+      <td class="path"><code>/blog</code></td>
+      <td class="open"><a href="http://localhost:5173/blog" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-7" data-path="/blog"> Images OK</label></td>
+      <td class="notes"><textarea id="note-7" data-path="/blog" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/politiques/confidentialite">
+      <td class="num">9</td>
+      <td class="label">Politique de confidentialité</td>
+      <td class="path"><code>/politiques/confidentialite</code></td>
+      <td class="open"><a href="http://localhost:5173/politiques/confidentialite" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-8" data-path="/politiques/confidentialite"> Images OK</label></td>
+      <td class="notes"><textarea id="note-8" data-path="/politiques/confidentialite" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/politiques/termes-conditions">
+      <td class="num">10</td>
+      <td class="label">Termes et conditions</td>
+      <td class="path"><code>/politiques/termes-conditions</code></td>
+      <td class="open"><a href="http://localhost:5173/politiques/termes-conditions" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-9" data-path="/politiques/termes-conditions"> Images OK</label></td>
+      <td class="notes"><textarea id="note-9" data-path="/politiques/termes-conditions" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/secteurs-desservis/brossard">
+      <td class="num">11</td>
+      <td class="label">Secteurs – Brossard</td>
+      <td class="path"><code>/secteurs-desservis/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/secteurs-desservis/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-10" data-path="/secteurs-desservis/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-10" data-path="/secteurs-desservis/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/secteurs-desservis/montreal">
+      <td class="num">12</td>
+      <td class="label">Secteurs – Montréal</td>
+      <td class="path"><code>/secteurs-desservis/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/secteurs-desservis/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-11" data-path="/secteurs-desservis/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-11" data-path="/secteurs-desservis/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/secteurs-desservis/laval">
+      <td class="num">13</td>
+      <td class="label">Secteurs – Laval</td>
+      <td class="path"><code>/secteurs-desservis/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/secteurs-desservis/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-12" data-path="/secteurs-desservis/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-12" data-path="/secteurs-desservis/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/secteurs-desservis/longueuil">
+      <td class="num">14</td>
+      <td class="label">Secteurs – Longueuil</td>
+      <td class="path"><code>/secteurs-desservis/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/secteurs-desservis/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-13" data-path="/secteurs-desservis/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-13" data-path="/secteurs-desservis/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale">
+      <td class="num">15</td>
+      <td class="label">Service – Peinture commerciale</td>
+      <td class="path"><code>/services/peinture-commerciale</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-14" data-path="/services/peinture-commerciale"> Images OK</label></td>
+      <td class="notes"><textarea id="note-14" data-path="/services/peinture-commerciale" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle">
+      <td class="num">16</td>
+      <td class="label">Service – Peinture résidentielle</td>
+      <td class="path"><code>/services/peinture-residentielle</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-15" data-path="/services/peinture-residentielle"> Images OK</label></td>
+      <td class="notes"><textarea id="note-15" data-path="/services/peinture-residentielle" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure">
+      <td class="num">17</td>
+      <td class="label">Service – Peinture intérieure</td>
+      <td class="path"><code>/services/peinture-interieure</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-16" data-path="/services/peinture-interieure"> Images OK</label></td>
+      <td class="notes"><textarea id="note-16" data-path="/services/peinture-interieure" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-exterieure">
+      <td class="num">18</td>
+      <td class="label">Service – Peinture extérieure</td>
+      <td class="path"><code>/services/peinture-exterieure</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-exterieure" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-17" data-path="/services/peinture-exterieure"> Images OK</label></td>
+      <td class="notes"><textarea id="note-17" data-path="/services/peinture-exterieure" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-industrielle">
+      <td class="num">19</td>
+      <td class="label">Service – Peinture industrielle</td>
+      <td class="path"><code>/services/peinture-industrielle</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-industrielle" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-18" data-path="/services/peinture-industrielle"> Images OK</label></td>
+      <td class="notes"><textarea id="note-18" data-path="/services/peinture-industrielle" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/interieure">
+      <td class="num">20</td>
+      <td class="label">Sous-service – Commerciale intérieure</td>
+      <td class="path"><code>/services/peinture-commerciale/interieure</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/interieure" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-19" data-path="/services/peinture-commerciale/interieure"> Images OK</label></td>
+      <td class="notes"><textarea id="note-19" data-path="/services/peinture-commerciale/interieure" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/exterieure">
+      <td class="num">21</td>
+      <td class="label">Sous-service – Commerciale extérieure</td>
+      <td class="path"><code>/services/peinture-commerciale/exterieure</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/exterieure" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-20" data-path="/services/peinture-commerciale/exterieure"> Images OK</label></td>
+      <td class="notes"><textarea id="note-20" data-path="/services/peinture-commerciale/exterieure" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/interieure">
+      <td class="num">22</td>
+      <td class="label">Sous-service – Résidentielle intérieure</td>
+      <td class="path"><code>/services/peinture-residentielle/interieure</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/interieure" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-21" data-path="/services/peinture-residentielle/interieure"> Images OK</label></td>
+      <td class="notes"><textarea id="note-21" data-path="/services/peinture-residentielle/interieure" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/exterieure">
+      <td class="num">23</td>
+      <td class="label">Sous-service – Résidentielle extérieure</td>
+      <td class="path"><code>/services/peinture-residentielle/exterieure</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/exterieure" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-22" data-path="/services/peinture-residentielle/exterieure"> Images OK</label></td>
+      <td class="notes"><textarea id="note-22" data-path="/services/peinture-residentielle/exterieure" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/montreal">
+      <td class="num">24</td>
+      <td class="label">Commerciale – Montréal</td>
+      <td class="path"><code>/services/peinture-commerciale/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-23" data-path="/services/peinture-commerciale/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-23" data-path="/services/peinture-commerciale/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/laval">
+      <td class="num">25</td>
+      <td class="label">Commerciale – Laval</td>
+      <td class="path"><code>/services/peinture-commerciale/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-24" data-path="/services/peinture-commerciale/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-24" data-path="/services/peinture-commerciale/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/longueuil">
+      <td class="num">26</td>
+      <td class="label">Commerciale – Longueuil</td>
+      <td class="path"><code>/services/peinture-commerciale/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-25" data-path="/services/peinture-commerciale/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-25" data-path="/services/peinture-commerciale/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/brossard">
+      <td class="num">27</td>
+      <td class="label">Commerciale – Brossard</td>
+      <td class="path"><code>/services/peinture-commerciale/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-26" data-path="/services/peinture-commerciale/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-26" data-path="/services/peinture-commerciale/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/montreal">
+      <td class="num">28</td>
+      <td class="label">Résidentielle – Montréal</td>
+      <td class="path"><code>/services/peinture-residentielle/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-27" data-path="/services/peinture-residentielle/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-27" data-path="/services/peinture-residentielle/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/laval">
+      <td class="num">29</td>
+      <td class="label">Résidentielle – Laval</td>
+      <td class="path"><code>/services/peinture-residentielle/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-28" data-path="/services/peinture-residentielle/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-28" data-path="/services/peinture-residentielle/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/longueuil">
+      <td class="num">30</td>
+      <td class="label">Résidentielle – Longueuil</td>
+      <td class="path"><code>/services/peinture-residentielle/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-29" data-path="/services/peinture-residentielle/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-29" data-path="/services/peinture-residentielle/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/brossard">
+      <td class="num">31</td>
+      <td class="label">Résidentielle – Brossard</td>
+      <td class="path"><code>/services/peinture-residentielle/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-30" data-path="/services/peinture-residentielle/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-30" data-path="/services/peinture-residentielle/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal">
+      <td class="num">32</td>
+      <td class="label">Intérieure – Montréal</td>
+      <td class="path"><code>/services/peinture-interieure/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-31" data-path="/services/peinture-interieure/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-31" data-path="/services/peinture-interieure/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/laval">
+      <td class="num">33</td>
+      <td class="label">Intérieure – Laval</td>
+      <td class="path"><code>/services/peinture-interieure/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-32" data-path="/services/peinture-interieure/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-32" data-path="/services/peinture-interieure/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/longueuil">
+      <td class="num">34</td>
+      <td class="label">Intérieure – Longueuil</td>
+      <td class="path"><code>/services/peinture-interieure/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-33" data-path="/services/peinture-interieure/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-33" data-path="/services/peinture-interieure/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/brossard">
+      <td class="num">35</td>
+      <td class="label">Intérieure – Brossard</td>
+      <td class="path"><code>/services/peinture-interieure/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-34" data-path="/services/peinture-interieure/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-34" data-path="/services/peinture-interieure/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-exterieure/montreal">
+      <td class="num">36</td>
+      <td class="label">Extérieure – Montréal</td>
+      <td class="path"><code>/services/peinture-exterieure/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-exterieure/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-35" data-path="/services/peinture-exterieure/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-35" data-path="/services/peinture-exterieure/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-exterieure/laval">
+      <td class="num">37</td>
+      <td class="label">Extérieure – Laval</td>
+      <td class="path"><code>/services/peinture-exterieure/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-exterieure/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-36" data-path="/services/peinture-exterieure/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-36" data-path="/services/peinture-exterieure/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-exterieure/longueuil">
+      <td class="num">38</td>
+      <td class="label">Extérieure – Longueuil</td>
+      <td class="path"><code>/services/peinture-exterieure/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-exterieure/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-37" data-path="/services/peinture-exterieure/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-37" data-path="/services/peinture-exterieure/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-exterieure/brossard">
+      <td class="num">39</td>
+      <td class="label">Extérieure – Brossard</td>
+      <td class="path"><code>/services/peinture-exterieure/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-exterieure/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-38" data-path="/services/peinture-exterieure/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-38" data-path="/services/peinture-exterieure/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-industrielle/montreal">
+      <td class="num">40</td>
+      <td class="label">Industrielle – Montréal</td>
+      <td class="path"><code>/services/peinture-industrielle/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-industrielle/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-39" data-path="/services/peinture-industrielle/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-39" data-path="/services/peinture-industrielle/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-industrielle/laval">
+      <td class="num">41</td>
+      <td class="label">Industrielle – Laval</td>
+      <td class="path"><code>/services/peinture-industrielle/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-industrielle/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-40" data-path="/services/peinture-industrielle/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-40" data-path="/services/peinture-industrielle/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-industrielle/longueuil">
+      <td class="num">42</td>
+      <td class="label">Industrielle – Longueuil</td>
+      <td class="path"><code>/services/peinture-industrielle/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-industrielle/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-41" data-path="/services/peinture-industrielle/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-41" data-path="/services/peinture-industrielle/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-industrielle/brossard">
+      <td class="num">43</td>
+      <td class="label">Industrielle – Brossard</td>
+      <td class="path"><code>/services/peinture-industrielle/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-industrielle/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-42" data-path="/services/peinture-industrielle/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-42" data-path="/services/peinture-industrielle/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/interieure/montreal">
+      <td class="num">44</td>
+      <td class="label">Comm. int. – Montréal</td>
+      <td class="path"><code>/services/peinture-commerciale/interieure/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/interieure/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-43" data-path="/services/peinture-commerciale/interieure/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-43" data-path="/services/peinture-commerciale/interieure/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/interieure/laval">
+      <td class="num">45</td>
+      <td class="label">Comm. int. – Laval</td>
+      <td class="path"><code>/services/peinture-commerciale/interieure/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/interieure/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-44" data-path="/services/peinture-commerciale/interieure/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-44" data-path="/services/peinture-commerciale/interieure/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/interieure/longueuil">
+      <td class="num">46</td>
+      <td class="label">Comm. int. – Longueuil</td>
+      <td class="path"><code>/services/peinture-commerciale/interieure/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/interieure/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-45" data-path="/services/peinture-commerciale/interieure/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-45" data-path="/services/peinture-commerciale/interieure/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/interieure/brossard">
+      <td class="num">47</td>
+      <td class="label">Comm. int. – Brossard</td>
+      <td class="path"><code>/services/peinture-commerciale/interieure/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/interieure/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-46" data-path="/services/peinture-commerciale/interieure/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-46" data-path="/services/peinture-commerciale/interieure/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/exterieure/montreal">
+      <td class="num">48</td>
+      <td class="label">Comm. ext. – Montréal</td>
+      <td class="path"><code>/services/peinture-commerciale/exterieure/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/exterieure/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-47" data-path="/services/peinture-commerciale/exterieure/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-47" data-path="/services/peinture-commerciale/exterieure/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/exterieure/laval">
+      <td class="num">49</td>
+      <td class="label">Comm. ext. – Laval</td>
+      <td class="path"><code>/services/peinture-commerciale/exterieure/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/exterieure/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-48" data-path="/services/peinture-commerciale/exterieure/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-48" data-path="/services/peinture-commerciale/exterieure/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/exterieure/longueuil">
+      <td class="num">50</td>
+      <td class="label">Comm. ext. – Longueuil</td>
+      <td class="path"><code>/services/peinture-commerciale/exterieure/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/exterieure/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-49" data-path="/services/peinture-commerciale/exterieure/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-49" data-path="/services/peinture-commerciale/exterieure/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-commerciale/exterieure/brossard">
+      <td class="num">51</td>
+      <td class="label">Comm. ext. – Brossard</td>
+      <td class="path"><code>/services/peinture-commerciale/exterieure/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-commerciale/exterieure/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-50" data-path="/services/peinture-commerciale/exterieure/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-50" data-path="/services/peinture-commerciale/exterieure/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/interieure/montreal">
+      <td class="num">52</td>
+      <td class="label">Rés. int. – Montréal</td>
+      <td class="path"><code>/services/peinture-residentielle/interieure/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/interieure/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-51" data-path="/services/peinture-residentielle/interieure/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-51" data-path="/services/peinture-residentielle/interieure/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/interieure/laval">
+      <td class="num">53</td>
+      <td class="label">Rés. int. – Laval</td>
+      <td class="path"><code>/services/peinture-residentielle/interieure/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/interieure/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-52" data-path="/services/peinture-residentielle/interieure/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-52" data-path="/services/peinture-residentielle/interieure/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/interieure/longueuil">
+      <td class="num">54</td>
+      <td class="label">Rés. int. – Longueuil</td>
+      <td class="path"><code>/services/peinture-residentielle/interieure/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/interieure/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-53" data-path="/services/peinture-residentielle/interieure/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-53" data-path="/services/peinture-residentielle/interieure/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/interieure/brossard">
+      <td class="num">55</td>
+      <td class="label">Rés. int. – Brossard</td>
+      <td class="path"><code>/services/peinture-residentielle/interieure/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/interieure/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-54" data-path="/services/peinture-residentielle/interieure/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-54" data-path="/services/peinture-residentielle/interieure/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/exterieure/montreal">
+      <td class="num">56</td>
+      <td class="label">Rés. ext. – Montréal</td>
+      <td class="path"><code>/services/peinture-residentielle/exterieure/montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/exterieure/montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-55" data-path="/services/peinture-residentielle/exterieure/montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-55" data-path="/services/peinture-residentielle/exterieure/montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/exterieure/laval">
+      <td class="num">57</td>
+      <td class="label">Rés. ext. – Laval</td>
+      <td class="path"><code>/services/peinture-residentielle/exterieure/laval</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/exterieure/laval" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-56" data-path="/services/peinture-residentielle/exterieure/laval"> Images OK</label></td>
+      <td class="notes"><textarea id="note-56" data-path="/services/peinture-residentielle/exterieure/laval" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/exterieure/longueuil">
+      <td class="num">58</td>
+      <td class="label">Rés. ext. – Longueuil</td>
+      <td class="path"><code>/services/peinture-residentielle/exterieure/longueuil</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/exterieure/longueuil" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-57" data-path="/services/peinture-residentielle/exterieure/longueuil"> Images OK</label></td>
+      <td class="notes"><textarea id="note-57" data-path="/services/peinture-residentielle/exterieure/longueuil" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-residentielle/exterieure/brossard">
+      <td class="num">59</td>
+      <td class="label">Rés. ext. – Brossard</td>
+      <td class="path"><code>/services/peinture-residentielle/exterieure/brossard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-residentielle/exterieure/brossard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-58" data-path="/services/peinture-residentielle/exterieure/brossard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-58" data-path="/services/peinture-residentielle/exterieure/brossard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/ahuntsic">
+      <td class="num">60</td>
+      <td class="label">Int. Montréal – Ahuntsic</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/ahuntsic</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/ahuntsic" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-59" data-path="/services/peinture-interieure/montreal/ahuntsic"> Images OK</label></td>
+      <td class="notes"><textarea id="note-59" data-path="/services/peinture-interieure/montreal/ahuntsic" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/bois-franc">
+      <td class="num">61</td>
+      <td class="label">Int. Montréal – Bois-Franc</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/bois-franc</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/bois-franc" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-60" data-path="/services/peinture-interieure/montreal/bois-franc"> Images OK</label></td>
+      <td class="notes"><textarea id="note-60" data-path="/services/peinture-interieure/montreal/bois-franc" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/centre-ville">
+      <td class="num">62</td>
+      <td class="label">Int. Montréal – Centre-ville</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/centre-ville</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/centre-ville" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-61" data-path="/services/peinture-interieure/montreal/centre-ville"> Images OK</label></td>
+      <td class="notes"><textarea id="note-61" data-path="/services/peinture-interieure/montreal/centre-ville" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/cote-des-neiges">
+      <td class="num">63</td>
+      <td class="label">Int. Montréal – Côte-des-Neiges</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/cote-des-neiges</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/cote-des-neiges" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-62" data-path="/services/peinture-interieure/montreal/cote-des-neiges"> Images OK</label></td>
+      <td class="notes"><textarea id="note-62" data-path="/services/peinture-interieure/montreal/cote-des-neiges" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/griffintown">
+      <td class="num">64</td>
+      <td class="label">Int. Montréal – Griffintown</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/griffintown</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/griffintown" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-63" data-path="/services/peinture-interieure/montreal/griffintown"> Images OK</label></td>
+      <td class="notes"><textarea id="note-63" data-path="/services/peinture-interieure/montreal/griffintown" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/hochelaga">
+      <td class="num">65</td>
+      <td class="label">Int. Montréal – Hochelaga</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/hochelaga</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/hochelaga" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-64" data-path="/services/peinture-interieure/montreal/hochelaga"> Images OK</label></td>
+      <td class="notes"><textarea id="note-64" data-path="/services/peinture-interieure/montreal/hochelaga" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/ile-des-soeurs">
+      <td class="num">66</td>
+      <td class="label">Int. Montréal – Île-des-Sœurs</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/ile-des-soeurs</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/ile-des-soeurs" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-65" data-path="/services/peinture-interieure/montreal/ile-des-soeurs"> Images OK</label></td>
+      <td class="notes"><textarea id="note-65" data-path="/services/peinture-interieure/montreal/ile-des-soeurs" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/lachine">
+      <td class="num">67</td>
+      <td class="label">Int. Montréal – Lachine</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/lachine</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/lachine" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-66" data-path="/services/peinture-interieure/montreal/lachine"> Images OK</label></td>
+      <td class="notes"><textarea id="note-66" data-path="/services/peinture-interieure/montreal/lachine" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/lasalle">
+      <td class="num">68</td>
+      <td class="label">Int. Montréal – LaSalle</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/lasalle</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/lasalle" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-67" data-path="/services/peinture-interieure/montreal/lasalle"> Images OK</label></td>
+      <td class="notes"><textarea id="note-67" data-path="/services/peinture-interieure/montreal/lasalle" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/le-village">
+      <td class="num">69</td>
+      <td class="label">Int. Montréal – Le Village</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/le-village</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/le-village" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-68" data-path="/services/peinture-interieure/montreal/le-village"> Images OK</label></td>
+      <td class="notes"><textarea id="note-68" data-path="/services/peinture-interieure/montreal/le-village" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/mile-end">
+      <td class="num">70</td>
+      <td class="label">Int. Montréal – Mile End</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/mile-end</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/mile-end" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-69" data-path="/services/peinture-interieure/montreal/mile-end"> Images OK</label></td>
+      <td class="notes"><textarea id="note-69" data-path="/services/peinture-interieure/montreal/mile-end" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/notre-dame-de-grace">
+      <td class="num">71</td>
+      <td class="label">Int. Montréal – NDG</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/notre-dame-de-grace</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/notre-dame-de-grace" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-70" data-path="/services/peinture-interieure/montreal/notre-dame-de-grace"> Images OK</label></td>
+      <td class="notes"><textarea id="note-70" data-path="/services/peinture-interieure/montreal/notre-dame-de-grace" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/outremont">
+      <td class="num">72</td>
+      <td class="label">Int. Montréal – Outremont</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/outremont</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/outremont" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-71" data-path="/services/peinture-interieure/montreal/outremont"> Images OK</label></td>
+      <td class="notes"><textarea id="note-71" data-path="/services/peinture-interieure/montreal/outremont" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/plateau-mont-royal">
+      <td class="num">73</td>
+      <td class="label">Int. Montréal – Plateau</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/plateau-mont-royal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/plateau-mont-royal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-72" data-path="/services/peinture-interieure/montreal/plateau-mont-royal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-72" data-path="/services/peinture-interieure/montreal/plateau-mont-royal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/pointe-saint-charles">
+      <td class="num">74</td>
+      <td class="label">Int. Montréal – Pointe-Saint-Charles</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/pointe-saint-charles</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/pointe-saint-charles" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-73" data-path="/services/peinture-interieure/montreal/pointe-saint-charles"> Images OK</label></td>
+      <td class="notes"><textarea id="note-73" data-path="/services/peinture-interieure/montreal/pointe-saint-charles" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/rosemont-petite-patrie">
+      <td class="num">75</td>
+      <td class="label">Int. Montréal – Rosemont</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/rosemont-petite-patrie</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/rosemont-petite-patrie" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-74" data-path="/services/peinture-interieure/montreal/rosemont-petite-patrie"> Images OK</label></td>
+      <td class="notes"><textarea id="note-74" data-path="/services/peinture-interieure/montreal/rosemont-petite-patrie" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/saint-henri">
+      <td class="num">76</td>
+      <td class="label">Int. Montréal – Saint-Henri</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/saint-henri</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/saint-henri" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-75" data-path="/services/peinture-interieure/montreal/saint-henri"> Images OK</label></td>
+      <td class="notes"><textarea id="note-75" data-path="/services/peinture-interieure/montreal/saint-henri" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/saint-leonard">
+      <td class="num">77</td>
+      <td class="label">Int. Montréal – Saint-Léonard</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/saint-leonard</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/saint-leonard" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-76" data-path="/services/peinture-interieure/montreal/saint-leonard"> Images OK</label></td>
+      <td class="notes"><textarea id="note-76" data-path="/services/peinture-interieure/montreal/saint-leonard" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/verdun">
+      <td class="num">78</td>
+      <td class="label">Int. Montréal – Verdun</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/verdun</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/verdun" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-77" data-path="/services/peinture-interieure/montreal/verdun"> Images OK</label></td>
+      <td class="notes"><textarea id="note-77" data-path="/services/peinture-interieure/montreal/verdun" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/ville-mont-royal">
+      <td class="num">79</td>
+      <td class="label">Int. Montréal – Ville Mont-Royal</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/ville-mont-royal</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/ville-mont-royal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-78" data-path="/services/peinture-interieure/montreal/ville-mont-royal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-78" data-path="/services/peinture-interieure/montreal/ville-mont-royal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/villeray">
+      <td class="num">80</td>
+      <td class="label">Int. Montréal – Villeray</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/villeray</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/villeray" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-79" data-path="/services/peinture-interieure/montreal/villeray"> Images OK</label></td>
+      <td class="notes"><textarea id="note-79" data-path="/services/peinture-interieure/montreal/villeray" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/ville-saint-laurent">
+      <td class="num">81</td>
+      <td class="label">Int. Montréal – Ville Saint-Laurent</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/ville-saint-laurent</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/ville-saint-laurent" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-80" data-path="/services/peinture-interieure/montreal/ville-saint-laurent"> Images OK</label></td>
+      <td class="notes"><textarea id="note-80" data-path="/services/peinture-interieure/montreal/ville-saint-laurent" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/services/peinture-interieure/montreal/westmount">
+      <td class="num">82</td>
+      <td class="label">Int. Montréal – Westmount</td>
+      <td class="path"><code>/services/peinture-interieure/montreal/westmount</code></td>
+      <td class="open"><a href="http://localhost:5173/services/peinture-interieure/montreal/westmount" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-81" data-path="/services/peinture-interieure/montreal/westmount"> Images OK</label></td>
+      <td class="notes"><textarea id="note-81" data-path="/services/peinture-interieure/montreal/westmount" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/blog/comment-choisir-un-peintre-professionnel">
+      <td class="num">83</td>
+      <td class="label">Blog – Comment choisir un peintre</td>
+      <td class="path"><code>/blog/comment-choisir-un-peintre-professionnel</code></td>
+      <td class="open"><a href="http://localhost:5173/blog/comment-choisir-un-peintre-professionnel" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-82" data-path="/blog/comment-choisir-un-peintre-professionnel"> Images OK</label></td>
+      <td class="notes"><textarea id="note-82" data-path="/blog/comment-choisir-un-peintre-professionnel" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/blog/prix-peinture-montreal">
+      <td class="num">84</td>
+      <td class="label">Blog – Prix peinture Montréal</td>
+      <td class="path"><code>/blog/prix-peinture-montreal</code></td>
+      <td class="open"><a href="http://localhost:5173/blog/prix-peinture-montreal" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-83" data-path="/blog/prix-peinture-montreal"> Images OK</label></td>
+      <td class="notes"><textarea id="note-83" data-path="/blog/prix-peinture-montreal" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr>
+    <tr data-path="/blog/erreurs-a-eviter-peinture-interieure">
+      <td class="num">85</td>
+      <td class="label">Blog – Erreurs à éviter</td>
+      <td class="path"><code>/blog/erreurs-a-eviter-peinture-interieure</code></td>
+      <td class="open"><a href="http://localhost:5173/blog/erreurs-a-eviter-peinture-interieure" target="_blank" rel="noopener">Ouvrir ↗</a></td>
+      <td class="check"><label><input type="checkbox" id="page-84" data-path="/blog/erreurs-a-eviter-peinture-interieure"> Images OK</label></td>
+      <td class="notes"><textarea id="note-84" data-path="/blog/erreurs-a-eviter-peinture-interieure" placeholder="Commentaire..." class="notes-input" rows="3"></textarea></td>
+    </tr></tbody>
+  </table>
+  <script>
+    (function() {
+      var key = 'lelever-image-audit';
+      var notesKey = 'lelever-image-audit-notes';
+      var checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+      var noteInputs = document.querySelectorAll('tbody textarea.notes-input');
+      function load() {
+        try {
+          var saved = JSON.parse(localStorage.getItem(key) || '{}');
+          checkboxes.forEach(function(cb) {
+            cb.checked = !!saved[cb.dataset.path];
+            cb.closest('tr').classList.toggle('checked', cb.checked);
+          });
+          var savedNotes = JSON.parse(localStorage.getItem(notesKey) || '{}');
+          noteInputs.forEach(function(inp) {
+            inp.value = savedNotes[inp.dataset.path] || '';
+          });
+        } catch (e) {}
+        updateProgress();
+      }
+      function save() {
+        var o = {};
+        checkboxes.forEach(function(cb) { o[cb.dataset.path] = cb.checked; });
+        localStorage.setItem(key, JSON.stringify(o));
+        updateProgress();
+      }
+      function saveNotes() {
+        var o = {};
+        noteInputs.forEach(function(inp) { o[inp.dataset.path] = inp.value; });
+        localStorage.setItem(notesKey, JSON.stringify(o));
+      }
+      function updateProgress() {
+        var n = 0;
+        checkboxes.forEach(function(cb) { if (cb.checked) n++; });
+        document.getElementById('done').textContent = n;
+        checkboxes.forEach(function(cb) {
+          cb.closest('tr').classList.toggle('checked', cb.checked);
+        });
+      }
+      checkboxes.forEach(function(cb) {
+        cb.addEventListener('change', function() { save(); });
+      });
+      noteInputs.forEach(function(inp) {
+        inp.addEventListener('input', function() { saveNotes(); });
+        inp.addEventListener('change', function() { saveNotes(); });
+      });
+      load();
+    })();
+  </script>
+</body>
+</html>

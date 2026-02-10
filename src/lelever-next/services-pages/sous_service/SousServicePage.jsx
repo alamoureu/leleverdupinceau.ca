@@ -175,7 +175,7 @@ export default function SousServicePage() {
           <Container
             maxW='1440px'
             px={{ base: 4, md: 6 }}
-            pt={{ base: 8, md: 12 }}
+            pt={{ base: 12, md: 16, lg: 20 }}
           >
             <Stack spacing={0}>
               {/* Breadcrumb */}
@@ -414,7 +414,7 @@ export default function SousServicePage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumb */}
@@ -534,7 +534,7 @@ export default function SousServicePage() {
 
             {/* Section 2 — Sous-service parent + services reliés */}
             {pageData.complementaryServices && (
-              <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }}>
+              <Box py={{ base: 12, md: 16, lg: 20 }}>
                 <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                   <Stack spacing={8}>
                     <Heading
@@ -619,7 +619,7 @@ export default function SousServicePage() {
               serviceSlug === 'peinture-commerciale' &&
               subServiceSlug === 'interieure' && (
                 <Box
-                  py={{ base: 12, md: 16 }}
+                  py={{ base: 12, md: 16, lg: 20 }}
                   mb={{ base: 8, md: 12 }}
                   bg='gray.50'
                   borderRadius='xl'
@@ -666,7 +666,7 @@ export default function SousServicePage() {
               serviceSlug === 'peinture-commerciale' &&
               subServiceSlug === 'interieure' && (
                 <Box
-                  py={{ base: 12, md: 16 }}
+                  py={{ base: 12, md: 16, lg: 20 }}
                   mb={{ base: 8, md: 12 }}
                   bg='gray.50'
                 >

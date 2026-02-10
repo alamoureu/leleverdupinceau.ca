@@ -15,7 +15,6 @@ import {
 import appContext from '../../../AppProvider';
 import ServiceWhyUsSection from '../components/ServiceWhyUsSection';
 import ServiceSubServicesSection from '../components/ServiceSubServicesSection';
-import CustomProjectsSection from '../../city-pages/CustomProjectsSection';
 import ServiceQuartierGuidesSection from './components/ServiceQuartierGuidesSection';
 import ServiceQuartierAboutSection from './components/ServiceQuartierAboutSection';
 import ServiceQuartierSectorsSection from './components/ServiceQuartierSectorsSection';
@@ -161,7 +160,7 @@ export default function ServiceQuartierPage() {
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
-          pt={{ base: 8, md: 12 }}
+          pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
             {/* Breadcrumb */}
@@ -317,28 +316,19 @@ export default function ServiceQuartierPage() {
               />
             )}
 
-            {/* Section 3 — Exemples de projets */}
-            {city.projects && city.projects[isFr ? 'fr' : 'en'] && (
-              <CustomProjectsSection
-                title={city.projectsTitle[isFr ? 'fr' : 'en']}
-                subtitle={isFr ? 'Exemples :' : 'Examples:'}
-                projects={city.projects[isFr ? 'fr' : 'en']}
-              />
-            )}
-
-            {/* Section 4 — Guides utiles */}
+            {/* Section 3 — Guides utiles */}
             <ServiceQuartierGuidesSection
               title={city.guidesTitle[isFr ? 'fr' : 'en']}
               guides={guides}
             />
 
-            {/* Section 5 — À propos de nos peintres */}
+            {/* Section 4 — À propos de nos peintres */}
             <ServiceQuartierAboutSection
               title={city.aboutTitle[isFr ? 'fr' : 'en']}
               description={city.aboutDescription[isFr ? 'fr' : 'en']}
             />
 
-            {/* Section 6 — Secteurs desservis (only if sectors exist) */}
+            {/* Section 5 — Secteurs desservis (only if sectors exist) */}
             {city.sectors && city.sectors.length > 0 && (
               <ServiceQuartierSectorsSection
                 title={

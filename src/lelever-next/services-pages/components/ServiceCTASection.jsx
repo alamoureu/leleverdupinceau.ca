@@ -29,7 +29,7 @@ export default function ServiceCTASection({ title, description, buttonText }) {
   return (
     <Box
       w='100%'
-      py={{ base: 12, md: 16 }}
+      py={{ base: 12, md: 16, lg: 20 }}
       bg='brand.700'
       mt={{ base: 8, md: 12 }}
     >

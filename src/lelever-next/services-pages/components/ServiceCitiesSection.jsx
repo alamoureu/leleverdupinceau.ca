@@ -35,7 +35,7 @@ export default function ServiceCitiesSection({
     : 'Available throughout Greater Montreal';
 
   return (
-    <Box py={{ base: 12, md: 16 }} mb={{ base: 8, md: 12 }} bg='gray.50'>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={12}>
           <Stack spacing={4} textAlign='center'>
