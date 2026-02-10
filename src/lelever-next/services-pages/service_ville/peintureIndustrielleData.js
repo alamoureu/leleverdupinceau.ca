@@ -197,6 +197,64 @@ export const peintureIndustrielleData = {
           { src: img5973, alt: 'Peinture industrielle Brossard' },
           { src: img5974, alt: 'Peinture industrielle Brossard' },
         ],
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture industrielle à Brossard',
+          en: 'Frequently asked questions – Industrial painting in Brossard',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Quels types de bâtiments et installations industrielles peignez-vous à Brossard ?',
+              answer:
+                "Nous peignons tous types d'installations industrielles : entrepôts, centres logistiques, usines, ateliers mécaniques, centres de distribution, bâtiments manufacturiers, structures métalliques, planchers époxy, zones de chargement et espaces techniques dans les secteurs R, S, T, C et V.",
+            },
+            {
+              question:
+                'Utilisez-vous des revêtements spécialisés (anticorrosion, époxy, polyuréthane) pour environnements industriels ?',
+              answer:
+                "Oui, nous utilisons des revêtements industriels haute performance : peintures anticorrosion pour métal, époxy pour planchers (résistant aux chocs et produits chimiques), polyuréthane pour zones extérieures, et revêtements ignifuges si nécessaire. Chaque produit est sélectionné selon l'usage.",
+            },
+            {
+              question:
+                "Travaillez-vous en dehors des heures de production pour éviter l'arrêt des opérations ?",
+              answer:
+                "Oui, nous adaptons notre horaire à votre réalité opérationnelle : soir, nuit, fins de semaine, périodes de fermeture planifiée. Nous minimisons l'impact sur votre production et coordonnons avec vos équipes pour assurer la sécurité.",
+            },
+            {
+              question:
+                'Respectez-vous les normes de sécurité industrielles (CNESST, EPI, travail en hauteur) ?',
+              answer:
+                'Oui, nous respectons toutes les normes CNESST, utilisons les EPI requis, gérons le travail en hauteur avec équipements certifiés (harnais, lignes de vie), et suivons les protocoles de sécurité pour zones industrielles (signalisation, cadenassage, espaces confinés).',
+            },
+          ],
+          en: [
+            {
+              question:
+                'What types of industrial buildings and facilities do you paint in Brossard?',
+              answer:
+                'We paint all types of industrial facilities: warehouses, logistics centers, factories, mechanical workshops, distribution centers, manufacturing buildings, metal structures, epoxy floors, loading zones and technical spaces in sectors R, S, T, C and V.',
+            },
+            {
+              question:
+                'Do you use specialized coatings (anti-corrosion, epoxy, polyurethane) for industrial environments?',
+              answer:
+                'Yes, we use high-performance industrial coatings: anti-corrosion paints for metal, epoxy for floors (resistant to impacts and chemicals), polyurethane for outdoor areas, and fire-resistant coatings if necessary. Each product is selected according to use.',
+            },
+            {
+              question:
+                'Do you work outside production hours to avoid operations shutdown?',
+              answer:
+                'Yes, we adapt our schedule to your operational reality: evening, night, weekends, planned closure periods. We minimize impact on your production and coordinate with your teams to ensure safety.',
+            },
+            {
+              question:
+                'Do you respect industrial safety standards (CNESST, PPE, work at height)?',
+              answer:
+                'Yes, we respect all CNESST standards, use required PPE, manage work at height with certified equipment (harnesses, lifelines), and follow safety protocols for industrial areas (signage, lockout, confined spaces).',
+            },
+          ],
+        },
       },
       laval: {
         name: { fr: 'Laval', en: 'Laval' },
@@ -385,6 +443,64 @@ export const peintureIndustrielleData = {
           { src: img5973, alt: 'Peinture industrielle Laval' },
           { src: img5974, alt: 'Peinture industrielle Laval' },
         ],
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture industrielle à Laval',
+          en: 'Frequently asked questions – Industrial painting in Laval',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Quelles zones et installations industrielles de Laval desservez-vous ?',
+              answer:
+                "Nous travaillons dans toutes les zones industrielles de Laval : Chomedey, Sainte-Rose, Vimont, secteurs industriels près de l'autoroute 440 et 15. Nous peignons entrepôts, usines, ateliers mécaniques, centres logistiques, bâtiments manufacturiers et structures métalliques.",
+            },
+            {
+              question:
+                'Utilisez-vous des revêtements industriels spécialisés (époxy, anticorrosion, ignifuges) ?',
+              answer:
+                'Oui, nous utilisons des revêtements industriels haute performance : époxy pour planchers (résistant aux impacts, produits chimiques), anticorrosion pour métal (structures, équipements), polyuréthane pour extérieurs, ignifuges si requis. Sélection selon contraintes spécifiques.',
+            },
+            {
+              question:
+                'Combien coûte un projet de peinture industrielle à Laval (entrepôt, usine, atelier) ?',
+              answer:
+                "Le prix varie selon la superficie, le type de revêtement, la préparation nécessaire (sablage, dégraissage) et la complexité. Comptez entre 5 000 $ et 50 000 $ pour un projet moyen. Grands complexes industriels : jusqu'à 150 000 $ et plus. Soumission gratuite après évaluation.",
+            },
+            {
+              question:
+                "Travaillez-vous en dehors des heures de production pour minimiser l'impact opérationnel ?",
+              answer:
+                "Oui, nous planifions les travaux selon vos besoins : soir, nuit, fins de semaine, arrêts planifiés. Coordination avec vos équipes pour assurer la sécurité et minimiser l'interruption des opérations. Nous respectons vos protocoles internes.",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Which industrial zones and facilities in Laval do you serve?',
+              answer:
+                'We work in all Laval industrial zones: Chomedey, Sainte-Rose, Vimont, industrial sectors near Highway 440 and 15. We paint warehouses, factories, mechanical workshops, logistics centers, manufacturing buildings and metal structures.',
+            },
+            {
+              question:
+                'Do you use specialized industrial coatings (epoxy, anti-corrosion, fire-resistant)?',
+              answer:
+                'Yes, we use high-performance industrial coatings: epoxy for floors (resistant to impacts, chemicals), anti-corrosion for metal (structures, equipment), polyurethane for exteriors, fire-resistant if required. Selection according to specific constraints.',
+            },
+            {
+              question:
+                'How much does an industrial painting project cost in Laval (warehouse, factory, workshop)?',
+              answer:
+                'Price varies according to size, coating type, necessary preparation (sandblasting, degreasing) and complexity. Expect between $5,000 and $50,000 for an average project. Large industrial complexes: up to $150,000 and more. Free quote after evaluation.',
+            },
+            {
+              question:
+                'Do you work outside production hours to minimize operational impact?',
+              answer:
+                'Yes, we plan work according to your needs: evening, night, weekends, planned shutdowns. Coordination with your teams to ensure safety and minimize operations interruption. We respect your internal protocols.',
+            },
+          ],
+        },
       },
       longueuil: {
         name: { fr: 'Longueuil', en: 'Longueuil' },
@@ -575,6 +691,64 @@ export const peintureIndustrielleData = {
           { src: img5973, alt: 'Peinture industrielle Longueuil' },
           { src: img5974, alt: 'Peinture industrielle Longueuil' },
         ],
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture industrielle à Longueuil',
+          en: 'Frequently asked questions – Industrial painting in Longueuil',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Quelles zones industrielles de Longueuil couvrez-vous (Saint-Hubert, Vieux-Longueuil, secteurs industriels) ?',
+              answer:
+                'Nous intervenons dans toutes les zones industrielles de Longueuil : Saint-Hubert (grands entrepôts et centres logistiques), secteurs industriels près du pont Jacques-Cartier, zones manufacturières de Greenfield Park, et parcs industriels de la Rive-Sud. Nous peignons usines, entrepôts, ateliers et structures métalliques.',
+            },
+            {
+              question:
+                'Offrez-vous des revêtements de planchers industriels (époxy, polyuréthane) à Longueuil ?',
+              answer:
+                'Oui, nous appliquons des revêtements de planchers industriels haute performance : époxy (résistant aux impacts, produits chimiques, trafic lourd), polyuréthane (zones extérieures ou semi-extérieures) et revêtements antidérapants si nécessaire. Préparation complète des surfaces incluse.',
+            },
+            {
+              question:
+                'Respectez-vous les normes de sécurité et environnementales pour travaux industriels à Longueuil ?',
+              answer:
+                'Oui, nous respectons toutes les normes CNESST, règlements municipaux de Longueuil et exigences environnementales. Nous gérons les EPI, la sécurité en hauteur, la gestion des déchets, la ventilation pour produits industriels et les protocoles de sécurité pour espaces confinés.',
+            },
+            {
+              question:
+                'Combien de temps faut-il pour compléter un projet de peinture industrielle à Longueuil ?',
+              answer:
+                "Le temps varie selon l'envergure : petit atelier (3 à 7 jours), entrepôt moyen (1 à 3 semaines), usine complète ou grand complexe industriel (3 à 8 semaines). Nous adaptons le calendrier à vos arrêts de production planifiés.",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Which Longueuil industrial zones do you cover (Saint-Hubert, Vieux-Longueuil, industrial sectors)?',
+              answer:
+                'We work in all Longueuil industrial zones: Saint-Hubert (large warehouses and logistics centers), industrial sectors near Jacques-Cartier Bridge, Greenfield Park manufacturing zones, and South Shore industrial parks. We paint factories, warehouses, workshops and metal structures.',
+            },
+            {
+              question:
+                'Do you offer industrial floor coatings (epoxy, polyurethane) in Longueuil?',
+              answer:
+                'Yes, we apply high-performance industrial floor coatings: epoxy (resistant to impacts, chemicals, heavy traffic), polyurethane (outdoor or semi-outdoor areas) and non-slip coatings if necessary. Complete surface preparation included.',
+            },
+            {
+              question:
+                'Do you respect safety and environmental standards for industrial work in Longueuil?',
+              answer:
+                'Yes, we respect all CNESST standards, Longueuil municipal regulations and environmental requirements. We manage PPE, work at height safety, waste management, ventilation for industrial products and safety protocols for confined spaces.',
+            },
+            {
+              question:
+                'How long does it take to complete an industrial painting project in Longueuil?',
+              answer:
+                'Time varies according to scope: small workshop (3 to 7 days), average warehouse (1 to 3 weeks), complete factory or large industrial complex (3 to 8 weeks). We adapt schedule to your planned production shutdowns.',
+            },
+          ],
+        },
       },
       montreal: {
         name: { fr: 'Montréal', en: 'Montreal' },
@@ -773,6 +947,64 @@ export const peintureIndustrielleData = {
           { src: img5973, alt: 'Peinture industrielle Montréal' },
           { src: img5974, alt: 'Peinture industrielle Montréal' },
         ],
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture industrielle à Montréal',
+          en: 'Frequently asked questions – Industrial painting in Montreal',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Quels secteurs et zones industrielles de Montréal desservez-vous ?',
+              answer:
+                'Nous travaillons dans toutes les zones industrielles de Montréal : Est de Montréal, Montréal-Nord, Saint-Laurent, Anjou, Lachine, Pointe-aux-Trembles, zones portuaires et parcs industriels. Nous peignons usines, entrepôts, centres logistiques, ateliers spécialisés et structures métalliques.',
+            },
+            {
+              question:
+                'Utilisez-vous des revêtements industriels haute performance pour environnements exigeants ?',
+              answer:
+                'Oui, nous utilisons des produits industriels spécialisés : anticorrosion (métal, structures), époxy (planchers, zones chimiques), polyuréthane (extérieurs), ignifuges (zones à risque) et revêtements résistants aux chocs, abrasion et produits chimiques. Sélection selon environnement spécifique.',
+            },
+            {
+              question:
+                'Combien coûte un projet de peinture industrielle à Montréal (usine, entrepôt, complexe industriel) ?',
+              answer:
+                "Le prix varie selon l'envergure, le type de revêtement et la préparation. Comptez entre 8 000 $ et 60 000 $ pour un projet moyen. Grands complexes industriels ou usines complètes : 60 000 $ à 200 000 $ et plus. Soumission détaillée gratuite après évaluation sur site.",
+            },
+            {
+              question:
+                'Gérez-vous les contraintes logistiques urbaines de Montréal (accès, permis, circulation) ?',
+              answer:
+                "Oui, nous avons l'expérience des défis urbains de Montréal : stationnement limité, permis municipaux, coordination avec la circulation, accès restreints (zones portuaires, secteurs industriels denses) et respect des horaires pour minimiser l'impact sur le voisinage.",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Which Montreal sectors and industrial zones do you serve?',
+              answer:
+                'We work in all Montreal industrial zones: East Montreal, Montréal-Nord, Saint-Laurent, Anjou, Lachine, Pointe-aux-Trembles, port areas and industrial parks. We paint factories, warehouses, logistics centers, specialized workshops and metal structures.',
+            },
+            {
+              question:
+                'Do you use high-performance industrial coatings for demanding environments?',
+              answer:
+                'Yes, we use specialized industrial products: anti-corrosion (metal, structures), epoxy (floors, chemical zones), polyurethane (exteriors), fire-resistant (risk zones) and coatings resistant to impacts, abrasion and chemicals. Selection according to specific environment.',
+            },
+            {
+              question:
+                'How much does an industrial painting project cost in Montreal (factory, warehouse, industrial complex)?',
+              answer:
+                'Price varies according to scope, coating type and preparation. Expect between $8,000 and $60,000 for an average project. Large industrial complexes or complete factories: $60,000 to $200,000 and more. Detailed free quote after on-site evaluation.',
+            },
+            {
+              question:
+                'Do you manage Montreal urban logistical constraints (access, permits, traffic)?',
+              answer:
+                'Yes, we have experience with Montreal urban challenges: limited parking, municipal permits, traffic coordination, restricted access (port areas, dense industrial sectors) and schedule respect to minimize neighborhood impact.',
+            },
+          ],
+        },
       },
     },
   },

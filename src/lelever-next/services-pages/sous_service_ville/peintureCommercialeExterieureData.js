@@ -185,6 +185,52 @@ export const peintureCommercialeExterieureData = {
               fr: 'Nous intervenons rapidement dans tous les secteurs commerciaux.',
               en: 'We work quickly in all commercial sectors.',
             },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale extérieure à Brossard',
+              en: 'Frequently asked questions – Commercial exterior painting in Brossard',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Peignez-vous les commerces et bureaux du Quartier DIX30 à Brossard ?',
+                  answer:
+                    "Oui, nous travaillons régulièrement au DIX30 : façades de commerces, entrées de restaurants, bureaux professionnels, surfaces en aluminium/métal et vitrines. Nous adaptons notre horaire aux heures de fermeture et gérons les contraintes d'accès propres au DIX30.",
+                },
+                {
+                  question:
+                    "Travaillez-vous en dehors des heures d'ouverture pour ne pas déranger l'activité commerciale ?",
+                  answer:
+                    "Oui, nous pouvons planifier les travaux le soir, la nuit, les fins de semaine ou pendant vos heures de fermeture. Nous adaptons notre calendrier à votre réalité opérationnelle pour minimiser l'impact sur vos clients et employés.",
+                },
+                {
+                  question:
+                    "Combien de temps faut-il pour peindre la façade d'un commerce à Brossard ?",
+                  answer:
+                    'Pour un petit commerce (devanture), comptez 1 à 3 jours. Pour un bâtiment commercial moyen, 3 à 7 jours. Pour des structures plus grandes (plazas, bureaux multi-étages), 7 à 14 jours. Nous fournissons un calendrier précis dès la soumission.',
+                },
+              ],
+              en: [
+                {
+                  question:
+                    "Do you paint stores and offices in Brossard's DIX30 Quarter?",
+                  answer:
+                    'Yes, we regularly work at DIX30: store facades, restaurant entrances, professional offices, aluminum/metal surfaces and storefronts. We adapt our schedule to closing hours and manage access constraints specific to DIX30.',
+                },
+                {
+                  question:
+                    'Do you work outside business hours to avoid disrupting commercial activity?',
+                  answer:
+                    'Yes, we can plan work in the evening, at night, on weekends or during your closing hours. We adapt our schedule to your operational reality to minimize impact on your customers and employees.',
+                },
+                {
+                  question:
+                    'How long does it take to paint the facade of a business in Brossard?',
+                  answer:
+                    'For a small business (storefront), expect 1 to 3 days. For an average commercial building, 3 to 7 days. For larger structures (plazas, multi-story offices), 7 to 14 days. We provide a precise schedule from the quote.',
+                },
+              ],
+            },
             images: [],
           },
           laval: {
@@ -358,6 +404,52 @@ export const peintureCommercialeExterieureData = {
             ctaDescription: {
               fr: 'Nous intervenons rapidement dans toutes les zones commerciales de Laval.',
               en: 'We work quickly in all commercial areas of Laval.',
+            },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale extérieure à Laval',
+              en: 'Frequently asked questions – Commercial exterior painting in Laval',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Quels types de commerces peignez-vous à Laval (Centropolis, Carrefour Laval, etc.) ?',
+                  answer:
+                    'Nous peignons tous types de commerces : restaurants, bureaux, cliniques, magasins de détail, centres commerciaux, bâtiments industriels légers, plazas et locaux professionnels. Nous travaillons à Centropolis, Carrefour Laval, secteur Chomedey et dans toutes les zones commerciales de Laval.',
+                },
+                {
+                  question:
+                    "Combien coûte la peinture extérieure d'un local commercial à Laval ?",
+                  answer:
+                    "Le prix varie selon la superficie, l'état des surfaces et le type de revêtement. Comptez entre 2 000 $ et 15 000 $ pour un commerce moyen. Nous fournissons une soumission détaillée gratuite après évaluation sur place.",
+                },
+                {
+                  question:
+                    'Utilisez-vous des produits durables adaptés au climat de Laval pour les commerces ?',
+                  answer:
+                    "Oui, nous utilisons des peintures commerciales haute performance, résistantes aux UV, au gel-dégel, à la pluie et à l'humidité typiques de Laval. Ces produits garantissent une apparence professionnelle durable et minimisent l'entretien futur.",
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'What types of businesses do you paint in Laval (Centropolis, Carrefour Laval, etc.)?',
+                  answer:
+                    'We paint all types of businesses: restaurants, offices, clinics, retail stores, shopping centers, light industrial buildings, plazas and professional premises. We work at Centropolis, Carrefour Laval, Chomedey sector and in all commercial areas of Laval.',
+                },
+                {
+                  question:
+                    'How much does exterior painting of a commercial space cost in Laval?',
+                  answer:
+                    'Price varies according to size, surface condition and cladding type. Expect between $2,000 and $15,000 for an average business. We provide a detailed free quote after on-site evaluation.',
+                },
+                {
+                  question:
+                    'Do you use durable products adapted to Laval climate for businesses?',
+                  answer:
+                    'Yes, we use high-performance commercial paints, resistant to UV, freeze-thaw, rain and humidity typical of Laval. These products guarantee a durable professional appearance and minimize future maintenance.',
+                },
+              ],
             },
             images: [],
           },
@@ -537,6 +629,52 @@ export const peintureCommercialeExterieureData = {
               fr: 'Nous intervenons rapidement dans tous les secteurs commerciaux de Longueuil.',
               en: 'We work quickly in all commercial sectors of Longueuil.',
             },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale extérieure à Longueuil',
+              en: 'Frequently asked questions – Commercial exterior painting in Longueuil',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Travaillez-vous dans les zones commerciales de Longueuil (Vieux-Longueuil, Saint-Hubert, Greenfield Park) ?',
+                  answer:
+                    'Oui, nous intervenons dans toutes les zones commerciales : Vieux-Longueuil, Saint-Hubert, Greenfield Park et secteurs industriels-commerciaux. Nous peignons bureaux, commerces de détail, restaurants, cliniques, entrepôts légers et bâtiments professionnels.',
+                },
+                {
+                  question:
+                    'Pouvez-vous peindre les façades en métal et aluminium typiques des commerces de Longueuil ?',
+                  answer:
+                    'Oui, nous sommes spécialisés dans la peinture de métal, aluminium, acier galvanisé et surfaces composites. Nous utilisons des apprêts et peintures spécifiques pour garantir une adhérence parfaite et une durabilité maximale sur tous types de revêtements commerciaux.',
+                },
+                {
+                  question:
+                    'Respectez-vous les normes commerciales et de sécurité pour les travaux extérieurs à Longueuil ?',
+                  answer:
+                    'Oui, nous respectons toutes les normes commerciales, CNESST et règlements municipaux. Nous gérons la signalisation, la sécurité en hauteur, les échafaudages certifiés et la protection des accès publics selon les exigences de Longueuil.',
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Do you work in Longueuil commercial areas (Vieux-Longueuil, Saint-Hubert, Greenfield Park)?',
+                  answer:
+                    'Yes, we work in all commercial areas: Vieux-Longueuil, Saint-Hubert, Greenfield Park and industrial-commercial sectors. We paint offices, retail stores, restaurants, clinics, light warehouses and professional buildings.',
+                },
+                {
+                  question:
+                    'Can you paint metal and aluminum facades typical of Longueuil businesses?',
+                  answer:
+                    'Yes, we specialize in painting metal, aluminum, galvanized steel and composite surfaces. We use specific primers and paints to guarantee perfect adhesion and maximum durability on all types of commercial claddings.',
+                },
+                {
+                  question:
+                    'Do you respect commercial and safety standards for exterior work in Longueuil?',
+                  answer:
+                    'Yes, we respect all commercial standards, CNESST and municipal regulations. We manage signage, work at height safety, certified scaffolding and public access protection according to Longueuil requirements.',
+                },
+              ],
+            },
             images: [],
           },
           montreal: {
@@ -710,6 +848,52 @@ export const peintureCommercialeExterieureData = {
             ctaDescription: {
               fr: 'Nous pouvons planifier les travaux rapidement, en respectant votre réalité opérationnelle.',
               en: 'We can plan the work quickly, respecting your operational reality.',
+            },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale extérieure à Montréal',
+              en: 'Frequently asked questions – Commercial exterior painting in Montreal',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Peignez-vous les commerces et restaurants dans tous les arrondissements de Montréal ?',
+                  answer:
+                    "Oui, nous travaillons partout à Montréal : Centre-Ville, Plateau, Rosemont, Hochelaga, Villeray, Mile-End, NDG, Sud-Ouest et plus. Nous connaissons bien les règlements municipaux, les contraintes d'accès et les particularités de chaque quartier commercial.",
+                },
+                {
+                  question:
+                    'Travaillez-vous la nuit ou les fins de semaine pour les commerces à fort achalandage ?',
+                  answer:
+                    "Oui, nous pouvons planifier les travaux le soir, la nuit, les fins de semaine ou pendant les périodes de fermeture. C'est particulièrement utile pour les restaurants, magasins et commerces qui ne peuvent fermer en semaine.",
+                },
+                {
+                  question:
+                    "Combien coûte la peinture extérieure d'un commerce ou restaurant à Montréal ?",
+                  answer:
+                    "Le prix varie selon la taille, l'état des surfaces et la complexité. Comptez entre 3 000 $ et 20 000 $ pour un commerce moyen. Pour les grandes structures (immeubles commerciaux, plazas), jusqu'à 50 000 $ et plus. Soumission gratuite après évaluation.",
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Do you paint stores and restaurants in all Montreal boroughs?',
+                  answer:
+                    'Yes, we work everywhere in Montreal: Centre-Ville, Plateau, Rosemont, Hochelaga, Villeray, Mile-End, NDG, Sud-Ouest and more. We know well municipal regulations, access constraints and particularities of each commercial neighborhood.',
+                },
+                {
+                  question:
+                    'Do you work at night or on weekends for high-traffic businesses?',
+                  answer:
+                    'Yes, we can plan work in the evening, at night, on weekends or during closing periods. This is particularly useful for restaurants, stores and businesses that cannot close on weekdays.',
+                },
+                {
+                  question:
+                    'How much does exterior painting of a business or restaurant cost in Montreal?',
+                  answer:
+                    'Price varies according to size, surface condition and complexity. Expect between $3,000 and $20,000 for an average business. For large structures (commercial buildings, plazas), up to $50,000 and more. Free quote after evaluation.',
+                },
+              ],
             },
             images: [],
           },

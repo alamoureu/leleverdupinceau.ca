@@ -229,6 +229,64 @@ export const peintureInterieureData = {
             },
           },
         },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture intérieure à Brossard',
+          en: 'Frequently asked questions – Interior painting in Brossard',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Peignez-vous les maisons, condos et commerces à Brossard (intérieur seulement) ?',
+              answer:
+                'Oui, nous sommes spécialisés dans la peinture intérieure : maisons unifamiliales, condos modernes, plex, bureaux, commerces, cliniques et espaces résidentiels/commerciaux dans tous les secteurs de Brossard (R, S, T, DIX30, secteur C).',
+            },
+            {
+              question:
+                'Utilisez-vous des peintures sans odeur pour les espaces occupés (résidences, bureaux) ?',
+              answer:
+                'Oui, nous offrons des peintures bas COV (faible odeur) adaptées aux espaces occupés : condos, maisons avec jeunes enfants, bureaux en activité, commerces ouverts. Ces produits sont sûrs, durables et permettent une occupation rapide.',
+            },
+            {
+              question:
+                "Combien de temps faut-il pour peindre l'intérieur d'une maison ou d'un bureau à Brossard ?",
+              answer:
+                'Pour un condo 2-3 chambres, comptez 2 à 4 jours. Pour une maison moyenne, 4 à 6 jours. Pour un bureau commercial, 2 à 7 jours selon la taille. Nous adaptons notre calendrier à votre horaire.',
+            },
+            {
+              question:
+                'Offrez-vous des conseils sur les couleurs et finitions modernes pour les intérieurs de Brossard ?',
+              answer:
+                'Oui, nous offrons des conseils gratuits sur les tendances modernes, palettes harmonieuses, finitions (mat, velours, semi-lustré) et produits adaptés au style contemporain typique de Brossard. Consultation couleur incluse avec chaque projet.',
+            },
+          ],
+          en: [
+            {
+              question:
+                'Do you paint houses, condos and businesses in Brossard (interior only)?',
+              answer:
+                'Yes, we specialize in interior painting: single-family houses, modern condos, plexes, offices, businesses, clinics and residential/commercial spaces in all Brossard sectors (R, S, T, DIX30, sector C).',
+            },
+            {
+              question:
+                'Do you use odor-free paints for occupied spaces (residences, offices)?',
+              answer:
+                'Yes, we offer low VOC (low odor) paints adapted to occupied spaces: condos, houses with young children, active offices, open businesses. These products are safe, durable and allow quick occupation.',
+            },
+            {
+              question:
+                'How long does it take to paint the interior of a house or office in Brossard?',
+              answer:
+                'For a 2-3 bedroom condo, expect 2 to 4 days. For an average house, 4 to 6 days. For a commercial office, 2 to 7 days depending on size. We adapt our schedule to yours.',
+            },
+            {
+              question:
+                'Do you offer advice on modern colors and finishes for Brossard interiors?',
+              answer:
+                'Yes, we offer free advice on modern trends, harmonious palettes, finishes (matte, velvet, semi-gloss) and products adapted to the contemporary style typical of Brossard. Color consultation included with each project.',
+            },
+          ],
+        },
       },
       laval: {
         name: { fr: 'Laval', en: 'Laval' },
@@ -448,6 +506,64 @@ export const peintureInterieureData = {
             },
           },
         },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture intérieure à Laval',
+          en: 'Frequently asked questions – Interior painting in Laval',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Quels quartiers de Laval couvrez-vous pour la peinture intérieure (résidentielle et commerciale) ?',
+              answer:
+                'Nous travaillons dans tous les secteurs de Laval : Chomedey, Sainte-Rose, Vimont, Fabreville, Laval-des-Rapides, Sainte-Dorothée, Auteuil, Pont-Viau, Duvernay et plus. Nous peignons maisons, condos, plex, bureaux, commerces et espaces professionnels.',
+            },
+            {
+              question:
+                'Peignez-vous les maisons anciennes, bungalows et condos modernes à Laval ?',
+              answer:
+                "Oui, nous avons l'expérience de tous types de bâtiments : maisons anciennes (réparation de plâtre), bungalows des années 60-70, condos modernes, plex et constructions récentes. Nous adaptons notre méthode selon l'âge et l'état du bâtiment.",
+            },
+            {
+              question:
+                'Combien coûte la peinture intérieure à Laval (maison, condo ou commerce) ?',
+              answer:
+                'Le prix varie selon le type de propriété et la superficie. Comptez entre 2 000 $ et 7 000 $ pour une maison moyenne, 1 500 $ à 4 000 $ pour un condo, et 2 500 $ à 12 000 $ pour un commerce. Soumission gratuite après visite.',
+            },
+            {
+              question:
+                'Offrez-vous des peintures lavables et durables pour les familles et commerces de Laval ?',
+              answer:
+                "Oui, nous offrons des peintures lavables (idéales pour cuisines, chambres d'enfants, corridors), résistantes aux éraflures (commerces à fort trafic) et finitions durables. Nous adaptons le produit à votre usage (résidentiel familial ou commercial).",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Which Laval neighborhoods do you cover for interior painting (residential and commercial)?',
+              answer:
+                'We work in all Laval sectors: Chomedey, Sainte-Rose, Vimont, Fabreville, Laval-des-Rapides, Sainte-Dorothée, Auteuil, Pont-Viau, Duvernay and more. We paint houses, condos, plexes, offices, businesses and professional spaces.',
+            },
+            {
+              question:
+                'Do you paint old houses, bungalows and modern condos in Laval?',
+              answer:
+                'Yes, we have experience with all types of buildings: old houses (plaster repair), 60s-70s bungalows, modern condos, plexes and recent constructions. We adapt our method according to building age and condition.',
+            },
+            {
+              question:
+                'How much does interior painting cost in Laval (house, condo or business)?',
+              answer:
+                'Price varies according to property type and size. Expect between $2,000 and $7,000 for an average house, $1,500 to $4,000 for a condo, and $2,500 to $12,000 for a business. Free quote after visit.',
+            },
+            {
+              question:
+                'Do you offer washable and durable paints for families and businesses in Laval?',
+              answer:
+                "Yes, we offer washable paints (ideal for kitchens, children's rooms, corridors), scratch-resistant (high-traffic businesses) and durable finishes. We adapt the product to your use (family residential or commercial).",
+            },
+          ],
+        },
       },
       longueuil: {
         name: { fr: 'Longueuil', en: 'Longueuil' },
@@ -655,6 +771,64 @@ export const peintureInterieureData = {
               en: 'Dedicated page',
             },
           },
+        },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture intérieure à Longueuil',
+          en: 'Frequently asked questions – Interior painting in Longueuil',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Travaillez-vous dans tous les secteurs de Longueuil pour la peinture intérieure (résidentielle et commerciale) ?',
+              answer:
+                'Oui, nous intervenons dans tous les secteurs : Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité et zones résidentielles/commerciales. Nous peignons maisons, plex, condos, bureaux, commerces et espaces professionnels.',
+            },
+            {
+              question:
+                'Peignez-vous les plex et immeubles à logements multiples de Longueuil ?',
+              answer:
+                'Oui, nous sommes spécialisés dans les plex (duplex, triplex, quadruplex) et immeubles résidentiels : logements multiples, escaliers intérieurs, corridors communs et espaces partagés. Nous gérons les locataires et adaptons notre horaire.',
+            },
+            {
+              question:
+                'Combien coûte la peinture intérieure à Longueuil (maison, plex ou commerce) ?',
+              answer:
+                'Le prix varie selon le type de propriété et la superficie. Comptez entre 2 000 $ et 8 000 $ pour une maison moyenne, 5 000 $ à 18 000 $ pour un plex complet, et 2 000 $ à 10 000 $ pour un commerce. Soumission gratuite après visite.',
+            },
+            {
+              question:
+                'Utilisez-vous des peintures adaptées aux familles, enfants et animaux à Longueuil ?',
+              answer:
+                'Oui, nous offrons des peintures bas COV (faible odeur), lavables et résistantes : idéales pour les familles avec jeunes enfants, animaux domestiques et espaces à fort usage. Ces produits sont sûrs, durables et permettent un nettoyage facile.',
+            },
+          ],
+          en: [
+            {
+              question:
+                'Do you work in all Longueuil sectors for interior painting (residential and commercial)?',
+              answer:
+                'Yes, we work in all sectors: Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité and residential/commercial zones. We paint houses, plexes, condos, offices, businesses and professional spaces.',
+            },
+            {
+              question:
+                'Do you paint plexes and multi-unit buildings in Longueuil?',
+              answer:
+                'Yes, we specialize in plexes (duplex, triplex, quadruplex) and residential buildings: multiple units, interior stairs, common corridors and shared spaces. We manage tenants and adapt our schedule.',
+            },
+            {
+              question:
+                'How much does interior painting cost in Longueuil (house, plex or business)?',
+              answer:
+                'Price varies according to property type and size. Expect between $2,000 and $8,000 for an average house, $5,000 to $18,000 for a complete plex, and $2,000 to $10,000 for a business. Free quote after visit.',
+            },
+            {
+              question:
+                'Do you use paints adapted to families, children and pets in Longueuil?',
+              answer:
+                'Yes, we offer low VOC (low odor), washable and resistant paints: ideal for families with young children, pets and high-use spaces. These products are safe, durable and allow easy cleaning.',
+            },
+          ],
         },
       },
       montreal: {
@@ -903,6 +1077,64 @@ export const peintureInterieureData = {
               en: 'Dedicated page',
             },
           },
+        },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture intérieure à Montréal',
+          en: 'Frequently asked questions – Interior painting in Montreal',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Peignez-vous les plex, condos et commerces dans tous les arrondissements de Montréal ?',
+              answer:
+                'Oui, nous travaillons partout à Montréal : Plateau, Rosemont, Villeray, Hochelaga, Ahuntsic, NDG, Côte-des-Neiges, Centre-Ville, Verdun, Mile-End, Sud-Ouest, Outremont et plus. Nous peignons plex, condos, maisons, lofts, bureaux, restaurants et commerces.',
+            },
+            {
+              question:
+                'Peignez-vous les murs de plâtre, boiseries anciennes et surfaces irrégulières typiques de Montréal ?',
+              answer:
+                "Oui, nous avons l'expertise des bâtiments montréalais : réparation de plâtre ancien, ponçage de boiseries d'origine, nivellement de surfaces irrégulières, moulures décoratives et plafonds hauts. Nous respectons le cachet tout en modernisant l'apparence.",
+            },
+            {
+              question:
+                'Combien coûte la peinture intérieure à Montréal (logement, plex ou commerce) ?',
+              answer:
+                "Le prix varie selon le type, la superficie et l'état. Comptez entre 2 000 $ et 6 000 $ pour un logement (4½ ou 5½), 6 000 $ à 20 000 $ pour un plex complet, et 2 500 $ à 15 000 $ pour un commerce. Soumission gratuite après visite.",
+            },
+            {
+              question:
+                'Travaillez-vous dans des espaces occupés (logements loués, bureaux en activité) ?',
+              answer:
+                "Oui, nous adaptons notre horaire : soirs, fins de semaine, travail par sections pour permettre l'occupation continue. Nous utilisons des peintures bas COV pour minimiser l'odeur et permettre une réoccupation rapide.",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Do you paint plexes, condos and businesses in all Montreal boroughs?',
+              answer:
+                'Yes, we work everywhere in Montreal: Plateau, Rosemont, Villeray, Hochelaga, Ahuntsic, NDG, Côte-des-Neiges, Centre-Ville, Verdun, Mile-End, Sud-Ouest, Outremont and more. We paint plexes, condos, houses, lofts, offices, restaurants and businesses.',
+            },
+            {
+              question:
+                'Do you paint plaster walls, old woodwork and irregular surfaces typical of Montreal?',
+              answer:
+                'Yes, we have expertise in Montreal buildings: old plaster repair, sanding of original woodwork, leveling of irregular surfaces, decorative moldings and high ceilings. We respect character while modernizing appearance.',
+            },
+            {
+              question:
+                'How much does interior painting cost in Montreal (apartment, plex or business)?',
+              answer:
+                'Price varies according to type, size and condition. Expect between $2,000 and $6,000 for an apartment (4½ or 5½), $6,000 to $20,000 for a complete plex, and $2,500 to $15,000 for a business. Free quote after visit.',
+            },
+            {
+              question:
+                'Do you work in occupied spaces (rented apartments, active offices)?',
+              answer:
+                'Yes, we adapt our schedule: evenings, weekends, work by sections to allow continuous occupation. We use low VOC paints to minimize odor and allow quick reoccupation.',
+            },
+          ],
         },
       },
     },

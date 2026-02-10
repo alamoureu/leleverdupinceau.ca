@@ -221,6 +221,63 @@ export const peintureResidentielleData = {
             },
           },
         },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture résidentielle à Brossard',
+          en: 'Frequently asked questions – Residential painting in Brossard',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Combien de temps faut-il pour peindre une maison à Brossard ?',
+              answer:
+                "Pour un condo ou une maison moyenne (intérieur complet), comptez 3 à 5 jours. Pour l'extérieur d'une maison unifamiliale, entre 3 et 7 jours selon la superficie et les conditions météo. Nous fournissons un calendrier précis dès la soumission.",
+            },
+            {
+              question:
+                'Travaillez-vous dans tous les secteurs de Brossard (R, S, T, DIX30, etc.) ?',
+              answer:
+                'Oui, nous intervenons dans tous les secteurs résidentiels de Brossard : secteurs R, S, T, C, A, V, P, ainsi que dans le quartier DIX30. Nous connaissons bien les styles architecturaux de chaque zone et adaptons nos services en conséquence.',
+            },
+            {
+              question:
+                'Quels types de propriétés résidentielles peignez-vous à Brossard ?',
+              answer:
+                "Nous peignons tous les types de résidences : maisons unifamiliales, condos modernes, plex (duplex, triplex), nouvelles constructions et propriétés existantes. Que ce soit au DIX30 ou dans les secteurs familiaux, nous adaptons notre approche à chaque type d'habitation.",
+            },
+            {
+              question:
+                'Proposez-vous des conseils sur les couleurs et les finitions pour les maisons modernes de Brossard ?',
+              answer:
+                "Oui, nous offrons des conseils gratuits sur les couleurs, finitions (mat, velours, semi-lustré) et produits adaptés au style moderne typique de Brossard. Nous prenons en compte l'éclairage, l'orientation et vos préférences pour un résultat harmonieux.",
+            },
+          ],
+          en: [
+            {
+              question: 'How long does it take to paint a house in Brossard?',
+              answer:
+                'For a condo or average house (complete interior), expect 3 to 5 days. For the exterior of a single-family house, between 3 and 7 days depending on size and weather conditions. We provide a precise schedule from the quote.',
+            },
+            {
+              question:
+                'Do you work in all sectors of Brossard (R, S, T, DIX30, etc.)?',
+              answer:
+                'Yes, we work in all residential sectors of Brossard: sectors R, S, T, C, A, V, P, as well as in the DIX30 quarter. We know the architectural styles of each area well and adapt our services accordingly.',
+            },
+            {
+              question:
+                'What types of residential properties do you paint in Brossard?',
+              answer:
+                'We paint all types of residences: single-family houses, modern condos, plexes (duplex, triplex), new constructions and existing properties. Whether at DIX30 or in family sectors, we adapt our approach to each type of dwelling.',
+            },
+            {
+              question:
+                'Do you offer advice on colors and finishes for modern Brossard houses?',
+              answer:
+                'Yes, we offer free advice on colors, finishes (matte, velvet, semi-gloss) and products adapted to the modern style typical of Brossard. We take into account lighting, orientation and your preferences for a harmonious result.',
+            },
+          ],
+        },
       },
       laval: {
         name: { fr: 'Laval', en: 'Laval' },
@@ -429,6 +486,63 @@ export const peintureResidentielleData = {
             },
           },
         },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture résidentielle à Laval',
+          en: 'Frequently asked questions – Residential painting in Laval',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Quels quartiers de Laval couvrez-vous pour la peinture résidentielle ?',
+              answer:
+                'Nous travaillons dans tous les secteurs de Laval : Chomedey, Sainte-Rose, Vimont, Fabreville, Laval-des-Rapides, Sainte-Dorothée, Auteuil, Duvernay, Pont-Viau et plus. Nous connaissons les particularités de chaque quartier (maisons anciennes, bungalows, condos modernes).',
+            },
+            {
+              question:
+                'Combien de temps faut-il pour peindre une maison ou un plex à Laval ?',
+              answer:
+                "Pour un intérieur complet d'une maison moyenne, comptez 4 à 6 jours. Pour l'extérieur, 4 à 8 jours selon la taille et la météo. Pour un plex (duplex/triplex), 7 à 14 jours. Nous adaptons notre calendrier à vos besoins.",
+            },
+            {
+              question:
+                'Offrez-vous des conseils sur les couleurs et finitions adaptées aux maisons de Laval ?',
+              answer:
+                "Oui, nous offrons des conseils gratuits sur les couleurs, finitions (mat, velours, semi-lustré) et produits adaptés à votre style (moderne, traditionnel, classique). Nous prenons en compte l'éclairage naturel et l'architecture typique de Laval.",
+            },
+            {
+              question:
+                'Peignez-vous les maisons anciennes et les bungalows typiques de Laval ?',
+              answer:
+                "Oui, nous sommes habitués aux maisons anciennes (réparation de plâtre, murs texturés), bungalows des années 60-70 et propriétés récentes. Nous adaptons notre méthode selon l'âge et l'état du bâtiment pour un résultat optimal.",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Which Laval neighborhoods do you cover for residential painting?',
+              answer:
+                'We work in all Laval sectors: Chomedey, Sainte-Rose, Vimont, Fabreville, Laval-des-Rapides, Sainte-Dorothée, Auteuil, Duvernay, Pont-Viau and more. We know the particularities of each neighborhood (old houses, bungalows, modern condos).',
+            },
+            {
+              question:
+                'How long does it take to paint a house or plex in Laval?',
+              answer:
+                'For a complete interior of an average house, expect 4 to 6 days. For exterior, 4 to 8 days depending on size and weather. For a plex (duplex/triplex), 7 to 14 days. We adapt our schedule to your needs.',
+            },
+            {
+              question:
+                'Do you offer advice on colors and finishes adapted to Laval houses?',
+              answer:
+                'Yes, we offer free advice on colors, finishes (matte, velvet, semi-gloss) and products adapted to your style (modern, traditional, classic). We take into account natural lighting and typical Laval architecture.',
+            },
+            {
+              question: 'Do you paint old houses and typical Laval bungalows?',
+              answer:
+                'Yes, we are used to old houses (plaster repair, textured walls), 60s-70s bungalows and recent properties. We adapt our method according to building age and condition for an optimal result.',
+            },
+          ],
+        },
       },
       longueuil: {
         name: { fr: 'Longueuil', en: 'Longueuil' },
@@ -636,6 +750,64 @@ export const peintureResidentielleData = {
               en: 'Dedicated page',
             },
           },
+        },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture résidentielle à Longueuil',
+          en: 'Frequently asked questions – Residential painting in Longueuil',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Travaillez-vous dans tous les secteurs de Longueuil (Vieux-Longueuil, Saint-Hubert, Greenfield Park, etc.) ?',
+              answer:
+                'Oui, nous intervenons dans tous les secteurs : Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité et zones résidentielles environnantes. Nous connaissons les particularités de chaque secteur (maisons patrimoniales, plex, condos modernes).',
+            },
+            {
+              question:
+                'Peignez-vous les plex et immeubles à logements de Longueuil ?',
+              answer:
+                'Oui, nous sommes spécialisés dans les plex (duplex, triplex, quadruplex) et immeubles résidentiels typiques de Longueuil. Nous gérons les locataires, accès multiples et contraintes logistiques avec professionnalisme et flexibilité.',
+            },
+            {
+              question:
+                'Combien coûte un projet de peinture résidentielle à Longueuil ?',
+              answer:
+                "Le prix varie selon le type de projet (intérieur/extérieur), la superficie et l'état des surfaces. Comptez entre 2 000 $ et 10 000 $ pour une maison moyenne. Pour un plex complet, entre 6 000 $ et 25 000 $. Soumission gratuite après évaluation.",
+            },
+            {
+              question:
+                'Utilisez-vous des produits adaptés au climat de la Rive-Sud pour les maisons de Longueuil ?',
+              answer:
+                "Oui, nous utilisons des peintures conçues pour résister au climat de la Rive-Sud : gel-dégel, humidité, UV, variations extrêmes. Pour l'extérieur, nous choisissons des produits ultra résistants. Pour l'intérieur, des peintures durables et lavables.",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Do you work in all sectors of Longueuil (Vieux-Longueuil, Saint-Hubert, Greenfield Park, etc.)?',
+              answer:
+                'Yes, we work in all sectors: Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche, Parc-de-la-Cité and surrounding residential areas. We know the particularities of each sector (heritage houses, plexes, modern condos).',
+            },
+            {
+              question:
+                'Do you paint plexes and residential buildings in Longueuil?',
+              answer:
+                'Yes, we specialize in plexes (duplex, triplex, quadruplex) and typical Longueuil residential buildings. We manage tenants, multiple accesses and logistical constraints with professionalism and flexibility.',
+            },
+            {
+              question:
+                'How much does a residential painting project cost in Longueuil?',
+              answer:
+                'Price varies according to project type (interior/exterior), size and surface condition. Expect between $2,000 and $10,000 for an average house. For a complete plex, between $6,000 and $25,000. Free quote after evaluation.',
+            },
+            {
+              question:
+                'Do you use products adapted to South Shore climate for Longueuil houses?',
+              answer:
+                'Yes, we use paints designed to resist South Shore climate: freeze-thaw, humidity, UV, extreme variations. For exterior, we choose ultra-resistant products. For interior, durable and washable paints.',
+            },
+          ],
         },
       },
       montreal: {
@@ -851,6 +1023,64 @@ export const peintureResidentielleData = {
               en: 'Dedicated page',
             },
           },
+        },
+        faqTitle: {
+          fr: 'Questions fréquentes – Peinture résidentielle à Montréal',
+          en: 'Frequently asked questions – Residential painting in Montreal',
+        },
+        faqs: {
+          fr: [
+            {
+              question:
+                'Peignez-vous les plex typiques de Montréal (duplex, triplex, quadruplex) ?',
+              answer:
+                'Oui, nous sommes spécialisés dans les plex montréalais : escaliers intérieurs et extérieurs, façades en brique, balcons, galeries avant/arrière, logements multiples et espaces communs. Nous gérons les locataires et adaptons notre horaire aux contraintes de chaque immeuble.',
+            },
+            {
+              question:
+                'Quels arrondissements de Montréal couvrez-vous pour la peinture résidentielle ?',
+              answer:
+                'Nous travaillons dans tous les arrondissements : Plateau, Rosemont, Villeray, Ahuntsic, NDG, Côte-des-Neiges, Verdun, Hochelaga, Mercier, Sud-Ouest, Centre-Ville, Outremont, Westmount et plus. Nous connaissons les particularités de chaque quartier (architecture, type de bâtiment, accès).',
+            },
+            {
+              question:
+                'Combien coûte la peinture résidentielle (intérieur ou extérieur) à Montréal ?',
+              answer:
+                'Le prix varie selon le type (intérieur/extérieur), la superficie et le style de propriété. Comptez entre 2 500 $ et 8 000 $ pour un logement/maison moyenne. Pour un plex complet, entre 8 000 $ et 30 000 $. Soumission gratuite après visite.',
+            },
+            {
+              question:
+                'Offrez-vous des conseils pour moderniser les intérieurs de plex et maisons anciennes à Montréal ?',
+              answer:
+                "Oui, nous offrons des conseils gratuits sur les couleurs modernes, les finitions tendance et les produits adaptés aux bâtiments anciens (plâtre, boiseries d'origine). Nous savons comment transformer un intérieur traditionnel en espace contemporain tout en respectant le cachet.",
+            },
+          ],
+          en: [
+            {
+              question:
+                'Do you paint typical Montreal plexes (duplex, triplex, quadruplex)?',
+              answer:
+                "Yes, we specialize in Montreal plexes: interior and exterior stairs, brick facades, balconies, front/back galleries, multiple units and common areas. We manage tenants and adapt our schedule to each building's constraints.",
+            },
+            {
+              question:
+                'Which Montreal boroughs do you cover for residential painting?',
+              answer:
+                'We work in all boroughs: Plateau, Rosemont, Villeray, Ahuntsic, NDG, Côte-des-Neiges, Verdun, Hochelaga, Mercier, Sud-Ouest, Centre-Ville, Outremont, Westmount and more. We know the particularities of each neighborhood (architecture, building type, access).',
+            },
+            {
+              question:
+                'How much does residential painting (interior or exterior) cost in Montreal?',
+              answer:
+                'Price varies according to type (interior/exterior), size and property style. Expect between $2,500 and $8,000 for an average apartment/house. For a complete plex, between $8,000 and $30,000. Free quote after visit.',
+            },
+            {
+              question:
+                'Do you offer advice to modernize interiors of plexes and old houses in Montreal?',
+              answer:
+                'Yes, we offer free advice on modern colors, trendy finishes and products adapted to old buildings (plaster, original woodwork). We know how to transform a traditional interior into a contemporary space while respecting character.',
+            },
+          ],
         },
       },
     },

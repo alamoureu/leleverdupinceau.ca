@@ -16,6 +16,7 @@ import appContext from '../../../AppProvider';
 import ServiceWhyUsSection from '../components/ServiceWhyUsSection';
 import ServiceQuartierGuidesSection from '../service_ville/components/ServiceQuartierGuidesSection';
 import ServiceQuartierAboutSection from '../service_ville/components/ServiceQuartierAboutSection';
+import ServiceFAQSection from '../components/ServiceFAQSection';
 import ServiceCTASection from '../components/ServiceCTASection';
 import { getSousServiceVilleData } from './index';
 
@@ -371,6 +372,15 @@ export default function SousServiceVillePage() {
             />
           </Stack>
         </Container>
+
+        {/* Section 6.5 — FAQ (only if faqs exist) */}
+        {city.faqs && city.faqs[isFr ? 'fr' : 'en'] && (
+          <ServiceFAQSection
+            title={city.faqTitle ? city.faqTitle[isFr ? 'fr' : 'en'] : null}
+            faqs={city.faqs[isFr ? 'fr' : 'en']}
+            isFr={isFr}
+          />
+        )}
 
         {/* Section 7 — CTA final */}
         <ServiceCTASection

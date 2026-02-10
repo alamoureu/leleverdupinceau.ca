@@ -179,6 +179,52 @@ export const peintureResidentielleExterieureData = {
               fr: 'Nous couvrons tous les secteurs de Brossard avec un service rapide, organisé et soigné.',
               en: 'We cover all sectors of Brossard with a fast, organized and careful service.',
             },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture résidentielle extérieure à Brossard',
+              en: 'Frequently asked questions – Residential exterior painting in Brossard',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    "Quelle est la meilleure période pour peindre l'extérieur d'une maison à Brossard ?",
+                  answer:
+                    "La période idéale est de mai à septembre, lorsque les températures sont stables (entre 10°C et 30°C) et l'humidité modérée. Nous évitons les journées de pluie ou de chaleur extrême pour garantir un séchage optimal et une adhérence parfaite.",
+                },
+                {
+                  question:
+                    'Combien de temps dure la peinture extérieure sur une maison à Brossard ?',
+                  answer:
+                    'Avec des produits de qualité et une application professionnelle, la peinture extérieure peut durer 7 à 12 ans. Les secteurs exposés (côté sud, façades face au vent) peuvent nécessiter un entretien plus fréquent. Nous utilisons des peintures résistantes aux UV et au climat québécois.',
+                },
+                {
+                  question:
+                    'Peignez-vous tous les types de revêtements extérieurs (bois, vinyle, aluminium, crépi) ?',
+                  answer:
+                    'Oui, nous peignons bois, vinyle, aluminium, crépi, briques et tous revêtements modernes. Chaque matériau nécessite un apprêt et une peinture spécifiques. Nous adaptons notre méthode en fonction de votre revêtement pour un résultat durable.',
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'What is the best time to paint the exterior of a house in Brossard?',
+                  answer:
+                    'The ideal period is from May to September, when temperatures are stable (between 10°C and 30°C) and humidity is moderate. We avoid rainy or extremely hot days to ensure optimal drying and perfect adhesion.',
+                },
+                {
+                  question:
+                    'How long does exterior paint last on a house in Brossard?',
+                  answer:
+                    'With quality products and professional application, exterior paint can last 7 to 12 years. Exposed sectors (south side, facades facing wind) may require more frequent maintenance. We use paints resistant to UV and Quebec climate.',
+                },
+                {
+                  question:
+                    'Do you paint all types of exterior claddings (wood, vinyl, aluminum, stucco)?',
+                  answer:
+                    'Yes, we paint wood, vinyl, aluminum, stucco, bricks and all modern claddings. Each material requires a specific primer and paint. We adapt our method according to your cladding for a durable result.',
+                },
+              ],
+            },
             images: [],
           },
           laval: {
@@ -348,6 +394,52 @@ export const peintureResidentielleExterieureData = {
             ctaDescription: {
               fr: 'Nous servons tous les quartiers de Laval avec un service rapide et fiable.',
               en: 'We serve all neighborhoods of Laval with a fast and reliable service.',
+            },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture résidentielle extérieure à Laval',
+              en: 'Frequently asked questions – Residential exterior painting in Laval',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Quels quartiers de Laval desservez-vous pour la peinture extérieure résidentielle ?',
+                  answer:
+                    'Nous travaillons dans tous les secteurs de Laval : Chomedey, Sainte-Rose, Vimont, Fabreville, Laval-des-Rapides, Sainte-Dorothée, Auteuil, Duvernay et plus. Chaque quartier a ses particularités architecturales que nous connaissons bien.',
+                },
+                {
+                  question:
+                    'Combien de temps dure une peinture extérieure à Laval avec le climat québécois ?',
+                  answer:
+                    'Avec des produits de qualité adaptés au climat de Laval (gel-dégel, humidité), la peinture extérieure dure généralement 8 à 12 ans. Les façades exposées (sud, face au vent) peuvent nécessiter un entretien plus fréquent. Nous utilisons des peintures résistantes aux UV et aux variations extrêmes.',
+                },
+                {
+                  question:
+                    'Peignez-vous les revêtements en bois, vinyle et aluminium à Laval ?',
+                  answer:
+                    'Oui, nous peignons tous types de revêtements : bois, vinyle, aluminium, crépi, brique et matériaux composites. Chaque surface nécessite un apprêt spécifique et une méthode adaptée. Nous choisissons les produits selon votre type de revêtement pour un résultat durable.',
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Which Laval neighborhoods do you serve for residential exterior painting?',
+                  answer:
+                    'We work in all Laval sectors: Chomedey, Sainte-Rose, Vimont, Fabreville, Laval-des-Rapides, Sainte-Dorothée, Auteuil, Duvernay and more. Each neighborhood has its architectural particularities that we know well.',
+                },
+                {
+                  question:
+                    'How long does exterior paint last in Laval with Quebec climate?',
+                  answer:
+                    'With quality products adapted to Laval climate (freeze-thaw, humidity), exterior paint generally lasts 8 to 12 years. Exposed facades (south, facing wind) may require more frequent maintenance. We use paints resistant to UV and extreme variations.',
+                },
+                {
+                  question:
+                    'Do you paint wood, vinyl and aluminum claddings in Laval?',
+                  answer:
+                    'Yes, we paint all types of claddings: wood, vinyl, aluminum, stucco, brick and composite materials. Each surface requires a specific primer and adapted method. We choose products according to your cladding type for a durable result.',
+                },
+              ],
             },
             images: [],
           },
@@ -521,6 +613,52 @@ export const peintureResidentielleExterieureData = {
               fr: 'Nous couvrons tous les secteurs de Longueuil avec un service rapide, efficace et soigné.',
               en: 'We cover all sectors of Longueuil with a fast, efficient and careful service.',
             },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture résidentielle extérieure à Longueuil',
+              en: 'Frequently asked questions – Residential exterior painting in Longueuil',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Travaillez-vous dans tous les secteurs de Longueuil (Vieux-Longueuil, Saint-Hubert, Greenfield Park) ?',
+                  answer:
+                    'Oui, nous intervenons dans tous les secteurs de Longueuil : Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche et Parc-de-la-Cité. Nous connaissons bien les styles architecturaux de chaque secteur (maisons patrimoniales, plex, nouvelles constructions).',
+                },
+                {
+                  question:
+                    "Quelle est la meilleure saison pour peindre l'extérieur d'une maison à Longueuil ?",
+                  answer:
+                    "La période idéale est de mai à septembre, avec des températures stables entre 10°C et 30°C. Nous évitons les jours de pluie ou de chaleur extrême. Le climat de la Rive-Sud permet une bonne fenêtre de travail du printemps à l'automne.",
+                },
+                {
+                  question:
+                    "Combien de temps faut-il pour peindre l'extérieur d'une maison unifamiliale à Longueuil ?",
+                  answer:
+                    "Pour une maison moyenne, comptez 4 à 7 jours selon la superficie, l'état des surfaces et la météo. Les plex et immeubles plus grands nécessitent 7 à 14 jours. Nous fournissons un calendrier précis dès la soumission.",
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Do you work in all sectors of Longueuil (Vieux-Longueuil, Saint-Hubert, Greenfield Park)?',
+                  answer:
+                    'Yes, we work in all sectors of Longueuil: Vieux-Longueuil, Saint-Hubert, Greenfield Park, Laflèche and Parc-de-la-Cité. We know well the architectural styles of each sector (heritage houses, plexes, new constructions).',
+                },
+                {
+                  question:
+                    'What is the best season to paint the exterior of a house in Longueuil?',
+                  answer:
+                    'The ideal period is from May to September, with stable temperatures between 10°C and 30°C. We avoid rainy or extremely hot days. South Shore climate allows a good work window from spring to fall.',
+                },
+                {
+                  question:
+                    'How long does it take to paint the exterior of a single-family house in Longueuil?',
+                  answer:
+                    'For an average house, expect 4 to 7 days depending on size, surface condition and weather. Larger plexes and buildings require 7 to 14 days. We provide a precise schedule from the quote.',
+                },
+              ],
+            },
             images: [],
           },
           montreal: {
@@ -692,6 +830,52 @@ export const peintureResidentielleExterieureData = {
             ctaDescription: {
               fr: 'Nous pouvons planifier vos travaux en fonction des saisons et de votre disponibilité.',
               en: 'We can plan your work according to seasons and your availability.',
+            },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture résidentielle extérieure à Montréal',
+              en: 'Frequently asked questions – Residential exterior painting in Montreal',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Peignez-vous les plex et immeubles à logements multiples à Montréal ?',
+                  answer:
+                    'Oui, nous sommes spécialisés dans la peinture de plex (duplex, triplex, quadruplex) et immeubles résidentiels. Nous savons gérer les accès, les locataires, les escaliers extérieurs typiques de Montréal et les échafaudages nécessaires pour les bâtiments de plusieurs étages.',
+                },
+                {
+                  question:
+                    'Quels arrondissements de Montréal desservez-vous pour la peinture extérieure ?',
+                  answer:
+                    'Nous travaillons dans tous les arrondissements de Montréal : Plateau, Rosemont, Villeray, Ahuntsic, Verdun, NDG, Côte-des-Neiges, Centre-Ville, Hochelaga, Mercier, Sud-Ouest et plus. Chaque quartier a ses particularités (escaliers extérieurs, façades en brique, plex anciens).',
+                },
+                {
+                  question:
+                    "Combien coûte la peinture extérieure d'un plex à Montréal ?",
+                  answer:
+                    "Le prix varie selon la superficie, l'état des surfaces, le nombre d'étages et le type de revêtement. Comptez entre 3 000 $ et 12 000 $ pour un plex moyen. Nous fournissons une soumission détaillée gratuite après évaluation sur place.",
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Do you paint plexes and multi-unit buildings in Montreal?',
+                  answer:
+                    'Yes, we specialize in painting plexes (duplex, triplex, quadruplex) and residential buildings. We know how to manage access, tenants, typical Montreal exterior stairs and scaffolding needed for multi-story buildings.',
+                },
+                {
+                  question:
+                    'Which Montreal boroughs do you serve for exterior painting?',
+                  answer:
+                    'We work in all Montreal boroughs: Plateau, Rosemont, Villeray, Ahuntsic, Verdun, NDG, Côte-des-Neiges, Centre-Ville, Hochelaga, Mercier, Sud-Ouest and more. Each neighborhood has its particularities (exterior stairs, brick facades, old plexes).',
+                },
+                {
+                  question:
+                    'How much does exterior painting of a plex cost in Montreal?',
+                  answer:
+                    'Price varies according to size, surface condition, number of floors and cladding type. Expect between $3,000 and $12,000 for an average plex. We provide a detailed free quote after on-site evaluation.',
+                },
+              ],
             },
             images: [],
           },

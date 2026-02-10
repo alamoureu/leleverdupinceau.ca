@@ -181,6 +181,52 @@ export const peintureCommercialeInterieureData = {
               fr: 'Travaux rapides, propres et planifiés selon votre réalité.',
               en: 'Fast, clean work planned according to your reality.',
             },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale intérieure à Brossard',
+              en: 'Frequently asked questions – Commercial interior painting in Brossard',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Peignez-vous les bureaux et commerces du DIX30 et des secteurs commerciaux de Brossard ?',
+                  answer:
+                    'Oui, nous travaillons régulièrement au DIX30, secteurs R, S, T et dans toutes les zones commerciales de Brossard : bureaux professionnels, cliniques médicales, restaurants, magasins, salons de coiffure, espaces de coworking et locaux commerciaux.',
+                },
+                {
+                  question:
+                    "Pouvez-vous travailler en dehors des heures d'ouverture pour ne pas déranger les clients ?",
+                  answer:
+                    "Oui, nous pouvons planifier les travaux le soir, la nuit, les fins de semaine ou pendant les heures de fermeture. Nous adaptons notre horaire pour minimiser l'impact sur votre activité commerciale et vos clients.",
+                },
+                {
+                  question:
+                    "Combien de temps faut-il pour peindre l'intérieur d'un bureau ou commerce à Brossard ?",
+                  answer:
+                    'Pour un petit bureau (1-3 pièces), comptez 1 à 3 jours. Pour un commerce moyen ou bureau professionnel, 3 à 7 jours. Pour des espaces plus grands (cliniques, restaurants), 7 à 14 jours. Nous adaptons le calendrier à vos contraintes opérationnelles.',
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Do you paint offices and businesses in DIX30 and commercial sectors of Brossard?',
+                  answer:
+                    'Yes, we regularly work at DIX30, sectors R, S, T and in all commercial areas of Brossard: professional offices, medical clinics, restaurants, stores, hair salons, coworking spaces and commercial premises.',
+                },
+                {
+                  question:
+                    'Can you work outside business hours to avoid disturbing customers?',
+                  answer:
+                    'Yes, we can plan work in the evening, at night, on weekends or during closing hours. We adapt our schedule to minimize impact on your commercial activity and customers.',
+                },
+                {
+                  question:
+                    'How long does it take to paint the interior of an office or business in Brossard?',
+                  answer:
+                    'For a small office (1-3 rooms), expect 1 to 3 days. For an average business or professional office, 3 to 7 days. For larger spaces (clinics, restaurants), 7 to 14 days. We adapt the schedule to your operational constraints.',
+                },
+              ],
+            },
             images: [],
           },
           laval: {
@@ -351,6 +397,52 @@ export const peintureCommercialeInterieureData = {
               fr: 'Nous offrons un service rapide, flexible et professionnel.',
               en: 'We offer a fast, flexible and professional service.',
             },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale intérieure à Laval',
+              en: 'Frequently asked questions – Commercial interior painting in Laval',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Quels types de commerces peignez-vous à Laval (Centropolis, Carrefour Laval, etc.) ?',
+                  answer:
+                    'Nous peignons tous types de commerces intérieurs : bureaux, cliniques dentaires/médicales, restaurants, salons, magasins de détail, centres de formation, espaces professionnels, studios et locaux commerciaux dans toutes les zones de Laval (Centropolis, Carrefour Laval, Chomedey, etc.).',
+                },
+                {
+                  question:
+                    'Utilisez-vous des peintures commerciales durables et lavables pour les espaces à fort trafic ?',
+                  answer:
+                    "Oui, nous utilisons des peintures commerciales haute performance : finitions lavables, résistantes aux éraflures, durables et adaptées aux espaces à fort achalandage (salles d'attente, corridors, cuisines commerciales). Ces produits minimisent l'entretien futur.",
+                },
+                {
+                  question:
+                    "Combien coûte la peinture intérieure d'un bureau ou commerce à Laval ?",
+                  answer:
+                    "Le prix varie selon la superficie, l'état des murs et les contraintes (horaires de nuit, préparation extensive). Comptez entre 1 500 $ et 12 000 $ pour un local moyen. Nous fournissons une soumission détaillée gratuite après évaluation.",
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'What types of businesses do you paint in Laval (Centropolis, Carrefour Laval, etc.)?',
+                  answer:
+                    'We paint all types of interior businesses: offices, dental/medical clinics, restaurants, salons, retail stores, training centers, professional spaces, studios and commercial premises in all Laval areas (Centropolis, Carrefour Laval, Chomedey, etc.).',
+                },
+                {
+                  question:
+                    'Do you use durable and washable commercial paints for high-traffic spaces?',
+                  answer:
+                    'Yes, we use high-performance commercial paints: washable finishes, scratch-resistant, durable and adapted to high-traffic spaces (waiting rooms, corridors, commercial kitchens). These products minimize future maintenance.',
+                },
+                {
+                  question:
+                    'How much does interior painting of an office or business cost in Laval?',
+                  answer:
+                    'Price varies according to size, wall condition and constraints (night schedule, extensive preparation). Expect between $1,500 and $12,000 for an average space. We provide a detailed free quote after evaluation.',
+                },
+              ],
+            },
             images: [],
           },
           longueuil: {
@@ -518,6 +610,52 @@ export const peintureCommercialeInterieureData = {
             ctaDescription: {
               fr: 'Nous planifions les travaux pour ne pas perturber vos opérations.',
               en: 'We plan the work to not disrupt your operations.',
+            },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale intérieure à Longueuil',
+              en: 'Frequently asked questions – Commercial interior painting in Longueuil',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Travaillez-vous dans tous les secteurs commerciaux de Longueuil (Vieux-Longueuil, Saint-Hubert, Greenfield Park) ?',
+                  answer:
+                    'Oui, nous intervenons dans toutes les zones commerciales : Vieux-Longueuil, Saint-Hubert, Greenfield Park et secteurs industriels-commerciaux. Nous peignons bureaux, cliniques, restaurants, commerces de détail, salles de réunion et espaces professionnels.',
+                },
+                {
+                  question:
+                    'Peignez-vous les espaces commerciaux occupés sans fermeture complète ?',
+                  answer:
+                    "Oui, nous pouvons travailler par sections, le soir, la nuit ou les fins de semaine pour permettre une opération partielle continue. Nous protégeons les zones en service et gérons l'accès pour minimiser l'impact sur vos employés et clients.",
+                },
+                {
+                  question:
+                    'Offrez-vous des peintures bas COV pour les commerces et bureaux de Longueuil ?',
+                  answer:
+                    "Oui, nous proposons des peintures bas COV (faible odeur) adaptées aux espaces commerciaux occupés : bureaux, cliniques médicales, garderies commerciales, salons et tout environnement nécessitant une faible émission d'odeur pendant et après les travaux.",
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Do you work in all commercial sectors of Longueuil (Vieux-Longueuil, Saint-Hubert, Greenfield Park)?',
+                  answer:
+                    'Yes, we work in all commercial areas: Vieux-Longueuil, Saint-Hubert, Greenfield Park and industrial-commercial sectors. We paint offices, clinics, restaurants, retail stores, meeting rooms and professional spaces.',
+                },
+                {
+                  question:
+                    'Do you paint occupied commercial spaces without complete closure?',
+                  answer:
+                    'Yes, we can work by sections, in the evening, at night or on weekends to allow continuous partial operation. We protect areas in service and manage access to minimize impact on your employees and customers.',
+                },
+                {
+                  question:
+                    'Do you offer low VOC paints for businesses and offices in Longueuil?',
+                  answer:
+                    'Yes, we offer low VOC (low odor) paints adapted to occupied commercial spaces: offices, medical clinics, commercial daycares, salons and any environment requiring low odor emission during and after work.',
+                },
+              ],
             },
             images: [],
           },
@@ -688,6 +826,52 @@ export const peintureCommercialeInterieureData = {
             ctaDescription: {
               fr: 'Nous pouvons planifier vos travaux en fonction de vos heures d"ouverture et de vos échéances d"affaires.',
               en: 'We can plan your work according to your opening hours and business deadlines.',
+            },
+            faqTitle: {
+              fr: 'Questions fréquentes – Peinture commerciale intérieure à Montréal',
+              en: 'Frequently asked questions – Commercial interior painting in Montreal',
+            },
+            faqs: {
+              fr: [
+                {
+                  question:
+                    'Peignez-vous les bureaux, restaurants et commerces dans tous les arrondissements de Montréal ?',
+                  answer:
+                    'Oui, nous travaillons partout à Montréal : Centre-Ville, Plateau, Mile-End, Rosemont, Hochelaga, Griffintown, Vieux-Montréal, Sud-Ouest et plus. Nous sommes habitués aux contraintes urbaines (accès restreints, stationnement limité, horaires flexibles).',
+                },
+                {
+                  question:
+                    'Travaillez-vous pendant les heures de fermeture pour les restaurants et commerces achalandés ?',
+                  answer:
+                    "Oui, nous pouvons planifier les travaux le soir (après 21h), la nuit ou les dimanches/lundis (jours de fermeture typiques pour restaurants). Nous adaptons notre horaire pour ne pas impacter vos revenus et l'expérience de vos clients.",
+                },
+                {
+                  question:
+                    "Combien coûte la peinture intérieure d'un restaurant ou bureau à Montréal ?",
+                  answer:
+                    "Le prix dépend de la superficie, la complexité (cuisine commerciale, salle à manger, open space) et les contraintes d'horaire. Comptez entre 2 500 $ et 20 000 $ pour un espace commercial moyen. Soumission gratuite après visite.",
+                },
+              ],
+              en: [
+                {
+                  question:
+                    'Do you paint offices, restaurants and businesses in all Montreal boroughs?',
+                  answer:
+                    'Yes, we work everywhere in Montreal: Centre-Ville, Plateau, Mile-End, Rosemont, Hochelaga, Griffintown, Vieux-Montréal, Sud-Ouest and more. We are used to urban constraints (restricted access, limited parking, flexible schedules).',
+                },
+                {
+                  question:
+                    'Do you work during closing hours for busy restaurants and businesses?',
+                  answer:
+                    "Yes, we can plan work in the evening (after 9pm), at night or on Sundays/Mondays (typical closing days for restaurants). We adapt our schedule to not impact your revenues and your customers' experience.",
+                },
+                {
+                  question:
+                    'How much does interior painting of a restaurant or office cost in Montreal?',
+                  answer:
+                    'Price depends on size, complexity (commercial kitchen, dining room, open space) and schedule constraints. Expect between $2,500 and $20,000 for an average commercial space. Free quote after visit.',
+                },
+              ],
             },
             images: [],
           },

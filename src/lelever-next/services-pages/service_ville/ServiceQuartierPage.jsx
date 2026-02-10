@@ -18,6 +18,7 @@ import ServiceSubServicesSection from '../components/ServiceSubServicesSection';
 import ServiceQuartierGuidesSection from './components/ServiceQuartierGuidesSection';
 import ServiceQuartierAboutSection from './components/ServiceQuartierAboutSection';
 import ServiceQuartierSectorsSection from './components/ServiceQuartierSectorsSection';
+import ServiceFAQSection from '../components/ServiceFAQSection';
 import ServiceCTASection from '../components/ServiceCTASection';
 import { getServiceQuartierData } from './index';
 
@@ -346,6 +347,15 @@ export default function ServiceQuartierPage() {
             )}
           </Stack>
         </Container>
+
+        {/* Section 6 — FAQ (only if faqs exist) */}
+        {city.faqs && city.faqs[isFr ? 'fr' : 'en'] && (
+          <ServiceFAQSection
+            title={city.faqTitle ? city.faqTitle[isFr ? 'fr' : 'en'] : null}
+            faqs={city.faqs[isFr ? 'fr' : 'en']}
+            isFr={isFr}
+          />
+        )}
 
         {/* Section 7 — CTA final */}
         <ServiceCTASection
