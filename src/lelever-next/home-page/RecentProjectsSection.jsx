@@ -15,10 +15,10 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import { motion, AnimatePresence } from 'framer-motion';
-import peintureResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
-import projetResidentielle from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
+import projetResidentiel from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
+import projetCommercial from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import projetInterieur from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
 import projetResidentielle2 from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
-import projetCommercial from '../images/1-page-principale/service hub/Peinture commerciale/IMG_6766.PNG';
 import projetIndustriel from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
 import projetExterieur from '../images/1-page-principale/Home/Projet extérieur/IMG_6755.PNG';
 
@@ -36,7 +36,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
   const projects = [
     {
       id: 1,
-      images: [peintureResidentielle],
+      images: [projetResidentiel],
       title: t.projectResidential,
       description: t.projectResidentialDesc1,
     },
@@ -48,7 +48,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
     },
     {
       id: 3,
-      images: [projetResidentielle],
+      images: [projetInterieur],
       title: t.projectInterior,
       description: t.projectInteriorDesc,
     },
@@ -118,14 +118,14 @@ export default function RecentProjectsSection({ pageContext = '' }) {
   };
 
   return (
-    <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
-      <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg="white">
+      <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={6}>
-          <Stack spacing={2} textAlign='center'>
-            <Heading as='h2' size='section' color='gray.800'>
+          <Stack spacing={2} textAlign="center">
+            <Heading as="h2" size="section" color="gray.800">
               {t.recentProjectsTitle}
             </Heading>
-            <Text textStyle='bodyLarge' color='gray.600'>
+            <Text textStyle="bodyLarge" color="gray.600">
               {t.recentProjectsSubtitle}
             </Text>
           </Stack>
@@ -136,30 +136,30 @@ export default function RecentProjectsSection({ pageContext = '' }) {
               return (
                 <Box
                   key={project.id}
-                  bg='white'
-                  borderRadius='2xl'
-                  overflow='hidden'
-                  border='1px solid'
-                  borderColor='gray.200'
-                  h='100%'
-                  display='flex'
-                  flexDirection='column'
+                  bg="white"
+                  borderRadius="2xl"
+                  overflow="hidden"
+                  border="1px solid"
+                  borderColor="gray.200"
+                  h="100%"
+                  display="flex"
+                  flexDirection="column"
                 >
                   <Box
-                    position='relative'
-                    overflow='hidden'
-                    bg='gray.200'
-                    border='1px solid'
-                    borderColor='gray.300'
+                    position="relative"
+                    overflow="hidden"
+                    bg="gray.200"
+                    border="1px solid"
+                    borderColor="gray.300"
                     borderStyle={
                       project.images && project.images.length > 0
                         ? 'solid'
                         : 'dashed'
                     }
-                    display='flex'
-                    alignItems='center'
-                    justifyContent='center'
-                    minH='200px'
+                    display="flex"
+                    alignItems="center"
+                    justifyContent="center"
+                    minH="200px"
                     sx={{
                       aspectRatio: '16/9',
                       '@supports not (aspect-ratio: 16/9)': {
@@ -172,47 +172,55 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                     }}
                   >
                     {(!project.images || project.images.length === 0) && (
-                      <Text color='gray.400' textStyle='caption' fontWeight='medium'>
+                      <Text
+                        color="gray.400"
+                        textStyle="caption"
+                        fontWeight="medium"
+                      >
                         {currentLang === 'fr'
                           ? 'Image à ajouter'
                           : 'Image to add'}
                       </Text>
                     )}
                     {project.images && project.images.length > 0 && (
-                      <Box w='100%' h='100%' position='relative'>
+                      <Box w="100%" h="100%" position="relative">
                         {imageLoading[`${project.id}-${currentIndex}`] && (
                           <Skeleton
-                            position='absolute'
+                            position="absolute"
                             top={0}
                             left={0}
-                            w='100%'
-                            h='100%'
+                            w="100%"
+                            h="100%"
                             zIndex={1}
                           />
                         )}
                         {imageErrors[`${project.id}-${currentIndex}`] ? (
                           <Box
-                            w='100%'
-                            h='100%'
-                            display='flex'
-                            alignItems='center'
-                            justifyContent='center'
-                            bg='gray.100'
+                            w="100%"
+                            h="100%"
+                            display="flex"
+                            alignItems="center"
+                            justifyContent="center"
+                            bg="gray.100"
                           >
-                            <Text color='gray.400' textStyle='caption' fontWeight='medium'>
+                            <Text
+                              color="gray.400"
+                              textStyle="caption"
+                              fontWeight="medium"
+                            >
                               {currentLang === 'fr'
                                 ? 'Image non disponible'
                                 : 'Image unavailable'}
                             </Text>
                           </Box>
                         ) : (
-                          <AnimatePresence initial={false} mode='wait'>
+                          <AnimatePresence initial={false} mode="wait">
                             <motion.div
                               key={currentIndex}
                               variants={fadeVariants}
-                              initial='enter'
-                              animate='center'
-                              exit='exit'
+                              initial="enter"
+                              animate="center"
+                              exit="exit"
                               transition={{
                                 opacity: { duration: 0.4, ease: 'easeInOut' },
                               }}
@@ -227,9 +235,9 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                               <Image
                                 src={project.images[currentIndex]}
                                 alt={getAltText(project.title, pageContext)}
-                                w='100%'
-                                h='100%'
-                                loading='lazy'
+                                w="100%"
+                                h="100%"
+                                loading="lazy"
                                 onLoad={() => {
                                   setImageLoading((prev) => ({
                                     ...prev,
@@ -260,49 +268,55 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                             <IconButton
                               aria-label={t.previousImage}
                               icon={<ChevronLeftIcon />}
-                              position='absolute'
+                              position="absolute"
                               left={2}
-                              top='50%'
-                              transform='translateY(-50%)'
-                              bg='white'
-                              border='1px solid'
-                              borderColor='gray.200'
-                              color='brand.500'
-                              borderRadius='full'
-                              size='sm'
+                              top="50%"
+                              transform="translateY(-50%)"
+                              bg="white"
+                              border="1px solid"
+                              borderColor="gray.200"
+                              color="brand.500"
+                              borderRadius="full"
+                              size="sm"
                               zIndex={2}
-                              _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
+                              _hover={{
+                                bg: 'gray.50',
+                                borderColor: 'brand.500',
+                              }}
                               onClick={() =>
                                 goToPreviousImage(
                                   project.id,
-                                  project.images.length
+                                  project.images.length,
                                 )
                               }
                             />
                             <IconButton
                               aria-label={t.nextImage}
                               icon={<ChevronRightIcon />}
-                              position='absolute'
+                              position="absolute"
                               right={2}
-                              top='50%'
-                              transform='translateY(-50%)'
-                              bg='white'
-                              border='1px solid'
-                              borderColor='gray.200'
-                              color='brand.500'
-                              borderRadius='full'
-                              size='sm'
+                              top="50%"
+                              transform="translateY(-50%)"
+                              bg="white"
+                              border="1px solid"
+                              borderColor="gray.200"
+                              color="brand.500"
+                              borderRadius="full"
+                              size="sm"
                               zIndex={2}
-                              _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
+                              _hover={{
+                                bg: 'gray.50',
+                                borderColor: 'brand.500',
+                              }}
                               onClick={() =>
                                 goToNextImage(project.id, project.images.length)
                               }
                             />
                             <HStack
-                              position='absolute'
+                              position="absolute"
                               bottom={3}
-                              left='50%'
-                              transform='translateX(-50%)'
+                              left="50%"
+                              transform="translateX(-50%)"
                               spacing={2}
                               zIndex={2}
                             >
@@ -311,14 +325,14 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                                   key={index}
                                   w={currentIndex === index ? '8px' : '6px'}
                                   h={currentIndex === index ? '8px' : '6px'}
-                                  borderRadius='full'
+                                  borderRadius="full"
                                   bg={
                                     currentIndex === index
                                       ? 'white'
                                       : 'rgba(255, 255, 255, 0.5)'
                                   }
-                                  cursor='pointer'
-                                  transition='all 0.2s'
+                                  cursor="pointer"
+                                  transition="all 0.2s"
                                   onClick={() =>
                                     handleImageChange(project.id, index)
                                   }
@@ -333,10 +347,20 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                   </Box>
 
                   <Stack p={5} spacing={3} flex={1}>
-                    <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge' lineHeight='1.4'>
+                    <Text
+                      fontWeight="bold"
+                      color="gray.800"
+                      textStyle="bodyLarge"
+                      lineHeight="1.4"
+                    >
                       {project.title}
                     </Text>
-                    <Text textStyle='body' color='gray.600' lineHeight='1.6' noOfLines={3}>
+                    <Text
+                      textStyle="body"
+                      color="gray.600"
+                      lineHeight="1.6"
+                      noOfLines={3}
+                    >
                       {project.description}
                     </Text>
                   </Stack>

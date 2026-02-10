@@ -117,11 +117,11 @@ export const translations = {
     projectInterior: 'Projet intérieur',
     projectExterior: 'Projet extérieur',
     projectResidentialDesc1:
-      "Rénovation complète d'une maison familiale avec peinture intérieure et extérieure. Travail soigné et attention aux détails.",
+      "Terrasse en bois : teinture et finition soignées pour une résidence. Préparation, application uniforme et résultat durable et impeccable.",
     projectCommercialDesc1:
-      "Peinture d'un espace commercial avec finition professionnelle. Respect des délais et qualité irréprochable.",
+      "Espace commercial peint avec finition professionnelle. Bureaux, commerces ou restaurants : respect des délais et qualité irréprochable.",
     projectInteriorDesc:
-      "Transformation d'un appartement avec peinture moderne et élégante. Choix de couleurs harmonieux et finition impeccable.",
+      "Peinture intérieure : murs, plafonds et boiseries. Transformation soignée avec couleurs harmonieuses et finition durable.",
     projectExteriorDesc:
       "Rafraîchissement complet de la façade d'une résidence. Protection contre les intempéries et résultat durable.",
     projectResidentialDesc2:
@@ -292,11 +292,11 @@ export const translations = {
     projectInterior: 'Interior project',
     projectExterior: 'Exterior project',
     projectResidentialDesc1:
-      'Complete renovation of a family home with interior and exterior painting. Careful work and attention to detail.',
+      'Wood deck staining and finishing for a residential property. Careful preparation, uniform application and a durable, impeccable result.',
     projectCommercialDesc1:
-      'Commercial space painting with professional finish. On-time delivery and impeccable quality.',
+      'Commercial space painted with professional finish. Offices, shops or restaurants: on-time delivery and impeccable quality.',
     projectInteriorDesc:
-      'Apartment transformation with modern and elegant painting. Harmonious color choices and impeccable finish.',
+      'Interior painting: walls, ceilings and woodwork. Careful transformation with harmonious colors and durable finish.',
     projectExteriorDesc:
       'Complete refresh of a residence facade. Weather protection and durable result.',
     projectResidentialDesc2:

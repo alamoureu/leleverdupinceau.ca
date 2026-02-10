@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
-import peintureProfessionnelleImg from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
+import teamSectionImg from '../images/5-landing-page/Photo/louis_Consultation.jpeg';
 
 export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
@@ -31,7 +31,7 @@ export default function TeamSection({ pageContext = '' }) {
             order={{ base: 1, md: 1 }}
           >
             <Image
-              src={peintureProfessionnelleImg}
+              src={teamSectionImg}
               alt={
                 currentLang === 'fr'
                   ? `Peintre professionnel au travail${pageContext ? ' - ' + pageContext : ''}`

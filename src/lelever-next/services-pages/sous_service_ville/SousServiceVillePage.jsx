@@ -138,6 +138,9 @@ export default function SousServiceVillePage() {
             `https://leleverdupinceau.ca/services/${serviceSlug}/${subServiceSlug}/${citySlug}`
           }
         />
+        {city.noindex && (
+          <meta name="robots" content="noindex, follow" />
+        )}
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
