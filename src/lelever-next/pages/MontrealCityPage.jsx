@@ -9,6 +9,8 @@ import {
   Stack,
   Link,
   HStack,
+  Image,
+  Grid,
 } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
@@ -27,6 +29,7 @@ import img5971 from '../images/3-ville/Montréal/3. réalisations/IMG_6759.PNG';
 import img5972 from '../images/3-ville/Montréal/4. réalisations/IMG_6756.PNG';
 import img5973 from '../images/3-ville/Montréal/5. réalisations/IMG_5877.JPG';
 import img5974 from '../images/3-ville/Montréal/6. réalisations/IMG_6779.PNG';
+import montrealPhotoHeader from '../images/3-ville/Montréal/+Photo header/IMG_6782.PNG';
 
 export default function MontrealCityPage() {
   const { currentLang } = useContext(appContext);
@@ -136,71 +139,68 @@ export default function MontrealCityPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            {/* Breadcrumb */}
-            <HStack
-              spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to='/secteurs-desservis'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Secteurs desservis' : 'Service areas'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                Montréal
-              </Text>
-            </HStack>
-
-
-
-            {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
-                {isFr
-                  ? 'Peintres à Montréal – Le Lever du Pinceau'
-                  : 'Painters in Montreal – Le Lever du Pinceau'}
-              </Heading>
-
-              <Box>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to='/secteurs-desservis'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Secteurs desservis' : 'Service areas'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  Montréal
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign='left'>
+                <Heading
+                  as='h1'
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight='bold'
+                  color='gray.800'
+                >
+                  {isFr
+                    ? 'Peintres à Montréal – Le Lever du Pinceau'
+                    : 'Painters in Montreal – Le Lever du Pinceau'}
+                </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
                   lineHeight='1.7'
-                  mb={4}
                   maxW='900px'
                 >
                   {isFr
                     ? "Montréal est au cœur de nos activités de peinture résidentielle, commerciale et industrielle. Le Lever du Pinceau dessert de nombreux quartiers de l'île, des secteurs résidentiels calmes aux rues commerciales animées. Nos peintres professionnels interviennent dans les maisons, condos, commerces, bureaux, immeubles et bâtiments industriels partout à Montréal."
                     : 'Montreal is at the heart of our residential, commercial and industrial painting activities. Le Lever du Pinceau serves many neighborhoods on the island, from quiet residential sectors to busy commercial streets. Our professional painters work in homes, condos, stores, offices, buildings and industrial facilities throughout Montreal.'}
                 </Text>
-
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
@@ -212,8 +212,26 @@ export default function MontrealCityPage() {
                     ? '👉 Que vous soyez à Outremont, NDG, Plateau-Mont-Royal ou dans un autre quartier de Montréal, notre équipe peut se déplacer rapidement pour vos projets de peinture intérieure et extérieure.'
                     : '👉 Whether you are in Outremont, NDG, Plateau-Mont-Royal or another neighborhood in Montreal, our team can quickly come to your location for your interior and exterior painting projects.'}
                 </Text>
-              </Box>
+              </Stack>
             </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={montrealPhotoHeader}
+                alt={isFr ? 'Peintres à Montréal – Le Lever du Pinceau' : 'Painters in Montreal – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             {/* Section 1 — Services de peinture */}
             <CityServicesSection

@@ -12,6 +12,7 @@ import {
   Button,
   HStack,
   Flex,
+  Grid,
   Icon,
   Image,
 } from '@chakra-ui/react';
@@ -26,10 +27,14 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
+import heroImage from '../images/hero/service-hero.png';
+import residentiellePhotoHeader from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
 // Only from Page peinture résidentielle folder
 import imgRes1 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
 import imgRes2 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
 import imgRes3 from '../images/2-services/Page peinture résidentielle/3. réalisations/IMG_6764.PNG';
+import imgResInterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle intérieure/IMG_6758.PNG';
+import imgResExterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
 
 export default function PeintureResidentiellePage() {
   const { currentLang } = useContext(appContext);
@@ -79,9 +84,9 @@ export default function PeintureResidentiellePage() {
       ];
 
   const images = [
-    { src: imgRes1, alt: isFr ? 'Réalisation peinture résidentielle 1' : 'Residential painting project 1' },
-    { src: imgRes2, alt: isFr ? 'Réalisation peinture résidentielle 2' : 'Residential painting project 2' },
-    { src: imgRes3, alt: isFr ? 'Réalisation peinture résidentielle 3' : 'Residential painting project 3' },
+    { src: imgRes1, alt: isFr ? 'Sablage et teinture de la terrasse arrière d\'une maison à NDG' : 'Sanding and staining of the back deck of a house in NDG' },
+    { src: imgRes2, alt: isFr ? 'Peinture de la porte et de son cadre pour cette maison à Westmount' : 'Painting of the door and its frame for this house in Westmount' },
+    { src: imgRes3, alt: isFr ? 'Peinture de cette maison complète dans le West island' : 'Painting of this complete house in the West Island' },
   ];
 
   return (
@@ -115,10 +120,15 @@ export default function PeintureResidentiellePage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            {/* Breadcrumb */}
-            <HStack
-              spacing={3}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
               color='gray.600'
               mb={{ base: 4, md: 6 }}
@@ -151,27 +161,25 @@ export default function PeintureResidentiellePage() {
                 {isFr ? 'Peinture résidentielle' : 'Residential painting'}
               </Text>
             </HStack>
-
-            {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
-                {isFr
-                  ? 'Peinture résidentielle – Le Lever du Pinceau'
-                  : 'Residential painting – Le Lever du Pinceau'}
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? 'La peinture résidentielle demande précision, propreté et maîtrise technique. Chez Le Lever du Pinceau, nous réalisons des projets pour maisons, condos, appartements, duplex, triplex et immeubles à Montréal, Laval, Longueuil et les environs.'
+            <Stack spacing={4} textAlign='left'>
+                <Heading
+                  as='h1'
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight='bold'
+                  color='gray.800'
+                >
+                  {isFr
+                    ? 'Peinture résidentielle – Le Lever du Pinceau'
+                    : 'Residential painting – Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? 'La peinture résidentielle demande précision, propreté et maîtrise technique. Chez Le Lever du Pinceau, nous réalisons des projets pour maisons, condos, appartements, duplex, triplex et immeubles à Montréal, Laval, Longueuil et les environs.'
                   : 'Residential painting requires precision, cleanliness and technical mastery. At Le Lever du Pinceau, we carry out projects for houses, condos, apartments, duplexes, triplexes and buildings in Montreal, Laval, Longueuil and surrounding areas.'}
               </Text>
               <Text
@@ -187,6 +195,25 @@ export default function PeintureResidentiellePage() {
                   : '👉 Our team of professional painters takes care of everything: surface preparation, space protection, uniform application and impeccable finish. To transform your interior or refresh the exterior of your home, you are in the right place.'}
               </Text>
             </Stack>
+            </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={residentiellePhotoHeader}
+                alt={isFr ? 'Peinture résidentielle – Le Lever du Pinceau' : 'Residential painting – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             {/* Section 1 — Pourquoi choisir notre service résidentiel */}
             <Box
@@ -300,7 +327,6 @@ export default function PeintureResidentiellePage() {
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
-                        p={6}
                         bg='white'
                         borderRadius='xl'
                         border='1px solid'
@@ -308,6 +334,8 @@ export default function PeintureResidentiellePage() {
                         h='100%'
                         display='flex'
                         flexDirection='column'
+                        overflow='hidden'
+                        boxShadow='sm'
                         _hover={{
                           borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
@@ -315,7 +343,22 @@ export default function PeintureResidentiellePage() {
                         }}
                         transition='all 0.2s'
                       >
-                        <Stack spacing={3} flex={1}>
+                        <Box
+                          w='100%'
+                          h={{ base: '160px', md: '180px' }}
+                          flexShrink={0}
+                          overflow='hidden'
+                        >
+                          <Image
+                            src={imgResInterieure}
+                            alt={isFr ? 'Peinture résidentielle intérieure' : 'Interior residential painting'}
+                            w='100%'
+                            h='100%'
+                            objectFit='cover'
+                            objectPosition='center'
+                          />
+                        </Box>
+                        <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
                           <Heading
                             as='h3'
                             fontSize='xl'
@@ -331,7 +374,7 @@ export default function PeintureResidentiellePage() {
                               ? 'Murs, plafonds, portes, boiseries, pièces complètes.'
                               : 'Walls, ceilings, doors, woodwork, complete rooms.'}
                           </Text>
-                          <HStack spacing={2} color='brand.500' mt='auto'>
+                          <HStack spacing={2} color='brand.500' pt={1}>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -347,7 +390,6 @@ export default function PeintureResidentiellePage() {
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
-                        p={6}
                         bg='white'
                         borderRadius='xl'
                         border='1px solid'
@@ -355,6 +397,8 @@ export default function PeintureResidentiellePage() {
                         h='100%'
                         display='flex'
                         flexDirection='column'
+                        overflow='hidden'
+                        boxShadow='sm'
                         _hover={{
                           borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
@@ -362,7 +406,22 @@ export default function PeintureResidentiellePage() {
                         }}
                         transition='all 0.2s'
                       >
-                        <Stack spacing={3} flex={1}>
+                        <Box
+                          w='100%'
+                          h={{ base: '160px', md: '180px' }}
+                          flexShrink={0}
+                          overflow='hidden'
+                        >
+                          <Image
+                            src={imgResExterieure}
+                            alt={isFr ? 'Peinture résidentielle extérieure' : 'Exterior residential painting'}
+                            w='100%'
+                            h='100%'
+                            objectFit='cover'
+                            objectPosition='center'
+                          />
+                        </Box>
+                        <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
                           <Heading
                             as='h3'
                             fontSize='xl'
@@ -378,7 +437,7 @@ export default function PeintureResidentiellePage() {
                               ? 'Revêtement, brique, bois, aluminium, crépi, terrasses.'
                               : 'Coating, brick, wood, aluminum, stucco, terraces.'}
                           </Text>
-                          <HStack spacing={2} color='brand.500' mt='auto'>
+                          <HStack spacing={2} color='brand.500' pt={1}>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -447,68 +506,21 @@ export default function PeintureResidentiellePage() {
                       maxW='1200px'
                     >
                       {images.map((img, index) => (
-                        <Image
-                          key={index}
-                          src={img.src}
-                          alt={img.alt}
-                          borderRadius='lg'
-                          w='100%'
-                          h={{ base: '200px', md: '250px' }}
-                          objectFit='cover'
-                        />
+                        <Stack key={index} spacing={2}>
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            borderRadius='lg'
+                            w='100%'
+                            h={{ base: '200px', md: '250px' }}
+                            objectFit='cover'
+                          />
+                          <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
+                            {img.alt}
+                          </Text>
+                        </Stack>
                       ))}
                     </SimpleGrid>
-
-                    <Stack spacing={2} mt={4}>
-                      <Text
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        color='gray.700'
-                        fontWeight='medium'
-                      >
-                        {isFr
-                          ? 'Projects typiques réalisés :'
-                          : 'Typical completed projects:'}
-                      </Text>
-                      <Stack spacing={1} pl={4}>
-                        {isFr ? (
-                          <>
-                            <Text fontSize='md' color='gray.600'>
-                              • Rafraîchissement complet d'intérieur
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Rénovation de maisons et condos
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Peinture de façade extérieure
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Finition de boiseries et escaliers
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Travaux dans plex et multi-logements
-                            </Text>
-                          </>
-                        ) : (
-                          <>
-                            <Text fontSize='md' color='gray.600'>
-                              • Complete interior refresh
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • House and condo renovation
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Exterior facade painting
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Woodwork and stair finishing
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Work in plex and multi-unit buildings
-                            </Text>
-                          </>
-                        )}
-                      </Stack>
-                    </Stack>
                   </Stack>
                 </Container>
               </Box>

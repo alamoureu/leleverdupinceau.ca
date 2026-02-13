@@ -1,4 +1,5 @@
 import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -12,7 +13,9 @@ import {
   Icon,
   HStack,
   Flex,
+  Grid,
   useDisclosure,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,6 +30,7 @@ import appContext from '../../AppProvider';
 import SubmissionForm from '../home-page/SubmissionForm';
 import SubmissionModal from '../home-page/SubmissionModal';
 import SectorsSection from '../home-page/SectorsSection';
+import contactPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function ContactPage() {
   const { currentLang } = useContext(appContext);
@@ -118,7 +122,7 @@ export default function ContactPage() {
         '@type': 'ListItem',
         position: 2,
         name: 'Contact',
-        item: 'https://www.leleverdupinceau.ca/contact',
+        item: 'https://leleverdupinceau.ca/contact',
       },
     ],
   };
@@ -127,7 +131,7 @@ export default function ContactPage() {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: 'Contact',
-    url: 'https://www.leleverdupinceau.ca/contact',
+    url: 'https://leleverdupinceau.ca/contact',
     mainEntity: {
       '@type': 'LocalBusiness',
       name: 'Le Lever du Pinceau',
@@ -160,7 +164,7 @@ export default function ContactPage() {
               : 'Contact our team of professional painters in Montreal. Get a free quote for your residential or commercial painting project. Fast response guaranteed.'
           }
         />
-        <link rel='canonical' href='https://www.leleverdupinceau.ca/contact' />
+        <link rel='canonical' href='https://leleverdupinceau.ca/contact' />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -175,84 +179,106 @@ export default function ContactPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            <HStack
-              spacing={3}
-              textStyle='bodyLarge'
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                href='/'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                textStyle='bodyLarge'
-              >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text textStyle='bodyLarge'>›</Text>
-              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
-                Contact
-              </Text>
-            </HStack>
-
-            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading as='h1' size='page' color='gray.800'>
-                {isFr
-                  ? 'Contactez Le Lever du Pinceau'
-                  : 'Contact Le Lever du Pinceau'}
-              </Heading>
-              <Text
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
                 textStyle='bodyLarge'
                 color='gray.600'
-                lineHeight='1.7'
-                maxW='800px'
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr
-                  ? 'Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ou obtenir une soumission rapide pour votre projet de peinture ? Notre équipe de peintres professionnels est disponible partout dans le Grand Montréal, Montréal, Laval, Longueuil, Brossard et tous les quartiers environnants. Nous répondons rapidement, offrons des soumissions claires et précises, et garantissons un service professionnel du début à la fin.'
-                  : 'Would you like to refresh your interior, modernize your spaces, or get a quick quote for your painting project? Our team of professional painters is available throughout Greater Montreal, Montreal, Laval, Longueuil, Brossard and all surrounding neighborhoods. We respond quickly, offer clear and accurate quotes, and guarantee professional service from start to finish.'}
-              </Text>
-              <Text
-                textStyle='bodyLarge'
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='800px'
-                mt={2}
-                fontWeight='medium'
-              >
-                {isFr
-                  ? '👉 Remplissez le formulaire ci-dessous ou contactez-nous directement, nous serons ravis de vous aider.'
-                  : '👉 Fill out the form below or contact us directly, we will be happy to help you.'}
-              </Text>
-
-              <Box mt={6}>
-                <Button
-                  onClick={onOpen}
-                  colorScheme="red"
-                  color="white"
-                  textStyle="nav"
-                  px={{ base: 5, md: 6 }}
-                  py={{ base: 4, md: 6 }}
-                  h="auto"
-                  borderRadius="full"
-                  boxShadow="md"
-                  leftIcon={
-                    <Icon
-                      as={FontAwesomeIcon}
-                      icon={faClock}
-                      boxSize={4}
-                    />
-                  }
-                  _hover={{ boxShadow: 'lg', transform: 'translateY(-2px)' }}
-                  transition="all 0.2s"
+                <Link
+                  href='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  textStyle='bodyLarge'
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text textStyle='bodyLarge'>›</Text>
+                <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
+                  Contact
+                </Text>
+              </HStack>
+              <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
+                <Heading as='h1' size='page' color='gray.800'>
+                  {isFr
+                    ? 'Contactez Le Lever du Pinceau'
+                    : 'Contact Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  textStyle='bodyLarge'
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='800px'
                 >
                   {isFr
-                    ? 'Disponible pour projets urgents sur demande'
-                    : 'Available for urgent projects on demand'}
-                </Button>
-              </Box>
+                    ? 'Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ou obtenir une soumission rapide pour votre projet de peinture ? Notre équipe de peintres professionnels est disponible partout dans le Grand Montréal, Montréal, Laval, Longueuil, Brossard et tous les quartiers environnants. Nous répondons rapidement, offrons des soumissions claires et précises, et garantissons un service professionnel du début à la fin.'
+                    : 'Would you like to refresh your interior, modernize your spaces, or get a quick quote for your painting project? Our team of professional painters is available throughout Greater Montreal, Montreal, Laval, Longueuil, Brossard and all surrounding neighborhoods. We respond quickly, offer clear and accurate quotes, and guarantee professional service from start to finish.'}
+                </Text>
+                <Text
+                  textStyle='bodyLarge'
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='800px'
+                  mt={2}
+                  fontWeight='medium'
+                >
+                  {isFr
+                    ? '👉 Remplissez le formulaire ci-dessous ou contactez-nous directement, nous serons ravis de vous aider.'
+                    : '👉 Fill out the form below or contact us directly, we will be happy to help you.'}
+                </Text>
+                <Box mt={6}>
+                  <Button
+                    onClick={onOpen}
+                    colorScheme="red"
+                    color="white"
+                    textStyle="nav"
+                    px={{ base: 5, md: 6 }}
+                    py={{ base: 4, md: 6 }}
+                    h="auto"
+                    borderRadius="full"
+                    boxShadow="md"
+                    leftIcon={
+                      <Icon
+                        as={FontAwesomeIcon}
+                        icon={faClock}
+                        boxSize={4}
+                      />
+                    }
+                    _hover={{ boxShadow: 'lg', transform: 'translateY(-2px)' }}
+                    transition="all 0.2s"
+                  >
+                    {isFr
+                      ? 'Disponible pour projets urgents sur demande'
+                      : 'Available for urgent projects on demand'}
+                  </Button>
+                </Box>
+              </Stack>
             </Stack>
-
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={contactPhotoHeader}
+                alt={isFr ? 'Contact – Le Lever du Pinceau' : 'Contact – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
             <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -387,6 +413,24 @@ export default function ContactPage() {
               </Container>
             </Box>
 
+            <SectorsSection
+              title={
+                isFr
+                  ? 'Nous servons tout le Grand Montréal'
+                  : 'We serve all of Greater Montreal'
+              }
+              subtitle={
+                isFr
+                  ? 'Montréal, Laval, Longueuil, Brossard — tous les quartiers desservis'
+                  : 'Montreal, Laval, Longueuil, Brossard — all neighborhoods served'
+              }
+              pageContext={isFr ? 'Page Contact' : 'Contact Page'}
+              disableLinks={true}
+              showButton={true}
+              buttonLink='/secteurs-desservis'
+              buttonText={isFr ? 'Voir les secteurs' : 'View service areas'}
+            />
+
             <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
@@ -428,7 +472,8 @@ export default function ContactPage() {
 
                   <Box textAlign='center' pt={4}>
                     <Link
-                      href='/#reviews'
+                      as={RouterLink}
+                      to='/avis'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Button
@@ -490,7 +535,8 @@ export default function ContactPage() {
                         : 'Would you like to know more about our team?'}
                     </Text>
                     <Link
-                      href='/#team'
+                      as={RouterLink}
+                      to='/peintre-professionnel'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Button
@@ -513,21 +559,6 @@ export default function ContactPage() {
                 </Stack>
               </Container>
             </Box>
-
-            <SectorsSection
-              title={
-                isFr
-                  ? 'Nous servons tout le Grand Montréal'
-                  : 'We serve all of Greater Montreal'
-              }
-              subtitle={
-                isFr
-                  ? 'Nos équipes sont présentes dans votre secteur'
-                  : 'Our teams are present in your area'
-              }
-              pageContext={isFr ? 'Page Contact' : 'Contact Page'}
-              disableLinks={true}
-            />
           </Stack>
         </Container>
 

@@ -9,6 +9,8 @@ import {
   Stack,
   Link,
   HStack,
+  Image,
+  Grid,
 } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
@@ -26,6 +28,7 @@ import img5971 from '../images/3-ville/brossard/3. réalisations/IMG_6777.PNG';
 import img5972 from '../images/3-ville/brossard/intérieure/IMG_6764.PNG';
 import img5973 from '../images/3-ville/brossard/industrielle/IMG_6752.PNG';
 import img5974 from '../images/3-ville/brossard/résidentielle/IMG_6763.PNG';
+import brossardPhotoHeader from '../images/3-ville/brossard/+Header/IMG_6784.PNG';
 
 export default function BrossardCityPage() {
   const { currentLang } = useContext(appContext);
@@ -125,67 +128,68 @@ export default function BrossardCityPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            <HStack
-              spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to='/secteurs-desservis'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Secteurs desservis' : 'Service areas'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                Brossard
-              </Text>
-            </HStack>
-
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
-                {isFr
-                  ? 'Peintres à Brossard – Le Lever du Pinceau'
-                  : 'Painters in Brossard – Le Lever du Pinceau'}
-              </Heading>
-
-              <Box>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to='/secteurs-desservis'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Secteurs desservis' : 'Service areas'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  Brossard
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign='left'>
+                <Heading
+                  as='h1'
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight='bold'
+                  color='gray.800'
+                >
+                  {isFr
+                    ? 'Peintres à Brossard – Le Lever du Pinceau'
+                    : 'Painters in Brossard – Le Lever du Pinceau'}
+                </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
                   lineHeight='1.7'
-                  mb={4}
                   maxW='900px'
                 >
                   {isFr
                     ? 'Brossard est une ville en pleine croissance où résident de nombreuses familles, entreprises et complexes immobiliers. Le Lever du Pinceau offre des services complets de peinture résidentielle, commerciale et industrielle dans tous les secteurs de Brossard, incluant les quartiers R, S, T, C, V et les nouvelles zones de développement. Nos peintres professionnels réalisent des projets intérieurs et extérieurs avec précision, rapidité et une finition durable.'
                     : 'Brossard is a growing city where many families, businesses and residential complexes reside. Le Lever du Pinceau offers complete residential, commercial and industrial painting services in all sectors of Brossard, including neighborhoods R, S, T, C, V and new development areas. Our professional painters carry out interior and exterior projects with precision, speed and durable finish.'}
                 </Text>
-
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
@@ -197,8 +201,26 @@ export default function BrossardCityPage() {
                     ? '👉 Que vous soyez dans un secteur résidentiel, près du Quartier DIX30 ou dans une zone commerciale, notre équipe peut se déplacer rapidement pour votre projet de peinture.'
                     : '👉 Whether you are in a residential sector, near DIX30 Quarter or in a commercial area, our team can quickly come to your location for your painting project.'}
                 </Text>
-              </Box>
+              </Stack>
             </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={brossardPhotoHeader}
+                alt={isFr ? 'Peintres à Brossard – Le Lever du Pinceau' : 'Painters in Brossard – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             <CityServicesSection cityName='Brossard' citySlug='brossard' />
 

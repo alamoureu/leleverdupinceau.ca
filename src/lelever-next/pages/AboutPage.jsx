@@ -13,6 +13,8 @@ import {
   Icon,
   HStack,
   Flex,
+  Grid,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,7 +22,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import ReviewsSection from '../home-page/ReviewsSection';
 import SectorsSection from '../home-page/SectorsSection';
-
+import aProposPhotoHeader from '../images/1-page-principale/a propos/Photo header/IMG_6772.PNG';
 
 export default function AboutPage() {
   const { currentLang } = useContext(appContext);
@@ -198,63 +200,85 @@ export default function AboutPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            {/* Breadcrumbs */}
-            <HStack
-              spacing={3}
-              textStyle='bodyLarge'
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                textStyle='bodyLarge'
-              >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text textStyle='bodyLarge'>›</Text>
-              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
-                {isFr ? 'À propos' : 'About'}
-              </Text>
-            </HStack>
-
-            {/* Intro Content */}
-            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading as='h1' size='page' color='gray.800'>
-                {isFr
-                  ? 'À propos de Le Lever du Pinceau'
-                  : 'About Le Lever du Pinceau'}
-              </Heading>
-              <Text
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
                 textStyle='bodyLarge'
                 color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr
-                  ? 'Le Lever du Pinceau est une équipe de peintres professionnels passionnés, spécialisés en peinture résidentielle, commerciale, intérieure et extérieure dans tout le Grand Montréal. Nous croyons que chaque projet mérite une approche personnalisée, un service impeccable et une finition de qualité durable. Depuis plusieurs années, nous aidons les propriétaires, entreprises, gestionnaires immobiliers et rénovateurs à transformer leurs espaces avec précision, propreté et souci du détail.'
-                  : 'Le Lever du Pinceau is a team of passionate professional painters, specialized in residential, commercial, interior and exterior painting throughout Greater Montreal. We believe that every project deserves a personalized approach, impeccable service and a durable quality finish. For several years, we have been helping homeowners, businesses, property managers and renovators transform their spaces with precision, cleanliness and attention to detail.'}
-              </Text>
-              <Text
-                textStyle='bodyLarge'
-                color='gray.700'
-                fontWeight='medium'
-                lineHeight='1.7'
-                maxW='900px'
-                mt={2}
-              >
-                {isFr
-                  ? '👉 Notre mission : offrir la meilleure expérience de peinture au Québec, du premier contact à la finition parfaite.'
-                  : '👉 Our mission: to offer the best painting experience in Quebec, from first contact to perfect finish.'}
-              </Text>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  textStyle='bodyLarge'
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text textStyle='bodyLarge'>›</Text>
+                <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
+                  {isFr ? 'À propos' : 'About'}
+                </Text>
+              </HStack>
+              <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
+                <Heading as='h1' size='page' color='gray.800'>
+                  {isFr
+                    ? 'À propos de Le Lever du Pinceau'
+                    : 'About Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  textStyle='bodyLarge'
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? 'Le Lever du Pinceau est une équipe de peintres professionnels passionnés, spécialisés en peinture résidentielle, commerciale, intérieure et extérieure dans tout le Grand Montréal. Nous croyons que chaque projet mérite une approche personnalisée, un service impeccable et une finition de qualité durable. Depuis plusieurs années, nous aidons les propriétaires, entreprises, gestionnaires immobiliers et rénovateurs à transformer leurs espaces avec précision, propreté et souci du détail.'
+                    : 'Le Lever du Pinceau is a team of passionate professional painters, specialized in residential, commercial, interior and exterior painting throughout Greater Montreal. We believe that every project deserves a personalized approach, impeccable service and a durable quality finish. For several years, we have been helping homeowners, businesses, property managers and renovators transform their spaces with precision, cleanliness and attention to detail.'}
+                </Text>
+                <Text
+                  textStyle='bodyLarge'
+                  color='gray.700'
+                  fontWeight='medium'
+                  lineHeight='1.7'
+                  maxW='900px'
+                  mt={2}
+                >
+                  {isFr
+                    ? '👉 Notre mission : offrir la meilleure expérience de peinture au Québec, du premier contact à la finition parfaite.'
+                    : '👉 Our mission: to offer the best painting experience in Quebec, from first contact to perfect finish.'}
+                </Text>
+              </Stack>
             </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={aProposPhotoHeader}
+                alt={isFr ? 'À propos de Le Lever du Pinceau' : 'About Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             {/* Values Section (Moved Up) */}
             <Box py={{ base: 12, md: 16, lg: 20 }}>
-              <Container maxW='1440px' px={{ base: 0 }}>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>
                   <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
                     <Heading as='h2' size='section' color='gray.800'>
@@ -270,7 +294,7 @@ export default function AboutPage() {
                     maxW='1200px'
                     mx='auto'
                   >
-                    {values.map((value, index) => (
+                    {values.slice(0, 3).map((value, index) => (
                       <Box
                         key={index}
                         p={{ base: 6, md: 8 }}
@@ -297,6 +321,45 @@ export default function AboutPage() {
                         </Stack>
                       </Box>
                     ))}
+                    {/* Last row: 2 cards centered on desktop */}
+                    <Box
+                      gridColumn={{ base: '1', md: '1 / -1', lg: '1 / -1' }}
+                      display='flex'
+                      flexWrap='wrap'
+                      justifyContent='center'
+                      gap={{ base: 8, md: 10 }}
+                      mt={{ base: 0, md: 0 }}
+                    >
+                      {values.slice(3, 5).map((value, index) => (
+                        <Box
+                          key={index + 3}
+                          p={{ base: 6, md: 8 }}
+                          bg='white'
+                          borderRadius='xl'
+                          border='1px solid'
+                          borderColor='gray.200'
+                          textAlign='center'
+                          w={{ base: '100%', md: 'calc(50% - 20px)', lg: 'calc(33.333% - 14px)' }}
+                          maxW={{ lg: '380px' }}
+                        >
+                          <Stack spacing={4}>
+                            <Icon
+                              as={FontAwesomeIcon}
+                              icon={faCheckCircle}
+                              color='brand.500'
+                              boxSize={6}
+                              mx='auto'
+                            />
+                            <Heading as='h3' size='subsection' color='gray.800'>
+                              {value.title}
+                            </Heading>
+                            <Text color='gray.600' textStyle='body' lineHeight='1.6'>
+                              {value.description}
+                            </Text>
+                          </Stack>
+                        </Box>
+                      ))}
+                    </Box>
                   </SimpleGrid>
                 </Stack>
               </Container>

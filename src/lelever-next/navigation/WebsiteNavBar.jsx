@@ -227,13 +227,6 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   : 'Professional Painters'}
               </Button>
               <Button
-                onClick={() => navigate('/a-propos')}
-                textStyle="nav"
-                px={{ base: 3, lg: 3, xl: 3 }}
-              >
-                {currentLang === 'fr' ? 'À propos' : 'About'}
-              </Button>
-              <Button
                 onClick={() => navigate('/avis')}
                 textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}

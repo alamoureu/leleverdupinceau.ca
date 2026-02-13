@@ -9,6 +9,8 @@ import {
   Stack,
   Link,
   HStack,
+  Image,
+  Grid,
 } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
@@ -26,6 +28,7 @@ import img5971 from '../images/3-ville/laval/3. réalisations/IMG_6753.PNG';
 import img5972 from '../images/3-ville/laval/intérieure/IMG_6764.PNG';
 import img5973 from '../images/3-ville/laval/industrielle/IMG_6780.PNG';
 import img5974 from '../images/3-ville/laval/résidentielle/IMG_6763.PNG';
+import lavalPhotoHeader from '../images/3-ville/laval/+ header/IMG_6786.PNG';
 
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);
@@ -121,69 +124,68 @@ export default function LavalCityPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            {/* Breadcrumb */}
-            <HStack
-              spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to='/secteurs-desservis'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Secteurs desservis' : 'Service areas'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                Laval
-              </Text>
-            </HStack>
-
-            {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
-                {isFr
-                  ? 'Peintres à Laval – Le Lever du Pinceau'
-                  : 'Painters in Laval – Le Lever du Pinceau'}
-              </Heading>
-
-              <Box>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to='/secteurs-desservis'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Secteurs desservis' : 'Service areas'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  Laval
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign='left'>
+                <Heading
+                  as='h1'
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight='bold'
+                  color='gray.800'
+                >
+                  {isFr
+                    ? 'Peintres à Laval – Le Lever du Pinceau'
+                    : 'Painters in Laval – Le Lever du Pinceau'}
+                </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
                   lineHeight='1.7'
-                  mb={4}
                   maxW='900px'
                 >
                   {isFr
                     ? "Laval est l'une des villes où nous effectuons le plus de projets résidentiels, commerciaux et industriels. Le Lever du Pinceau dessert l'ensemble des quartiers de Laval : maisons unifamiliales, condos, plex, commerces, bureaux, immeubles et zones industrielles, incluant Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville et plus. Nos peintres professionnels interviennent pour des projets intérieurs et extérieurs, avec une finition durable et de haute qualité."
                     : 'Laval is one of the cities where we carry out the most residential, commercial and industrial projects. Le Lever du Pinceau serves all neighborhoods in Laval: single-family homes, condos, plex, stores, offices, buildings and industrial areas, including Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville and more. Our professional painters work on interior and exterior projects, with durable and high-quality finishes.'}
                 </Text>
-
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
@@ -195,8 +197,26 @@ export default function LavalCityPage() {
                     ? '👉 Que vous soyez dans un secteur résidentiel ou commercial, notre équipe se déplace rapidement pour vos travaux de peinture à Laval.'
                     : '👉 Whether you are in a residential or commercial sector, our team can quickly come to your location for your painting work in Laval.'}
                 </Text>
-              </Box>
+              </Stack>
             </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={lavalPhotoHeader}
+                alt={isFr ? 'Peintres à Laval – Le Lever du Pinceau' : 'Painters in Laval – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             {/* Section 1 — Services de peinture */}
             <CityServicesSection cityName='Laval' citySlug='laval' />

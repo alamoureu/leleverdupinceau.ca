@@ -8,6 +8,7 @@ import {
   Text,
   Stack,
   HStack,
+  Grid,
   Link,
   Button,
   SimpleGrid,
@@ -25,12 +26,16 @@ import SectorsSection, {
   brossardSecteur,
 } from '../home-page/SectorsSection';
 import ServiceCTASection from './components/ServiceCTASection';
+import heroImage from '../images/hero/service-hero.png';
+import interieurePhotoHeader from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
 import img5969 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
 import img5970 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
 import img5971 from '../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
 import img5972 from '../images/2-services/Page peinture intérieure/4. réalisations/IMG_6751.PNG';
 import img5973 from '../images/2-services/Page peinture intérieure/5. réalisations/IMG_6754.PNG';
 import img5974 from '../images/2-services/Page peinture intérieure/6. réalisations/IMG_5976.PNG';
+import imgResInterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle intérieure/IMG_6758.PNG';
+import imgComInterieure from '../images/4-sous-services/commercial x intérieure/1. réalisations/IMG_6759.PNG';
 
 export default function PeintureInterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -80,12 +85,12 @@ export default function PeintureInterieurePage() {
       ];
 
   const images = [
-    { src: img5969, alt: isFr ? 'Projet intérieur 1' : 'Interior project 1' },
-    { src: img5970, alt: isFr ? 'Projet intérieur 2' : 'Interior project 2' },
-    { src: img5971, alt: isFr ? 'Projet intérieur 3' : 'Interior project 3' },
-    { src: img5972, alt: isFr ? 'Projet intérieur 4' : 'Interior project 4' },
-    { src: img5973, alt: isFr ? 'Projet intérieur 5' : 'Interior project 5' },
-    { src: img5974, alt: isFr ? 'Projet intérieur 6' : 'Interior project 6' },
+    { src: img5969, alt: isFr ? 'Peinture du nouveau mur agissant comme foyer en noir' : 'Painting of the new wall acting as a fireplace in black' },
+    { src: img5970, alt: isFr ? 'Peinture de cette maison entière à Ville Mont Royal' : 'Painting of this entire house in Town of Mount Royal' },
+    { src: img5971, alt: isFr ? 'Peinture après la rénovation de cette entrée de bureau médical' : 'Painting after the renovation of this medical office entrance' },
+    { src: img5972, alt: isFr ? 'Peinture et rafraîchissement de ce petit local commercial à Verdun' : 'Painting and refresh of this small commercial space in Verdun' },
+    { src: img5973, alt: isFr ? 'Peinture de l\'entièreté de cette maison à Westmount' : 'Painting of the entirety of this house in Westmount' },
+    { src: img5974, alt: isFr ? 'Peinture entière des portes de cabinet de cette cuisine' : 'Complete painting of the cabinet doors of this kitchen' },
   ];
 
   return (
@@ -119,10 +124,15 @@ export default function PeintureInterieurePage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            {/* Breadcrumb */}
-            <HStack
-              spacing={3}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
               color='gray.600'
               mb={{ base: 4, md: 6 }}
@@ -155,42 +165,59 @@ export default function PeintureInterieurePage() {
                 {isFr ? 'Peinture intérieure' : 'Interior painting'}
               </Text>
             </HStack>
-
-            {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
-                {isFr
-                  ? 'Peinture intérieure – Le Lever du Pinceau'
-                  : 'Interior painting – Le Lever du Pinceau'}
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? "La peinture intérieure transforme immédiatement l'apparence d'un espace, que ce soit pour rafraîchir une pièce, moderniser un condo, ou revoir entièrement le style de votre maison. Le Lever du Pinceau offre des services de peinture intérieure professionnels à Montréal, Laval, Longueuil et Brossard pour tous types de surfaces : murs, plafonds, escaliers, boiseries et plus."
-                  : 'Interior painting immediately transforms the appearance of a space, whether to refresh a room, modernize a condo, or completely rethink the style of your home. Le Lever du Pinceau offers professional interior painting services in Montreal, Laval, Longueuil and Brossard for all types of surfaces: walls, ceilings, stairs, woodwork and more.'}
-              </Text>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-                mt={2}
-                fontWeight='medium'
-              >
-                {isFr
-                  ? '👉 Nos peintres travaillent proprement, rapidement et avec un souci constant du détail. Pour un intérieur impeccable, durable et adapté à votre style, notre équipe est là pour vous accompagner.'
-                  : '👉 Our painters work cleanly, quickly and with constant attention to detail. For an impeccable, durable interior adapted to your style, our team is here to support you.'}
-              </Text>
+            <Stack spacing={4} textAlign='left'>
+                <Heading
+                  as='h1'
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight='bold'
+                  color='gray.800'
+                >
+                  {isFr
+                    ? 'Peinture intérieure – Le Lever du Pinceau'
+                    : 'Interior painting – Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? "La peinture intérieure transforme immédiatement l'apparence d'un espace, que ce soit pour rafraîchir une pièce, moderniser un condo, ou revoir entièrement le style de votre maison. Le Lever du Pinceau offre des services de peinture intérieure professionnels à Montréal, Laval, Longueuil et Brossard pour tous types de surfaces : murs, plafonds, escaliers, boiseries et plus."
+                    : 'Interior painting immediately transforms the appearance of a space, whether to refresh a room, modernize a condo, or completely rethink the style of your home. Le Lever du Pinceau offers professional interior painting services in Montreal, Laval, Longueuil and Brossard for all types of surfaces: walls, ceilings, stairs, woodwork and more.'}
+                </Text>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                  mt={2}
+                  fontWeight='medium'
+                >
+                  {isFr
+                    ? '👉 Nos peintres travaillent proprement, rapidement et avec un souci constant du détail. Pour un intérieur impeccable, durable et adapté à votre style, notre équipe est là pour vous accompagner.'
+                    : '👉 Our painters work cleanly, quickly and with constant attention to detail. For an impeccable, durable interior adapted to your style, our team is here to support you.'}
+                </Text>
             </Stack>
+          </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={interieurePhotoHeader}
+                alt={isFr ? 'Peinture intérieure – Le Lever du Pinceau' : 'Interior painting – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <ServiceWhyUsSection
@@ -228,6 +255,7 @@ export default function PeintureInterieurePage() {
                     ? 'Maisons, condos, appartements et résidences privées.'
                     : 'Houses, condos, apartments and private residences.',
                   link: '/services/peinture-residentielle/interieure',
+                  image: imgResInterieure,
                 },
                 {
                   title: isFr
@@ -237,6 +265,7 @@ export default function PeintureInterieurePage() {
                     ? 'Bureaux, commerces, restaurants et espaces commerciaux.'
                     : 'Offices, stores, restaurants and commercial spaces.',
                   link: '/services/peinture-commerciale/interieure',
+                  image: imgComInterieure,
                 },
               ]}
             />
@@ -296,67 +325,21 @@ export default function PeintureInterieurePage() {
                       maxW='1200px'
                     >
                       {images.map((img, index) => (
-                        <Image
-                          key={index}
-                          src={img.src}
-                          alt={img.alt}
-                          borderRadius='lg'
-                          w='100%'
-                          h={{ base: '200px', md: '250px' }}
-                          objectFit='cover'
-                        />
+                        <Stack key={index} spacing={2}>
+                          <Image
+                            src={img.src}
+                            alt={img.alt}
+                            borderRadius='lg'
+                            w='100%'
+                            h={{ base: '200px', md: '250px' }}
+                            objectFit='cover'
+                          />
+                          <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
+                            {img.alt}
+                          </Text>
+                        </Stack>
                       ))}
                     </SimpleGrid>
-
-                    <Stack spacing={2} mt={4}>
-                      <Text
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        color='gray.700'
-                        fontWeight='medium'
-                      >
-                        {isFr ? 'Projets typiques :' : 'Typical projects:'}
-                      </Text>
-                      <Stack spacing={1} pl={4}>
-                        {isFr ? (
-                          <>
-                            <Text fontSize='md' color='gray.600'>
-                              • Rafraîchissement de pièces complètes
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Rénovation intérieure moderne
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Peinture d'escaliers et boiseries
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Peinture de plafonds et murs haute précision
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Harmonisation des couleurs dans des espaces
-                              ouverts
-                            </Text>
-                          </>
-                        ) : (
-                          <>
-                            <Text fontSize='md' color='gray.600'>
-                              • Complete room refresh
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Modern interior renovation
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Stair and woodwork painting
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • High-precision ceiling and wall painting
-                            </Text>
-                            <Text fontSize='md' color='gray.600'>
-                              • Color harmonization in open spaces
-                            </Text>
-                          </>
-                        )}
-                      </Stack>
-                    </Stack>
                   </Stack>
                 </Container>
               </Box>

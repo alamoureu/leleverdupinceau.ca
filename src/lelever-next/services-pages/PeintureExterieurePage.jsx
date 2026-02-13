@@ -12,6 +12,7 @@ import {
   Button,
   HStack,
   Flex,
+  Grid,
   Icon,
   Image,
 } from '@chakra-ui/react';
@@ -25,12 +26,14 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
+import heroImage from '../images/hero/service-hero.png';
 import img5969 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 import img5970 from '../images/2-services/Page peinture extérieure/2. réalisations/IMG_6761.PNG';
 import img5971 from '../images/2-services/Page peinture extérieure/3. réalisations/IMG_6756.PNG';
 import img5972 from '../images/2-services/Page peinture extérieure/Peinture résidentielle extérieure/IMG_6763.PNG';
 import img5973 from '../images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG';
 import img5974 from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
+import imgResExterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
 
 export default function PeintureExterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -107,9 +110,15 @@ export default function PeintureExterieurePage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            <HStack
-              spacing={3}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
               color='gray.600'
               mb={{ base: 4, md: 6 }}
@@ -142,42 +151,59 @@ export default function PeintureExterieurePage() {
                 {isFr ? 'Peinture extérieure' : 'Exterior painting'}
               </Text>
             </HStack>
-
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
-                {isFr
-                  ? 'Peinture extérieure – Le Lever du Pinceau'
-                  : 'Exterior painting – Le Lever du Pinceau'}
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? 'La peinture extérieure protège votre propriété contre les intempéries, rehausse son apparence et augmente sa valeur. Le Lever du Pinceau réalise des projets de peinture extérieure pour maisons, plex, condos, immeubles résidentiels, commerces et bâtiments industriels dans tout le Grand Montréal.'
-                  : 'Exterior painting protects your property against the elements, enhances its appearance and increases its value. Le Lever du Pinceau carries out exterior painting projects for houses, plex, condos, residential buildings, businesses and industrial buildings throughout Greater Montreal.'}
-              </Text>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-                mt={2}
-                fontWeight='medium'
-              >
-                {isFr
-                  ? "👉 Nos peintres professionnels utilisent des produits haut de gamme, résistants aux UV, à l'humidité, aux variations de température et au climat québécois. Pour rafraîchir votre façade, moderniser une structure extérieure ou protéger un revêtement, notre équipe est prête à intervenir."
-                  : '👉 Our professional painters use high-end products, resistant to UV, humidity, temperature variations and Quebec climate. To refresh your facade, modernize an exterior structure or protect a coating, our team is ready to intervene.'}
-              </Text>
+            <Stack spacing={4} textAlign='left'>
+                <Heading
+                  as='h1'
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight='bold'
+                  color='gray.800'
+                >
+                  {isFr
+                    ? 'Peinture extérieure – Le Lever du Pinceau'
+                    : 'Exterior painting – Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? 'La peinture extérieure protège votre propriété contre les intempéries, rehausse son apparence et augmente sa valeur. Le Lever du Pinceau réalise des projets de peinture extérieure pour maisons, plex, condos, immeubles résidentiels, commerces et bâtiments industriels dans tout le Grand Montréal.'
+                    : 'Exterior painting protects your property against the elements, enhances its appearance and increases its value. Le Lever du Pinceau carries out exterior painting projects for houses, plex, condos, residential buildings, businesses and industrial buildings throughout Greater Montreal.'}
+                </Text>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                  mt={2}
+                  fontWeight='medium'
+                >
+                  {isFr
+                    ? "👉 Nos peintres professionnels utilisent des produits haut de gamme, résistants aux UV, à l'humidité, aux variations de température et au climat québécois. Pour rafraîchir votre façade, moderniser une structure extérieure ou protéger un revêtement, notre équipe est prête à intervenir."
+                    : '👉 Our professional painters use high-end products, resistant to UV, humidity, temperature variations and Quebec climate. To refresh your facade, modernize an exterior structure or protect a coating, our team is ready to intervene.'}
+                </Text>
             </Stack>
-
+          </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={img5974}
+                alt={isFr ? 'Peinture extérieure – Le Lever du Pinceau' : 'Exterior painting – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
             <Box
               py={{ base: 12, md: 16, lg: 20 }}
               bg='gray.50'
@@ -288,7 +314,6 @@ export default function PeintureExterieurePage() {
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
-                        p={6}
                         bg='white'
                         borderRadius='xl'
                         border='1px solid'
@@ -296,6 +321,8 @@ export default function PeintureExterieurePage() {
                         h='100%'
                         display='flex'
                         flexDirection='column'
+                        overflow='hidden'
+                        boxShadow='sm'
                         _hover={{
                           borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
@@ -303,7 +330,22 @@ export default function PeintureExterieurePage() {
                         }}
                         transition='all 0.2s'
                       >
-                        <Stack spacing={3} flex={1}>
+                        <Box
+                          w='100%'
+                          h={{ base: '160px', md: '180px' }}
+                          flexShrink={0}
+                          overflow='hidden'
+                        >
+                          <Image
+                            src={imgResExterieure}
+                            alt={isFr ? 'Peinture résidentielle extérieure' : 'Residential exterior painting'}
+                            w='100%'
+                            h='100%'
+                            objectFit='cover'
+                            objectPosition='center'
+                          />
+                        </Box>
+                        <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
                           <Heading
                             as='h3'
                             fontSize='xl'
@@ -319,7 +361,7 @@ export default function PeintureExterieurePage() {
                               ? 'Façades, revêtements, brique, bois, terrasses résidentielles.'
                               : 'Facades, coatings, brick, wood, residential terraces.'}
                           </Text>
-                          <HStack spacing={2} color='brand.500' mt='auto'>
+                          <HStack spacing={2} color='brand.500' pt={1}>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -335,7 +377,6 @@ export default function PeintureExterieurePage() {
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
-                        p={6}
                         bg='white'
                         borderRadius='xl'
                         border='1px solid'
@@ -343,6 +384,8 @@ export default function PeintureExterieurePage() {
                         h='100%'
                         display='flex'
                         flexDirection='column'
+                        overflow='hidden'
+                        boxShadow='sm'
                         _hover={{
                           borderColor: 'brand.500',
                           transform: 'translateY(-2px)',
@@ -350,7 +393,7 @@ export default function PeintureExterieurePage() {
                         }}
                         transition='all 0.2s'
                       >
-                        <Stack spacing={3} flex={1}>
+                        <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
                           <Heading
                             as='h3'
                             fontSize='xl'
@@ -366,7 +409,7 @@ export default function PeintureExterieurePage() {
                               ? 'Façades, entrées commerciales, structures extérieures, enseignes.'
                               : 'Facades, commercial entrances, exterior structures, signs.'}
                           </Text>
-                          <HStack spacing={2} color='brand.500' mt='auto'>
+                          <HStack spacing={2} color='brand.500' pt={1}>
                             <Text fontSize='sm' fontWeight='medium'>
                               {isFr ? 'Voir la page' : 'View page'}
                             </Text>
@@ -432,103 +475,25 @@ export default function PeintureExterieurePage() {
                     maxW='1200px'
                   >
                     {[
-                      {
-                        src: img5969,
-                        alt: isFr
-                          ? 'Peinture extérieure Montréal 1'
-                          : 'Exterior painting Montreal 1',
-                      },
-                      {
-                        src: img5970,
-                        alt: isFr
-                          ? 'Peinture extérieure Montréal 2'
-                          : 'Exterior painting Montreal 2',
-                      },
-                      {
-                        src: img5971,
-                        alt: isFr
-                          ? 'Peinture extérieure Montréal 3'
-                          : 'Exterior painting Montreal 3',
-                      },
-                      {
-                        src: img5972,
-                        alt: isFr
-                          ? 'Peinture extérieure Montréal 4'
-                          : 'Exterior painting Montreal 4',
-                      },
-                      {
-                        src: img5973,
-                        alt: isFr
-                          ? 'Peinture extérieure Montréal 5'
-                          : 'Exterior painting Montreal 5',
-                      },
-                      {
-                        src: img5974,
-                        alt: isFr
-                          ? 'Peinture extérieure Montréal 6'
-                          : 'Exterior painting Montreal 6',
-                      },
+                      { src: img5969, alt: isFr ? 'Peinture de la corniche décorative de cette maison à Ville Mont Royal' : 'Painting of the decorative cornice of this house in Town of Mount Royal' },
+                      { src: img5970, alt: isFr ? 'Peinture du revêtement extérieur de cette maison à Laval' : 'Painting of the exterior siding of this house in Laval' },
+                      { src: img5971, alt: isFr ? 'Préparation, primage et peinture de la cage d\'escalier arrière de ce quadruplex à Rosemont' : 'Preparation, priming and painting of the back stairwell of this quadruplex in Rosemont' },
                     ].map((img, index) => (
-                      <Image
-                        key={index}
-                        src={img.src}
-                        alt={img.alt}
-                        borderRadius='lg'
-                        w='100%'
-                        h={{ base: '200px', md: '250px' }}
-                        objectFit='cover'
-                      />
+                      <Stack key={index} spacing={2}>
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          borderRadius='lg'
+                          w='100%'
+                          h={{ base: '200px', md: '250px' }}
+                          objectFit='cover'
+                        />
+                        <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
+                          {img.alt}
+                        </Text>
+                      </Stack>
                     ))}
                   </SimpleGrid>
-
-                  <Stack spacing={2} mt={4}>
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.700'
-                      fontWeight='medium'
-                    >
-                      {isFr ? 'Projets typiques :' : 'Typical projects:'}
-                    </Text>
-                    <Stack spacing={1} pl={4}>
-                      {isFr ? (
-                        <>
-                          <Text fontSize='md' color='gray.600'>
-                            • Rafraîchissement de façade résidentielle
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Peinture de revêtement aluminium
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Protection de structures extérieures
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Mise à jour de commerces ou entrées commerciales
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Peinture de terrasses et clôtures
-                          </Text>
-                        </>
-                      ) : (
-                        <>
-                          <Text fontSize='md' color='gray.600'>
-                            • Residential facade refresh
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Aluminum siding painting
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Exterior structure protection
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Commercial store or entrance update
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Terrace and fence painting
-                          </Text>
-                        </>
-                      )}
-                    </Stack>
-                  </Stack>
                 </Stack>
               </Container>
             </Box>

@@ -29,7 +29,7 @@ export default function ProcessStepsSection({
       py={{ base: 12, md: 16, lg: 20 }}
       bg="white"
     >
-      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>
+      <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={{ base: 6, md: 8 }}>
           <Stack spacing={{ base: 1, md: 2 }} textAlign="center" mb={{ base: 2, md: 4 }}>
             <Heading

@@ -13,6 +13,7 @@ import {
   Icon,
   HStack,
   Flex,
+  Grid,
   useDisclosure,
   Image,
   Accordion,
@@ -30,7 +31,13 @@ import ResourcesSection from '../home-page/ResourcesSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfter from '../components/BeforeAfter';
 import ProcessStepsSection from '../components/ProcessStepsSection';
-import peintureProfessionnelleImg from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
+import peintureProfessionnelleImg from '../images/5-landing-page/Photo/Paint Cut-in Louis.jpeg';
+import peintreProResidentielle from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
+import peintreProCommerciale from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG';
+import peintreProInterieure from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG';
+import peintreProExterieure from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG';
+import peintreProIndustrielle from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG';
+import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function PeintreProfessionnelPage() {
   const { currentLang } = useContext(appContext);
@@ -222,8 +229,17 @@ export default function PeintreProfessionnelPage() {
     },
   ];
 
+  const serviceImages = [
+    peintreProResidentielle,
+    peintreProCommerciale,
+    peintreProInterieure,
+    peintreProExterieure,
+    peintreProIndustrielle,
+  ];
+
   const services = [
     {
+      image: serviceImages[0],
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
       description: isFr
         ? 'Maisons, condos, logements, multi-étages.'
@@ -231,6 +247,7 @@ export default function PeintreProfessionnelPage() {
       link: '/services/peinture-residentielle',
     },
     {
+      image: serviceImages[1],
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
       description: isFr
         ? 'Bureaux, commerces, restaurants, immeubles.'
@@ -238,6 +255,7 @@ export default function PeintreProfessionnelPage() {
       link: '/services/peinture-commerciale',
     },
     {
+      image: serviceImages[2],
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
       description: isFr
         ? 'Murs, plafonds, portes, escaliers.'
@@ -245,6 +263,7 @@ export default function PeintreProfessionnelPage() {
       link: '/services/peinture-interieure',
     },
     {
+      image: serviceImages[3],
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       description: isFr
         ? 'Revêtements, clôtures, bois, brique, aluminium.'
@@ -252,6 +271,7 @@ export default function PeintreProfessionnelPage() {
       link: '/services/peinture-exterieure',
     },
     {
+      image: serviceImages[4],
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
       description: isFr
         ? 'Entrepôts, usines, bâtiments spécialisés.'
@@ -347,42 +367,31 @@ export default function PeintreProfessionnelPage() {
       <Box w="100%" bg="white" overflowX="hidden">
         <Container
           maxW="1440px"
-          px={{ base: 4, md: 6, lg: 8 }}
+          px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
-        >
-          <HStack
-            spacing={3}
-            textStyle="bodyLarge"
-            color="gray.600"
-            mb={{ base: 4, md: 6 }}
-          >
-            <Link href="/" _hover={{ textDecoration: 'underline' }} color="gray.600" textStyle="bodyLarge">
-              {isFr ? 'Accueil' : 'Home'}
-            </Link>
-            <Text textStyle="bodyLarge">›</Text>
-            <Text color="gray.800" fontWeight="medium" textStyle="bodyLarge">
-              {isFr ? 'Peintres professionnels' : 'Professional Painters'}
-            </Text>
-          </HStack>
-        </Container>
-
-        <Box
-          position="relative"
-          w="100%"
-          bg="white"
-          pt={{ base: 6, md: 10, lg: 12 }}
           pb={{ base: 10, md: 14, lg: 18 }}
         >
-          <Container maxW="1440px" px={{ base: 4, md: 6, lg: 8 }}>
-            <SimpleGrid
-              columns={{ base: 1, lg: 2 }}
-              spacing={{ base: 6, md: 8, lg: 12 }}
-              alignItems="center"
-            >
-              <Stack
-                spacing={{ base: 4, md: 6, lg: 8 }}
-                order={{ base: 2, lg: 1 }}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
+                textStyle="bodyLarge"
+                color="gray.600"
+                mb={{ base: 4, md: 6 }}
               >
+                <Link href="/" _hover={{ textDecoration: 'underline' }} color="gray.600" textStyle="bodyLarge">
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text textStyle="bodyLarge">›</Text>
+                <Text color="gray.800" fontWeight="medium" textStyle="bodyLarge">
+                  {isFr ? 'Peintres professionnels' : 'Professional Painters'}
+                </Text>
+              </HStack>
+              <Stack spacing={{ base: 4, md: 6, lg: 8 }}>
                 <Heading
                   as="h1"
                   fontSize={{
@@ -416,7 +425,6 @@ export default function PeintreProfessionnelPage() {
                     Le Lever du Pinceau
                   </Text>
                 </Heading>
-
                 <Text
                   textStyle="bodyLarge"
                   color="gray.600"
@@ -428,36 +436,25 @@ export default function PeintreProfessionnelPage() {
                     : 'At Le Lever du Pinceau, our professional painters assist homeowners, businesses and buildings in all their painting projects in Montreal, Laval and Longueuil. We combine technical expertise, impeccable finish and fast service to offer durable and aesthetic results. On this page you will find our professional approach, available services, service areas and essential answers for choosing the right painter.'}
                 </Text>
               </Stack>
-
-              <Box order={{ base: 1, lg: 2 }} position="relative">
-                <Box
-                  position="relative"
-                  borderRadius="xl"
-                  overflow="hidden"
-                  boxShadow="lg"
-                  w="100%"
-                >
-                  <Image
-                    src={peintureProfessionnelleImg}
-                    alt={
-                      isFr
-                        ? 'Peintre professionnel Montréal - Le Lever du Pinceau'
-                        : 'Professional painter Montreal - Le Lever du Pinceau'
-                    }
-                    title={
-                      isFr
-                        ? 'Peintres professionnels en action à Montréal'
-                        : 'Professional painters in action in Montreal'
-                    }
-                    w="100%"
-                    h="auto"
-                    objectFit="cover"
-                  />
-                </Box>
-              </Box>
-            </SimpleGrid>
-          </Container>
-        </Box>
+            </Stack>
+            <Box
+              w="100%"
+              aspectRatio="1"
+              borderRadius="xl"
+              overflow="hidden"
+              bg="gray.100"
+            >
+              <Image
+                src={peintreProPhotoHeader}
+                alt={isFr ? 'Peintres professionnels – Le Lever du Pinceau' : 'Professional Painters – Le Lever du Pinceau'}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                objectPosition="center"
+              />
+            </Box>
+          </Grid>
+        </Container>
 
         <Container
           maxW="1440px"
@@ -593,11 +590,11 @@ export default function PeintreProfessionnelPage() {
                         _hover={{ textDecoration: 'none' }}
                       >
                         <Box
-                          p={{ base: 6, md: 8 }}
                           bg="white"
                           borderRadius="xl"
                           border="1px solid"
                           borderColor="gray.200"
+                          overflow="hidden"
                           _hover={{
                             borderColor: 'brand.500',
                             transform: 'translateY(-2px)',
@@ -608,7 +605,22 @@ export default function PeintreProfessionnelPage() {
                           display="flex"
                           flexDirection="column"
                         >
-                          <Stack spacing={4} flex={1}>
+                          <Box
+                            position="relative"
+                            w="100%"
+                            h="180px"
+                            bg="gray.100"
+                            overflow="hidden"
+                          >
+                            <Image
+                              src={service.image}
+                              alt={service.title}
+                              w="100%"
+                              h="100%"
+                              objectFit="cover"
+                            />
+                          </Box>
+                          <Stack spacing={4} flex={1} p={{ base: 6, md: 8 }}>
                             <Heading
                               as="h3"
                               size="subsection"

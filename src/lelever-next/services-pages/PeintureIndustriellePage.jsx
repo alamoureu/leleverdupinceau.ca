@@ -12,6 +12,7 @@ import {
   Button,
   HStack,
   Flex,
+  Grid,
   Icon,
   Image,
 } from '@chakra-ui/react';
@@ -26,10 +27,12 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
+import heroImage from '../images/hero/service-hero.png';
 // Only from Page peinture industrielle folder
 import imgInd1 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
 import imgInd2 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
 import imgInd3 from '../images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG';
+import industriellePhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function PeintureIndustriellePage() {
   const { currentLang } = useContext(appContext);
@@ -109,10 +112,15 @@ export default function PeintureIndustriellePage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            {/* Breadcrumb */}
-            <HStack
-              spacing={3}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
               color='gray.600'
               mb={{ base: 4, md: 6 }}
@@ -145,42 +153,59 @@ export default function PeintureIndustriellePage() {
                 {isFr ? 'Peinture industrielle' : 'Industrial painting'}
               </Text>
             </HStack>
-
-            {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading
-                as='h1'
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight='bold'
-                color='gray.800'
-              >
-                {isFr
-                  ? 'Peinture industrielle – Le Lever du Pinceau'
-                  : 'Industrial painting – Le Lever du Pinceau'}
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-              >
-                {isFr
-                  ? 'La peinture industrielle requiert des produits robustes, une préparation rigoureuse et des techniques adaptées aux environnements exigeants. Le Lever du Pinceau intervient dans les usines, entrepôts, centres logistiques, bâtiments industriels et équipements spécialisés à Montréal, Laval, Longueuil et Brossard.'
-                  : 'Industrial painting requires robust products, rigorous preparation and techniques adapted to demanding environments. Le Lever du Pinceau works in factories, warehouses, logistics centers, industrial buildings and specialized equipment in Montreal, Laval, Longueuil and Brossard.'}
-              </Text>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-                mt={2}
-                fontWeight='medium'
-              >
-                {isFr
-                  ? '👉 Nos peintres professionnels utilisent des revêtements industriels résistants, adaptés aux surfaces métalliques, béton, acier, structures extérieures et environnements à forte circulation. Pour protéger vos surfaces industrielles et améliorer la durabilité de vos installations, notre équipe est prête à intervenir rapidement.'
-                  : '👉 Our professional painters use resistant industrial coatings, adapted to metal surfaces, concrete, steel, exterior structures and high-traffic environments. To protect your industrial surfaces and improve the durability of your installations, our team is ready to intervene quickly.'}
-              </Text>
+            <Stack spacing={4} textAlign='left'>
+                <Heading
+                  as='h1'
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight='bold'
+                  color='gray.800'
+                >
+                  {isFr
+                    ? 'Peinture industrielle – Le Lever du Pinceau'
+                    : 'Industrial painting – Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                >
+                  {isFr
+                    ? 'La peinture industrielle requiert des produits robustes, une préparation rigoureuse et des techniques adaptées aux environnements exigeants. Le Lever du Pinceau intervient dans les usines, entrepôts, centres logistiques, bâtiments industriels et équipements spécialisés à Montréal, Laval, Longueuil et Brossard.'
+                    : 'Industrial painting requires robust products, rigorous preparation and techniques adapted to demanding environments. Le Lever du Pinceau works in factories, warehouses, logistics centers, industrial buildings and specialized equipment in Montreal, Laval, Longueuil and Brossard.'}
+                </Text>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                  mt={2}
+                  fontWeight='medium'
+                >
+                  {isFr
+                    ? '👉 Nos peintres professionnels utilisent des revêtements industriels résistants, adaptés aux surfaces métalliques, béton, acier, structures extérieures et environnements à forte circulation. Pour protéger vos surfaces industrielles et améliorer la durabilité de vos installations, notre équipe est prête à intervenir rapidement.'
+                    : '👉 Our professional painters use resistant industrial coatings, adapted to metal surfaces, concrete, steel, exterior structures and high-traffic environments. To protect your industrial surfaces and improve the durability of your installations, our team is ready to intervene quickly.'}
+                </Text>
             </Stack>
+            </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={industriellePhotoHeader}
+                alt={isFr ? 'Peinture industrielle – Le Lever du Pinceau' : 'Industrial painting – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             {/* Section 1 — Pourquoi choisir notre service industriel */}
             <Box
@@ -320,79 +345,25 @@ export default function PeintureIndustriellePage() {
                     maxW='1200px'
                   >
                     {[
-                      {
-                        src: imgInd1,
-                        alt: isFr ? 'Projet peinture industrielle 1' : 'Industrial painting project 1',
-                      },
-                      {
-                        src: imgInd2,
-                        alt: isFr ? 'Projet peinture industrielle 2' : 'Industrial painting project 2',
-                      },
-                      {
-                        src: imgInd3,
-                        alt: isFr ? 'Projet peinture industrielle 3' : 'Industrial painting project 3',
-                      },
+                      { src: imgInd1, alt: isFr ? 'Peinture de la tôle et teinture de la brique de cette usine sur la rive nord' : 'Painting of the metal siding and brick staining of this factory on the North Shore' },
+                      { src: imgInd2, alt: isFr ? 'Peinture des murs et du steel deck de ce local industriel dans Montréal-Est' : 'Painting of the walls and steel deck of this industrial space in Montreal East' },
+                      { src: imgInd3, alt: isFr ? 'Peinture du steel deck de cette usine dans le Sud Ouest de l\'île' : 'Painting of the steel deck of this factory in the Southwest of the island' },
                     ].map((img, index) => (
-                      <Image
-                        key={index}
-                        src={img.src}
-                        alt={img.alt}
-                        borderRadius='lg'
-                        w='100%'
-                        h={{ base: '200px', md: '250px' }}
-                        objectFit='cover'
-                      />
+                      <Stack key={index} spacing={2}>
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          borderRadius='lg'
+                          w='100%'
+                          h={{ base: '200px', md: '250px' }}
+                          objectFit='cover'
+                        />
+                        <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
+                          {img.alt}
+                        </Text>
+                      </Stack>
                     ))}
                   </SimpleGrid>
-
-                  <Stack spacing={2} mt={4}>
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.700'
-                      fontWeight='medium'
-                    >
-                      {isFr ? 'Exemples :' : 'Examples:'}
-                    </Text>
-                    <Stack spacing={1} pl={4}>
-                      {isFr ? (
-                        <>
-                          <Text fontSize='md' color='gray.600'>
-                            • Protection anticorrosive de structures métalliques
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Peinture de planchers industriels haute résistance
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Rafraîchissement intérieur d'entrepôts
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Peinture extérieure d'usines
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Revêtement spécialisé pour conduits et poutres
-                          </Text>
-                        </>
-                      ) : (
-                        <>
-                          <Text fontSize='md' color='gray.600'>
-                            • Anti-corrosive protection of metal structures
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • High-resistance industrial floor painting
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Interior warehouse refresh
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Factory exterior painting
-                          </Text>
-                          <Text fontSize='md' color='gray.600'>
-                            • Specialized coating for ducts and beams
-                          </Text>
-                        </>
-                      )}
-                    </Stack>
-                  </Stack>
                 </Stack>
               </Container>
             </Box>

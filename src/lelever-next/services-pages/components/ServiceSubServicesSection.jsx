@@ -8,6 +8,7 @@ import {
   Link,
   Text,
   HStack,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../../AppProvider';
@@ -60,7 +61,6 @@ export default function ServiceSubServicesSection({
                 _hover={{ textDecoration: 'none' }}
               >
                 <Box
-                  p={{ base: 6, md: 8 }}
                   bg='white'
                   borderRadius='xl'
                   border='1px solid'
@@ -68,6 +68,8 @@ export default function ServiceSubServicesSection({
                   h='100%'
                   display='flex'
                   flexDirection='column'
+                  boxShadow='sm'
+                  overflow='hidden'
                   _hover={{
                     borderColor: 'brand.500',
                     transform: 'translateY(-2px)',
@@ -75,7 +77,30 @@ export default function ServiceSubServicesSection({
                   }}
                   transition='all 0.2s'
                 >
-                  <Stack spacing={4} flex={1}>
+                  {service.image ? (
+                    <Box
+                      as='span'
+                      display='block'
+                      w='100%'
+                      h={{ base: '160px', md: '180px' }}
+                      flexShrink={0}
+                      overflow='hidden'
+                    >
+                      <Image
+                        src={service.image}
+                        alt={service.title}
+                        w='100%'
+                        h='100%'
+                        objectFit='cover'
+                        objectPosition='center'
+                      />
+                    </Box>
+                  ) : null}
+                  <Stack
+                    spacing={3}
+                    flex={1}
+                    p={{ base: 5, md: 6 }}
+                  >
                     <Heading
                       as='h3'
                       fontSize={{ base: 'lg', md: 'xl' }}
@@ -89,7 +114,7 @@ export default function ServiceSubServicesSection({
                         {service.description}
                       </Text>
                     )}
-                    <HStack spacing={2} color='brand.500' mt='auto'>
+                    <HStack spacing={2} color='brand.500' pt={1}>
                       <Text fontSize={{ base: 'xs', md: 'sm' }} fontWeight='medium'>
                         {service.linkText ||
                           (isFr ? 'Voir la page' : 'View page')}

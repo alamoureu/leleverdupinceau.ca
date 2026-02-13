@@ -13,6 +13,8 @@ import {
   Icon,
   HStack,
   Flex,
+  Grid,
+  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -20,6 +22,7 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import { FaStar } from 'react-icons/fa';
 import BeforeAfter from '../components/BeforeAfter';
+import avisPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
@@ -270,6 +273,10 @@ export default function AvisPage() {
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
       link: '/services/peinture-commerciale',
     },
+    {
+      title: isFr ? 'Peintres professionnels' : 'Professional painters',
+      link: '/peintre-professionnel',
+    },
   ];
 
   const breadcrumbSchema = {
@@ -374,62 +381,81 @@ export default function AvisPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            <HStack
-              spacing={3}
-              textStyle="bodyLarge"
-              color="gray.600"
-              mb={{ base: 3, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to="/"
-                _hover={{ textDecoration: 'underline' }}
-                color="gray.600"
-                textStyle="bodyLarge"
-              >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text textStyle="bodyLarge">›</Text>
-              <Text color="gray.800" fontWeight="medium" textStyle="bodyLarge">
-                {isFr ? 'Avis' : 'Reviews'}
-              </Text>
-            </HStack>
-
-            <Stack
-              spacing={{ base: 4, md: 6 }}
-              textAlign="left"
-              mb={{ base: 8, md: 16 }}
-            >
-              <Heading as="h1" size="page" color="gray.800">
-                {isFr
-                  ? 'Avis de nos clients – Le Lever du Pinceau'
-                  : 'Client Reviews – Le Lever du Pinceau'}
-              </Heading>
-              <Text
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
                 textStyle="bodyLarge"
                 color="gray.600"
-                lineHeight="1.7"
-                maxW="800px"
+                mb={{ base: 3, md: 6 }}
               >
-                {isFr
-                  ? 'Chez Le Lever du Pinceau, le bonheur de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur, toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable.'
-                  : 'At Le Lever du Pinceau, customer delight is at the heart of everything we do. Residential, commercial, interior or exterior, all our interventions are carried out with precision, cleanliness and impeccable attention to detail.'}
-              </Text>
-              <Text
-                textStyle="bodyLarge"
-                color="gray.600"
-                lineHeight="1.7"
-                maxW="800px"
-                mt={{ base: 2, md: 4 }}
-                fontWeight="medium"
-              >
-                {isFr
-                  ? '👉 Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons. Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
-                  : '👉 This page brings together authentic reviews left by our clients from Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve. Discover their testimonials, before/after photos and complete evaluations.'}
-              </Text>
+                <Link
+                  as={RouterLink}
+                  to="/"
+                  _hover={{ textDecoration: 'underline' }}
+                  color="gray.600"
+                  textStyle="bodyLarge"
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text textStyle="bodyLarge">›</Text>
+                <Text color="gray.800" fontWeight="medium" textStyle="bodyLarge">
+                  {isFr ? 'Avis' : 'Reviews'}
+                </Text>
+              </HStack>
+              <Stack spacing={{ base: 4, md: 6 }} textAlign="left">
+                <Heading as="h1" size="page" color="gray.800">
+                  {isFr
+                    ? 'Avis de nos clients – Le Lever du Pinceau'
+                    : 'Client Reviews – Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  textStyle="bodyLarge"
+                  color="gray.600"
+                  lineHeight="1.7"
+                  maxW="800px"
+                >
+                  {isFr
+                    ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur — toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons.'
+                    : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior — all our work is carried out with precision, cleanliness and impeccable attention to detail. This page brings together authentic reviews from our clients in Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve.'}
+                </Text>
+                <Text
+                  textStyle="bodyLarge"
+                  color="gray.600"
+                  lineHeight="1.7"
+                  maxW="800px"
+                  mt={{ base: 2, md: 4 }}
+                  fontWeight="medium"
+                >
+                  {isFr
+                    ? '👉 Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
+                    : '👉 Discover their testimonials, before/after photos and complete evaluations.'}
+                </Text>
+              </Stack>
             </Stack>
-
+            <Box
+              w="100%"
+              aspectRatio="1"
+              borderRadius="xl"
+              overflow="hidden"
+              bg="gray.100"
+            >
+              <Image
+                src={avisPhotoHeader}
+                alt={isFr ? 'Avis clients – Le Lever du Pinceau' : 'Client reviews – Le Lever du Pinceau'}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                objectPosition="center"
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
             <Box
               py={{ base: 12, md: 16, lg: 20 }}
               bg="gray.50"
@@ -591,8 +617,8 @@ export default function AvisPage() {
                   <Stack spacing={{ base: 2, md: 3 }} textAlign="left">
                     <Heading as="h2" size="section" color="gray.800">
                       {isFr
-                        ? 'Résultats de peintres professionnels à Montréal'
-                        : 'Professional Painters Results in Montreal'}
+                        ? 'Des transformations impressionnantes'
+                        : 'Impressive transformations'}
                     </Heading>
                     <Text
                       textStyle="bodyLarge"
@@ -600,8 +626,8 @@ export default function AvisPage() {
                       lineHeight="1.7"
                     >
                       {isFr
-                        ? 'Nous avons réalisé des centaines de projets résidentiels, commerciaux et extérieurs dans la région.'
-                        : 'We have completed hundreds of residential, commercial and exterior projects in the region.'}
+                        ? 'Avant/après peinture intérieure, cuisine, salon & plafond, escalier, condo & loft, rénovations résidentielles.'
+                        : 'Before/after interior painting, kitchen, living room & ceiling, stairs, condo & loft, residential renovations.'}
                     </Text>
                   </Stack>
                   <BeforeAfter isFr={isFr} />
@@ -619,18 +645,13 @@ export default function AvisPage() {
                   <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
                     <Heading as="h2" size="section" color="gray.800">
                       {isFr
-                        ? 'Ils nous font confiance pour tous leurs projets'
-                        : 'They trust us for all their projects'}
-                    </Heading>
-                    <Text textStyle="bodyLarge" color="gray.600">
-                      {isFr
                         ? 'Services les plus appréciés'
                         : 'Most appreciated services'}
-                    </Text>
+                    </Heading>
                   </Stack>
 
                   <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 4 }}
+                    columns={{ base: 1, md: 2, lg: 3 }}
                     spacing={{ base: 3, md: 6 }}
                     maxW="1000px"
                     mx="auto"
@@ -674,67 +695,6 @@ export default function AvisPage() {
                       </Link>
                     ))}
                   </SimpleGrid>
-
-                  <Box pt={{ base: 4, md: 8 }} maxW="600px" mx="auto">
-                    <Link
-                      href="/peintre-professionnel"
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Box
-                        bg="linear-gradient(135deg, var(--chakra-colors-brand-500) 0%, var(--chakra-colors-brand-600) 100%)"
-                        p={{ base: 4, md: 8 }}
-                        borderRadius="xl"
-                        textAlign="center"
-                        _hover={{
-                          transform: 'translateY(-2px)',
-                          boxShadow: '0 8px 24px rgba(1, 76, 196, 0.3)',
-                        }}
-                        transition="all 0.2s"
-                        position="relative"
-                        overflow="hidden"
-                      >
-                        <Box
-                          position="absolute"
-                          top="-50%"
-                          right="-20%"
-                          w="200px"
-                          h="200px"
-                          bg="whiteAlpha.100"
-                          borderRadius="full"
-                          filter="blur(60px)"
-                        />
-                        <Stack
-                          spacing={{ base: 2, md: 3 }}
-                          align="center"
-                          position="relative"
-                          zIndex={1}
-                        >
-                          <Icon
-                            as={FontAwesomeIcon}
-                            icon={faCheckCircle}
-                            color="white"
-                            boxSize={8}
-                          />
-                          <Heading as="h3" size="subsection" color="white">
-                            {isFr
-                              ? 'Voir nos peintres professionnels'
-                              : 'See our professional painters'}
-                          </Heading>
-                          <Text color="whiteAlpha.900" textStyle="body">
-                            {isFr
-                              ? 'Découvrez notre équipe expérimentée'
-                              : 'Discover our experienced team'}
-                          </Text>
-                          <HStack spacing={2} color="white" pt={2}>
-                            <Text textStyle="body" fontWeight="semibold">
-                              {isFr ? 'En savoir plus' : 'Learn more'}
-                            </Text>
-                            <ArrowForwardIcon boxSize={5} />
-                          </HStack>
-                        </Stack>
-                      </Box>
-                    </Link>
-                  </Box>
                 </Stack>
               </Container>
             </Box>

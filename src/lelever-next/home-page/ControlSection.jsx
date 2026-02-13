@@ -91,6 +91,13 @@ export default function ControlSection({ onSubmissionOpen }) {
             >
               {t.controlTitle}
             </Heading>
+            <Text
+              fontSize={{ base: 'sm', sm: 'md', md: 'lg' }}
+              color="gray.600"
+              fontWeight="medium"
+            >
+              {t.controlSubtitle}
+            </Text>
           </Stack>
 
           <SimpleGrid

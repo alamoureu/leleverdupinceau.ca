@@ -36,7 +36,11 @@
     "open:routes": "node src/test/open-all-routes.js",
     "open:all": "node src/test/open-all-routes.js --all",
     "audit:pages": "node scripts/open-all-pages-for-audit.js",
-    "audit:pages:tabs": "node scripts/open-all-pages-for-audit.js --tabs"
+    "audit:pages:tabs": "node scripts/open-all-pages-for-audit.js --tabs",
+    "open:subservices": "node scripts/open-subservice-cards.js",
+    "open:modified": "node scripts/open-modified-pages.js",
+    "open:modified:tabs": "node scripts/open-modified-pages.js --tabs",
+    "open:modified:chrome": "node scripts/open-modified-pages.js --chrome"
   },
   "eslintConfig": {
     "extends": [

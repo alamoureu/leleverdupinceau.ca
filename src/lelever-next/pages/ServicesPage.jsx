@@ -11,11 +11,14 @@ import {
   Link,
   Button,
   HStack,
+  Image,
+  Grid,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection from '../home-page/SectorsSection';
+import serviceHubPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function ServicesPage() {
   const { currentLang } = useContext(appContext);
@@ -133,39 +136,63 @@ export default function ServicesPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            <HStack
-              spacing={3}
-              textStyle='bodyLarge'
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link href='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text textStyle='bodyLarge'>›</Text>
-              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
-                {isFr ? 'Services' : 'Services'}
-              </Text>
-            </HStack>
-
-            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading as='h1' size='page' color='gray.800'>
-                {isFr
-                  ? 'Services de peinture – Le Lever du Pinceau'
-                  : 'Painting Services – Le Lever du Pinceau'}
-              </Heading>
-              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
-                {isFr
-                  ? "Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Nos équipes de peintres professionnels réalisent des projets résidentiels, commerciaux, intérieurs, extérieurs et industriels avec une finition impeccable. Cette page regroupe l'ensemble de nos services afin de vous orienter rapidement vers la page correspondant à votre besoin."
-                  : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Our teams of professional painters carry out residential, commercial, interior, exterior and industrial projects with impeccable finish. This page brings together all our services to quickly guide you to the page corresponding to your need.'}
-              </Text>
-              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
-                {isFr
-                  ? '👉 Choisissez un service pour découvrir les détails et les options disponibles.'
-                  : '👉 Choose a service to discover the details and available options.'}
-              </Text>
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
+                textStyle='bodyLarge'
+                color='gray.600'
+                mb={{ base: 4, md: 6 }}
+              >
+                <Link href='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text textStyle='bodyLarge'>›</Text>
+                <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
+                  {isFr ? 'Services' : 'Services'}
+                </Text>
+              </HStack>
+              <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
+                <Heading as='h1' size='page' color='gray.800'>
+                  {isFr
+                    ? 'Services de peinture – Le Lever du Pinceau'
+                    : 'Painting Services – Le Lever du Pinceau'}
+                </Heading>
+                <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
+                  {isFr
+                    ? "Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Nos équipes de peintres professionnels réalisent des projets résidentiels, commerciaux, intérieurs, extérieurs et industriels avec une finition impeccable. Cette page regroupe l'ensemble de nos services afin de vous orienter rapidement vers la page correspondant à votre besoin."
+                    : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Our teams of professional painters carry out residential, commercial, interior, exterior and industrial projects with impeccable finish. This page brings together all our services to quickly guide you to the page corresponding to your need.'}
+                </Text>
+                <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
+                  {isFr
+                    ? '👉 Choisissez un service pour découvrir les détails et les options disponibles.'
+                    : '👉 Choose a service to discover the details and available options.'}
+                </Text>
+              </Stack>
             </Stack>
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={serviceHubPhotoHeader}
+                alt={isFr ? 'Services de peinture – Le Lever du Pinceau' : 'Painting services – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>

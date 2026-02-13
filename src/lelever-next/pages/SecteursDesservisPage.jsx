@@ -13,6 +13,8 @@ import {
   Icon,
   HStack,
   Image,
+  Flex,
+  Grid,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -29,6 +31,7 @@ import {
   brossardSecteur,
 } from '../home-page/SectorsSection';
 import secteursHeroImage from '../images/secteurs_desservis.jpg';
+import sectorHubPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -143,40 +146,63 @@ export default function SecteursDesservisPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            <HStack
-              spacing={3}
-              textStyle='bodyLarge'
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link as={RouterLink} to='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text textStyle='bodyLarge'>›</Text>
-              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
-                {isFr ? 'Secteurs desservis' : 'Service areas'}
-              </Text>
-            </HStack>
-
-            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading as='h1' size='page' color='gray.800'>
-                {isFr
-                  ? 'Secteurs desservis – Le Lever du Pinceau'
-                  : 'Service areas – Le Lever du Pinceau'}
-              </Heading>
-              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
-                {isFr
-                  ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal, incluant Montréal, Laval, Longueuil et Brossard. Cette page regroupe toutes les zones desservies par Le Lever du Pinceau : villes principales, sous-villes et quartiers majeurs. Sélectionnez votre secteur pour découvrir les services disponibles, les projets réalisés et les détails propres à votre localité."
-                  : 'Our teams of professional painters serve all of Greater Montreal, including Montreal, Laval, Longueuil and Brossard. This page brings together all areas served by Le Lever du Pinceau: main cities, sub-cities and major neighborhoods. Select your area to discover available services, completed projects and details specific to your location.'}
-              </Text>
-              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
-                {isFr
-                  ? '👉 Nous sommes disponibles rapidement dans votre quartier pour des projets résidentiels, commerciaux, intérieurs et extérieurs.'
-                  : '👉 We are quickly available in your neighborhood for residential, commercial, interior and exterior projects.'}
-              </Text>
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
+                textStyle='bodyLarge'
+                color='gray.600'
+                mb={{ base: 4, md: 6 }}
+              >
+                <Link as={RouterLink} to='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text textStyle='bodyLarge'>›</Text>
+                <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
+                  {isFr ? 'Secteurs desservis' : 'Service areas'}
+                </Text>
+              </HStack>
+              <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
+                <Heading as='h1' size='page' color='gray.800'>
+                  {isFr
+                    ? 'Secteurs desservis – Le Lever du Pinceau'
+                    : 'Service areas – Le Lever du Pinceau'}
+                </Heading>
+                <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
+                  {isFr
+                    ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal, incluant Montréal, Laval, Longueuil et Brossard. Cette page regroupe toutes les zones desservies par Le Lever du Pinceau : villes principales, sous-villes et quartiers majeurs. Sélectionnez votre secteur pour découvrir les services disponibles, les projets réalisés et les détails propres à votre localité."
+                    : 'Our teams of professional painters serve all of Greater Montreal, including Montreal, Laval, Longueuil and Brossard. This page brings together all areas served by Le Lever du Pinceau: main cities, sub-cities and major neighborhoods. Select your area to discover available services, completed projects and details specific to your location.'}
+                </Text>
+                <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
+                  {isFr
+                    ? '👉 Nous sommes disponibles rapidement dans votre quartier pour des projets résidentiels, commerciaux, intérieurs et extérieurs.'
+                    : '👉 We are quickly available in your neighborhood for residential, commercial, interior and exterior projects.'}
+                </Text>
+              </Stack>
             </Stack>
-
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={sectorHubPhotoHeader}
+                alt={isFr ? 'Secteurs desservis – Le Lever du Pinceau' : 'Service areas – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
             <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <Stack spacing={8}>

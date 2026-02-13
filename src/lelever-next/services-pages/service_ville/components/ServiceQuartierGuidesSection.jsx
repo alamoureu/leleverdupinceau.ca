@@ -10,7 +10,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../../../AppProvider';
-import commentChoisirPeintre from '../../../images/1-page-principale/blog hub/Peinture intérieure/IMG_6764.PNG';
+import commentChoisirPeintre from '../../../images/5-landing-page/Photo/louis_Consultation.jpeg';
 import prixProjetPeinture from '../../../images/1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG';
 import erreurEviterProjet from '../../../images/1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG';
 

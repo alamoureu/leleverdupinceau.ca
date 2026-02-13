@@ -95,7 +95,7 @@ export default function NewWebsiteLayout() {
             w="100%"
             bg="brand.700"
             py={{ base: 8, md: 12 }}
-            px={{ base: 4, md: 6, lg: 12 }}
+            px={{ base: 4, md: 6 }}
           >
             <Box maxW="1440px" mx="auto">
               <Stack
@@ -152,6 +152,30 @@ export default function NewWebsiteLayout() {
                   <Stack spacing={2}>
                     <Link
                       as={RouterLink}
+                      to="/services/peinture-residentielle"
+                      color="white"
+                      textStyle="footerLink"
+                      _hover={{
+                        textDecoration: 'underline',
+                        color: 'gray.300',
+                      }}
+                    >
+                      - {t.serviceResidential}
+                    </Link>
+                    <Link
+                      as={RouterLink}
+                      to="/services/peinture-commerciale"
+                      color="white"
+                      textStyle="footerLink"
+                      _hover={{
+                        textDecoration: 'underline',
+                        color: 'gray.300',
+                      }}
+                    >
+                      - {t.serviceCommercial}
+                    </Link>
+                    <Link
+                      as={RouterLink}
                       to="/services/peinture-interieure"
                       color="white"
                       textStyle="footerLink"
@@ -172,11 +196,11 @@ export default function NewWebsiteLayout() {
                         color: 'gray.300',
                       }}
                     >
-                      - {t.serviceCommercial}
+                      - {currentLang === 'fr' ? 'Peinture extérieure' : 'Exterior painting'}
                     </Link>
                     <Link
                       as={RouterLink}
-                      to="/services"
+                      to="/services/peinture-industrielle"
                       color="white"
                       textStyle="footerLink"
                       _hover={{
@@ -184,7 +208,7 @@ export default function NewWebsiteLayout() {
                         color: 'gray.300',
                       }}
                     >
-                      - {t.serviceResidential}
+                      - {currentLang === 'fr' ? 'Peinture industrielle' : 'Industrial painting'}
                     </Link>
                   </Stack>
                 </Stack>

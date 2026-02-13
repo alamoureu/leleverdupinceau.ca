@@ -12,10 +12,12 @@ import {
   Button,
   HStack,
   Image,
+  Grid,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import heroImage from '../images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG';
+import blogPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 import ResourcesSection from '../home-page/ResourcesSection';
 
 export default function BlogPage() {
@@ -92,40 +94,63 @@ export default function BlogPage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            <HStack
-              spacing={3}
-              textStyle='bodyLarge'
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link href='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text textStyle='bodyLarge'>›</Text>
-              <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
-                {isFr ? 'Blog' : 'Blog'}
-              </Text>
-            </HStack>
-
-            <Stack spacing={{ base: 4, md: 6 }} textAlign='left' mb={{ base: 12, md: 16 }}>
-              <Heading as='h1' size='page' color='gray.800'>
-                {isFr
-                  ? 'Blog – Conseils et ressources sur la peinture'
-                  : 'Blog – Painting Tips and Resources'}
-              </Heading>
-              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
-                {isFr
-                  ? "Bienvenue sur le blog du Lever du Pinceau. Nos peintres professionnels partagent des guides pratiques, des conseils d'entretien et des astuces pour réussir vos projets résidentiels, commerciaux, intérieurs ou extérieurs. Ce hub regroupe tous nos articles afin de vous aider à mieux planifier vos travaux et à éviter les erreurs courantes."
-                  : "Welcome to Le Lever du Pinceau's blog. Our professional painters share practical guides, maintenance tips and tricks to succeed in your residential, commercial, interior or exterior projects. This hub brings together all our articles to help you better plan your work and avoid common mistakes."}
-              </Text>
-              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
-                {isFr
-                  ? '👉 Parcourez nos articles pour découvrir les meilleures pratiques de peinture.'
-                  : '👉 Browse our articles to discover the best painting practices.'}
-              </Text>
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
+                textStyle='bodyLarge'
+                color='gray.600'
+                mb={{ base: 4, md: 6 }}
+              >
+                <Link href='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text textStyle='bodyLarge'>›</Text>
+                <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
+                  {isFr ? 'Blog' : 'Blog'}
+                </Text>
+              </HStack>
+              <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
+                <Heading as='h1' size='page' color='gray.800'>
+                  {isFr
+                    ? 'Blog – Conseils et ressources sur la peinture'
+                    : 'Blog – Painting Tips and Resources'}
+                </Heading>
+                <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
+                  {isFr
+                    ? "Bienvenue sur le blog du Lever du Pinceau. Nos peintres professionnels partagent des guides pratiques, des conseils d'entretien et des astuces pour réussir vos projets résidentiels, commerciaux, intérieurs ou extérieurs. Ce hub regroupe tous nos articles afin de vous aider à mieux planifier vos travaux et à éviter les erreurs courantes."
+                    : "Welcome to Le Lever du Pinceau's blog. Our professional painters share practical guides, maintenance tips and tricks to succeed in your residential, commercial, interior or exterior projects. This hub brings together all our articles to help you better plan your work and avoid common mistakes."}
+                </Text>
+                <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px' fontWeight='500'>
+                  {isFr
+                    ? '👉 Parcourez nos articles pour découvrir les meilleures pratiques de peinture.'
+                    : '👉 Browse our articles to discover the best painting practices.'}
+                </Text>
+              </Stack>
             </Stack>
-
+            <Box
+              w='100%'
+              aspectRatio='1'
+              borderRadius='xl'
+              overflow='hidden'
+              bg='gray.100'
+            >
+              <Image
+                src={blogPhotoHeader}
+                alt={isFr ? 'Blog – Le Lever du Pinceau' : 'Blog – Le Lever du Pinceau'}
+                w='100%'
+                h='100%'
+                objectFit='cover'
+                objectPosition='center'
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
             <ResourcesSection
               title={isFr ? 'Guides essentiels' : 'Essential Guides'}
             />

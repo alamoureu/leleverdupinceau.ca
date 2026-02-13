@@ -11,7 +11,7 @@ import {
   Link,
   Button,
   HStack,
-  Flex,
+  Grid,
   Icon,
   Image,
 } from '@chakra-ui/react';
@@ -25,13 +25,14 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-// Réalisations: mix Page peinture commerciale + sous-services + Montréal pour plus de variété
+import heroImage from '../images/hero/service-hero.png';
+// Réalisations: Page peinture commerciale + sous-services uniquement (pas de doublon avec pages ville)
 import imgCom1 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import imgCom2 from '../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
 import imgCom3 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
 import imgCom4 from '../images/4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.PNG';
 import imgCom5 from '../images/4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.PNG';
-import imgCom6 from '../images/3-ville/Montréal/1. réalisations/IMG_6767.PNG';
+import commercialePhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -109,10 +110,15 @@ export default function PeintureCommercialePage() {
           px={{ base: 4, md: 6 }}
           pt={{ base: 12, md: 16, lg: 20 }}
         >
-          <Stack spacing={0}>
-            {/* Breadcrumb */}
-            <HStack
-              spacing={3}
+          <Grid
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            gap={{ base: 6, md: 8, lg: 10 }}
+            mb={{ base: 12, md: 16 }}
+            alignItems={{ md: 'flex-start' }}
+          >
+            <Stack spacing={0} minW={0}>
+              <HStack
+                spacing={3}
               fontSize={{ base: 'md', md: 'lg' }}
               color="gray.600"
               mb={{ base: 4, md: 6 }}
@@ -145,42 +151,59 @@ export default function PeintureCommercialePage() {
                 {isFr ? 'Peinture commerciale' : 'Commercial painting'}
               </Text>
             </HStack>
-
-            {/* H1 et Introduction */}
-            <Stack spacing={4} textAlign="left" mb={{ base: 12, md: 16 }}>
-              <Heading
-                as="h1"
-                fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                {isFr
-                  ? 'Peinture commerciale – Le Lever du Pinceau'
-                  : 'Commercial painting – Le Lever du Pinceau'}
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.600"
-                lineHeight="1.7"
-                maxW="900px"
-              >
-                {isFr
-                  ? "La peinture commerciale demande une organisation efficace, des délais respectés et un résultat professionnel qui renforce l'image de votre entreprise. Le Lever du Pinceau accompagne commerces, bureaux, restaurants, cliniques, immeubles et bâtiments commerciaux dans tout le Grand Montréal."
-                  : "Commercial painting requires efficient organization, respected deadlines and a professional result that strengthens your company's image. Le Lever du Pinceau accompanies stores, offices, restaurants, clinics, buildings and commercial buildings throughout Greater Montreal."}
-              </Text>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.600"
-                lineHeight="1.7"
-                maxW="900px"
-                mt={2}
-                fontWeight="medium"
-              >
-                {isFr
-                  ? "👉 Nos peintres professionnels planifient les travaux pour minimiser l'impact sur vos opérations, tout en livrant une finition propre, durable et adaptée à votre environnement. Pour rafraîchir vos locaux, moderniser votre espace client ou rénover un immeuble complet, notre équipe de peinture commerciale est prête à intervenir."
-                  : '👉 Our professional painters plan the work to minimize the impact on your operations, while delivering a clean, durable finish adapted to your environment. To refresh your premises, modernize your customer space or renovate a complete building, our commercial painting team is ready to intervene.'}
-              </Text>
+            <Stack spacing={4} textAlign="left">
+                <Heading
+                  as="h1"
+                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+                  fontWeight="bold"
+                  color="gray.800"
+                >
+                  {isFr
+                    ? 'Peinture commerciale – Le Lever du Pinceau'
+                    : 'Commercial painting – Le Lever du Pinceau'}
+                </Heading>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color="gray.600"
+                  lineHeight="1.7"
+                  maxW="900px"
+                >
+                  {isFr
+                    ? "La peinture commerciale demande une organisation efficace, des délais respectés et un résultat professionnel qui renforce l'image de votre entreprise. Le Lever du Pinceau accompagne commerces, bureaux, restaurants, cliniques, immeubles et bâtiments commerciaux dans tout le Grand Montréal."
+                    : "Commercial painting requires efficient organization, respected deadlines and a professional result that strengthens your company's image. Le Lever du Pinceau accompanies stores, offices, restaurants, clinics, buildings and commercial buildings throughout Greater Montreal."}
+                </Text>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color="gray.600"
+                  lineHeight="1.7"
+                  maxW="900px"
+                  mt={2}
+                  fontWeight="medium"
+                >
+                  {isFr
+                    ? "👉 Nos peintres professionnels planifient les travaux pour minimiser l'impact sur vos opérations, tout en livrant une finition propre, durable et adaptée à votre environnement. Pour rafraîchir vos locaux, moderniser votre espace client ou rénover un immeuble complet, notre équipe de peinture commerciale est prête à intervenir."
+                    : '👉 Our professional painters plan the work to minimize the impact on your operations, while delivering a clean, durable finish adapted to your environment. To refresh your premises, modernize your customer space or renovate a complete building, our commercial painting team is ready to intervene.'}
+                </Text>
             </Stack>
+            </Stack>
+            <Box
+              w="100%"
+              aspectRatio="1"
+              borderRadius="xl"
+              overflow="hidden"
+              bg="gray.100"
+            >
+              <Image
+                src={commercialePhotoHeader}
+                alt={isFr ? 'Peinture commerciale – Le Lever du Pinceau' : 'Commercial painting – Le Lever du Pinceau'}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                objectPosition="center"
+              />
+            </Box>
+          </Grid>
+          <Stack spacing={0}>
 
             {/* Section 1 — Pourquoi choisir notre service */}
             <Box
@@ -440,106 +463,27 @@ export default function PeintureCommercialePage() {
                     maxW="1200px"
                   >
                     {[
-                      {
-                        src: imgCom1,
-                        alt: isFr
-                          ? 'Réalisation peinture commerciale 1'
-                          : 'Commercial painting project 1',
-                      },
-                      {
-                        src: imgCom2,
-                        alt: isFr
-                          ? 'Réalisation peinture commerciale 2'
-                          : 'Commercial painting project 2',
-                      },
-                      {
-                        src: imgCom3,
-                        alt: isFr
-                          ? 'Réalisation peinture commerciale 3'
-                          : 'Commercial painting project 3',
-                      },
-                      {
-                        src: imgCom4,
-                        alt: isFr
-                          ? 'Réalisation peinture commerciale 4'
-                          : 'Commercial painting project 4',
-                      },
-                      {
-                        src: imgCom5,
-                        alt: isFr
-                          ? 'Réalisation peinture commerciale 5'
-                          : 'Commercial painting project 5',
-                      },
-                      {
-                        src: imgCom6,
-                        alt: isFr
-                          ? 'Réalisation peinture commerciale 6'
-                          : 'Commercial painting project 6',
-                      },
+                      { src: imgCom1, alt: isFr ? 'Peinture et plâtre avant l\'ouverture de ce café à Notre-Dame de Grâce' : 'Painting and plastering before the opening of this café in Notre-Dame de Grâce' },
+                      { src: imgCom2, alt: isFr ? 'Rafraîchissement des murs et rampes de la cage d\'escalier d\'un plex à Ville-Marie' : 'Refresh of the walls and railings of the stairwell of a plex in Ville-Marie' },
+                      { src: imgCom3, alt: isFr ? 'Peinture de la porte d\'entrée et du cadre de porte de cet immeuble de 8 logements sur la rive sud' : 'Painting of the entrance door and door frame of this 8-unit building on the South Shore' },
+                      { src: imgCom4, alt: isFr ? 'Rafraîchissement commercial en intérieur' : 'Commercial interior refresh' },
+                      { src: imgCom5, alt: isFr ? 'Peinture commerciale extérieure' : 'Commercial exterior painting' },
                     ].map((img, index) => (
-                      <Image
-                        key={index}
-                        src={img.src}
-                        alt={img.alt}
-                        borderRadius="lg"
-                        w="100%"
-                        h={{ base: '200px', md: '250px' }}
-                        objectFit="cover"
-                      />
+                      <Stack key={index} spacing={2}>
+                        <Image
+                          src={img.src}
+                          alt={img.alt}
+                          borderRadius="lg"
+                          w="100%"
+                          h={{ base: '200px', md: '250px' }}
+                          objectFit="cover"
+                        />
+                        <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
+                          {img.alt}
+                        </Text>
+                      </Stack>
                     ))}
                   </SimpleGrid>
-
-                  <Stack spacing={2} mt={4}>
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color="gray.700"
-                      fontWeight="medium"
-                    >
-                      {isFr
-                        ? 'Exemples de projets réalisés :'
-                        : 'Examples of completed projects:'}
-                    </Text>
-                    <Stack spacing={1} pl={4}>
-                      {isFr ? (
-                        <>
-                          <Text fontSize="md" color="gray.600">
-                            • Rafraîchissement complet de bureaux
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Mise à jour de commerces de détail
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Peinture de restaurants et cafés
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Rénovation de corridors et espaces communs
-                            d'immeubles
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Rafraîchissement d'entrées commerciales et façades
-                          </Text>
-                        </>
-                      ) : (
-                        <>
-                          <Text fontSize="md" color="gray.600">
-                            • Complete office refresh
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Retail store update
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Restaurant and café painting
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Corridor and building common area renovation
-                          </Text>
-                          <Text fontSize="md" color="gray.600">
-                            • Commercial entrance and facade refresh
-                          </Text>
-                        </>
-                      )}
-                    </Stack>
-                  </Stack>
                 </Stack>
               </Container>
             </Box>

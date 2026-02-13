@@ -21,18 +21,28 @@ export const ServicesPopover = () => {
   const services = [
     {
       fr: 'Peinture résidentielle',
-      en: 'Residential Painting',
+      en: 'Residential painting',
       path: '/services/peinture-residentielle',
     },
     {
       fr: 'Peinture commerciale',
-      en: 'Commercial Painting',
+      en: 'Commercial painting',
       path: '/services/peinture-commerciale',
     },
     {
       fr: 'Peinture intérieure',
-      en: 'Interior Painting',
+      en: 'Interior painting',
       path: '/services/peinture-interieure',
+    },
+    {
+      fr: 'Peinture extérieure',
+      en: 'Exterior painting',
+      path: '/services/peinture-exterieure',
+    },
+    {
+      fr: 'Peinture industrielle',
+      en: 'Industrial painting',
+      path: '/services/peinture-industrielle',
     },
   ];
 
