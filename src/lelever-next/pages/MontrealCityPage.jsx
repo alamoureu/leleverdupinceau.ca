@@ -205,7 +205,6 @@ export default function MontrealCityPage() {
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
                   lineHeight='1.7'
-                  fontWeight='medium'
                   maxW='900px'
                 >
                   {isFr
@@ -216,7 +215,7 @@ export default function MontrealCityPage() {
             </Stack>
             <Box
               w='100%'
-              aspectRatio='1'
+              aspectRatio={{ base: '1', md: '4/3' }}
               borderRadius='xl'
               overflow='hidden'
               bg='gray.100'
@@ -261,6 +260,6 @@ export default function MontrealCityPage() {
         {/* Section 5 — CTA final - Full width */}
         <CityCTASection cityName='Montréal' />
       </Box>
-    </Fragment>
+    </Fragment >
   );
 }

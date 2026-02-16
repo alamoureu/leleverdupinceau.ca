@@ -103,15 +103,25 @@ export default function BlogPage() {
             <Stack spacing={0} minW={0}>
               <HStack
                 spacing={3}
-                textStyle='bodyLarge'
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
                 mb={{ base: 4, md: 6 }}
               >
-                <Link href='/' _hover={{ textDecoration: 'underline' }} color='gray.600' textStyle='bodyLarge'>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
                   {isFr ? 'Accueil' : 'Home'}
                 </Link>
-                <Text textStyle='bodyLarge'>›</Text>
-                <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
                   {isFr ? 'Blog' : 'Blog'}
                 </Text>
               </HStack>
@@ -135,7 +145,7 @@ export default function BlogPage() {
             </Stack>
             <Box
               w='100%'
-              aspectRatio='1'
+              aspectRatio={{ base: '1', md: '4/3' }}
               borderRadius='xl'
               overflow='hidden'
               bg='gray.100'

@@ -190,7 +190,6 @@ export default function LavalCityPage() {
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
                   lineHeight='1.7'
-                  fontWeight='medium'
                   maxW='900px'
                 >
                   {isFr
@@ -201,7 +200,7 @@ export default function LavalCityPage() {
             </Stack>
             <Box
               w='100%'
-              aspectRatio='1'
+              aspectRatio={{ base: '1', md: '4/3' }}
               borderRadius='xl'
               overflow='hidden'
               bg='gray.100'
@@ -238,6 +237,6 @@ export default function LavalCityPage() {
         {/* Section 5 — CTA final - Full width */}
         <CityCTASection cityName='Laval' />
       </Box>
-    </Fragment>
+    </Fragment >
   );
 }

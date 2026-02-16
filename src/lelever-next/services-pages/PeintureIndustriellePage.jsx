@@ -32,7 +32,7 @@ import heroImage from '../images/hero/service-hero.png';
 import imgInd1 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
 import imgInd2 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
 import imgInd3 from '../images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG';
-import industriellePhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+// Header image removed as per folder structure rule
 
 export default function PeintureIndustriellePage() {
   const { currentLang } = useContext(appContext);
@@ -65,21 +65,21 @@ export default function PeintureIndustriellePage() {
 
   const whyUsContent = isFr
     ? [
-        "Résistance aux chocs, à l'humidité et aux produits chimiques",
-        'Protection anticorrosion (revêtements spécialisés)',
-        'Produits à faible odeur ou à séchage rapide selon le site',
-        "Application conforme aux normes d'environnement industriel",
-        'Sécurité renforcée sur le chantier',
-        'Équipe formée pour environnements complexes',
-      ]
+      "Résistance aux chocs, à l'humidité et aux produits chimiques",
+      'Protection anticorrosion (revêtements spécialisés)',
+      'Produits à faible odeur ou à séchage rapide selon le site',
+      "Application conforme aux normes d'environnement industriel",
+      'Sécurité renforcée sur le chantier',
+      'Équipe formée pour environnements complexes',
+    ]
     : [
-        'Resistance to shocks, humidity and chemicals',
-        'Anti-corrosion protection (specialized coatings)',
-        'Low odor or fast drying products depending on the site',
-        'Application compliant with industrial environment standards',
-        'Enhanced safety on site',
-        'Team trained for complex environments',
-      ];
+      'Resistance to shocks, humidity and chemicals',
+      'Anti-corrosion protection (specialized coatings)',
+      'Low odor or fast drying products depending on the site',
+      'Application compliant with industrial environment standards',
+      'Enhanced safety on site',
+      'Team trained for complex environments',
+    ];
 
   return (
     <Fragment>
@@ -113,7 +113,7 @@ export default function PeintureIndustriellePage() {
           pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            templateColumns="1fr"
             gap={{ base: 6, md: 8, lg: 10 }}
             mb={{ base: 12, md: 16 }}
             alignItems={{ md: 'flex-start' }}
@@ -121,39 +121,39 @@ export default function PeintureIndustriellePage() {
             <Stack spacing={0} minW={0}>
               <HStack
                 spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to='/services'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Services' : 'Services'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Peinture industrielle' : 'Industrial painting'}
-              </Text>
-            </HStack>
-            <Stack spacing={4} textAlign='left'>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to='/services'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Services' : 'Services'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Peinture industrielle' : 'Industrial painting'}
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign='left'>
                 <Heading
                   as='h1'
                   fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -186,24 +186,8 @@ export default function PeintureIndustriellePage() {
                     ? '👉 Nos peintres professionnels utilisent des revêtements industriels résistants, adaptés aux surfaces métalliques, béton, acier, structures extérieures et environnements à forte circulation. Pour protéger vos surfaces industrielles et améliorer la durabilité de vos installations, notre équipe est prête à intervenir rapidement.'
                     : '👉 Our professional painters use resistant industrial coatings, adapted to metal surfaces, concrete, steel, exterior structures and high-traffic environments. To protect your industrial surfaces and improve the durability of your installations, our team is ready to intervene quickly.'}
                 </Text>
+              </Stack>
             </Stack>
-            </Stack>
-            <Box
-              w='100%'
-              aspectRatio='1'
-              borderRadius='xl'
-              overflow='hidden'
-              bg='gray.100'
-            >
-              <Image
-                src={industriellePhotoHeader}
-                alt={isFr ? 'Peinture industrielle – Le Lever du Pinceau' : 'Industrial painting – Le Lever du Pinceau'}
-                w='100%'
-                h='100%'
-                objectFit='cover'
-                objectPosition='center'
-              />
-            </Box>
           </Grid>
           <Stack spacing={0}>
 

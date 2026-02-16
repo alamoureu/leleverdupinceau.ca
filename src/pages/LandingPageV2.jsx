@@ -37,13 +37,17 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
   const { t } = useTranslation();
   const [isFormSuccess, setIsFormSuccess] = useState(false);
 
-  const lang = (indexable && langProp ? langProp : currentLang) || 'fr';
+  // Use route lang when provided (/fr/peintre-montreal or /en/peintre-montreal) so EN page displays in English
+  const lang = (langProp != null && langProp !== '' ? langProp : currentLang) || 'fr';
   const isFr = lang === 'fr';
   const pageContext = t.pageContextName ?? (isFr ? 'Accueil' : 'Home');
 
+  // Sync app language to route so HeroSection, ControlSection, etc. (useTranslation) show correct language
   useEffect(() => {
-    if (indexable && langProp) setCurrentLang(langProp);
-  }, [indexable, langProp, setCurrentLang]);
+    if (langProp != null && langProp !== '' && currentLang !== langProp) {
+      setCurrentLang(langProp);
+    }
+  }, [langProp, currentLang, setCurrentLang]);
 
   const meta = META[lang] || META.fr;
 

@@ -85,47 +85,47 @@ export default function SousServicePage() {
     // Build guides array
     const guides = city.guides
       ? city.guides.map((guide) => ({
-          title: guide.title[isFr ? 'fr' : 'en'],
-          href: guide.href,
-        }))
+        title: guide.title[isFr ? 'fr' : 'en'],
+        href: guide.href,
+      }))
       : [
-          {
-            title: isFr
-              ? 'Comment choisir un peintre professionnel ?'
-              : 'How to choose a professional painter?',
-            href: '/blog/comment-choisir-un-peintre-professionnel',
-          },
-          {
-            title: isFr
-              ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
-              : 'Painting prices Montreal / South Shore – what you need to know',
-            href: '/blog/prix-peinture-montreal',
-          },
-          {
-            title: isFr
-              ? 'Erreurs à éviter avant des travaux dans un commerce'
-              : 'Mistakes to avoid before work in a business',
-            href: '/blog/erreurs-a-eviter-peinture-interieure',
-          },
-        ];
+        {
+          title: isFr
+            ? 'Comment choisir un peintre professionnel ?'
+            : 'How to choose a professional painter?',
+          href: '/blog/comment-choisir-un-peintre-professionnel',
+        },
+        {
+          title: isFr
+            ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
+            : 'Painting prices Montreal / South Shore – what you need to know',
+          href: '/blog/prix-peinture-montreal',
+        },
+        {
+          title: isFr
+            ? 'Erreurs à éviter avant des travaux dans un commerce'
+            : 'Mistakes to avoid before work in a business',
+          href: '/blog/erreurs-a-eviter-peinture-interieure',
+        },
+      ];
 
     // Build sub-services array
     const subServices = city.subServices
       ? city.subServices.interior && city.subServices.exterior
         ? [
-            {
-              title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
-              link: city.subServices.interior.link,
-              linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
-            },
-            {
-              title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
-              link: city.subServices.exterior.link,
-              linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
-            },
-          ]
+          {
+            title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
+            link: city.subServices.interior.link,
+            linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
+          },
+          {
+            title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
+            link: city.subServices.exterior.link,
+            linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
+          },
+        ]
         : city.subServices.residential && city.subServices.commercial
-        ? [
+          ? [
             {
               title: city.subServices.residential.title[isFr ? 'fr' : 'en'],
               link: city.subServices.residential.link,
@@ -139,7 +139,7 @@ export default function SousServicePage() {
                 city.subServices.commercial.linkText[isFr ? 'fr' : 'en'],
             },
           ]
-        : []
+          : []
       : [];
 
     // Render city page content
@@ -241,8 +241,8 @@ export default function SousServicePage() {
                   {city.h1
                     ? city.h1[isFr ? 'fr' : 'en']
                     : isFr
-                    ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
-                    : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
+                      ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
+                      : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -339,8 +339,8 @@ export default function SousServicePage() {
         ? 'Peinture commerciale'
         : 'Commercial painting'
       : isFr
-      ? 'Peinture résidentielle'
-      : 'Residential painting';
+        ? 'Peinture résidentielle'
+        : 'Residential painting';
 
   // Build breadcrumb schema
   const breadcrumbSchema = {
@@ -377,9 +377,9 @@ export default function SousServicePage() {
   // Build guides array from data
   const guides = pageData.guides
     ? pageData.guides.map((guide) => ({
-        title: guide.title[isFr ? 'fr' : 'en'],
-        href: guide.href,
-      }))
+      title: guide.title[isFr ? 'fr' : 'en'],
+      href: guide.href,
+    }))
     : [];
 
   return (
@@ -460,8 +460,8 @@ export default function SousServicePage() {
               </Link>
               <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
               <Text
-                color='gray.900'
-                fontWeight='500'
+                color='gray.800'
+                fontWeight='medium'
                 fontSize={{ base: 'md', md: 'lg' }}
                 whiteSpace='nowrap'
               >
@@ -509,7 +509,6 @@ export default function SousServicePage() {
                   fontSize={{ base: 'lg', md: 'xl' }}
                   color='gray.700'
                   lineHeight='1.8'
-                  fontWeight='medium'
                 >
                   {pageData.introFingerText[isFr ? 'fr' : 'en']}
                 </Text>
@@ -550,7 +549,7 @@ export default function SousServicePage() {
                       <Text fontSize='md' color='gray.600'>
                         {
                           pageData.complementaryServicesIntro[
-                            isFr ? 'fr' : 'en'
+                          isFr ? 'fr' : 'en'
                           ]
                         }
                       </Text>
@@ -731,12 +730,12 @@ export default function SousServicePage() {
                     citySlug === 'montreal'
                       ? montrealSecteur
                       : citySlug === 'laval'
-                      ? lavalSecteur
-                      : citySlug === 'longueuil'
-                      ? longueuilSecteur
-                      : citySlug === 'brossard'
-                      ? brossardSecteur
-                      : null;
+                        ? lavalSecteur
+                        : citySlug === 'longueuil'
+                          ? longueuilSecteur
+                          : citySlug === 'brossard'
+                            ? brossardSecteur
+                            : null;
 
                   return {
                     name:

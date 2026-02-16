@@ -11,6 +11,7 @@ import {
   Link,
   Button,
   HStack,
+  Flex,
   Grid,
   Icon,
   Image,
@@ -32,7 +33,7 @@ import imgCom2 from '../images/2-services/Page peinture commerciale/2. réalisat
 import imgCom3 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
 import imgCom4 from '../images/4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.PNG';
 import imgCom5 from '../images/4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.PNG';
-import commercialePhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+// Header image removed as per folder structure rule
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -65,19 +66,19 @@ export default function PeintureCommercialePage() {
 
   const whyUsContent = isFr
     ? [
-        "Planification des travaux en dehors des heures d'ouverture si nécessaire",
-        'Protection complète des sols, meubles et équipements',
-        'Respect strict des délais et du calendrier convenu',
-        'Utilisation de produits adaptés aux environnements commerciaux (faible odeur, séchage rapide, résistance accrue)',
-        'Communication claire du début à la fin du projet',
-      ]
+      "Planification des travaux en dehors des heures d'ouverture si nécessaire",
+      'Protection complète des sols, meubles et équipements',
+      'Respect strict des délais et du calendrier convenu',
+      'Utilisation de produits adaptés aux environnements commerciaux (faible odeur, séchage rapide, résistance accrue)',
+      'Communication claire du début à la fin du projet',
+    ]
     : [
-        'Planning work outside opening hours if necessary',
-        'Complete protection of floors, furniture and equipment',
-        'Strict respect of deadlines and agreed schedule',
-        'Use of products adapted to commercial environments (low odor, fast drying, increased resistance)',
-        'Clear communication from start to finish of the project',
-      ];
+      'Planning work outside opening hours if necessary',
+      'Complete protection of floors, furniture and equipment',
+      'Strict respect of deadlines and agreed schedule',
+      'Use of products adapted to commercial environments (low odor, fast drying, increased resistance)',
+      'Clear communication from start to finish of the project',
+    ];
 
   return (
     <Fragment>
@@ -111,7 +112,7 @@ export default function PeintureCommercialePage() {
           pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
+            templateColumns="1fr"
             gap={{ base: 6, md: 8, lg: 10 }}
             mb={{ base: 12, md: 16 }}
             alignItems={{ md: 'flex-start' }}
@@ -119,39 +120,39 @@ export default function PeintureCommercialePage() {
             <Stack spacing={0} minW={0}>
               <HStack
                 spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color="gray.600"
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to="/"
-                _hover={{ textDecoration: 'underline' }}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color="gray.600"
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to="/services"
-                _hover={{ textDecoration: 'underline' }}
-                color="gray.600"
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Services' : 'Services'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color="gray.800"
-                fontWeight="medium"
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Peinture commerciale' : 'Commercial painting'}
-              </Text>
-            </HStack>
-            <Stack spacing={4} textAlign="left">
+                <Link
+                  as={RouterLink}
+                  to="/"
+                  _hover={{ textDecoration: 'underline' }}
+                  color="gray.600"
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to="/services"
+                  _hover={{ textDecoration: 'underline' }}
+                  color="gray.600"
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Services' : 'Services'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color="gray.800"
+                  fontWeight="medium"
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Peinture commerciale' : 'Commercial painting'}
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign="left">
                 <Heading
                   as="h1"
                   fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -184,24 +185,8 @@ export default function PeintureCommercialePage() {
                     ? "👉 Nos peintres professionnels planifient les travaux pour minimiser l'impact sur vos opérations, tout en livrant une finition propre, durable et adaptée à votre environnement. Pour rafraîchir vos locaux, moderniser votre espace client ou rénover un immeuble complet, notre équipe de peinture commerciale est prête à intervenir."
                     : '👉 Our professional painters plan the work to minimize the impact on your operations, while delivering a clean, durable finish adapted to your environment. To refresh your premises, modernize your customer space or renovate a complete building, our commercial painting team is ready to intervene.'}
                 </Text>
+              </Stack>
             </Stack>
-            </Stack>
-            <Box
-              w="100%"
-              aspectRatio="1"
-              borderRadius="xl"
-              overflow="hidden"
-              bg="gray.100"
-            >
-              <Image
-                src={commercialePhotoHeader}
-                alt={isFr ? 'Peinture commerciale – Le Lever du Pinceau' : 'Commercial painting – Le Lever du Pinceau'}
-                w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="center"
-              />
-            </Box>
           </Grid>
           <Stack spacing={0}>
 

@@ -194,8 +194,6 @@ export default function BrossardCityPage() {
                   fontSize={{ base: 'md', md: 'lg' }}
                   color='gray.600'
                   lineHeight='1.7'
-                  fontWeight='medium'
-                  maxW='900px'
                 >
                   {isFr
                     ? '👉 Que vous soyez dans un secteur résidentiel, près du Quartier DIX30 ou dans une zone commerciale, notre équipe peut se déplacer rapidement pour votre projet de peinture.'
@@ -205,7 +203,7 @@ export default function BrossardCityPage() {
             </Stack>
             <Box
               w='100%'
-              aspectRatio='1'
+              aspectRatio={{ base: '1', md: '4/3' }}
               borderRadius='xl'
               overflow='hidden'
               bg='gray.100'

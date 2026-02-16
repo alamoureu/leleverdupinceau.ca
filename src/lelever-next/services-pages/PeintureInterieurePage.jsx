@@ -202,7 +202,7 @@ export default function PeintureInterieurePage() {
           </Stack>
             <Box
               w='100%'
-              aspectRatio='1'
+              aspectRatio={{ base: '1', md: '4/3' }}
               borderRadius='xl'
               overflow='hidden'
               bg='gray.100'
