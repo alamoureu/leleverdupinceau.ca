@@ -167,8 +167,8 @@ export const peintureResidentielleExterieureData = {
               en: 'Our painters: master modern materials present in Brossard, use products specifically adapted to South Shore climate, work cleanly, safely and efficiently, respect your property and your neighborhood',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -383,8 +383,8 @@ export const peintureResidentielleExterieureData = {
               en: 'Our painters: know well typical Laval materials, use products adapted to Quebec climate, work cleanly and safely, deliver an aesthetic and durable result',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -601,8 +601,8 @@ export const peintureResidentielleExterieureData = {
               en: 'Our painters: use highly resistant products, know perfectly the materials of Longueuil houses, work safely, even at height, deliver a durable and elegant finish',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -819,8 +819,8 @@ export const peintureResidentielleExterieureData = {
               en: 'Our painters: know perfectly Montreal plexes, houses and facades, use products adapted to local climate, know how to work at height safely, carefully protect your property and access',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {

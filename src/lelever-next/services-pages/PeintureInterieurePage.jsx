@@ -11,7 +11,6 @@ import {
   Grid,
   Link,
   Button,
-  SimpleGrid,
   Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -26,14 +25,7 @@ import SectorsSection, {
   brossardSecteur,
 } from '../home-page/SectorsSection';
 import ServiceCTASection from './components/ServiceCTASection';
-import heroImage from '../images/hero/service-hero.png';
 import interieurePhotoHeader from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
-import img5969 from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
-import img5970 from '../images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG';
-import img5971 from '../images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG';
-import img5972 from '../images/2-services/Page peinture intérieure/4. réalisations/IMG_6751.PNG';
-import img5973 from '../images/2-services/Page peinture intérieure/5. réalisations/IMG_6754.PNG';
-import img5974 from '../images/2-services/Page peinture intérieure/6. réalisations/IMG_5976.PNG';
 import imgResInterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle intérieure/IMG_6758.PNG';
 import imgComInterieure from '../images/4-sous-services/commercial x intérieure/1. réalisations/IMG_6759.PNG';
 
@@ -84,15 +76,6 @@ export default function PeintureInterieurePage() {
         'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
       ];
 
-  const images = [
-    { src: img5969, alt: isFr ? 'Peinture du nouveau mur agissant comme foyer en noir' : 'Painting of the new wall acting as a fireplace in black' },
-    { src: img5970, alt: isFr ? 'Peinture de cette maison entière à Ville Mont Royal' : 'Painting of this entire house in Town of Mount Royal' },
-    { src: img5971, alt: isFr ? 'Peinture après la rénovation de cette entrée de bureau médical' : 'Painting after the renovation of this medical office entrance' },
-    { src: img5972, alt: isFr ? 'Peinture et rafraîchissement de ce petit local commercial à Verdun' : 'Painting and refresh of this small commercial space in Verdun' },
-    { src: img5973, alt: isFr ? 'Peinture de l\'entièreté de cette maison à Westmount' : 'Painting of the entirety of this house in Westmount' },
-    { src: img5974, alt: isFr ? 'Peinture entière des portes de cabinet de cette cuisine' : 'Complete painting of the cabinet doors of this kitchen' },
-  ];
-
   return (
     <Fragment>
       <Helmet>
@@ -111,7 +94,7 @@ export default function PeintureInterieurePage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/peinture-interieure'
+          href='https://www.leleverdupinceau.ca/services/peinture-interieure'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -172,9 +155,7 @@ export default function PeintureInterieurePage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peinture intérieure – Le Lever du Pinceau'
-                    : 'Interior painting – Le Lever du Pinceau'}
+                  {isFr ? 'Peinture intérieure' : 'Interior painting'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -301,51 +282,7 @@ export default function PeintureInterieurePage() {
               ]}
             />
 
-            {/* Section 4 — Exemples de projets intérieurs */}
-            {images && images.length > 0 && (
-              <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={6}>
-                    <Stack spacing={3} textAlign='left'>
-                      <Heading
-                        as='h2'
-                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                        fontWeight='bold'
-                        color='gray.800'
-                      >
-                        {isFr
-                          ? 'Quelques réalisations en peinture intérieure'
-                          : 'Some interior painting achievements'}
-                      </Heading>
-                    </Stack>
-
-                    <SimpleGrid
-                      columns={{ base: 1, md: 2, lg: 3 }}
-                      spacing={4}
-                      maxW='1200px'
-                    >
-                      {images.map((img, index) => (
-                        <Stack key={index} spacing={2}>
-                          <Image
-                            src={img.src}
-                            alt={img.alt}
-                            borderRadius='lg'
-                            w='100%'
-                            h={{ base: '200px', md: '250px' }}
-                            objectFit='cover'
-                          />
-                          <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
-                            {img.alt}
-                          </Text>
-                        </Stack>
-                      ))}
-                    </SimpleGrid>
-                  </Stack>
-                </Container>
-              </Box>
-            )}
-
-            {/* Section 5 — Guides & ressources */}
+            {/* Section 4 — Guides & ressources */}
             <ResourcesSection
               title={
                 isFr
@@ -405,8 +342,8 @@ export default function PeintureInterieurePage() {
                       minH='48px'
                     >
                       {isFr
-                        ? 'En savoir plus sur nos peintres professionnels'
-                        : 'Learn more about our professional painters'}
+                        ? 'En savoir plus'
+                        : 'Learn more'}
                     </Button>
                   </Link>
                 </Stack>

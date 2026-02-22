@@ -13,7 +13,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import ServiceCard from './ServiceCard';
 import peintureResidentielleImg from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
-import peintureCommercialeImg from '../images/1-page-principale/service hub/Peinture commerciale/IMG_6766.PNG';
+import peintureCommercialeImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import peintureInterieurImg from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 
 const serviceImages = [
@@ -60,7 +60,7 @@ export default function ServicesSection() {
         px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
       >
         <Stack
-          spacing={{ base: 4, md: 6 }}
+          spacing={{ base: 2, md: 6 }}
           align="center"
           w="100%"
           maxW={{
@@ -71,7 +71,7 @@ export default function ServicesSection() {
           mx="auto"
         >
           <Stack
-            spacing={{ base: 2, md: 3 }}
+            spacing={{ base: 1, md: 3 }}
             textAlign="center"
             maxW={{
               base: '100%',
@@ -85,19 +85,21 @@ export default function ServicesSection() {
             <Heading
               as="h2"
               size="section"
+              lineHeight="1.3"
+              fontWeight="bold"
               color="gray.800"
               whiteSpace={{ base: 'normal', md: 'nowrap' }}
             >
               {t.servicesTitle}
             </Heading>
-            <Text textStyle="bodyLarge" color="gray.600">
+            <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
               {t.servicesSubtitle}
             </Text>
           </Stack>
 
           <SimpleGrid
             columns={{ base: 1, md: 3 }}
-            spacing={{ base: 4, md: 6 }}
+            spacing={{ base: 3, md: 6 }}
             w="100%"
             maxW={{
               base: '280px',

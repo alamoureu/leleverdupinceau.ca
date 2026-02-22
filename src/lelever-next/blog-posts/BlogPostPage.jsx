@@ -143,7 +143,7 @@ export default function BlogPostPage({ blogData }) {
               </Box>
             </Box>
 
-            <Box mb={{ base: 8, md: 10 }}>
+            <Box mb={{ base: 8, md: 10 }} maxW={{ base: '100%', md: '880px', lg: '960px' }}>
               <Heading
                 as="h1"
                 fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -163,6 +163,16 @@ export default function BlogPostPage({ blogData }) {
               >
                 {blogData.introduction[isFr ? 'fr' : 'en']}
               </Text>
+              <Box mt={6} pt={6} borderTopWidth="1px" borderColor="gray.200">
+                <Text fontWeight="semibold" color="gray.800" fontSize={{ base: 'md', md: 'lg' }}>
+                  Philippe Beaudoin
+                </Text>
+                <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.5">
+                  {isFr
+                    ? 'Entrepreneur en peinture résidentielle et commerciale à Montréal, licencié RBQ et CCQ'
+                    : 'Residential and commercial painting entrepreneur in Montreal, RBQ and CCQ licensed'}
+                </Text>
+              </Box>
             </Box>
 
             <Box

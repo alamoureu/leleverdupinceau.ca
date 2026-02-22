@@ -73,10 +73,11 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
         </Heading>
 
         <Button
-          bg={buttonColor}
-          textColor='white'
-          _hover={{ bg: '#0056D2' }}
-          shadow='xl'
+          colorScheme="brand"
+          bg={buttonColor || 'brand.500'}
+          textColor="white"
+          _hover={{ bg: 'brand.600' }}
+          shadow="xl"
           maxW={{ base: 'fit-content', md: '100%' }}
           fontSize={{ base: 'md', md: 'lg' }}
           px={{ base: 6, md: 8 }}

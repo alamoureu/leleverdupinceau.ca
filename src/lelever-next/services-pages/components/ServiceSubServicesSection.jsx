@@ -4,7 +4,7 @@ import {
   Container,
   Heading,
   Stack,
-  SimpleGrid,
+  Flex,
   Link,
   Text,
   HStack,
@@ -49,23 +49,27 @@ export default function ServiceSubServicesSection({
             )}
           </Stack>
 
-          <SimpleGrid
-            columns={{ base: 1, md: 2 }}
-            spacing={{ base: 6, md: 8 }}
-            maxW='800px'
+          <Flex
+            flexWrap='wrap'
+            justify='center'
+            gap={{ base: 6, md: 8 }}
+            mx='auto'
           >
             {subServices.map((service, index) => (
               <Link
                 key={index}
                 href={service.link}
                 _hover={{ textDecoration: 'none' }}
+                w={{ base: '100%', md: '380px' }}
+                maxW={{ base: '100%', md: '420px' }}
+                display='flex'
               >
                 <Box
                   bg='white'
                   borderRadius='xl'
                   border='1px solid'
                   borderColor='gray.200'
-                  h='100%'
+                  w='100%'
                   display='flex'
                   flexDirection='column'
                   boxShadow='sm'
@@ -82,7 +86,7 @@ export default function ServiceSubServicesSection({
                       as='span'
                       display='block'
                       w='100%'
-                      h={{ base: '160px', md: '180px' }}
+                      h={{ base: '200px', md: '220px', lg: '240px' }}
                       flexShrink={0}
                       overflow='hidden'
                     >
@@ -100,6 +104,8 @@ export default function ServiceSubServicesSection({
                     spacing={3}
                     flex={1}
                     p={{ base: 5, md: 6 }}
+                    textAlign='left'
+                    align='flex-start'
                   >
                     <Heading
                       as='h3'
@@ -125,7 +131,7 @@ export default function ServiceSubServicesSection({
                 </Box>
               </Link>
             ))}
-          </SimpleGrid>
+          </Flex>
         </Stack>
       </Container>
     </Box>

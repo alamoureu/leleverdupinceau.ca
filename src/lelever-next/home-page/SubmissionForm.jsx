@@ -29,8 +29,8 @@ const activeLabelStyles = {
   transform: 'scale(0.85) translateY(-24px)',
 };
 
-const BRAND_BLUE = '#014CC4';
-const BRAND_BLUE_HOVER = '#0139A0';
+const BRAND_BLUE = '#1E4BBA';
+const BRAND_BLUE_HOVER = '#183D9A';
 
 const theme = extendTheme({
   fonts: {
@@ -228,7 +228,7 @@ export default function SubmissionForm({
       try {
         await sendToGoHighLevel(ghlData, { language: currentLang });
       } catch (webhookError) {
-        console.error('GoHighLevel webhook error:', webhookError);
+        if (import.meta.env?.DEV) console.error('GoHighLevel webhook error:', webhookError);
       }
 
       if (onSubmit) onSubmit(formData);
@@ -245,7 +245,7 @@ export default function SubmissionForm({
         consentAccepted: false,
       });
     } catch (error) {
-      console.error('Submission error:', error);
+      if (import.meta.env?.DEV) console.error('Submission error:', error);
       toast({
         title: t.formErrorTitle ?? 'Error',
         description: t.formErrorTryAgain ?? 'An error occurred. Please try again.',
@@ -347,8 +347,7 @@ export default function SubmissionForm({
         flex={isModal ? '1' : undefined}
         minH={isModal ? '0' : undefined}
         py={isModal ? 0 : { base: 6, md: 8 }}
-        px={isModal ? { base: 0, sm: 0 } : { base: 2, sm: 4 }}
-        pr={isModal ? 3 : undefined}
+        px={isModal ? 0 : { base: 2, sm: 4 }}
       >
         <Box
           flex={isModal ? '1' : undefined}
@@ -356,13 +355,13 @@ export default function SubmissionForm({
           overflowY={isModal ? 'auto' : undefined}
           overscrollBehavior="contain"
           w="100%"
-          pt={isModal ? { base: 2, sm: 3 } : 0}
+          pt={{ base: 3, md: 4 }}
         >
           <Stack
-            spacing={isModal ? { base: 4, md: 5 } : { base: 6, md: 7 }}
+            spacing={isModal ? { base: 6, md: 7 } : { base: 6, md: 7 }}
             align="stretch"
             w="100%"
-            pb={isModal ? 2 : { base: 4, md: 6 }}
+            pb={isModal ? { base: 6, md: 7 } : { base: 4, md: 6 }}
           >
           <FormControl variant="floating" isRequired isInvalid={showError('name')}>
             <Input
@@ -471,10 +470,10 @@ export default function SubmissionForm({
               }}
             >
               <Stack direction="column" spacing={3} w="100%">
-                <Radio value="interior" colorScheme="blue" size="lg">
+                <Radio value="interior" colorScheme="brand" size="lg">
                   {t.formInteriorPainting ?? t.serviceInterior}
                 </Radio>
-                <Radio value="exterior" colorScheme="blue" size="lg">
+                <Radio value="exterior" colorScheme="brand" size="lg">
                   {t.formExteriorPainting ?? t.serviceExterior}
                 </Radio>
               </Stack>
@@ -493,11 +492,11 @@ export default function SubmissionForm({
               />
               <Box fontSize={{ base: 'xs', sm: 'sm' }} color="gray.700" flex={1} lineHeight="1.5">
                 {t.formConsentText}{' '}
-                <Link href="/politiques/termes-conditions" color="#014CC4" textDecoration="underline" _hover={{ color: '#0139A0' }}>
+                <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
                   {t.formTermsAndConditions}
                 </Link>{' '}
                 {t.formAnd}{' '}
-                <Link href="/politiques/confidentialite" color="#014CC4" textDecoration="underline" _hover={{ color: '#0139A0' }}>
+                <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
                   {t.formPrivacyPolicy}
                 </Link>{' '}
                 {t.formOf}
@@ -512,10 +511,10 @@ export default function SubmissionForm({
         <Box
           flexShrink={0}
           w="100%"
-          pt={isModal ? 4 : { base: 6, md: 8 }}
-          pb={isModal ? 2 : 0}
+          pt={isModal ? { base: 4, md: 5 } : { base: 6, md: 8 }}
+          pb={isModal ? { base: 4, md: 5 } : 0}
           borderTopWidth={isModal ? '1px' : 0}
-          borderColor="gray.100"
+          borderColor="gray.200"
           mt="auto"
           bg="white"
         >

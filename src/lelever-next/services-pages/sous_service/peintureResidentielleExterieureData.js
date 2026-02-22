@@ -13,8 +13,8 @@ export const peintureResidentielleExterieureData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-residentielle/exterieure',
   h1: {
-    fr: 'Peinture résidentielle extérieure – Le Lever du Pinceau',
-    en: 'Residential exterior painting – Le Lever du Pinceau',
+    fr: 'Peinture résidentielle extérieure',
+    en: 'Residential exterior painting',
   },
   introduction: {
     fr: [
@@ -205,8 +205,8 @@ export const peintureResidentielleExterieureData = {
     en: 'Our residential exterior painters are trained to work on varied surfaces and at height, while ensuring safety and durability.',
   },
   aboutButtonText: {
-    fr: 'En savoir plus sur nos peintres professionnels',
-    en: 'Learn more about our professional painters',
+    fr: 'En savoir plus',
+    en: 'Learn more',
   },
   aboutButtonLink: '/peintre-professionnel',
   ctaTitle: {
@@ -220,31 +220,23 @@ export const peintureResidentielleExterieureData = {
   images: [
     {
       src: img5969,
-      alt: {
-        fr: 'Peinture résidentielle extérieure Montréal',
-        en: 'Residential exterior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle extérieure Montréal', en: 'Residential exterior painting Montreal' },
+      description: { fr: 'Façade résidentielle – revêtement rafraîchi', en: 'Residential facade – coating refreshed' },
     },
     {
       src: img5970,
-      alt: {
-        fr: 'Peinture résidentielle extérieure Montréal',
-        en: 'Residential exterior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle extérieure Montréal', en: 'Residential exterior painting Montreal' },
+      description: { fr: 'Extérieur – finition résistante aux intempéries', en: 'Exterior – weather-resistant finish' },
     },
     {
       src: img5971,
-      alt: {
-        fr: 'Peinture résidentielle extérieure Montréal',
-        en: 'Residential exterior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle extérieure Montréal', en: 'Residential exterior painting Montreal' },
+      description: { fr: 'Maison – protection et esthétique', en: 'House – protection and aesthetics' },
     },
     {
       src: img5972,
-      alt: {
-        fr: 'Peinture résidentielle extérieure Montréal',
-        en: 'Residential exterior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle extérieure Montréal', en: 'Residential exterior painting Montreal' },
+      description: { fr: 'Projet extérieur – résultat durable', en: 'Exterior project – durable result' },
     },
   ],
 };

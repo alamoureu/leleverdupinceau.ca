@@ -21,7 +21,7 @@ const translations = {
   },
 };
 
-export default function TrustBanner() {
+export default function TrustBanner({ compact = false }) {
   const { currentLang } = useContext(appContext);
   const t = translations[currentLang];
 
@@ -30,14 +30,16 @@ export default function TrustBanner() {
       image: quebecLogo,
       alt: t.rbqAlt,
       text: t.rbqText,
-      imageHeight: {
-        base: '24px',
-        sm: '26px',
-        md: '28px',
-        lg: '34px',
-        xl: '44px',
-        '2xl': '52px',
-      },
+      imageHeight: compact
+        ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
+        : {
+            base: '20px',
+            sm: '22px',
+            md: '24px',
+            lg: '28px',
+            xl: '30px',
+            '2xl': '32px',
+          },
     },
     {
       isMetric: true,
@@ -48,16 +50,22 @@ export default function TrustBanner() {
       image: trushieldLogo,
       alt: t.trushieldAlt,
       text: t.assurance,
-      imageHeight: {
-        base: '22px',
-        sm: '26px',
-        md: '28px',
-        lg: '34px',
-        xl: '44px',
-        '2xl': '52px',
-      },
+      imageHeight: compact
+        ? { base: '22px', sm: '24px', md: '28px', lg: '32px' }
+        : {
+            base: '18px',
+            sm: '20px',
+            md: '22px',
+            lg: '26px',
+            xl: '28px',
+            '2xl': '30px',
+          },
     },
   ];
+
+  const paddingY = compact ? { base: 5, sm: 6, md: 7 } : { base: 4, md: 5 };
+  const paddingX = compact ? { base: 6, sm: 8, md: 10, lg: 12 } : { base: 6, sm: 6, md: 8, lg: 10 };
+  const gap = compact ? { base: 6, sm: 8, md: 10, lg: 12 } : { base: 4, sm: 5, md: 8, lg: 10 };
 
   return (
     <Box
@@ -65,29 +73,33 @@ export default function TrustBanner() {
       left="50%"
       bottom={0}
       transform="translate(-50%, 50%)"
-      maxW="1440px"
-      w={{
-        base: 'calc(100% - 24px)',
-        sm: 'calc(100% - 32px)',
-        md: 'calc(100% - 48px)',
-        lg: 'calc(100% - 80px)',
-        xl: 'calc(100% - 96px)',
-        '2xl': 'calc(100% - 120px)',
-      }}
+      maxW={compact ? '820px' : '1440px'}
+      w={
+        compact
+          ? { base: 'calc(100% - 32px)', sm: 'calc(100% - 32px)', md: 'min(720px, calc(100% - 48px))', lg: 'min(820px, calc(100% - 64px))' }
+          : {
+              base: 'calc(100% - 32px)',
+              sm: 'calc(100% - 32px)',
+              md: 'calc(100% - 48px)',
+              lg: 'calc(100% - 80px)',
+              xl: 'calc(100% - 96px)',
+              '2xl': 'calc(100% - 120px)',
+            }
+      }
       zIndex={10}
       bg="white"
-      borderRadius="2xl"
+      borderRadius={compact ? 'xl' : '2xl'}
       border="1px solid"
       borderColor="gray.200"
       boxShadow="0 4px 20px rgba(0,0,0,0.08)"
-      py={{ base: 4, md: 5, lg: 6, xl: 6, '2xl': 7 }}
-      px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
+      py={paddingY}
+      px={paddingX}
     >
       <Flex
         direction="row"
-        align="flex-end"
-        justify="space-between"
-        gap={{ base: 3, sm: 4, md: 5, lg: 6, xl: 8, '2xl': 10 }}
+        align="center"
+        justify={{ base: 'space-evenly', sm: 'space-between' }}
+        gap={gap}
         minW={0}
       >
         {TRUST_ITEMS.map((item, index) => (
@@ -97,40 +109,37 @@ export default function TrustBanner() {
               minW={0}
               direction="column"
               align="center"
-              justify="flex-end"
+              justify="center"
               textAlign="center"
-              h={{ base: '52px', sm: '56px', md: '60px', lg: '64px', xl: '68px', '2xl': '72px' }}
+              gap={compact ? 1 : 2}
             >
-              <Box flex={1} display="flex" alignItems="center" justifyContent="center" w="100%">
-                {item.isMetric ? (
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    fontWeight="bold"
-                    lineHeight="1"
-                    color="gray.800"
-                    textAlign="center"
-                  >
-                    {item.value}
-                  </Text>
-                ) : (
-                  <Image
-                    src={item.image}
-                    alt={item.alt}
-                    h={item.imageHeight}
-                    w="auto"
-                    objectFit="contain"
-                    display="block"
-                  />
-                )}
-              </Box>
+              {item.isMetric ? (
+                <Text
+                  fontSize={compact ? { base: 'lg', sm: 'xl', md: '2xl' } : { base: 'md', md: 'lg' }}
+                  fontWeight="bold"
+                  lineHeight="1"
+                  color="gray.800"
+                  textAlign="center"
+                >
+                  {item.value}
+                </Text>
+              ) : (
+                <Image
+                  src={item.image}
+                  alt={item.alt}
+                  h={item.imageHeight}
+                  w="auto"
+                  objectFit="contain"
+                  display="block"
+                />
+              )}
               <Text
-                fontSize={{ base: 'xs', sm: 'sm' }}
+                fontSize={compact ? { base: 'xs', sm: 'sm', md: 'md' } : { base: 'xs', sm: 'sm' }}
                 color="gray.700"
                 fontWeight="medium"
                 lineHeight="1.2"
                 textAlign="center"
                 w="100%"
-                flexShrink={0}
               >
                 {item.isMetric ? item.label : item.text}
               </Text>
@@ -139,9 +148,9 @@ export default function TrustBanner() {
               <Divider
                 orientation="vertical"
                 borderColor="gray.200"
-                h="auto"
-                alignSelf="stretch"
-                minH="40px"
+                flexShrink={0}
+                h={compact ? { base: '40px', sm: '48px', md: '56px' } : { base: '36px', sm: '44px' }}
+                alignSelf="center"
               />
             )}
           </React.Fragment>

@@ -165,8 +165,8 @@ export const peintureResidentielleInterieureData = {
               en: 'Our painters: master modern materials and walls of recent constructions, know how to work in furnished houses or occupied condos, deliver an aesthetic, durable and uniform finish, respect your peace and deadlines',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -383,8 +383,8 @@ export const peintureResidentielleInterieureData = {
               en: 'Our painters: master modern as well as old surfaces, know how to work in furnished spaces, adapt to family schedules, deliver consistent and clean work',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -596,8 +596,8 @@ export const peintureResidentielleInterieureData = {
               en: 'Our painters: understand well the typology of Longueuil houses and plexes, know how to work in family and occupied environments, respect your schedule and constraints, deliver a constant, clean and durable finish',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -810,8 +810,8 @@ export const peintureResidentielleInterieureData = {
               en: 'Our painters: are used to Montreal plexes, condos and houses, know how to work in restricted or furnished spaces, respect your schedule and privacy, take time to properly protect your environment',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {

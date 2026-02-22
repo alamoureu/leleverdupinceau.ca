@@ -76,7 +76,7 @@ export default function PasswordProtectedPage({ children }) {
           <CardBody>
             <VStack spacing={6} align='stretch'>
               <Box textAlign='center'>
-                <Heading size='lg' color='blue.600' mb={2}>
+                <Heading size='lg' color='brand.600' mb={2}>
                   Accès Protégé
                 </Heading>
                 <Text color='gray.600' fontSize='sm'>
@@ -117,7 +117,7 @@ export default function PasswordProtectedPage({ children }) {
 
                   <Button
                     type='submit'
-                    colorScheme='blue'
+                    colorScheme='brand'
                     size='lg'
                     width='full'
                   >

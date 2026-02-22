@@ -91,7 +91,7 @@ export const westmountData = {
     title: 'Une équipe habituée aux résidences haut de gamme',
     description:
       'Nos peintres : maîtrisent les standards élevés exigés à Westmount, travaillent proprement et discrètement dans des maisons habitées, protègent rigoureusement vos biens et espaces, utilisent des produits premium hautement durables, livrent des finitions impeccables, adaptées au luxe du quartier',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

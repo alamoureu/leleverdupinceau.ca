@@ -1,9 +1,9 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
+  Flex,
   Heading,
   Text,
   Stack,
@@ -16,9 +16,16 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SectorsSection from '../home-page/SectorsSection';
-import serviceHubPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import ServiceCard from '../home-page/ServiceCard';
+import serviceHubPhotoHeader from '../images/5-landing-page/Photo/spray man 3000.jpeg';
+import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
+import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
 
 export default function ServicesPage() {
   const { currentLang } = useContext(appContext);
@@ -45,6 +52,7 @@ export default function ServicesPage() {
 
   const mainServices = [
     {
+      image: imgResidentielle,
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
       description: isFr
         ? 'Maisons, condos, plex, logements, multi-étages.'
@@ -52,6 +60,7 @@ export default function ServicesPage() {
       link: '/services/peinture-residentielle',
     },
     {
+      image: imgCommerciale,
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
       description: isFr
         ? 'Bureaux, commerces, restaurants, immeubles.'
@@ -59,6 +68,7 @@ export default function ServicesPage() {
       link: '/services/peinture-commerciale',
     },
     {
+      image: imgInterieure,
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
       description: isFr
         ? 'Murs, plafonds, portes, escaliers, finitions.'
@@ -66,6 +76,7 @@ export default function ServicesPage() {
       link: '/services/peinture-interieure',
     },
     {
+      image: imgExterieure,
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       description: isFr
         ? 'Revêtements extérieurs, brique, bois, aluminium, crépi.'
@@ -73,6 +84,7 @@ export default function ServicesPage() {
       link: '/services/peinture-exterieure',
     },
     {
+      image: imgIndustrielle,
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
       description: isFr
         ? 'Entrepôts, usines, bâtiments spécialisés.'
@@ -108,27 +120,21 @@ export default function ServicesPage() {
     },
   ];
 
+  const seoTitle = isFr
+    ? 'Services de peinture à Montréal | Résidentiel, commercial, intérieur, extérieur – Le Lever du Pinceau'
+    : 'Painting Services Montreal | Residential, Commercial, Interior, Exterior – Le Lever du Pinceau';
+  const seoDescription = isFr
+    ? 'Tous nos services de peinture à Montréal, Laval, Longueuil : résidentielle, commerciale, intérieure, extérieure, industrielle. Devis gratuit. Peintres professionnels qualifiés RBQ.'
+    : 'All our painting services in Montreal, Laval, Longueuil: residential, commercial, interior, exterior, industrial. Free quote. RBQ qualified professional painters.';
+
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'Services de peinture – Le Lever du Pinceau | Montréal'
-            : 'Painting Services – Le Lever du Pinceau | Montreal'}
-        </title>
-        <meta
-          name='description'
-          content={
-            isFr
-              ? 'Explorez tous les services de peinture offerts par Le Lever du Pinceau dans le Grand Montréal. Peinture résidentielle, commerciale, intérieure, extérieure et industrielle. Soumission gratuite.'
-              : 'Explore all painting services offered by Le Lever du Pinceau in Greater Montreal. Residential, commercial, interior, exterior and industrial painting. Free quote.'
-          }
-        />
-        <link rel='canonical' href='https://leleverdupinceau.ca/services' />
-        <script type='application/ld+json'>
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={seoTitle}
+        description={seoDescription}
+        canonicalPath="/services"
+        schema={breadcrumbSchema}
+      />
 
       <Box w='100%' bg='white' overflowX='hidden'>
         <Container
@@ -159,9 +165,7 @@ export default function ServicesPage() {
               </HStack>
               <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
                 <Heading as='h1' size='page' color='gray.800'>
-                  {isFr
-                    ? 'Services de peinture – Le Lever du Pinceau'
-                    : 'Painting Services – Le Lever du Pinceau'}
+                  {isFr ? 'Services de peinture' : 'Painting Services'}
                 </Heading>
                 <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
                   {isFr
@@ -205,50 +209,32 @@ export default function ServicesPage() {
                     </Heading>
                   </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 6, md: 8 }}
+                  <Flex
+                    wrap='wrap'
+                    justify='center'
+                    gap={{ base: 6, md: 8 }}
                   >
                     {mainServices.map((service, index) => (
-                      <Link
+                      <Box
                         key={index}
-                        href={service.link}
+                        as={RouterLink}
+                        to={service.link}
                         _hover={{ textDecoration: 'none' }}
+                        w='100%'
+                        display='block'
+                        maxW={{ base: '100%', md: '320px', lg: '360px' }}
+                        flex={{ base: '0 0 100%', md: '0 0 calc(50% - 16px)', lg: '0 0 calc(33.333% - 22px)' }}
                       >
-                        <Box
-                          bg='white'
-                          p={{ base: 6, md: 8 }}
-                          borderRadius='xl'
-                          border='1px solid'
-                          borderColor='gray.200'
-                          h='100%'
-                          display='flex'
-                          flexDirection='column'
-                          _hover={{
-                            borderColor: 'brand.500',
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'md',
-                          }}
-                          transition='all 0.2s'
-                        >
-                          <Stack spacing={4} flex={1}>
-                            <Heading as='h3' size='subsection' color='gray.800'>
-                              {service.title}
-                            </Heading>
-                            <Text color='gray.600' textStyle='body' lineHeight='1.6'>
-                              {service.description}
-                            </Text>
-                            <HStack spacing={2} color='brand.500' mt='auto'>
-                              <Text textStyle='caption' fontWeight='medium' _hover={{ textDecoration: 'underline' }}>
-                                {isFr ? 'Voir la page' : 'View page'}
-                              </Text>
-                              <ArrowForwardIcon boxSize={4} />
-                            </HStack>
-                          </Stack>
-                        </Box>
-                      </Link>
+                        <ServiceCard
+                          image={service.image}
+                          title={service.title}
+                          stripText={service.description}
+                          alt={service.title}
+                          noHoverBorder
+                        />
+                      </Box>
                     ))}
-                  </SimpleGrid>
+                  </Flex>
                 </Stack>
               </Container>
             </Box>
@@ -359,8 +345,8 @@ export default function ServicesPage() {
                         minH='48px'
                       >
                         {isFr
-                          ? 'En savoir plus sur nos peintres professionnels'
-                          : 'Learn more about our professional painters'}
+                          ? 'En savoir plus'
+                          : 'Learn more'}
                       </Button>
                     </Link>
                   </Stack>
@@ -390,7 +376,7 @@ export default function ServicesPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16, lg: 20 }}
-          bg='brand.700'
+          bg='app.ctaBg'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -417,7 +403,7 @@ export default function ServicesPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='brand.700'
+                    color='brand.500'
                     borderRadius='full'
                     textStyle='nav'
                     px={{ base: 5, md: 7 }}

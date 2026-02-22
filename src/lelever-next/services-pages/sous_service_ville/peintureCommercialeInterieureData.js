@@ -169,8 +169,8 @@ export const peintureCommercialeInterieureData = {
               en: 'Our painters: understand the specific requirements of modern commerce, work quickly and cleanly, use products adapted to high-traffic places, respect your customers, your schedule and your image',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -385,8 +385,8 @@ export const peintureCommercialeInterieureData = {
               en: 'Our painters: respect your time constraints, protect all your equipment and inventory, adapt to high-traffic areas, work efficiently without compromising quality, deliver a finish aligned with your brand image',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -599,8 +599,8 @@ export const peintureCommercialeInterieureData = {
               en: 'Our commercial painters: adapt to your time and operational constraints, master work in occupied or semi-open environments, protect your assets, your stocks and your image, deliver a professional result, consistent with your brand',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -815,8 +815,8 @@ export const peintureCommercialeInterieureData = {
               en: 'Our commercial painters: understand the requirements of Montreal businesses, work quickly, minimizing impact on your operations, respect sensitive areas (equipment, merchandise, confidentiality), offer a high-end finish, adapted to your brand image',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {

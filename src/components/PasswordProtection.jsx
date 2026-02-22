@@ -157,7 +157,7 @@ export default function PasswordProtection({
 
                   <Button
                     type='submit'
-                    colorScheme='blue'
+                    colorScheme='brand'
                     size='lg'
                     width='full'
                     isLoading={isLoading}

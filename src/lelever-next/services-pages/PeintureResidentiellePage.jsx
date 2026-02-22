@@ -27,12 +27,8 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import heroImage from '../images/hero/service-hero.png';
 import residentiellePhotoHeader from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
 // Only from Page peinture résidentielle folder
-import imgRes1 from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
-import imgRes2 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
-import imgRes3 from '../images/2-services/Page peinture résidentielle/3. réalisations/IMG_6764.PNG';
 import imgResInterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle intérieure/IMG_6758.PNG';
 import imgResExterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
 
@@ -83,12 +79,6 @@ export default function PeintureResidentiellePage() {
         'Fast and respectful service of your space',
       ];
 
-  const images = [
-    { src: imgRes1, alt: isFr ? 'Sablage et teinture de la terrasse arrière d\'une maison à NDG' : 'Sanding and staining of the back deck of a house in NDG' },
-    { src: imgRes2, alt: isFr ? 'Peinture de la porte et de son cadre pour cette maison à Westmount' : 'Painting of the door and its frame for this house in Westmount' },
-    { src: imgRes3, alt: isFr ? 'Peinture de cette maison complète dans le West island' : 'Painting of this complete house in the West Island' },
-  ];
-
   return (
     <Fragment>
       <Helmet>
@@ -107,7 +97,7 @@ export default function PeintureResidentiellePage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/peinture-residentielle'
+          href='https://www.leleverdupinceau.ca/services/peinture-residentielle'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -168,9 +158,7 @@ export default function PeintureResidentiellePage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peinture résidentielle – Le Lever du Pinceau'
-                    : 'Residential painting – Le Lever du Pinceau'}
+                  {isFr ? 'Peinture résidentielle' : 'Residential painting'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -482,51 +470,7 @@ export default function PeintureResidentiellePage() {
               ]}
             />
 
-            {/* Section 4 — Exemples de projets résidentiels */}
-            {images && images.length > 0 && (
-              <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={6}>
-                    <Stack spacing={3} textAlign='left'>
-                      <Heading
-                        as='h2'
-                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                        fontWeight='bold'
-                        color='gray.800'
-                      >
-                        {isFr
-                          ? 'Quelques réalisations en peinture résidentielle'
-                          : 'Some residential painting achievements'}
-                      </Heading>
-                    </Stack>
-
-                    <SimpleGrid
-                      columns={{ base: 1, md: 2, lg: 3 }}
-                      spacing={4}
-                      maxW='1200px'
-                    >
-                      {images.map((img, index) => (
-                        <Stack key={index} spacing={2}>
-                          <Image
-                            src={img.src}
-                            alt={img.alt}
-                            borderRadius='lg'
-                            w='100%'
-                            h={{ base: '200px', md: '250px' }}
-                            objectFit='cover'
-                          />
-                          <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
-                            {img.alt}
-                          </Text>
-                        </Stack>
-                      ))}
-                    </SimpleGrid>
-                  </Stack>
-                </Container>
-              </Box>
-            )}
-
-            {/* Section 5 — Guides et ressources */}
+            {/* Section 4 — Guides et ressources */}
             <ResourcesSection
               title={isFr ? 'Conseils utiles' : 'Useful tips'}
             />
@@ -582,8 +526,8 @@ export default function PeintureResidentiellePage() {
                       minH='48px'
                     >
                       {isFr
-                        ? 'En savoir plus sur nos peintres professionnels'
-                        : 'Learn more about our professional painters'}
+                        ? 'En savoir plus'
+                        : 'Learn more'}
                     </Button>
                   </Link>
                 </Stack>
@@ -596,7 +540,7 @@ export default function PeintureResidentiellePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16, lg: 20 }}
-          bg='brand.700'
+          bg='app.ctaBg'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -633,7 +577,7 @@ export default function PeintureResidentiellePage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='brand.700'
+                    color='brand.500'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

@@ -26,14 +26,7 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import heroImage from '../images/hero/service-hero.png';
-// Réalisations: Page peinture commerciale + sous-services uniquement (pas de doublon avec pages ville)
-import imgCom1 from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import imgCom2 from '../images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG';
-import imgCom3 from '../images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG';
-import imgCom4 from '../images/4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.PNG';
-import imgCom5 from '../images/4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.PNG';
-// Header image removed as per folder structure rule
+import commercialPhotoHeader from '../images/1-page-principale/service hub/Photo header/services-header-spray.png';
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -98,7 +91,7 @@ export default function PeintureCommercialePage() {
         />
         <link
           rel="canonical"
-          href="https://leleverdupinceau.ca/services/peinture-commerciale"
+          href="https://www.leleverdupinceau.ca/services/peinture-commerciale"
         />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
@@ -112,7 +105,7 @@ export default function PeintureCommercialePage() {
           pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Grid
-            templateColumns="1fr"
+            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
             gap={{ base: 6, md: 8, lg: 10 }}
             mb={{ base: 12, md: 16 }}
             alignItems={{ md: 'flex-start' }}
@@ -159,9 +152,7 @@ export default function PeintureCommercialePage() {
                   fontWeight="bold"
                   color="gray.800"
                 >
-                  {isFr
-                    ? 'Peinture commerciale – Le Lever du Pinceau'
-                    : 'Commercial painting – Le Lever du Pinceau'}
+                  {isFr ? 'Peinture commerciale' : 'Commercial painting'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -187,6 +178,22 @@ export default function PeintureCommercialePage() {
                 </Text>
               </Stack>
             </Stack>
+            <Box
+              w="100%"
+              aspectRatio={{ base: '1', md: '4/3' }}
+              borderRadius="xl"
+              overflow="hidden"
+              bg="gray.100"
+            >
+              <Image
+                src={commercialPhotoHeader}
+                alt={isFr ? 'Peinture commerciale – Le Lever du Pinceau' : 'Commercial painting – Le Lever du Pinceau'}
+                w="100%"
+                h="100%"
+                objectFit="cover"
+                objectPosition="center"
+              />
+            </Box>
           </Grid>
           <Stack spacing={0}>
 
@@ -425,55 +432,7 @@ export default function PeintureCommercialePage() {
               ]}
             />
 
-            {/* Section 4 — Exemples de projets commerciaux */}
-            <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
-              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-                <Stack spacing={6}>
-                  <Stack spacing={3} textAlign="left">
-                    <Heading
-                      as="h2"
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight="bold"
-                      color="gray.800"
-                    >
-                      {isFr
-                        ? 'Réalisations en peinture commerciale'
-                        : 'Commercial painting achievements'}
-                    </Heading>
-                  </Stack>
-
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={4}
-                    maxW="1200px"
-                  >
-                    {[
-                      { src: imgCom1, alt: isFr ? 'Peinture et plâtre avant l\'ouverture de ce café à Notre-Dame de Grâce' : 'Painting and plastering before the opening of this café in Notre-Dame de Grâce' },
-                      { src: imgCom2, alt: isFr ? 'Rafraîchissement des murs et rampes de la cage d\'escalier d\'un plex à Ville-Marie' : 'Refresh of the walls and railings of the stairwell of a plex in Ville-Marie' },
-                      { src: imgCom3, alt: isFr ? 'Peinture de la porte d\'entrée et du cadre de porte de cet immeuble de 8 logements sur la rive sud' : 'Painting of the entrance door and door frame of this 8-unit building on the South Shore' },
-                      { src: imgCom4, alt: isFr ? 'Rafraîchissement commercial en intérieur' : 'Commercial interior refresh' },
-                      { src: imgCom5, alt: isFr ? 'Peinture commerciale extérieure' : 'Commercial exterior painting' },
-                    ].map((img, index) => (
-                      <Stack key={index} spacing={2}>
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          borderRadius="lg"
-                          w="100%"
-                          h={{ base: '200px', md: '250px' }}
-                          objectFit="cover"
-                        />
-                        <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
-                          {img.alt}
-                        </Text>
-                      </Stack>
-                    ))}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
-
-            {/* Section 5 — À propos de nos peintres professionnels */}
+            {/* Section 4 — À propos de nos peintres professionnels */}
             <Box
               py={{ base: 12, md: 16, lg: 20 }}
               bg="gray.50"
@@ -524,8 +483,8 @@ export default function PeintureCommercialePage() {
                       minH="48px"
                     >
                       {isFr
-                        ? 'En savoir plus sur nos peintres professionnels'
-                        : 'Learn more about our professional painters'}
+                        ? 'En savoir plus'
+                        : 'Learn more'}
                     </Button>
                   </Link>
                 </Stack>
@@ -538,7 +497,7 @@ export default function PeintureCommercialePage() {
         <Box
           w="100%"
           py={{ base: 12, md: 16, lg: 20 }}
-          bg="brand.700"
+          bg="app.ctaBg"
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -575,7 +534,7 @@ export default function PeintureCommercialePage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg="white"
-                    color="brand.700"
+                    color="brand.500"
                     borderRadius="full"
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

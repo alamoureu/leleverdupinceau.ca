@@ -15,19 +15,9 @@ import {
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
 import CityServicesSection from '../city-pages/CityServicesSection';
-import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
-import ResidentialProject from '../images/3-ville/longueuil/résidentielle/IMG_6763.PNG';
-import ExtProject from '../images/3-ville/longueuil/extérieure/IMG_6778.PNG';
-import CommercialProject from '../images/3-ville/longueuil/commerciale/IMG_6777.PNG';
-import img5969 from '../images/3-ville/longueuil/1. réalisations/IMG_5974.PNG';
-import img5970 from '../images/3-ville/longueuil/2. réalisations/IMG_6028.PNG';
-import img5971 from '../images/3-ville/longueuil/3. réalisations/IMG_6024.PNG';
-import img5972 from '../images/3-ville/longueuil/intérieure/IMG_6758.PNG';
-import img5973 from '../images/3-ville/longueuil/industrielle/IMG_6752.PNG';
-import img5974 from '../images/3-ville/longueuil/résidentielle/IMG_6763.PNG';
 import longueuilPhotoHeader from '../images/3-ville/longueuil/+header/IMG_6787.PNG';
 
 export default function LongueuilCityPage() {
@@ -42,40 +32,22 @@ export default function LongueuilCityPage() {
         '@type': 'ListItem',
         position: 1,
         name: isFr ? 'Accueil' : 'Home',
-        item: 'https://leleverdupinceau.ca/',
+        item: 'https://www.leleverdupinceau.ca/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: isFr ? 'Secteurs desservis' : 'Service areas',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Longueuil',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis/longueuil',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis/longueuil',
       },
     ],
   };
-
-  const projectsContent = isFr
-    ? [
-      '• Peinture intérieure de maisons et condos',
-      '• Rafraîchissement de revêtements extérieurs',
-      '• Projets commerciaux pour bureaux, commerces et restaurants',
-      '• Travaux dans des entrepôts et bâtiments industriels',
-      '• Interventions dans des plex et immeubles locatifs',
-    ]
-    : [
-      '• Interior painting of houses and condos',
-      '• Exterior coating refresh',
-      '• Commercial projects for offices, stores and restaurants',
-      '• Work in warehouses and industrial buildings',
-      '• Work in plex and rental buildings',
-    ];
-
-  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
 
   const whyUsIntroText = isFr
     ? 'Nos peintres sont régulièrement en intervention dans Longueuil et comprennent parfaitement :'
@@ -115,7 +87,7 @@ export default function LongueuilCityPage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/secteurs-desservis/longueuil'
+          href='https://www.leleverdupinceau.ca/secteurs-desservis/longueuil'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -176,9 +148,7 @@ export default function LongueuilCityPage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peintres à Longueuil – Le Lever du Pinceau'
-                    : 'Painters in Longueuil – Le Lever du Pinceau'}
+                  {isFr ? 'Peintres à Longueuil' : 'Painters in Longueuil'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -222,12 +192,6 @@ export default function LongueuilCityPage() {
           <Stack spacing={0}>
 
             <CityServicesSection cityName='Longueuil' citySlug='longueuil' />
-
-            <CityProjectsSection
-              cityName='Longueuil'
-              projectsContent={projectsContent}
-              projectImages={projectImages}
-            />
 
             <CityWhyUsSection
               cityName='Longueuil'

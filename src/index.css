@@ -1,6 +1,11 @@
 /* Base font-size is set in theme.js (16px) for readability and to avoid iOS zoom on input focus */
+/* One approach for all viewports: avoid 100vw (includes scrollbar and causes horizontal scroll). */
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -11,13 +16,24 @@ html {
 
 body {
   margin: 0;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+#root {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
 }
 
 /* Custom scrollbar - applies to main scroll container (#main) and fallback for html */
 html,
 #main {
   scrollbar-width: thin;
-  scrollbar-color: #014CC4 rgba(0, 0, 0, 0.08);
+  scrollbar-color: #1E4BBA rgba(0, 0, 0, 0.08);
 }
 
 #main::-webkit-scrollbar,
@@ -34,14 +50,14 @@ html::-webkit-scrollbar-track {
 
 #main::-webkit-scrollbar-thumb,
 html::-webkit-scrollbar-thumb {
-  background: #014CC4;
+  background: #1E4BBA;
   border-radius: 10px;
   border: 2px solid rgba(0, 0, 0, 0.06);
 }
 
 #main::-webkit-scrollbar-thumb:hover,
 html::-webkit-scrollbar-thumb:hover {
-  background: #0139A0;
+  background: #183D9A;
 }
 
 .skip-link {
@@ -51,7 +67,7 @@ html::-webkit-scrollbar-thumb:hover {
   transform: translateX(-50%);
   z-index: 10002;
   padding: 12px 24px;
-  background: #014CC4;
+  background: #1E4BBA;
   color: white;
   font-weight: 600;
   border-radius: 8px;

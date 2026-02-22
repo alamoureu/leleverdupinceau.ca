@@ -1,5 +1,6 @@
 import React from 'react';
-import { Box, Image, Heading, Text } from '@chakra-ui/react';
+import { Box, Image, Heading, Text, HStack } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 
 /**
  * Reusable service card: image with title overlay, white fade, subtitle in white strip below.
@@ -8,36 +9,53 @@ import { Box, Image, Heading, Text } from '@chakra-ui/react';
  * @param {string} title - Main title (white on image overlay)
  * @param {string} [subtitle] - Subtitle on image overlay (and in strip if stripText not set)
  * @param {string} [stripText] - Optional different text for white strip below image (overrides subtitle there)
+ * @param {boolean} [subtitleOnImageOnly] - If true, subtitle is shown only in image overlay (not in bottom strip), avoiding truncation
+ * @param {string} [ctaLabel] - Optional CTA text in strip (e.g. "Voir") shown in brand blue with arrow
  * @param {string} [description] - Optional body text below
  * @param {string} [alt] - Alt text for image
+ * @param {boolean} [compact] - Shorter image height for dense layouts (e.g. 5-card grid)
  */
 export default function ServiceCard({
   image,
   title,
   subtitle,
   stripText,
+  subtitleOnImageOnly = false,
+  ctaLabel,
   description,
   alt,
   noHoverBorder = false,
+  fillHeight = false,
+  compact = false,
 }) {
-  const bottomText = stripText ?? subtitle;
-  const imageHeights = {
-    base: '150px',
-    sm: '165px',
-    md: '220px',
-    lg: '240px',
-    xl: '260px',
-    '2xl': '280px',
-  };
+  const bottomText = stripText ?? (subtitleOnImageOnly ? undefined : subtitle);
+  const showStrip = bottomText || ctaLabel;
+  const imageHeights = compact
+    ? { base: '180px', sm: '200px', md: '220px', lg: '240px' }
+    : {
+        base: '260px',
+        sm: '280px',
+        md: '300px',
+        lg: '320px',
+        xl: '340px',
+        '2xl': '360px',
+      };
   /** Fade height = image + 1px so it overlaps the seam and removes the 1px line */
-  const fadeHeights = {
-    base: '151px',
-    sm: '166px',
-    md: '221px',
-    lg: '241px',
-    xl: '261px',
-    '2xl': '281px',
-  };
+  const fadeHeights = compact
+    ? { base: '181px', sm: '201px', md: '221px', lg: '241px' }
+    : {
+        base: '261px',
+        sm: '281px',
+        md: '301px',
+        lg: '321px',
+        xl: '341px',
+        '2xl': '361px',
+      };
+
+  /** Min height for the strip (fits ~2 lines); grows to fit content when needed */
+  const stripMinHeight = compact
+    ? { base: '56px', md: '60px' }
+    : { base: '68px', md: '72px', lg: '76px' };
 
   return (
     <Box
@@ -63,6 +81,12 @@ export default function ServiceCard({
         '2xl': '420px',
       }}
       mx={{ base: 0, md: 'auto' }}
+      {...(fillHeight && {
+        h: { base: '280px', md: '300px', lg: '320px' },
+        display: 'flex',
+        flexDirection: 'column',
+        maxW: '100%',
+      })}
     >
       <Box
         position="relative"
@@ -71,6 +95,7 @@ export default function ServiceCard({
         w="100%"
         minW="100%"
         h={imageHeights}
+        flexShrink={0}
       >
         <Image
           src={image}
@@ -100,10 +125,10 @@ export default function ServiceCard({
           {subtitle && (
             <Text
               mt={1}
-              textStyle="body"
               color="white"
               fontWeight="normal"
-              fontSize={{ base: 'sm', md: 'md' }}
+              fontSize={{ base: '12px', md: 'md' }}
+              lineHeight="1.4"
             >
               {subtitle}
             </Text>
@@ -131,33 +156,58 @@ export default function ServiceCard({
       </Box>
 
       {/* Text in white strip below image */}
-      {bottomText && (
+      {showStrip && (
         <Box
           bg="white"
           py={{ base: 3, sm: 4, md: 4, lg: 5 }}
           px={{ base: 4, sm: 5, md: 5, lg: 6 }}
+          minH={stripMinHeight}
+          {...(fillHeight && { minH: stripMinHeight })}
+          display="flex"
+          alignItems="center"
+          justifyContent={ctaLabel && !bottomText ? 'flex-start' : bottomText && ctaLabel ? 'space-between' : undefined}
+          gap={3}
           textAlign="left"
           position="relative"
           zIndex={3}
+          flexShrink={0}
         >
-          <Text textStyle="body" color="gray.700" fontWeight="medium" lineHeight="1.5">
-            {bottomText}
-          </Text>
+          {bottomText && (
+            <Text
+              fontSize={{ base: '12px', md: 'md' }}
+              lineHeight="1.5"
+              color="gray.700"
+              fontWeight="medium"
+              flex="1"
+              noOfLines={2}
+            >
+              {bottomText}
+            </Text>
+          )}
+          {ctaLabel && (
+            <HStack spacing={2} color="brand.500" fontWeight="medium" fontSize={{ base: 'xs', md: 'sm' }} flexShrink={0}>
+              <Text as="span">{ctaLabel}</Text>
+              <ArrowForwardIcon boxSize={4} />
+            </HStack>
+          )}
         </Box>
       )}
 
-      {description && (
+      {description ? (
         <Box
           pt={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
           pb={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
           px={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
           textAlign="left"
+          flex="1 1 auto"
         >
           <Text textStyle="body" color="gray.700" lineHeight="1.6">
             {description}
           </Text>
         </Box>
-      )}
+      ) : fillHeight ? (
+        <Box flex="1 1 0" minH="0" aria-hidden />
+      ) : null}
     </Box>
   );
 }

@@ -15,20 +15,10 @@ import {
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
 import CityServicesSection from '../city-pages/CityServicesSection';
-import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 
-import ResidentialProject from '../images/3-ville/Montréal/résidentielle/IMG_6763.PNG';
-import ExtProject from '../images/3-ville/Montréal/extérieure/IMG_6778.PNG';
-import CommercialProject from '../images/3-ville/Montréal/commerciale/IMG_6760.PNG';
-import img5969 from '../images/3-ville/Montréal/1. réalisations/IMG_6767.PNG';
-import img5970 from '../images/3-ville/Montréal/2. réalisations/IMG_6760.PNG';
-import img5971 from '../images/3-ville/Montréal/3. réalisations/IMG_6759.PNG';
-import img5972 from '../images/3-ville/Montréal/4. réalisations/IMG_6756.PNG';
-import img5973 from '../images/3-ville/Montréal/5. réalisations/IMG_5877.JPG';
-import img5974 from '../images/3-ville/Montréal/6. réalisations/IMG_6779.PNG';
 import montrealPhotoHeader from '../images/3-ville/Montréal/+Photo header/IMG_6782.PNG';
 
 export default function MontrealCityPage() {
@@ -43,38 +33,22 @@ export default function MontrealCityPage() {
         '@type': 'ListItem',
         position: 1,
         name: isFr ? 'Accueil' : 'Home',
-        item: 'https://leleverdupinceau.ca/',
+        item: 'https://www.leleverdupinceau.ca/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: isFr ? 'Secteurs desservis' : 'Service areas',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Montréal',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis/montreal',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis/montreal',
       },
     ],
   };
-
-  const projectsContent = isFr
-    ? [
-      "• Peinture d'appartements et de condos au centre-ville et dans les quartiers résidentiels",
-      '• Rafraîchissement de maisons unifamiliales dans plusieurs arrondissements',
-      '• Projets commerciaux pour bureaux, commerces, restaurants et cliniques',
-      '• Travaux dans des entrepôts, usines et bâtiments industriels',
-    ]
-    : [
-      '• Apartment and condo painting in downtown and residential neighborhoods',
-      '• Single-family home refresh in multiple boroughs',
-      '• Commercial projects for offices, stores, restaurants and clinics',
-      '• Work in warehouses, factories and industrial buildings',
-    ];
-
-  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
 
   const serviceDescriptions = isFr ? {
     residential: 'Service complet de peinture pour maisons unifamiliales, condos, plex et appartements à Montréal. Finitions soignées.',
@@ -126,7 +100,7 @@ export default function MontrealCityPage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/secteurs-desservis/montreal'
+          href='https://www.leleverdupinceau.ca/secteurs-desservis/montreal'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -187,9 +161,7 @@ export default function MontrealCityPage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peintres à Montréal – Le Lever du Pinceau'
-                    : 'Painters in Montreal – Le Lever du Pinceau'}
+                  {isFr ? 'Peintres à Montréal' : 'Painters in Montreal'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -239,14 +211,7 @@ export default function MontrealCityPage() {
               serviceDescriptions={serviceDescriptions}
             />
 
-            {/* Section 2 — Projets réalisés */}
-            <CityProjectsSection
-              cityName='Montréal'
-              projectsContent={projectsContent}
-              projectImages={projectImages}
-            />
-
-            {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}
+            {/* Section 2 — Pourquoi choisir Le Lever du Pinceau */}
             <CityWhyUsSection
               cityName='Montréal'
               whyUsContent={whyUsContent}

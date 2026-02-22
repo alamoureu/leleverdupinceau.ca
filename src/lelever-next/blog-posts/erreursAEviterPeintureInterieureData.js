@@ -4,8 +4,8 @@ export const erreursAEviterPeintureInterieureData = {
   url: 'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure',
   seo: {
     title: {
-      fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide peinture intérieure 2025)',
-      en: 'Mistakes to avoid before repainting your interior (Interior painting guide 2025)',
+      fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide peinture intérieure 2026)',
+      en: 'Mistakes to avoid before repainting your interior (Interior painting guide 2026)',
     },
     metaDescription: {
       fr: 'Avant de repeindre votre intérieur, évitez ces erreurs fréquentes : mauvaise préparation, choix de peinture, protection, conditions, temps, DIY mal planifié. Guide complet pour un résultat impeccable à Montréal.',
@@ -21,8 +21,8 @@ export const erreursAEviterPeintureInterieureData = {
     en: ['Home', 'Blog', 'Mistakes to avoid before repainting your interior'],
   },
   h1: {
-    fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide 2025)',
-    en: 'Mistakes to avoid before repainting your interior (Guide 2025)',
+    fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide\u00A02026)',
+    en: 'Mistakes to avoid before repainting your interior (Guide\u00A02026)',
   },
   introduction: {
     fr: "Repeindre l'intérieur de votre maison ou de votre condo semble simple : quelques rouleaux, deux couches et c'est réglé… en théorie.\n\nEn pratique, les mêmes erreurs reviennent souvent : murs mal préparés, traces visibles, coulisses, finition inégale, couleur décevante une fois sèche ou, pire encore, peinture qui s'écaille après quelques mois.\n\nDans ce guide, on voit ensemble les erreurs les plus fréquentes avant de repeindre un intérieur, et comment les éviter pour obtenir un résultat propre, durable et agréable à regarder tous les jours.",
@@ -710,8 +710,8 @@ export const erreursAEviterPeintureInterieureData = {
     },
     {
       title: {
-        fr: 'Prix peinture Montréal 2025 : Combien ça coûte vraiment ?',
-        en: 'Painting prices Montreal 2025: How much does it really cost?',
+        fr: 'Prix peinture Montréal 2026 : Combien ça coûte vraiment ?',
+        en: 'Painting prices Montreal 2026: How much does it really cost?',
       },
       href: '/blog/prix-peinture-montreal',
     },
@@ -768,8 +768,8 @@ export const erreursAEviterPeintureInterieureData = {
         '@id':
           'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure#blogposting',
         headline: {
-          fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide 2025)',
-          en: 'Mistakes to avoid before repainting your interior (Guide 2025)',
+          fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide 2026)',
+          en: 'Mistakes to avoid before repainting your interior (Guide 2026)',
         },
         description: {
           fr: 'Avant de repeindre votre intérieur, évitez ces erreurs fréquentes : mauvaise préparation des murs, choix de peinture inadéquat, protection insuffisante, mauvaises conditions de travail et sous-estimation du temps. Guide complet pour un résultat impeccable à Montréal.',
@@ -790,8 +790,8 @@ export const erreursAEviterPeintureInterieureData = {
           '@id':
             'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure',
         },
-        datePublished: '2025-01-01',
-        dateModified: '2025-01-01',
+        datePublished: '2026-01-01',
+        dateModified: '2026-01-01',
       },
       {
         '@type': 'FAQPage',

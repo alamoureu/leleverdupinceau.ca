@@ -20,6 +20,7 @@ import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
 import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
+import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 
 export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
@@ -33,57 +34,33 @@ export default function NewWebsiteLayout() {
     <Fragment>
       <Helmet>
         <script type="application/ld+json">
-          {JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'LocalBusiness',
-            name: 'Le Lever du Pinceau',
-            description:
-              'Entreprise spécialisée en peinture intérieure et extérieure à Montréal. Travail méticuleux et résultats exceptionnels.',
-            url: 'https://www.leleverdupinceau.ca',
-            telephone: '+14388680772',
-            email: 'leleverdupinceau@gmail.com',
-            address: {
-              '@type': 'PostalAddress',
-              streetAddress: '2175 Rue Saint-Patrick',
-              addressLocality: 'Montréal',
-              addressRegion: 'QC',
-              postalCode: 'H3K 1B4',
-              addressCountry: 'Canada',
-            },
-            openingHours: 'Mo-Sa 05:30-11:30',
-            image:
-              'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
-            geo: {
-              '@type': 'GeoCoordinates',
-              latitude: 45.48264,
-              longitude: -73.56835,
-            },
-            sameAs: [
-              'https://www.facebook.com/profile.php?id=100094900160859',
-              'https://www.instagram.com/leleverdupinceau',
-            ],
-          })}
+          {JSON.stringify(LOCAL_BUSINESS_SCHEMA)}
         </script>
       </Helmet>
 
-      <Box w="100%" maxW="1920px" mx="auto" minH="100%">
+      <Box w="100%" maxW="1920px" mx="auto" minH="100%" minW={0} overflowX="hidden">
         <Flex
           direction="column"
-          overflow="hidden"
-          h="100%"
+          overflowX="hidden"
+          minH="100%"
+          minW={0}
           px="0"
           spacing="0"
+          gap={0}
           flex="1"
         >
           <WebsiteNavBar isNewLanding={isLocaleLanding} />
 
           <Stack
             id="main"
-            gap="0"
+            gap={0}
+            spacing={0}
             overflowX="hidden"
-            overflowY="auto"
-            h="100%"
+            minW={0}
             tabIndex={-1}
+            flex="1"
+            pt={{ base: '94px', sm: '98px', md: '112px' }}
+            mt={0}
           >
             <Outlet />
           </Stack>

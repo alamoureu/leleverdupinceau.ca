@@ -173,8 +173,8 @@ export const peintureCommercialeExterieureData = {
               en: 'Our painters: understand the requirements of modern businesses, use products adapted to the South Shore climate, respect your customers, your image and your deadlines, work at height safely, deliver a clean, durable and professional facade.',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -393,8 +393,8 @@ export const peintureCommercialeExterieureData = {
               en: 'Our painters: know the constraints of commercial facades, work at height safely, understand the importance of your brand, respect deadlines and pedestrian/public environment, use products adapted to Laval climate',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -617,8 +617,8 @@ export const peintureCommercialeExterieureData = {
               en: 'Our painters: understand business constraints, know how to work in public exterior areas, respect your brand image and deadlines, use products specially adapted to Quebec climate',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {
@@ -837,8 +837,8 @@ export const peintureCommercialeExterieureData = {
               en: 'Our painters: are trained to work in public and commercial areas, respect your customers and your company image, use long-lasting products, deliver a professional, clean and durable result',
             },
             aboutButtonText: {
-              fr: 'En savoir plus sur nos peintres professionnels',
-              en: 'Learn more about our professional painters',
+              fr: 'En savoir plus',
+              en: 'Learn more',
             },
             aboutButtonLink: '/peintre-professionnel',
             ctaTitle: {

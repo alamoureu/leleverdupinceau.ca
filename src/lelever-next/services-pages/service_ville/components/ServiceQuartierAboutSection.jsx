@@ -25,8 +25,8 @@ export default function ServiceQuartierAboutSection({
     : 'Active professional painters';
 
   const defaultButtonText = isFr
-    ? 'En savoir plus sur nos peintres professionnels'
-    : 'Learn more about our professional painters';
+    ? 'En savoir plus'
+    : 'Learn more';
 
   return (
     <Box

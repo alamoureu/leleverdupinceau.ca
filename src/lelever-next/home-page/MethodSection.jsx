@@ -7,6 +7,7 @@ import {
   Stack,
   Flex,
   Image,
+  Button,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import method1 from '../images/new-landing/method-1.jpeg';
@@ -16,7 +17,7 @@ import method4 from '../images/new-landing/method-4.PNG';
 
 const stepImages = [method1, method2, method3, method4];
 
-export default function MethodSection() {
+export default function MethodSection({ onSubmissionOpen }) {
   const { t } = useTranslation();
   const titleParts = t.methodTitle.split(', ');
   const hasTwoParts = titleParts.length >= 2;
@@ -47,16 +48,9 @@ export default function MethodSection() {
           >
             <Heading
               as="h2"
-              fontSize={{
-                base: 'lg',
-                sm: 'xl',
-                md: '2xl',
-                lg: '3xl',
-                xl: '4xl',
-                '2xl': '4xl',
-              }}
+              size="section"
               fontWeight="bold"
-              color="gray.900"
+              color="gray.800"
               whiteSpace={{ base: 'normal', lg: 'nowrap' }}
             >
               {hasTwoParts ? (
@@ -70,11 +64,7 @@ export default function MethodSection() {
                 t.methodTitle
               )}
             </Heading>
-            <Text
-              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-              color="gray.600"
-              fontWeight="normal"
-            >
+            <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
               {t.methodSubtitle}
             </Text>
           </Stack>
@@ -233,6 +223,39 @@ export default function MethodSection() {
               </Flex>
             );
           })}
+
+          <Stack
+            spacing={3}
+            align="center"
+            pt={{ base: 4, sm: 6, md: 10, lg: 12, xl: 14 }}
+            pb={{ base: 2, md: 4 }}
+            w="100%"
+          >
+            <Button
+              onClick={onSubmissionOpen}
+              bg="brand.500"
+              color="white"
+              fontSize={{ base: 'lg', sm: 'xl', md: 'xl', lg: '2xl' }}
+              fontWeight="semibold"
+              px={{ base: 8, sm: 10, md: 12, lg: 14 }}
+              py={{ base: 4, sm: 4, md: 5, lg: 6 }}
+              h="auto"
+              minH={{ base: '52px', sm: '56px', md: '62px', lg: '68px' }}
+              w="fit-content"
+              borderRadius="full"
+              boxShadow="md"
+              _hover={{ bg: 'brand.600', boxShadow: 'lg' }}
+            >
+              {t.freeSubmission}
+            </Button>
+            <Text
+              fontSize={{ base: 'sm', md: 'lg', lg: 'xl' }}
+              color="gray.600"
+              fontWeight="medium"
+            >
+              {t.ctaSubtitle}
+            </Text>
+          </Stack>
         </Stack>
       </Container>
     </Box>

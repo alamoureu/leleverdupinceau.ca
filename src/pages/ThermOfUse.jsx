@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Container, Heading, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
+import SEOHead from '../lelever-next/seo/SEOHead';
 
 export default function TermsOfUse() {
   const { currentLang } = useContext(appContext);
@@ -8,6 +9,14 @@ export default function TermsOfUse() {
   const isFr = currentLang === 'fr';
 
   return (
+    <>
+      <SEOHead
+        title={isFr ? "Conditions générales d'utilisation | Le Lever du Pinceau" : 'Terms and Conditions | Le Lever du Pinceau'}
+        description={isFr
+          ? "Conditions d'utilisation du site et des services de peinture Le Lever du Pinceau."
+          : 'Terms of use for Le Lever du Pinceau website and painting services.'}
+        canonicalPath="/politiques/termes-conditions"
+      />
     <Container
       maxW="6xl"
       px={{ base: 4, md: 6 }}
@@ -144,5 +153,6 @@ export default function TermsOfUse() {
         </Box>
       </Stack>
     </Container>
+    </>
   );
 }

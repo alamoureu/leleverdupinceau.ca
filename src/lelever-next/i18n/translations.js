@@ -40,7 +40,7 @@ export const translations = {
     teamTitle: 'Une équipe expérimentée',
     teamDescription:
       'Nos peintres sont formés, méticuleux et dédiés à un travail impeccable',
-    learnMorePainters: 'En savoir plus sur nos peintres professionnels',
+    learnMorePainters: 'En savoir plus',
 
     reviewsTitle: 'Avis de nos clients',
     reviewsSubtitle:
@@ -125,7 +125,7 @@ export const translations = {
     projectExteriorDesc:
       "Rafraîchissement complet de la façade d'une résidence. Protection contre les intempéries et résultat durable.",
     projectResidentialDesc2:
-      "Peinture complète d'un condo avec préparation minutieuse des surfaces. Résultat professionnel et satisfaisant.",
+      "Porte d'entrée et encadrement ornemental : finition soignée sur pierre et bois. Peinture de la porte, des pilastres et des corbeaux pour un rendu élégant et durable.",
     projectCommercialDesc2:
       "Peinture d'un plafond en steel deck complet. Ambiance professionnelle et accueillante créée.",
     projectIndustrial: 'Projet industriel',
@@ -216,7 +216,7 @@ export const translations = {
     teamTitle: 'An experienced team',
     teamDescription:
       'Our painters are trained, meticulous and dedicated to impeccable work',
-    learnMorePainters: 'Learn more about our professional painters',
+    learnMorePainters: 'Learn more',
 
     reviewsTitle: 'Client reviews',
     reviewsSubtitle:
@@ -300,7 +300,7 @@ export const translations = {
     projectExteriorDesc:
       'Complete refresh of a residence facade. Weather protection and durable result.',
     projectResidentialDesc2:
-      'Complete condo painting with meticulous surface preparation. Professional and satisfying result.',
+      'Front door and ornate trim: careful finish on stone and wood. Painting of the door, pilasters and corbels for an elegant, durable result.',
     projectCommercialDesc2:
       'Complete steel deck ceiling painting. Professional and welcoming atmosphere created.',
     projectIndustrial: 'Industrial project',

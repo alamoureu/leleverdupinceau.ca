@@ -1,13 +1,11 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
   Heading,
   Text,
   Stack,
-  SimpleGrid,
   Link,
   Button,
   Icon,
@@ -26,12 +24,14 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
 import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import SubmissionModal from '../home-page/SubmissionModal';
+import ServiceCard from '../home-page/ServiceCard';
 import BeforeAfter from '../components/BeforeAfter';
 import ProcessStepsSection from '../components/ProcessStepsSection';
-import peintureProfessionnelleImg from '../images/5-landing-page/Photo/Paint Cut-in Louis.jpeg';
+import TrustBanner from '../home-page/TrustBanner';
 import peintreProResidentielle from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
 import peintreProCommerciale from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG';
 import peintreProInterieure from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG';
@@ -337,43 +337,24 @@ export default function PeintreProfessionnelPage() {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'Peintres professionnels à Montréal – Le Lever du Pinceau'
-            : 'Professional Painters in Montreal – Le Lever du Pinceau'}
-        </title>
-        <meta
-          name="description"
-          content={
-            isFr
-              ? 'Peintres professionnels à Montréal, Laval et Longueuil. Expertise technique, finition impeccable et service rapide pour tous vos projets de peinture résidentielle, commerciale, intérieure et extérieure.'
-              : 'Professional painters in Montreal, Laval and Longueuil. Technical expertise, impeccable finish and fast service for all your residential, commercial, interior and exterior painting projects.'
-          }
-        />
-        <link
-          rel="canonical"
-          href="https://leleverdupinceau.ca/peintre-professionnel"
-        />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(localBusinessSchema)}
-        </script>
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <SEOHead
+        title={isFr ? 'Peintre professionnel Montréal | Équipe qualifiée RBQ – Le Lever du Pinceau' : 'Professional painter Montreal | RBQ qualified team – Le Lever du Pinceau'}
+        description={isFr ? 'Peintres professionnels à Montréal, Laval, Longueuil. Peinture résidentielle, commerciale, intérieure et extérieure. Expertise, précision, résultats garantis. Devis gratuit.' : 'Professional painters in Montreal, Laval, Longueuil. Residential, commercial, interior and exterior painting. Expertise, precision, guaranteed results. Free quote.'}
+        canonicalPath="/peintre-professionnel"
+        schemaArray={[breadcrumbSchema, localBusinessSchema, faqSchema]}
+      />
 
       <Box w="100%" bg="white" overflowX="hidden">
-        <Container
-          maxW="1440px"
-          px={{ base: 4, md: 6 }}
-          pt={{ base: 12, md: 16, lg: 20 }}
-          pb={{ base: 10, md: 14, lg: 18 }}
-        >
-          <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
-            gap={{ base: 6, md: 8, lg: 10 }}
+        <Box position="relative" w="100%" pb={{ base: 12, md: 14, lg: 16 }}>
+          <Container
+            maxW="1440px"
+            px={{ base: 4, md: 6, lg: 8 }}
+            pt={{ base: 14, md: 18, lg: 24 }}
+            pb={{ base: 12, md: 14, lg: 16 }}
+          >
+            <Grid
+            templateColumns={{ base: '1fr', md: '1fr 1fr' }}
+            gap={{ base: 8, md: 10, lg: 12 }}
             alignItems={{ md: 'flex-start' }}
           >
             <Stack spacing={0} minW={0}>
@@ -439,31 +420,42 @@ export default function PeintreProfessionnelPage() {
             </Stack>
             <Box
               w="100%"
-              aspectRatio={{ base: '1', md: '4/3' }}
-              borderRadius="xl"
-              overflow="hidden"
-              bg="gray.100"
+              py={{ base: 2, md: 4 }}
+              pl={{ base: 0, md: 2 }}
             >
-              <Image
-                src={peintreProPhotoHeader}
-                alt={isFr ? 'Peintres professionnels – Le Lever du Pinceau' : 'Professional Painters – Le Lever du Pinceau'}
+              <Box
                 w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="center"
-              />
+                aspectRatio={{ base: '1', md: '3/2' }}
+                borderRadius="xl"
+                overflow="hidden"
+                bg="gray.100"
+                boxShadow="lg"
+              >
+                <Image
+                  src={peintreProPhotoHeader}
+                  alt={isFr ? 'Peintres professionnels – Le Lever du Pinceau' : 'Professional Painters – Le Lever du Pinceau'}
+                  w="100%"
+                  h="100%"
+                  objectFit="cover"
+                  objectPosition="center"
+                />
+              </Box>
             </Box>
           </Grid>
         </Container>
+          <TrustBanner compact />
+        </Box>
 
         <Container
           maxW="1440px"
           px={{ base: 4, md: 6 }}
-          pt={{ base: 12, md: 16, lg: 20 }}
+          pt={0}
         >
           <Stack spacing={0}>
             <Box
-              py={{ base: 12, md: 16, lg: 20 }}
+              mt={0}
+              pt={{ base: 20, md: 24, lg: 28 }}
+              pb={{ base: 12, md: 16, lg: 20 }}
               bg="gray.50"
               borderRadius="xl"
               mb={{ base: 8, md: 12 }}
@@ -577,77 +569,52 @@ export default function PeintreProfessionnelPage() {
                     </Heading>
                   </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
+                  <Flex
                     maxW="1200px"
+                    mx="auto"
+                    w="100%"
+                    wrap="wrap"
+                    justify="center"
+                    gap={{ base: 4, md: 6 }}
                   >
                     {services.map((service, index) => (
-                      <Link
+                      <Box
                         key={index}
                         as={RouterLink}
                         to={service.link}
                         _hover={{ textDecoration: 'none' }}
+                        w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
+                        maxW={{ lg: '380px' }}
+                        display="block"
                       >
-                        <Box
-                          bg="white"
-                          borderRadius="xl"
-                          border="1px solid"
-                          borderColor="gray.200"
-                          overflow="hidden"
-                          _hover={{
-                            borderColor: 'brand.500',
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'md',
-                          }}
-                          transition="all 0.2s"
-                          h="100%"
-                          display="flex"
-                          flexDirection="column"
-                        >
-                          <Box
-                            position="relative"
-                            w="100%"
-                            h="180px"
-                            bg="gray.100"
-                            overflow="hidden"
-                          >
-                            <Image
-                              src={service.image}
-                              alt={service.title}
-                              w="100%"
-                              h="100%"
-                              objectFit="cover"
-                            />
-                          </Box>
-                          <Stack spacing={4} flex={1} p={{ base: 6, md: 8 }}>
-                            <Heading
-                              as="h3"
-                              size="subsection"
-                              fontWeight="bold"
-                              color="gray.800"
-                            >
-                              {service.title}
-                            </Heading>
-                            <Text
-                              color="gray.600"
-                              textStyle="body"
-                              lineHeight="1.6"
-                              flex={1}
-                            >
-                              {service.description}
-                            </Text>
-                            <HStack spacing={2} color="brand.500" mt="auto">
-                              <Text textStyle="caption" fontWeight="medium">
-                                {isFr ? 'Voir le service' : 'View service'}
-                              </Text>
-                              <ArrowForwardIcon boxSize={4} />
-                            </HStack>
-                          </Stack>
-                        </Box>
-                      </Link>
+                        <ServiceCard
+                          image={service.image}
+                          title={service.title}
+                          subtitle={service.description}
+                          stripText={service.description}
+                          noHoverBorder
+                          fillHeight
+                        />
+                      </Box>
                     ))}
-                  </SimpleGrid>
+                  </Flex>
+                  <Box textAlign="center" mt={{ base: 6, md: 8 }}>
+                    <Button
+                      as={RouterLink}
+                      to="/services"
+                      variant="outline"
+                      borderColor="brand.500"
+                      color="brand.500"
+                      rightIcon={<ArrowForwardIcon />}
+                      borderRadius="full"
+                      px={{ base: 6, md: 8 }}
+                      py={{ base: 3, md: 4 }}
+                      textStyle="nav"
+                      _hover={{ bg: 'brand.500', color: 'white' }}
+                    >
+                      {isFr ? 'Voir tous nos services' : 'View all our services'}
+                    </Button>
+                  </Box>
                 </Stack>
               </Container>
             </Box>
@@ -791,7 +758,7 @@ export default function PeintreProfessionnelPage() {
         <Box
           w="100%"
           py={{ base: 12, md: 16, lg: 20 }}
-          bg="brand.700"
+          bg="app.ctaBg"
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -828,7 +795,7 @@ export default function PeintreProfessionnelPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg="white"
-                    color="brand.700"
+                    color="brand.500"
                     borderRadius="full"
                     textStyle="nav"
                     px={{ base: 5, md: 7 }}

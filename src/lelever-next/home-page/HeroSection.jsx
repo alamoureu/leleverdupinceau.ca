@@ -19,8 +19,10 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
     <Box
       position="relative"
       w="100%"
+      minW={0}
       minH={{ base: '280px', sm: '320px', md: '420px', lg: '520px', xl: '640px', '2xl': '720px' }}
       h={{ base: '300px', sm: '340px', md: '450px', lg: '585px', xl: '750px', '2xl': '820px' }}
+      pb={{ base: 8, sm: 10, md: 0 }}
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
       overflow="visible"
@@ -49,9 +51,10 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
         bg='rgba(0, 0, 0, 0.4)'
         zIndex={1}
       />
-      <Container maxW='1440px' h='100%' position='relative' zIndex={2}>
+      <Container maxW='1440px' h='100%' position='relative' zIndex={2} px={{ base: 4, sm: 4, md: 6, lg: 8 }} minW={0}>
         <Stack
           h="100%"
+          minW={0}
           pt={{
             base: '52px',
             sm: '56px',
@@ -61,13 +64,14 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
             '2xl': '160px',
           }}
         >
-          <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }}>
+          <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
             <Heading
               as="h1"
               size="page"
               fontWeight='700'
               color='white'
               lineHeight='1.1'
+              minW={0}
             >
               {t.heroTitle}
               {t.heroTitleSecondLine && (
@@ -82,6 +86,9 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
               textStyle="bodyLarge"
               color="white"
               fontWeight="thin"
+              minW={0}
+              overflowWrap="break-word"
+              wordBreak="break-word"
             >
               {t.heroSubtitle}
             </Text>
@@ -92,20 +99,24 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
                 bg="brand.500"
                 color="white"
                 textStyle="nav"
-                px={{ base: 6, sm: 8, md: 10, lg: 12 }}
-                h={{
-                  base: '44px',
-                  sm: '48px',
-                  md: '52px',
+                px={{ base: 8, sm: 10, md: 12, lg: 14, xl: 16 }}
+                py={{ base: 3, sm: 4, md: 5, lg: 6 }}
+                minH={{
+                  base: '48px',
+                  sm: '52px',
+                  md: '56px',
                   lg: '64px',
                   xl: '72px',
                   '2xl': '76px',
                 }}
-                w={{ base: '100%', sm: '260px', md: '300px', lg: '340px', xl: '360px', '2xl': '380px' }}
+                h="auto"
+                w={{ base: '100%', sm: '280px', md: '320px', lg: '360px', xl: '380px', '2xl': '400px' }}
+                minW="280px"
                 maxW={{ base: '280px', sm: 'unset' }}
                 borderRadius='full'
                 boxShadow='lg'
                 _hover={{ bg: 'brand.600' }}
+                whiteSpace="nowrap"
               >
                 {t.heroButton}
               </Button>

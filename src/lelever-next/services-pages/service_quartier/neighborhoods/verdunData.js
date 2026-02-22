@@ -89,7 +89,7 @@ export const verdunData = {
     title: 'Une équipe habituée aux propriétés verdunoises',
     description:
       'Nos peintres : travaillent proprement dans des logements habités, maîtrisent les surfaces anciennes & modernes, protègent parfaitement vos meubles et planchers, utilisent des produits durables, livrent une finition élégante, lisse et professionnelle',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

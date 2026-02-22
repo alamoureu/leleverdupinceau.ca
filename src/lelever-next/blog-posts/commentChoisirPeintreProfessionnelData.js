@@ -3,12 +3,12 @@ export const commentChoisirPeintreProfessionnelData = {
   url: 'https://leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel',
   seo: {
     title: {
-      fr: 'Comment choisir un peintre professionnel à Montréal (Guide complet 2025)',
-      en: 'How to choose a professional painter in Montreal (Complete guide 2025)',
+      fr: 'Comment choisir un peintre professionnel à Montréal (Guide complet 2026)',
+      en: 'How to choose a professional painter in Montreal (Complete guide 2026)',
     },
     metaDescription: {
-      fr: "Découvrez comment choisir un peintre professionnel fiable : expérience, avis, garanties, prix, photos de projets et questions à poser avant d'engager. Guide Montréal 2025.",
-      en: 'Discover how to choose a reliable professional painter: experience, reviews, guarantees, prices, project photos and questions to ask before hiring. Montreal guide 2025.',
+      fr: "Découvrez comment choisir un peintre professionnel fiable : expérience, avis, garanties, prix, photos de projets et questions à poser avant d'engager. Guide Montréal 2026.",
+      en: 'Discover how to choose a reliable professional painter: experience, reviews, guarantees, prices, project photos and questions to ask before hiring. Montreal guide 2026.',
     },
   },
   breadcrumb: {
@@ -16,8 +16,8 @@ export const commentChoisirPeintreProfessionnelData = {
     en: ['Home', 'Blog', 'How to choose a professional painter'],
   },
   h1: {
-    fr: 'Comment choisir un peintre professionnel ? (Guide complet 2025)',
-    en: 'How to choose a professional painter? (Complete guide 2025)',
+    fr: 'Comment choisir un peintre professionnel ? (Guide complet 2026)',
+    en: 'How to choose a professional painter? (Complete guide 2026)',
   },
   introduction: {
     fr: "Choisir un peintre professionnel peut sembler simple… jusqu'à ce que surviennent les mauvaises surprises : retouches, dégâts, retards, murs mal couverts, peinture qui s'écaille en quelques mois ou artisans impossibles à joindre.\n\nLa bonne nouvelle ? Tout cela peut être évité si vous savez exactement quoi vérifier avant d'engager.\n\nCe guide vous explique pas à pas comment choisir un peintre professionnel fiable, compétent et transparent — que ce soit pour une maison, un condo, un commerce ou un appartement.",
@@ -803,8 +803,8 @@ export const commentChoisirPeintreProfessionnelData = {
   relatedArticles: [
     {
       title: {
-        fr: 'Prix peinture Montréal 2025 : Combien ça coûte vraiment ?',
-        en: 'Painting prices Montreal 2025: How much does it really cost?',
+        fr: 'Prix peinture Montréal 2026 : Combien ça coûte vraiment ?',
+        en: 'Painting prices Montreal 2026: How much does it really cost?',
       },
       href: '/blog/prix-peinture-montreal',
     },
@@ -825,8 +825,8 @@ export const commentChoisirPeintreProfessionnelData = {
         'https://leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel',
     },
     headline: {
-      fr: 'Comment choisir un peintre professionnel ? (Guide complet 2025)',
-      en: 'How to choose a professional painter? (Complete guide 2025)',
+      fr: 'Comment choisir un peintre professionnel ? (Guide complet 2026)',
+      en: 'How to choose a professional painter? (Complete guide 2026)',
     },
     description: {
       fr: 'Guide complet pour choisir un peintre professionnel fiable à Montréal : expérience, avis, garanties, comparaison de soumissions, questions à poser et erreurs à éviter.',
@@ -847,8 +847,8 @@ export const commentChoisirPeintreProfessionnelData = {
         url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png',
       },
     },
-    datePublished: '2025-01-01',
-    dateModified: '2025-01-01',
+    datePublished: '2026-01-01',
+    dateModified: '2026-01-01',
   },
   faqSchema: {
     '@context': 'https://schema.org',

@@ -15,19 +15,9 @@ import {
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
 import CityServicesSection from '../city-pages/CityServicesSection';
-import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
-import ResidentialProject from '../images/3-ville/laval/résidentielle/IMG_6763.PNG';
-import ExtProject from '../images/3-ville/laval/extérieure/IMG_6756.PNG';
-import CommercialProject from '../images/3-ville/laval/commerciale/IMG_6760.PNG';
-import img5969 from '../images/3-ville/laval/1. réalisations/IMG_5976.PNG';
-import img5970 from '../images/3-ville/laval/2. réalisations/IMG_6765.PNG';
-import img5971 from '../images/3-ville/laval/3. réalisations/IMG_6753.PNG';
-import img5972 from '../images/3-ville/laval/intérieure/IMG_6764.PNG';
-import img5973 from '../images/3-ville/laval/industrielle/IMG_6780.PNG';
-import img5974 from '../images/3-ville/laval/résidentielle/IMG_6763.PNG';
 import lavalPhotoHeader from '../images/3-ville/laval/+ header/IMG_6786.PNG';
 
 export default function LavalCityPage() {
@@ -42,40 +32,22 @@ export default function LavalCityPage() {
         '@type': 'ListItem',
         position: 1,
         name: isFr ? 'Accueil' : 'Home',
-        item: 'https://leleverdupinceau.ca/',
+        item: 'https://www.leleverdupinceau.ca/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: isFr ? 'Secteurs desservis' : 'Service areas',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Laval',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis/laval',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis/laval',
       },
     ],
   };
-
-  const projectsContent = isFr
-    ? [
-      '• Peinture intérieure complète de maisons et condos',
-      '• Rafraîchissement de façades et revêtements extérieurs',
-      '• Projets commerciaux : bureaux, commerces, restaurants, cliniques',
-      "• Peinture d'entrepôts et bâtiments industriels",
-      '• Travaux dans des plex et immeubles locatifs',
-    ]
-    : [
-      '• Complete interior painting of houses and condos',
-      '• Facade refresh and exterior coatings',
-      '• Commercial projects: offices, stores, restaurants, clinics',
-      '• Warehouse and industrial building painting',
-      '• Work in plex and rental buildings',
-    ];
-
-  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
 
   const whyUsContent = isFr
     ? [
@@ -111,7 +83,7 @@ export default function LavalCityPage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/secteurs-desservis/laval'
+          href='https://www.leleverdupinceau.ca/secteurs-desservis/laval'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -172,9 +144,7 @@ export default function LavalCityPage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peintres à Laval – Le Lever du Pinceau'
-                    : 'Painters in Laval – Le Lever du Pinceau'}
+                  {isFr ? 'Peintres à Laval' : 'Painters in Laval'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -220,14 +190,7 @@ export default function LavalCityPage() {
             {/* Section 1 — Services de peinture */}
             <CityServicesSection cityName='Laval' citySlug='laval' />
 
-            {/* Section 2 — Projets réalisés */}
-            <CityProjectsSection
-              cityName='Laval'
-              projectsContent={projectsContent}
-              projectImages={projectImages}
-            />
-
-            {/* Section 3 — Pourquoi choisir Le Lever du Pinceau */}
+            {/* Section 2 — Pourquoi choisir Le Lever du Pinceau */}
             <CityWhyUsSection cityName='Laval' whyUsContent={whyUsContent} />
 
             <ResourcesSection />

@@ -30,7 +30,7 @@ export default function ServiceCTASection({ title, description, buttonText }) {
     <Box
       w='100%'
       py={{ base: 12, md: 16, lg: 20 }}
-      bg='brand.700'
+      bg='app.ctaBg'
       mt={{ base: 8, md: 12 }}
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -63,7 +63,7 @@ export default function ServiceCTASection({ title, description, buttonText }) {
               <Button
                 rightIcon={<ArrowForwardIcon />}
                 bg='white'
-                color='brand.700'
+                color='brand.500'
                 borderRadius='full'
                 fontSize={{ base: 'sm', md: 'md' }}
                 px={{ base: 5, md: 7 }}

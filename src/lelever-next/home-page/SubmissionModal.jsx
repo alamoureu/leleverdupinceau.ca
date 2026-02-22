@@ -12,7 +12,10 @@ import {
 import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
 
-const MODAL_PX = { base: 5, md: 6 };
+const MODAL_PX = { base: 6, md: 8 };
+const MODAL_HEADER_PT = { base: 6, md: 7 };
+const MODAL_HEADER_PB = { base: 4, md: 5 };
+const MODAL_BODY_PB = { base: 6, md: 7 };
 
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();
@@ -34,15 +37,17 @@ export default function SubmissionModal({ isOpen, onClose }) {
       isOpen={isOpen}
       onClose={onClose}
       isCentered
-      size={{ base: 'sm', md: 'xl' }}
+      size={{ base: 'full', sm: 'xl' }}
       initialFocusRef={initialFocusRef}
       returnFocusOnClose
+      scrollBehavior='inside'
     >
       <ModalOverlay />
       <ModalContent
-        mx={{ base: 2, md: 4 }}
-        borderRadius='xl'
-        maxH={{ base: '95vh', md: '90vh' }}
+        mx={{ base: 0, sm: 4 }}
+        my={{ base: 0, sm: 'auto' }}
+        maxH={{ base: '100vh', sm: '90vh' }}
+        borderRadius={{ base: 0, sm: 'xl' }}
         display='flex'
         flexDirection='column'
         overflow='hidden'
@@ -60,8 +65,8 @@ export default function SubmissionModal({ isOpen, onClose }) {
               align='center'
               justify='space-between'
               gap={3}
-              pt={4}
-              pb={2}
+              pt={MODAL_HEADER_PT}
+              pb={MODAL_HEADER_PB}
               flexShrink={0}
             >
               <Heading
@@ -80,13 +85,14 @@ export default function SubmissionModal({ isOpen, onClose }) {
           )}
           <ModalBody
             p={0}
+            pt={0}
             flex={1}
             minH={0}
             overflowY='auto'
-            overflowX='visible'
+            overflowX='hidden'
             display='flex'
             flexDirection='column'
-            pb={isSubmitted ? 0 : 3}
+            pb={isSubmitted ? 0 : MODAL_BODY_PB}
           >
             <SubmissionForm
               isModal

@@ -92,7 +92,7 @@ export const villeMontRoyalData = {
     title: 'Une équipe experte pour les résidences de prestige',
     description:
       'Nos peintres : maîtrisent les propriétés haut de gamme & finitions de luxe, protègent parfaitement vos biens et surfaces délicates, travaillent proprement et discrètement, utilisent des produits premium pour un résultat impeccable, livrent une finition uniforme et élégante',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

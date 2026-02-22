@@ -90,7 +90,7 @@ export const villeSaintLaurentData = {
     title: 'Une équipe habituée aux logements variés de VSL',
     description:
       'Nos peintres : maîtrisent les logements modernes & anciens de Ville-Saint-Laurent, protègent méticuleusement vos biens, travaillent proprement, même dans des espaces restreints, utilisent des produits durables & premium, livrent un résultat propre, lisse et impeccable',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

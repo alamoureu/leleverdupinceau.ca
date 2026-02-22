@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
-import teamSectionImg from '../images/5-landing-page/Photo/Danny_Wraping.jpeg';
+import teamSectionImg from '../images/5-landing-page/Photo/spray man 3000.jpeg';
 
 export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
@@ -34,8 +34,8 @@ export default function TeamSection({ pageContext = '' }) {
               src={teamSectionImg}
               alt={
                 currentLang === 'fr'
-                  ? `Peintre professionnel au travail${pageContext ? ' - ' + pageContext : ''}`
-                  : `Professional painter at work${pageContext ? ' - ' + pageContext : ''}`
+                  ? `Peintre professionnel au pistolet sur un plafond${pageContext ? ' - ' + pageContext : ''}`
+                  : `Professional painter spraying ceiling${pageContext ? ' - ' + pageContext : ''}`
               }
               w='100%'
               h='auto'
@@ -45,7 +45,7 @@ export default function TeamSection({ pageContext = '' }) {
 
           <Stack spacing={6} order={{ base: 2, md: 2 }} justifyContent='center'>
             <Stack spacing={{ base: 2, md: 3 }}>
-              <Heading as='h2' size='section' color='gray.800'>
+              <Heading as='h2' size='section' fontWeight='bold' color='gray.800' lineHeight='1.3'>
                 {t.teamTitle}
               </Heading>
             </Stack>

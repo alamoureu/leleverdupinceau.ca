@@ -26,14 +26,12 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import heroImage from '../images/hero/service-hero.png';
 import img5969 from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 import img5970 from '../images/2-services/Page peinture extérieure/2. réalisations/IMG_6761.PNG';
 import img5971 from '../images/2-services/Page peinture extérieure/3. réalisations/IMG_6756.PNG';
-import img5972 from '../images/2-services/Page peinture extérieure/Peinture résidentielle extérieure/IMG_6763.PNG';
-import img5973 from '../images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG';
-import img5974 from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 import imgResExterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
+import imgCommExterieure from '../images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG';
+import exterieurePhotoHeader from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 
 export default function PeintureExterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -97,7 +95,7 @@ export default function PeintureExterieurePage() {
         <meta name='description' content={metaDescription} />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/peinture-exterieure'
+          href='https://www.leleverdupinceau.ca/services/peinture-exterieure'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -158,9 +156,7 @@ export default function PeintureExterieurePage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peinture extérieure – Le Lever du Pinceau'
-                    : 'Exterior painting – Le Lever du Pinceau'}
+                  {isFr ? 'Peinture extérieure' : 'Exterior painting'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -194,7 +190,7 @@ export default function PeintureExterieurePage() {
               bg='gray.100'
             >
               <Image
-                src={img5974}
+                src={exterieurePhotoHeader}
                 alt={isFr ? 'Peinture extérieure – Le Lever du Pinceau' : 'Exterior painting – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
@@ -393,6 +389,21 @@ export default function PeintureExterieurePage() {
                         }}
                         transition='all 0.2s'
                       >
+                        <Box
+                          w='100%'
+                          h={{ base: '160px', md: '180px' }}
+                          flexShrink={0}
+                          overflow='hidden'
+                        >
+                          <Image
+                            src={imgCommExterieure}
+                            alt={isFr ? 'Peinture commerciale extérieure' : 'Commercial exterior painting'}
+                            w='100%'
+                            h='100%'
+                            objectFit='cover'
+                            objectPosition='center'
+                          />
+                        </Box>
                         <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
                           <Heading
                             as='h3'
@@ -550,8 +561,8 @@ export default function PeintureExterieurePage() {
                       minH='48px'
                     >
                       {isFr
-                        ? 'En savoir plus sur nos peintres professionnels'
-                        : 'Learn more about our professional painters'}
+                        ? 'En savoir plus'
+                        : 'Learn more'}
                     </Button>
                   </Link>
                 </Stack>
@@ -563,7 +574,7 @@ export default function PeintureExterieurePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16, lg: 20 }}
-          bg='brand.700'
+          bg='app.ctaBg'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -600,7 +611,7 @@ export default function PeintureExterieurePage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='brand.700'
+                    color='brand.500'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

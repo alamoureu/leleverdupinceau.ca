@@ -208,12 +208,16 @@ export default function ServiceQuartierSecteurPage() {
                 color='gray.800'
                 lineHeight='1.2'
               >
-                {typeof neighborhood.h1 === 'string'
-                  ? neighborhood.h1
-                  : neighborhood.h1?.[isFr ? 'fr' : 'en'] ||
-                    (isFr
-                      ? `${serviceName} à ${neighborhoodName} – Le Lever du Pinceau`
-                      : `${serviceName} in ${neighborhoodName} – Le Lever du Pinceau`)}
+                {(() => {
+                  const text = typeof neighborhood.h1 === 'string'
+                    ? neighborhood.h1
+                    : neighborhood.h1?.[isFr ? 'fr' : 'en'] ||
+                      (isFr
+                        ? `${serviceName} à ${neighborhoodName}`
+                        : `${serviceName} in ${neighborhoodName}`);
+                  const suffix = ' – Le Lever du Pinceau';
+                  return text.endsWith(suffix) ? text.slice(0, -suffix.length) : text;
+                })()}
               </Heading>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}

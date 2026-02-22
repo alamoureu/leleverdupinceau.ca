@@ -46,7 +46,7 @@ export default function ServiceCitiesSectorsSection({
   return (
     <Box
       py={{ base: 12, md: 16, lg: 20 }}
-      bg='brand.700'
+      bg='app.ctaBg'
       borderRadius='xl'
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>

@@ -40,7 +40,9 @@
     "open:subservices": "node scripts/open-subservice-cards.js",
     "open:modified": "node scripts/open-modified-pages.js",
     "open:modified:tabs": "node scripts/open-modified-pages.js --tabs",
-    "open:modified:chrome": "node scripts/open-modified-pages.js --chrome"
+    "open:modified:chrome": "node scripts/open-modified-pages.js --chrome",
+    "review:pages": "node scripts/open-modified-pages-for-review.js",
+    "review:pages:list": "node scripts/open-modified-pages-for-review.js --list"
   },
   "eslintConfig": {
     "extends": [

@@ -90,7 +90,7 @@ export const plateauMontRoyalData = {
     title: 'Une équipe habituée aux logements typiques du Plateau',
     description:
       'Nos peintres : maîtrisent les murs anciens & surfaces à réparer, travaillent proprement dans des appartements habités, protègent rigoureusement vos biens, utilisent des produits durables & premium, livrent un résultat esthétique, lisse et impeccable',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

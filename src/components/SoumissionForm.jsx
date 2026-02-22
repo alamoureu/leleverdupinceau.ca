@@ -285,7 +285,7 @@ export default function SoumissionForm() {
         });
       } catch (webhookError) {
         // Log webhook error but don't fail the submission
-        console.error('GoHighLevel webhook error:', webhookError);
+        if (import.meta?.env?.DEV) console.error('GoHighLevel webhook error:', webhookError);
         // Optionally show a warning but continue
       }
 
@@ -453,17 +453,17 @@ export default function SoumissionForm() {
                     .map((tag) => (
                       <Tag
                         key={tag.value}
-                        colorScheme='blue'
+                        colorScheme='brand'
                         cursor='pointer'
                         borderWidth='2px'
                         borderColor={
                           besoinPeinture.includes(tag.value)
-                            ? 'blue.700'
+                            ? 'brand.700'
                             : 'transparent'
                         }
                         onClick={() => addBesoin(tag.value)}
                       >
-                        <Text color='blue.900'>
+                        <Text color='brand.900'>
                           {currentLang === 'fr'
                             ? tag.label
                             : translateTag(tag.label)}
@@ -490,24 +490,23 @@ export default function SoumissionForm() {
             </FormControl>
 
             <Button
-              bg='#0056D2'
-              color='white'
-              w='100%'
-              type='submit'
-              borderRadius='md'
+              colorScheme="brand"
+              bg="brand.500"
+              color="white"
+              w="100%"
+              type="submit"
+              borderRadius="md"
               isLoading={loading}
               loadingText={
                 currentLang === 'fr' ? 'Envoi en cours...' : 'Sending...'
               }
-              spinnerPlacement='start'
+              spinnerPlacement="start"
               _loading={{
                 opacity: 0.8,
                 cursor: 'not-allowed',
               }}
               disabled={loading}
-              _hover={{
-                bg: loading ? '#0056D2' : '#0045A8',
-              }}
+              _hover={{ bg: 'brand.600' }}
             >
               {currentLang === 'fr' ? 'Envoyer' : 'Send'}
             </Button>

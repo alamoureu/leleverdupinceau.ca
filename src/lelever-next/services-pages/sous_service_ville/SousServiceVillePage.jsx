@@ -225,11 +225,15 @@ export default function SousServiceVillePage() {
                 fontWeight="bold"
                 color="gray.800"
               >
-                {city.h1
-                  ? city.h1[isFr ? 'fr' : 'en']
-                  : isFr
-                    ? `${subServiceName} à ${cityName} – Le Lever du Pinceau`
-                    : `${subServiceName} in ${cityName} – Le Lever du Pinceau`}
+                {(() => {
+                  const text = city.h1
+                    ? city.h1[isFr ? 'fr' : 'en']
+                    : isFr
+                      ? `${subServiceName} à ${cityName}`
+                      : `${subServiceName} in ${cityName}`;
+                  const suffix = ' – Le Lever du Pinceau';
+                  return text.endsWith(suffix) ? text.slice(0, -suffix.length) : text;
+                })()}
               </Heading>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}

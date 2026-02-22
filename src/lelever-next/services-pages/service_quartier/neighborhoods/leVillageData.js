@@ -91,7 +91,7 @@ export const leVillageData = {
     title: 'Une équipe habituée aux logements urbains du Village',
     description:
       'Nos peintres : maîtrisent les surfaces anciennes ou modernes, protègent soigneusement vos biens et installations, travaillent proprement dans des logements habités, utilisent des produits durables & premium, livrent une finition uniforme, lisse et élégante',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

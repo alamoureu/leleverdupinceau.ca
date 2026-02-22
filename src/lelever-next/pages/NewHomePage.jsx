@@ -1,18 +1,18 @@
 import React, { Fragment, useContext } from 'react';
-import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import HeroSection from '../home-page/HeroSection';
 import ControlSection from '../home-page/ControlSection';
 import ServicesSection from '../home-page/ServicesSection';
 import TeamSection from '../home-page/TeamSection';
 import ReviewsSection from '../home-page/ReviewsSection';
-import RecentProjectsSection from '../home-page/RecentProjectsSection';
+import MethodSection from '../home-page/MethodSection';
 import SectorsSection from '../home-page/SectorsSection';
 import ResourcesSection from '../home-page/ResourcesSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import appContext from '../../AppProvider';
-
+import SEOHead from '../seo/SEOHead';
+import { KEYWORDS } from '../seo/config';
 import SubmissionModal from '../home-page/SubmissionModal';
 
 export default function NewHomePage() {
@@ -21,31 +21,30 @@ export default function NewHomePage() {
   const isFr = currentLang === 'fr';
   const pageContext = isFr ? 'Accueil' : 'Home';
 
+  const title = isFr
+    ? 'Peinture Montréal | Peintre professionnel résidentiel & commercial – Le Lever du Pinceau'
+    : 'Montreal Painting | Professional Residential & Commercial Painter – Le Lever du Pinceau';
+  const description = isFr
+    ? 'Entreprise de peinture #1 à Montréal, Laval, Longueuil, Brossard. Peinture intérieure, extérieure, résidentielle et commerciale. Devis gratuit. Équipe RBQ, finition impeccable, centaines de clients satisfaits.'
+    : '#1 painting company in Montreal, Laval, Longueuil, Brossard. Interior, exterior, residential and commercial painting. Free quote. RBQ licensed, impeccable finish, hundreds of satisfied clients.';
+
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          Services de peinture résidentielle & commerciale à Montréal | Le Lever
-          du Pinceau
-        </title>
-        <meta
-          name='description'
-          content='Services de peinture résidentielle et commerciale à Montréal. Un service professionnel, rapide et impeccable pour tous vos projets intérieurs et extérieurs. Demandez votre soumission gratuite.'
-        />
-        <meta
-          name='keywords'
-          content='Peinture résidentielle Montréal, Peinture commerciale Montréal, Services de peinture, Devis peinture Montréal'
-        />
-      </Helmet>
+      <SEOHead
+        title={title}
+        description={description}
+        canonicalPath="/"
+        keywords={KEYWORDS[currentLang] || KEYWORDS.fr}
+      />
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
 
         <ControlSection onSubmissionOpen={onOpen} />
 
-        <ServicesSection />
+        <MethodSection onSubmissionOpen={onOpen} />
 
-        <RecentProjectsSection pageContext={pageContext} />
+        <ServicesSection />
 
         <TeamSection pageContext={pageContext} />
 

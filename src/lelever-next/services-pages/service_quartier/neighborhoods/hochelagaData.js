@@ -90,7 +90,7 @@ export const hochelagaData = {
     title: 'Une équipe habituée aux logements typiques d’Hochelaga',
     description:
       'Nos peintres : connaissent bien les logements anciens et rénovés du quartier, protègent soigneusement vos biens, travaillent proprement dans des logements habités, utilisent des produits durables & premium, livrent une finition lisse, propre et uniforme',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

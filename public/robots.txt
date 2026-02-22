@@ -1,10 +1,14 @@
 # https://www.robotstxt.org/robotstxt.html
+# Le Lever du Pinceau - Peinture Montréal
 User-agent: *
+Allow: /
 
-# Block admin, private, and ad-only landing pages
+# Block admin and private tools only
+Disallow: /admin
 Disallow: /admin/
 Disallow: /timesheet
 Disallow: /fr/peintre-montreal
 Disallow: /en/peintre-montreal
 
+# Sitemap
 Sitemap: https://www.leleverdupinceau.ca/sitemap.xml

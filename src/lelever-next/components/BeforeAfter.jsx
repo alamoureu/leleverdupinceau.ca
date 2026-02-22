@@ -23,11 +23,11 @@ const DEFAULT_PAIRS = [
   [img5973, img5974],
   [img5975, img5976],
   [img5977, img5978],
-  [img5982, img5984],
+  [img5984, img5982], // inverted: before = unpainted, after = painted
 ];
 
 const DESCRIPTIONS = [
-  { fr: 'Salon – murs et plancher rafraîchis', en: 'Living room – walls and floor refreshed' },
+  { fr: 'Salon – murs plâtre et peinture', en: 'Living room – walls, plaster and paint' },
   { fr: 'Cuisine – murs repeints (teinte contemporaine)', en: 'Kitchen – walls repainted (contemporary shade)' },
   { fr: 'Terrasse en bois – teinture et protection', en: 'Wood deck – stain and protection' },
   { fr: 'Cuisine – armoires peintes en blanc', en: 'Kitchen – cabinets painted white' },

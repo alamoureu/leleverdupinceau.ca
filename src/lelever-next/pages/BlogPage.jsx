@@ -1,9 +1,9 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
+  Flex,
   Heading,
   Text,
   Stack,
@@ -16,9 +16,15 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
 import heroImage from '../images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG';
-import blogPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import blogPhotoHeader from '../images/5-landing-page/Photo/Danny_Wraping.jpeg';
 import ResourcesSection from '../home-page/ResourcesSection';
+import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
+import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
 
 export default function BlogPage() {
   const { currentLang } = useContext(appContext);
@@ -47,46 +53,38 @@ export default function BlogPage() {
     {
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
       link: '/services/peinture-residentielle',
+      image: imgResidentielle,
     },
     {
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
       link: '/services/peinture-commerciale',
+      image: imgCommerciale,
     },
     {
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
       link: '/services/peinture-interieure',
+      image: imgInterieure,
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       link: '/services/peinture-exterieure',
+      image: imgExterieure,
     },
     {
       title: isFr ? 'Peinture industrielle' : 'Industrial painting',
       link: '/services/peinture-industrielle',
+      image: imgIndustrielle,
     },
   ];
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'Blog – Conseils et ressources sur la peinture | Le Lever du Pinceau'
-            : 'Blog – Painting Tips and Resources | Le Lever du Pinceau'}
-        </title>
-        <meta
-          name='description'
-          content={
-            isFr
-              ? "Découvrez nos guides pratiques, conseils d'entretien et astuces pour réussir vos projets de peinture résidentielle, commerciale, intérieure ou extérieure. Articles rédigés par des peintres professionnels."
-              : 'Discover our practical guides, maintenance tips and tricks to succeed in your residential, commercial, interior or exterior painting projects. Articles written by professional painters.'
-          }
-        />
-        <link rel='canonical' href='https://leleverdupinceau.ca/blog' />
-        <script type='application/ld+json'>
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={isFr ? 'Blog peinture Montréal | Conseils, prix, erreurs à éviter – Le Lever du Pinceau' : 'Montreal painting blog | Tips, prices, mistakes to avoid – Le Lever du Pinceau'}
+        description={isFr ? 'Conseils peinture par des professionnels à Montréal : prix au pied carré, choix du peintre, erreurs à éviter. Guides résidentiel et commercial.' : 'Painting advice from Montreal pros: price per sq ft, choosing a painter, mistakes to avoid. Residential and commercial guides.'}
+        canonicalPath="/blog"
+        schema={breadcrumbSchema}
+      />
 
       <Box w='100%' bg='white' overflowX='hidden'>
         <Container
@@ -223,8 +221,8 @@ export default function BlogPage() {
                         minH='48px'
                       >
                         {isFr
-                          ? 'En savoir plus sur nos peintres professionnels'
-                          : 'Learn more about our professional painters'}
+                          ? 'En savoir plus'
+                          : 'Learn more'}
                       </Button>
                     </Link>
                   </Stack>
@@ -243,24 +241,28 @@ export default function BlogPage() {
                     </Heading>
                   </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
+                  <Flex
                     maxW='1200px'
                     mx='auto'
+                    wrap='wrap'
+                    justify='center'
+                    gap={{ base: 4, md: 6 }}
                   >
                     {services.map((service, index) => (
                       <Link
                         key={index}
                         href={service.link}
                         _hover={{ textDecoration: 'none' }}
+                        w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
+                        maxW={{ lg: '380px' }}
                       >
                         <Box
-                          p={{ base: 6, md: 8 }}
+                          h='100%'
                           bg='white'
                           borderRadius='xl'
                           border='1px solid'
                           borderColor='gray.200'
+                          overflow='hidden'
                           textAlign='center'
                           _hover={{
                             borderColor: 'brand.500',
@@ -269,7 +271,26 @@ export default function BlogPage() {
                           }}
                           transition='all 0.2s'
                         >
-                          <Stack spacing={3} align='center'>
+                          {service.image && (
+                            <Box
+                              w='100%'
+                              h={{ base: '140px', md: '160px' }}
+                              flexShrink={0}
+                              overflow='hidden'
+                              bg='gray.100'
+                            >
+                              <Image
+                                src={service.image}
+                                alt={service.title}
+                                w='100%'
+                                h='100%'
+                                objectFit='cover'
+                                objectPosition='center'
+                                display='block'
+                              />
+                            </Box>
+                          )}
+                          <Stack spacing={3} align='center' p={{ base: 6, md: 8 }} pt={service.image ? 4 : 6}>
                             <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge'>
                               {service.title}
                             </Text>
@@ -283,7 +304,7 @@ export default function BlogPage() {
                         </Box>
                       </Link>
                     ))}
-                  </SimpleGrid>
+                  </Flex>
                 </Stack>
               </Container>
             </Box>
@@ -293,7 +314,7 @@ export default function BlogPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16, lg: 20 }}
-          bg='brand.700'
+          bg='app.ctaBg'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -315,7 +336,7 @@ export default function BlogPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='brand.700'
+                    color='brand.500'
                     borderRadius='full'
                     textStyle='nav'
                     px={{ base: 5, md: 7 }}

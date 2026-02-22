@@ -22,7 +22,7 @@ export default function FinalCTASection({
     <Box
       w='100%'
       py={{ base: 12, md: 16, lg: 20 }}
-      bg='brand.700'
+      bg='app.ctaBg'
       position='relative'
       overflow='hidden'
     >
@@ -42,7 +42,7 @@ export default function FinalCTASection({
           <Button
             rightIcon={<ArrowForwardIcon />}
             bg='white'
-            color='brand.700'
+            color='brand.500'
             onClick={onSubmissionOpen}
             textStyle='bodyLarge'
             fontWeight='bold'

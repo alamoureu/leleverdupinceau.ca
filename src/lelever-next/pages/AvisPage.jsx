@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -20,9 +19,15 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
 import { FaStar } from 'react-icons/fa';
 import BeforeAfter from '../components/BeforeAfter';
-import avisPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import avisPhotoHeader from '../images/Moses&Dany_Wraping.jpeg';
+import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
+import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
+import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import imgPeintresPro from '../images/5-landing-page/Photo/spray man 3000.jpeg';
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
@@ -260,22 +265,27 @@ export default function AvisPage() {
     {
       title: isFr ? 'Peinture intérieure' : 'Interior painting',
       link: '/services/peinture-interieure',
+      image: imgInterieure,
     },
     {
       title: isFr ? 'Peinture extérieure' : 'Exterior painting',
       link: '/services/peinture-exterieure',
+      image: imgExterieure,
     },
     {
       title: isFr ? 'Peinture résidentielle' : 'Residential painting',
       link: '/services/peinture-residentielle',
+      image: imgResidentielle,
     },
     {
       title: isFr ? 'Peinture commerciale' : 'Commercial painting',
       link: '/services/peinture-commerciale',
+      image: imgCommerciale,
     },
     {
       title: isFr ? 'Peintres professionnels' : 'Professional painters',
       link: '/peintre-professionnel',
+      image: imgPeintresPro,
     },
   ];
 
@@ -352,28 +362,12 @@ export default function AvisPage() {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'Avis de nos clients – Le Lever du Pinceau | Peinture Montréal'
-            : 'Client Reviews – Le Lever du Pinceau | Painting Montreal'}
-        </title>
-        <meta
-          name="description"
-          content={
-            isFr
-              ? 'Découvrez les avis authentiques de nos clients de Montréal, Laval, Longueuil et Brossard. Témoignages, photos avant/après et évaluations complètes de nos services de peinture professionnelle'
-              : 'Discover authentic reviews from our clients in Montreal, Laval, Longueuil and Brossard. Testimonials, before/after photos and complete evaluations of our professional painting services'
-          }
-        />
-        <link rel="canonical" href="https://leleverdupinceau.ca/avis" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify(reviewSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={isFr ? 'Avis clients peinture Montréal | Témoignages – Le Lever du Pinceau' : 'Painting reviews Montreal | Client testimonials – Le Lever du Pinceau'}
+        description={isFr ? 'Avis et témoignages de clients à Montréal, Laval, Longueuil. Peinture résidentielle et commerciale. Photos avant/après, évaluations 5 étoiles. Peintre recommandé Montréal.' : 'Reviews and testimonials in Montreal, Laval, Longueuil. Residential and commercial painting. Before/after photos, 5-star ratings. Recommended painter Montreal.'}
+        canonicalPath="/avis"
+        schemaArray={[breadcrumbSchema, reviewSchema]}
+      />
 
       <Box w="100%" bg="white" overflowX="hidden">
         <Container
@@ -410,9 +404,7 @@ export default function AvisPage() {
               </HStack>
               <Stack spacing={{ base: 4, md: 6 }} textAlign="left">
                 <Heading as="h1" size="page" color="gray.800">
-                  {isFr
-                    ? 'Avis de nos clients – Le Lever du Pinceau'
-                    : 'Client Reviews – Le Lever du Pinceau'}
+                  {isFr ? 'Avis de nos clients' : 'Client Reviews'}
                 </Heading>
                 <Text
                   textStyle="bodyLarge"
@@ -480,7 +472,7 @@ export default function AvisPage() {
                     >
                       <Button
                         rightIcon={<ArrowForwardIcon />}
-                        bg="brand.700"
+                        bg="brand.500"
                         color="white"
                         borderRadius="full"
                         textStyle="nav"
@@ -650,24 +642,28 @@ export default function AvisPage() {
                     </Heading>
                   </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 3, md: 6 }}
+                  <Flex
                     maxW="1000px"
                     mx="auto"
+                    wrap="wrap"
+                    justify="center"
+                    gap={{ base: 3, md: 6 }}
                   >
                     {services.map((service, index) => (
                       <Link
                         key={index}
                         href={service.link}
                         _hover={{ textDecoration: 'none' }}
+                        w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
+                        maxW={{ lg: '320px' }}
                       >
                         <Box
+                          h="100%"
                           bg="white"
-                          p={{ base: 3, md: 6 }}
                           borderRadius="xl"
                           border="1px solid"
                           borderColor="gray.200"
+                          overflow="hidden"
                           textAlign="center"
                           _hover={{
                             borderColor: 'brand.500',
@@ -676,7 +672,24 @@ export default function AvisPage() {
                           }}
                           transition="all 0.2s"
                         >
-                          <Stack spacing={2} align="center">
+                          {service.image && (
+                            <Box
+                              w="100%"
+                              h={{ base: '140px', md: '160px' }}
+                              overflow="hidden"
+                              bg="gray.100"
+                            >
+                              <Image
+                                src={service.image}
+                                alt={service.title}
+                                w="100%"
+                                h="100%"
+                                objectFit="cover"
+                                objectPosition="center"
+                              />
+                            </Box>
+                          )}
+                          <Stack spacing={2} align="center" p={{ base: 3, md: 6 }}>
                             <Text
                               fontWeight="bold"
                               color="gray.800"
@@ -694,7 +707,7 @@ export default function AvisPage() {
                         </Box>
                       </Link>
                     ))}
-                  </SimpleGrid>
+                  </Flex>
                 </Stack>
               </Container>
             </Box>
@@ -704,7 +717,7 @@ export default function AvisPage() {
         <Box
           w="100%"
           py={{ base: 12, md: 16, lg: 20 }}
-          bg="brand.700"
+          bg="app.ctaBg"
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -736,7 +749,7 @@ export default function AvisPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg="white"
-                    color="brand.700"
+                    color="brand.500"
                     borderRadius="full"
                     textStyle="nav"
                     px={{ base: 5, md: 7 }}

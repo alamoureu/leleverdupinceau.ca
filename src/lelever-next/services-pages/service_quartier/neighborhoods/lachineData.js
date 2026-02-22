@@ -90,7 +90,7 @@ export const lachineData = {
     title: 'Une équipe habituée aux propriétés lachrinoises',
     description:
       'Nos peintres : maîtrisent les logements anciens & modernes, travaillent proprement dans des résidences habitées, utilisent des produits durables et premium, protègent méticuleusement vos biens, livrent une finition uniforme, professionnelle et durable',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

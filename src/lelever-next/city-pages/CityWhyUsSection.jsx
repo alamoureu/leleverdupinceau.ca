@@ -151,8 +151,8 @@ export default function CityWhyUsSection({
                 minH='48px'
               >
                 {isFr
-                  ? 'En savoir plus sur nos peintres professionnels'
-                  : 'Learn more about our professional painters'}
+                  ? 'En savoir plus'
+                  : 'Learn more'}
               </Button>
             </Link>
           </Stack>

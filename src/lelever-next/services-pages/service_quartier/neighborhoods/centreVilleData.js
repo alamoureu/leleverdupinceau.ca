@@ -91,7 +91,7 @@ export const centreVilleData = {
     title: 'Une équipe habituée aux condos urbains et tours résidentielles',
     description:
       'Nos peintres : respectent les règles strictes des immeubles à copropriété, protègent parfaitement vos aires communes lors des déplacements, savent travailler dans des espaces modernes & restreints, offrent une finition ultra-lisse et moderne, travaillent proprement et sans interruption inutile',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

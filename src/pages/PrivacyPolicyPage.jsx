@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Box, Heading, Text, Stack, Container } from '@chakra-ui/react';
 import appContext from '../AppProvider';
+import SEOHead from '../lelever-next/seo/SEOHead';
 
 export default function PrivacyPolicyPage() {
   const { currentLang } = useContext(appContext);
@@ -8,6 +9,14 @@ export default function PrivacyPolicyPage() {
   const isFr = currentLang === 'fr';
 
   return (
+    <>
+      <SEOHead
+        title={isFr ? 'Politique de confidentialité | Le Lever du Pinceau' : 'Privacy Policy | Le Lever du Pinceau'}
+        description={isFr
+          ? 'Comment Le Lever du Pinceau recueille, utilise et protège vos données. Politique de confidentialité.'
+          : 'How Le Lever du Pinceau collects, uses and protects your data. Privacy policy.'}
+        canonicalPath="/politiques/confidentialite"
+      />
     <Container
       maxW="6xl"
       px={{ base: 4, md: 6 }}
@@ -138,5 +147,6 @@ export default function PrivacyPolicyPage() {
         </Box>
       </Stack>
     </Container>
+    </>
   );
 }

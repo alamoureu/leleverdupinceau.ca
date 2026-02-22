@@ -90,7 +90,7 @@ export const lasalleData = {
     title: 'Une équipe habituée aux logements de LaSalle',
     description:
       'Nos peintres : maîtrisent les surfaces anciennes & modernes, travaillent proprement dans des logements habités, protègent soigneusement vos biens, utilisent des produits durables, livrent une finition uniforme, lisse et élégante',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

@@ -227,11 +227,15 @@ export default function ServiceQuartierPage() {
                 fontWeight='bold'
                 color='gray.800'
               >
-                {city.h1
-                  ? city.h1[isFr ? 'fr' : 'en']
-                  : isFr
-                  ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
-                  : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
+                {(() => {
+                  const text = city.h1
+                    ? city.h1[isFr ? 'fr' : 'en']
+                    : isFr
+                    ? `${serviceName} à ${cityName}`
+                    : `${serviceName} in ${cityName}`;
+                  const suffix = ' – Le Lever du Pinceau';
+                  return text.endsWith(suffix) ? text.slice(0, -suffix.length) : text;
+                })()}
               </Heading>
               {city.introduction && (
                 <>
@@ -274,8 +278,8 @@ export default function ServiceQuartierPage() {
                 )}
             </Stack>
 
-            {/* Images Section */}
-            {city.images && city.images.length > 0 && (
+            {/* Images Section (hidden for peinture industrielle — no project photos) */}
+            {serviceSlug !== 'peinture-industrielle' && city.images && city.images.length > 0 && (
               <Box mb={{ base: 12, md: 16 }}>
                 <SimpleGrid
                   columns={{ base: 1, md: 2, lg: 3 }}

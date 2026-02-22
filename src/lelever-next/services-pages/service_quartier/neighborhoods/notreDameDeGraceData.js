@@ -90,7 +90,7 @@ export const notreDameDeGraceData = {
     title: 'Une équipe habituée aux propriétés de NDG',
     description:
       'Nos peintres : maîtrisent les surfaces anciennes typiques de NDG, travaillent proprement dans les résidences habitées, utilisent des produits durables de haute qualité, respectent vos meubles, votre espace et votre horaire, livrent une finition uniforme et élégante',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

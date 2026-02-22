@@ -68,24 +68,18 @@ export default function SectorsSection({
     <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50" borderRadius="xl">
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={8} align="center">
-          <Stack spacing={{ base: 3, md: 4 }} textAlign="center">
+          <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
             <Heading
               as="h2"
               size="section"
+              fontWeight="bold"
               color="gray.800"
               lineHeight="1.3"
-              letterSpacing="-0.02em"
-              mb={{ base: 2, md: 3 }}
             >
               {displayTitle}
             </Heading>
             {displaySubtitle && (
-              <Text
-                textStyle="bodyLarge"
-                color="gray.600"
-                lineHeight="1.7"
-                letterSpacing="0.01em"
-              >
+              <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
                 {displaySubtitle}
               </Text>
             )}

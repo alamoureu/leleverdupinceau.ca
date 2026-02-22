@@ -13,8 +13,8 @@ export const peintureCommercialeInterieureData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-commerciale/interieure',
   h1: {
-    fr: 'Peinture commerciale intérieure – Le Lever du Pinceau',
-    en: 'Commercial interior painting – Le Lever du Pinceau',
+    fr: 'Peinture commerciale intérieure',
+    en: 'Commercial interior painting',
   },
   introduction: {
     fr: [
@@ -248,8 +248,8 @@ export const peintureCommercialeInterieureData = {
     en: 'Our professional painters are used to working in commercial environments, with time constraints, brand image and traffic constraints.',
   },
   aboutButtonText: {
-    fr: 'En savoir plus sur nos peintres professionnels',
-    en: 'Learn more about our professional painters',
+    fr: 'En savoir plus',
+    en: 'Learn more',
   },
   aboutButtonLink: '/peintre-professionnel',
   ctaTitle: {
@@ -263,31 +263,23 @@ export const peintureCommercialeInterieureData = {
   images: [
     {
       src: img5969,
-      alt: {
-        fr: 'Peinture commerciale intérieure Montréal',
-        en: 'Commercial interior painting Montreal',
-      },
+      alt: { fr: 'Peinture commerciale intérieure Montréal', en: 'Commercial interior painting Montreal' },
+      description: { fr: 'Bureaux – finition professionnelle', en: 'Offices – professional finish' },
     },
     {
       src: img5970,
-      alt: {
-        fr: 'Peinture commerciale intérieure Montréal',
-        en: 'Commercial interior painting Montreal',
-      },
+      alt: { fr: 'Peinture commerciale intérieure Montréal', en: 'Commercial interior painting Montreal' },
+      description: { fr: 'Espace commercial – murs et plafonds', en: 'Commercial space – walls and ceilings' },
     },
     {
       src: img5971,
-      alt: {
-        fr: 'Peinture commerciale intérieure Montréal',
-        en: 'Commercial interior painting Montreal',
-      },
+      alt: { fr: 'Peinture commerciale intérieure Montréal', en: 'Commercial interior painting Montreal' },
+      description: { fr: 'Local commercial – application soignée', en: 'Commercial premises – careful application' },
     },
     {
       src: img5972,
-      alt: {
-        fr: 'Peinture commerciale intérieure Montréal',
-        en: 'Commercial interior painting Montreal',
-      },
+      alt: { fr: 'Peinture commerciale intérieure Montréal', en: 'Commercial interior painting Montreal' },
+      description: { fr: 'Commerce – résultat durable et propre', en: 'Business – durable and clean result' },
     },
   ],
 };

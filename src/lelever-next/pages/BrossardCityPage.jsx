@@ -15,19 +15,9 @@ import {
 import appContext from '../../AppProvider';
 import ResourcesSection from '../home-page/ResourcesSection';
 import CityServicesSection from '../city-pages/CityServicesSection';
-import CityProjectsSection from '../city-pages/CityProjectsSection';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
-import ResidentialProject from '../images/3-ville/brossard/résidentielle/IMG_6763.PNG';
-import ExtProject from '../images/3-ville/brossard/extérieure/IMG_6778.PNG';
-import CommercialProject from '../images/3-ville/brossard/commerciale/IMG_6759.PNG';
-import img5969 from '../images/3-ville/brossard/1. réalisations/IMG_6761.PNG';
-import img5970 from '../images/3-ville/brossard/2. réalisations/IMG_6768.PNG';
-import img5971 from '../images/3-ville/brossard/3. réalisations/IMG_6777.PNG';
-import img5972 from '../images/3-ville/brossard/intérieure/IMG_6764.PNG';
-import img5973 from '../images/3-ville/brossard/industrielle/IMG_6752.PNG';
-import img5974 from '../images/3-ville/brossard/résidentielle/IMG_6763.PNG';
 import brossardPhotoHeader from '../images/3-ville/brossard/+Header/IMG_6784.PNG';
 
 export default function BrossardCityPage() {
@@ -42,40 +32,22 @@ export default function BrossardCityPage() {
         '@type': 'ListItem',
         position: 1,
         name: isFr ? 'Accueil' : 'Home',
-        item: 'https://leleverdupinceau.ca/',
+        item: 'https://www.leleverdupinceau.ca/',
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: isFr ? 'Secteurs desservis' : 'Service areas',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Brossard',
-        item: 'https://leleverdupinceau.ca/secteurs-desservis/brossard',
+        item: 'https://www.leleverdupinceau.ca/secteurs-desservis/brossard',
       },
     ],
   };
-
-  const projectsContent = isFr
-    ? [
-      '• Maisons familiales dans les secteurs R, S et C',
-      '• Condos modernes autour du Quartier DIX30',
-      '• Projets commerciaux (restaurants, bureaux, commerces du DIX30)',
-      '• Peinture de revêtements extérieurs pour de nouvelles constructions',
-      '• Travaux industriels dans les zones techniques du secteur V',
-    ]
-    : [
-      '• Family homes in sectors R, S and C',
-      '• Modern condos around DIX30 Quarter',
-      '• Commercial projects (restaurants, offices, DIX30 businesses)',
-      '• Exterior coating painting for new constructions',
-      '• Industrial work in technical areas of sector V',
-    ];
-
-  const projectImages = [ResidentialProject, ExtProject, CommercialProject, img5969, img5970, img5971, img5972, img5973, img5974];
 
   const whyUsIntroText = isFr
     ? 'Nos peintres sont régulièrement en intervention à Brossard et offrent :'
@@ -115,7 +87,7 @@ export default function BrossardCityPage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/secteurs-desservis/brossard'
+          href='https://www.leleverdupinceau.ca/secteurs-desservis/brossard'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -176,9 +148,7 @@ export default function BrossardCityPage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peintres à Brossard – Le Lever du Pinceau'
-                    : 'Painters in Brossard – Le Lever du Pinceau'}
+                  {isFr ? 'Peintres à Brossard' : 'Painters in Brossard'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -221,12 +191,6 @@ export default function BrossardCityPage() {
           <Stack spacing={0}>
 
             <CityServicesSection cityName='Brossard' citySlug='brossard' />
-
-            <CityProjectsSection
-              cityName='Brossard'
-              projectsContent={projectsContent}
-              projectImages={projectImages}
-            />
 
             <CityWhyUsSection
               cityName='Brossard'

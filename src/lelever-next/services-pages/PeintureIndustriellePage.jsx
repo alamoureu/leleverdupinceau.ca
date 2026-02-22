@@ -7,14 +7,12 @@ import {
   Heading,
   Text,
   Stack,
-  SimpleGrid,
   Link,
   Button,
   HStack,
   Flex,
   Grid,
   Icon,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,13 +25,6 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import heroImage from '../images/hero/service-hero.png';
-// Only from Page peinture industrielle folder
-import imgInd1 from '../images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG';
-import imgInd2 from '../images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG';
-import imgInd3 from '../images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG';
-// Header image removed as per folder structure rule
-
 export default function PeintureIndustriellePage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
@@ -99,7 +90,7 @@ export default function PeintureIndustriellePage() {
         />
         <link
           rel='canonical'
-          href='https://leleverdupinceau.ca/services/peinture-industrielle'
+          href='https://www.leleverdupinceau.ca/services/peinture-industrielle'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -160,9 +151,7 @@ export default function PeintureIndustriellePage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {isFr
-                    ? 'Peinture industrielle – Le Lever du Pinceau'
-                    : 'Industrial painting – Le Lever du Pinceau'}
+                  {isFr ? 'Peinture industrielle' : 'Industrial painting'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -306,53 +295,7 @@ export default function PeintureIndustriellePage() {
               ]}
             />
 
-            {/* Section 4 — Exemples de projets industriels */}
-            <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6}>
-                  <Stack spacing={3} textAlign='left'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Projets industriels réalisés'
-                        : 'Completed industrial projects'}
-                    </Heading>
-                  </Stack>
-
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={4}
-                    maxW='1200px'
-                  >
-                    {[
-                      { src: imgInd1, alt: isFr ? 'Peinture de la tôle et teinture de la brique de cette usine sur la rive nord' : 'Painting of the metal siding and brick staining of this factory on the North Shore' },
-                      { src: imgInd2, alt: isFr ? 'Peinture des murs et du steel deck de ce local industriel dans Montréal-Est' : 'Painting of the walls and steel deck of this industrial space in Montreal East' },
-                      { src: imgInd3, alt: isFr ? 'Peinture du steel deck de cette usine dans le Sud Ouest de l\'île' : 'Painting of the steel deck of this factory in the Southwest of the island' },
-                    ].map((img, index) => (
-                      <Stack key={index} spacing={2}>
-                        <Image
-                          src={img.src}
-                          alt={img.alt}
-                          borderRadius='lg'
-                          w='100%'
-                          h={{ base: '200px', md: '250px' }}
-                          objectFit='cover'
-                        />
-                        <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
-                          {img.alt}
-                        </Text>
-                      </Stack>
-                    ))}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
-
-            {/* Section 5 — Guides & ressources */}
+            {/* Section 4 — Guides & ressources */}
             <ResourcesSection
               title={
                 isFr
@@ -412,8 +355,8 @@ export default function PeintureIndustriellePage() {
                       minH='48px'
                     >
                       {isFr
-                        ? 'En savoir plus sur nos peintres professionnels'
-                        : 'Learn more about our professional painters'}
+                        ? 'En savoir plus'
+                        : 'Learn more'}
                     </Button>
                   </Link>
                 </Stack>
@@ -426,7 +369,7 @@ export default function PeintureIndustriellePage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16, lg: 20 }}
-          bg='brand.700'
+          bg='app.ctaBg'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -463,7 +406,7 @@ export default function PeintureIndustriellePage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='brand.700'
+                    color='brand.500'
                     borderRadius='full'
                     fontSize={{ base: 'sm', md: 'md' }}
                     px={{ base: 5, md: 7 }}

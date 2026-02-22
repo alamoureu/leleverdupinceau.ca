@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -27,6 +26,7 @@ import {
   faCheckCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
 import SubmissionForm from '../home-page/SubmissionForm';
 import SubmissionModal from '../home-page/SubmissionModal';
 import SectorsSection from '../home-page/SectorsSection';
@@ -150,28 +150,12 @@ export default function ContactPage() {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'Contactez Le Lever du Pinceau | Peinture Montréal'
-            : 'Contact Le Lever du Pinceau | Painting Montreal'}
-        </title>
-        <meta
-          name='description'
-          content={
-            isFr
-              ? 'Contactez notre équipe de peintres professionnels à Montréal. Obtenez une soumission gratuite pour votre projet de peinture résidentielle ou commerciale. Réponse rapide garantie.'
-              : 'Contact our team of professional painters in Montreal. Get a free quote for your residential or commercial painting project. Fast response guaranteed.'
-          }
-        />
-        <link rel='canonical' href='https://leleverdupinceau.ca/contact' />
-        <script type='application/ld+json'>
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        <script type='application/ld+json'>
-          {JSON.stringify(contactPageSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={isFr ? 'Devis peinture gratuit Montréal | Contact – Le Lever du Pinceau' : 'Free painting quote Montreal | Contact – Le Lever du Pinceau'}
+        description={isFr ? 'Obtenez votre soumission gratuite à Montréal, Laval, Longueuil. Peintres professionnels pour peinture résidentielle et commerciale. Réponse rapide au (438) 868-0772.' : 'Get your free quote in Montreal, Laval, Longueuil. Professional painters for residential and commercial painting. Fast response (438) 868-0772.'}
+        canonicalPath="/contact"
+        schemaArray={[breadcrumbSchema, contactPageSchema]}
+      />
 
       <Box w='100%' bg='white' overflowX='hidden'>
         <Container
@@ -236,7 +220,7 @@ export default function ContactPage() {
                 <Box mt={6}>
                   <Button
                     onClick={onOpen}
-                    colorScheme="red"
+                    colorScheme="brand"
                     color="white"
                     textStyle="nav"
                     px={{ base: 5, md: 6 }}
@@ -566,7 +550,7 @@ export default function ContactPage() {
         <Box
           w='100%'
           py={{ base: 12, md: 16, lg: 20 }}
-          bg='brand.700'
+          bg='app.ctaBg'
           mt={{ base: 8, md: 12 }}
         >
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -601,7 +585,7 @@ export default function ContactPage() {
                   <Button
                     rightIcon={<ArrowForwardIcon />}
                     bg='white'
-                    color='brand.700'
+                    color='brand.500'
                     borderRadius='full'
                     textStyle='nav'
                     px={{ base: 5, md: 7 }}

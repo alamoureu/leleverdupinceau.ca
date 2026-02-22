@@ -92,7 +92,7 @@ export const griffintownData = {
     title: 'Une équipe adaptée aux condos et lofts modernes',
     description:
       'Nos peintres : maîtrisent les surfaces modernes & neuves, travaillent proprement dans des condos habités, protègent rigoureusement vos meubles et électros, livrent une finition propre, nette et uniforme, respectent les règles des immeubles à copropriété',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

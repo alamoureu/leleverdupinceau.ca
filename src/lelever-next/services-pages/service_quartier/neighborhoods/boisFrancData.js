@@ -91,7 +91,7 @@ export const boisFrancData = {
     title: 'Une équipe habituée aux résidences modernes de Bois-Franc',
     description:
       'Nos peintres : maîtrisent les surfaces et matériaux récents, protègent soigneusement vos meubles et accessoires, travaillent proprement dans des maisons habitées, utilisent des produits premium pour un fini lisse, livrent une finition impeccable et durable',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

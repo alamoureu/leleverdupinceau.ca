@@ -91,7 +91,7 @@ export const ahuntsicData = {
     title: "Des peintres habitués aux maisons familiales d'Ahuntsic",
     description:
       "Nos peintres : travaillent régulièrement dans des maisons et logements d'Ahuntsic, protègent soigneusement vos biens et vos planchers, respectent vos horaires et votre quotidien, utilisent uniquement des produits de qualité professionnelle, livrent une finition impeccable, prête à emménager",
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

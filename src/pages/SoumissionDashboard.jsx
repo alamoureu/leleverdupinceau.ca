@@ -103,7 +103,7 @@ export default function SoumissionDashboard() {
                   <strong>Phone</strong> <br />
                   <a href={`tel:${soumission.tel}`}>{soumission.tel}</a>
                 </Text>
-                <Text size="sm" colorScheme="blue">
+                <Text size="sm" color="brand.600">
                   <strong>Date</strong> <br />
                   {soumission.date.toDate().toLocaleDateString('en-US', {
                     day: 'numeric',
@@ -115,7 +115,7 @@ export default function SoumissionDashboard() {
                     minute: '2-digit',
                   })}
                 </Text>
-                <Text size="sm" colorScheme="blue">
+                <Text size="sm" color="brand.600">
                   <strong>Type de peinture</strong> <br />
                   {soumission.typePeinture}
                 </Text>
@@ -165,7 +165,7 @@ export const PasswordProtection = ({ onPasswordCorrect }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Button onClick={handlePasswordSubmit} colorScheme="blue">
+          <Button onClick={handlePasswordSubmit} colorScheme="brand">
             Submit
           </Button>
         </Stack>

@@ -188,13 +188,15 @@ export default function ApplyForm({ lang }) {
       </FormControl>
 
       <Button
-        bg="#0056D2"
+        colorScheme="brand"
+        bg="brand.500"
         color="white"
         w="100%"
         size="sm"
         py="1"
         borderRadius="md"
         onClick={handleClick}
+        _hover={{ bg: 'brand.600' }}
       >
         {lang === 'fr' ? 'Envoyer' : 'Send'}
       </Button>

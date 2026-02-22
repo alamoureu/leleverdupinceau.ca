@@ -10,16 +10,16 @@ const breakpoints = {
 
 const colors = {
   brand: {
-    50: '#E6EEFA',
-    100: '#B3C9F0',
-    200: '#80A5E6',
-    300: '#4D81DC',
-    400: '#1A5DD2',
-    500: '#014CC4',
-    600: '#0139A0',
-    700: '#022A68',
-    800: '#011D45',
-    900: '#010F23',
+    50: '#E8F0FE',
+    100: '#C5D9FC',
+    200: '#9EC0FA',
+    300: '#77A7F7',
+    400: '#508EF5',
+    500: '#1E4BBA',  // CTA primary (buttons + CTA section bg)
+    600: '#183D9A',  // CTA hover
+    700: '#0A2B68',  // Navbar & footer (denser blue)
+    800: '#072052',
+    900: '#041538',
   },
 };
 
@@ -164,12 +164,55 @@ const theme = extendTheme({
           borderColor: 'brand.500',
           color: 'brand.500',
           _hover: { bg: 'brand.50' },
+          _active: { bg: 'brand.100' },
         },
         outlineBrand: {
           borderColor: 'brand.500',
           color: 'brand.500',
           _hover: { bg: 'brand.500', color: 'white' },
           _active: { bg: 'brand.600', color: 'white' },
+        },
+        ghost: {
+          bg: 'transparent',
+          color: 'brand.500',
+          _hover: { bg: 'brand.50' },
+          _active: { bg: 'brand.100' },
+        },
+        tertiary: {
+          bg: 'transparent',
+          color: 'gray.800',
+          _hover: { bg: 'gray.50', color: 'brand.500' },
+          _active: { bg: 'gray.100' },
+        },
+        link: {
+          color: 'brand.500',
+          _hover: { textDecoration: 'none', color: 'brand.600' },
+          _active: { color: 'brand.700' },
+        },
+        'text.accent': {
+          bg: 'transparent',
+          color: 'gray.800',
+          _hover: { bg: 'transparent', color: 'brand.500' },
+          _active: { color: 'brand.600' },
+        },
+        'tertiary.accent': {
+          bg: 'transparent',
+          color: 'gray.800',
+          _hover: { bg: 'gray.50', color: 'brand.500' },
+          _active: { bg: 'gray.100', color: 'brand.600' },
+        },
+      },
+    },
+    IconButton: {
+      defaultProps: {
+        colorScheme: 'brand',
+      },
+      variants: {
+        ghost: {
+          bg: 'transparent',
+          color: 'brand.500',
+          _hover: { bg: 'brand.50' },
+          _active: { bg: 'brand.100' },
         },
       },
     },
@@ -214,6 +257,7 @@ const theme = extendTheme({
       'app.brand': 'brand.500',
       'app.brandHover': 'brand.600',
       'app.header': 'brand.700',
+      'app.ctaBg': 'brand.500',  // Same as contact button – all CTA section backgrounds
     },
   },
 });

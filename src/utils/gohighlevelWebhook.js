@@ -125,7 +125,9 @@ export async function sendToGoHighLevel(formData, options = {}) {
 
     return response;
   } catch (error) {
-    console.error('Error sending to GoHighLevel webhook:', error);
+    if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
+      console.error('Error sending to GoHighLevel webhook:', error);
+    }
     throw error;
   }
 }

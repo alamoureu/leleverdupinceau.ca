@@ -1,35 +1,35 @@
-// Blog post data: Prix peinture Montréal 2025
+// Blog post data: Prix peinture Montréal 2026
 export const prixPeintureMontrealData = {
   slug: 'prix-peinture-montreal',
   url: 'https://leleverdupinceau.ca/blog/prix-peinture-montreal',
   seo: {
     title: {
-      fr: 'Prix peinture Montréal 2025 : Coûts, exemples et conseils pour payer le bon prix',
-      en: 'Painting prices Montreal 2025: Costs, examples and tips to pay the right price',
+      fr: 'Prix peinture Montréal 2026 : Coûts, exemples et conseils pour payer le bon prix',
+      en: 'Painting prices Montreal 2026: Costs, examples and tips to pay the right price',
     },
     metaDescription: {
-      fr: 'Découvrez les vrais prix de peinture à Montréal en 2025 : coût au pied carré, prix par pièce, par type de surface, par projet résidentiel ou commercial. Guide complet + exemples réels.',
-      en: 'Discover the real painting prices in Montreal in 2025: cost per square foot, price per room, by surface type, by residential or commercial project. Complete guide + real examples.',
+      fr: 'Découvrez les vrais prix de peinture à Montréal en 2026 : coût au pied carré, prix par pièce, par type de surface, par projet résidentiel ou commercial. Guide complet + exemples réels.',
+      en: 'Discover the real painting prices in Montreal in 2026: cost per square foot, price per room, by surface type, by residential or commercial project. Complete guide + real examples.',
     },
   },
   breadcrumb: {
-    fr: ['Accueil', 'Blog', 'Prix peinture Montréal 2025'],
-    en: ['Home', 'Blog', 'Painting prices Montreal 2025'],
+    fr: ['Accueil', 'Blog', 'Prix peinture Montréal 2026'],
+    en: ['Home', 'Blog', 'Painting prices Montreal 2026'],
   },
   h1: {
-    fr: 'Prix peinture Montréal 2025 : Combien ça coûte vraiment ?',
-    en: 'Painting prices Montreal 2025: How much does it really cost?',
+    fr: 'Prix peinture Montréal 2026 : Combien ça coûte vraiment ?',
+    en: 'Painting prices Montreal 2026: How much does it really cost?',
   },
   introduction: {
-    fr: "Les prix de peinture à Montréal varient énormément selon le type de projet, l'état des murs, la hauteur des plafonds, la qualité de la finition et le niveau de préparation requis.\n\nCe guide vous donne les vrais prix du marché en 2025, basés sur des projets résidentiels et commerciaux réalisés partout dans le Grand Montréal.",
-    en: 'Painting prices in Montreal vary enormously depending on the type of project, condition of walls, ceiling height, quality of finish and level of preparation required.\n\nThis guide gives you the real market prices in 2025, based on residential and commercial projects completed throughout Greater Montreal.',
+    fr: "Les prix de peinture à Montréal varient énormément selon le type de projet, l'état des murs, la hauteur des plafonds, la qualité de la finition et le niveau de préparation requis.\n\nCe guide vous donne les vrais prix du marché en 2026, basés sur des projets résidentiels et commerciaux réalisés partout dans le Grand Montréal.",
+    en: 'Painting prices in Montreal vary enormously depending on the type of project, condition of walls, ceiling height, quality of finish and level of preparation required.\n\nThis guide gives you the real market prices in 2026, based on residential and commercial projects completed throughout Greater Montreal.',
   },
   content: [
     {
       type: 'section',
       title: {
-        fr: 'SECTION 1 — Les prix moyens de peinture à Montréal en 2025',
-        en: 'SECTION 1 — Average painting prices in Montreal in 2025',
+        fr: 'SECTION 1 — Les prix moyens de peinture à Montréal en 2026',
+        en: 'SECTION 1 — Average painting prices in Montreal in 2026',
       },
     },
     {
@@ -43,25 +43,25 @@ export const prixPeintureMontrealData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Voici les prix réels pratiqués à Montréal en 2025 :',
-        en: 'Here are the real prices practiced in Montreal in 2025:',
+        fr: 'Voici les prix réels pratiqués à Montréal en 2026 :',
+        en: 'Here are the real prices practiced in Montreal in 2026:',
       },
     },
     {
       type: 'list',
       items: {
         fr: [
-          '✔ Peinture intérieure (murs + plafonds) : 2,00 $ à 4,50 $ / pied carré (ou 350 $ à 850 $ par pièce, selon la taille)',
+          '✔ Peinture intérieure (murs + plafonds) : 1 $ à 3 $ / pied carré (ou 350 $ à 850 $ par pièce, selon la taille)',
           '✔ Peinture résidentielle (maison / condo complet) : 1 800 $ à 6 500 $+ pour un logement complet, 5 000 $ à 15 000 $+ pour une maison complète',
-          '✔ Peinture commerciale : 2,50 $ à 6,00 $ / pied carré (projets rapides de nuit = tarifs plus élevés)',
-          '✔ Plafonds : 2,50 $ à 6,00 $ / pied carré (Plus cher si plafonds très hauts ou texturés)',
+          '✔ Peinture commerciale : 1,50 $ à 3,50 $ / pied carré (projets rapides de nuit = tarifs plus élevés)',
+          '✔ Plafonds : 1,50 $ à 3,50 $ / pied carré (Plus cher si plafonds très hauts ou texturés)',
           '✔ Portes, moulures, boiseries : 60 $ à 150 $ par porte, 2,00 $ à 5,00 $ / pied linéaire pour moulures',
         ],
         en: [
-          '✔ Interior painting (walls + ceilings) : $2.00 to $4.50 / square foot (or $350 to $850 per room, depending on size)',
+          '✔ Interior painting (walls + ceilings) : $1 to $3 / square foot (or $350 to $850 per room, depending on size)',
           '✔ Residential painting (complete house / condo) : $1,800 to $6,500+ for a complete unit, $5,000 to $15,000+ for a complete house',
-          '✔ Commercial painting : $2.50 to $6.00 / square foot (quick night projects = higher rates)',
-          '✔ Ceilings : $2.50 to $6.00 / square foot (More expensive if very high or textured ceilings)',
+          '✔ Commercial painting : $1.50 to $3.50 / square foot (quick night projects = higher rates)',
+          '✔ Ceilings : $1.50 to $3.50 / square foot (More expensive if very high or textured ceilings)',
           '✔ Doors, moldings, woodwork : $60 to $150 per door, $2.00 to $5.00 / linear foot for moldings',
         ],
       },
@@ -208,13 +208,13 @@ export const prixPeintureMontrealData = {
       type: 'list',
       items: {
         fr: [
-          'Bureaux : 2,50 $ – 5,00 $ / pi²',
-          'Restaurants : 3,00 $ – 6,00 $ / pi²',
+          'Bureaux : 1,50 $ – 3,50 $ / pi²',
+          'Restaurants : 1,50 $ – 3,50 $ / pi²',
           'Espaces ouverts 10 000 pi² : taux réduit disponible',
         ],
         en: [
-          'Offices : $2.50 – $5.00 / sq ft',
-          'Restaurants : $3.00 – $6.00 / sq ft',
+          'Offices : $1.50 – $3.50 / sq ft',
+          'Restaurants : $1.50 – $3.50 / sq ft',
           'Open spaces 10,000 sq ft : reduced rate available',
         ],
       },
@@ -594,7 +594,7 @@ export const prixPeintureMontrealData = {
           {
             '@type': 'ListItem',
             position: 3,
-            name: 'Prix peinture Montréal 2025',
+            name: 'Prix peinture Montréal 2026',
             item: 'https://leleverdupinceau.ca/blog/prix-peinture-montreal',
           },
         ],
@@ -625,12 +625,12 @@ export const prixPeintureMontrealData = {
         '@id':
           'https://leleverdupinceau.ca/blog/prix-peinture-montreal#blogposting',
         headline: {
-          fr: 'Prix peinture Montréal 2025 : Combien ça coûte vraiment ?',
-          en: 'Painting prices Montreal 2025: How much does it really cost?',
+          fr: 'Prix peinture Montréal 2026 : Combien ça coûte vraiment ?',
+          en: 'Painting prices Montreal 2026: How much does it really cost?',
         },
         description: {
-          fr: 'Découvrez les vrais prix de peinture à Montréal en 2025 : coût au pied carré, prix par pièce, par surface, par condo, maison ou commerce. Guide complet + conseils + exemples réels.',
-          en: 'Discover the real painting prices in Montreal in 2025: cost per square foot, price per room, by surface, by condo, house or business. Complete guide + tips + real examples.',
+          fr: 'Découvrez les vrais prix de peinture à Montréal en 2026 : coût au pied carré, prix par pièce, par surface, par condo, maison ou commerce. Guide complet + conseils + exemples réels.',
+          en: 'Discover the real painting prices in Montreal in 2026: cost per square foot, price per room, by surface, by condo, house or business. Complete guide + tips + real examples.',
         },
         image: {
           '@type': 'ImageObject',
@@ -646,8 +646,8 @@ export const prixPeintureMontrealData = {
           '@type': 'WebPage',
           '@id': 'https://leleverdupinceau.ca/blog/prix-peinture-montreal',
         },
-        datePublished: '2025-01-01',
-        dateModified: '2025-01-01',
+        datePublished: '2026-01-01',
+        dateModified: '2026-01-01',
       },
       {
         '@type': 'FAQPage',
@@ -662,8 +662,8 @@ export const prixPeintureMontrealData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: 'En 2025, la peinture intérieure coûte généralement entre 2,00 $ et 4,50 $ le pied carré à Montréal. Par pièce, les prix varient entre 350 $ et 850 $ selon la taille, la préparation des murs, la hauteur des plafonds et le type de peinture utilisé.',
-                en: 'In 2025, interior painting generally costs between $2.00 and $4.50 per square foot in Montreal. Per room, prices vary between $350 and $850 depending on size, wall preparation, ceiling height and type of paint used.',
+                fr: 'En 2026, la peinture intérieure coûte généralement entre 1 $ et 3 $ le pied carré à Montréal. Par pièce, les prix varient entre 350 $ et 850 $ selon la taille, la préparation des murs, la hauteur des plafonds et le type de peinture utilisé.',
+                en: 'In 2026, interior painting generally costs between $1 and $3 per square foot in Montreal. Per room, prices vary between $350 and $850 depending on size, wall preparation, ceiling height and type of paint used.',
               },
             },
           },
@@ -690,8 +690,8 @@ export const prixPeintureMontrealData = {
             acceptedAnswer: {
               '@type': 'Answer',
               text: {
-                fr: "La peinture commerciale à Montréal coûte généralement entre 2,50 $ et 6,00 $ le pied carré. Les prix varient selon la complexité, la hauteur des plafonds, l'accès, le type de commerce et les travaux de nuit ou de fin de semaine.",
-                en: 'Commercial painting in Montreal generally costs between $2.50 and $6.00 per square foot. Prices vary according to complexity, ceiling height, access, type of business and night or weekend work.',
+                fr: "La peinture commerciale à Montréal coûte généralement entre 1,50 $ et 3,50 $ le pied carré. Les prix varient selon la complexité, la hauteur des plafonds, l'accès, le type de commerce et les travaux de nuit ou de fin de semaine.",
+                en: 'Commercial painting in Montreal generally costs between $1.50 and $3.50 per square foot. Prices vary according to complexity, ceiling height, access, type of business and night or weekend work.',
               },
             },
           },

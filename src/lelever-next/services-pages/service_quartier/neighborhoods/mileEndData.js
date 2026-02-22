@@ -91,7 +91,7 @@ export const mileEndData = {
     title: 'Une équipe qui comprend le style unique du Mile-End',
     description:
       'Nos peintres : maîtrisent les surfaces anciennes & murs atypiques, travaillent proprement dans des logements créatifs, protègent méticuleusement œuvres, meubles & planchers, utilisent des peintures durables & premium, offrent une finition propre, lisse et moderne',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

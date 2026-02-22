@@ -11,8 +11,8 @@ export const peintureCommercialeExterieureData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-commerciale/exterieure',
   h1: {
-    fr: 'Peinture commerciale extérieure – Le Lever du Pinceau',
-    en: 'Commercial exterior painting – Le Lever du Pinceau',
+    fr: 'Peinture commerciale extérieure',
+    en: 'Commercial exterior painting',
   },
   introduction: {
     fr: [
@@ -199,8 +199,8 @@ export const peintureCommercialeExterieureData = {
     en: 'Our professional painters are trained to work on various types of commercial claddings, even at height or in complex environments.',
   },
   aboutButtonText: {
-    fr: 'En savoir plus sur nos peintres professionnels',
-    en: 'Learn more about our professional painters',
+    fr: 'En savoir plus',
+    en: 'Learn more',
   },
   aboutButtonLink: '/peintre-professionnel',
   ctaTitle: {
@@ -214,17 +214,13 @@ export const peintureCommercialeExterieureData = {
   images: [
     {
       src: img5969,
-      alt: {
-        fr: 'Réalisation peinture commerciale extérieure 1',
-        en: 'Commercial exterior painting project 1',
-      },
+      alt: { fr: 'Réalisation peinture commerciale extérieure 1', en: 'Commercial exterior painting project 1' },
+      description: { fr: 'Façade commerciale – revêtement durable', en: 'Commercial facade – durable coating' },
     },
     {
       src: img5970,
-      alt: {
-        fr: 'Réalisation peinture commerciale extérieure 2',
-        en: 'Commercial exterior painting project 2',
-      },
+      alt: { fr: 'Réalisation peinture commerciale extérieure 2', en: 'Commercial exterior painting project 2' },
+      description: { fr: 'Bâtiment commercial – finition résistante', en: 'Commercial building – resistant finish' },
     },
   ],
 };

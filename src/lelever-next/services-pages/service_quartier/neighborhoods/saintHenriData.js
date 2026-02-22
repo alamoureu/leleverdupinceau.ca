@@ -91,7 +91,7 @@ export const saintHenriData = {
     title: 'Une équipe habituée aux lofts et condos du canal',
     description:
       'Nos peintres : maîtrisent les surfaces modernes et industrielles, travaillent proprement dans des condos habités, sont habitués aux lofts à plafond haut, protègent parfaitement vos biens, livrent un résultat propre, uniforme et durable',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

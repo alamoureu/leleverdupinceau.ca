@@ -86,7 +86,7 @@ export const outremontData = {
     title: 'Une équipe spécialisée dans les propriétés premium',
     description:
       "Nos peintres : maîtrisent les murs anciens, plafonds hauts & moulures complexes, sont habitués aux maisons haut de gamme d'Outremont, travaillent proprement dans des résidences habitées, utilisent des produits premium pour une finition parfaite, livrent un résultat impeccable et élégant",
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

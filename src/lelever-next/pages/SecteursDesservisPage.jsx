@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -12,8 +11,8 @@ import {
   Button,
   Icon,
   HStack,
-  Image,
   Flex,
+  Image,
   Grid,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -21,6 +20,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
 import ResourcesSection from '../home-page/ResourcesSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -32,6 +32,12 @@ import {
 } from '../home-page/SectorsSection';
 import secteursHeroImage from '../images/secteurs_desservis.jpg';
 import sectorHubPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import ServiceCard from '../home-page/ServiceCard';
+import serviceImgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import serviceImgCommerciale from '../images/1-page-principale/service hub/Peinture commerciale/IMG_6766.PNG';
+import serviceImgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
+import serviceImgExterieure from '../images/1-page-principale/service hub/Peinture extérieure/IMG_6767.PNG';
+import serviceImgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -92,53 +98,55 @@ export default function SecteursDesservisPage() {
     },
   ];
 
+  const serviceImages = [
+    serviceImgResidentielle,
+    serviceImgCommerciale,
+    serviceImgInterieure,
+    serviceImgExterieure,
+    serviceImgIndustrielle,
+  ];
+
   const services = [
     {
       name: isFr ? 'Peinture résidentielle' : 'Residential painting',
+      stripText: isFr ? 'Maisons, condos et propriétés' : 'Homes, condos and properties',
       link: '/services/peinture-residentielle',
+      image: serviceImages[0],
     },
     {
       name: isFr ? 'Peinture commerciale' : 'Commercial painting',
+      stripText: isFr ? 'Bureaux, commerces et espaces professionnels' : 'Offices, retail and professional spaces',
       link: '/services/peinture-commerciale',
+      image: serviceImages[1],
     },
     {
       name: isFr ? 'Peinture intérieure' : 'Interior painting',
+      stripText: isFr ? 'Murs, plafonds et finitions' : 'Walls, ceilings and finishes',
       link: '/services/peinture-interieure',
+      image: serviceImages[2],
     },
     {
       name: isFr ? 'Peinture extérieure' : 'Exterior painting',
+      stripText: isFr ? 'Façades, revêtements et protection' : 'Facades, siding and protection',
       link: '/services/peinture-exterieure',
+      image: serviceImages[3],
     },
     {
       name: isFr ? 'Peinture industrielle' : 'Industrial painting',
+      stripText: isFr ? 'Entrepôts, ateliers et bâtiments' : 'Warehouses, workshops and industrial buildings',
       link: '/services/peinture-industrielle',
+      image: serviceImages[4],
     },
   ];
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'Secteurs desservis – Le Lever du Pinceau | Peinture Montréal, Laval, Longueuil, Brossard'
-            : 'Service areas – Le Lever du Pinceau | Painting Montreal, Laval, Longueuil, Brossard'}
-        </title>
-        <meta
-          name='description'
-          content={
-            isFr
-              ? "Nos équipes de peintres professionnels interviennent dans l'ensemble du Grand Montréal : Montréal, Laval, Longueuil, Brossard. Services de peinture résidentielle, commerciale, intérieure et extérieure."
-              : 'Our teams of professional painters serve all of Greater Montreal: Montreal, Laval, Longueuil, Brossard. Residential, commercial, interior and exterior painting services.'
-          }
-        />
-        <link
-          rel='canonical'
-          href='https://leleverdupinceau.ca/secteurs-desservis'
-        />
-        <script type='application/ld+json'>
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={isFr ? 'Peinture Montréal, Laval, Longueuil, Brossard | Secteurs desservis' : 'Painting Montreal, Laval, Longueuil, Brossard | Service areas'}
+        description={isFr ? 'Peintres professionnels dans tout le Grand Montréal : Montréal, Laval, Longueuil, Brossard. Peinture résidentielle, commerciale, intérieure, extérieure. Devis gratuit par secteur.' : 'Professional painters across Greater Montreal: Montreal, Laval, Longueuil, Brossard. Residential, commercial, interior, exterior painting. Free quote by area.'}
+        canonicalPath="/secteurs-desservis"
+        schema={breadcrumbSchema}
+      />
 
       <Box w='100%' bg='white' overflowX='hidden'>
         <Container
@@ -169,9 +177,7 @@ export default function SecteursDesservisPage() {
               </HStack>
               <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
                 <Heading as='h1' size='page' color='gray.800'>
-                  {isFr
-                    ? 'Secteurs desservis – Le Lever du Pinceau'
-                    : 'Service areas – Le Lever du Pinceau'}
+                  {isFr ? 'Secteurs desservis' : 'Service areas'}
                 </Heading>
                 <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' maxW='800px'>
                   {isFr
@@ -372,8 +378,8 @@ export default function SecteursDesservisPage() {
                         minH='48px'
                       >
                         {isFr
-                          ? 'En savoir plus sur nos peintres professionnels'
-                          : 'Learn more about our professional painters'}
+                          ? 'En savoir plus'
+                          : 'Learn more'}
                       </Button>
                     </Link>
                   </Stack>
@@ -392,48 +398,50 @@ export default function SecteursDesservisPage() {
                     </Heading>
                   </Stack>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
-                    maxW='1000px'
-                    mx='auto'
-                  >
-                    {services.map((service, index) => (
-                      <Link
-                        key={index}
-                        as={RouterLink}
-                        to={service.link}
-                        _hover={{ textDecoration: 'none' }}
-                      >
-                        <Box
-                          bg='white'
-                          p={{ base: 4, md: 6 }}
-                          borderRadius='xl'
-                          border='1px solid'
-                          borderColor='gray.200'
-                          textAlign='center'
-                          _hover={{
-                            borderColor: 'brand.500',
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'md',
-                          }}
-                          transition='all 0.2s'
-                        >
-                          <Stack spacing={2} align='center'>
-                            <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge'>
-                              {service.name}
-                            </Text>
-                            <HStack spacing={2} color='brand.500'>
-                              <Text textStyle='caption' fontWeight='medium'>
-                                {isFr ? 'Voir' : 'View'}
-                              </Text>
-                              <ArrowForwardIcon boxSize={4} />
-                            </HStack>
-                          </Stack>
+                  <Stack spacing={{ base: 4, md: 6 }} maxW='1000px' mx='auto' align='center'>
+                    <SimpleGrid
+                      columns={{ base: 1, md: 3 }}
+                      spacing={{ base: 4, md: 6 }}
+                      w='100%'
+                    >
+                      {services.slice(0, 3).map((service, index) => (
+                        <Box key={index} as={RouterLink} to={service.link} _hover={{ textDecoration: 'none' }} w='100%' display='block'>
+                          <ServiceCard
+                            image={service.image}
+                            title={service.name}
+                            subtitle={service.stripText}
+                            subtitleOnImageOnly
+                            ctaLabel={isFr ? 'Voir' : 'View'}
+                            noHoverBorder={false}
+                            compact
+                          />
                         </Box>
-                      </Link>
-                    ))}
-                  </SimpleGrid>
+                      ))}
+                    </SimpleGrid>
+                    <Flex w='100%' justify='center' gap={{ base: 4, md: 6 }} flexWrap='wrap'>
+                      {services.slice(3, 5).map((service, index) => (
+                        <Box
+                          key={index + 3}
+                          as={RouterLink}
+                          to={service.link}
+                          _hover={{ textDecoration: 'none' }}
+                          w={{ base: '100%', md: 'calc(33.333% - 8px)' }}
+                          maxW={{ md: '320px' }}
+                          display='block'
+                        >
+                          <ServiceCard
+                            image={service.image}
+                            title={service.name}
+                            subtitle={service.stripText}
+                            subtitleOnImageOnly
+                            ctaLabel={isFr ? 'Voir' : 'View'}
+                            noHoverBorder={false}
+                            compact
+                          />
+                        </Box>
+                      ))}
+                    </Flex>
+                  </Stack>
                 </Stack>
               </Container>
             </Box>

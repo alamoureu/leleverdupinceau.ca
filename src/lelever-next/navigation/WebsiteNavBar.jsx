@@ -39,13 +39,17 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
       as="header"
       spacing={0}
       gap={0}
-      bg="white"
-      position="sticky"
+      bg="brand.700"
+      position="fixed"
       top={0}
       left={0}
       right={0}
+      width="100%"
       zIndex={9999}
       pointerEvents="auto"
+      margin={0}
+      padding={0}
+      overflow="visible"
     >
       {!isNewLanding && (
         <Box
@@ -123,12 +127,13 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
       <Box
         w="100%"
         bg="brand.700"
-        py={{ base: 1.5, sm: 2, md: 3, lg: 4 }}
+        py={{ base: 2.5, sm: 2, md: 3, lg: 4 }}
         px={{ base: 4, sm: 6, lg: 8 }}
         shadow="md"
         position="relative"
         zIndex={2}
         pointerEvents="auto"
+        margin={0}
       >
         <Box maxW="1440px" w="100%" mx="auto" position="relative" zIndex={1}>
           <HStack
@@ -207,13 +212,14 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               variant="text.accent"
               spacing={{ base: '2', lg: '1.5', xl: '2' }}
               display={{ base: 'none', lg: isNewLanding ? 'none' : 'flex' }}
-              color="white"
             >
               <ServicesPopover />
               <Button
                 onClick={() => navigate('/secteurs-desservis')}
                 textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
+                color="white"
+                _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr' ? 'Secteurs desservis' : 'Service Areas'}
               </Button>
@@ -221,6 +227,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 onClick={() => navigate('/peintre-professionnel')}
                 textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
+                color="white"
+                _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr'
                   ? 'Peintres professionnels'
@@ -230,6 +238,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 onClick={() => navigate('/avis')}
                 textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
+                color="white"
+                _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr' ? 'Avis' : 'Reviews'}
               </Button>
@@ -237,6 +247,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 onClick={() => navigate('/blog')}
                 textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
+                color="white"
+                _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr' ? 'Blog' : 'Blog'}
               </Button>
@@ -280,6 +292,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             right={0}
             zIndex={1}
             pointerEvents="none"
+            overflow="visible"
           >
             <Flex
               maxW="1440px"
@@ -287,6 +300,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               px={{ base: 4, sm: 6, lg: 8 }}
               justify="flex-end"
               pointerEvents="none"
+              overflow="visible"
             >
               <Box
                 mt={2}
@@ -295,16 +309,21 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 pointerEvents="auto"
                 borderTopRadius="none"
                 borderBottomRadius={{ base: '50px', sm: '60px', md: '80px', lg: '100px' }}
-                p={{ base: 1.5, sm: 2, md: 3 }}
+                p={{ base: 2, sm: 2.5, md: 3 }}
                 boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
-                minW={{ base: '52px', sm: '60px', md: '90px' }}
-                maxW={{ base: '60px', sm: '70px', md: '110px' }}
+                minW={{ base: '56px', sm: '88px', md: '94px' }}
+                maxW={{ base: '72px', sm: '108px', md: '116px' }}
+                overflow="visible"
+                minH={{ base: '72px', sm: '80px', md: '88px' }}
               >
-                <Stack spacing={0} align="center">
+                <Stack spacing={0} align="center" overflow="visible">
                   <Text
                     fontSize={{ base: '2xs', sm: 'xs', md: 'sm' }}
                     color="gray.600"
                     fontWeight="600"
+                    textAlign="center"
+                    lineHeight="1.2"
+                    noOfLines={2}
                   >
                     {t.googleReviews}
                   </Text>
@@ -321,7 +340,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                         <StarIcon
                           key={i}
                           color="#FBBC04"
-                          boxSize={{ base: 1.5, sm: 2, md: 3 }}
+                          boxSize={{ base: 1.5, sm: 2.5, md: 3 }}
                         />
                       ))}
                     </Flex>
@@ -329,9 +348,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   <Image
                     src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
                     alt="Google"
-                    h={{ base: '14px', sm: '18px', md: '40px' }}
-                    w={{ base: '14px', sm: '18px', md: '40px' }}
-                    mt={{ base: 0.5, md: 1 }}
+                    h={{ base: '14px', sm: '20px', md: '40px' }}
+                    w={{ base: '14px', sm: '20px', md: '40px' }}
+                    mt={{ base: 0.5, sm: 0.5, md: 1 }}
                     objectFit="contain"
                   />
                 </Stack>

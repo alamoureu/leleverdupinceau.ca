@@ -13,7 +13,6 @@ import {
   VStack,
   HStack,
   Icon,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,7 +20,6 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../../AppProvider';
 import ServiceWhyUsSection from '../components/ServiceWhyUsSection';
 import ServiceSubServicesSection from '../components/ServiceSubServicesSection';
-import CustomProjectsSection from '../../city-pages/CustomProjectsSection';
 import ServiceQuartierGuidesSection from '../service_ville/components/ServiceQuartierGuidesSection';
 import ServiceQuartierAboutSection from '../service_ville/components/ServiceQuartierAboutSection';
 import ServiceQuartierSectorsSection from '../service_ville/components/ServiceQuartierSectorsSection';
@@ -238,11 +236,15 @@ export default function SousServicePage() {
                   fontWeight='bold'
                   color='gray.800'
                 >
-                  {city.h1
-                    ? city.h1[isFr ? 'fr' : 'en']
-                    : isFr
-                      ? `${serviceName} à ${cityName} – Le Lever du Pinceau`
-                      : `${serviceName} in ${cityName} – Le Lever du Pinceau`}
+                  {(() => {
+                    const text = city.h1
+                      ? city.h1[isFr ? 'fr' : 'en']
+                      : isFr
+                        ? `${serviceName} à ${cityName}`
+                        : `${serviceName} in ${cityName}`;
+                    const suffix = ' – Le Lever du Pinceau';
+                    return text.endsWith(suffix) ? text.slice(0, -suffix.length) : text;
+                  })()}
                 </Heading>
                 <Text
                   fontSize={{ base: 'md', md: 'lg' }}
@@ -277,16 +279,7 @@ export default function SousServicePage() {
                 />
               )}
 
-              {/* Section 3 — Exemples de projets */}
-              {city.projects && city.projects[isFr ? 'fr' : 'en'] && (
-                <CustomProjectsSection
-                  title={city.projectsTitle[isFr ? 'fr' : 'en']}
-                  subtitle={isFr ? 'Exemples :' : 'Examples:'}
-                  projects={city.projects[isFr ? 'fr' : 'en']}
-                />
-              )}
-
-              {/* Section 4 — Guides utiles */}
+              {/* Section 3 — Guides utiles */}
               <ServiceQuartierGuidesSection
                 title={city.guidesTitle[isFr ? 'fr' : 'en']}
                 guides={guides}
@@ -752,74 +745,7 @@ export default function SousServicePage() {
               />
             )}
 
-            {/* Section 4/6 — Exemples de projets (Section 4 for others, Section 6 for Commercial Interior) */}
-            {pageData.projects && (
-              <Box mt={{ base: 8, md: 12 }} mb={{ base: 12, md: 16 }}>
-                <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={6}>
-                    <Stack spacing={3} textAlign='left'>
-                      <Heading
-                        as='h2'
-                        fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                        fontWeight='bold'
-                        color='gray.800'
-                      >
-                        {pageData.projectsTitle[isFr ? 'fr' : 'en']}
-                      </Heading>
-                    </Stack>
-
-                    {/* Images Grid */}
-                    {pageData.images && pageData.images.length > 0 && (
-                      <SimpleGrid
-                        columns={{ base: 1, md: 2, lg: 3 }}
-                        spacing={4}
-                        maxW='1200px'
-                      >
-                        {pageData.images.map((img, index) => (
-                          <Image
-                            key={index}
-                            src={img.src}
-                            alt={
-                              typeof img.alt === 'object'
-                                ? img.alt[isFr ? 'fr' : 'en']
-                                : img.alt
-                            }
-                            borderRadius='lg'
-                            w='100%'
-                            h={{ base: '200px', md: '250px' }}
-                            objectFit='cover'
-                          />
-                        ))}
-                      </SimpleGrid>
-                    )}
-
-                    {/* Projects List */}
-                    <Stack spacing={2} mt={4}>
-                      <Text
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        color='gray.700'
-                        fontWeight='medium'
-                      >
-                        {isFr
-                          ? 'Exemples de projets :'
-                          : 'Examples of projects:'}
-                      </Text>
-                      <Stack spacing={1} pl={4}>
-                        {pageData.projects[isFr ? 'fr' : 'en'].map(
-                          (project, index) => (
-                            <Text key={index} fontSize='md' color='gray.600'>
-                              • {project}
-                            </Text>
-                          )
-                        )}
-                      </Stack>
-                    </Stack>
-                  </Stack>
-                </Container>
-              </Box>
-            )}
-
-            {/* Section 5 — Guides & ressources */}
+            {/* Section 4 — Guides & ressources */}
             {guides.length > 0 && (
               <ServiceQuartierGuidesSection
                 title={pageData.guidesTitle[isFr ? 'fr' : 'en']}

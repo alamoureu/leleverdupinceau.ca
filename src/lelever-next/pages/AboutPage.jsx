@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -20,6 +19,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
 import ReviewsSection from '../home-page/ReviewsSection';
 import SectorsSection from '../home-page/SectorsSection';
 import aProposPhotoHeader from '../images/1-page-principale/a propos/Photo header/IMG_6772.PNG';
@@ -171,28 +171,12 @@ export default function AboutPage() {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'À propos de Le Lever du Pinceau | Peintres professionnels Montréal'
-            : 'About Le Lever du Pinceau | Professional Painters Montreal'}
-        </title>
-        <meta
-          name='description'
-          content={
-            isFr
-              ? 'Découvrez Le Lever du Pinceau, une équipe de peintres professionnels passionnés spécialisés en peinture résidentielle et commerciale dans tout le Grand Montréal. Mission, valeurs et engagement qualité'
-              : 'Discover Le Lever du Pinceau, a team of passionate professional painters specialized in residential and commercial painting throughout Greater Montreal. Mission, values and quality commitment'
-          }
-        />
-        <link rel='canonical' href='https://www.leleverdupinceau.ca/a-propos' />
-        <script type='application/ld+json'>
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        <script type='application/ld+json'>
-          {JSON.stringify(aboutPageSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title={isFr ? 'À propos | Équipe peinture Montréal – Le Lever du Pinceau' : 'About | Montreal painting team – Le Lever du Pinceau'}
+        description={isFr ? 'Équipe de peintres professionnels à Montréal, Laval, Longueuil. Mission, valeurs, engagement qualité. Peinture résidentielle et commerciale dans le Grand Montréal.' : 'Professional painting team in Montreal, Laval, Longueuil. Mission, values, quality commitment. Residential and commercial painting in Greater Montreal.'}
+        canonicalPath="/a-propos"
+        schemaArray={[breadcrumbSchema, aboutPageSchema]}
+      />
 
       <Box w='100%' bg='white' overflowX='hidden'>
         <Container

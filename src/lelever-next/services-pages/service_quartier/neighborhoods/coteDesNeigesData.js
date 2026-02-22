@@ -90,7 +90,7 @@ export const coteDesNeigesData = {
     title: 'Une équipe habituée aux logements variés du quartier',
     description:
       'Nos peintres : travaillent proprement dans des immeubles à logements, maîtrisent les murs anciens & modernes, protègent soigneusement vos biens, utilisent des produits durables et premium, livrent une finition uniforme, lisse et impeccable',
-    buttonText: 'En savoir plus sur nos peintres professionnels',
+    buttonText: 'En savoir plus',
     buttonLink: '/peintre-professionnel',
   },
   cta: {

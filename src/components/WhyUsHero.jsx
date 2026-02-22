@@ -92,9 +92,10 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
           mt={{ base: '20px', md: '70px' }}
         >
           <Button
-            bg="#0056D2"
+            colorScheme="brand"
+            bg="brand.500"
             textColor="white"
-            _hover={{ bg: '#0056D2' }}
+            _hover={{ bg: 'brand.600' }}
             size={{ base: 'md', md: 'lg' }}
             w="100%"
             onClick={onSubmissionOpen}

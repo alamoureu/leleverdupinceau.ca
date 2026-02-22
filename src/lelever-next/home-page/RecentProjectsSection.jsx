@@ -15,7 +15,7 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import { motion, AnimatePresence } from 'framer-motion';
-import projetResidentiel from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
+import projetResidentiel from '../images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG';
 import projetCommercial from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import projetInterieur from '../images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG';
 import projetResidentielle2 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';

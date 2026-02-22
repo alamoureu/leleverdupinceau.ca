@@ -13,8 +13,8 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import commentChoisirPeintre from '../images/5-landing-page/Photo/louis_Consultation.jpeg';
-import prixProjetPeinture from '../images/1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG';
-import erreurEviterProjet from '../images/1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG';
+import prixProjetPeinture from '../images/1-page-principale/blog hub/prix-projet-montreal.png';
+import erreurEviterProjet from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
 
 export default function ResourcesSection({ title, subtitle, excludeSlugs = [] }) {
   const { t } = useTranslation();
@@ -42,11 +42,11 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [] })
     <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
-          <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>
-            <Heading as='h2' size='section' color='gray.800' lineHeight='1.3' letterSpacing='-0.02em' mb={{ base: 2, md: 3 }}>
+          <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+            <Heading as='h2' size='section' fontWeight='bold' color='gray.800' lineHeight='1.3'>
               {title || t.resourcesTitle}
             </Heading>
-            <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7' letterSpacing='0.01em'>
+            <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
               {subtitle || t.resourcesSubtitle}
             </Text>
           </Stack>

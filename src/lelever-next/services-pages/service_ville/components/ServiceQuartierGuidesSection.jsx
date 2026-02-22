@@ -11,8 +11,8 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../../../AppProvider';
 import commentChoisirPeintre from '../../../images/5-landing-page/Photo/louis_Consultation.jpeg';
-import prixProjetPeinture from '../../../images/1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG';
-import erreurEviterProjet from '../../../images/1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG';
+import prixProjetPeinture from '../../../images/1-page-principale/blog hub/prix-projet-montreal.png';
+import erreurEviterProjet from '../../../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
 
 const getBlogImage = (href) => {
   if (href.includes('comment-choisir')) {

@@ -126,7 +126,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
               w="4px"
               h="60%"
               minH="32px"
-              bg="#014CC4"
+              bg="#1E4BBA"
               borderTopRightRadius="4px"
               borderBottomRightRadius="4px"
             />

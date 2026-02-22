@@ -16,8 +16,8 @@ export const peintureResidentielleInterieureData = {
   canonical:
     'https://leleverdupinceau.ca/services/peinture-residentielle/interieure',
   h1: {
-    fr: 'Peinture résidentielle intérieure – Le Lever du Pinceau',
-    en: 'Residential interior painting – Le Lever du Pinceau',
+    fr: 'Peinture résidentielle intérieure',
+    en: 'Residential interior painting',
   },
   introduction: {
     fr: [
@@ -206,8 +206,8 @@ export const peintureResidentielleInterieureData = {
     en: 'Our painters specialized in residential interior projects are trained to deliver impeccable and durable finishes.',
   },
   aboutButtonText: {
-    fr: 'En savoir plus sur nos peintres professionnels',
-    en: 'Learn more about our professional painters',
+    fr: 'En savoir plus',
+    en: 'Learn more',
   },
   aboutButtonLink: '/peintre-professionnel',
   ctaTitle: {
@@ -221,45 +221,33 @@ export const peintureResidentielleInterieureData = {
   images: [
     {
       src: img5969,
-      alt: {
-        fr: 'Peinture résidentielle intérieure Montréal',
-        en: 'Residential interior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle intérieure Montréal', en: 'Residential interior painting Montreal' },
+      description: { fr: 'Salon – murs et plafond rafraîchis', en: 'Living room – walls and ceiling refreshed' },
     },
     {
       src: img5970,
-      alt: {
-        fr: 'Peinture résidentielle intérieure Montréal',
-        en: 'Residential interior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle intérieure Montréal', en: 'Residential interior painting Montreal' },
+      description: { fr: 'Pièce à vivre – finition uniforme', en: 'Living space – uniform finish' },
     },
     {
       src: img5971,
-      alt: {
-        fr: 'Peinture résidentielle intérieure Montréal',
-        en: 'Residential interior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle intérieure Montréal', en: 'Residential interior painting Montreal' },
+      description: { fr: 'Chambre – application soignée', en: 'Bedroom – careful application' },
     },
     {
       src: img5972,
-      alt: {
-        fr: 'Peinture résidentielle intérieure Montréal',
-        en: 'Residential interior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle intérieure Montréal', en: 'Residential interior painting Montreal' },
+      description: { fr: 'Couloir et boiseries – résultat durable', en: 'Hallway and woodwork – durable result' },
     },
     {
       src: img5973,
-      alt: {
-        fr: 'Peinture résidentielle intérieure Montréal',
-        en: 'Residential interior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle intérieure Montréal', en: 'Residential interior painting Montreal' },
+      description: { fr: 'Espace ouvert – murs et plafonds', en: 'Open space – walls and ceilings' },
     },
     {
       src: img5974,
-      alt: {
-        fr: 'Peinture résidentielle intérieure Montréal',
-        en: 'Residential interior painting Montreal',
-      },
+      alt: { fr: 'Peinture résidentielle intérieure Montréal', en: 'Residential interior painting Montreal' },
+      description: { fr: 'Pièce rénovée – finition professionnelle', en: 'Renovated room – professional finish' },
     },
   ],
 };

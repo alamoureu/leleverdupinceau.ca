@@ -146,10 +146,10 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
         <Stack spacing={8} align='center'>
           {!hideTitle && (
             <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
-              <Heading as='h2' size='section' color='gray.800'>
+              <Heading as='h2' size='section' fontWeight='bold' color='gray.800' lineHeight='1.3'>
                 {t.reviewsTitle}
               </Heading>
-              <Text textStyle='bodyLarge' color='gray.600'>
+              <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
                 {t.reviewsSubtitle}
               </Text>
             </Stack>
