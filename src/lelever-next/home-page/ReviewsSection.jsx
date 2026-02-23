@@ -228,6 +228,8 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                           h={{ base: '32px', md: '40px' }}
                           w={{ base: '32px', md: '40px' }}
                           flexShrink={0}
+                          loading="lazy"
+                          decoding="async"
                         />
                       </Box>
                       <Box display='flex' alignItems='center' gap={0.5}>

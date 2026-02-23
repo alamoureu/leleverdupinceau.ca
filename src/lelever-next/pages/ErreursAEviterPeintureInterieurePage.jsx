@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BlogPostPage from '../blog-posts/BlogPostPage';
-import { erreursAEviterPeintureInterieureData } from '../blog-posts/erreursAEviterPeintureInterieureData';
+import PageSkeleton from '../../PageSkeleton';
 
 export default function ErreursAEviterPeintureInterieurePage() {
-  return <BlogPostPage blogData={erreursAEviterPeintureInterieureData} />;
-}
+  const [blogData, setBlogData] = useState(null);
 
+  useEffect(() => {
+    import('../blog-posts/erreursAEviterPeintureInterieureData').then((m) =>
+      setBlogData(m.erreursAEviterPeintureInterieureData)
+    );
+  }, []);
+
+  if (!blogData) return <PageSkeleton />;
+  return <BlogPostPage blogData={blogData} />;
+}

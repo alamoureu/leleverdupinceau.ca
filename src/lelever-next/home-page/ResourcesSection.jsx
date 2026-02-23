@@ -80,6 +80,8 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [] })
                       w='100%'
                       h='100%'
                       objectFit='cover'
+                      loading="lazy"
+                      decoding="async"
                     />
                   </Box>
 

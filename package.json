@@ -42,7 +42,8 @@
     "open:modified:tabs": "node scripts/open-modified-pages.js --tabs",
     "open:modified:chrome": "node scripts/open-modified-pages.js --chrome",
     "review:pages": "node scripts/open-modified-pages-for-review.js",
-    "review:pages:list": "node scripts/open-modified-pages-for-review.js --list"
+    "review:pages:list": "node scripts/open-modified-pages-for-review.js --list",
+    "images:compress": "node scripts/compress-images.js"
   },
   "eslintConfig": {
     "extends": [
@@ -63,6 +64,7 @@
     ]
   },
   "devDependencies": {
+    "sharp": "^0.33.5",
     "@vitejs/plugin-basic-ssl": "^2.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^8.57.0",

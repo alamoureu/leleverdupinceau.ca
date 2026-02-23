@@ -70,6 +70,7 @@ export default function NosServices({ lang = 'fr' }) {
                   w="100%"
                   h="100%"
                   loading="lazy"
+                  decoding="async"
                 />
                 <Box
                   position="absolute"
@@ -146,6 +147,7 @@ export default function NosServices({ lang = 'fr' }) {
                   w="100%"
                   h="100%"
                   loading="lazy"
+                  decoding="async"
                 />
                 <Box
                   position="absolute"

@@ -10,7 +10,6 @@ import {
   HStack,
   IconButton,
   Image,
-  Skeleton,
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
@@ -184,16 +183,6 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                     )}
                     {project.images && project.images.length > 0 && (
                       <Box w="100%" h="100%" position="relative">
-                        {imageLoading[`${project.id}-${currentIndex}`] && (
-                          <Skeleton
-                            position="absolute"
-                            top={0}
-                            left={0}
-                            w="100%"
-                            h="100%"
-                            zIndex={1}
-                          />
-                        )}
                         {imageErrors[`${project.id}-${currentIndex}`] ? (
                           <Box
                             w="100%"
@@ -238,6 +227,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                                 w="100%"
                                 h="100%"
                                 loading="lazy"
+                                decoding="async"
                                 onLoad={() => {
                                   setImageLoading((prev) => ({
                                     ...prev,

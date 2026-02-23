@@ -162,6 +162,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             >
               <Image
                 loading="lazy"
+                decoding="async"
                 src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
                 h="100%"
                 w="auto"
@@ -352,6 +353,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     w={{ base: '14px', sm: '20px', md: '40px' }}
                     mt={{ base: 0.5, sm: 0.5, md: 1 }}
                     objectFit="contain"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </Stack>
               </Box>

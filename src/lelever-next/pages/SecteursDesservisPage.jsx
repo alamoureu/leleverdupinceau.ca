@@ -205,6 +205,8 @@ export default function SecteursDesservisPage() {
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
+                loading="lazy"
+                decoding="async"
               />
             </Box>
           </Grid>
@@ -261,6 +263,8 @@ export default function SecteursDesservisPage() {
                             h='100%'
                             objectFit='cover'
                             zIndex={0}
+                            loading="lazy"
+                            decoding="async"
                           />
                           <Box
                             position='absolute'
@@ -338,6 +342,8 @@ export default function SecteursDesservisPage() {
                       w='100%'
                       h='100%'
                       objectFit='cover'
+                      loading="lazy"
+                      decoding="async"
                     />
                   </Box>
                   <Stack spacing={6}>

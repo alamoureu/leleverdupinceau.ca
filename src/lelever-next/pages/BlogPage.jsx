@@ -155,6 +155,8 @@ export default function BlogPage() {
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
+                loading="lazy"
+                decoding="async"
               />
             </Box>
           </Grid>
@@ -182,6 +184,8 @@ export default function BlogPage() {
                       objectFit='cover'
                       w='100%'
                       maxH='400px'
+                      loading="lazy"
+                      decoding="async"
                     />
                   </Box>
                   <Stack spacing={6}>
@@ -287,6 +291,8 @@ export default function BlogPage() {
                                 objectFit='cover'
                                 objectPosition='center'
                                 display='block'
+                                loading="lazy"
+                                decoding="async"
                               />
                             </Box>
                           )}

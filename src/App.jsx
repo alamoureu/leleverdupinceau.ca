@@ -1,3 +1,4 @@
+import React, { Suspense } from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -5,45 +6,46 @@ import {
   Navigate,
 } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
-
-import LandingPageV2 from './pages/LandingPageV2';
-import NewHomePage from './lelever-next/pages/NewHomePage';
-import ContactPage from './lelever-next/pages/ContactPage';
-import AvisPage from './lelever-next/pages/AvisPage';
-import AboutPage from './lelever-next/pages/AboutPage';
-import PeintreProfessionnelPage from './lelever-next/pages/PeintreProfessionnelPage';
-import SecteursDesservisPage from './lelever-next/pages/SecteursDesservisPage';
-import BrossardCityPage from './lelever-next/pages/BrossardCityPage';
-import MontrealCityPage from './lelever-next/pages/MontrealCityPage';
-import LavalCityPage from './lelever-next/pages/LavalCityPage';
-import LongueuilCityPage from './lelever-next/pages/LongueuilCityPage';
-import ServicesPage from './lelever-next/pages/ServicesPage';
-import PeintureCommercialePage from './lelever-next/services-pages/PeintureCommercialePage';
-import PeintureExterieurePage from './lelever-next/services-pages/PeintureExterieurePage';
-import PeintureResidentiellePage from './lelever-next/services-pages/PeintureResidentiellePage';
-import PeintureInterieurePage from './lelever-next/services-pages/PeintureInterieurePage';
-import PeintureIndustriellePage from './lelever-next/services-pages/PeintureIndustriellePage';
-import ServiceQuartierPage from './lelever-next/services-pages/service_ville/ServiceQuartierPage';
-import SousServicePage from './lelever-next/services-pages/sous_service/SousServicePage';
-import SmartServiceRouter from './lelever-next/services-pages/SmartServiceRouter';
-import BlogPage from './lelever-next/pages/BlogPage';
-import CommentChoisirPeintreProfessionnelPage from './lelever-next/pages/CommentChoisirPeintreProfessionnelPage';
-import PrixPeintureMontrealPage from './lelever-next/pages/PrixPeintureMontrealPage';
-import ErreursAEviterPeintureInterieurePage from './lelever-next/pages/ErreursAEviterPeintureInterieurePage';
-import NotFoundPage from './lelever-next/pages/NotFoundPage';
-import AuditImagesPage from './lelever-next/pages/AuditImagesPage';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import ScrollToTop from './lelever-next/components/ScrollToTop';
-import SoumissionDashboard from './pages/SoumissionDashboard';
-import AdminDashboard from './pages/AdminDashboard';
-import EmploiesDashboard from './pages/EmploiesDashboard';
-import ContactDashboard from './pages/ContactDashboard';
-import TimeSheet from './pages/TimeSheet';
-import TimeSheetDashboard from './pages/TimeSheetDashboard';
-import EmployeeManagement from './pages/EmployeeManagement';
-import EmployeeDetails from './pages/EmployeeDetails';
-import ThermOfUsePage from './pages/ThermOfUse';
-import PrivacyPolicyPage from './pages/PrivacyPolicyPage';
+import SmartServiceRouter from './lelever-next/services-pages/SmartServiceRouter';
+import PageSkeleton from './PageSkeleton';
+
+const LandingPageV2 = React.lazy(() => import('./pages/LandingPageV2'));
+const NewHomePage = React.lazy(() => import('./lelever-next/pages/NewHomePage'));
+const ContactPage = React.lazy(() => import('./lelever-next/pages/ContactPage'));
+const AvisPage = React.lazy(() => import('./lelever-next/pages/AvisPage'));
+const AboutPage = React.lazy(() => import('./lelever-next/pages/AboutPage'));
+const PeintreProfessionnelPage = React.lazy(() => import('./lelever-next/pages/PeintreProfessionnelPage'));
+const SecteursDesservisPage = React.lazy(() => import('./lelever-next/pages/SecteursDesservisPage'));
+const BrossardCityPage = React.lazy(() => import('./lelever-next/pages/BrossardCityPage'));
+const MontrealCityPage = React.lazy(() => import('./lelever-next/pages/MontrealCityPage'));
+const LavalCityPage = React.lazy(() => import('./lelever-next/pages/LavalCityPage'));
+const LongueuilCityPage = React.lazy(() => import('./lelever-next/pages/LongueuilCityPage'));
+const ServicesPage = React.lazy(() => import('./lelever-next/pages/ServicesPage'));
+const PeintureCommercialePage = React.lazy(() => import('./lelever-next/services-pages/PeintureCommercialePage'));
+const PeintureExterieurePage = React.lazy(() => import('./lelever-next/services-pages/PeintureExterieurePage'));
+const PeintureResidentiellePage = React.lazy(() => import('./lelever-next/services-pages/PeintureResidentiellePage'));
+const PeintureInterieurePage = React.lazy(() => import('./lelever-next/services-pages/PeintureInterieurePage'));
+const PeintureIndustriellePage = React.lazy(() => import('./lelever-next/services-pages/PeintureIndustriellePage'));
+const ServiceQuartierPage = React.lazy(() => import('./lelever-next/services-pages/service_ville/ServiceQuartierPage'));
+const SousServicePage = React.lazy(() => import('./lelever-next/services-pages/sous_service/SousServicePage'));
+const BlogPage = React.lazy(() => import('./lelever-next/pages/BlogPage'));
+const CommentChoisirPeintreProfessionnelPage = React.lazy(() => import('./lelever-next/pages/CommentChoisirPeintreProfessionnelPage'));
+const PrixPeintureMontrealPage = React.lazy(() => import('./lelever-next/pages/PrixPeintureMontrealPage'));
+const ErreursAEviterPeintureInterieurePage = React.lazy(() => import('./lelever-next/pages/ErreursAEviterPeintureInterieurePage'));
+const NotFoundPage = React.lazy(() => import('./lelever-next/pages/NotFoundPage'));
+const AuditImagesPage = React.lazy(() => import('./lelever-next/pages/AuditImagesPage'));
+const SoumissionDashboard = React.lazy(() => import('./pages/SoumissionDashboard'));
+const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
+const EmploiesDashboard = React.lazy(() => import('./pages/EmploiesDashboard'));
+const ContactDashboard = React.lazy(() => import('./pages/ContactDashboard'));
+const TimeSheet = React.lazy(() => import('./pages/TimeSheet'));
+const TimeSheetDashboard = React.lazy(() => import('./pages/TimeSheetDashboard'));
+const EmployeeManagement = React.lazy(() => import('./pages/EmployeeManagement'));
+const EmployeeDetails = React.lazy(() => import('./pages/EmployeeDetails'));
+const ThermOfUsePage = React.lazy(() => import('./pages/ThermOfUse'));
+const PrivacyPolicyPage = React.lazy(() => import('./pages/PrivacyPolicyPage'));
 
 export default function App() {
   return (
@@ -66,37 +68,37 @@ export default function App() {
           />
 
           <Route path="/" element={<NewWebsiteLayout />}>
-            <Route index element={<NewHomePage />} />
-            <Route path="contact" element={<ContactPage />} />
-            <Route path="a-propos" element={<AboutPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><NewHomePage /></Suspense>} />
+            <Route path="contact" element={<Suspense fallback={<PageSkeleton />}><ContactPage /></Suspense>} />
+            <Route path="a-propos" element={<Suspense fallback={<PageSkeleton />}><AboutPage /></Suspense>} />
             <Route
               path="politiques/confidentialite"
-              element={<PrivacyPolicyPage />}
+              element={<Suspense fallback={<PageSkeleton />}><PrivacyPolicyPage /></Suspense>}
             />
             <Route
               path="politiques/termes-conditions"
-              element={<ThermOfUsePage />}
+              element={<Suspense fallback={<PageSkeleton />}><ThermOfUsePage /></Suspense>}
             />
-            <Route path="audit-images" element={<AuditImagesPage />} />
+            <Route path="audit-images" element={<Suspense fallback={<PageSkeleton />}><AuditImagesPage /></Suspense>} />
           </Route>
           <Route path="/peintre-professionnel" element={<NewWebsiteLayout />}>
-            <Route index element={<PeintreProfessionnelPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><PeintreProfessionnelPage /></Suspense>} />
           </Route>
           <Route path="/avis" element={<NewWebsiteLayout />}>
-            <Route index element={<AvisPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><AvisPage /></Suspense>} />
           </Route>
           <Route path="/secteurs-desservis" element={<NewWebsiteLayout />}>
-            <Route index element={<SecteursDesservisPage />} />
-            <Route path="brossard" element={<BrossardCityPage />} />
-            <Route path="montreal" element={<MontrealCityPage />} />
-            <Route path="laval" element={<LavalCityPage />} />
-            <Route path="longueuil" element={<LongueuilCityPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><SecteursDesservisPage /></Suspense>} />
+            <Route path="brossard" element={<Suspense fallback={<PageSkeleton />}><BrossardCityPage /></Suspense>} />
+            <Route path="montreal" element={<Suspense fallback={<PageSkeleton />}><MontrealCityPage /></Suspense>} />
+            <Route path="laval" element={<Suspense fallback={<PageSkeleton />}><LavalCityPage /></Suspense>} />
+            <Route path="longueuil" element={<Suspense fallback={<PageSkeleton />}><LongueuilCityPage /></Suspense>} />
           </Route>
           <Route path="/services" element={<NewWebsiteLayout />}>
-            <Route index element={<ServicesPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><ServicesPage /></Suspense>} />
             <Route
               path="peinture-commerciale"
-              element={<PeintureCommercialePage />}
+              element={<Suspense fallback={<PageSkeleton />}><PeintureCommercialePage /></Suspense>}
             />
             <Route
               path="new-peinture-exterieure"
@@ -106,11 +108,11 @@ export default function App() {
             />
             <Route
               path="peinture-exterieure"
-              element={<PeintureExterieurePage />}
+              element={<Suspense fallback={<PageSkeleton />}><PeintureExterieurePage /></Suspense>}
             />
             <Route
               path="peinture-residentielle"
-              element={<PeintureResidentiellePage />}
+              element={<Suspense fallback={<PageSkeleton />}><PeintureResidentiellePage /></Suspense>}
             />
             <Route
               path="new-peinture-interieure"
@@ -118,15 +120,15 @@ export default function App() {
             />
             <Route
               path="peinture-interieure"
-              element={<PeintureInterieurePage />}
+              element={<Suspense fallback={<PageSkeleton />}><PeintureInterieurePage /></Suspense>}
             />
             <Route
               path="peinture-industrielle"
-              element={<PeintureIndustriellePage />}
+              element={<Suspense fallback={<PageSkeleton />}><PeintureIndustriellePage /></Suspense>}
             />
             <Route
               path=":serviceSlug/:subServiceSlug"
-              element={<SousServicePage />}
+              element={<Suspense fallback={<PageSkeleton />}><SousServicePage /></Suspense>}
             />
             <Route
               path=":serviceSlug/:param2/:param3"
@@ -134,22 +136,22 @@ export default function App() {
             />
             <Route
               path=":serviceSlug/:citySlug"
-              element={<ServiceQuartierPage />}
+              element={<Suspense fallback={<PageSkeleton />}><ServiceQuartierPage /></Suspense>}
             />
           </Route>
           <Route path="/blog" element={<NewWebsiteLayout />}>
-            <Route index element={<BlogPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><BlogPage /></Suspense>} />
             <Route
               path="comment-choisir-un-peintre-professionnel"
-              element={<CommentChoisirPeintreProfessionnelPage />}
+              element={<Suspense fallback={<PageSkeleton />}><CommentChoisirPeintreProfessionnelPage /></Suspense>}
             />
             <Route
               path="prix-peinture-montreal"
-              element={<PrixPeintureMontrealPage />}
+              element={<Suspense fallback={<PageSkeleton />}><PrixPeintureMontrealPage /></Suspense>}
             />
             <Route
               path="erreurs-a-eviter-peinture-interieure"
-              element={<ErreursAEviterPeintureInterieurePage />}
+              element={<Suspense fallback={<PageSkeleton />}><ErreursAEviterPeintureInterieurePage /></Suspense>}
             />
           </Route>
 
@@ -160,13 +162,13 @@ export default function App() {
           <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
-              element={<LandingPageV2 lang="fr" indexable={false} />}
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
             />
           </Route>
           <Route path="/en" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
-              element={<LandingPageV2 lang="en" indexable={false} />}
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
             />
             <Route
               path="painter-montreal"
@@ -176,20 +178,20 @@ export default function App() {
 
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
           <Route path="/admin">
-            <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="soumissions" element={<SoumissionDashboard />} />
-            <Route path="emplois" element={<EmploiesDashboard />} />
-            <Route path="contact" element={<ContactDashboard />} />
-            <Route path="timesheets" element={<TimeSheetDashboard />} />
-            <Route path="employees" element={<EmployeeManagement />} />
-            <Route path="employee-details" element={<EmployeeDetails />} />
+            <Route path="dashboard" element={<Suspense fallback={<PageSkeleton />}><AdminDashboard /></Suspense>} />
+            <Route path="soumissions" element={<Suspense fallback={<PageSkeleton />}><SoumissionDashboard /></Suspense>} />
+            <Route path="emplois" element={<Suspense fallback={<PageSkeleton />}><EmploiesDashboard /></Suspense>} />
+            <Route path="contact" element={<Suspense fallback={<PageSkeleton />}><ContactDashboard /></Suspense>} />
+            <Route path="timesheets" element={<Suspense fallback={<PageSkeleton />}><TimeSheetDashboard /></Suspense>} />
+            <Route path="employees" element={<Suspense fallback={<PageSkeleton />}><EmployeeManagement /></Suspense>} />
+            <Route path="employee-details" element={<Suspense fallback={<PageSkeleton />}><EmployeeDetails /></Suspense>} />
           </Route>
-          <Route path="/timesheet" element={<TimeSheet />} />
+          <Route path="/timesheet" element={<Suspense fallback={<PageSkeleton />}><TimeSheet /></Suspense>} />
           <Route path="/404" element={<NewWebsiteLayout />}>
-            <Route index element={<NotFoundPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><NotFoundPage /></Suspense>} />
           </Route>
           <Route path="*" element={<NewWebsiteLayout />}>
-            <Route index element={<NotFoundPage />} />
+            <Route index element={<Suspense fallback={<PageSkeleton />}><NotFoundPage /></Suspense>} />
           </Route>
         </Routes>
       </AppProvider>

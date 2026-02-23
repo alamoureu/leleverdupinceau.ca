@@ -262,6 +262,8 @@ export default function SousServiceVillePage() {
                       w="100%"
                       h={{ base: '200px', md: '250px' }}
                       objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ))}
                 </SimpleGrid>

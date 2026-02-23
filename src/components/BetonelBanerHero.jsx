@@ -6,6 +6,7 @@ export default function BetonelBanerHero({ isMobile, lang }) {
     <Stack pb={{ base: '50px', md: '100px' }} mt="20px">
       <Image
         loading="lazy"
+        decoding="async"
         alt="Banner Le lever du pinceau"
         src={
           isMobile

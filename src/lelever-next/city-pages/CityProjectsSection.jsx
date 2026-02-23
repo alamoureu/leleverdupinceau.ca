@@ -194,6 +194,7 @@ export default function CityProjectsSection({
                         w="100%"
                         h="100%"
                         loading="lazy"
+                        decoding="async"
                         objectFit="cover"
                         objectPosition="center"
                         display="block"

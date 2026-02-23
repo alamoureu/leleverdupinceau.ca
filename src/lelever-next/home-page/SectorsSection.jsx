@@ -135,6 +135,8 @@ export default function SectorsSection({
                     transform={
                       sector.name === 'Montréal' ? 'scale(1.25)' : 'none'
                     }
+                    loading="lazy"
+                    decoding="async"
                   />
                   <Box
                     position="absolute"

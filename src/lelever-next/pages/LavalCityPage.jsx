@@ -182,6 +182,8 @@ export default function LavalCityPage() {
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
+                loading="lazy"
+                decoding="async"
               />
             </Box>
           </Grid>

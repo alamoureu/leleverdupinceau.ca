@@ -83,6 +83,7 @@ export default function NewWebsiteLayout() {
                 <RouterLink to="/">
                   <Image
                     loading="lazy"
+                    decoding="async"
                     src={
                       'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
                     }

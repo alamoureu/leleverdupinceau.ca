@@ -22,6 +22,7 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
       >
         <Image
           loading='lazy'
+          decoding="async"
           src='https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/main-background.png'
           alt='Le lever du pinceau'
           objectFit={{ base: 'cover', md: 'cover' }}
@@ -101,6 +102,7 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
       >
         <Image
           loading='lazy'
+          decoding="async"
           src={
             lang === 'fr'
               ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/SSSS+(1).png'

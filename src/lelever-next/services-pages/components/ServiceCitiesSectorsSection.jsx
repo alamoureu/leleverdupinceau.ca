@@ -103,6 +103,8 @@ export default function ServiceCitiesSectorsSection({
                       h='100%'
                       objectFit='cover'
                       zIndex={0}
+                      loading="lazy"
+                      decoding="async"
                     />
                     {/* Color Overlay Filter */}
                     <Box

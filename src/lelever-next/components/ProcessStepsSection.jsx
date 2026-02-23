@@ -100,6 +100,8 @@ export default function ProcessStepsSection({
                     h={{ base: '140px', sm: '160px', md: '200px', lg: '260px', xl: '320px', '2xl': '360px' }}
                     objectFit="cover"
                     display="block"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </Box>
                 <Flex

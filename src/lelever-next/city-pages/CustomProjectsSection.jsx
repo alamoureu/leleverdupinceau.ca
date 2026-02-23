@@ -10,7 +10,6 @@ import {
   HStack,
   IconButton,
   Image,
-  Skeleton,
 } from '@chakra-ui/react';
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -147,16 +146,6 @@ export default function CustomProjectsSection({
                     )}
                     {images.length > 0 && (
                       <>
-                        {imageLoading[`${project.id}-${currentIndex}`] && (
-                          <Skeleton
-                            position='absolute'
-                            top={0}
-                            left={0}
-                            w='100%'
-                            h='100%'
-                            zIndex={1}
-                          />
-                        )}
                         {imageErrors[`${project.id}-${currentIndex}`] ? (
                           <Box
                             w='100%'
@@ -204,6 +193,7 @@ export default function CustomProjectsSection({
                                 w='100%'
                                 h='100%'
                                 loading='lazy'
+                                decoding="async"
                                 onLoad={() => {
                                   setImageLoading((prev) => ({
                                     ...prev,

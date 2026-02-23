@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import BlogPostPage from '../blog-posts/BlogPostPage';
-import { prixPeintureMontrealData } from '../blog-posts/prixPeintureMontrealData';
+import PageSkeleton from '../../PageSkeleton';
 
 export default function PrixPeintureMontrealPage() {
-  return <BlogPostPage blogData={prixPeintureMontrealData} />;
-}
+  const [blogData, setBlogData] = useState(null);
 
+  useEffect(() => {
+    import('../blog-posts/prixPeintureMontrealData').then((m) =>
+      setBlogData(m.prixPeintureMontrealData)
+    );
+  }, []);
+
+  if (!blogData) return <PageSkeleton />;
+  return <BlogPostPage blogData={blogData} />;
+}

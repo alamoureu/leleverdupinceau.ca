@@ -41,6 +41,9 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
         h="100%"
         objectFit="cover"
         zIndex={0}
+        loading="eager"
+        fetchPriority="high"
+        decoding="async"
       />
       <Box
         position='absolute'

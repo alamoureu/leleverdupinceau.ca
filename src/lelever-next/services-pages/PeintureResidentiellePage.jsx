@@ -198,6 +198,8 @@ export default function PeintureResidentiellePage() {
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
+                loading="lazy"
+                decoding="async"
               />
             </Box>
           </Grid>
@@ -344,6 +346,8 @@ export default function PeintureResidentiellePage() {
                             h='100%'
                             objectFit='cover'
                             objectPosition='center'
+                            loading="lazy"
+                            decoding="async"
                           />
                         </Box>
                         <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
@@ -407,6 +411,8 @@ export default function PeintureResidentiellePage() {
                             h='100%'
                             objectFit='cover'
                             objectPosition='center'
+                            loading="lazy"
+                            decoding="async"
                           />
                         </Box>
                         <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>

@@ -196,6 +196,8 @@ export default function PeintureExterieurePage() {
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
+                loading="lazy"
+                decoding="async"
               />
             </Box>
           </Grid>
@@ -339,6 +341,8 @@ export default function PeintureExterieurePage() {
                             h='100%'
                             objectFit='cover'
                             objectPosition='center'
+                            loading="lazy"
+                            decoding="async"
                           />
                         </Box>
                         <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
@@ -402,6 +406,8 @@ export default function PeintureExterieurePage() {
                             h='100%'
                             objectFit='cover'
                             objectPosition='center'
+                            loading="lazy"
+                            decoding="async"
                           />
                         </Box>
                         <Stack spacing={3} flex={1} p={{ base: 5, md: 6 }}>
@@ -498,6 +504,8 @@ export default function PeintureExterieurePage() {
                           w='100%'
                           h={{ base: '200px', md: '250px' }}
                           objectFit='cover'
+                          loading="lazy"
+                          decoding="async"
                         />
                         <Text fontSize="sm" color="gray.600" lineHeight="1.5" textAlign="left">
                           {img.alt}

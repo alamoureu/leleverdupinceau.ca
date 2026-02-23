@@ -596,6 +596,8 @@ export default function TimeSheet() {
                                 w='100%'
                                 h='auto'
                                 borderRadius='md'
+                                loading="lazy"
+                                decoding="async"
                               />
                             </Box>
                           )}

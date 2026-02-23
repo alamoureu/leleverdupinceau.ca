@@ -444,6 +444,8 @@ export default function AvisPage() {
                 h="100%"
                 objectFit="cover"
                 objectPosition="center"
+                loading="lazy"
+                decoding="async"
               />
             </Box>
           </Grid>
@@ -686,6 +688,8 @@ export default function AvisPage() {
                                 h="100%"
                                 objectFit="cover"
                                 objectPosition="center"
+                                loading="lazy"
+                                decoding="async"
                               />
                             </Box>
                           )}

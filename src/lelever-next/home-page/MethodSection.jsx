@@ -148,6 +148,8 @@ export default function MethodSection({ onSubmissionOpen }) {
                     }}
                     objectFit="cover"
                     display="block"
+                    loading="lazy"
+                    decoding="async"
                   />
                 </Box>
                 <Flex

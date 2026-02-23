@@ -131,6 +131,8 @@ export default function TrustBanner({ compact = false }) {
                   w="auto"
                   objectFit="contain"
                   display="block"
+                  loading="lazy"
+                  decoding="async"
                 />
               )}
               <Text

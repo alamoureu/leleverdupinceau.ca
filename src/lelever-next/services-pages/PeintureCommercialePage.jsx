@@ -26,7 +26,7 @@ import SectorsSection, {
   longueuilSecteur,
   brossardSecteur,
 } from '../home-page/SectorsSection';
-import commercialPhotoHeader from '../images/1-page-principale/service hub/Photo header/services-header-spray.png';
+import commercialPhotoHeader from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -189,6 +189,8 @@ export default function PeintureCommercialePage() {
                 src={commercialPhotoHeader}
                 alt={isFr ? 'Peinture commerciale – Le Lever du Pinceau' : 'Commercial painting – Le Lever du Pinceau'}
                 w="100%"
+                loading="lazy"
+                decoding="async"
                 h="100%"
                 objectFit="cover"
                 objectPosition="center"

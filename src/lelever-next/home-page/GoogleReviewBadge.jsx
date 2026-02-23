@@ -72,6 +72,8 @@ export default function GoogleReviewBadge() {
           minH={{ base: 3, sm: 3, md: 4, lg: 5, xl: 5 }}
           objectFit='contain'
           flexShrink={0}
+          loading="lazy"
+          decoding="async"
         />
       </Flex>
     </Box>

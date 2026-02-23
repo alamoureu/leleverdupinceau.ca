@@ -566,6 +566,8 @@ export default function TimeSheetDashboard() {
                                   w='100%'
                                   h='100%'
                                   objectFit='cover'
+                                  loading="lazy"
+                                  decoding="async"
                                   onError={(e) => {
                                     e.target.style.display = 'none';
                                   }}
@@ -606,6 +608,8 @@ export default function TimeSheetDashboard() {
                                   w='100%'
                                   h='100%'
                                   objectFit='cover'
+                                  loading="lazy"
+                                  decoding="async"
                                   onError={(e) => {
                                     e.target.style.display = 'none';
                                   }}
@@ -1240,6 +1244,8 @@ export default function TimeSheetDashboard() {
                     maxH='70vh'
                     objectFit='contain'
                     borderRadius='md'
+                    loading="lazy"
+                    decoding="async"
                     onError={(e) => {
                       // Handle image load error silently
                     }}

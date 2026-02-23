@@ -84,6 +84,7 @@ export default function ClientReviewsHero({ lang, onDrawerOpen }) {
       >
         <Image
           loading="lazy"
+          decoding="async"
           src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/SSSS+(1).png"
           alt={lang === 'fr' ? 'Logo Google' : 'Google Logo'}
           w={{ base: '100px', md: '100px' }}
@@ -105,6 +106,7 @@ export default function ClientReviewsHero({ lang, onDrawerOpen }) {
         >
           <Image
             loading="lazy"
+            decoding="async"
             src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/nicearrow%2B(1)2+(1).png"
             alt={
               lang === 'fr'
