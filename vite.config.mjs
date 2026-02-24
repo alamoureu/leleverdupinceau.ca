@@ -14,17 +14,19 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('react-dom') || id.includes('react/') || id.includes('scheduler')) {
-              return 'react-vendor';
-            }
-            if (id.includes('@chakra-ui') || id.includes('@emotion')) {
-              return 'chakra';
-            }
-            if (id.includes('react-router')) {
-              return 'router';
-            }
-            if (id.includes('framer-motion') || id.includes('react-compare-image') || id.includes('react-simple-image-slider')) {
-              return 'heavy';
+            // All React-dependent libs in ONE chunk so they share the same React instance (avoids createContext/useLayoutEffect undefined)
+            if (
+              id.includes('react-dom') ||
+              id.includes('react/') ||
+              id.includes('scheduler') ||
+              id.includes('@chakra-ui') ||
+              id.includes('@emotion') ||
+              id.includes('react-router') ||
+              id.includes('framer-motion') ||
+              id.includes('react-compare-image') ||
+              id.includes('react-simple-image-slider')
+            ) {
+              return 'vendor';
             }
           }
         },

@@ -3,28 +3,27 @@ import {
   Modal,
   ModalOverlay,
   ModalContent,
+  ModalHeader,
   ModalBody,
+  ModalFooter,
   ModalCloseButton,
-  Box,
-  Flex,
-  Heading,
+  Button,
 } from '@chakra-ui/react';
 import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
 
-const MODAL_PX = { base: 6, md: 8 };
-const MODAL_HEADER_PT = { base: 6, md: 7 };
-const MODAL_HEADER_PB = { base: 4, md: 5 };
-const MODAL_BODY_PB = { base: 6, md: 7 };
+const SUBMISSION_FORM_ID = 'submission-form-modal';
 
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const initialFocusRef = useRef(null);
 
   useEffect(() => {
     if (!isOpen) {
       setIsSubmitted(false);
+      setIsSubmitting(false);
     }
   }, [isOpen]);
 
@@ -37,70 +36,44 @@ export default function SubmissionModal({ isOpen, onClose }) {
       isOpen={isOpen}
       onClose={onClose}
       isCentered
-      size={{ base: 'full', sm: 'xl' }}
+      size="xl"
       initialFocusRef={initialFocusRef}
       returnFocusOnClose
-      scrollBehavior='inside'
+      scrollBehavior="inside"
+      blockScrollOnMount
     >
       <ModalOverlay />
-      <ModalContent
-        mx={{ base: 0, sm: 4 }}
-        my={{ base: 0, sm: 'auto' }}
-        maxH={{ base: '100vh', sm: '90vh' }}
-        borderRadius={{ base: 0, sm: 'xl' }}
-        display='flex'
-        flexDirection='column'
-        overflow='hidden'
-      >
-        <Box
-          flex={1}
-          minH={0}
-          display='flex'
-          flexDirection='column'
-          px={MODAL_PX}
-          overflow='hidden'
-        >
-          {!isSubmitted && (
-            <Flex
-              align='center'
-              justify='space-between'
-              gap={3}
-              pt={MODAL_HEADER_PT}
-              pb={MODAL_HEADER_PB}
-              flexShrink={0}
+      <ModalContent maxH="90vh" display="flex" flexDirection="column">
+        {!isSubmitted && (
+          <ModalHeader>{t.modalTitle}</ModalHeader>
+        )}
+        <ModalCloseButton />
+        <ModalBody overflowY="auto" flex="1" minH={0} pb={4}>
+          <SubmissionForm
+            isModal
+            formId={SUBMISSION_FORM_ID}
+            onSubmissionStateChange={handleSubmissionStateChange}
+            onSubmittingChange={setIsSubmitting}
+            initialFocusRef={initialFocusRef}
+          />
+        </ModalBody>
+        {!isSubmitted && (
+          <ModalFooter>
+            <Button
+              form={SUBMISSION_FORM_ID}
+              type="submit"
+              colorScheme="brand"
+              size="lg"
+              w="100%"
+              isLoading={isSubmitting}
+              loadingText={t.formSubmitting}
+              spinnerPlacement="start"
+              disabled={isSubmitting}
             >
-              <Heading
-                as='h2'
-                size='md'
-                textStyle='stat'
-                fontWeight='bold'
-                color='gray.800'
-                flex={1}
-                noOfLines={1}
-              >
-                {t.modalTitle}
-              </Heading>
-              <ModalCloseButton position='relative' top={0} right={0} />
-            </Flex>
-          )}
-          <ModalBody
-            p={0}
-            pt={0}
-            flex={1}
-            minH={0}
-            overflowY='auto'
-            overflowX='hidden'
-            display='flex'
-            flexDirection='column'
-            pb={isSubmitted ? 0 : MODAL_BODY_PB}
-          >
-            <SubmissionForm
-              isModal
-              onSubmissionStateChange={handleSubmissionStateChange}
-              initialFocusRef={initialFocusRef}
-            />
-          </ModalBody>
-        </Box>
+              {t.formSubmit}
+            </Button>
+          </ModalFooter>
+        )}
       </ModalContent>
     </Modal>
   );

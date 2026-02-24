@@ -5,6 +5,7 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerOverlay,
+  Image,
   Stack,
   useDisclosure,
   IconButton,
@@ -69,19 +70,32 @@ export const MobileDrawer = () => {
           borderBottomRadius='2xl'
           pointerEvents='auto'
           zIndex={10001}
+          pt={{ base: 6, sm: 8 }}
         >
           <DrawerHeader
             bg='white'
-            py={{ base: 3, sm: 4 }}
+            py={{ base: 5, sm: 6 }}
             px={{ base: 4, sm: 6 }}
             position='relative'
+            display='flex'
+            justifyContent='center'
+            alignItems='center'
           >
+            <Image
+              src='https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
+              alt='Le Lever du Pinceau'
+              h={{ base: '48px', sm: '56px' }}
+              w='auto'
+              maxW='200px'
+              objectFit='contain'
+              filter='brightness(0)'
+            />
             <IconButton
               icon={<FontAwesomeIcon icon={faTimes} />}
               aria-label='Close menu'
               onClick={onClose}
               fontSize={{ base: 'xl', sm: '2xl' }}
-              top={{ base: 3, sm: 4 }}
+              top={{ base: 4, sm: 5 }}
               right={{ base: 4, sm: 6 }}
               variant='ghost'
               position='absolute'

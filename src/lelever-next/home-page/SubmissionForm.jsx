@@ -137,7 +137,9 @@ const theme = extendTheme({
 export default function SubmissionForm({
   onSubmit,
   onSubmissionStateChange,
+  onSubmittingChange,
   isModal = false,
+  formId,
   initialFocusRef,
 }) {
   const { t, currentLang } = useTranslation();
@@ -177,6 +179,12 @@ export default function SubmissionForm({
       onSubmissionStateChange(false);
     }
   }, [isSubmitted, onSubmissionStateChange]);
+
+  useEffect(() => {
+    if (isModal && onSubmittingChange) {
+      onSubmittingChange(isSubmitting);
+    }
+  }, [isModal, isSubmitting, onSubmittingChange]);
 
   const getErrors = () => {
     const suffix = t.formRequiredSuffix ?? ' required';
@@ -338,31 +346,15 @@ export default function SubmissionForm({
     <ChakraProvider theme={theme}>
       <Box
         as="form"
+        id={isModal ? formId : undefined}
         onSubmit={handleSubmit}
         w="100%"
         maxW={{ base: '100%', sm: '480px', md: '520px' }}
         mx="auto"
-        display="flex"
-        flexDirection="column"
-        flex={isModal ? '1' : undefined}
-        minH={isModal ? '0' : undefined}
         py={isModal ? 0 : { base: 6, md: 8 }}
         px={isModal ? 0 : { base: 2, sm: 4 }}
       >
-        <Box
-          flex={isModal ? '1' : undefined}
-          minH={isModal ? 0 : undefined}
-          overflowY={isModal ? 'auto' : undefined}
-          overscrollBehavior="contain"
-          w="100%"
-          pt={{ base: 3, md: 4 }}
-        >
-          <Stack
-            spacing={isModal ? { base: 6, md: 7 } : { base: 6, md: 7 }}
-            align="stretch"
-            w="100%"
-            pb={isModal ? { base: 6, md: 7 } : { base: 4, md: 6 }}
-          >
+        <Stack spacing={6} align="stretch" w="100%">
           <FormControl variant="floating" isRequired isInvalid={showError('name')}>
             <Input
               ref={initialFocusRef}
@@ -505,33 +497,15 @@ export default function SubmissionForm({
             <FormErrorMessage mt={2}>{errors.consentAccepted}</FormErrorMessage>
           </FormControl>
 
-          </Stack>
-        </Box>
+        </Stack>
 
-        <Box
-          flexShrink={0}
-          w="100%"
-          pt={isModal ? { base: 4, md: 5 } : { base: 6, md: 8 }}
-          pb={isModal ? { base: 4, md: 5 } : 0}
-          borderTopWidth={isModal ? '1px' : 0}
-          borderColor="gray.200"
-          mt="auto"
-          bg="white"
-        >
+        {!isModal && (
           <Button
             type="submit"
-            bg={BRAND_BLUE}
-            color="white"
+            colorScheme="brand"
             w="100%"
-            fontSize={{ base: 'md', md: 'md' }}
-            py={{ base: 4, md: 5, lg: 6 }}
-            fontWeight="semibold"
-            borderRadius="full"
-            _hover={{ bg: BRAND_BLUE_HOVER }}
-            _loading={{
-              opacity: 0.8,
-              cursor: 'not-allowed',
-            }}
+            size="lg"
+            mt={6}
             isLoading={isSubmitting}
             loadingText={t.formSubmitting}
             spinnerPlacement="start"
@@ -539,7 +513,7 @@ export default function SubmissionForm({
           >
             {t.formSubmit}
           </Button>
-        </Box>
+        )}
       </Box>
     </ChakraProvider>
   );
