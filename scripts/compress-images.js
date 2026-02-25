@@ -1,15 +1,17 @@
 #!/usr/bin/env node
 /**
- * Compress ALL website images in place (overwrites originals in src/lelever-next/images).
+ * Compress AND resize ALL website images in place (overwrites originals in src/lelever-next/images).
+ * Resizing is the main fix for slow loading: images larger than maxDim are scaled down.
  * Requires: npm install --save-dev sharp
  *
  * Usage:
- *   node scripts/compress-images.js              # compress all images in place
- *   node scripts/compress-images.js --dry-run    # list all files that would be compressed
+ *   node scripts/compress-images.js              # compress + resize all images in place
+ *   node scripts/compress-images.js --dry-run    # list all files that would be processed
  *
  * Options:
  *   --quality=82    JPEG/WebP quality (default 82)
  *   --png-level=9   PNG compression 0-9 (default 9)
+ *   --max-dim=1920  Max width/height in px; images larger are resized (default 1920)
  */
 
 const fs = require('fs');
@@ -45,11 +47,13 @@ function parseArgs() {
     dryRun: false,
     jpegQuality: 82,
     pngLevel: 9,
+    maxDim: 1920,
   };
   for (const a of args) {
     if (a === '--dry-run') opts.dryRun = true;
     else if (a.startsWith('--quality=')) opts.jpegQuality = Math.max(1, Math.min(100, parseInt(a.slice(10), 10) || 82));
     else if (a.startsWith('--png-level=')) opts.pngLevel = Math.max(0, Math.min(9, parseInt(a.slice(11), 10) ?? 9));
+    else if (a.startsWith('--max-dim=')) opts.maxDim = Math.max(320, Math.min(4096, parseInt(a.slice(10), 10) || 1920));
   }
   return opts;
 }
@@ -75,8 +79,10 @@ async function compressWithSharp(opts) {
   }
 
   console.log('Found', images.length, 'images in src/lelever-next/images');
+  console.log('Resize: max dimension', opts.maxDim, 'px (images larger will be scaled down)');
   let totalOriginal = 0;
   let totalNew = 0;
+  let resizedCount = 0;
   const tempDir = path.join(os.tmpdir(), 'lelever-compress-' + Date.now());
 
   if (!opts.dryRun) {
@@ -101,6 +107,17 @@ async function compressWithSharp(opts) {
       let pipeline = sharp(img.absolutePath);
       const meta = await pipeline.metadata();
       const format = meta.format;
+      const w = meta.width || 0;
+      const h = meta.height || 0;
+      const needsResize = opts.maxDim > 0 && (w > opts.maxDim || h > opts.maxDim);
+
+      if (needsResize) {
+        pipeline = pipeline.resize(opts.maxDim, opts.maxDim, {
+          fit: 'inside',
+          withoutEnlargement: true,
+        });
+        resizedCount++;
+      }
 
       if (format === 'jpeg' || format === 'jpg') {
         pipeline = pipeline.jpeg({ quality: opts.jpegQuality, mozjpeg: true });
@@ -118,12 +135,24 @@ async function compressWithSharp(opts) {
 
       await pipeline.toFile(tempPath);
       const newSize = fs.statSync(tempPath).size;
+      const newMeta = await sharp(tempPath).metadata();
+      const newW = newMeta.width || w;
+      const newH = newMeta.height || h;
       fs.renameSync(tempPath, img.absolutePath);
       totalOriginal += originalSize;
       totalNew += newSize;
+      // Log when dimensions or file size changed so you see images being modified
+      const sizeChange = originalSize !== newSize;
+      const dimChange = needsResize && (w !== newW || h !== newH);
+      if (sizeChange || dimChange) {
+        const parts = [img.path];
+        if (dimChange) parts.push(` ${w}x${h} → ${newW}x${newH}`);
+        if (sizeChange) parts.push(` ${(originalSize / 1024).toFixed(1)}KB → ${(newSize / 1024).toFixed(1)}KB`);
+        console.log('  ', parts.join(' |'));
+      }
     } catch (err) {
       if (fs.existsSync(tempPath)) try { fs.unlinkSync(tempPath); } catch (_) {}
-      console.error('Error compressing', img.path, err.message);
+      console.error('Error processing', img.path, err.message);
     }
   }
 
@@ -141,7 +170,8 @@ async function compressWithSharp(opts) {
 
   const saved = totalOriginal - totalNew;
   const pct = totalOriginal ? ((saved / totalOriginal) * 100).toFixed(1) : 0;
-  console.log('Compressed', images.length, 'images in place');
+  console.log('');
+  console.log('Done. Processed', images.length, 'images in place' + (resizedCount ? ' (' + resizedCount + ' resized)' : ''));
   console.log('Before:', (totalOriginal / 1024 / 1024).toFixed(2), 'MB');
   console.log('After: ', (totalNew / 1024 / 1024).toFixed(2), 'MB');
   console.log('Saved:  ', (saved / 1024 / 1024).toFixed(2), 'MB (' + pct + '%)');
