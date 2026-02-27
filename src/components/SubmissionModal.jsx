@@ -51,7 +51,7 @@ function SubmissionModal({ isOpen, onClose }) {
             flexShrink={0}
             textTransform="uppercase"
           >
-            {title}
+            {t.modalTitle}
           </ModalHeader>
         )}
         <ModalCloseButton />
@@ -71,6 +71,7 @@ function SubmissionModal({ isOpen, onClose }) {
               colorScheme="brand"
               size="lg"
               w="100%"
+              borderRadius="full"
               isLoading={isSubmitting}
               loadingText={t.formSubmitting}
               spinnerPlacement="start"
