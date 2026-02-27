@@ -64,21 +64,21 @@ export default function PeintureExterieurePage() {
 
   const whyUsContent = isFr
     ? [
-        'Nettoyage, préparation et réparation des surfaces',
-        'Décapage ou sablage selon le type de revêtement',
-        'Protection complète des fenêtres, portes et végétation',
-        'Application uniforme et durable',
-        'Produits spécialisés : bois, aluminium, brique, crépi, vinyle',
-        'Finition résistante aux intempéries et aux UV',
-      ]
+      'Nettoyage, préparation et réparation des surfaces',
+      'Décapage ou sablage selon le type de revêtement',
+      'Protection complète des fenêtres, portes et végétation',
+      'Application uniforme et durable',
+      'Produits spécialisés : bois, aluminium, brique, crépi, vinyle',
+      'Finition résistante aux intempéries et aux UV',
+    ]
     : [
-        'Cleaning, preparation and surface repair',
-        'Stripping or sandblasting depending on coating type',
-        'Complete protection of windows, doors and vegetation',
-        'Uniform and durable application',
-        'Specialized products: wood, aluminum, brick, stucco, vinyl',
-        'Finish resistant to weather and UV',
-      ];
+      'Cleaning, preparation and surface repair',
+      'Stripping or sandblasting depending on coating type',
+      'Complete protection of windows, doors and vegetation',
+      'Uniform and durable application',
+      'Specialized products: wood, aluminum, brick, stucco, vinyl',
+      'Finish resistant to weather and UV',
+    ];
 
   const metaDescription = isFr
     ? 'Le Lever du Pinceau offre des services de peinture extérieure pour maisons, commerces et bâtiments industriels dans le Grand Montréal. Produits résistants aux intempéries, protection durable, finition professionnelle.'
@@ -102,7 +102,7 @@ export default function PeintureExterieurePage() {
         </script>
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
@@ -117,39 +117,39 @@ export default function PeintureExterieurePage() {
             <Stack spacing={0} minW={0}>
               <HStack
                 spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to='/services'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Services' : 'Services'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Peinture extérieure' : 'Exterior painting'}
-              </Text>
-            </HStack>
-            <Stack spacing={4} textAlign='left'>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to='/services'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Services' : 'Services'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Peinture extérieure' : 'Exterior painting'}
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign='left'>
                 <Heading
                   as='h1'
                   fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -180,8 +180,8 @@ export default function PeintureExterieurePage() {
                     ? "👉 Nos peintres professionnels utilisent des produits haut de gamme, résistants aux UV, à l'humidité, aux variations de température et au climat québécois. Pour rafraîchir votre façade, moderniser une structure extérieure ou protéger un revêtement, notre équipe est prête à intervenir."
                     : '👉 Our professional painters use high-end products, resistant to UV, humidity, temperature variations and Quebec climate. To refresh your facade, modernize an exterior structure or protect a coating, our team is ready to intervene.'}
                 </Text>
+              </Stack>
             </Stack>
-          </Stack>
             <Box
               w='100%'
               aspectRatio={{ base: '1', md: '4/3' }}

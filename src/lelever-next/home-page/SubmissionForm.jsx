@@ -26,7 +26,7 @@ import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { fontFamily } from '../../theme';
 
 const activeLabelStyles = {
-  transform: 'scale(0.85) translateY(-24px)',
+  transform: 'scale(0.8) translateY(-20px)',
 };
 
 const BRAND_BLUE = '#1E4BBA';
@@ -98,6 +98,7 @@ const theme = extendTheme({
           fontWeight: 'medium',
           color: 'gray.800',
           cursor: 'pointer',
+          fontSize: 'sm',
         },
       },
       sizes: {
@@ -354,158 +355,187 @@ export default function SubmissionForm({
         py={isModal ? 0 : { base: 6, md: 8 }}
         px={isModal ? 0 : { base: 2, sm: 4 }}
       >
-        <Stack spacing={6} align="stretch" w="100%">
-          <FormControl variant="floating" isRequired isInvalid={showError('name')}>
-            <Input
-              ref={initialFocusRef}
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
-              placeholder=" "
-              size="lg"
-              borderColor="gray.300"
-              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-            />
-            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-              {t.formName}
-            </FormLabel>
-            <FormErrorMessage>{errors.name}</FormErrorMessage>
-          </FormControl>
-
-          <FormControl variant="floating" isRequired isInvalid={showError('email')}>
-            <Input
-              name="email"
-              type="email"
-              value={formData.email}
-              onChange={handleChange}
-              onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
-              placeholder=" "
-              size="lg"
-              borderColor="gray.300"
-              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-            />
-            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-              {t.formEmail}
-            </FormLabel>
-            <FormErrorMessage>{errors.email}</FormErrorMessage>
-          </FormControl>
-
-          <FormControl variant="floating" isRequired isInvalid={showError('phone')}>
-            <Input
-              name="phone"
-              type="tel"
-              value={formData.phone}
-              onChange={handleChange}
-              onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
-              placeholder=" "
-              size="lg"
-              borderColor="gray.300"
-              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-            />
-            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-              {t.formPhone}
-            </FormLabel>
-            <FormErrorMessage>{errors.phone}</FormErrorMessage>
-          </FormControl>
-
-          <FormControl variant="floating" isRequired isInvalid={showError('address')}>
-            <Input
-              name="address"
-              value={formData.address}
-              onChange={handleChange}
-              onBlur={() => setTouched((prev) => ({ ...prev, address: true }))}
-              placeholder=" "
-              size="lg"
-              borderColor="gray.300"
-              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-            />
-            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-              {t.formAddress}
-            </FormLabel>
-            <FormErrorMessage>{errors.address}</FormErrorMessage>
-          </FormControl>
-
-          <FormControl variant="floating" isRequired isInvalid={showError('projectDetails')}>
-            <Textarea
-              name="projectDetails"
-              value={formData.projectDetails}
-              onChange={handleChange}
-              onBlur={() => setTouched((prev) => ({ ...prev, projectDetails: true }))}
-              placeholder=" "
-              rows={4}
-              size="lg"
-              borderColor="gray.300"
-              resize="vertical"
-              _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-              _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-            />
-            <FormLabel color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-              {t.formProjectDetails}
-            </FormLabel>
-            <FormErrorMessage>{errors.projectDetails}</FormErrorMessage>
-          </FormControl>
-
-          <FormControl isRequired isInvalid={showError('paintingType')} w="100%">
-            <FormLabel color="gray.700" mb={2} requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-              {t.formPaintingType}
-            </FormLabel>
-            <RadioGroup
-              value={formData.paintingType}
-              onChange={(value) => {
-                handleRadioChange(value);
-                setTouched((prev) => ({ ...prev, paintingType: true }));
-              }}
-            >
-              <Stack direction="column" spacing={3} w="100%">
-                <Radio value="interior" colorScheme="brand" size="lg">
-                  {t.formInteriorPainting ?? t.serviceInterior}
-                </Radio>
-                <Radio value="exterior" colorScheme="brand" size="lg">
-                  {t.formExteriorPainting ?? t.serviceExterior}
-                </Radio>
-              </Stack>
-            </RadioGroup>
-            <FormErrorMessage>{errors.paintingType}</FormErrorMessage>
-          </FormControl>
-
-          <FormControl isRequired isInvalid={showError('consentAccepted')} w="100%">
-            <Stack direction="row" spacing={3} alignItems="flex-start" w="100%">
-              <Checkbox
-                name="consentAccepted"
-                isChecked={formData.consentAccepted}
+        <Box
+          flex={isModal ? '1' : undefined}
+          minH={isModal ? 0 : undefined}
+          overflowY="hidden"
+          overscrollBehavior="contain"
+          w="100%"
+          pt={{ base: 2, md: 2 }}
+        >
+          <Stack
+            spacing={isModal ? { base: 3, md: 4 } : { base: 4, md: 5 }}
+            align="stretch"
+            w="100%"
+            pb={isModal ? { base: 2, md: 3 } : { base: 4, md: 6 }}
+          >
+            <FormControl variant="floating" isRequired isInvalid={showError('name')}>
+              <Input
+                ref={initialFocusRef}
+                name="name"
+                value={formData.name}
                 onChange={handleChange}
+                onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
+                placeholder=" "
                 size="md"
-                mt={0.5}
+                borderColor="gray.300"
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
               />
-              <Box fontSize={{ base: 'xs', sm: 'sm' }} color="gray.700" flex={1} lineHeight="1.5">
-                {t.formConsentText}{' '}
-                <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                  {t.formTermsAndConditions}
-                </Link>{' '}
-                {t.formAnd}{' '}
-                <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                  {t.formPrivacyPolicy}
-                </Link>{' '}
-                {t.formOf}
-              </Box>
-            </Stack>
-            <FormErrorMessage mt={2}>{errors.consentAccepted}</FormErrorMessage>
-          </FormControl>
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+                {t.formName}
+              </FormLabel>
+              <FormErrorMessage>{errors.name}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl variant="floating" isRequired isInvalid={showError('email')}>
+              <Input
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
+                placeholder=" "
+                size="md"
+                borderColor="gray.300"
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
+              />
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+                {t.formEmail}
+              </FormLabel>
+              <FormErrorMessage>{errors.email}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl variant="floating" isRequired isInvalid={showError('phone')}>
+              <Input
+                name="phone"
+                type="tel"
+                value={formData.phone}
+                onChange={handleChange}
+                onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
+                placeholder=" "
+                size="md"
+                borderColor="gray.300"
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
+              />
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+                {t.formPhone}
+              </FormLabel>
+              <FormErrorMessage>{errors.phone}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl variant="floating" isRequired isInvalid={showError('address')}>
+              <Input
+                name="address"
+                value={formData.address}
+                onChange={handleChange}
+                onBlur={() => setTouched((prev) => ({ ...prev, address: true }))}
+                placeholder=" "
+                size="md"
+                borderColor="gray.300"
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
+              />
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+                {t.formAddress}
+              </FormLabel>
+              <FormErrorMessage>{errors.address}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl variant="floating" isRequired isInvalid={showError('projectDetails')}>
+              <Textarea
+                name="projectDetails"
+                value={formData.projectDetails}
+                onChange={handleChange}
+                onBlur={() => setTouched((prev) => ({ ...prev, projectDetails: true }))}
+                placeholder=" "
+                rows={2}
+                size="md"
+                borderColor="gray.300"
+                resize="vertical"
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
+              />
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+                {t.formProjectDetails}
+              </FormLabel>
+              <FormErrorMessage>{errors.projectDetails}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl isRequired isInvalid={showError('paintingType')} w="100%">
+              <FormLabel fontSize="sm" color="gray.700" mb={1} requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+                {t.formPaintingType}
+              </FormLabel>
+              <RadioGroup
+                value={formData.paintingType}
+                onChange={(value) => {
+                  handleRadioChange(value);
+                  setTouched((prev) => ({ ...prev, paintingType: true }));
+                }}
+              >
+                <Stack direction="column" spacing={1.5} w="100%">
+                  <Radio value="interior" colorScheme="brand" size="md">
+                    {t.formInteriorPainting ?? t.serviceInterior}
+                  </Radio>
+                  <Radio value="exterior" colorScheme="brand" size="md">
+                    {t.formExteriorPainting ?? t.serviceExterior}
+                  </Radio>
+                </Stack>
+              </RadioGroup>
+              <FormErrorMessage>{errors.paintingType}</FormErrorMessage>
+            </FormControl>
+
+            <FormControl isRequired isInvalid={showError('consentAccepted')} w="100%">
+              <Stack direction="row" spacing={3} alignItems="flex-start" w="100%">
+                <Checkbox
+                  name="consentAccepted"
+                  isChecked={formData.consentAccepted}
+                  onChange={handleChange}
+                  size="md"
+                  mt={0.5}
+                />
+                <Box fontSize="xs" color="gray.700" flex={1} lineHeight="1.4">
+                  {t.formConsentText}{' '}
+                  <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                    {t.formTermsAndConditions}
+                  </Link>{' '}
+                  {t.formAnd}{' '}
+                  <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                    {t.formPrivacyPolicy}
+                  </Link>{' '}
+                  {t.formOf}
+                </Box>
+              </Stack>
+              <FormErrorMessage mt={2}>{errors.consentAccepted}</FormErrorMessage>
+            </FormControl>
 
         </Stack>
 
-        {!isModal && (
+        <Box
+          flexShrink={0}
+          w="100%"
+          pt={isModal ? { base: 2, md: 3 } : { base: 4, md: 6 }}
+          pb={isModal ? { base: 2, md: 3 } : 0}
+          borderTopWidth={isModal ? '1px' : 0}
+          borderColor="gray.200"
+          mt="auto"
+          bg="white"
+        >
           <Button
             type="submit"
             colorScheme="brand"
             w="100%"
-            size="lg"
-            mt={6}
+            fontSize={{ base: 'md', md: 'md' }}
+            py={{ base: 3, md: 4 }}
+            fontWeight="semibold"
+            borderRadius="full"
+            _hover={{ bg: BRAND_BLUE_HOVER }}
+            _loading={{
+              opacity: 0.8,
+              cursor: 'not-allowed',
+            }}
             isLoading={isSubmitting}
             loadingText={t.formSubmitting}
             spinnerPlacement="start"
@@ -513,8 +543,9 @@ export default function SubmissionForm({
           >
             {t.formSubmit}
           </Button>
-        )}
+        </Box>
       </Box>
+    </Box>
     </ChakraProvider>
   );
 }

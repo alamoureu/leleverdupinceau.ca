@@ -17,6 +17,8 @@ const cardImages = [control1, control2, control3];
 
 export default function ControlSection({ onSubmissionOpen }) {
   const { t } = useTranslation();
+  const titleParts = t.controlTitle.split(', ');
+  const hasTwoParts = titleParts.length >= 2;
 
   const cards = [
     {
@@ -62,28 +64,31 @@ export default function ControlSection({ onSubmissionOpen }) {
           mx="auto"
         >
           <Stack
-            spacing={{ base: 0.5, sm: 1, md: 3 }}
+            spacing={{ base: 1, md: 2 }}
             textAlign="center"
-            maxW={{
-              base: '100%',
-              md: '100%',
-              lg: '1100px',
-              xl: '1200px',
-              '2xl': '1280px',
-            }}
+            maxW={{ base: '100%', md: '900px', lg: '1100px', xl: '1200px' }}
+            mx="auto"
+            mb={{ base: 2, md: 3 }}
             w="100%"
-            mb={{ base: 0, md: 4 }}
-            pt={{ base: 0, sm: 1, md: 7, lg: 10, xl: 16, '2xl': 20 }}
           >
             <Heading
               as="h2"
               size="section"
-              lineHeight="1.3"
+              fontSize={{ base: 'lg', md: '2xl', lg: '3xl' }}
               fontWeight="bold"
               color="gray.800"
-              whiteSpace={{ base: 'normal', md: 'nowrap' }}
+              whiteSpace={{ base: 'normal', lg: 'nowrap' }}
             >
-              {t.controlTitle}
+              {hasTwoParts ? (
+                <>
+                  {titleParts[0]},{' '}
+                  <Box as="span" display={{ base: 'block', md: 'inline' }}>
+                    {titleParts.slice(1).join(', ')}
+                  </Box>
+                </>
+              ) : (
+                t.controlTitle
+              )}
             </Heading>
             <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
               {t.controlSubtitle}

@@ -98,8 +98,8 @@ export default function ServiceQuartierSecteurPage() {
       ? neighborhood.introduction.substring(0, 155) + '...'
       : neighborhood.introduction[isFr ? 'fr' : 'en']?.substring(0, 155) + '...'
     : isFr
-    ? `${serviceName} à ${neighborhoodName} - Le Lever du Pinceau`
-    : `${serviceName} in ${neighborhoodName} - Le Lever du Pinceau`;
+      ? `${serviceName} à ${neighborhoodName} - Le Lever du Pinceau`
+      : `${serviceName} in ${neighborhoodName} - Le Lever du Pinceau`;
 
   return (
     <Fragment>
@@ -108,9 +108,9 @@ export default function ServiceQuartierSecteurPage() {
           {typeof neighborhood.h1 === 'string'
             ? neighborhood.h1
             : neighborhood.h1?.[isFr ? 'fr' : 'en'] ||
-              (isFr
-                ? `${serviceName} à ${neighborhoodName} – Le Lever du Pinceau`
-                : `${serviceName} in ${neighborhoodName} – Le Lever du Pinceau`)}{' '}
+            (isFr
+              ? `${serviceName} à ${neighborhoodName} – Le Lever du Pinceau`
+              : `${serviceName} in ${neighborhoodName} – Le Lever du Pinceau`)}{' '}
           | Le Lever du Pinceau
         </title>
         <meta name='description' content={metaDescription} />
@@ -129,7 +129,7 @@ export default function ServiceQuartierSecteurPage() {
         </script>
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
@@ -212,9 +212,9 @@ export default function ServiceQuartierSecteurPage() {
                   const text = typeof neighborhood.h1 === 'string'
                     ? neighborhood.h1
                     : neighborhood.h1?.[isFr ? 'fr' : 'en'] ||
-                      (isFr
-                        ? `${serviceName} à ${neighborhoodName}`
-                        : `${serviceName} in ${neighborhoodName}`);
+                    (isFr
+                      ? `${serviceName} à ${neighborhoodName}`
+                      : `${serviceName} in ${neighborhoodName}`);
                   const suffix = ' – Le Lever du Pinceau';
                   return text.endsWith(suffix) ? text.slice(0, -suffix.length) : text;
                 })()}
@@ -228,7 +228,7 @@ export default function ServiceQuartierSecteurPage() {
                 {typeof neighborhood.introduction === 'string'
                   ? neighborhood.introduction
                   : neighborhood.introduction?.[isFr ? 'fr' : 'en'] ||
-                    neighborhood.introduction}
+                  neighborhood.introduction}
               </Text>
             </Stack>
           </Stack>
@@ -241,19 +241,19 @@ export default function ServiceQuartierSecteurPage() {
               typeof neighborhood.whyUs.title === 'string'
                 ? neighborhood.whyUs.title
                 : neighborhood.whyUs.title?.[isFr ? 'fr' : 'en'] ||
-                  neighborhood.whyUs.title
+                neighborhood.whyUs.title
             }
             content={
               Array.isArray(neighborhood.whyUs.content)
                 ? neighborhood.whyUs.content.map((item) =>
-                    typeof item === 'string'
-                      ? item
-                      : item?.[isFr ? 'fr' : 'en'] || item
-                  )
+                  typeof item === 'string'
+                    ? item
+                    : item?.[isFr ? 'fr' : 'en'] || item
+                )
                 : typeof neighborhood.whyUs.content === 'object' &&
                   neighborhood.whyUs.content
-                ? neighborhood.whyUs.content[isFr ? 'fr' : 'en'] || []
-                : []
+                  ? neighborhood.whyUs.content[isFr ? 'fr' : 'en'] || []
+                  : []
             }
             introText={
               neighborhood.whyUs.introText
@@ -279,8 +279,8 @@ export default function ServiceQuartierSecteurPage() {
               typeof neighborhood.complementaryServices.title === 'string'
                 ? neighborhood.complementaryServices.title
                 : neighborhood.complementaryServices.title?.[
-                    isFr ? 'fr' : 'en'
-                  ] || neighborhood.complementaryServices.title
+                isFr ? 'fr' : 'en'
+                ] || neighborhood.complementaryServices.title
             }
             services={neighborhood.complementaryServices.services.map(
               (service) => ({
@@ -301,24 +301,24 @@ export default function ServiceQuartierSecteurPage() {
               typeof neighborhood.rooms.title === 'string'
                 ? neighborhood.rooms.title
                 : neighborhood.rooms.title?.[isFr ? 'fr' : 'en'] ||
-                  neighborhood.rooms.title
+                neighborhood.rooms.title
             }
             rooms={
               Array.isArray(neighborhood.rooms.rooms)
                 ? neighborhood.rooms.rooms.map((room) =>
-                    typeof room === 'string'
-                      ? room
-                      : room?.[isFr ? 'fr' : 'en'] || room
-                  )
+                  typeof room === 'string'
+                    ? room
+                    : room?.[isFr ? 'fr' : 'en'] || room
+                )
                 : []
             }
             expertise={
               Array.isArray(neighborhood.rooms.expertise)
                 ? neighborhood.rooms.expertise.map((exp) =>
-                    typeof exp === 'string'
-                      ? exp
-                      : exp?.[isFr ? 'fr' : 'en'] || exp
-                  )
+                  typeof exp === 'string'
+                    ? exp
+                    : exp?.[isFr ? 'fr' : 'en'] || exp
+                )
                 : []
             }
           />
@@ -331,15 +331,15 @@ export default function ServiceQuartierSecteurPage() {
               typeof neighborhood.process.title === 'string'
                 ? neighborhood.process.title
                 : neighborhood.process.title?.[isFr ? 'fr' : 'en'] ||
-                  neighborhood.process.title
+                neighborhood.process.title
             }
             steps={
               Array.isArray(neighborhood.process.steps)
                 ? neighborhood.process.steps.map((step) =>
-                    typeof step === 'string'
-                      ? step
-                      : step?.[isFr ? 'fr' : 'en'] || step
-                  )
+                  typeof step === 'string'
+                    ? step
+                    : step?.[isFr ? 'fr' : 'en'] || step
+                )
                 : []
             }
           />
@@ -354,19 +354,19 @@ export default function ServiceQuartierSecteurPage() {
                   ? neighborhood.guidesTitle
                   : neighborhood.guidesTitle[isFr ? 'fr' : 'en']
                 : isFr
-                ? 'Bien préparer votre projet de peinture'
-                : 'Prepare your painting project well'
+                  ? 'Bien préparer votre projet de peinture'
+                  : 'Prepare your painting project well'
             }
             guides={neighborhood.guides.map((guide) =>
               typeof guide === 'string'
                 ? { title: guide, href: '#' }
                 : {
-                    title:
-                      typeof guide.title === 'string'
-                        ? guide.title
-                        : guide.title?.[isFr ? 'fr' : 'en'] || guide.title,
-                    href: guide.href,
-                  }
+                  title:
+                    typeof guide.title === 'string'
+                      ? guide.title
+                      : guide.title?.[isFr ? 'fr' : 'en'] || guide.title,
+                  href: guide.href,
+                }
             )}
           />
         )}
@@ -378,7 +378,7 @@ export default function ServiceQuartierSecteurPage() {
               typeof neighborhood.about.title === 'string'
                 ? neighborhood.about.title
                 : neighborhood.about.title?.[isFr ? 'fr' : 'en'] ||
-                  neighborhood.about.title
+                neighborhood.about.title
             }
             description={
               neighborhood.about.description
@@ -405,7 +405,7 @@ export default function ServiceQuartierSecteurPage() {
               typeof neighborhood.cta.title === 'string'
                 ? neighborhood.cta.title
                 : neighborhood.cta.title?.[isFr ? 'fr' : 'en'] ||
-                  neighborhood.cta.title
+                neighborhood.cta.title
             }
             description={
               neighborhood.cta.description

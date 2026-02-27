@@ -60,21 +60,21 @@ export default function PeintureInterieurePage() {
 
   const whyUsContent = isFr
     ? [
-        'Une préparation soignée (réparations, joints, calfeutrage)',
-        'Une protection complète des meubles, planchers et surfaces',
-        'Une application uniforme sans traces ni démarcations',
-        'Des conseils sur les couleurs, finis et produits',
-        'Une équipe ponctuelle, propre et expérimentée',
-        'Des produits adaptés : fini mat, perle, velours, semi-lustré, etc.',
-      ]
+      'Une préparation soignée (réparations, joints, calfeutrage)',
+      'Une protection complète des meubles, planchers et surfaces',
+      'Une application uniforme sans traces ni démarcations',
+      'Des conseils sur les couleurs, finis et produits',
+      'Une équipe ponctuelle, propre et expérimentée',
+      'Des produits adaptés : fini mat, perle, velours, semi-lustré, etc.',
+    ]
     : [
-        'Careful preparation (repairs, joints, caulking)',
-        'Complete protection of furniture, floors and surfaces',
-        'Uniform application without traces or demarcations',
-        'Advice on colors, finishes and products',
-        'A punctual, clean and experienced team',
-        'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
-      ];
+      'Careful preparation (repairs, joints, caulking)',
+      'Complete protection of furniture, floors and surfaces',
+      'Uniform application without traces or demarcations',
+      'Advice on colors, finishes and products',
+      'A punctual, clean and experienced team',
+      'Adapted products: matte, pearl, velvet, semi-gloss finish, etc.',
+    ];
 
   return (
     <Fragment>
@@ -101,7 +101,7 @@ export default function PeintureInterieurePage() {
         </script>
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
@@ -116,39 +116,39 @@ export default function PeintureInterieurePage() {
             <Stack spacing={0} minW={0}>
               <HStack
                 spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to='/services'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Services' : 'Services'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Peinture intérieure' : 'Interior painting'}
-              </Text>
-            </HStack>
-            <Stack spacing={4} textAlign='left'>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to='/services'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Services' : 'Services'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Peinture intérieure' : 'Interior painting'}
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign='left'>
                 <Heading
                   as='h1'
                   fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -179,8 +179,8 @@ export default function PeintureInterieurePage() {
                     ? '👉 Nos peintres travaillent proprement, rapidement et avec un souci constant du détail. Pour un intérieur impeccable, durable et adapté à votre style, notre équipe est là pour vous accompagner.'
                     : '👉 Our painters work cleanly, quickly and with constant attention to detail. For an impeccable, durable interior adapted to your style, our team is here to support you.'}
                 </Text>
+              </Stack>
             </Stack>
-          </Stack>
             <Box
               w='100%'
               aspectRatio={{ base: '1', md: '4/3' }}

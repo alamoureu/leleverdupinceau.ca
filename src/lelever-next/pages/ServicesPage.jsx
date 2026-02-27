@@ -136,7 +136,7 @@ export default function ServicesPage() {
         schema={breadcrumbSchema}
       />
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
@@ -294,8 +294,8 @@ export default function ServicesPage() {
                                     ? 'Voir peinture résidentielle'
                                     : 'View residential painting'
                                   : isFr
-                                  ? 'Voir peinture commerciale'
-                                  : 'View commercial painting'}
+                                    ? 'Voir peinture commerciale'
+                                    : 'View commercial painting'}
                               </Text>
                               <ArrowForwardIcon boxSize={4} />
                             </HStack>
@@ -310,7 +310,7 @@ export default function ServicesPage() {
 
             <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                  <Stack spacing={{ base: 4, md: 6 }} align='center' textAlign='center'>
+                <Stack spacing={{ base: 4, md: 6 }} align='center' textAlign='center'>
                   <Stack spacing={{ base: 2, md: 3 }} maxW='800px'>
                     <Heading as='h2' size='section' color='gray.800'>
                       {isFr

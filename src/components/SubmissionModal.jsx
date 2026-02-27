@@ -31,15 +31,27 @@ function SubmissionModal({ isOpen, onClose }) {
       isOpen={isOpen}
       onClose={onClose}
       isCentered
-      size="xl"
-      scrollBehavior="inside"
+      size={{ base: 'sm', sm: 'md', md: 'lg', lg: 'xl' }}
+      scrollBehavior="outside"
       blockScrollOnMount
     >
       <ModalOverlay />
       <ModalContent maxH="90vh" display="flex" flexDirection="column">
         {!isSuccess && (
-          <ModalHeader id="submission-modal-title">
-            {t.contactFormTitle}
+          <ModalHeader
+            id="submission-modal-title"
+            pt={{ base: 4, sm: 5 }}
+            pb={{ base: 2, sm: 3 }}
+            px={{ base: 4, sm: 6 }}
+            pr={{ base: 12, sm: 14 }}
+            fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
+            fontWeight="bold"
+            color="gray.900"
+            lineHeight="tight"
+            flexShrink={0}
+            textTransform="uppercase"
+          >
+            {title}
           </ModalHeader>
         )}
         <ModalCloseButton />

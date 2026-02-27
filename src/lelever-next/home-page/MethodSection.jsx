@@ -49,6 +49,7 @@ export default function MethodSection({ onSubmissionOpen }) {
             <Heading
               as="h2"
               size="section"
+              fontSize={{ base: 'lg', md: '2xl', lg: '3xl' }}
               fontWeight="bold"
               color="gray.800"
               whiteSpace={{ base: 'normal', lg: 'nowrap' }}

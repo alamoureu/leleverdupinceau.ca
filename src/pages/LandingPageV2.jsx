@@ -85,12 +85,12 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
         )}
       </Helmet>
 
-      <Box w="100%" bg="white" overflowX="hidden" position="relative">
+      <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden" position="relative">
         <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
 
         <ControlSection onSubmissionOpen={onOpen} />
 
-        <MethodSection />
+        <MethodSection onSubmissionOpen={onOpen} />
 
         <Stack
           py={{ base: 6, sm: 8, md: 10, lg: 12, xl: 14 }}
@@ -182,13 +182,13 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
             <SubmissionForm onSubmissionStateChange={setIsFormSuccess} />
           </Box>
         </Stack>
+
+        <ReviewsSection hideButton />
+
+        <FAQSection />
+
+        <FinalCTASection onSubmissionOpen={onOpen} />
       </Box>
-
-      <ReviewsSection hideButton />
-
-      <FAQSection />
-
-      <FinalCTASection onSubmissionOpen={onOpen} />
 
       <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>

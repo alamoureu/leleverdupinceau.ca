@@ -63,21 +63,21 @@ export default function PeintureResidentiellePage() {
 
   const whyUsContent = isFr
     ? [
-        'Une préparation soignée (réparations, sablage, calfeutrage)',
-        'Une protection complète des surfaces',
-        'Une application uniforme et durable',
-        'Des produits haut de gamme adaptés à chaque matériau',
-        'Un chantier propre et organisé',
-        'Un service rapide et respectueux de votre espace',
-      ]
+      'Une préparation soignée (réparations, sablage, calfeutrage)',
+      'Une protection complète des surfaces',
+      'Une application uniforme et durable',
+      'Des produits haut de gamme adaptés à chaque matériau',
+      'Un chantier propre et organisé',
+      'Un service rapide et respectueux de votre espace',
+    ]
     : [
-        'Careful preparation (repairs, sanding, caulking)',
-        'Complete protection of surfaces',
-        'Uniform and durable application',
-        'High-end products adapted to each material',
-        'Clean and organized worksite',
-        'Fast and respectful service of your space',
-      ];
+      'Careful preparation (repairs, sanding, caulking)',
+      'Complete protection of surfaces',
+      'Uniform and durable application',
+      'High-end products adapted to each material',
+      'Clean and organized worksite',
+      'Fast and respectful service of your space',
+    ];
 
   return (
     <Fragment>
@@ -104,7 +104,7 @@ export default function PeintureResidentiellePage() {
         </script>
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
@@ -119,39 +119,39 @@ export default function PeintureResidentiellePage() {
             <Stack spacing={0} minW={0}>
               <HStack
                 spacing={3}
-              fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              mb={{ base: 4, md: 6 }}
-            >
-              <Link
-                as={RouterLink}
-                to='/'
-                _hover={{ textDecoration: 'underline' }}
+                fontSize={{ base: 'md', md: 'lg' }}
                 color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
+                mb={{ base: 4, md: 6 }}
               >
-                {isFr ? 'Accueil' : 'Home'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Link
-                as={RouterLink}
-                to='/services'
-                _hover={{ textDecoration: 'underline' }}
-                color='gray.600'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Services' : 'Services'}
-              </Link>
-              <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-              <Text
-                color='gray.800'
-                fontWeight='medium'
-                fontSize={{ base: 'md', md: 'lg' }}
-              >
-                {isFr ? 'Peinture résidentielle' : 'Residential painting'}
-              </Text>
-            </HStack>
-            <Stack spacing={4} textAlign='left'>
+                <Link
+                  as={RouterLink}
+                  to='/'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Accueil' : 'Home'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Link
+                  as={RouterLink}
+                  to='/services'
+                  _hover={{ textDecoration: 'underline' }}
+                  color='gray.600'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Services' : 'Services'}
+                </Link>
+                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
+                <Text
+                  color='gray.800'
+                  fontWeight='medium'
+                  fontSize={{ base: 'md', md: 'lg' }}
+                >
+                  {isFr ? 'Peinture résidentielle' : 'Residential painting'}
+                </Text>
+              </HStack>
+              <Stack spacing={4} textAlign='left'>
                 <Heading
                   as='h1'
                   fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
@@ -168,21 +168,21 @@ export default function PeintureResidentiellePage() {
                 >
                   {isFr
                     ? 'La peinture résidentielle demande précision, propreté et maîtrise technique. Chez Le Lever du Pinceau, nous réalisons des projets pour maisons, condos, appartements, duplex, triplex et immeubles à Montréal, Laval, Longueuil et les environs.'
-                  : 'Residential painting requires precision, cleanliness and technical mastery. At Le Lever du Pinceau, we carry out projects for houses, condos, apartments, duplexes, triplexes and buildings in Montreal, Laval, Longueuil and surrounding areas.'}
-              </Text>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                lineHeight='1.7'
-                maxW='900px'
-                mt={4}
-                fontWeight='medium'
-              >
-                {isFr
-                  ? '👉 Notre équipe de peintres professionnels s’occupe de tout : préparation des surfaces, protection des espaces, application uniforme et finition impeccable. Pour transformer votre intérieur ou rafraîchir l’extérieur de votre maison, vous êtes au bon endroit.'
-                  : '👉 Our team of professional painters takes care of everything: surface preparation, space protection, uniform application and impeccable finish. To transform your interior or refresh the exterior of your home, you are in the right place.'}
-              </Text>
-            </Stack>
+                    : 'Residential painting requires precision, cleanliness and technical mastery. At Le Lever du Pinceau, we carry out projects for houses, condos, apartments, duplexes, triplexes and buildings in Montreal, Laval, Longueuil and surrounding areas.'}
+                </Text>
+                <Text
+                  fontSize={{ base: 'md', md: 'lg' }}
+                  color='gray.600'
+                  lineHeight='1.7'
+                  maxW='900px'
+                  mt={4}
+                  fontWeight='medium'
+                >
+                  {isFr
+                    ? '👉 Notre équipe de peintres professionnels s’occupe de tout : préparation des surfaces, protection des espaces, application uniforme et finition impeccable. Pour transformer votre intérieur ou rafraîchir l’extérieur de votre maison, vous êtes au bon endroit.'
+                    : '👉 Our team of professional painters takes care of everything: surface preparation, space protection, uniform application and impeccable finish. To transform your interior or refresh the exterior of your home, you are in the right place.'}
+                </Text>
+              </Stack>
             </Stack>
             <Box
               w='100%'

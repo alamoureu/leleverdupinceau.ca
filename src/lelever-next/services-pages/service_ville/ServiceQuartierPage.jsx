@@ -74,47 +74,47 @@ export default function ServiceQuartierPage() {
   // Build guides array from data or use defaults
   const guides = city.guides
     ? city.guides.map((guide) => ({
-        title: guide.title[isFr ? 'fr' : 'en'],
-        href: guide.href,
-      }))
+      title: guide.title[isFr ? 'fr' : 'en'],
+      href: guide.href,
+    }))
     : [
-        {
-          title: isFr
-            ? 'Comment choisir un peintre professionnel ?'
-            : 'How to choose a professional painter?',
-          href: '/blog/comment-choisir-un-peintre-professionnel',
-        },
-        {
-          title: isFr
-            ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
-            : 'Painting prices Montreal / South Shore – what you need to know',
-          href: '/blog/prix-peinture-montreal',
-        },
-        {
-          title: isFr
-            ? 'Erreurs à éviter avant des travaux dans un commerce'
-            : 'Mistakes to avoid before work in a business',
-          href: '/blog/erreurs-a-eviter-peinture-interieure',
-        },
-      ];
+      {
+        title: isFr
+          ? 'Comment choisir un peintre professionnel ?'
+          : 'How to choose a professional painter?',
+        href: '/blog/comment-choisir-un-peintre-professionnel',
+      },
+      {
+        title: isFr
+          ? "Prix peinture Montréal / Rive-Sud – ce qu'il faut savoir"
+          : 'Painting prices Montreal / South Shore – what you need to know',
+        href: '/blog/prix-peinture-montreal',
+      },
+      {
+        title: isFr
+          ? 'Erreurs à éviter avant des travaux dans un commerce'
+          : 'Mistakes to avoid before work in a business',
+        href: '/blog/erreurs-a-eviter-peinture-interieure',
+      },
+    ];
 
   // Build sub-services array (handle both interior/exterior and residential/commercial structures)
   const subServices = city.subServices
     ? city.subServices.interior && city.subServices.exterior
       ? [
-          {
-            title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
-            link: city.subServices.interior.link,
-            linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
-          },
-          {
-            title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
-            link: city.subServices.exterior.link,
-            linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
-          },
-        ]
+        {
+          title: city.subServices.interior.title[isFr ? 'fr' : 'en'],
+          link: city.subServices.interior.link,
+          linkText: city.subServices.interior.linkText[isFr ? 'fr' : 'en'],
+        },
+        {
+          title: city.subServices.exterior.title[isFr ? 'fr' : 'en'],
+          link: city.subServices.exterior.link,
+          linkText: city.subServices.exterior.linkText[isFr ? 'fr' : 'en'],
+        },
+      ]
       : city.subServices.residential && city.subServices.commercial
-      ? [
+        ? [
           {
             title: city.subServices.residential.title[isFr ? 'fr' : 'en'],
             link: city.subServices.residential.link,
@@ -126,7 +126,7 @@ export default function ServiceQuartierPage() {
             linkText: city.subServices.commercial.linkText[isFr ? 'fr' : 'en'],
           },
         ]
-      : []
+        : []
     : [];
 
   return (
@@ -160,7 +160,7 @@ export default function ServiceQuartierPage() {
         </script>
       </Helmet>
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
@@ -231,8 +231,8 @@ export default function ServiceQuartierPage() {
                   const text = city.h1
                     ? city.h1[isFr ? 'fr' : 'en']
                     : isFr
-                    ? `${serviceName} à ${cityName}`
-                    : `${serviceName} in ${cityName}`;
+                      ? `${serviceName} à ${cityName}`
+                      : `${serviceName} in ${cityName}`;
                   const suffix = ' – Le Lever du Pinceau';
                   return text.endsWith(suffix) ? text.slice(0, -suffix.length) : text;
                 })()}

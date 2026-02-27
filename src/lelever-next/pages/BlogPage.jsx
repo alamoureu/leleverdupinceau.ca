@@ -86,7 +86,7 @@ export default function BlogPage() {
         schema={breadcrumbSchema}
       />
 
-      <Box w='100%' bg='white' overflowX='hidden'>
+      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
         <Container
           maxW='1440px'
           px={{ base: 4, md: 6 }}
