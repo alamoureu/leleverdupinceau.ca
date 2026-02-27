@@ -8,16 +8,11 @@ import {
   ModalFooter,
   ModalCloseButton,
   Button,
-  Heading,
 } from '@chakra-ui/react';
 import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
 
 const SUBMISSION_FORM_ID = 'submission-form-modal';
-const MODAL_PX = { base: 4, md: 6 };
-const MODAL_HEADER_PT = { base: 4, md: 5 };
-const MODAL_HEADER_PB = { base: 2, md: 3 };
-const MODAL_BODY_PB = { base: 4, md: 5 };
 
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();
@@ -69,26 +64,16 @@ export default function SubmissionModal({ isOpen, onClose }) {
               colorScheme="brand"
               size="lg"
               w="100%"
+              borderRadius="full"
               isLoading={isSubmitting}
               loadingText={t.formSubmitting}
               spinnerPlacement="start"
               disabled={isSubmitting}
             >
-              <Heading
-                as='h2'
-                size='sm'
-                textStyle='stat'
-                fontWeight='bold'
-                color='gray.800'
-                flex={1}
-                noOfLines={1}
-              >
-                {t.modalTitle}
-              </Heading>
-              <ModalCloseButton position='relative' top={0} right={0} />
+              {t.formSubmit}
             </Button>
           </ModalFooter>
-          )}
+        )}
       </ModalContent>
     </Modal>
   );

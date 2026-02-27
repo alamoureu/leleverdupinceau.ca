@@ -179,7 +179,6 @@ export default function ServiceCard({
               color="gray.700"
               fontWeight="medium"
               flex="1"
-              noOfLines={2}
             >
               {bottomText}
             </Text>

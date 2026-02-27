@@ -42,7 +42,7 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
         objectFit="cover"
         zIndex={0}
         loading="eager"
-        fetchPriority="high"
+        fetchpriority="high"
         decoding="async"
       />
       <Box

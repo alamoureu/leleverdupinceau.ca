@@ -513,37 +513,39 @@ export default function SubmissionForm({
 
         </Stack>
 
-        <Box
-          flexShrink={0}
-          w="100%"
-          pt={isModal ? { base: 2, md: 3 } : { base: 4, md: 6 }}
-          pb={isModal ? { base: 2, md: 3 } : 0}
-          borderTopWidth={isModal ? '1px' : 0}
-          borderColor="gray.200"
-          mt="auto"
-          bg="white"
-        >
-          <Button
-            type="submit"
-            colorScheme="brand"
+        {!isModal && (
+          <Box
+            flexShrink={0}
             w="100%"
-            fontSize={{ base: 'md', md: 'md' }}
-            py={{ base: 3, md: 4 }}
-            fontWeight="semibold"
-            borderRadius="full"
-            _hover={{ bg: BRAND_BLUE_HOVER }}
-            _loading={{
-              opacity: 0.8,
-              cursor: 'not-allowed',
-            }}
-            isLoading={isSubmitting}
-            loadingText={t.formSubmitting}
-            spinnerPlacement="start"
-            disabled={isSubmitting}
+            pt={{ base: 4, md: 6 }}
+            pb={0}
+            borderTopWidth={0}
+            borderColor="gray.200"
+            mt="auto"
+            bg="white"
           >
-            {t.formSubmit}
-          </Button>
-        </Box>
+            <Button
+              type="submit"
+              colorScheme="brand"
+              w="100%"
+              fontSize={{ base: 'md', md: 'md' }}
+              py={{ base: 3, md: 4 }}
+              fontWeight="semibold"
+              borderRadius="full"
+              _hover={{ bg: BRAND_BLUE_HOVER }}
+              _loading={{
+                opacity: 0.8,
+                cursor: 'not-allowed',
+              }}
+              isLoading={isSubmitting}
+              loadingText={t.formSubmitting}
+              spinnerPlacement="start"
+              disabled={isSubmitting}
+            >
+              {t.formSubmit}
+            </Button>
+          </Box>
+        )}
       </Box>
     </Box>
     </ChakraProvider>
