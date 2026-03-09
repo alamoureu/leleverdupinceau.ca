@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -125,27 +125,30 @@ export default function ServicesSection() {
                   subtitle={service.subtitle}
                   stripText={service.stripText}
                   noHoverBorder
+                  priority
                 />
               </Box>
             ))}
           </SimpleGrid>
 
           <Stack spacing={2} align="center" pt={{ base: 4, md: 6 }} w="100%">
-            <Button
-              as={RouterLink}
-              to="/services"
-              variant="outline"
-              borderColor="brand.500"
-              color="brand.500"
-              borderRadius="full"
-              textStyle="nav"
-              px={{ base: 5, md: 7 }}
-              py={{ base: 3, md: 4 }}
-              rightIcon={<ArrowForwardIcon />}
-              _hover={{ bg: 'brand.500', color: 'white' }}
-            >
-              {t.viewAllServices}
-            </Button>
+            <RouterLink href="/services">
+              <Button
+                as="span"
+                variant="outline"
+                borderColor="brand.500"
+                color="brand.500"
+                borderRadius="full"
+                textStyle="nav"
+                px={{ base: 5, md: 7 }}
+                py={{ base: 3, md: 4 }}
+                rightIcon={<ArrowForwardIcon />}
+                _hover={{ bg: 'brand.500', color: 'white' }}
+                display="inline-flex"
+              >
+                {t.viewAllServices}
+              </Button>
+            </RouterLink>
           </Stack>
         </Stack>
       </Container>

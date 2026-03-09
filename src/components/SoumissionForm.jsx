@@ -285,7 +285,7 @@ export default function SoumissionForm() {
         });
       } catch (webhookError) {
         // Log webhook error but don't fail the submission
-        if (import.meta?.env?.DEV) console.error('GoHighLevel webhook error:', webhookError);
+        if (process.env.NODE_ENV === 'development') console.error('GoHighLevel webhook error:', webhookError);
         // Optionally show a warning but continue
       }
 

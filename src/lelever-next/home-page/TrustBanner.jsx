@@ -3,6 +3,7 @@ import { Box, Flex, Text, Image, Divider } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import quebecLogo from '../images/rbqlogo.png';
 import trushieldLogo from '../images/trushieldlogo.png';
+import { toImageSrc } from '@/lib/imageSrc';
 
 const translations = {
   fr: {
@@ -125,7 +126,7 @@ export default function TrustBanner({ compact = false }) {
                 </Text>
               ) : (
                 <Image
-                  src={item.image}
+                  src={toImageSrc(item.image)}
                   alt={item.alt}
                   h={item.imageHeight}
                   w="auto"

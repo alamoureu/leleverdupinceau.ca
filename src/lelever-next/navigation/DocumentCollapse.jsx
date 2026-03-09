@@ -1,6 +1,6 @@
 import { Button, Collapse, Stack, Text, useDisclosure } from '@chakra-ui/react';
 import { PopoverIcon } from './PopoverIcon';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/lib/next-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPaintRoller } from '@fortawesome/free-solid-svg-icons';
 import { useContext } from 'react';

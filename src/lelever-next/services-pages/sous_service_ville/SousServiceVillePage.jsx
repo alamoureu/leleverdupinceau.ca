@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { useParams, Navigate, Link as RouterLink } from 'react-router-dom';
+import { useParams, Navigate, Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -19,6 +19,7 @@ import ServiceQuartierAboutSection from '../service_ville/components/ServiceQuar
 import ServiceFAQSection from '../components/ServiceFAQSection';
 import ServiceCTASection from '../components/ServiceCTASection';
 import { getSousServiceVilleData } from './index';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function SousServiceVillePage() {
   const params = useParams();
@@ -256,7 +257,7 @@ export default function SousServiceVillePage() {
                   {city.images.map((image, index) => (
                     <Image
                       key={index}
-                      src={image.src}
+                      src={toImageSrc(image.src)}
                       alt={image.alt}
                       borderRadius="lg"
                       w="100%"

@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { useParams, Navigate, Link as RouterLink } from 'react-router-dom';
+import { useParams, Navigate, Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -21,6 +21,7 @@ import ServiceQuartierSectorsSection from './components/ServiceQuartierSectorsSe
 import ServiceFAQSection from '../components/ServiceFAQSection';
 import ServiceCTASection from '../components/ServiceCTASection';
 import { getServiceQuartierData } from './index';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function ServiceQuartierPage() {
   const { serviceSlug, citySlug } = useParams();
@@ -289,7 +290,7 @@ export default function ServiceQuartierPage() {
                   {city.images.map((img, index) => (
                     <Image
                       key={index}
-                      src={img.src}
+                      src={toImageSrc(img.src)}
                       alt={img.alt}
                       borderRadius='lg'
                       w='100%'

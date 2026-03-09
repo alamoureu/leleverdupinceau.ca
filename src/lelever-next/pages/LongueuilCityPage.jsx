@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -19,6 +19,7 @@ import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 import longueuilPhotoHeader from '../images/3-ville/longueuil/+header/IMG_6787.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
@@ -180,13 +181,14 @@ export default function LongueuilCityPage() {
               bg='gray.100'
             >
               <Image
-                src={longueuilPhotoHeader}
+                src={toImageSrc(longueuilPhotoHeader)}
                 alt={isFr ? 'Peintres à Longueuil – Le Lever du Pinceau' : 'Painters in Longueuil – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>

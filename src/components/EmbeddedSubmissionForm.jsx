@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation } from '@/lib/next-router';
 import appContext from '../AppProvider';
 import { Box, Text } from '@chakra-ui/react';
 import { GA_MEASUREMENT_ID, FORM_COMPLETION_EVENT } from '../config/analytics';

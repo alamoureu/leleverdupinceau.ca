@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -28,6 +28,7 @@ import ServiceCTASection from './components/ServiceCTASection';
 import interieurePhotoHeader from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
 import imgResInterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle intérieure/IMG_6758.PNG';
 import imgComInterieure from '../images/4-sous-services/commercial x intérieure/1. réalisations/IMG_6759.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function PeintureInterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -189,13 +190,14 @@ export default function PeintureInterieurePage() {
               bg='gray.100'
             >
               <Image
-                src={interieurePhotoHeader}
+                src={toImageSrc(interieurePhotoHeader)}
                 alt={isFr ? 'Peinture intérieure – Le Lever du Pinceau' : 'Interior painting – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>

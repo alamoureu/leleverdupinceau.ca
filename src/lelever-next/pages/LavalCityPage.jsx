@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -19,6 +19,7 @@ import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 import lavalPhotoHeader from '../images/3-ville/laval/+ header/IMG_6786.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);
@@ -176,13 +177,14 @@ export default function LavalCityPage() {
               bg='gray.100'
             >
               <Image
-                src={lavalPhotoHeader}
+                src={toImageSrc(lavalPhotoHeader)}
                 alt={isFr ? 'Peintres à Laval – Le Lever du Pinceau' : 'Painters in Laval – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>

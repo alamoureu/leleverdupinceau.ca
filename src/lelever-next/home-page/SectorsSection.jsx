@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -20,6 +20,7 @@ import montrealSecteur from '../images/mtl.png';
 import lavalSecteur from '../images/laval.png';
 import longueuilSecteur from '../images/longueuil.png';
 import brossardSecteur from '../images/brossard.png';
+import { toImageSrc } from '@/lib/imageSrc';
 
 // Export images for reuse
 export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
@@ -115,7 +116,7 @@ export default function SectorsSection({
                   }
                 >
                   <Image
-                    src={sector.image}
+                    src={toImageSrc(sector.image)}
                     alt={
                       isFr
                         ? `Secteur desservi : ${sector.name}${

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from '@/lib/next-router';
 import SousServiceVillePage from './sous_service_ville/SousServiceVillePage';
 import ServiceQuartierSecteurPage from './service_quartier/ServiceQuartierSecteurPage';
 

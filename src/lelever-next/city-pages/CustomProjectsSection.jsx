@@ -14,6 +14,7 @@ import {
 import { ChevronLeftIcon, ChevronRightIcon } from '@chakra-ui/icons';
 import { motion, AnimatePresence } from 'framer-motion';
 import appContext from '../../AppProvider';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function CustomProjectsSection({
   title,
@@ -188,7 +189,7 @@ export default function CustomProjectsSection({
                               }}
                             >
                               <Image
-                                src={images[currentIndex]}
+                                src={toImageSrc(images[currentIndex])}
                                 alt={imageAlt}
                                 w='100%'
                                 h='100%'

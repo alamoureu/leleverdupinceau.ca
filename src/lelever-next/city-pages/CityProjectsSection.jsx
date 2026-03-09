@@ -14,6 +14,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function CityProjectsSection({
   cityName,
@@ -186,7 +187,7 @@ export default function CityProjectsSection({
                       </Box>
                     ) : (
                       <Image
-                        src={img}
+                        src={toImageSrc(img)}
                         alt={`Project ${cityName} ${index + 1}`}
                         position="absolute"
                         top={0}

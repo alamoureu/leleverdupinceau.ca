@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -26,6 +26,7 @@ import imgCommerciale from '../images/2-services/Page peinture commerciale/1. r�
 import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function ServicesPage() {
   const { currentLang } = useContext(appContext);
@@ -187,13 +188,14 @@ export default function ServicesPage() {
               bg='gray.100'
             >
               <Image
-                src={serviceHubPhotoHeader}
+                src={toImageSrc(serviceHubPhotoHeader)}
                 alt={isFr ? 'Services de peinture – Le Lever du Pinceau' : 'Painting services – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>
@@ -233,6 +235,7 @@ export default function ServicesPage() {
                           stripText={service.description}
                           alt={service.title}
                           noHoverBorder
+                          priority={index < 3}
                         />
                       </Box>
                     ))}

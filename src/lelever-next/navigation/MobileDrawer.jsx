@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { DocumentCollapse } from './DocumentCollapse';
 import { ToggleButton } from './ToggleButton';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/lib/next-router';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faHome,

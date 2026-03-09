@@ -8,7 +8,7 @@ import {
   Text,
   Link,
 } from '@chakra-ui/react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import appContext from '../../../../AppProvider';
 
 export default function ServiceQuartierSectorsSection({

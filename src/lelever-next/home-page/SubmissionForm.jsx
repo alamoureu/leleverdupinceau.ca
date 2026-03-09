@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import {
   Stack,
@@ -237,7 +239,7 @@ export default function SubmissionForm({
       try {
         await sendToGoHighLevel(ghlData, { language: currentLang });
       } catch (webhookError) {
-        if (import.meta.env?.DEV) console.error('GoHighLevel webhook error:', webhookError);
+        if (process.env.NODE_ENV === 'development') console.error('GoHighLevel webhook error:', webhookError);
       }
 
       if (onSubmit) onSubmit(formData);
@@ -254,7 +256,7 @@ export default function SubmissionForm({
         consentAccepted: false,
       });
     } catch (error) {
-      if (import.meta.env?.DEV) console.error('Submission error:', error);
+      if (process.env.NODE_ENV === 'development') console.error('Submission error:', error);
       toast({
         title: t.formErrorTitle ?? 'Error',
         description: t.formErrorTryAgain ?? 'An error occurred. Please try again.',

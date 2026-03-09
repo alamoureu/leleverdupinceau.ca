@@ -13,6 +13,7 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import teamSectionImg from '../images/5-landing-page/Photo/spray man 3000.jpeg';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
@@ -31,7 +32,7 @@ export default function TeamSection({ pageContext = '' }) {
             order={{ base: 1, md: 1 }}
           >
             <Image
-              src={teamSectionImg}
+              src={toImageSrc(teamSectionImg)}
               alt={
                 currentLang === 'fr'
                   ? `Peintre professionnel au pistolet sur un plafond${pageContext ? ' - ' + pageContext : ''}`

@@ -14,6 +14,8 @@ import method2 from '../images/new-landing/method-2.jpeg';
 import method3 from '../images/new-landing/method-3.PNG';
 import method4 from '../images/new-landing/method-4.PNG';
 
+import { toImageSrc } from '@/lib/imageSrc';
+
 const defaultStepImages = [method1, method2, method3, method4];
 
 export default function ProcessStepsSection({
@@ -94,7 +96,7 @@ export default function ProcessStepsSection({
               >
                 <Box position="relative" overflow="hidden" borderRadius={{ base: 'md', md: 'lg' }} h="100%">
                   <Image
-                    src={stepImage}
+                    src={toImageSrc(stepImage)}
                     alt={step.title}
                     w="100%"
                     h={{ base: '140px', sm: '160px', md: '200px', lg: '260px', xl: '320px', '2xl': '360px' }}

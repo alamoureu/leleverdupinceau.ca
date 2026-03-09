@@ -62,6 +62,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
             <Image
               loading="lazy"
               decoding="async"
+              alt="Google"
               src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/images+(1).png"
               fontWeight="bold"
               mt="4px"
@@ -146,6 +147,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
             <Image
               loading="lazy"
               decoding="async"
+              alt=""
               src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/IMG_1089+(1)+(1).jpg"
               h={{ base: '70px', md: '120px' }}
             />

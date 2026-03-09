@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Image, Heading, Text, HStack } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { toImageSrc } from '@/lib/imageSrc';
 
 /**
  * Reusable service card: image with title overlay, white fade, subtitle in white strip below.
@@ -14,6 +15,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
  * @param {string} [description] - Optional body text below
  * @param {string} [alt] - Alt text for image
  * @param {boolean} [compact] - Shorter image height for dense layouts (e.g. 5-card grid)
+ * @param {boolean} [priority] - Load image with high priority (eager + fetchPriority high) for above-the-fold content
  */
 export default function ServiceCard({
   image,
@@ -27,6 +29,7 @@ export default function ServiceCard({
   noHoverBorder = false,
   fillHeight = false,
   compact = false,
+  priority = false,
 }) {
   const bottomText = stripText ?? (subtitleOnImageOnly ? undefined : subtitle);
   const showStrip = bottomText || ctaLabel;
@@ -98,13 +101,15 @@ export default function ServiceCard({
         flexShrink={0}
       >
         <Image
-          src={image}
+          src={toImageSrc(image)}
           alt={alt || title}
           w="100%"
           h="100%"
           objectFit="cover"
           objectPosition="center center"
           display="block"
+          loading={priority ? 'eager' : 'lazy'}
+          {...(priority && { fetchPriority: 'high' })}
         />
         {/* Dark overlay: title + subtitle */}
         <Box

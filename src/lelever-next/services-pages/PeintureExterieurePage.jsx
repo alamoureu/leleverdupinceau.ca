@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -32,6 +32,7 @@ import img5971 from '../images/2-services/Page peinture extérieure/3. réalisat
 import imgResExterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
 import imgCommExterieure from '../images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG';
 import exterieurePhotoHeader from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function PeintureExterieurePage() {
   const { currentLang } = useContext(appContext);
@@ -190,13 +191,14 @@ export default function PeintureExterieurePage() {
               bg='gray.100'
             >
               <Image
-                src={exterieurePhotoHeader}
+                src={toImageSrc(exterieurePhotoHeader)}
                 alt={isFr ? 'Peinture extérieure – Le Lever du Pinceau' : 'Exterior painting – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>
@@ -335,7 +337,7 @@ export default function PeintureExterieurePage() {
                           overflow='hidden'
                         >
                           <Image
-                            src={imgResExterieure}
+                            src={toImageSrc(imgResExterieure)}
                             alt={isFr ? 'Peinture résidentielle extérieure' : 'Residential exterior painting'}
                             w='100%'
                             h='100%'
@@ -400,7 +402,7 @@ export default function PeintureExterieurePage() {
                           overflow='hidden'
                         >
                           <Image
-                            src={imgCommExterieure}
+                            src={toImageSrc(imgCommExterieure)}
                             alt={isFr ? 'Peinture commerciale extérieure' : 'Commercial exterior painting'}
                             w='100%'
                             h='100%'
@@ -498,7 +500,7 @@ export default function PeintureExterieurePage() {
                     ].map((img, index) => (
                       <Stack key={index} spacing={2}>
                         <Image
-                          src={img.src}
+                          src={toImageSrc(img.src)}
                           alt={img.alt}
                           borderRadius='lg'
                           w='100%'

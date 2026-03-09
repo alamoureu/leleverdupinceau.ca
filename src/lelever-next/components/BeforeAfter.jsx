@@ -1,6 +1,9 @@
+'use client';
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { Box, Grid, GridItem, Stack, Heading, Text } from '@chakra-ui/react';
 import ReactCompareImage from 'react-compare-image';
+import { toImageSrc } from '@/lib/imageSrc';
 
 // Single source of truth: all before/after images live in the component
 import img5969 from '../images/before_after/IMG_5969.jpg';
@@ -151,8 +154,8 @@ export default function BeforeAfter({ images: imagesProp, title, isFr }) {
                 }}
               >
                 <ReactCompareImage
-                  leftImage={pair.before}
-                  rightImage={pair.after}
+                  leftImage={toImageSrc(pair.before)}
+                  rightImage={toImageSrc(pair.after)}
                   aspectRatio='wider'
                   vertical={pair.vertical || false}
                   leftImageLabel={isFr ? 'AVANT' : 'BEFORE'}

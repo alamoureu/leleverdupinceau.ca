@@ -11,7 +11,7 @@ import ScrollToTop from './lelever-next/components/ScrollToTop';
 import SmartServiceRouter from './lelever-next/services-pages/SmartServiceRouter';
 import PageSkeleton from './PageSkeleton';
 
-const LandingPageV2 = React.lazy(() => import('./pages/LandingPageV2'));
+const LandingPageV2 = React.lazy(() => import('./views/LandingPageV2'));
 const NewHomePage = React.lazy(() => import('./lelever-next/pages/NewHomePage'));
 const ContactPage = React.lazy(() => import('./lelever-next/pages/ContactPage'));
 const AvisPage = React.lazy(() => import('./lelever-next/pages/AvisPage'));
@@ -36,16 +36,16 @@ const PrixPeintureMontrealPage = React.lazy(() => import('./lelever-next/pages/P
 const ErreursAEviterPeintureInterieurePage = React.lazy(() => import('./lelever-next/pages/ErreursAEviterPeintureInterieurePage'));
 const NotFoundPage = React.lazy(() => import('./lelever-next/pages/NotFoundPage'));
 const AuditImagesPage = React.lazy(() => import('./lelever-next/pages/AuditImagesPage'));
-const SoumissionDashboard = React.lazy(() => import('./pages/SoumissionDashboard'));
-const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
-const EmploiesDashboard = React.lazy(() => import('./pages/EmploiesDashboard'));
-const ContactDashboard = React.lazy(() => import('./pages/ContactDashboard'));
-const TimeSheet = React.lazy(() => import('./pages/TimeSheet'));
-const TimeSheetDashboard = React.lazy(() => import('./pages/TimeSheetDashboard'));
-const EmployeeManagement = React.lazy(() => import('./pages/EmployeeManagement'));
-const EmployeeDetails = React.lazy(() => import('./pages/EmployeeDetails'));
-const ThermOfUsePage = React.lazy(() => import('./pages/ThermOfUse'));
-const PrivacyPolicyPage = React.lazy(() => import('./pages/PrivacyPolicyPage'));
+const SoumissionDashboard = React.lazy(() => import('./views/SoumissionDashboard'));
+const AdminDashboard = React.lazy(() => import('./views/AdminDashboard'));
+const EmploiesDashboard = React.lazy(() => import('./views/EmploiesDashboard'));
+const ContactDashboard = React.lazy(() => import('./views/ContactDashboard'));
+const TimeSheet = React.lazy(() => import('./views/TimeSheet'));
+const TimeSheetDashboard = React.lazy(() => import('./views/TimeSheetDashboard'));
+const EmployeeManagement = React.lazy(() => import('./views/EmployeeManagement'));
+const EmployeeDetails = React.lazy(() => import('./views/EmployeeDetails'));
+const ThermOfUsePage = React.lazy(() => import('./views/ThermOfUse'));
+const PrivacyPolicyPage = React.lazy(() => import('./views/PrivacyPolicyPage'));
 
 export default function App() {
   return (

@@ -1,5 +1,7 @@
+'use client';
+
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -31,6 +33,7 @@ import SubmissionForm from '../home-page/SubmissionForm';
 import SubmissionModal from '../home-page/SubmissionModal';
 import SectorsSection from '../home-page/SectorsSection';
 import contactPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function ContactPage() {
   const { currentLang } = useContext(appContext);
@@ -253,12 +256,15 @@ export default function ContactPage() {
               bg='gray.100'
             >
               <Image
-                src={contactPhotoHeader}
+                src={toImageSrc(contactPhotoHeader)}
                 alt={isFr ? 'Contact – Le Lever du Pinceau' : 'Contact – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </Box>
           </Grid>

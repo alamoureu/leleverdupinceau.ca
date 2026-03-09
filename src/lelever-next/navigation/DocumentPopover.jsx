@@ -9,7 +9,7 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { PopoverIcon } from './PopoverIcon';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/lib/next-router';
 
 export const DocumentPopover = () => {
   const { currentLang } = useContext(appContext);

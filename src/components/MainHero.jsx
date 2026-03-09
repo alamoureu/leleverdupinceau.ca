@@ -54,7 +54,7 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
         <Heading fontSize={{ base: '3xl', md: '7xl' }}>
           {lang === 'fr' ? (
             <>
-              Peintres d'expériences <br /> montréalais
+              Peintres d&apos;expériences <br /> montréalais
             </>
           ) : (
             <>
@@ -103,6 +103,7 @@ export default function MainHero({ onSubmissionFormOpen, lang, buttonColor }) {
         <Image
           loading='lazy'
           decoding="async"
+          alt={lang === 'fr' ? 'Google Reviews' : 'Google Reviews'}
           src={
             lang === 'fr'
               ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/SSSS+(1).png'

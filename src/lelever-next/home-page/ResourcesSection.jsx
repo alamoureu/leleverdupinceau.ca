@@ -15,6 +15,7 @@ import { useTranslation } from '../i18n';
 import commentChoisirPeintre from '../images/5-landing-page/Photo/louis_Consultation.jpeg';
 import prixProjetPeinture from '../images/1-page-principale/blog hub/prix-projet-montreal.png';
 import erreurEviterProjet from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function ResourcesSection({ title, subtitle, excludeSlugs = [] }) {
   const { t } = useTranslation();
@@ -75,7 +76,7 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [] })
                     bg='gray.100'
                   >
                     <Image
-                      src={article.image}
+                      src={toImageSrc(article.image)}
                       alt={article.title}
                       w='100%'
                       h='100%'

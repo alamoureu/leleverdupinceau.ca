@@ -14,15 +14,12 @@ import {
 } from '@chakra-ui/react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
-import { Outlet, Link as RouterLink, useLocation } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from '@/lib/next-router';
 import WebsiteNavBar from '../navigation/WebsiteNavBar';
 import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
-import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
-import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
-
-export default function NewWebsiteLayout() {
+export default function NewWebsiteLayout({ children }) {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
   const location = useLocation();
@@ -32,12 +29,6 @@ export default function NewWebsiteLayout() {
 
   return (
     <Fragment>
-      <Helmet>
-        <script type="application/ld+json">
-          {JSON.stringify(LOCAL_BUSINESS_SCHEMA)}
-        </script>
-      </Helmet>
-
       <Box w="100%" maxW="1920px" mx="auto" minH="100%" minW={0} overflowX="hidden">
         <Flex
           direction="column"
@@ -64,7 +55,7 @@ export default function NewWebsiteLayout() {
               : { base: '94px', sm: '98px', md: '112px' }}
             mt={0}
           >
-            <Outlet />
+            {children}
           </Stack>
 
           {!isLocaleLanding && (
@@ -85,6 +76,7 @@ export default function NewWebsiteLayout() {
                   <RouterLink to="/">
                     <Image
                       loading="lazy"
+                      alt="Le Lever du Pinceau"
                       src={
                         'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
                       }

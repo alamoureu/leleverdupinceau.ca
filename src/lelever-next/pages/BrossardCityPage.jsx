@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -19,6 +19,7 @@ import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
 import brossardPhotoHeader from '../images/3-ville/brossard/+Header/IMG_6784.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function BrossardCityPage() {
   const { currentLang } = useContext(appContext);
@@ -179,13 +180,14 @@ export default function BrossardCityPage() {
               bg='gray.100'
             >
               <Image
-                src={brossardPhotoHeader}
+                src={toImageSrc(brossardPhotoHeader)}
                 alt={isFr ? 'Peintres à Brossard – Le Lever du Pinceau' : 'Painters in Brossard – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>

@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -38,6 +38,7 @@ import serviceImgCommerciale from '../images/1-page-principale/service hub/Peint
 import serviceImgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 import serviceImgExterieure from '../images/1-page-principale/service hub/Peinture extérieure/IMG_6767.PNG';
 import serviceImgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -199,13 +200,14 @@ export default function SecteursDesservisPage() {
               bg='gray.100'
             >
               <Image
-                src={sectorHubPhotoHeader}
+                src={toImageSrc(sectorHubPhotoHeader)}
                 alt={isFr ? 'Secteurs desservis – Le Lever du Pinceau' : 'Service areas – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>
@@ -254,7 +256,7 @@ export default function SecteursDesservisPage() {
                           }}
                         >
                           <Image
-                            src={city.image}
+                            src={toImageSrc(city.image)}
                             alt={city.name}
                             position='absolute'
                             top={0}
@@ -328,7 +330,7 @@ export default function SecteursDesservisPage() {
                     boxShadow='lg'
                   >
                     <Image
-                      src={secteursHeroImage}
+                      src={toImageSrc(secteursHeroImage)}
                       alt={
                         isFr
                           ? 'Secteurs desservis Le Lever du Pinceau - Peintres Montréal'
@@ -342,7 +344,8 @@ export default function SecteursDesservisPage() {
                       w='100%'
                       h='100%'
                       objectFit='cover'
-                      loading="lazy"
+                      loading="eager"
+                      fetchPriority="high"
                       decoding="async"
                     />
                   </Box>

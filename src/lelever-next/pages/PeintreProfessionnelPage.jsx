@@ -1,5 +1,7 @@
+'use client';
+
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -38,6 +40,7 @@ import peintreProInterieure from '../images/1-page-principale/peintre pro/Peintu
 import peintreProExterieure from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG';
 import peintreProIndustrielle from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG';
 import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function PeintreProfessionnelPage() {
   const { currentLang } = useContext(appContext);
@@ -432,13 +435,14 @@ export default function PeintreProfessionnelPage() {
                 boxShadow="lg"
               >
                 <Image
-                  src={peintreProPhotoHeader}
+                  src={toImageSrc(peintreProPhotoHeader)}
                   alt={isFr ? 'Peintres professionnels – Le Lever du Pinceau' : 'Professional Painters – Le Lever du Pinceau'}
                   w="100%"
                   h="100%"
                   objectFit="cover"
                   objectPosition="center"
-                  loading="lazy"
+                  loading="eager"
+                  fetchPriority="high"
                   decoding="async"
                 />
               </Box>
@@ -601,21 +605,23 @@ export default function PeintreProfessionnelPage() {
                     ))}
                   </Flex>
                   <Box textAlign="center" mt={{ base: 6, md: 8 }}>
-                    <Button
-                      as={RouterLink}
-                      to="/services"
-                      variant="outline"
-                      borderColor="brand.500"
-                      color="brand.500"
-                      rightIcon={<ArrowForwardIcon />}
-                      borderRadius="full"
-                      px={{ base: 6, md: 8 }}
-                      py={{ base: 3, md: 4 }}
-                      textStyle="nav"
-                      _hover={{ bg: 'brand.500', color: 'white' }}
-                    >
-                      {isFr ? 'Voir tous nos services' : 'View all our services'}
-                    </Button>
+                    <RouterLink href="/services">
+                      <Button
+                        as="span"
+                        variant="outline"
+                        borderColor="brand.500"
+                        color="brand.500"
+                        rightIcon={<ArrowForwardIcon />}
+                        borderRadius="full"
+                        px={{ base: 6, md: 8 }}
+                        py={{ base: 3, md: 4 }}
+                        textStyle="nav"
+                        _hover={{ bg: 'brand.500', color: 'white' }}
+                        display="inline-flex"
+                      >
+                        {isFr ? 'Voir tous nos services' : 'View all our services'}
+                      </Button>
+                    </RouterLink>
                   </Box>
                 </Stack>
               </Container>

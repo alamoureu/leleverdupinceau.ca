@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import BlogPostPage from '../blog-posts/BlogPostPage';
 import PageSkeleton from '../../PageSkeleton';

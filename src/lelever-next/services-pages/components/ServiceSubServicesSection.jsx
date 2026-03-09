@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../../AppProvider';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function ServiceSubServicesSection({
   title,
@@ -91,7 +92,7 @@ export default function ServiceSubServicesSection({
                       overflow='hidden'
                     >
                       <Image
-                        src={service.image}
+                        src={toImageSrc(service.image)}
                         alt={service.title}
                         w='100%'
                         h='100%'

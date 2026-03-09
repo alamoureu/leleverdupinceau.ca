@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { useParams, Navigate, Link as RouterLink } from 'react-router-dom';
+import { useParams, Navigate, Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,

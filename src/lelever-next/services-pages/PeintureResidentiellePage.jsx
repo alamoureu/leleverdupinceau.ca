@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -31,6 +31,7 @@ import residentiellePhotoHeader from '../images/2-services/Page peinture réside
 // Only from Page peinture résidentielle folder
 import imgResInterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle intérieure/IMG_6758.PNG';
 import imgResExterieure from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function PeintureResidentiellePage() {
   const { currentLang } = useContext(appContext);
@@ -192,13 +193,14 @@ export default function PeintureResidentiellePage() {
               bg='gray.100'
             >
               <Image
-                src={residentiellePhotoHeader}
+                src={toImageSrc(residentiellePhotoHeader)}
                 alt={isFr ? 'Peinture résidentielle – Le Lever du Pinceau' : 'Residential painting – Le Lever du Pinceau'}
                 w='100%'
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>
@@ -340,7 +342,7 @@ export default function PeintureResidentiellePage() {
                           overflow='hidden'
                         >
                           <Image
-                            src={imgResInterieure}
+                            src={toImageSrc(imgResInterieure)}
                             alt={isFr ? 'Peinture résidentielle intérieure' : 'Interior residential painting'}
                             w='100%'
                             h='100%'
@@ -405,7 +407,7 @@ export default function PeintureResidentiellePage() {
                           overflow='hidden'
                         >
                           <Image
-                            src={imgResExterieure}
+                            src={toImageSrc(imgResExterieure)}
                             alt={isFr ? 'Peinture résidentielle extérieure' : 'Exterior residential painting'}
                             w='100%'
                             h='100%'

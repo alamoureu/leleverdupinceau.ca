@@ -12,7 +12,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import { FiCheckCircle } from 'react-icons/fi';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/lib/next-router';
 
 export default function NosServices({ lang = 'fr' }) {
   const navigate = useNavigate();

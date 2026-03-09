@@ -6,11 +6,11 @@ import {
   Text,
   Button,
   Stack,
-  Image,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.png';
 import TrustBanner from './TrustBanner';
+import AppImage from '@/components/AppImage';
 
 export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
   const { t, currentLang } = useTranslation();
@@ -27,23 +27,15 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
       overflow="visible"
     >
-      <Image
+      <AppImage
         src={heroImage}
         alt={
           currentLang === 'fr'
             ? `Services de peinture résidentielle et commerciale${pageContext ? ' - ' + pageContext : ''}`
             : `Residential and commercial painting services${pageContext ? ' - ' + pageContext : ''}`
         }
-        position="absolute"
-        top={0}
-        left={0}
-        w="100%"
-        h="100%"
-        objectFit="cover"
         zIndex={0}
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
+        priority
       />
       <Box
         position='absolute'

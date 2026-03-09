@@ -1,5 +1,7 @@
+'use client';
+
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -28,6 +30,7 @@ import imgExterieure from '../images/2-services/Page peinture extérieure/1. ré
 import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
 import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import imgPeintresPro from '../images/5-landing-page/Photo/spray man 3000.jpeg';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
@@ -438,13 +441,14 @@ export default function AvisPage() {
               bg="gray.100"
             >
               <Image
-                src={avisPhotoHeader}
+                src={toImageSrc(avisPhotoHeader)}
                 alt={isFr ? 'Avis clients – Le Lever du Pinceau' : 'Client reviews – Le Lever du Pinceau'}
                 w="100%"
                 h="100%"
                 objectFit="cover"
                 objectPosition="center"
-                loading="lazy"
+                loading="eager"
+                fetchPriority="high"
                 decoding="async"
               />
             </Box>
@@ -682,7 +686,7 @@ export default function AvisPage() {
                               bg="gray.100"
                             >
                               <Image
-                                src={service.image}
+                                src={toImageSrc(service.image)}
                                 alt={service.title}
                                 w="100%"
                                 h="100%"

@@ -14,6 +14,7 @@ import method1 from '../images/new-landing/method-1.jpeg';
 import method2 from '../images/new-landing/method-2.jpeg';
 import method3 from '../images/new-landing/method-3.PNG';
 import method4 from '../images/new-landing/method-4.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 const stepImages = [method1, method2, method3, method4];
 
@@ -136,7 +137,7 @@ export default function MethodSection({ onSubmissionOpen }) {
                   h="100%"
                 >
                   <Image
-                    src={stepImages[index]}
+                    src={toImageSrc(stepImages[index])}
                     alt={step.title}
                     w="100%"
                     h={{

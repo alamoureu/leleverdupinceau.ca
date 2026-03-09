@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -90,28 +90,30 @@ export default function NotFoundPage() {
               maxW={{ base: '100%', sm: '500px' }}
               px={{ base: 2, sm: 0 }}
             >
-              <Button
-                as={RouterLink}
-                to='/'
-                bg='brand.500'
-                color='white'
-                size={{ base: 'md', sm: 'lg' }}
-                w={{ base: '100%', sm: 'auto' }}
-                minW={{ base: '100%', sm: '200px' }}
-                px={{ base: 8, sm: 10 }}
-                textStyle='nav'
-                fontWeight='600'
-                h={{ base: '44px', sm: '48px' }}
-                borderRadius='md'
-                _hover={{
-                  bg: 'brand.600',
-                  transform: 'translateY(-2px)',
-                  boxShadow: 'lg',
-                }}
-                transition='all 0.2s'
-              >
-                {isFr ? "Retour à l'accueil" : 'Back to Home'}
-              </Button>
+              <RouterLink href='/'>
+                <Button
+                  as='span'
+                  bg='brand.500'
+                  color='white'
+                  size={{ base: 'md', sm: 'lg' }}
+                  w={{ base: '100%', sm: 'auto' }}
+                  minW={{ base: '100%', sm: '200px' }}
+                  px={{ base: 8, sm: 10 }}
+                  textStyle='nav'
+                  fontWeight='600'
+                  h={{ base: '44px', sm: '48px' }}
+                  borderRadius='md'
+                  _hover={{
+                    bg: 'brand.600',
+                    transform: 'translateY(-2px)',
+                    boxShadow: 'lg',
+                  }}
+                  transition='all 0.2s'
+                  display='inline-flex'
+                >
+                  {isFr ? "Retour à l'accueil" : 'Back to Home'}
+                </Button>
+              </RouterLink>
               <Button
                 onClick={() => navigate(-1)}
                 leftIcon={<ArrowBackIcon />}

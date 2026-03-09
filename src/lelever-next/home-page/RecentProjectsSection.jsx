@@ -20,6 +20,7 @@ import projetInterieur from '../images/2-services/Page peinture intérieure/1. r
 import projetResidentielle2 from '../images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG';
 import projetIndustriel from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
 import projetExterieur from '../images/1-page-principale/Home/Projet extérieur/IMG_6755.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function RecentProjectsSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
@@ -222,7 +223,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                               }}
                             >
                               <Image
-                                src={project.images[currentIndex]}
+                                src={toImageSrc(project.images[currentIndex])}
                                 alt={getAltText(project.title, pageContext)}
                                 w="100%"
                                 h="100%"

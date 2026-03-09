@@ -15,23 +15,23 @@
     "axios": "^1.7.9",
     "firebase": "^11.0.2",
     "framer-motion": "^11.13.1",
+    "next": "^14.2.35",
     "react": "^18.3.1",
     "react-compare-image": "^3.4.0",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^5.4.0",
-    "react-router-dom": "^7.0.2",
     "react-scripts": "^5.0.1",
     "react-simple-image-slider": "^2.4.1",
     "react-webcam": "^7.2.0",
-    "sitemap": "^8.0.0",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
-    "start": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "lint": "eslint src --ext .js,.jsx --max-warnings 0",
+    "dev": "next dev",
+    "start": "next start",
+    "build": "next build",
+    "preview": "next build && next start",
+    "lint": "next lint",
     "test": "node src/test/verify-routes.js",
     "open:routes": "node src/test/open-all-routes.js",
     "open:all": "node src/test/open-all-routes.js --all",
@@ -47,8 +47,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "next/core-web-vitals"
     ]
   },
   "browserslist": {
@@ -64,12 +63,10 @@
     ]
   },
   "devDependencies": {
-    "sharp": "^0.33.5",
-    "@vitejs/plugin-basic-ssl": "^2.1.0",
-    "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^8.57.0",
+    "eslint-config-next": "^14.2.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "vite": "^6.0.3"
+    "sharp": "^0.33.5"
   }
 }

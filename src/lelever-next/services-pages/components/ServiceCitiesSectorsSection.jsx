@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import {
   Box,
   Container,
@@ -19,6 +19,7 @@ import {
   longueuilSecteur,
   brossardSecteur,
 } from '../../home-page/SectorsSection';
+import { toImageSrc } from '@/lib/imageSrc';
 
 const defaultCities = [
   { name: 'Montréal', slug: 'montreal', image: montrealSecteur },
@@ -92,7 +93,7 @@ export default function ServiceCitiesSectorsSection({
                     }}
                   >
                     <Image
-                      src={city.image}
+                      src={toImageSrc(city.image)}
                       alt={
                         serviceName ? `${serviceName} ${city.name}` : city.name
                       }

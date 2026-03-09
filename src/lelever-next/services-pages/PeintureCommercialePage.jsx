@@ -1,5 +1,5 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink } from '@/lib/next-router';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -27,6 +27,7 @@ import SectorsSection, {
   brossardSecteur,
 } from '../home-page/SectorsSection';
 import commercialPhotoHeader from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import { toImageSrc } from '@/lib/imageSrc';
 
 export default function PeintureCommercialePage() {
   const { currentLang } = useContext(appContext);
@@ -186,14 +187,15 @@ export default function PeintureCommercialePage() {
               bg="gray.100"
             >
               <Image
-                src={commercialPhotoHeader}
+                src={toImageSrc(commercialPhotoHeader)}
                 alt={isFr ? 'Peinture commerciale – Le Lever du Pinceau' : 'Commercial painting – Le Lever du Pinceau'}
                 w="100%"
-                loading="lazy"
-                decoding="async"
                 h="100%"
                 objectFit="cover"
                 objectPosition="center"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
               />
             </Box>
           </Grid>

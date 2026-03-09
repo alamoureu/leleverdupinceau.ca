@@ -898,7 +898,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                 fontFamily='serif'
                 lineHeight={1}
               >
-                "
+                &quot;
               </Text>
               <Text
                 fontSize={{ base: 'md', md: 'lg' }}

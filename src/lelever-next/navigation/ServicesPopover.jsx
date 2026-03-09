@@ -11,7 +11,7 @@ import {
   Divider,
 } from '@chakra-ui/react';
 import { PopoverIcon } from './PopoverIcon';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from '@/lib/next-router';
 
 export const ServicesPopover = () => {
   const { currentLang } = useContext(appContext);

@@ -18,7 +18,7 @@ import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { faPhoneAlt } from '@fortawesome/free-solid-svg-icons';
 import { ServicesPopover } from './ServicesPopover';
 import { MobileDrawer } from './MobileDrawer';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate, useLocation } from '@/lib/next-router';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 
@@ -163,6 +163,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               <Image
                 loading="lazy"
                 decoding="async"
+                alt="Le Lever du Pinceau"
                 src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
                 h="100%"
                 w="auto"
