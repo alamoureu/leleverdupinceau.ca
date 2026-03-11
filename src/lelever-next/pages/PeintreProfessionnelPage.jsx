@@ -11,40 +11,38 @@ import {
   Icon,
   HStack,
   Flex,
+  Grid,
   useDisclosure,
-  SimpleGrid,
-  Divider,
+  Image,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
 } from '@chakra-ui/react';
-import {
-  CheckCircleIcon,
-  WarningTwoIcon,
-} from '@chakra-ui/icons';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
-import FAQSection from '../home-page/FAQSection';
-import ReviewsSection from '../home-page/ReviewsSection';
+import SectorsSection from '../home-page/SectorsSection';
+import ResourcesSection from '../home-page/ResourcesSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import ServiceCard from '../home-page/ServiceCard';
-import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import BeforeAfter from '../components/BeforeAfter';
+import ProcessStepsSection from '../components/ProcessStepsSection';
+import TrustBanner from '../home-page/TrustBanner';
 import peintreProResidentielle from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
 import peintreProCommerciale from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG';
 import peintreProInterieure from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG';
 import peintreProExterieure from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG';
+import peintreProIndustrielle from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG';
+import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 
 export default function PeintreProfessionnelPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const title = isFr
-    ? 'Pourquoi faire appel à un peintre professionnel à Montréal?'
-    : 'Why hire a professional painter in Montreal?';
-
-  const subtitle = isFr
-    ? 'Les avantages concrets d’engager un vrai professionnel pour vos travaux de peinture.'
-    : 'The concrete benefits of hiring a true professional for your painting work.';
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -59,436 +57,761 @@ export default function PeintreProfessionnelPage() {
       {
         '@type': 'ListItem',
         position: 2,
-        name: isFr ? 'Peintre professionnel' : 'Professional Painter',
+        name: isFr ? 'Peintres professionnels' : 'Professional Painters',
         item: 'https://leleverdupinceau.ca/peintre-professionnel',
       },
     ],
   };
 
-  const articleSchema = {
+  const localBusinessSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: title,
+    '@type': 'LocalBusiness',
+    name: 'Le Lever du Pinceau',
     description: isFr
-      ? 'Pourquoi engager un peintre professionnel licencié RBQ? Découvrez les avantages, les risques d’engager au noir, et comment vérifier un peintre avant de signer. Guide complet.'
-      : 'Why hire an RBQ licensed professional painter? Discover the benefits, risks of under the table hiring, and how to verify a painter before signing. Complete guide.',
-    publisher: {
-      '@type': 'Organization',
-      name: 'Le Lever du Pinceau',
-      logo: {
-        '@type': 'ImageObject',
-        url: 'https://www.leleverdupinceau.ca/logo192.png'
-      }
-    }
+      ? 'Peintres professionnels à Montréal spécialisés en peinture résidentielle, commerciale, intérieure et extérieure dans tout le Grand Montréal'
+      : 'Professional painters in Montreal specialized in residential, commercial, interior and exterior painting throughout Greater Montreal',
+    url: 'https://leleverdupinceau.ca/peintre-professionnel',
+    telephone: '+14388680772',
+    email: 'leleverdupinceau@gmail.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '2175 Rue Saint-Patrick',
+      addressLocality: 'Montréal',
+      addressRegion: 'QC',
+      postalCode: 'H3K 1B4',
+      addressCountry: 'CA',
+    },
+    areaServed: [
+      {
+        '@type': 'City',
+        name: 'Montréal',
+      },
+      {
+        '@type': 'City',
+        name: 'Laval',
+      },
+      {
+        '@type': 'City',
+        name: 'Longueuil',
+      },
+      {
+        '@type': 'City',
+        name: 'Brossard',
+      },
+    ],
   };
 
-  const getWhyHirePro = () => [
-    {
-      title: isFr ? "Une préparation que personne ne voit, mais que tout le monde remarque" : "Preparation that no one sees, but everyone notices",
-      text: isFr ? "Un peintre professionnel consacre 60 à 70% du temps à la préparation : réparation des fissures, sablage, apprêt, protection des surfaces. C’est cette étape invisible qui fait la différence entre une peinture qui dure 2 ans et une qui dure 10 ans." : "A professional painter dedicates 60 to 70% of the time to preparation: crack repair, sanding, primer, surface protection. This invisible step is the difference between paint that lasts 2 years and one that lasts 10."
-    },
-    {
-      title: isFr ? "Des produits choisis pour votre situation, pas les moins chers" : "Products chosen for your situation, not the cheapest",
-      text: isFr ? "Chaque pièce a ses exigences : fini lavable pour la cuisine, zéro COV pour la chambre de bébé, anti-humidité pour la salle de bain. Un professionnel sait quel produit utiliser où, et pourquoi." : "Every room has its requirements: washable finish for the kitchen, zero VOC for the nursery, anti-humidity for the bathroom. A professional knows what product to use where, and why."
-    },
-    {
-      title: isFr ? "Des lignes nettes et une finition uniforme" : "Sharp lines and a uniform finish",
-      text: isFr ? "Les découpes au plafond, le long des moulures, autour des fenêtres, c’est le travail de précision qui distingue un professionnel d’un amateur. Pas de ruban qui arrache la peinture, pas de coulisses." : "Cutting in at the ceiling, along moldings, around windows, is the precision work that distinguishes a professional from an amateur. No tape ripping off paint, no runs."
-    },
-    {
-      title: isFr ? "Un chantier propre du début à la fin" : "A clean worksite from start to finish",
-      text: isFr ? "Protection complète de vos planchers, meubles et accessoires. Nettoyage quotidien. Vous retrouvez votre espace propre à la fin de chaque journée de travail." : "Complete protection of your floors, furniture, and accessories. Daily cleaning. You return to a clean space at the end of each workday."
-    },
-    {
-      title: isFr ? "Une garantie sur les travaux" : "A warranty on the work",
-      text: isFr ? "Un peintre licencié RBQ est légalement responsable de son travail. Si un problème survient, vous avez un recours. Avec un peintre au noir, vous n’avez rien." : "An RBQ licensed painter is legally responsible for their work. If a problem arises, you have recourse. With an under-the-table painter, you have nothing."
-    }
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: isFr
+          ? 'Quel est le délai pour obtenir une soumission ?'
+          : 'What is the turnaround time for a quote?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."
+            : 'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: isFr
+          ? 'Combien coûte un peintre professionnel à Montréal ?'
+          : 'How much does a professional painter cost in Montreal?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 1 et 3 $ par pied carré. Pour obtenir une estimation précise adaptée à votre projet, consultez notre article sur les prix de la peinture à Montréal."
+            : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $1 and $3 per square foot. For an accurate estimate tailored to your project, see our article on painting prices in Montreal.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: isFr
+          ? 'Est-ce que vous protégez les surfaces avant de peindre ?'
+          : 'Do you protect surfaces before painting?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? 'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.'
+            : 'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: isFr
+          ? 'Travaillez-vous sur des projets commerciaux ?'
+          : 'Do you work on commercial projects?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? "Oui, nous sommes spécialisés dans les projets commerciaux et comprenons les exigences spécifiques des entreprises. Nous intervenons dans les bureaux, commerces de détail, restaurants, cliniques médicales, cabinets professionnels, écoles privées, halls d'immeubles et espaces de coworking. Nous offrons des horaires flexibles (soirs et fins de semaine) pour minimiser l'impact sur vos opérations, respectons les normes de sécurité commerciales et coordonnons efficacement avec les gestionnaires d'immeubles."
+            : 'Yes, we specialize in commercial projects and understand the specific requirements of businesses. We work in offices, retail stores, restaurants, medical clinics, professional offices, private schools, building halls, and coworking spaces. We offer flexible schedules (evenings and weekends) to minimize impact on your operations, comply with commercial safety standards, and coordinate effectively with building managers.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: isFr
+          ? "Quelle est la durée typique d'un projet de peinture ?"
+          : 'What is the typical duration of a painting project?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? "La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission."
+            : 'Duration varies depending on project scope. For a standard room (bedroom or living room), expect 1 to 2 days. A complete apartment (3-4 rooms) generally takes 3 to 5 days. A complete house may require 1 to 2 weeks depending on size. Commercial projects are scheduled according to your operational constraints. We will provide you with a precise timeline when quoting.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: isFr
+          ? 'Utilisez-vous des peintures écologiques et sans odeur ?'
+          : 'Do you use eco-friendly and odorless paints?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: isFr
+            ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
+            : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands such as Bétonel Dulux, using in particular the VIP, Diamond and Lifemaster ranges, known for their durability, excellent coverage and low VOC emissions. We will advise you on the best choice based on your project and budget.",
+        },
+      },
+    ],
+  };
+
+  const whyChooseProfessional = [
+    isFr
+      ? 'Une préparation adéquate des surfaces'
+      : 'Adequate surface preparation',
+    isFr
+      ? 'Une application uniforme et durable'
+      : 'Uniform and durable application',
+    isFr
+      ? 'Des produits adaptés (intérieur, extérieur, industriel)'
+      : 'Appropriate products (interior, exterior, industrial)',
+    isFr
+      ? 'Un chantier propre, sécurisé et organisé'
+      : 'A clean, secure and organized worksite',
+    isFr
+      ? 'Une finition soignée sans reprises'
+      : 'A careful finish without touch-ups',
   ];
 
-  const getRisks = () => [
-    isFr ? "Si le peintre abime votre plancher, brise un luminaire ou cause un dégât d’eau, vous payez de votre poche." : "If the painter damages your floor, breaks a fixture or causes water damage, you pay out of pocket.",
-    isFr ? "Si la peinture écaille après 3 mois, vous n’avez aucun recours légal." : "If the paint peels after 3 months, you have no legal recourse.",
-    isFr ? "Au Québec, faire exécuter des travaux par un entrepreneur sans licence RBQ peut entraîner des amendes pour le client aussi." : "In Quebec, having work done by an unlicensed contractor can result in fines for the client as well.",
-    isFr ? "Aucun contrat = aucune obligation de terminer. Il peut disparaître avec votre acompte." : "No contract = no obligation to finish. They can disappear with your deposit."
+  const processSteps = [
+    {
+      title: isFr
+        ? 'Évaluation rapide et estimation gratuite'
+        : 'Quick evaluation and free quote',
+      description: isFr
+        ? 'Inspection du projet + recommandation des produits appropriés.'
+        : 'Project inspection + recommendation of appropriate products.',
+    },
+    {
+      title: isFr
+        ? 'Préparation complète des surfaces'
+        : 'Complete surface preparation',
+      description: isFr
+        ? 'Réparation, nettoyage, ponçage, calfeutrage, protection des zones.'
+        : 'Repair, cleaning, sanding, caulking, area protection.',
+    },
+    {
+      title: isFr ? 'Application professionnelle' : 'Professional application',
+      description: isFr
+        ? 'Méthodes précises, produits de qualité et finition uniforme.'
+        : 'Precise methods, quality products and uniform finish.',
+    },
+    {
+      title: isFr ? 'Inspection finale' : 'Final inspection',
+      description: isFr
+        ? 'Nous livrons un résultat impeccable et validé avec vous.'
+        : 'We deliver an impeccable result validated with you.',
+    },
   ];
 
-  const getCertifications = () => [
-    {
-      title: isFr ? "Licence RBQ #5864-1481-01" : "RBQ License #5864-1481-01",
-      text: isFr ? "La Régie du bâtiment du Québec exige que tout entrepreneur en peinture détienne une licence valide. Cette licence confirme que nous respectons les normes de l’industrie, que nos peintres sont qualifiés et que nous sommes imputables de notre travail." : "The Régie du bâtiment du Québec requires all painting contractors to hold a valid license. This license confirms that we meet industry standards, that our painters are qualified, and that we are accountable for our work."
-    },
-    {
-      title: isFr ? "Assurance responsabilité civile de 5 millions $" : "$5 million civil liability insurance",
-      text: isFr ? "En cas de dommage accidentel à votre propriété pendant les travaux, vous êtes couvert. Notre assurance protège autant vous que notre équipe. C’est une sécurité que les peintres non licenciés ne peuvent pas offrir." : "In case of accidental damage to your property during the work, you are covered. Our insurance protects both you and our team. It's a security that unlicensed painters cannot offer."
-    },
-    {
-      title: isFr ? "Des peintres de métier, pas des étudiants" : "Tradesmen painters, not students",
-      text: isFr ? "Chaque peintre de notre équipe a au minimum 10 ans d’expérience sur le terrain. Ils connaissent les techniques, les produits et les défis spécifiques au climat québécois." : "Every painter on our team has a minimum of 10 years of field experience. They know the techniques, products, and specific challenges of the Quebec climate."
-    }
+  const serviceImages = [
+    peintreProResidentielle,
+    peintreProCommerciale,
+    peintreProInterieure,
+    peintreProExterieure,
+    peintreProIndustrielle,
   ];
 
-  const getQuestionsToAsk = () => [
-    { q: isFr ? "Est-ce qu’il détient une licence RBQ valide?" : "Do they hold a valid RBQ license?", a: isFr ? "Vérifiez sur le site de la RBQ. Sans licence, les travaux ne sont pas protégés." : "Check the RBQ website. Without a license, work is not protected." },
-    { q: isFr ? "Est-ce qu’il est assuré?" : "Are they insured?", a: isFr ? "Demandez une preuve d’assurance responsabilité civile. En cas de dommage, c’est votre protection." : "Ask for proof of civil liability insurance. In case of damage, this is your protection." },
-    { q: isFr ? "Fournit-il une soumission détaillée par écrit?" : "Do they provide a detailed written quote?", a: isFr ? "Un devis verbal ne vaut rien. Exigez un document détaillé avec le détail des travaux, produits et prix." : "A verbal quote is worthless. Demand a detailed document detailing work, products, and prices." },
-    { q: isFr ? "A-t-il des avis vérifiés?" : "Do they have verified reviews?", a: isFr ? "Regardez ses avis Google, pas seulement son site web. Des vrais avis de vrais clients." : "Look at their Google reviews, not just their website. Real reviews from real clients." },
-    { q: isFr ? "Peut-il montrer des photos de projets récents?" : "Can they show photos of recent projects?", a: isFr ? "Un portfolio de projets réels prouve la qualité de son travail." : "A portfolio of real projects proves the quality of their work." },
-    { q: isFr ? "Offre-t-il une garantie écrite?" : "Do they offer a written warranty?", a: isFr ? "Sans garantie, vous n’avez aucun recours si le travail se détériore rapidement." : "Without a warranty, you have no recourse if the work deteriorates quickly." },
-    { q: isFr ? "Est-ce qu’il utilise des peintures de qualité?" : "Do they use quality paints?", a: isFr ? "Les marques comme Betonel et Sherwin Williams coûtent plus cher mais durent plus longtemps. Méfiez-vous des « prix très bas »." : "Brands like Betonel and Sherwin Williams cost more but last longer. Beware of 'very low prices'." },
+  const services = [
+    {
+      image: serviceImages[0],
+      title: isFr ? 'Peinture résidentielle' : 'Residential painting',
+      description: isFr
+        ? 'Maisons, condos, logements, multi-étages.'
+        : 'Houses, condos, dwellings, multi-story buildings.',
+      link: '/services/peinture-residentielle',
+    },
+    {
+      image: serviceImages[1],
+      title: isFr ? 'Peinture commerciale' : 'Commercial painting',
+      description: isFr
+        ? 'Bureaux, commerces, restaurants, immeubles.'
+        : 'Offices, businesses, restaurants, buildings.',
+      link: '/services/peinture-commerciale',
+    },
+    {
+      image: serviceImages[2],
+      title: isFr ? 'Peinture intérieure' : 'Interior painting',
+      description: isFr
+        ? 'Murs, plafonds, portes, escaliers.'
+        : 'Walls, ceilings, doors, stairs.',
+      link: '/services/peinture-interieure',
+    },
+    {
+      image: serviceImages[3],
+      title: isFr ? 'Peinture extérieure' : 'Exterior painting',
+      description: isFr
+        ? 'Revêtements, clôtures, bois, brique, aluminium.'
+        : 'Coatings, fences, wood, brick, aluminum.',
+      link: '/services/peinture-exterieure',
+    },
+    {
+      image: serviceImages[4],
+      title: isFr ? 'Peinture industrielle' : 'Industrial painting',
+      description: isFr
+        ? 'Entrepôts, usines, bâtiments spécialisés.'
+        : 'Warehouses, factories, specialized buildings.',
+      link: '/services/peinture-industrielle',
+    },
   ];
 
-  const expertiseReviews = [
+  const faqs = [
     {
-      name: "Marc-André R.",
-      time: isFr ? "Il y a 2 mois" : "2 months ago",
-      content: isFr ? "Une préparation de surface incroyable. Ils ont pris le temps de réparer chaque petite imperfection avant de peindre. Le résultat final est sans défaut, digne de vrais professionnels." : "Incredible surface preparation. They took the time to repair every little imperfection before painting. The final result is flawless, worthy of true professionals."
+      question: isFr
+        ? 'Quel est le délai pour obtenir une soumission ?'
+        : 'What is the turnaround time for a quote?',
+      answer: isFr
+        ? "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."
+        : 'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
     },
     {
-      name: "Sophie L.",
-      time: isFr ? "Il y a 3 mois" : "3 months ago",
-      content: isFr ? "Chantier d'une propreté exemplaire de A à Z. Planchers bâchés, meubles protégés, et un grand ménage fait chaque soir avant leur départ. C'est la première fois que j'ai affaire à des peintres si respectueux." : "Exemplary clean site from A to Z. Floors tarped, furniture protected, and a big cleanup done every evening before they left. First time dealing with such respectful painters."
+      question: isFr
+        ? 'Combien coûte un peintre professionnel à Montréal ?'
+        : 'How much does a professional painter cost in Montreal?',
+      answer: isFr
+        ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 1 et 3 $ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,"
+        : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $1 and $3 per square foot. For an accurate estimate tailored to your project,',
+      link: isFr
+        ? '/blog/prix-peinture-montreal'
+        : '/blog/prix-peinture-montreal',
     },
     {
-      name: "David M.",
-      time: isFr ? "Il y a 1 mois" : "1 month ago",
-      content: isFr ? "L'équipe est arrivée exactement à l'heure convenue et a terminé selon l'échéancier promis. La communication était excellente tout au long du projet. C'est rassurant de faire affaire avec des gens si bien organisés." : "The team arrived exactly at the agreed time and finished on the promised schedule. Communication was excellent throughout the project. It's reassuring to deal with such well-organized people."
+      question: isFr
+        ? 'Est-ce que vous protégez les surfaces avant de peindre ?'
+        : 'Do you protect surfaces before painting?',
+      answer: isFr
+        ? 'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.'
+        : 'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
     },
     {
-      name: "Élaine B.",
-      time: isFr ? "Il y a 4 mois" : "4 months ago",
-      content: isFr ? "Je recommande fortement. On voit les 10 ans d'expérience dans la qualité de la finition, surtout au niveau des découpes du plafond et des moulures. Qualité premium." : "I highly recommend. You can see the 10 years of experience in the quality of the finish, especially in the cutting of the ceiling and moldings. Premium quality."
-    }
+      question: isFr
+        ? 'Travaillez-vous sur des projets commerciaux ?'
+        : 'Do you work on commercial projects?',
+      answer: isFr
+        ? "Oui, nous sommes spécialisés dans les projets commerciaux et comprenons les exigences spécifiques des entreprises. Nous intervenons dans les bureaux, commerces de détail, restaurants, cliniques médicales, cabinets professionnels, écoles privées, halls d'immeubles et espaces de coworking. Nous offrons des horaires flexibles (soirs et fins de semaine) pour minimiser l'impact sur vos opérations, respectons les normes de sécurité commerciales et coordonnons efficacement avec les gestionnaires d'immeubles."
+        : 'Yes, we specialize in commercial projects and understand the specific requirements of businesses. We work in offices, retail stores, restaurants, medical clinics, professional offices, private schools, building halls, and coworking spaces. We offer flexible schedules (evenings and weekends) to minimize impact on your operations, comply with commercial safety standards, and coordinate effectively with building managers.',
+    },
+    {
+      question: isFr
+        ? "Quelle est la durée typique d'un projet de peinture ?"
+        : 'What is the typical duration of a painting project?',
+      answer: isFr
+        ? "La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission."
+        : 'Duration varies depending on project scope. For a standard room (bedroom or living room), expect 1 to 2 days. A complete apartment (3-4 rooms) generally takes 3 to 5 days. A complete house may require 1 to 2 weeks depending on size. Commercial projects are scheduled according to your operational constraints. We will provide you with a precise timeline when quoting.',
+    },
+    {
+      question: isFr
+        ? 'Utilisez-vous des peintures écologiques et sans odeur ?'
+        : 'Do you use eco-friendly and odorless paints?',
+      answer: isFr
+        ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
+        : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands such as Bétonel Dulux, using in particular the VIP, Diamond and Lifemaster ranges, known for their durability, excellent coverage and low VOC emissions. We will advise you on the best choice based on your project and budget.",
+    },
   ];
 
-  const proFaqs = [
-    {
-      question: isFr ? "Quelle est la différence entre un peintre professionnel et un amateur?" : "What is the difference between a professional painter and an amateur?",
-      answer: isFr ? "Un peintre professionnel détient une licence RBQ, possède une assurance responsabilité, utilise des produits de qualité professionnelle et maîtrise les techniques de préparation qui assurent un résultat durable. Un amateur peut offrir un prix plus bas, mais sans garantie, sans assurance et souvent avec un résultat qui ne tient pas dans le temps." : "A professional painter holds an RBQ license, has liability insurance, uses professional-quality products, and masters preparation techniques that ensure an enduring result. An amateur may offer a lower price, but without warranty, insurance, and often with a result that does not hold up over time."
-    },
-    {
-      question: isFr ? "C’est quoi une licence RBQ et pourquoi c’est important?" : "What is an RBQ license and why is it important?",
-      answer: isFr ? "La licence RBQ (Régie du bâtiment du Québec) est une certification obligatoire pour tout entrepreneur en construction au Québec. Elle garantit que l’entreprise respecte les normes de l’industrie, possède les qualifications requises et est imputable en cas de problème. Engager un peintre sans licence vous expose à des risques légaux et financiers." : "The RBQ (Régie du bâtiment du Québec) license is a mandatory certification for any construction contractor in Quebec. It guarantees that the company meets industry standards, possesses the required qualifications, and is accountable if problems arise. Hiring an unlicensed painter exposes you to legal and financial risks."
-    },
-    {
-      question: isFr ? "Est-ce que ça vaut la peine de payer plus cher pour un peintre professionnel?" : "Is it worth paying more for a professional painter?",
-      answer: isFr ? "Oui. Un peintre professionnel utilise de meilleurs produits, prépare les surfaces correctement et garantit son travail. Le résultat dure 2 à 3 fois plus longtemps qu’un travail amateur. À moyen terme, vous économisez en évitant les reprises et retouches fréquentes." : "Yes. A professional painter uses better products, correctly prepares surfaces, and guarantees their work. The result lasts 2 to 3 times longer than an amateur's work. In the medium term, you save money by avoiding frequent touch-ups."
-    },
-    {
-      question: isFr ? "Comment savoir si un peintre est vraiment licencié?" : "How do I know if a painter is truly licensed?",
-      answer: isFr ? "Vous pouvez vérifier la licence de n’importe quel entrepreneur sur le site de la RBQ (rbq.gouv.qc.ca). Entrez le numéro de licence ou le nom de l’entreprise. Notre licence est le #5864-1481-01." : "You can check any contractor's license on the RBQ website (rbq.gouv.qc.ca). Enter the license number or company name. Our license is #5864-1481-01."
-    },
-    {
-      question: isFr ? "Travaillez-vous sur des projets commerciaux?" : "Do you work on commercial projects?",
-      answer: isFr ? "Oui, nous sommes spécialisés dans les projets commerciaux et comprenons les exigences spécifiques des entreprises. Nous intervenons dans les bureaux, commerces, restaurants, cliniques, écoles, halls d’immeubles. Nous offrons des horaires flexibles (soirs et fins de semaine) pour minimiser l’impact sur vos opérations." : "Yes, we specialize in commercial projects and understand the specific requirements of businesses. We work in offices, retail stores, restaurants, clinics, schools, and building halls. We offer flexible hours (evenings and weekends) to minimize the impact on your operations."
-    },
-    {
-      question: isFr ? "Est-ce que vous protégez les surfaces avant de peindre?" : "Do you protect surfaces before painting?",
-      answer: isFr ? "Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail." : "Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday."
-    },
-    {
-      question: isFr ? "Combien coûte un peintre professionnel?" : "How much does a professional painter cost?",
-      answer: isFr ? "Le coût d’un peintre professionnel varie selon plusieurs facteurs : la surface à peindre, l’état des murs, la préparation nécessaire et les produits utilisés. À Montréal, la peinture intérieure résidentielle se situe généralement entre 2 $ et 4 $ par pied carré, incluant la préparation, l’application et le nettoyage. Les projets extérieurs ou spécialisés peuvent varier davantage. Une soumission détaillée permet d’obtenir un prix précis basé sur votre espace." : "The cost of a professional painter varies depending on several factors: the area to paint, the condition of walls, the necessary preparation, and products used. In Montreal, residential interior painting generally ranges between $2 and $4 per square foot, including preparation, application, and cleaning. Exterior or specialized projects may vary more. A detailed quote allows you to obtain a precise price based on your space."
-    }
-  ];
 
   return (
     <Fragment>
       <SEOHead
-        title={isFr ? 'Peintre professionnel à Montréal | Pourquoi engager un pro | Le Lever du Pinceau' : 'Professional Painter in Montreal | Why hire a pro | Le Lever du Pinceau'}
-        description={isFr ? 'Pourquoi engager un peintre professionnel licencié RBQ? Découvrez les avantages, les risques d’engager au noir, et comment vérifier un peintre avant de signer. Guide complet par Le Lever du Pinceau.' : 'Why hire an RBQ licensed professional painter? Discover the benefits, risks of hiring under the table, and how to verify a painter before signing. Complete guide by Le Lever du Pinceau.'}
+        title={isFr ? 'Peintre professionnel Montréal | Équipe qualifiée RBQ – Le Lever du Pinceau' : 'Professional painter Montreal | RBQ qualified team – Le Lever du Pinceau'}
+        description={isFr ? 'Peintres professionnels à Montréal, Laval, Longueuil. Peinture résidentielle, commerciale, intérieure et extérieure. Expertise, précision, résultats garantis. Devis gratuit.' : 'Professional painters in Montreal, Laval, Longueuil. Residential, commercial, interior and exterior painting. Expertise, precision, guaranteed results. Free quote.'}
         canonicalPath="/peintre-professionnel"
-        schemaArray={[breadcrumbSchema, articleSchema]}
+        schemaArray={[breadcrumbSchema, localBusinessSchema, faqSchema]}
       />
 
       <Box w="100%" bg="white" overflowX="hidden">
-        <HeroSection
-          onSubmissionOpen={onOpen}
-          pageContext="professionnel"
-          title={title}
-          titleSecondLine=""
-          subtitle={subtitle}
-          buttonText={isFr ? "Obtenir ma soumission gratuite →" : "Get my free quote →"}
-          imageBackground={peintreProPhotoHeader}
-          compactTrustBanner
-        >
-          <HStack
-            spacing={3}
-            textStyle="bodyLarge"
-            color="whiteAlpha.800"
-            mb={{ base: 4, md: 6 }}
+        <Box position="relative" w="100%" pb={{ base: 12, md: 14, lg: 16 }}>
+          <Container
+            maxW="1440px"
+            px={{ base: 4, md: 6, lg: 8 }}
+            pt={{ base: 14, md: 18, lg: 24 }}
+            pb={{ base: 12, md: 14, lg: 16 }}
           >
-            <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline' }}>
-              {isFr ? 'Accueil' : 'Home'}
-            </Link>
-            <Text>›</Text>
-            <Text color="white" fontWeight="medium">
-              {isFr ? 'Peintre professionnel' : 'Professional Painter'}
-            </Text>
-          </HStack>
-        </HeroSection>
+            <Grid
+              templateColumns={{ base: '1fr', md: '1fr 1fr' }}
+              gap={{ base: 8, md: 10, lg: 12 }}
+              alignItems={{ md: 'flex-start' }}
+            >
+              <Stack spacing={0} minW={0}>
+                <HStack
+                  spacing={3}
+                  textStyle="bodyLarge"
+                  color="gray.600"
+                  mb={{ base: 4, md: 6 }}
+                >
+                  <Link href="/" _hover={{ textDecoration: 'underline' }} color="gray.600" textStyle="bodyLarge">
+                    {isFr ? 'Accueil' : 'Home'}
+                  </Link>
+                  <Text textStyle="bodyLarge">›</Text>
+                  <Text color="gray.800" fontWeight="medium" textStyle="bodyLarge">
+                    {isFr ? 'Peintres professionnels' : 'Professional Painters'}
+                  </Text>
+                </HStack>
+                <Stack spacing={{ base: 4, md: 6, lg: 8 }}>
+                  <Heading
+                    as="h1"
+                    fontSize={{
+                      base: '2xl',
+                      sm: '2.5xl',
+                      md: '3xl',
+                      lg: '4xl',
+                      xl: '5xl',
+                    }}
+                    fontWeight="800"
+                    color="gray.900"
+                    lineHeight="1.1"
+                    mb={{ base: 3, md: 4 }}
+                  >
+                    {isFr
+                      ? 'Peintres professionnels à Montréal'
+                      : 'Professional Painters in Montreal'}
+                    <Text
+                      as="span"
+                      display="block"
+                      fontSize={{
+                        base: 'xl',
+                        sm: '2xl',
+                        md: '3xl',
+                        lg: '4xl',
+                        xl: '4.5xl',
+                      }}
+                      color="brand.500"
+                      mt={{ base: 1, md: 2 }}
+                    >
+                      Le Lever du Pinceau
+                    </Text>
+                  </Heading>
+                  <Text
+                    textStyle="bodyLarge"
+                    color="gray.600"
+                    lineHeight={{ base: '1.6', md: '1.8' }}
+                    maxW="600px"
+                  >
+                    {isFr
+                      ? 'Chez Le Lever du Pinceau, nos peintres professionnels accompagnent propriétaires, commerces et immeubles dans tous leurs projets de peinture à Montréal, Laval et Longueuil. Nous combinons expertise technique, finition impeccable et service rapide pour offrir des résultats durables et esthétiques. Sur cette page, vous trouverez notre approche professionnelle, les services disponibles, les zones desservies et les réponses essentielles pour choisir le bon peintre.'
+                      : 'At Le Lever du Pinceau, our professional painters assist homeowners, businesses and buildings in all their painting projects in Montreal, Laval and Longueuil. We combine technical expertise, impeccable finish and fast service to offer durable and aesthetic results. On this page you will find our professional approach, available services, service areas and essential answers for choosing the right painter.'}
+                  </Text>
+                </Stack>
+              </Stack>
+              <Box
+                w="100%"
+                py={{ base: 2, md: 4 }}
+                pl={{ base: 0, md: 2 }}
+              >
+                <Box
+                  w="100%"
+                  aspectRatio={{ base: '1', md: '3/2' }}
+                  borderRadius="xl"
+                  overflow="hidden"
+                  bg="gray.100"
+                  boxShadow="lg"
+                >
+                  <Image
+                    src={peintreProPhotoHeader}
+                    alt={isFr ? 'Peintres professionnels – Le Lever du Pinceau' : 'Professional Painters – Le Lever du Pinceau'}
+                    w="100%"
+                    h="100%"
+                    objectFit="cover"
+                    objectPosition="center"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </Box>
+              </Box>
+            </Grid>
+          </Container>
+          <TrustBanner compact />
+        </Box>
 
-        {/* Pourquoi engager un peintre pro */}
-        <Box pt={{ base: 20, sm: 24, md: 24, lg: 24, xl: 28, '2xl': 28 }} pb={{ base: 12, md: 16, lg: 20 }} bg="white">
-          <Container maxW="1000px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={8}>
-              <Stack spacing={3} textAlign="center">
-                <Heading as="h2" size="section" fontWeight="bold" color="gray.800">
-                  {isFr ? "Ce que vous obtenez en engageant un peintre professionnel" : "What you get when hiring a professional painter"}
+        <Container
+          maxW="1440px"
+          px={{ base: 4, md: 6 }}
+          pt={0}
+        >
+          <Stack spacing={0}>
+            <Box
+              mt={0}
+              pt={{ base: 20, md: 24, lg: 28 }}
+              pb={{ base: 12, md: 16, lg: 20 }}
+              bg="gray.50"
+              borderRadius="xl"
+              mb={{ base: 8, md: 12 }}
+            >
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign="left">
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
+                      {isFr
+                        ? 'Expertise, précision et résultats garantis'
+                        : 'Expertise, precision and guaranteed results'}
+                    </Heading>
+                    <Text
+                      textStyle="bodyLarge"
+                      color="gray.600"
+                      lineHeight="1.7"
+                    >
+                      {isFr
+                        ? "Faire appel à un peintre professionnel, c'est obtenir :"
+                        : 'Calling on a professional painter means getting:'}
+                    </Text>
+                  </Stack>
+
+                  <Stack spacing={3}>
+                    {whyChooseProfessional.map((item, index) => (
+                      <Flex
+                        key={index}
+                        align="start"
+                        gap={4}
+                        p={4}
+                        bg="white"
+                        borderRadius="lg"
+                        border="1px solid"
+                        borderColor="gray.200"
+                        _hover={{
+                          borderColor: 'brand.500',
+                          boxShadow: 'sm',
+                          transform: 'translateX(4px)',
+                        }}
+                        transition="all 0.2s ease"
+                      >
+                        <Icon
+                          as={FontAwesomeIcon}
+                          icon={faCheckCircle}
+                          color="brand.500"
+                          boxSize={5}
+                          mt={0.5}
+                          flexShrink={0}
+                        />
+                        <Text
+                          textStyle="body"
+                          color="gray.700"
+                          lineHeight="1.6"
+                          fontWeight="500"
+                          textAlign="left"
+                        >
+                          {item}
+                        </Text>
+                      </Flex>
+                    ))}
+                  </Stack>
+
+                  <Text
+                    textStyle="bodyLarge"
+                    color="gray.600"
+                    lineHeight="1.7"
+                    mt={4}
+                  >
+                    {isFr
+                      ? "Nos peintres sont formés aux meilleures techniques du marché et interviennent dans tous les types d'environnements : maisons, condos, commerces, bureaux, immeubles et bâtiments extérieurs."
+                      : 'Our painters are trained in the best market techniques and work in all types of environments: houses, condos, businesses, offices, buildings and exterior structures.'}
+                  </Text>
+                </Stack>
+              </Container>
+            </Box>
+
+            <ProcessStepsSection
+              title={
+                isFr
+                  ? 'Un processus simple, efficace et orienté qualité'
+                  : 'A simple, efficient and quality-oriented process'
+              }
+              steps={processSteps}
+              buttonText={isFr ? 'Recevoir ma soumission gratuite' : 'Get my free quote'}
+              onButtonClick={onOpen}
+            />
+
+            <Box
+              py={{ base: 12, md: 16, lg: 20 }}
+              bg="gray.50"
+              borderRadius="xl"
+              mb={{ base: 8, md: 12 }}
+            >
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign="left">
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
+                      {isFr
+                        ? 'Services offerts par nos peintres professionnels'
+                        : 'Services offered by our professional painters'}
+                    </Heading>
+                  </Stack>
+
+                  <Flex
+                    maxW="1200px"
+                    mx="auto"
+                    w="100%"
+                    wrap="wrap"
+                    justify="center"
+                    gap={{ base: 4, md: 6 }}
+                  >
+                    {services.map((service, index) => (
+                      <Box
+                        key={index}
+                        as={RouterLink}
+                        to={service.link}
+                        _hover={{ textDecoration: 'none' }}
+                        w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
+                        maxW={{ lg: '380px' }}
+                        display="block"
+                      >
+                        <ServiceCard
+                          image={service.image}
+                          title={service.title}
+                          subtitle={service.description}
+                          stripText={service.description}
+                          noHoverBorder
+                          fillHeight
+                        />
+                      </Box>
+                    ))}
+                  </Flex>
+                  <Box textAlign="center" mt={{ base: 6, md: 8 }}>
+                    <Button
+                      as={RouterLink}
+                      to="/services"
+                      variant="outline"
+                      borderColor="brand.500"
+                      color="brand.500"
+                      rightIcon={<ArrowForwardIcon />}
+                      borderRadius="full"
+                      px={{ base: 6, md: 8 }}
+                      py={{ base: 3, md: 4 }}
+                      textStyle="nav"
+                      _hover={{ bg: 'brand.500', color: 'white' }}
+                    >
+                      {isFr ? 'Voir tous nos services' : 'View all our services'}
+                    </Button>
+                  </Box>
+                </Stack>
+              </Container>
+            </Box>
+
+            <SectorsSection
+              title={
+                isFr
+                  ? 'Nos peintres professionnels se déplacent partout dans le Grand Montréal'
+                  : 'Our professional painters travel throughout Greater Montreal'
+              }
+              subtitle={
+                isFr
+                  ? 'Nous intervenons rapidement dans les villes suivantes :'
+                  : 'We intervene quickly in the following cities:'
+              }
+            />
+
+            <Box
+              py={{ base: 12, md: 16, lg: 20 }}
+              bg="white"
+              borderRadius="xl"
+              mb={{ base: 8, md: 12 }}
+            >
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign="left">
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
+                      {isFr
+                        ? 'Résultats de peintres professionnels à Montréal'
+                        : 'Professional Painters Results in Montreal'}
+                    </Heading>
+                    <Text
+                      textStyle="bodyLarge"
+                      color="gray.600"
+                      lineHeight="1.7"
+                    >
+                      {isFr
+                        ? 'Nous avons réalisé des centaines de projets résidentiels, commerciaux et extérieurs dans la région.'
+                        : 'We have completed hundreds of residential, commercial and exterior projects in the region.'}
+                    </Text>
+                  </Stack>
+                  <BeforeAfter isFr={isFr} />
+                </Stack>
+              </Container>
+            </Box>
+
+            <Box
+              py={{ base: 12, md: 16, lg: 20 }}
+              bg="gray.50"
+              borderRadius="xl"
+              mb={{ base: 8, md: 12 }}
+            >
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign="center">
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
+                      {isFr
+                        ? 'Questions fréquentes sur nos peintres professionnels'
+                        : 'Frequently asked questions about our professional painters'}
+                    </Heading>
+                  </Stack>
+
+                  <Accordion
+                    allowToggle
+                    allowMultiple
+                    w="100%"
+                    maxW="800px"
+                    mx="auto"
+                  >
+                    {faqs.map((faq, index) => (
+                      <AccordionItem
+                        key={index}
+                        bg="white"
+                        mb={4}
+                        border="1px solid"
+                        borderColor="gray.200"
+                        borderRadius="xl"
+                        overflow="hidden"
+                        _hover={{ borderColor: 'brand.500', boxShadow: 'sm' }}
+                        transition="all 0.2s"
+                        boxShadow="sm"
+                        _last={{ mb: 0 }}
+                      >
+                        <h2>
+                          <AccordionButton
+                            py={6}
+                            px={8}
+                            _hover={{ bg: 'gray.50' }}
+                          >
+                            <Box
+                              flex="1"
+                              textAlign="left"
+                              fontWeight="bold"
+                              color="gray.800"
+                              textStyle="bodyLarge"
+                            >
+                              {faq.question}
+                            </Box>
+                            <AccordionIcon color="brand.500" />
+                          </AccordionButton>
+                        </h2>
+                        <AccordionPanel pb={6} px={8} pt={0}>
+                          <Text color="gray.600" lineHeight="1.7">
+                            {faq.answer}
+                            {faq.link && (
+                              <Link
+                                href={faq.link}
+                                color="brand.500"
+                                ml={1}
+                                fontWeight="medium"
+                                _hover={{ textDecoration: 'underline' }}
+                              >
+                                {isFr
+                                  ? 'Voir notre article sur les prix.'
+                                  : 'See our article on pricing.'}
+                              </Link>
+                            )}
+                          </Text>
+                        </AccordionPanel>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Stack>
+              </Container>
+            </Box>
+
+            <ResourcesSection />
+          </Stack>
+        </Container>
+
+        <Box
+          w="100%"
+          py={{ base: 12, md: 16, lg: 20 }}
+          bg="app.ctaBg"
+          mt={{ base: 8, md: 12 }}
+        >
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={8} textAlign="center">
+              <Stack spacing={3}>
+                <Heading
+                  as="h2"
+                  size="section"
+                  fontWeight="bold"
+                  color="white"
+                >
+                  {isFr
+                    ? 'Obtenez votre soumission gratuite'
+                    : 'Get your free quote'}
                 </Heading>
-                <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
-                  {isFr ? "Engager un peintre professionnel à Montréal ne garantit pas seulement un résultat esthétique. Cela garantit aussi que les travaux sont réalisés selon les normes de l’industrie, avec des produits adaptés et par des professionnels formés. Dans ce guide, découvrez pourquoi faire appel à un peintre licencié RBQ fait toute la différence pour la durabilité, la sécurité et la qualité du résultat." : "Hiring a professional painter in Montreal doesn't just guarantee an aesthetic result. It also guarantees that the work is carried out according to industry standards, with adapted products, and by trained professionals. In this guide, discover why hiring an RBQ licensed painter makes all the difference for durability, safety, and quality."}
+                <Text
+                  textStyle="bodyLarge"
+                  color="whiteAlpha.900"
+                  maxW="800px"
+                  mx="auto"
+                >
+                  {isFr
+                    ? 'Nos peintres professionnels sont disponibles rapidement pour vos projets intérieurs, extérieurs, résidentiels et commerciaux.'
+                    : 'Our professional painters are quickly available for your interior, exterior, residential and commercial projects.'}
                 </Text>
               </Stack>
 
-              <Stack spacing={4} mt={6}>
-                {getWhyHirePro().map((item, idx) => (
-                  <Flex
-                    key={idx}
-                    p={6}
-                    bg="white"
-                    borderRadius="lg"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    boxShadow="sm"
-                    gap={4}
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
-                    transition="all 0.2s"
-                  >
-                    <Icon as={CheckCircleIcon} color="brand.500" boxSize={6} mt={1} />
-                    <Box>
-                      <Text fontWeight="bold" fontSize="lg" color="gray.800" mb={2}>
-                        {item.title}
-                      </Text>
-                      <Text color="gray.600" lineHeight="1.6">
-                        {item.text}
-                      </Text>
-                    </Box>
-                  </Flex>
-                ))}
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* Section risques */}
-        <Box py={{ base: 12, md: 16, lg: 20 }} bg="orange.50">
-          <Container maxW="1000px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={8}>
-              <Heading as="h2" size="section" fontWeight="bold" color="gray.800" textAlign="center">
-                {isFr ? "Les risques réels d’engager un peintre sans licence" : "The real risks of hiring an unlicensed painter"}
-              </Heading>
-
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
-                {getRisks().map((text, idx) => (
-                  <Flex
-                    key={idx}
-                    p={5}
-                    bg="white"
-                    borderRadius="md"
-                    borderLeft="4px solid"
-                    borderColor="orange.400"
-                    boxShadow="sm"
-                    align="center"
-                    gap={4}
-                  >
-                    <Icon as={WarningTwoIcon} color="orange.400" boxSize={6} flexShrink={0} />
-                    <Text color="gray.700" fontWeight="medium">{text}</Text>
-                  </Flex>
-                ))}
-              </SimpleGrid>
-
-              <Box textAlign="center" mt={4}>
-                <Button
-                  as={Link}
-                  href="https://www.pes.rbq.gouv.qc.ca/RegistreLicences/FicheDetenteur/5864148101?mode=Entreprise"
-                  isExternal
-                  variant="outline"
-                  bg="white"
-                  borderColor="gray.300"
-                  color="gray.700"
-                  _hover={{ bg: 'gray.100' }}
-                  size="lg"
-                  fontWeight="bold"
-                  whiteSpace="normal"
-                  height="auto"
-                  minH="48px"
-                  py={3}
+              <Box>
+                <Link
+                  as={RouterLink}
+                  to="/contact"
+                  _hover={{ textDecoration: 'none' }}
                 >
-                  {isFr ? "Vérifiez notre licence RBQ: #5864-1481-01" : "Verify our RBQ license: #5864-1481-01"}
-                </Button>
+                  <Button
+                    rightIcon={<ArrowForwardIcon />}
+                    bg="white"
+                    color="brand.500"
+                    borderRadius="full"
+                    textStyle="nav"
+                    px={{ base: 5, md: 7 }}
+                    py={{ base: 3, md: 4 }}
+                    _hover={{ bg: 'gray.100' }}
+                    size="lg"
+                  >
+                    {isFr ? 'Soumission gratuite' : 'Free quote'}
+                  </Button>
+                </Link>
               </Box>
             </Stack>
           </Container>
         </Box>
-
-        {/* Certifications */}
-        <Box py={{ base: 12, md: 16, lg: 20 }} bg="white">
-          <Container maxW="1200px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={10}>
-              <Heading as="h2" size="section" fontWeight="bold" color="gray.800" textAlign="center">
-                {isFr ? "Notre expertise, vérifiable et garantie" : "Our expertise, verifiable and guaranteed"}
-              </Heading>
-
-              <SimpleGrid columns={{ base: 1, md: 3 }} spacing={8}>
-                {getCertifications().map((cert, idx) => (
-                  <Box
-                    key={idx}
-                    p={8}
-                    bg="gray.50"
-                    borderRadius="xl"
-                    textAlign="center"
-                    border="1px solid"
-                    borderColor="gray.100"
-                  >
-                    <Box
-                      w="64px"
-                      h="64px"
-                      mx="auto"
-                      bg="brand.100"
-                      color="brand.600"
-                      borderRadius="full"
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="center"
-                      mb={4}
-                    >
-                      <Icon as={CheckCircleIcon} boxSize={8} />
-                    </Box>
-                    <Text fontWeight="bold" fontSize="xl" color="gray.900" mb={3}>
-                      {cert.title}
-                    </Text>
-                    <Text color="gray.600" lineHeight="1.6">
-                      {cert.text}
-                    </Text>
-                  </Box>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* 7 questions checklist */}
-        <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }}>
-            <Box bg="white" p={{ base: 6, md: 10 }} borderRadius="2xl" boxShadow="xl">
-              <Stack spacing={8}>
-                <Stack spacing={2} textAlign="center">
-                  <Heading as="h2" size="section" fontWeight="bold" color="gray.800">
-                    {isFr ? "7 questions à poser avant d’engager un peintre" : "7 questions to ask before hiring a painter"}
-                  </Heading>
-                  <Text textStyle="bodyLarge" color="brand.500" fontWeight="medium">
-                    {isFr ? "Un guide rapide pour éviter les mauvaises surprises" : "A quick guide to avoid bad surprises"}
-                  </Text>
-                </Stack>
-                <Stack spacing={5}>
-                  {getQuestionsToAsk().map((q, idx) => (
-                    <Box key={idx} pl={2}>
-                      <Flex align="flex-start" gap={3}>
-                        <Icon as={CheckCircleIcon} color="green.500" boxSize={5} mt={1} />
-                        <Box>
-                          <Text fontWeight="bold" color="gray.800" fontSize="lg">{q.q}</Text>
-                          <Text color="gray.600" mt={1}>{q.a}</Text>
-                        </Box>
-                      </Flex>
-                      {idx < 6 && <Divider mt={5} borderColor="gray.100" />}
-                    </Box>
-                  ))}
-                </Stack>
-                <Box textAlign="center" pt={4}>
-                  <Text fontWeight="bold" mb={4} color="gray.700">
-                    {isFr ? "Le Lever du Pinceau coche toutes ces cases. Vérifiez par vous-même." : "Le Lever du Pinceau checks all these boxes. Verify for yourself."}
-                  </Text>
-                  <Button
-                    onClick={onOpen}
-                    bg="brand.500"
-                    color="white"
-                    size="lg"
-                    borderRadius="full"
-                    px={8}
-                    _hover={{ bg: 'brand.600' }}
-                  >
-                    {isFr ? "Obtenir ma soumission gratuite →" : "Get my free quote →"}
-                  </Button>
-                </Box>
-              </Stack>
-            </Box>
-          </Container>
-        </Box>
-
-        {/* Avis d'experts */}
-        <ReviewsSection
-          title={isFr ? "Ce que nos clients disent de notre professionnalisme" : "What our clients say about our professionalism"}
-          subtitle={isFr ? "Des avis réels mettant en lumière la qualité de notre processus" : "Real reviews highlighting the quality of our process"}
-          reviewsOverride={expertiseReviews}
-        />
-
-        {/* FAQ Spécifique Pro */}
-        <FAQSection title={isFr ? "Questions fréquentes sur les peintres professionnels" : "Frequently asked questions about professional painters"} faqsOverride={proFaqs} />
-
-        {/* CTA Final */}
-        <Box py={{ base: 12, md: 16, lg: 20 }} bg="app.ctaBg" textAlign="center">
-          <Container maxW="800px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} align="center" mb={{ base: 12, md: 16 }}>
-              <Stack spacing={4}>
-                <Heading as="h2" size="xl" fontWeight="bold" color="white">
-                  {isFr ? "Prêt à travailler avec des professionnels?" : "Ready to work with professionals?"}
-                </Heading>
-                <Text fontSize="xl" color="whiteAlpha.900">
-                  {isFr ? "Obtenez votre soumission gratuite en moins de 24h" : "Get your free quote in less than 24h"}
-                </Text>
-              </Stack>
-              <Button
-                onClick={onOpen}
-                bg="white"
-                color="brand.500"
-                size="lg"
-                height="60px"
-                px={10}
-                fontSize="lg"
-                borderRadius="full"
-                _hover={{ bg: 'gray.100', transform: 'translateY(-2px)' }}
-                transition="all 0.2s"
-                boxShadow="xl"
-              >
-                {isFr ? "Obtenir ma soumission gratuite →" : "Get my free quote →"}
-              </Button>
-            </Stack>
-          </Container>
-
-          <Container maxW="1200px" px={{ base: 4, md: 6 }}>
-            {/* Internal links */}
-            <Box w="100%">
-              <Text color="whiteAlpha.800" fontWeight="bold" mb={8} textTransform="uppercase" letterSpacing="wider" fontSize="sm">
-                {isFr ? "Explorez nos services" : "Explore our services"}
-              </Text>
-
-              <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={{ base: 4, md: 6 }} w="100%" mx="auto" mb={10}>
-                <Box as={RouterLink} to="/services/peinture-interieure" _hover={{ textDecoration: 'none', transform: 'scale(1.02)' }} transition="all 0.2s">
-                  <ServiceCard image={peintreProInterieure} title={isFr ? "Peinture intérieure" : "Interior painting"} noHoverBorder compact />
-                </Box>
-                <Box as={RouterLink} to="/services/peinture-exterieure" _hover={{ textDecoration: 'none', transform: 'scale(1.02)' }} transition="all 0.2s">
-                  <ServiceCard image={peintreProExterieure} title={isFr ? "Peinture extérieure" : "Exterior painting"} noHoverBorder compact />
-                </Box>
-                <Box as={RouterLink} to="/services/peinture-residentielle" _hover={{ textDecoration: 'none', transform: 'scale(1.02)' }} transition="all 0.2s">
-                  <ServiceCard image={peintreProResidentielle} title={isFr ? "Peinture résidentielle" : "Residential painting"} noHoverBorder compact />
-                </Box>
-                <Box as={RouterLink} to="/services/peinture-commerciale" _hover={{ textDecoration: 'none', transform: 'scale(1.02)' }} transition="all 0.2s">
-                  <ServiceCard image={peintreProCommerciale} title={isFr ? "Peinture commerciale" : "Commercial painting"} noHoverBorder compact />
-                </Box>
-              </SimpleGrid>
-
-              <Flex flexWrap="wrap" justify="center" gap={{ base: 4, md: 8 }}>
-                <Link as={RouterLink} to="/secteurs" color="white" fontWeight="bold" _hover={{ textDecoration: 'underline' }}>
-                  {isFr ? "Nos secteurs desservis →" : "Our operated sectors →"}
-                </Link>
-                <Link as={RouterLink} to="/realisations" color="white" fontWeight="bold" _hover={{ textDecoration: 'underline' }}>
-                  {isFr ? "Nos réalisations →" : "Our portfolio →"}
-                </Link>
-              </Flex>
-            </Box>
-          </Container>
-        </Box>
-
       </Box>
 
       <SubmissionModal isOpen={isOpen} onClose={onClose} />
