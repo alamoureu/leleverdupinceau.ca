@@ -8,14 +8,18 @@ import {
   ModalFooter,
   ModalCloseButton,
   Button,
+  Stack,
+  Text,
 } from '@chakra-ui/react';
 import SubmissionForm from '../lelever-next/home-page/SubmissionForm';
 import { useTranslation } from '../lelever-next/i18n';
 
 const SUBMISSION_FORM_ID = 'submission-form-modal';
+const BRAND_BLUE = '#1E4BBA';
+const BRAND_BLUE_HOVER = '#183D9A';
 
 function SubmissionModal({ isOpen, onClose }) {
-  const { t } = useTranslation();
+  const { t, currentLang } = useTranslation();
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -51,16 +55,37 @@ function SubmissionModal({ isOpen, onClose }) {
             flexShrink={0}
             textTransform="uppercase"
           >
-            {t.modalTitle}
+            <Stack spacing={1}>
+              <Text>{t.modalTitle}</Text>
+              <Text
+                textTransform="none"
+                fontWeight="medium"
+                fontSize={{ base: 'sm', sm: 'md' }}
+                color="gray.600"
+              >
+                {t.ctaSubtitle ?? 'en moins de 24h'}
+              </Text>
+            </Stack>
           </ModalHeader>
         )}
         <ModalCloseButton />
-        <ModalBody overflowY="auto" flex="1" minH={0} pb={4}>
+        <ModalBody overflowY="auto" overflowX="visible" flex="1" minH={0} px={0} pt={0} pb={4}>
           <SubmissionForm
             isModal
             formId={SUBMISSION_FORM_ID}
             onSubmissionStateChange={setIsSuccess}
             onSubmittingChange={setIsSubmitting}
+            fields={{
+              name: true,
+              phone: true,
+              email: true,
+              address: false,
+              paintingType: false,
+              projectDetails: 'optional',
+            }}
+            phoneFirst
+            projectDetailsLabel={currentLang === 'fr' ? 'Description du projet' : 'Project description'}
+           
           />
         </ModalBody>
         {!isSuccess && (
@@ -68,7 +93,8 @@ function SubmissionModal({ isOpen, onClose }) {
             <Button
               form={SUBMISSION_FORM_ID}
               type="submit"
-              colorScheme="brand"
+              bg={BRAND_BLUE}
+              color="white"
               size="lg"
               w="100%"
               borderRadius="full"
@@ -76,6 +102,7 @@ function SubmissionModal({ isOpen, onClose }) {
               loadingText={t.formSubmitting}
               spinnerPlacement="start"
               disabled={isSubmitting}
+              _hover={{ bg: BRAND_BLUE_HOVER }}
             >
               {t.formSubmit}
             </Button>

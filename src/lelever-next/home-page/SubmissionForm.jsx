@@ -26,7 +26,7 @@ import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { fontFamily } from '../../theme';
 
 const activeLabelStyles = {
-  transform: 'scale(0.8) translateY(-20px)',
+  transform: 'scale(0.8) translateY(-27px)',
 };
 
 const BRAND_BLUE = '#1E4BBA';
@@ -142,12 +142,14 @@ export default function SubmissionForm({
   isModal = false,
   formId,
   initialFocusRef,
+  fields,
+  phoneFirst = false,
+  projectDetailsLabel,
 }) {
   const { t, currentLang } = useTranslation();
   const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [touched, setTouched] = useState({});
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -157,6 +159,21 @@ export default function SubmissionForm({
     paintingType: '',
     consentAccepted: false,
   });
+
+  const [isProjectDetailsFocused, setIsProjectDetailsFocused] = useState(false);
+
+  const effectiveFields = {
+    name: true,
+    email: true,
+    phone: true,
+    address: true,
+    projectDetails: true,
+    paintingType: true,
+    consentAccepted: true,
+    ...fields,
+  };
+
+  const resolvedProjectDetailsLabelBase = projectDetailsLabel ?? t.formProjectDetails;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -190,20 +207,21 @@ export default function SubmissionForm({
   const getErrors = () => {
     const suffix = t.formRequiredSuffix ?? ' required';
     const err = {};
-    if (!formData.name?.trim()) err.name = (t.formName ?? '') + suffix;
-    if (!formData.email?.trim()) err.email = (t.formEmail ?? '') + suffix;
-    if (!formData.phone?.trim()) err.phone = (t.formPhone ?? '') + suffix;
-    if (!formData.address?.trim()) err.address = (t.formAddress ?? '') + suffix;
-    if (!formData.projectDetails?.trim()) err.projectDetails = (t.formProjectDetails ?? '') + suffix;
-    if (!formData.paintingType) err.paintingType = (t.formPaintingType ?? '') + suffix;
-    if (!formData.consentAccepted) err.consentAccepted = t.formConsentRequired ?? '';
+    if (effectiveFields.name && !formData.name?.trim()) err.name = (t.formName ?? '') + suffix;
+    if (effectiveFields.email && !formData.email?.trim()) err.email = (t.formEmail ?? '') + suffix;
+    if (effectiveFields.phone && !formData.phone?.trim()) err.phone = (t.formPhone ?? '') + suffix;
+    if (effectiveFields.address && !formData.address?.trim()) err.address = (t.formAddress ?? '') + suffix;
+    if (effectiveFields.projectDetails === true && !formData.projectDetails?.trim()) {
+      err.projectDetails = (t.formProjectDetails ?? '') + suffix;
+    }
+    if (effectiveFields.paintingType && !formData.paintingType) err.paintingType = (t.formPaintingType ?? '') + suffix;
+    if (effectiveFields.consentAccepted && !formData.consentAccepted) err.consentAccepted = t.formConsentRequired ?? '';
     return err;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = getErrors();
-    setTouched(Object.fromEntries(Object.keys(errors).map((k) => [k, true])));
 
     if (Object.keys(errors).length > 0) {
       toast({
@@ -232,8 +250,17 @@ export default function SubmissionForm({
 
       await addDoc(collection(db, 'Soumission'), firebaseData);
 
-      const termsText = [t.formConsentText, t.formTermsAndConditions, t.formAnd, t.formPrivacyPolicy, t.formOf].filter(Boolean).join(' ');
-      const ghlData = { ...formData, terms_and_conditions: termsText };
+      const termsText = [t.formConsentText, t.formTermsAndConditions, t.formAnd, t.formPrivacyPolicy, t.formOf]
+        .filter(Boolean)
+        .join(' ');
+
+      const ghlData = {
+        ...formData,
+        address: effectiveFields.address ? formData.address : '',
+        projectDetails: effectiveFields.projectDetails ? formData.projectDetails : '',
+        paintingType: effectiveFields.paintingType ? formData.paintingType : '',
+        terms_and_conditions: termsText,
+      };
       try {
         await sendToGoHighLevel(ghlData, { language: currentLang });
       } catch (webhookError) {
@@ -270,7 +297,7 @@ export default function SubmissionForm({
   if (isSubmitted) {
     return (
       <ChakraProvider theme={theme}>
-        <Box w="100%" p={{ base: 6, sm: 8, md: 10 }} textAlign="center">
+        <Box w="100%" textAlign="center" px={6} py={6}>
           <Stack spacing={6}>
             <motion.div
               initial={{ scale: 0 }}
@@ -321,7 +348,11 @@ export default function SubmissionForm({
               mx='auto'
               textAlign='center'
             >
-              {t.formConfirmationMessage}
+              {t.formConfirmationMessage?.split('(438) 868-0772').map((part, i, arr) =>
+                i < arr.length - 1
+                  ? <React.Fragment key={i}>{part}<span style={{ whiteSpace: 'nowrap' }}>(438) 868-0772</span></React.Fragment>
+                  : part
+              )}
             </Text>
 
             {t.formSuccessClosing && (
@@ -340,9 +371,6 @@ export default function SubmissionForm({
     );
   }
 
-  const errors = getErrors();
-  const showError = (field) => touched[field] && errors[field];
-
   return (
     <ChakraProvider theme={theme}>
       <Box
@@ -350,18 +378,19 @@ export default function SubmissionForm({
         id={isModal ? formId : undefined}
         onSubmit={handleSubmit}
         w="100%"
-        maxW={{ base: '100%', sm: '480px', md: '520px' }}
+        maxW={{ base: '100%', sm: '520px', md: '600px' }}
         mx="auto"
-        py={isModal ? 0 : { base: 6, md: 8 }}
-        px={isModal ? 0 : { base: 2, sm: 4 }}
+        py={isModal ? 0 : { base: 8, md: 10 }}
+        px={isModal ? 0 : { base: 4, sm: 6 }}
       >
         <Box
           flex={isModal ? '1' : undefined}
           minH={isModal ? 0 : undefined}
-          overflowY="hidden"
+          overflowY={isModal ? 'auto' : 'visible'}
           overscrollBehavior="contain"
           w="100%"
-          pt={{ base: 2, md: 2 }}
+          pt={{ base: 3, md: 3 }}
+          px={isModal ? 5 : 0}
         >
           <Stack
             spacing={isModal ? { base: 3, md: 4 } : { base: 4, md: 5 }}
@@ -369,125 +398,189 @@ export default function SubmissionForm({
             w="100%"
             pb={isModal ? { base: 2, md: 3 } : { base: 4, md: 6 }}
           >
-            <FormControl variant="floating" isRequired isInvalid={showError('name')}>
+            {effectiveFields.name && (
+              <FormControl variant="floating" isRequired>
               <Input
                 ref={initialFocusRef}
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                onBlur={() => setTouched((prev) => ({ ...prev, name: true }))}
                 placeholder=" "
                 size="md"
                 borderColor="gray.300"
                 _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
               />
-              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                 {t.formName}
               </FormLabel>
-              <FormErrorMessage>{errors.name}</FormErrorMessage>
-            </FormControl>
+              </FormControl>
+            )}
 
-            <FormControl variant="floating" isRequired isInvalid={showError('email')}>
-              <Input
-                name="email"
-                type="email"
-                value={formData.email}
-                onChange={handleChange}
-                onBlur={() => setTouched((prev) => ({ ...prev, email: true }))}
-                placeholder=" "
-                size="md"
-                borderColor="gray.300"
-                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-              />
-              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-                {t.formEmail}
-              </FormLabel>
-              <FormErrorMessage>{errors.email}</FormErrorMessage>
-            </FormControl>
+            {phoneFirst ? (
+              <>
+                {effectiveFields.phone && (
+                  <FormControl variant="floating" isRequired>
+                    <Input
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder=" "
+                      size="md"
+                      borderColor="gray.300"
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
+                    />
+                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                      {t.formPhone}
+                    </FormLabel>
+                  </FormControl>
+                )}
 
-            <FormControl variant="floating" isRequired isInvalid={showError('phone')}>
-              <Input
-                name="phone"
-                type="tel"
-                value={formData.phone}
-                onChange={handleChange}
-                onBlur={() => setTouched((prev) => ({ ...prev, phone: true }))}
-                placeholder=" "
-                size="md"
-                borderColor="gray.300"
-                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-              />
-              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-                {t.formPhone}
-              </FormLabel>
-              <FormErrorMessage>{errors.phone}</FormErrorMessage>
-            </FormControl>
+                {effectiveFields.email && (
+                  <FormControl variant="floating" isRequired>
+                    <Input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder=" "
+                      size="md"
+                      borderColor="gray.300"
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
+                    />
+                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                      {t.formEmail}
+                    </FormLabel>
+                  </FormControl>
+                )}
+              </>
+            ) : (
+              <>
+                {effectiveFields.email && (
+                  <FormControl variant="floating" isRequired>
+                    <Input
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder=" "
+                      size="md"
+                      borderColor="gray.300"
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
+                    />
+                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                      {t.formEmail}
+                    </FormLabel>
+                  </FormControl>
+                )}
 
-            <FormControl variant="floating" isRequired isInvalid={showError('address')}>
-              <Input
-                name="address"
-                value={formData.address}
-                onChange={handleChange}
-                onBlur={() => setTouched((prev) => ({ ...prev, address: true }))}
-                placeholder=" "
-                size="md"
-                borderColor="gray.300"
-                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-              />
-              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-                {t.formAddress}
-              </FormLabel>
-              <FormErrorMessage>{errors.address}</FormErrorMessage>
-            </FormControl>
+                {effectiveFields.phone && (
+                  <FormControl variant="floating" isRequired>
+                    <Input
+                      name="phone"
+                      type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder=" "
+                      size="md"
+                      borderColor="gray.300"
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
+                    />
+                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                      {t.formPhone}
+                    </FormLabel>
+                  </FormControl>
+                )}
+              </>
+            )}
 
-            <FormControl variant="floating" isRequired isInvalid={showError('projectDetails')}>
+            {effectiveFields.address && (
+              <FormControl variant="floating" isRequired>
+                <Input
+                  name="address"
+                  value={formData.address}
+                  onChange={handleChange}
+                  placeholder=" "
+                  size="md"
+                  borderColor="gray.300"
+                  _focus={{
+                    borderColor: 'brand.500',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                  }}
+                />
+                <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                  {t.formAddress}
+                </FormLabel>
+              </FormControl>
+            )}
+
+            {effectiveFields.projectDetails !== false && (
+              <FormControl
+                variant="floating"
+                isRequired={effectiveFields.projectDetails === true}
+              >
               <Textarea
                 name="projectDetails"
                 value={formData.projectDetails}
                 onChange={handleChange}
-                onBlur={() => setTouched((prev) => ({ ...prev, projectDetails: true }))}
                 placeholder=" "
+                onFocus={() => setIsProjectDetailsFocused(true)}
+                onBlur={() => setIsProjectDetailsFocused(false)}
                 rows={2}
                 size="md"
+                fontSize="sm"
                 borderColor="gray.300"
                 resize="vertical"
-                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-                _invalid={{ borderColor: 'red.400', boxShadow: '0 0 0 1px var(--chakra-colors-red-400)' }}
-              />
-              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-                {t.formProjectDetails}
-              </FormLabel>
-              <FormErrorMessage>{errors.projectDetails}</FormErrorMessage>
-            </FormControl>
-
-            <FormControl isRequired isInvalid={showError('paintingType')} w="100%">
-              <FormLabel fontSize="sm" color="gray.700" mb={1} requiredIndicator={<Text as="span" color="red.500">*</Text>}>
-                {t.formPaintingType}
-              </FormLabel>
-              <RadioGroup
-                value={formData.paintingType}
-                onChange={(value) => {
-                  handleRadioChange(value);
-                  setTouched((prev) => ({ ...prev, paintingType: true }));
+                _placeholder={{
+                  fontSize: 'sm',
+                  color: 'gray.400',
                 }}
-              >
-                <Stack direction="column" spacing={1.5} w="100%">
-                  <Radio value="interior" colorScheme="brand" size="md">
-                    {t.formInteriorPainting ?? t.serviceInterior}
-                  </Radio>
-                  <Radio value="exterior" colorScheme="brand" size="md">
-                    {t.formExteriorPainting ?? t.serviceExterior}
-                  </Radio>
-                </Stack>
-              </RadioGroup>
-              <FormErrorMessage>{errors.paintingType}</FormErrorMessage>
-            </FormControl>
+                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+              />
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                {effectiveFields.projectDetails === 'optional' &&
+                !isProjectDetailsFocused &&
+                !formData.projectDetails
+                  ? `${resolvedProjectDetailsLabelBase} ${
+                      currentLang === 'fr' ? '(optionnel)' : '(optional)'
+                    }`
+                  : resolvedProjectDetailsLabelBase}
+              </FormLabel>
+              </FormControl>
+            )}
 
-            <FormControl isRequired isInvalid={showError('consentAccepted')} w="100%">
+            {effectiveFields.paintingType && (
+              <FormControl isRequired w="100%">
+                <FormLabel fontSize="sm" color="gray.700" mb={1} requiredIndicator={null}>
+                  {t.formPaintingType}
+                </FormLabel>
+                <RadioGroup value={formData.paintingType} onChange={handleRadioChange}>
+                  <Stack direction="column" spacing={1.5} w="100%">
+                    <Radio value="interior" colorScheme="brand" size="md">
+                      {t.formInteriorPainting ?? t.serviceInterior}
+                    </Radio>
+                    <Radio value="exterior" colorScheme="brand" size="md">
+                      {t.formExteriorPainting ?? t.serviceExterior}
+                    </Radio>
+                  </Stack>
+                </RadioGroup>
+              </FormControl>
+            )}
+
+            {effectiveFields.consentAccepted && (
+              <FormControl isRequired w="100%">
               <Stack direction="row" spacing={3} alignItems="flex-start" w="100%">
                 <Checkbox
                   name="consentAccepted"
@@ -508,8 +601,8 @@ export default function SubmissionForm({
                   {t.formOf}
                 </Box>
               </Stack>
-              <FormErrorMessage mt={2}>{errors.consentAccepted}</FormErrorMessage>
-            </FormControl>
+              </FormControl>
+            )}
 
         </Stack>
 
@@ -526,7 +619,8 @@ export default function SubmissionForm({
           >
             <Button
               type="submit"
-              colorScheme="brand"
+              bg={BRAND_BLUE}
+              color="white"
               w="100%"
               fontSize={{ base: 'md', md: 'md' }}
               py={{ base: 3, md: 4 }}

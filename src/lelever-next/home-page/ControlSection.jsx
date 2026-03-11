@@ -10,7 +10,7 @@ import {
 import { useTranslation } from '../i18n';
 import ServiceCard from './ServiceCard';
 import control1 from '../images/new-landing/control-1.jpeg';
-import control2 from '../images/new-landing/control-2.png';
+import control2 from '../images/control-2-min.png';
 import control3 from '../images/new-landing/control-3.jpeg';
 
 const cardImages = [control1, control2, control3];

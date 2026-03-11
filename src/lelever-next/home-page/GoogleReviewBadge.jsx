@@ -25,13 +25,13 @@ export default function GoogleReviewBadge() {
       maxW={{ base: 'calc(100% - 24px)', sm: 'calc(100% - 24px)', md: 'none' }}
       minW={0}
       flexShrink={1}
-      px={{ base: 2, sm: 2, md: 3, lg: 3, xl: 4 }}
-      py={{ base: 1.5, sm: 1.5, md: 2, lg: 2, xl: 2.5 }}
+      px={{ base: 2.5, sm: 2.5, md: 3, lg: 3, xl: 4 }}
+      py={{ base: 2, sm: 2, md: 2, lg: 2, xl: 2.5 }}
       overflow='hidden'
     >
       <Flex
         align='center'
-        gap={{ base: 1.5, sm: 1.5, md: 2, lg: 2, xl: 2.5 }}
+        gap={{ base: 2, sm: 2, md: 2, lg: 2, xl: 2.5 }}
         flexWrap='nowrap'
         flexShrink={0}
         minW={0}
@@ -66,10 +66,10 @@ export default function GoogleReviewBadge() {
         <Image
           src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
           alt='Google'
-          h={{ base: 3, sm: 3, md: 4, lg: 5, xl: 5 }}
-          w={{ base: 3, sm: 3, md: 4, lg: 5, xl: 5 }}
-          minW={{ base: 3, sm: 3, md: 4, lg: 5, xl: 5 }}
-          minH={{ base: 3, sm: 3, md: 4, lg: 5, xl: 5 }}
+          h={{ base: 7, sm: 7, md: 6, lg: 5, xl: 5 }}
+          w={{ base: 7, sm: 7, md: 6, lg: 5, xl: 5 }}
+          minW={{ base: 7, sm: 7, md: 6, lg: 5, xl: 5 }}
+          minH={{ base: 7, sm: 7, md: 6, lg: 5, xl: 5 }}
           objectFit='contain'
           flexShrink={0}
           loading="lazy"

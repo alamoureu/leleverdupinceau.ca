@@ -312,8 +312,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 borderBottomRadius={{ base: '50px', sm: '60px', md: '80px', lg: '100px' }}
                 p={{ base: 2, sm: 2.5, md: 3 }}
                 boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
-                minW={{ base: '56px', sm: '88px', md: '94px' }}
-                maxW={{ base: '72px', sm: '108px', md: '116px' }}
+                minW={{ base: '64px', sm: '92px', md: '94px' }}
+                maxW={{ base: '84px', sm: '112px', md: '116px' }}
                 overflow="visible"
                 minH={{ base: '72px', sm: '80px', md: '88px' }}
               >
@@ -349,8 +349,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   <Image
                     src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
                     alt="Google"
-                    h={{ base: '14px', sm: '20px', md: '40px' }}
-                    w={{ base: '14px', sm: '20px', md: '40px' }}
+                    h={{ base: '22px', sm: '24px', md: '40px' }}
+                    w={{ base: '22px', sm: '24px', md: '40px' }}
                     mt={{ base: 0.5, sm: 0.5, md: 1 }}
                     objectFit="contain"
                     loading="lazy"

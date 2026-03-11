@@ -24,7 +24,12 @@ import { useTranslation } from '../i18n';
 import appContext from '../../AppProvider';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function ReviewsSection({ hideTitle = false, hideButton = false }) {
+export default function ReviewsSection({
+  hideTitle = false,
+  hideButton = false,
+  title,
+  subtitle,
+}) {
   const { t } = useTranslation();
   const { currentLang } = useContext(appContext);
 
@@ -147,10 +152,10 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
           {!hideTitle && (
             <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
               <Heading as='h2' size='section' fontWeight='bold' color='gray.800' lineHeight='1.3'>
-                {t.reviewsTitle}
+                {title ?? t.reviewsTitle}
               </Heading>
               <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
-                {t.reviewsSubtitle}
+                {subtitle ?? t.reviewsSubtitle}
               </Text>
             </Stack>
           )}
@@ -164,7 +169,7 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
             <Box
               position='relative'
               w='100%'
-              h={{ base: '280px', md: '420px' }}
+              h={{ base: '320px', md: '460px' }}
               pb={2}
             >
               <AnimatePresence initial={false} custom={direction}>
@@ -247,20 +252,24 @@ export default function ReviewsSection({ hideTitle = false, hideButton = false }
                       flex={1}
                       overflowY='auto'
                       mt={3}
-                      pr={2}
+                      pr={{ base: 4, md: 5 }}
+                      pb={1}
+                      scrollbarWidth="thin"
+                      scrollbarColor="rgba(160, 174, 192, 0.45) transparent"
+                      sx={{ scrollbarGutter: 'stable' }}
                       css={{
                         '&::-webkit-scrollbar': {
-                          width: '6px',
+                          width: '4px',
                         },
                         '&::-webkit-scrollbar-track': {
                           background: 'transparent',
                         },
                         '&::-webkit-scrollbar-thumb': {
-                          background: '#CBD5E0',
-                          borderRadius: '3px',
+                          background: 'rgba(160, 174, 192, 0.45)',
+                          borderRadius: '999px',
                         },
                         '&::-webkit-scrollbar-thumb:hover': {
-                          background: '#A0AEC0',
+                          background: 'rgba(160, 174, 192, 0.65)',
                         },
                       }}
                     >

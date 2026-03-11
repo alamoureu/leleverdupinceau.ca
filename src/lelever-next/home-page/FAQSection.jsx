@@ -69,10 +69,10 @@ function getFaqs(isFr) {
   ];
 }
 
-export default function FAQSection() {
+export default function FAQSection({ faqsOverride }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
-  const faqs = getFaqs(isFr);
+  const faqs = Array.isArray(faqsOverride) && faqsOverride.length > 0 ? faqsOverride : getFaqs(isFr);
 
   return (
     <Box w="100%" py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">

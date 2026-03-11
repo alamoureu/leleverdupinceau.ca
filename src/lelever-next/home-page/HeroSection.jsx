@@ -12,8 +12,29 @@ import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.png';
 import TrustBanner from './TrustBanner';
 
-export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
+export default function HeroSection({
+  onSubmissionOpen,
+  pageContext = '',
+  title,
+  titleSecondLine,
+  subtitle,
+  description,
+  buttonText,
+  titleFontWeight,
+  titleFontSize,
+  contentMaxW,
+  contentPr,
+}) {
   const { t, currentLang } = useTranslation();
+  const heroTitle = title ?? t.heroTitle;
+  const heroTitleSecondLine = titleSecondLine ?? t.heroTitleSecondLine;
+  const heroSubtitle = subtitle ?? t.heroSubtitle;
+  const heroDescription = description ?? null;
+  const heroButton = buttonText ?? t.heroButton;
+  const heroTitleFontWeight = titleFontWeight ?? '700';
+  const heroTitleFontSize = titleFontSize ?? undefined;
+  const heroContentMaxW = contentMaxW ?? undefined;
+  const heroContentPr = contentPr ?? undefined;
 
   return (
     <Box
@@ -67,34 +88,59 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
             '2xl': '160px',
           }}
         >
-          <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
+          <Stack
+            spacing={{ base: 3, sm: 4, md: 5, lg: 6 }}
+            minW={0}
+            maxW={heroContentMaxW}
+            pr={heroContentPr}
+          >
             <Heading
               as="h1"
               size="page"
-              fontWeight='700'
+              fontWeight={heroTitleFontWeight}
+              fontSize={heroTitleFontSize ?? { base: 'xl', md: '2xl', lg: '3xl', xl: '4xl' }}
               color='white'
-              lineHeight='1.1'
+              lineHeight='1.05'
               minW={0}
             >
-              {t.heroTitle}
-              {t.heroTitleSecondLine && (
+              {typeof heroTitle === 'string'
+                ? heroTitle.split('\n').map((line, idx) => (
+                    <React.Fragment key={idx}>
+                      {idx > 0 && <br />}
+                      {line}
+                    </React.Fragment>
+                  ))
+                : heroTitle}
+              {heroTitleSecondLine && (
                 <>
                   <br />
-                  {t.heroTitleSecondLine}
+                  {heroTitleSecondLine}
                 </>
               )}
             </Heading>
 
             <Text
               textStyle="bodyLarge"
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
               color="white"
               fontWeight="thin"
               minW={0}
               overflowWrap="break-word"
               wordBreak="break-word"
             >
-              {t.heroSubtitle}
+              {heroSubtitle}
             </Text>
+
+            {heroDescription && (
+              <Text
+                color="whiteAlpha.800"
+                fontSize={{ base: 'sm', sm: 'sm', md: 'md' }}
+                lineHeight="1.6"
+                maxW={{ base: '560px', md: '640px', lg: '720px' }}
+              >
+                {heroDescription}
+              </Text>
+            )}
 
             <Box pt={{ base: 2, sm: 3, md: 4 }}>
               <Button
@@ -121,7 +167,7 @@ export default function HeroSection({ onSubmissionOpen, pageContext = '' }) {
                 _hover={{ bg: 'brand.600' }}
                 whiteSpace="nowrap"
               >
-                {t.heroButton}
+                {heroButton}
               </Button>
             </Box>
           </Stack>
