@@ -56,7 +56,7 @@ const theme = extendTheme({
     global: {
       // Keep 16px base on mobile for industry-standard readability and to avoid iOS zoom on inputs
       html: {
-        fontSize: '16px',
+        fontSize: { base: '16px', lg: '15px', xl: '14px' },
       },
       body: {
         fontFamily,

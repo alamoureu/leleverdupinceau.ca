@@ -408,9 +408,9 @@ export default function SubmissionForm({
                 onChange={handleChange}
                 placeholder=" "
                 size="md"
+                fontSize="16px"
                 borderColor="gray.300"
                 _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-                style={{ fontSize: '16px' }}
               />
               <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                 {t.formName}
@@ -429,12 +429,9 @@ export default function SubmissionForm({
                       onChange={handleChange}
                       placeholder=" "
                       size="md"
+                      fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                      style={{ fontSize: '16px' }}
+                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
                     />
                     <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                       {t.formPhone}
@@ -451,12 +448,9 @@ export default function SubmissionForm({
                       onChange={handleChange}
                       placeholder=" "
                       size="md"
+                      fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                      style={{ fontSize: '16px' }}
+                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
                     />
                     <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                       {t.formEmail}
@@ -475,12 +469,9 @@ export default function SubmissionForm({
                       onChange={handleChange}
                       placeholder=" "
                       size="md"
+                      fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                      style={{ fontSize: '16px' }}
+                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
                     />
                     <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                       {t.formEmail}
@@ -497,12 +488,9 @@ export default function SubmissionForm({
                       onChange={handleChange}
                       placeholder=" "
                       size="md"
+                      fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                      style={{ fontSize: '16px' }}
+                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
                     />
                     <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                       {t.formPhone}
@@ -520,12 +508,9 @@ export default function SubmissionForm({
                   onChange={handleChange}
                   placeholder=" "
                   size="md"
+                  fontSize="16px"
                   borderColor="gray.300"
-                  _focus={{
-                    borderColor: 'brand.500',
-                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                  }}
-                  style={{ fontSize: '16px' }}
+                  _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
                 />
                 <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                   {t.formAddress}
@@ -547,15 +532,14 @@ export default function SubmissionForm({
                 onBlur={() => setIsProjectDetailsFocused(false)}
                 rows={2}
                 size="md"
-                fontSize="sm"
+                fontSize="16px"
                 borderColor="gray.300"
                 resize="vertical"
                 _placeholder={{
-                  fontSize: 'sm',
+                  fontSize: 'md',
                   color: 'gray.400',
                 }}
                 _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-                style={{ fontSize: '16px' }}
               />
               <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
                 {effectiveFields.projectDetails === 'optional' &&

@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Box, Container, Heading, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react';
 
 import img5969 from '../images/before_after/IMG_5969.jpg';
 import img5970 from '../images/before_after/IMG_5970.jpg';
@@ -78,28 +78,29 @@ export default function BeforeAfterCarouselSection({
 
           <Box
             w="100%"
-            overflowX="auto"
-            overflowY="hidden"
-            px={{ base: 0, md: 2 }}
-            css={{
-              scrollSnapType: 'x mandatory',
-              WebkitOverflowScrolling: 'touch',
-              overscrollBehaviorX: 'contain',
-              overscrollBehaviorY: 'auto',
-              scrollbarWidth: 'none',
+            overflowX={{ base: 'auto', md: 'visible' }}
+            pb={{ base: 6, md: 0 }}
+            px={{ base: 4, md: 0 }}
+            mx={{ base: -4, md: 0 }}
+            sx={{
               '&::-webkit-scrollbar': { display: 'none' },
+              '-ms-overflow-style': 'none',
+              'scrollbar-width': 'none',
             }}
-            style={{ touchAction: 'pan-x' }}
           >
-            <Box display="flex" gap={{ base: 4, md: 6 }} py={2} px={{ base: 1, md: 2 }}>
+            <Flex
+              direction="row"
+              gap={{ base: 6, md: 10 }}
+              w="100%"
+              display={{ base: 'flex', md: 'grid' }}
+              gridTemplateColumns={{ md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
+              pb={{ base: 2, md: 0 }}
+            >
               {items.map((pair, index) => (
                 <Box
                   key={index}
-                  flex="0 0 auto"
-                  w={{ base: '85%', sm: '380px', md: '420px', lg: '440px' }}
-                  maxW="440px"
-                  scrollSnapAlign="center"
-                  style={{ touchAction: 'pan-x' }}
+                  minW={{ base: '280px', sm: '320px', md: 'auto' }}
+                  w="100%"
                 >
                   <Box
                     width="100%"
@@ -132,7 +133,7 @@ export default function BeforeAfterCarouselSection({
                       fontSize="sm"
                       color="gray.600"
                       textAlign="center"
-                      mt={2}
+                      mt={4}
                       fontWeight="medium"
                     >
                       {pair.description}
@@ -140,7 +141,7 @@ export default function BeforeAfterCarouselSection({
                   )}
                 </Box>
               ))}
-            </Box>
+            </Flex>
           </Box>
         </Stack>
       </Container>

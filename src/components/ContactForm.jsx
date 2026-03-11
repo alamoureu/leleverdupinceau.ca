@@ -108,6 +108,7 @@ export default function ContactForm() {
           placeholder={currentLang === 'fr' ? 'Nom Complet' : 'Full Name'}
           borderRadius="sm"
           borderColor="gray.200"
+          fontSize="16px"
           value={name}
           onChange={(e) => updateProp(e, setName)}
         />
@@ -125,6 +126,7 @@ export default function ContactForm() {
           }
           borderRadius="sm"
           borderColor="gray.200"
+          fontSize="16px"
           value={address}
           onChange={(e) => updateProp(e, setAddress)}
         />
@@ -140,6 +142,7 @@ export default function ContactForm() {
           }
           borderRadius="sm"
           borderColor="gray.200"
+          fontSize="16px"
           value={phoneNumber}
           onChange={(e) => updateProp(e, setPhoneNumber)}
         />
@@ -153,6 +156,7 @@ export default function ContactForm() {
           placeholder={currentLang === 'fr' ? 'Courriel' : 'Email'}
           borderRadius="sm"
           borderColor="gray.200"
+          fontSize="16px"
           value={email}
           onChange={(e) => updateProp(e, setEmail)}
         />
@@ -162,6 +166,7 @@ export default function ContactForm() {
         borderColor="gray.200"
         borderWidth="1px"
         borderRadius="sm"
+        fontSize="16px"
         placeholder={
           currentLang === 'fr'
             ? 'Écrivez votre message ici.'

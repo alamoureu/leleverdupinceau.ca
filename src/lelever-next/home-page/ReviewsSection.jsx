@@ -177,8 +177,8 @@ export default function ReviewsSection({
             <Box
               position='relative'
               w='100%'
-              h={{ base: '320px', md: '300px' }}
-              pb={2}
+              minH={{ base: '350px', md: '280px' }}
+              pb={4}
             >
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
@@ -219,6 +219,7 @@ export default function ReviewsSection({
                     h='100%'
                     display='flex'
                     flexDirection='column'
+                    minH={{ base: '350px', md: '280px' }}
                   >
                     <Stack spacing={2} flexShrink={0}>
                       <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
@@ -258,9 +259,11 @@ export default function ReviewsSection({
                       mt={3}
                       pr={{ base: 4, md: 5 }}
                       pb={1}
-                      scrollbarWidth="thin"
-                      scrollbarColor="rgba(160, 174, 192, 0.45) transparent"
-                      sx={{ scrollbarGutter: 'stable' }}
+                      sx={{
+                        scrollbarGutter: 'stable',
+                        scrollbarWidth: 'thin',
+                        scrollbarColor: 'rgba(160, 174, 192, 0.45) transparent'
+                      }}
                       css={{
                         '&::-webkit-scrollbar': {
                           width: '4px',

@@ -118,6 +118,7 @@ export default function ApplyForm({ lang }) {
             type="text"
             borderRadius="sm"
             borderColor="gray.200"
+            fontSize="16px"
             value={name}
             placeholder="Nom, Prénom"
             onChange={(e) => updateProp(e, setName)}
@@ -134,6 +135,7 @@ export default function ApplyForm({ lang }) {
             type="text"
             borderRadius="sm"
             borderColor="gray.200"
+            fontSize="16px"
             value={address}
             placeholder={lang === 'fr' ? 'Code postal' : 'Postal code'}
             onChange={(e) => updateProp(e, setAddress)}
@@ -150,6 +152,7 @@ export default function ApplyForm({ lang }) {
             type="tel"
             borderRadius="sm"
             borderColor="gray.200"
+            fontSize="16px"
             placeholder={lang === 'fr' ? 'Numéro de téléphone' : 'Phone number'}
             value={phoneNumber}
             onChange={(e) => updateProp(e, setPhoneNumber)}
@@ -166,6 +169,7 @@ export default function ApplyForm({ lang }) {
             type="email"
             borderRadius="sm"
             borderColor="gray.200"
+            fontSize="16px"
             value={email}
             placeholder={lang === 'fr' ? 'Courriel' : 'Email'}
             onChange={(e) => updateProp(e, setEmail)}
@@ -181,6 +185,7 @@ export default function ApplyForm({ lang }) {
           borderRadius="sm"
           type="textarea"
           size="sm"
+          fontSize="16px"
           placeholder={lang === 'fr' ? 'Message' : 'Message'}
           value={message}
           onChange={(e) => updateProp(e, setMessage)}

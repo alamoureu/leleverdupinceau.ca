@@ -44,8 +44,8 @@ export default function HeroSection({
       position="relative"
       w="100%"
       minW={0}
-      minH={{ base: '320px', sm: '350px', md: '420px', lg: '520px', xl: '640px', '2xl': '720px' }}
-      h={{ base: 'auto', sm: 'auto', md: '450px', lg: '585px', xl: '750px', '2xl': '820px' }}
+      minH={{ base: '320px', sm: '350px', md: '500px', lg: '600px', xl: '680px', '2xl': '750px' }}
+      h={{ base: 'auto', sm: 'auto', md: '80vh', lg: '82vh', xl: '85vh', '2xl': '85vh' }}
       pb={{ base: 24, sm: 28, md: 0 }}
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
@@ -108,12 +108,19 @@ export default function HeroSection({
               minW={0}
             >
               {typeof heroTitle === 'string'
-                ? heroTitle.split('\n').map((line, idx) => (
-                    <React.Fragment key={idx}>
-                      {idx > 0 && <br />}
-                      {line}
-                    </React.Fragment>
-                  ))
+                ? heroTitle.includes(', ') && heroTitle === t.heroTitle
+                  ? heroTitle.split(', ').map((line, idx) => (
+                      <React.Fragment key={idx}>
+                        {line}
+                        {idx === 0 && <>,<br /></>}
+                      </React.Fragment>
+                    ))
+                  : heroTitle.split('\n').map((line, idx) => (
+                      <React.Fragment key={idx}>
+                        {idx > 0 && <br />}
+                        {line}
+                      </React.Fragment>
+                    ))
                 : heroTitle}
               {heroTitleSecondLine && (
                 <>

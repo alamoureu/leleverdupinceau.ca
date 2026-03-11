@@ -351,6 +351,7 @@ export default function SoumissionForm() {
                   type='text'
                   borderRadius='sm'
                   borderColor='gray.200'
+                  fontSize="16px"
                   value={name}
                   placeholder={
                     currentLang === 'fr' ? 'Nom, Prénom' : 'Full Name'
@@ -369,6 +370,7 @@ export default function SoumissionForm() {
                   type='text'
                   borderRadius='sm'
                   borderColor='gray.200'
+                  fontSize="16px"
                   value={address}
                   placeholder={
                     currentLang === 'fr'
@@ -389,6 +391,7 @@ export default function SoumissionForm() {
                   type='tel'
                   borderRadius='sm'
                   borderColor='gray.200'
+                  fontSize="16px"
                   value={tel}
                   placeholder={
                     currentLang === 'fr'
@@ -409,6 +412,7 @@ export default function SoumissionForm() {
                   type='email'
                   borderRadius='sm'
                   borderColor='gray.200'
+                  fontSize="16px"
                   value={email}
                   placeholder={currentLang === 'fr' ? 'Courriel' : 'Email'}
                   onChange={(e) => handleChange(e.target.value, setEmail)}
@@ -484,6 +488,7 @@ export default function SoumissionForm() {
                 value={message}
                 w='100%'
                 borderColor='gray.200'
+                fontSize="16px"
                 placeholder='Décrivez votre projet.'
                 onChange={(e) => handleChange(e.target.value, setMessage)}
               />
