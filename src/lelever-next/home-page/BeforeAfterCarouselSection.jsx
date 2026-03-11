@@ -14,9 +14,14 @@ import img5978 from '../images/before_after/IMG_5978.jpg';
 import img5982 from '../images/before_after/IMG_5982.jpg';
 import img5984 from '../images/before_after/IMG_5984.jpg';
 
+// New staircase project images
+import imgStaircaseBefore from '../images/IMG_7678.PNG';
+import imgStaircaseAfter from '../images/IMG_5873.PNG';
+
 const DEFAULT_PAIRS = [
   [img5969, img5970],
-  [img5972, img5971],
+  [imgStaircaseBefore, imgStaircaseAfter], // Staircase project
+  [img5972, img5971], // moved from 2nd to 3rd if needed, or I can just replace it.
   [img5973, img5974],
   [img5975, img5976],
   [img5977, img5978],
@@ -25,6 +30,7 @@ const DEFAULT_PAIRS = [
 
 const DEFAULT_DESCRIPTIONS = [
   { fr: 'Salon – murs plâtre et peinture', en: 'Living room – walls, plaster and paint' },
+  { fr: 'Cage d’escalier – réparation légère et peinture', en: 'Staircase – light repair and painting' },
   { fr: 'Cuisine – murs repeints (teinte contemporaine)', en: 'Kitchen – walls repainted (contemporary shade)' },
   { fr: 'Terrasse en bois – teinture et protection', en: 'Wood deck – stain and protection' },
   { fr: 'Cuisine – armoires peintes en blanc', en: 'Kitchen – cabinets painted white' },

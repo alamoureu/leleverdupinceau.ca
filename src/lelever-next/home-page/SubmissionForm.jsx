@@ -580,18 +580,7 @@ export default function SubmissionForm({
               </FormControl>
             )}
 
-            {effectiveFields.consentAccepted && (
-              <Box fontSize="xs" color="gray.500" textAlign="left" lineHeight="1.5" pt={2} px={1}>
-                {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
-                <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                  {t.formTermsAndConditions}
-                </Link>{' '}
-                {t.formAnd}{' '}
-                <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                  {t.formPrivacyPolicy}
-                </Link>
-              </Box>
-            )}
+            {/* Consent moved under the button */}
 
         </Stack>
 
@@ -627,6 +616,19 @@ export default function SubmissionForm({
             >
               {t.formSubmit}
             </Button>
+
+            {effectiveFields.consentAccepted && (
+              <Box fontSize="xs" color="gray.500" textAlign="center" lineHeight="1.5" pt={3} px={1}>
+                {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
+                <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                  {t.formTermsAndConditions}
+                </Link>{' '}
+                {t.formAnd}{' '}
+                <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                  {t.formPrivacyPolicy}
+                </Link>
+              </Box>
+            )}
           </Box>
         )}
       </Box>
