@@ -117,7 +117,7 @@ export default function HeroSection({
                 : heroTitle}
               {heroTitleSecondLine && (
                 <>
-                  <br />
+                  {' '}
                   {heroTitleSecondLine}
                 </>
               )}

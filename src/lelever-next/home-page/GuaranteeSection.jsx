@@ -20,7 +20,7 @@ export default function GuaranteeSection({
       pb={{ base: 3, sm: 4, md: 6 }}
       bg="white"
     >
-      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}>
+      <Container maxW="550px" px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}>
         <Stack spacing={{ base: 2, sm: 3, md: 5 }} align="center">
           <Stack spacing={1} align="center" w="100%">
             <Button
@@ -55,7 +55,7 @@ export default function GuaranteeSection({
             columnGap={{ base: 3, sm: 6, md: 8 }}
             rowGap={{ base: 0, sm: 0 }}
             alignItems="center"
-            mt={{ base: 12, sm: 10, md: 12 }}
+            mt={{ base: 12, sm: 12, md: 16 }}
           >
             <GridItem area="badge">
               <Box

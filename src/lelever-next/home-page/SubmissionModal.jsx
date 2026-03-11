@@ -73,7 +73,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
           </ModalHeader>
         )}
         <ModalCloseButton />
-        <ModalBody overflowY="auto" overflowX="visible" flex="1" minH={0} px={0} pt={0} pb={4}>
+        <ModalBody overflowY="auto" overflowX="visible" flex="1" minH={0} px={0} pt={0} pb={0}>
           <SubmissionForm
             isModal
             formId={SUBMISSION_FORM_ID}
@@ -109,7 +109,6 @@ export default function SubmissionModal({ isOpen, onClose }) {
             >
               {t.formSubmit}
             </Button>
-            
             <Box fontSize="xs" color="gray.500" textAlign="center" lineHeight="1.5" px={1}>
               {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
               <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>

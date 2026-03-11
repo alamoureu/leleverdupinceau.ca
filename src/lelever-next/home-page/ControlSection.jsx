@@ -43,7 +43,7 @@ export default function ControlSection({ onSubmissionOpen }) {
 
   return (
     <Box
-      pt={{ base: 20, sm: 24, md: 24, lg: 24, xl: 28, '2xl': 28 }}
+      pt={{ base: 24, sm: 28, md: 32, lg: 32, xl: 40, '2xl': 40 }}
       mt={0}
       pb={{ base: 12, md: 16, lg: 20 }}
       bg="white"

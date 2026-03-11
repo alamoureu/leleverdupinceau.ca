@@ -10,6 +10,8 @@ import {
   Button,
   Stack,
   Text,
+  Box,
+  Link,
 } from '@chakra-ui/react';
 import SubmissionForm from '../lelever-next/home-page/SubmissionForm';
 import { useTranslation } from '../lelever-next/i18n';
@@ -69,7 +71,7 @@ function SubmissionModal({ isOpen, onClose }) {
           </ModalHeader>
         )}
         <ModalCloseButton />
-        <ModalBody overflowY="auto" overflowX="visible" flex="1" minH={0} px={0} pt={0} pb={4}>
+        <ModalBody overflowY="auto" overflowX="visible" flex="1" minH={0} px={0} pt={0} pb={0}>
           <SubmissionForm
             isModal
             formId={SUBMISSION_FORM_ID}
@@ -85,11 +87,11 @@ function SubmissionModal({ isOpen, onClose }) {
             }}
             phoneFirst
             projectDetailsLabel={currentLang === 'fr' ? 'Description du projet' : 'Project description'}
-           
+
           />
         </ModalBody>
         {!isSuccess && (
-          <ModalFooter>
+          <ModalFooter display="flex" flexDirection="column" gap={3}>
             <Button
               form={SUBMISSION_FORM_ID}
               type="submit"
@@ -106,6 +108,16 @@ function SubmissionModal({ isOpen, onClose }) {
             >
               {t.formSubmit}
             </Button>
+            <Box fontSize="xs" color="gray.500" textAlign="center" lineHeight="1.5" px={1}>
+              {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
+              <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                {t.formTermsAndConditions}
+              </Link>{' '}
+              {t.formAnd}{' '}
+              <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                {t.formPrivacyPolicy}
+              </Link>
+            </Box>
           </ModalFooter>
         )}
       </ModalContent>

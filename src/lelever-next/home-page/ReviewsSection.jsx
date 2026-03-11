@@ -117,7 +117,7 @@ export default function ReviewsSection({
 
   const slideVariants = {
     enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
+      x: direction > 0 ? '100%' : '-100%',
       opacity: 0,
     }),
     center: {
@@ -127,9 +127,14 @@ export default function ReviewsSection({
     },
     exit: (direction) => ({
       zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
+      x: direction < 0 ? '50%' : '-50%',
       opacity: 0,
     }),
+  };
+
+  const carouselTransition = {
+    x: { type: 'spring', stiffness: 200, damping: 25 },
+    opacity: { duration: 0.3 },
   };
 
   const swipeConfidenceThreshold = 10000;
@@ -166,13 +171,13 @@ export default function ReviewsSection({
           <Stack
             spacing={6}
             w='100%'
-            maxW={{ base: '100%', md: '600px', lg: '650px' }}
+            maxW={{ base: '100%', md: '540px', lg: '580px' }}
             align='center'
           >
             <Box
               position='relative'
               w='100%'
-              h={{ base: '320px', md: '340px' }}
+              h={{ base: '320px', md: '300px' }}
               pb={2}
             >
               <AnimatePresence initial={false} custom={direction}>
@@ -183,10 +188,7 @@ export default function ReviewsSection({
                   initial='enter'
                   animate='center'
                   exit='exit'
-                  transition={{
-                    x: { type: 'spring', stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.2 },
-                  }}
+                  transition={carouselTransition}
                   drag='x'
                   dragConstraints={{ left: 0, right: 0 }}
                   dragElastic={1}
@@ -201,10 +203,9 @@ export default function ReviewsSection({
                   }}
                   style={{
                     position: 'absolute',
-                    width: 'calc(100% - 100px)',
-                    left: '50px',
+                    width: 'calc(100% - 92px)',
+                    left: '46px',
                     height: '100%',
-                    maxWidth: '100%',
                   }}
                 >
                   <Box
@@ -307,7 +308,7 @@ export default function ReviewsSection({
                 color='brand.500'
                 size='md'
                 position='absolute'
-                left={{ base: '0px', md: '0px' }}
+                left={{ base: '-5px', md: '-10px' }}
                 top='50%'
                 transform='translateY(-50%)'
                 zIndex={10}
@@ -327,7 +328,7 @@ export default function ReviewsSection({
                 color='brand.500'
                 size='md'
                 position='absolute'
-                right={{ base: '0px', md: '0px' }}
+                right={{ base: '-5px', md: '-10px' }}
                 top='50%'
                 transform='translateY(-50%)'
                 zIndex={10}
