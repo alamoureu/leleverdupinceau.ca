@@ -17,6 +17,7 @@
     "framer-motion": "^11.13.1",
     "react": "^18.3.1",
     "react-compare-image": "^3.4.0",
+    "react-compare-slider": "^3.1.0",
     "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^5.4.0",
@@ -64,12 +65,12 @@
     ]
   },
   "devDependencies": {
-    "sharp": "^0.33.5",
     "@vitejs/plugin-basic-ssl": "^2.1.0",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "sharp": "^0.33.5",
     "vite": "^6.0.3"
   }
 }

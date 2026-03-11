@@ -24,6 +24,9 @@ export default function HeroSection({
   titleFontSize,
   contentMaxW,
   contentPr,
+  imageBackground,
+  children,
+  compactTrustBanner,
 }) {
   const { t, currentLang } = useTranslation();
   const heroTitle = title ?? t.heroTitle;
@@ -41,15 +44,15 @@ export default function HeroSection({
       position="relative"
       w="100%"
       minW={0}
-      minH={{ base: '280px', sm: '320px', md: '420px', lg: '520px', xl: '640px', '2xl': '720px' }}
-      h={{ base: '300px', sm: '340px', md: '450px', lg: '585px', xl: '750px', '2xl': '820px' }}
-      pb={{ base: 8, sm: 10, md: 0 }}
+      minH={{ base: '320px', sm: '350px', md: '420px', lg: '520px', xl: '640px', '2xl': '720px' }}
+      h={{ base: 'auto', sm: 'auto', md: '450px', lg: '585px', xl: '750px', '2xl': '820px' }}
+      pb={{ base: 24, sm: 28, md: 0 }}
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
       overflow="visible"
     >
       <Image
-        src={heroImage}
+        src={imageBackground || heroImage}
         alt={
           currentLang === 'fr'
             ? `Services de peinture résidentielle et commerciale${pageContext ? ' - ' + pageContext : ''}`
@@ -94,6 +97,7 @@ export default function HeroSection({
             maxW={heroContentMaxW}
             pr={heroContentPr}
           >
+            {children}
             <Heading
               as="h1"
               size="page"
@@ -173,7 +177,7 @@ export default function HeroSection({
           </Stack>
         </Stack>
       </Container>
-      <TrustBanner />
+      <TrustBanner compact={compactTrustBanner} />
     </Box>
   );
 }

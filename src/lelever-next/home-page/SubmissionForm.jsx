@@ -157,7 +157,7 @@ export default function SubmissionForm({
     address: '',
     projectDetails: '',
     paintingType: '',
-    consentAccepted: false,
+    consentAccepted: true,
   });
 
   const [isProjectDetailsFocused, setIsProjectDetailsFocused] = useState(false);
@@ -278,7 +278,7 @@ export default function SubmissionForm({
         address: '',
         projectDetails: '',
         paintingType: '',
-        consentAccepted: false,
+        consentAccepted: true,
       });
     } catch (error) {
       if (import.meta.env?.DEV) console.error('Submission error:', error);
@@ -380,7 +380,8 @@ export default function SubmissionForm({
         w="100%"
         maxW={{ base: '100%', sm: '520px', md: '600px' }}
         mx="auto"
-        py={isModal ? 0 : { base: 8, md: 10 }}
+        pt={isModal ? 0 : { base: 4, md: 6 }}
+        pb={isModal ? 0 : { base: 8, md: 10 }}
         px={isModal ? 0 : { base: 4, sm: 6 }}
       >
         <Box
@@ -580,28 +581,16 @@ export default function SubmissionForm({
             )}
 
             {effectiveFields.consentAccepted && (
-              <FormControl isRequired w="100%">
-              <Stack direction="row" spacing={3} alignItems="flex-start" w="100%">
-                <Checkbox
-                  name="consentAccepted"
-                  isChecked={formData.consentAccepted}
-                  onChange={handleChange}
-                  size="md"
-                  mt={0.5}
-                />
-                <Box fontSize="xs" color="gray.700" flex={1} lineHeight="1.4">
-                  {t.formConsentText}{' '}
-                  <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                    {t.formTermsAndConditions}
-                  </Link>{' '}
-                  {t.formAnd}{' '}
-                  <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                    {t.formPrivacyPolicy}
-                  </Link>{' '}
-                  {t.formOf}
-                </Box>
-              </Stack>
-              </FormControl>
+              <Box fontSize="xs" color="gray.500" textAlign="left" lineHeight="1.5" pt={2} px={1}>
+                {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
+                <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                  {t.formTermsAndConditions}
+                </Link>{' '}
+                {t.formAnd}{' '}
+                <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
+                  {t.formPrivacyPolicy}
+                </Link>
+              </Box>
             )}
 
         </Stack>

@@ -22,16 +22,16 @@ function getFaqs(isFr) {
         ? 'Quel est le délai pour obtenir une soumission ?'
         : 'What is the turnaround time for a quote?',
       answer: isFr
-        ? "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."
-        : 'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
+        ? "Nous répondons généralement sous 24 heures et planifions rapidement une visite sur place pour vous fournir une soumission détaillée et transparente."
+        : 'We generally respond within 24 hours and quickly schedule an on-site visit to provide a detailed and transparent quote.',
     },
     {
       question: isFr
         ? 'Combien coûte un peintre professionnel à Montréal ?'
         : 'How much does a professional painter cost in Montreal?',
       answer: isFr
-        ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 1 et 3 $ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,"
-        : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $1 and $3 per square foot. For an accurate estimate tailored to your project,',
+        ? "Le coût dépend de la superficie, de l'état des surfaces et du nombre de couches. En moyenne, pour un projet résidentiel standard, comptez entre 1$ et 3$ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,"
+        : "The cost depends on the area, surface condition, and number of coats. On average, expect between $1 and $3 per square foot for a standard residential project. For an accurate estimate tailored to your project,",
       link: true,
     },
     {
@@ -69,10 +69,24 @@ function getFaqs(isFr) {
   ];
 }
 
-export default function FAQSection({ faqsOverride }) {
+export default function FAQSection({ faqsOverride, title }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
   const faqs = Array.isArray(faqsOverride) && faqsOverride.length > 0 ? faqsOverride : getFaqs(isFr);
+
+  // Generate Schema Markup for FAQPage
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
 
   return (
     <Box w="100%" py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
@@ -80,9 +94,9 @@ export default function FAQSection({ faqsOverride }) {
         <Stack spacing={8}>
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
             <Heading as="h2" size="section" color="gray.800">
-              {isFr
+              {title || (isFr
                 ? 'Questions fréquentes sur nos peintres professionnels'
-                : 'Frequently asked questions about our professional painters'}
+                : 'Frequently asked questions about our professional painters')}
             </Heading>
           </Stack>
 
@@ -110,7 +124,7 @@ export default function FAQSection({ faqsOverride }) {
                   </AccordionButton>
                 </h2>
                 <AccordionPanel pb={6} px={8} pt={0}>
-                  <Text textStyle="body" color="gray.600" lineHeight="1.7">
+                  <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.7">
                     {faq.answer}
                     {faq.link && (
                       <Link
@@ -131,6 +145,10 @@ export default function FAQSection({ faqsOverride }) {
           </Accordion>
         </Stack>
       </Container>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
     </Box>
   );
 }

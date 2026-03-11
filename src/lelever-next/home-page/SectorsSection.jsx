@@ -20,9 +20,11 @@ import montrealSecteur from '../images/mtl.png';
 import lavalSecteur from '../images/laval.png';
 import longueuilSecteur from '../images/longueuil.png';
 import brossardSecteur from '../images/brossard.png';
+import riveSudSecteur from '../images/secteurs_desservis.jpg';
+import gatineauSecteur from '../images/neighborhood_placeholder.jpg';
 
 // Export images for reuse
-export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
+export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur, riveSudSecteur, gatineauSecteur };
 
 const defaultSectors = [
   {
@@ -44,6 +46,16 @@ const defaultSectors = [
     name: 'Brossard',
     link: '/secteurs-desservis/brossard',
     image: brossardSecteur,
+  },
+  {
+    name: 'Rive-Sud',
+    link: '/secteurs-desservis/rive-sud',
+    image: riveSudSecteur,
+  },
+  {
+    name: 'Gatineau',
+    link: '/secteurs-desservis/gatineau',
+    image: gatineauSecteur,
   },
 ];
 
@@ -86,10 +98,10 @@ export default function SectorsSection({
           </Stack>
 
           <SimpleGrid
-            columns={{ base: 2, sm: 4 }}
+            columns={{ base: 2, sm: 2, md: 3 }}
             spacing={6}
             w="100%"
-            maxW="900px"
+            maxW="1100px"
           >
             {sectorsToDisplay.map((sector, index) => {
               const InnerContent = (
@@ -220,6 +232,15 @@ export default function SectorsSection({
               </Button>
             </Link>
           )}
+
+          <Text textStyle="bodyLarge" color="gray.600" textAlign="center" mt={4}>
+            {isFr 
+              ? 'Et dans plus de 20 quartiers de Montréal: Griffintown, Plateau, Rosemont, Verdun, Outremont, Westmount, Notre-Dame-de-Grâce... '
+              : 'And in over 20 Montreal neighborhoods: Griffintown, Plateau, Rosemont, Verdun, Outremont, Westmount, Notre-Dame-de-Grâce... '}
+            <Link as={RouterLink} to="/secteurs-desservis" color="brand.500" fontWeight="bold">
+              {isFr ? 'Voir tous les quartiers →' : 'View all neighborhoods →'}
+            </Link>
+          </Text>
         </Stack>
       </Container>
     </Box>

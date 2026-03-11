@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { Box, Grid, GridItem, Stack, Heading, Text } from '@chakra-ui/react';
-import ReactCompareImage from 'react-compare-image';
 
 // Single source of truth: all before/after images live in the component
 import img5969 from '../images/before_after/IMG_5969.jpg';
@@ -120,44 +119,29 @@ export default function BeforeAfter({ images: imagesProp, title, isFr }) {
             >
               <Box
                 width='100%'
-                position='relative'
-                borderRadius='lg'
+                borderRadius='xl'
                 overflow='hidden'
                 boxShadow='md'
                 _hover={{ boxShadow: 'lg' }}
                 transition='box-shadow 0.2s'
-                style={{
-                  aspectRatio: '3/2',
-                }}
-                sx={{
-                  '& > div': {
-                    width: '100% !important',
-                    height: '100% !important',
-                    position: 'relative !important',
-                  },
-                  '& .react-compare-image': {
-                    width: '100% !important',
-                    height: '100% !important',
-                  },
-                  '& .react-compare-image > div': {
-                    width: '100% !important',
-                    height: '100% !important',
-                  },
-                  '& .react-compare-image img': {
-                    width: '100% !important',
-                    height: '100% !important',
-                    objectFit: 'cover !important',
-                  },
-                }}
+                bg="white"
               >
-                <ReactCompareImage
-                  leftImage={pair.before}
-                  rightImage={pair.after}
-                  aspectRatio='wider'
-                  vertical={pair.vertical || false}
-                  leftImageLabel={isFr ? 'AVANT' : 'BEFORE'}
-                  rightImageLabel={isFr ? 'APRÈS' : 'AFTER'}
-                />
+                <Stack spacing={0}>
+                  {/* Avant */}
+                  <Box position="relative" w="100%">
+                    <Box as="img" src={pair.before} alt={isFr ? "Avant" : "Before"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
+                    <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
+                      {isFr ? 'AVANT' : 'BEFORE'}
+                    </Box>
+                  </Box>
+                  {/* Après */}
+                  <Box position="relative" w="100%" borderTop="2px solid white">
+                    <Box as="img" src={pair.after} alt={isFr ? "Après" : "After"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
+                    <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
+                      {isFr ? 'APRÈS' : 'AFTER'}
+                    </Box>
+                  </Box>
+                </Stack>
               </Box>
               {pair.description && (
                 <Text

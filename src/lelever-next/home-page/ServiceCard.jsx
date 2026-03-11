@@ -27,6 +27,7 @@ export default function ServiceCard({
   noHoverBorder = false,
   fillHeight = false,
   compact = false,
+  children,
 }) {
   const bottomText = stripText ?? (subtitleOnImageOnly ? undefined : subtitle);
   const showStrip = bottomText || ctaLabel;
@@ -72,6 +73,9 @@ export default function ServiceCard({
         ...(noHoverBorder ? {} : { borderColor: 'brand.500' }),
       }}
       w="100%"
+      h="100%"
+      display="flex"
+      flexDirection="column"
       maxW={{
         base: '100%',
         sm: '320px',
@@ -82,10 +86,7 @@ export default function ServiceCard({
       }}
       mx={{ base: 0, md: 'auto' }}
       {...(fillHeight && {
-        h: { base: '280px', md: '300px', lg: '320px' },
-        display: 'flex',
-        flexDirection: 'column',
-        maxW: '100%',
+        minH: { base: '280px', md: '300px', lg: '320px' },
       })}
     >
       <Box
@@ -192,17 +193,22 @@ export default function ServiceCard({
         </Box>
       )}
 
-      {description ? (
+      {description || children ? (
         <Box
-          pt={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
-          pb={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
-          px={{ base: 4, sm: 5, md: 6, lg: 7, xl: 8 }}
+          pt={{ base: 4, sm: 5, md: 5, lg: 6 }}
+          pb={{ base: 5, sm: 6, md: 6, lg: 7 }}
+          px={{ base: 4, sm: 5, md: 5, lg: 6 }}
           textAlign="left"
           flex="1 1 auto"
+          display="flex"
+          flexDirection="column"
         >
-          <Text textStyle="body" color="gray.700" lineHeight="1.6">
-            {description}
-          </Text>
+          {description && (
+            <Text textStyle="body" color="gray.700" lineHeight="1.6" mb={children ? 4 : 0}>
+              {description}
+            </Text>
+          )}
+          {children}
         </Box>
       ) : fillHeight ? (
         <Box flex="1 1 0" minH="0" aria-hidden />

@@ -1,6 +1,5 @@
 import React, { useMemo } from 'react';
 import { Box, Container, Heading, Stack, Text } from '@chakra-ui/react';
-import ReactCompareImage from 'react-compare-image';
 
 import img5969 from '../images/before_after/IMG_5969.jpg';
 import img5970 from '../images/before_after/IMG_5970.jpg';
@@ -98,51 +97,29 @@ export default function BeforeAfterCarouselSection({
                 >
                   <Box
                     width="100%"
-                    position="relative"
-                    borderRadius="lg"
+                    borderRadius="xl"
                     overflow="hidden"
                     boxShadow="md"
                     _hover={{ boxShadow: 'lg' }}
                     transition="box-shadow 0.2s"
-                    onTouchStartCapture={(e) => {
-                      e.stopPropagation();
-                    }}
-                    onTouchMoveCapture={(e) => {
-                      e.preventDefault();
-                      e.stopPropagation();
-                    }}
-                    onTouchEndCapture={(e) => {
-                      e.stopPropagation();
-                    }}
-                    style={{ aspectRatio: '3/2', touchAction: 'none' }}
-                    sx={{
-                      '& > div': {
-                        width: '100% !important',
-                        height: '100% !important',
-                        position: 'relative !important',
-                      },
-                      '& .react-compare-image': {
-                        width: '100% !important',
-                        height: '100% !important',
-                      },
-                      '& .react-compare-image > div': {
-                        width: '100% !important',
-                        height: '100% !important',
-                      },
-                      '& .react-compare-image img': {
-                        width: '100% !important',
-                        height: '100% !important',
-                        objectFit: 'cover !important',
-                      },
-                    }}
+                    bg="white"
                   >
-                    <ReactCompareImage
-                      leftImage={pair.before}
-                      rightImage={pair.after}
-                      aspectRatio="wider"
-                      leftImageLabel={isFr ? 'AVANT' : 'BEFORE'}
-                      rightImageLabel={isFr ? 'APRÈS' : 'AFTER'}
-                    />
+                    <Stack spacing={0}>
+                      {/* Avant */}
+                      <Box position="relative" w="100%">
+                        <Box as="img" src={pair.before} alt={isFr ? "Avant" : "Before"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
+                        <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
+                          {isFr ? 'AVANT' : 'BEFORE'}
+                        </Box>
+                      </Box>
+                      {/* Après */}
+                      <Box position="relative" w="100%" borderTop="2px solid white">
+                        <Box as="img" src={pair.after} alt={isFr ? "Après" : "After"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
+                        <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
+                          {isFr ? 'APRÈS' : 'AFTER'}
+                        </Box>
+                      </Box>
+                    </Stack>
                   </Box>
                   {pair.description && (
                     <Text

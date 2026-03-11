@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Modal,
   ModalOverlay,
@@ -8,60 +8,94 @@ import {
   ModalFooter,
   ModalCloseButton,
   Button,
+  Stack,
+  Text,
 } from '@chakra-ui/react';
 import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
+import appContext from '../../AppProvider';
 
 const SUBMISSION_FORM_ID = 'submission-form-modal';
+const BRAND_BLUE = '#1E4BBA';
+const BRAND_BLUE_HOVER = '#183D9A';
 
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const { currentLang } = React.useContext(appContext);
+  const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const initialFocusRef = useRef(null);
 
   useEffect(() => {
     if (!isOpen) {
-      setIsSubmitted(false);
+      setIsSuccess(false);
       setIsSubmitting(false);
     }
   }, [isOpen]);
-
-  const handleSubmissionStateChange = (submitted) => {
-    setIsSubmitted(submitted);
-  };
 
   return (
     <Modal
       isOpen={isOpen}
       onClose={onClose}
       isCentered
-      size="xl"
-      initialFocusRef={initialFocusRef}
-      returnFocusOnClose
-      scrollBehavior='outside'
+      size={{ base: 'sm', sm: 'md', md: 'lg', lg: 'xl' }}
+      scrollBehavior="outside"
+      blockScrollOnMount
     >
       <ModalOverlay />
       <ModalContent maxH="90vh" display="flex" flexDirection="column">
-        {!isSubmitted && (
-          <ModalHeader>{t.modalTitle}</ModalHeader>
+        {!isSuccess && (
+          <ModalHeader
+            id="submission-modal-title"
+            pt={{ base: 4, sm: 5 }}
+            pb={{ base: 2, sm: 3 }}
+            px={{ base: 4, sm: 6 }}
+            pr={{ base: 12, sm: 14 }}
+            fontSize={{ base: 'md', sm: 'lg', md: 'xl' }}
+            fontWeight="bold"
+            color="gray.900"
+            lineHeight="tight"
+            flexShrink={0}
+            textTransform="uppercase"
+          >
+            <Stack spacing={1}>
+              <Text>{t.modalTitle}</Text>
+              <Text
+                textTransform="none"
+                fontWeight="medium"
+                fontSize={{ base: 'sm', sm: 'md' }}
+                color="gray.600"
+              >
+                {t.ctaSubtitle ?? 'en moins de 24h'}
+              </Text>
+            </Stack>
+          </ModalHeader>
         )}
         <ModalCloseButton />
-        <ModalBody overflowY="auto" flex="1" minH={0} pb={4}>
+        <ModalBody overflowY="auto" overflowX="visible" flex="1" minH={0} px={0} pt={0} pb={4}>
           <SubmissionForm
             isModal
             formId={SUBMISSION_FORM_ID}
-            onSubmissionStateChange={handleSubmissionStateChange}
+            onSubmissionStateChange={setIsSuccess}
             onSubmittingChange={setIsSubmitting}
-            initialFocusRef={initialFocusRef}
+            fields={{
+              name: true,
+              phone: true,
+              email: true,
+              address: false,
+              paintingType: false,
+              projectDetails: 'optional',
+            }}
+            phoneFirst
+            projectDetailsLabel={currentLang === 'fr' ? 'Description du projet' : 'Project description'}
           />
         </ModalBody>
-        {!isSubmitted && (
+        {!isSuccess && (
           <ModalFooter>
             <Button
               form={SUBMISSION_FORM_ID}
               type="submit"
-              colorScheme="brand"
+              bg={BRAND_BLUE}
+              color="white"
               size="lg"
               w="100%"
               borderRadius="full"
@@ -69,6 +103,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
               loadingText={t.formSubmitting}
               spinnerPlacement="start"
               disabled={isSubmitting}
+              _hover={{ bg: BRAND_BLUE_HOVER }}
             >
               {t.formSubmit}
             </Button>

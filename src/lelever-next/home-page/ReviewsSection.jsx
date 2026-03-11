@@ -29,18 +29,19 @@ export default function ReviewsSection({
   hideButton = false,
   title,
   subtitle,
+  reviewsOverride,
 }) {
   const { t } = useTranslation();
   const { currentLang } = useContext(appContext);
 
   // All reviews from drawer and website
-  const allReviews = [
+  const defaultReviews = [
     {
       name: 'Zoé Boudreau',
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? 'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
+          ? 'Je suis très ravie du service reçu\u00A0! Équipe compétente, rapide et courtoise. Je recommande chaleureusement\u00A0!'
           : 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
     },
     {
@@ -48,7 +49,7 @@ export default function ReviewsSection({
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? 'Efficaces, sympathiques, très bonnes communications, prix intéressants… Hautement recommandé!'
+          ? 'Efficaces, sympathiques, très bonnes communications, prix intéressants… Hautement recommandé\u00A0!'
           : 'Efficient, friendly, very good communications, great prices… Highly recommended!',
     },
     {
@@ -64,7 +65,7 @@ export default function ReviewsSection({
       time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
       content:
         currentLang === 'fr'
-          ? "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
+          ? "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes\u00A0; le souci du détail est apparent\u00A0!"
           : 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
     },
     {
@@ -72,23 +73,23 @@ export default function ReviewsSection({
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? "J'ai fait appel à Le Lever Du Pinceau pour repeindre des sections de toit en métal, dont plusieurs étaient difficiles d'accès. Non seulement Louis et Philippe ont effectué le travail avec soin et sécurité, mais ils ont également écouté nos préoccupations."
-          : 'I retained the services of Le Lever Du Pinceau to have sections of metal roof repainted, many of which were difficult to access. Not only did Louis and Philippe do the work with great care and safety, but they listened to our concerns at all times.',
+          ? "J'ai fait appel à l'équipe pour des toits difficiles d'accès. Ils ont fait un travail minutieux, sécuritaire et à l'écoute\u00A0!"
+          : 'I retained them for metal roofs difficult to access. They did the work with great care, safety, and listened to our concerns!',
     },
     {
       name: 'Maureen Beech',
       time: currentLang === 'fr' ? 'Il y a 6 jours' : '6 days ago',
       content:
         currentLang === 'fr'
-          ? "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très ravie des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets."
-          : 'Le Lever Du Pinceau has done multiple painting projects for me. I was very delighted with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
+          ? "Très ravie des résultats\u00A0! Équipe professionnelle et agréable. Projets livrés dans les délais et lieux laissés impeccables."
+          : 'Very delighted with the results! Professional and pleasant team. Projects completed on time and the site was left clean and orderly.',
     },
     {
       name: 'A Mayer',
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? "Merci à l'équipe de Lever du Pinceau! Je les ai engagés pour peindre ma chambre et ils ont dépassé mes attentes. Travailleurs polis, attention aux détails et service client exceptionnel! Je recommande vivement!"
+          ? "Merci à l'équipe de Lever du Pinceau\u00A0! Je les ai engagés pour peindre ma chambre et ils ont dépassé mes attentes. Travailleurs polis, attention aux détails et service client exceptionnel\u00A0! Je recommande vivement\u00A0!"
           : 'Thanks to the Lever du Pinceau team! I hired them to paint my bedroom and they exceeded my expectations. Polite workers, attention to detail and outstanding customer service! I highly recommend!',
     },
     {
@@ -96,7 +97,7 @@ export default function ReviewsSection({
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? "Travail impeccable ! Louis est professionnel, sympathique et créatif ! Travail soigné et rapide. Je recommande vivement et j'utiliserai leurs services pour des travaux futurs !"
+          ? "Travail impeccable\u00A0! Louis est professionnel, sympathique et créatif\u00A0! Travail soigné et rapide. Je recommande vivement et j'utiliserai leurs services pour des travaux futurs\u00A0!"
           : 'Impeccable work! Louis is professional, friendly and creative! Neat and fast work. I highly recommend and will use their services for future work!',
     },
     {
@@ -104,10 +105,12 @@ export default function ReviewsSection({
       time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
       content:
         currentLang === 'fr'
-          ? 'Excellente expérience avec le levé du pinceau! Professionnels, respectueux des lieux, honnêtes et travail parfait. Je recommande vivement cette équipe!'
+          ? 'Excellente expérience avec le levé du pinceau\u00A0! Professionnels, respectueux des lieux, honnêtes et travail parfait. Je recommande vivement cette équipe\u00A0!'
           : 'Great experience with brush lifting! Professional, respectful of the place, honest and perfect work. I highly recommend this team!',
     },
   ];
+
+  const allReviews = reviewsOverride || defaultReviews;
 
   const [currentIndex, setCurrentIndex] = useState(0); // Start at first review
   const [direction, setDirection] = useState(0);
@@ -163,13 +166,13 @@ export default function ReviewsSection({
           <Stack
             spacing={6}
             w='100%'
-            maxW={{ base: '100%', md: '750px', lg: '800px' }}
+            maxW={{ base: '100%', md: '600px', lg: '650px' }}
             align='center'
           >
             <Box
               position='relative'
               w='100%'
-              h={{ base: '320px', md: '460px' }}
+              h={{ base: '320px', md: '340px' }}
               pb={2}
             >
               <AnimatePresence initial={false} custom={direction}>
@@ -273,7 +276,7 @@ export default function ReviewsSection({
                         },
                       }}
                     >
-                      <Text textStyle='body' color='gray.700' lineHeight='1.6'>
+                      <Text fontSize={{ base: 'sm', md: 'sm' }} color='gray.700' lineHeight='1.6' textAlign='left'>
                         {allReviews[currentIndex].content}
                       </Text>
                     </Box>

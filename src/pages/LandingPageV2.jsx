@@ -15,6 +15,7 @@ import GuaranteeSection from '../lelever-next/home-page/GuaranteeSection';
 import BeforeAfterCarouselSection from '../lelever-next/home-page/BeforeAfterCarouselSection';
 import beforeKitchenReplacement from '../lelever-next/images/IMG_7678.PNG';
 import afterKitchenReplacement from '../lelever-next/images/IMG_5873.PNG';
+import guaranteeBadgeOverride from '../lelever-next/images/IMG_2574\ (1).PNG';
 
 const META = {
   fr: {
@@ -54,14 +55,13 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
   }, [langProp, currentLang, setCurrentLang]);
 
   const meta = META[lang] || META.fr;
-  const guaranteeBadgeUrl = new URL('../lelever-next/images/IMG_2574 (1).PNG', import.meta.url).href;
 
   const landingFaqs = [
     {
       question: isFr ? 'Combien coûte un peintre professionnel à Montréal?' : 'How much does a professional painter cost in Montreal?',
       answer: isFr
-        ? "Le coût dépend de plusieurs facteurs : la superficie à peindre, le type de surface (plafond, mur, boiserie), l'état des surfaces (nécessite-t-il du plâtrage ou du sablage), le nombre de couches requises et le type de peinture choisi. En moyenne, pour un projet résidentiel standard, comptez entre 1 et 3 $ par pied carré."
-        : 'The cost depends on several factors: the area to be painted, the type of surface (ceiling, wall, woodwork), the condition of surfaces (does it require plastering or sanding), the number of coats required, and the type of paint chosen. On average, for a standard residential project, expect between $1 and $3 per square foot.',
+        ? "Le coût dépend de la superficie, de l'état des surfaces et du nombre de couches. En moyenne, pour un projet résidentiel standard, comptez entre 1$ et 3$ par pied carré."
+        : "The cost depends on the area, surface condition, and number of coats. On average, expect between $1 and $3 per square foot for a standard residential project.",
     },
     {
       question: isFr ? 'Offrez-vous une garantie sur vos travaux?' : 'Do you offer a guarantee on your work?',
@@ -161,7 +161,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
 
         <GuaranteeSection
           onSubmissionOpen={onOpen}
-          badgeSrc={guaranteeBadgeUrl}
+          badgeSrc={guaranteeBadgeOverride}
           mt={{ base: 8, sm: 10, md: 12 }}
           body={
             isFr
@@ -173,7 +173,8 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
         <MethodSection onSubmissionOpen={onOpen} hideCta />
 
         <Stack
-          py={{ base: 8, sm: 10, md: 12, lg: 14 }}
+          pt={{ base: 4, sm: 6, md: 8, lg: 10 }}
+          pb={{ base: 8, sm: 10, md: 12, lg: 14 }}
           align="center"
           px={{ base: 3, sm: 4, md: 6, lg: 8 }}
         >
@@ -203,7 +204,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
                 fontWeight="bold"
                 color="gray.900"
                 textAlign="center"
-                pb={4}
+                pb={1}
                 textTransform="uppercase"
               >
                 {t.contactFormTitle}
@@ -215,7 +216,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
                 color="gray.600"
                 fontSize={{ base: 'sm', md: 'lg' }}
                 fontWeight="medium"
-                pb={6}
+                pb={2}
               >
                 en moins de 24h
               </Text>
