@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { Box, Container, Flex, Heading, SimpleGrid, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 
 import img5969 from '../images/before_after/IMG_5969.jpg';
 import img5970 from '../images/before_after/IMG_5970.jpg';
@@ -29,13 +29,34 @@ const DEFAULT_PAIRS = [
 ];
 
 const DEFAULT_DESCRIPTIONS = [
-  { fr: 'Salon – murs plâtre et peinture', en: 'Living room – walls, plaster and paint' },
-  { fr: 'Cage d’escalier – réparation légère et peinture', en: 'Staircase – light repair and painting' },
-  { fr: 'Cuisine – murs repeints (teinte contemporaine)', en: 'Kitchen – walls repainted (contemporary shade)' },
-  { fr: 'Terrasse en bois – teinture et protection', en: 'Wood deck – stain and protection' },
-  { fr: 'Cuisine – armoires peintes en blanc', en: 'Kitchen – cabinets painted white' },
-  { fr: 'Espace industriel – plafond steel deck et murs peints', en: 'Industrial space – steel deck ceiling and walls painted' },
-  { fr: 'Maison – murs rafraîchis (protection et peinture)', en: 'House – walls refreshed (protection and painting)' },
+  {
+    fr: 'Salon – murs plâtre et peinture',
+    en: 'Living room – walls, plaster and paint',
+  },
+  {
+    fr: 'Cage d’escalier – réparation légère et peinture',
+    en: 'Staircase – light repair and painting',
+  },
+  {
+    fr: 'Cuisine – murs repeints (teinte contemporaine)',
+    en: 'Kitchen – walls repainted (contemporary shade)',
+  },
+  {
+    fr: 'Terrasse en bois – teinture et protection',
+    en: 'Wood deck – stain and protection',
+  },
+  {
+    fr: 'Cuisine – armoires peintes en blanc',
+    en: 'Kitchen – cabinets painted white',
+  },
+  {
+    fr: 'Espace industriel – plafond steel deck et murs peints',
+    en: 'Industrial space – steel deck ceiling and walls painted',
+  },
+  {
+    fr: 'Maison – murs rafraîchis (protection et peinture)',
+    en: 'House – walls refreshed (protection and painting)',
+  },
 ];
 
 function buildDefaultImages(isFr) {
@@ -54,10 +75,19 @@ export default function BeforeAfterCarouselSection({
   kitchenPairOverride,
 }) {
   const items = useMemo(() => {
-    const base = images && images.length > 0 ? images : buildDefaultImages(isFr);
-    if (kitchenPairOverride?.before && kitchenPairOverride?.after && base.length >= 2) {
+    const base =
+      images && images.length > 0 ? images : buildDefaultImages(isFr);
+    if (
+      kitchenPairOverride?.before &&
+      kitchenPairOverride?.after &&
+      base.length >= 2
+    ) {
       const next = [...base];
-      next[1] = { ...next[1], before: kitchenPairOverride.before, after: kitchenPairOverride.after };
+      next[1] = {
+        ...next[1],
+        before: kitchenPairOverride.before,
+        after: kitchenPairOverride.after,
+      };
       return next;
     }
     return base;
@@ -68,7 +98,13 @@ export default function BeforeAfterCarouselSection({
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={{ base: 6, md: 8 }} align="center">
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="900px">
-            <Heading as="h2" size="section" fontWeight="bold" color="gray.800" lineHeight="1.3">
+            <Heading
+              as="h2"
+              size="section"
+              fontWeight="bold"
+              color="gray.800"
+              lineHeight="1.3"
+            >
               {title}
             </Heading>
             <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
@@ -78,29 +114,45 @@ export default function BeforeAfterCarouselSection({
 
           <Box
             w="100%"
-            overflowX={{ base: 'auto', md: 'visible' }}
-            pb={{ base: 6, md: 0 }}
+            maxW="100%"
+            minW={0}
+            overflowX="auto"
+            overflowY="hidden"
+            pb={6}
             px={{ base: 4, md: 0 }}
             mx={{ base: -4, md: 0 }}
             sx={{
-              '&::-webkit-scrollbar': { display: 'none' },
-              '-ms-overflow-style': 'none',
-              'scrollbar-width': 'none',
+              '&::-webkit-scrollbar': { height: 2 },
+              '&::-webkit-scrollbar-track': {
+                bg: 'gray.100',
+                borderRadius: 'full',
+              },
+              '&::-webkit-scrollbar-thumb': {
+                bg: 'gray.300',
+                borderRadius: 'full',
+                _hover: { bg: 'gray.400' },
+              },
+              '-ms-overflow-style': 'auto',
+              'scrollbar-width': 'auto',
             }}
           >
             <Flex
               direction="row"
-              gap={{ base: 6, md: 10 }}
-              w="100%"
-              display={{ base: 'flex', md: 'grid' }}
-              gridTemplateColumns={{ md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' }}
-              pb={{ base: 2, md: 0 }}
+              gap={{ base: 6, md: 8, lg: 10 }}
+              w="max-content"
+              minW="100%"
+              pb={2}
             >
               {items.map((pair, index) => (
                 <Box
                   key={index}
-                  minW={{ base: '280px', sm: '320px', md: 'auto' }}
-                  w="100%"
+                  minW={{
+                    base: '280px',
+                    sm: '320px',
+                    md: '340px',
+                    lg: '360px',
+                  }}
+                  w={{ base: '280px', sm: '320px', md: '340px', lg: '360px' }}
                 >
                   <Box
                     width="100%"
@@ -114,15 +166,57 @@ export default function BeforeAfterCarouselSection({
                     <Stack spacing={0}>
                       {/* Avant */}
                       <Box position="relative" w="100%">
-                        <Box as="img" src={pair.before} alt={isFr ? "Avant" : "Before"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
-                        <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
+                        <Box
+                          as="img"
+                          src={pair.before}
+                          alt={isFr ? 'Avant' : 'Before'}
+                          w="100%"
+                          objectFit="cover"
+                          style={{ aspectRatio: '3/2' }}
+                        />
+                        <Box
+                          position="absolute"
+                          top={3}
+                          left={3}
+                          bg="brand.500"
+                          color="white"
+                          px={3}
+                          py={1}
+                          borderRadius="md"
+                          fontSize="sm"
+                          fontWeight="bold"
+                          boxShadow="sm"
+                        >
                           {isFr ? 'AVANT' : 'BEFORE'}
                         </Box>
                       </Box>
                       {/* Après */}
-                      <Box position="relative" w="100%" borderTop="2px solid white">
-                        <Box as="img" src={pair.after} alt={isFr ? "Après" : "After"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
-                        <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
+                      <Box
+                        position="relative"
+                        w="100%"
+                        borderTop="2px solid white"
+                      >
+                        <Box
+                          as="img"
+                          src={pair.after}
+                          alt={isFr ? 'Après' : 'After'}
+                          w="100%"
+                          objectFit="cover"
+                          style={{ aspectRatio: '3/2' }}
+                        />
+                        <Box
+                          position="absolute"
+                          top={3}
+                          left={3}
+                          bg="brand.500"
+                          color="white"
+                          px={3}
+                          py={1}
+                          borderRadius="md"
+                          fontSize="sm"
+                          fontWeight="bold"
+                          boxShadow="sm"
+                        >
                           {isFr ? 'APRÈS' : 'AFTER'}
                         </Box>
                       </Box>
@@ -148,4 +242,3 @@ export default function BeforeAfterCarouselSection({
     </Box>
   );
 }
-

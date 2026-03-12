@@ -109,7 +109,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
             >
               {t.formSubmit}
             </Button>
-            <Box fontSize="xs" color="gray.500" textAlign="center" lineHeight="1.5" px={1}>
+            <Box fontSize={{ base: 'xs', md: 'sm' }} color="gray.500" textAlign="center" lineHeight="1.5" px={1}>
               {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
               <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
                 {t.formTermsAndConditions}

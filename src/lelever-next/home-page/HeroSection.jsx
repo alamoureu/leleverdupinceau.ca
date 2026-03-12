@@ -124,7 +124,7 @@ export default function HeroSection({
                 : heroTitle}
               {heroTitleSecondLine && (
                 <>
-                  {' '}
+                  {typeof heroTitle === 'string' && heroTitle.trimEnd().endsWith(',') ? <br /> : ' '}
                   {heroTitleSecondLine}
                 </>
               )}
@@ -132,7 +132,7 @@ export default function HeroSection({
 
             <Text
               textStyle="bodyLarge"
-              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
               color="white"
               fontWeight="thin"
               minW={0}
@@ -145,7 +145,7 @@ export default function HeroSection({
             {heroDescription && (
               <Text
                 color="whiteAlpha.800"
-                fontSize={{ base: 'sm', sm: 'sm', md: 'md' }}
+                fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                 lineHeight="1.6"
                 maxW={{ base: '560px', md: '640px', lg: '720px' }}
               >

@@ -5,7 +5,6 @@ import {
   Container,
   Heading,
   Text,
-  SimpleGrid,
   Stack,
   Button,
   Flex,
@@ -87,6 +86,7 @@ export default function ServicesSection() {
             sm: '300px',
             md: '100%',
           }}
+          minW={0}
           mx="auto"
         >
           <Stack
@@ -116,26 +116,30 @@ export default function ServicesSection() {
             </Text>
           </Stack>
 
-          <Stack spacing={{ base: 6, md: 8 }} w="100%">
-            {/* Mobile Horizontal Scroll */}
+          <Stack spacing={{ base: 6, md: 8 }} w="100%" minW={0}>
+            {/* Horizontal scroll on all breakpoints; scrollbar visible on desktop */}
             <Box
-              display={{ base: 'block', md: 'none' }}
               w="100%"
+              maxW="100%"
+              minW={0}
               overflowX="auto"
+              overflowY="hidden"
               pb={4}
-              px={4}
-              mx={-4}
+              px={{ base: 4, md: 0 }}
+              mx={{ base: -4, md: 0 }}
               sx={{
-                '&::-webkit-scrollbar': { display: 'none' },
-                '-ms-overflow-style': 'none',
-                'scrollbar-width': 'none',
+                '&::-webkit-scrollbar': { height: 8 },
+                '&::-webkit-scrollbar-track': { bg: 'gray.100', borderRadius: 'full' },
+                '&::-webkit-scrollbar-thumb': { bg: 'gray.300', borderRadius: 'full', _hover: { bg: 'gray.400' } },
+                '-ms-overflow-style': 'auto',
+                'scrollbar-width': 'auto',
               }}
             >
               <Flex gap={4} direction="row">
                 {services.map((service, index) => (
                   <Box
                     key={index}
-                    minW="260px"
+                    minW={{ base: '260px', md: '320px', lg: '360px' }}
                     as={RouterLink}
                     to={service.link}
                     _hover={{ textDecoration: 'none' }}
@@ -151,89 +155,6 @@ export default function ServicesSection() {
                 ))}
               </Flex>
             </Box>
-
-            {/* Desktop Grid Layout */}
-            <Stack spacing={{ base: 6, md: 8 }} w="100%" display={{ base: 'none', md: 'flex' }} align="center">
-              {/* Row 1: 2 items */}
-              <SimpleGrid
-                columns={{ md: 2 }}
-                spacing={{ base: 6, md: 8 }}
-                w="100%"
-                maxW={{ md: '733px', lg: '800px', xl: '880px' }}
-              >
-                {services.slice(0, 2).map((service, index) => (
-                  <Box
-                    key={index}
-                    as={RouterLink}
-                    to={service.link}
-                    _hover={{ textDecoration: 'none' }}
-                    w="100%"
-                    display="block"
-                  >
-                    <ServiceCard
-                      image={service.image}
-                      title={service.title}
-                      subtitle={service.subtitle}
-                      stripText={service.stripText}
-                      noHoverBorder
-                    />
-                  </Box>
-                ))}
-              </SimpleGrid>
-
-              {/* Row 2: 2 items */}
-              <SimpleGrid
-                columns={{ md: 2 }}
-                spacing={{ base: 6, md: 8 }}
-                w="100%"
-                maxW={{ md: '733px', lg: '800px', xl: '880px' }}
-              >
-                {services.slice(2, 4).map((service, index) => (
-                  <Box
-                    key={index}
-                    as={RouterLink}
-                    to={service.link}
-                    _hover={{ textDecoration: 'none' }}
-                    w="100%"
-                    display="block"
-                  >
-                    <ServiceCard
-                      image={service.image}
-                      title={service.title}
-                      subtitle={service.subtitle}
-                      stripText={service.stripText}
-                      noHoverBorder
-                    />
-                  </Box>
-                ))}
-              </SimpleGrid>
-
-              {/* Row 3: 1 item (centered) */}
-              <Box
-                w="100%"
-                maxW={{ md: '350px', lg: '380px', xl: '420px' }}
-                mx="auto"
-              >
-                {services.slice(4, 5).map((service, index) => (
-                  <Box
-                    key={index}
-                    as={RouterLink}
-                    to={service.link}
-                    _hover={{ textDecoration: 'none' }}
-                    w="100%"
-                    display="block"
-                  >
-                    <ServiceCard
-                      image={service.image}
-                      title={service.title}
-                      subtitle={service.subtitle}
-                      stripText={service.stripText}
-                      noHoverBorder
-                    />
-                  </Box>
-                ))}
-              </Box>
-            </Stack>
           </Stack>
 
           <Stack spacing={2} align="center" pt={{ base: 4, md: 6 }} w="100%">

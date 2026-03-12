@@ -16,7 +16,7 @@ import {
 import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 
-export default function SoumissionDashboard() {
+function SoumissionDashboard() {
   const [soumissions, setSoumissions] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -36,7 +36,11 @@ export default function SoumissionDashboard() {
           id: doc.id,
           ...doc.data(),
         }));
-        soumissionList.sort((a, b) => b.date.toDate() - a.date.toDate());
+        soumissionList.sort((a, b) => {
+          const dateA = a.date?.toDate?.()?.getTime() ?? 0;
+          const dateB = b.date?.toDate?.()?.getTime() ?? 0;
+          return dateB - dateA;
+        });
         setSoumissions(soumissionList);
       };
 
@@ -44,9 +48,14 @@ export default function SoumissionDashboard() {
     }
   }, [isAuthenticated]);
 
+  const toSearchableString = (value) => {
+    if (value == null) return '';
+    if (typeof value === 'object' && typeof value.toDate === 'function') return value.toDate().toISOString();
+    try { return String(value); } catch { return ''; }
+  };
   const filteredSoumissions = soumissions.filter((soumission) =>
     Object.values(soumission).some((value) =>
-      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      toSearchableString(value).toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
 
@@ -68,9 +77,9 @@ export default function SoumissionDashboard() {
         mb={4}
       />
       <List spacing={3}>
-        {filteredSoumissions.map((soumission) => (
+        {filteredSoumissions.map((soumission, index) => (
           <ListItem
-            key={soumission.id}
+            key={soumission.id ?? `soumission-${index}`}
             p={4}
             borderWidth="1px"
             borderRadius="md"
@@ -105,15 +114,9 @@ export default function SoumissionDashboard() {
                 </Text>
                 <Text size="sm" color="brand.600">
                   <strong>Date</strong> <br />
-                  {soumission.date.toDate().toLocaleDateString('en-US', {
-                    day: 'numeric',
-                    month: 'short',
-                  })}
-                  ,{' '}
-                  {soumission.date.toDate().toLocaleTimeString('en-US', {
-                    hour: '2-digit',
-                    minute: '2-digit',
-                  })}
+                  {soumission.date?.toDate?.()
+                    ? `${soumission.date.toDate().toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}, ${soumission.date.toDate().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`
+                    : '—'}
                 </Text>
                 <Text size="sm" color="brand.600">
                   <strong>Type de peinture</strong> <br />
@@ -121,7 +124,7 @@ export default function SoumissionDashboard() {
                 </Text>
                 <Text>
                   <strong>Besoins</strong> <br />
-                  {soumission.besoinPeinture.join(', ')}
+                  {Array.isArray(soumission.besoinPeinture) ? soumission.besoinPeinture.join(', ') : soumission.besoinPeinture ?? '—'}
                 </Text>
                 <Text>
                   <strong>Description</strong> {soumission.message}
@@ -134,6 +137,8 @@ export default function SoumissionDashboard() {
     </Box>
   );
 }
+SoumissionDashboard.displayName = 'SoumissionDashboard';
+export default SoumissionDashboard;
 
 export const PasswordProtection = ({ onPasswordCorrect }) => {
   const [password, setPassword] = useState('');

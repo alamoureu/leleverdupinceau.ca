@@ -280,7 +280,7 @@ export default function ReviewsSection({
                         },
                       }}
                     >
-                      <Text fontSize={{ base: 'sm', md: 'sm' }} color='gray.700' lineHeight='1.6' textAlign='left'>
+                      <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} color='gray.700' lineHeight='1.6' textAlign='left'>
                         {allReviews[currentIndex].content}
                       </Text>
                     </Box>

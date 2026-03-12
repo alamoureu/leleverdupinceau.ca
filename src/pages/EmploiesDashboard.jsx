@@ -13,7 +13,7 @@ import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { PasswordProtection } from './SoumissionDashboard';
 
-export default function EmployeesDashboard() {
+function EmployeesDashboard() {
   const [employees, setEmployees] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -33,7 +33,11 @@ export default function EmployeesDashboard() {
           id: doc.id,
           ...doc.data(),
         }));
-        employeeList.sort((a, b) => b.date.toDate() - a.date.toDate());
+        employeeList.sort((a, b) => {
+          const dateA = a.date?.toDate?.()?.getTime() ?? 0;
+          const dateB = b.date?.toDate?.()?.getTime() ?? 0;
+          return dateB - dateA;
+        });
         setEmployees(employeeList);
       };
 
@@ -41,9 +45,14 @@ export default function EmployeesDashboard() {
     }
   }, [isAuthenticated]);
 
+  const toSearchableString = (value) => {
+    if (value == null) return '';
+    if (typeof value === 'object' && typeof value.toDate === 'function') return value.toDate().toISOString();
+    try { return String(value); } catch { return ''; }
+  };
   const filteredEmployees = employees.filter((employee) =>
     Object.values(employee).some((value) =>
-      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      toSearchableString(value).toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
 
@@ -65,9 +74,9 @@ export default function EmployeesDashboard() {
         mb={4}
       />
       <List spacing={3}>
-        {filteredEmployees.map((employee) => (
+        {filteredEmployees.map((employee, index) => (
           <ListItem
-            key={employee.id}
+            key={employee.id ?? `employee-${index}`}
             p={4}
             borderWidth="1px"
             borderRadius="md"
@@ -88,7 +97,7 @@ export default function EmployeesDashboard() {
                 </Text>
                 <Text>
                   <strong>Date:</strong>{' '}
-                  {employee.date.toDate().toLocaleDateString()}
+                  {employee.date?.toDate?.()?.toLocaleDateString() ?? '—'}
                 </Text>
                 <Text>
                   <strong>Message:</strong> {employee.message}
@@ -101,3 +110,5 @@ export default function EmployeesDashboard() {
     </Box>
   );
 }
+EmployeesDashboard.displayName = 'EmployeesDashboard';
+export default EmployeesDashboard;

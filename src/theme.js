@@ -54,9 +54,9 @@ const theme = extendTheme({
   },
   styles: {
     global: {
-      // Keep 16px base on mobile for industry-standard readability and to avoid iOS zoom on inputs
+      // Standard 16px base everywhere for readable copy on desktop and to avoid iOS zoom on inputs
       html: {
-        fontSize: { base: '16px', lg: '15px', xl: '14px' },
+        fontSize: '16px',
       },
       body: {
         fontFamily,
@@ -111,20 +111,20 @@ const theme = extendTheme({
     },
     Text: {
       baseStyle: {
-        fontSize: { base: 'md', md: 'md' },
+        fontSize: { base: 'md', md: 'md', lg: 'lg' },
         lineHeight: '1.6',
       },
       variants: {
         body: {
-          fontSize: { base: 'md', md: 'md' },
+          fontSize: { base: 'md', md: 'md', lg: 'lg' },
           lineHeight: '1.7',
         },
         bodyLarge: {
-          fontSize: { base: 'md', md: 'lg' },
+          fontSize: { base: 'md', md: 'lg', lg: 'xl' },
           lineHeight: '1.7',
         },
         caption: {
-          fontSize: { base: 'sm', md: 'sm' },
+          fontSize: { base: 'sm', md: 'md' },
           lineHeight: '1.5',
         },
       },
@@ -243,14 +243,14 @@ const theme = extendTheme({
     h1: { fontSize: { base: '2xl', md: '3xl', lg: '4xl', xl: '5xl' }, lineHeight: '1.2', fontWeight: 'bold' },
     h2: { fontSize: { base: 'xl', md: '2xl', lg: '3xl' }, lineHeight: '1.3', fontWeight: 'bold' },
     h3: { fontSize: { base: 'lg', md: 'xl', lg: '2xl' }, lineHeight: '1.35', fontWeight: 'semibold' },
-    body: { fontSize: { base: 'md', md: 'md' }, lineHeight: '1.6' },
-    bodyLarge: { fontSize: { base: 'md', md: 'lg' }, lineHeight: '1.7' },
-    caption: { fontSize: { base: 'sm', md: 'sm' }, lineHeight: '1.5' },
-    nav: { fontSize: { base: 'md', md: 'md' }, fontWeight: 'medium' },
+    body: { fontSize: { base: 'md', md: 'md', lg: 'lg' }, lineHeight: '1.6' },
+    bodyLarge: { fontSize: { base: 'md', md: 'lg', lg: 'xl' }, lineHeight: '1.7' },
+    caption: { fontSize: { base: 'sm', md: 'md' }, lineHeight: '1.5' },
+    nav: { fontSize: { base: 'md', md: 'md', lg: 'lg' }, fontWeight: 'medium' },
     drawer: { fontSize: { base: 'md', md: 'lg' }, fontWeight: 'medium' },
     stat: { fontSize: { base: 'lg', md: 'xl' }, fontWeight: 'bold', lineHeight: '1' },
     footerHeading: { fontSize: { base: 'md', md: 'lg' }, fontWeight: 'bold' },
-    footerLink: { fontSize: { base: 'sm', sm: 'sm' }, lineHeight: '1.5' },
+    footerLink: { fontSize: { base: 'sm', md: 'md' }, lineHeight: '1.5' },
   },
   semanticTokens: {
     colors: {

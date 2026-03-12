@@ -11,41 +11,56 @@ import ScrollToTop from './lelever-next/components/ScrollToTop';
 import SmartServiceRouter from './lelever-next/services-pages/SmartServiceRouter';
 import PageSkeleton from './PageSkeleton';
 
-const LandingPageV2 = React.lazy(() => import('./pages/LandingPageV2'));
-const NewHomePage = React.lazy(() => import('./lelever-next/pages/NewHomePage'));
-const ContactPage = React.lazy(() => import('./lelever-next/pages/ContactPage'));
-const AvisPage = React.lazy(() => import('./lelever-next/pages/AvisPage'));
-const AboutPage = React.lazy(() => import('./lelever-next/pages/AboutPage'));
-const PeintreProfessionnelPage = React.lazy(() => import('./lelever-next/pages/PeintreProfessionnelPage'));
-const SecteursDesservisPage = React.lazy(() => import('./lelever-next/pages/SecteursDesservisPage'));
-const BrossardCityPage = React.lazy(() => import('./lelever-next/pages/BrossardCityPage'));
-const MontrealCityPage = React.lazy(() => import('./lelever-next/pages/MontrealCityPage'));
-const LavalCityPage = React.lazy(() => import('./lelever-next/pages/LavalCityPage'));
-const LongueuilCityPage = React.lazy(() => import('./lelever-next/pages/LongueuilCityPage'));
-const ServicesPage = React.lazy(() => import('./lelever-next/pages/ServicesPage'));
-const PeintureCommercialePage = React.lazy(() => import('./lelever-next/services-pages/PeintureCommercialePage'));
-const PeintureExterieurePage = React.lazy(() => import('./lelever-next/services-pages/PeintureExterieurePage'));
-const PeintureResidentiellePage = React.lazy(() => import('./lelever-next/services-pages/PeintureResidentiellePage'));
-const PeintureInterieurePage = React.lazy(() => import('./lelever-next/services-pages/PeintureInterieurePage'));
-const PeintureIndustriellePage = React.lazy(() => import('./lelever-next/services-pages/PeintureIndustriellePage'));
-const ServiceQuartierPage = React.lazy(() => import('./lelever-next/services-pages/service_ville/ServiceQuartierPage'));
-const SousServicePage = React.lazy(() => import('./lelever-next/services-pages/sous_service/SousServicePage'));
-const BlogPage = React.lazy(() => import('./lelever-next/pages/BlogPage'));
-const CommentChoisirPeintreProfessionnelPage = React.lazy(() => import('./lelever-next/pages/CommentChoisirPeintreProfessionnelPage'));
-const PrixPeintureMontrealPage = React.lazy(() => import('./lelever-next/pages/PrixPeintureMontrealPage'));
-const ErreursAEviterPeintureInterieurePage = React.lazy(() => import('./lelever-next/pages/ErreursAEviterPeintureInterieurePage'));
-const NotFoundPage = React.lazy(() => import('./lelever-next/pages/NotFoundPage'));
-const AuditImagesPage = React.lazy(() => import('./lelever-next/pages/AuditImagesPage'));
-const SoumissionDashboard = React.lazy(() => import('./pages/SoumissionDashboard'));
-const AdminDashboard = React.lazy(() => import('./pages/AdminDashboard'));
-const EmploiesDashboard = React.lazy(() => import('./pages/EmploiesDashboard'));
-const ContactDashboard = React.lazy(() => import('./pages/ContactDashboard'));
-const TimeSheet = React.lazy(() => import('./pages/TimeSheet'));
-const TimeSheetDashboard = React.lazy(() => import('./pages/TimeSheetDashboard'));
-const EmployeeManagement = React.lazy(() => import('./pages/EmployeeManagement'));
-const EmployeeDetails = React.lazy(() => import('./pages/EmployeeDetails'));
-const ThermOfUsePage = React.lazy(() => import('./pages/ThermOfUse'));
-const PrivacyPolicyPage = React.lazy(() => import('./pages/PrivacyPolicyPage'));
+// Always resolve to a component with a string displayName so React never hits "Cannot convert object to primitive value" in lazyInitializer/printWarning.
+function lazyRoute(importFn, displayName) {
+  return React.lazy(async () => {
+    const mod = await importFn();
+    const Component = mod?.default;
+    const name = typeof displayName === 'string' ? displayName : 'LazyRoute';
+    const Wrapper = function LazyRouteWrapper(props) {
+      if (typeof Component !== 'function') return null;
+      return React.createElement(Component, props);
+    };
+    Wrapper.displayName = name;
+    return { default: Wrapper };
+  });
+}
+
+const LandingPageV2 = lazyRoute(() => import('./pages/LandingPageV2'), 'LandingPageV2');
+const NewHomePage = lazyRoute(() => import('./lelever-next/pages/NewHomePage'), 'NewHomePage');
+const ContactPage = lazyRoute(() => import('./lelever-next/pages/ContactPage'), 'ContactPage');
+const AvisPage = lazyRoute(() => import('./lelever-next/pages/AvisPage'), 'AvisPage');
+const AboutPage = lazyRoute(() => import('./lelever-next/pages/AboutPage'), 'AboutPage');
+const PeintreProfessionnelPage = lazyRoute(() => import('./lelever-next/pages/PeintreProfessionnelPage'), 'PeintreProfessionnelPage');
+const SecteursDesservisPage = lazyRoute(() => import('./lelever-next/pages/SecteursDesservisPage'), 'SecteursDesservisPage');
+const BrossardCityPage = lazyRoute(() => import('./lelever-next/pages/BrossardCityPage'), 'BrossardCityPage');
+const MontrealCityPage = lazyRoute(() => import('./lelever-next/pages/MontrealCityPage'), 'MontrealCityPage');
+const LavalCityPage = lazyRoute(() => import('./lelever-next/pages/LavalCityPage'), 'LavalCityPage');
+const LongueuilCityPage = lazyRoute(() => import('./lelever-next/pages/LongueuilCityPage'), 'LongueuilCityPage');
+const ServicesPage = lazyRoute(() => import('./lelever-next/pages/ServicesPage'), 'ServicesPage');
+const PeintureCommercialePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureCommercialePage'), 'PeintureCommercialePage');
+const PeintureExterieurePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureExterieurePage'), 'PeintureExterieurePage');
+const PeintureResidentiellePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureResidentiellePage'), 'PeintureResidentiellePage');
+const PeintureInterieurePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureInterieurePage'), 'PeintureInterieurePage');
+const PeintureIndustriellePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureIndustriellePage'), 'PeintureIndustriellePage');
+const ServiceQuartierPage = lazyRoute(() => import('./lelever-next/services-pages/service_ville/ServiceQuartierPage'), 'ServiceQuartierPage');
+const SousServicePage = lazyRoute(() => import('./lelever-next/services-pages/sous_service/SousServicePage'), 'SousServicePage');
+const BlogPage = lazyRoute(() => import('./lelever-next/pages/BlogPage'), 'BlogPage');
+const CommentChoisirPeintreProfessionnelPage = lazyRoute(() => import('./lelever-next/pages/CommentChoisirPeintreProfessionnelPage'), 'CommentChoisirPeintreProfessionnelPage');
+const PrixPeintureMontrealPage = lazyRoute(() => import('./lelever-next/pages/PrixPeintureMontrealPage'), 'PrixPeintureMontrealPage');
+const ErreursAEviterPeintureInterieurePage = lazyRoute(() => import('./lelever-next/pages/ErreursAEviterPeintureInterieurePage'), 'ErreursAEviterPeintureInterieurePage');
+const NotFoundPage = lazyRoute(() => import('./lelever-next/pages/NotFoundPage'), 'NotFoundPage');
+const AuditImagesPage = lazyRoute(() => import('./lelever-next/pages/AuditImagesPage'), 'AuditImagesPage');
+const SoumissionDashboard = lazyRoute(() => import('./pages/SoumissionDashboard'), 'SoumissionDashboard');
+const AdminDashboard = lazyRoute(() => import('./pages/AdminDashboard'), 'AdminDashboard');
+const EmploiesDashboard = lazyRoute(() => import('./pages/EmploiesDashboard'), 'EmploiesDashboard');
+const ContactDashboard = lazyRoute(() => import('./pages/ContactDashboard'), 'ContactDashboard');
+const TimeSheet = lazyRoute(() => import('./pages/TimeSheet'), 'TimeSheet');
+const TimeSheetDashboard = lazyRoute(() => import('./pages/TimeSheetDashboard'), 'TimeSheetDashboard');
+const EmployeeManagement = lazyRoute(() => import('./pages/EmployeeManagement'), 'EmployeeManagement');
+const EmployeeDetails = lazyRoute(() => import('./pages/EmployeeDetails'), 'EmployeeDetails');
+const ThermOfUsePage = lazyRoute(() => import('./pages/ThermOfUse'), 'ThermOfUsePage');
+const PrivacyPolicyPage = lazyRoute(() => import('./pages/PrivacyPolicyPage'), 'PrivacyPolicyPage');
 
 export default function App() {
   return (

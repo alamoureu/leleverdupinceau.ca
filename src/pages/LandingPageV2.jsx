@@ -143,18 +143,6 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
           titleSecondLine={isFr ? '' : undefined}
           subtitle={isFr ? 'Un service rapide, propre et garanti à Montréal' : undefined}
           buttonText={isFr ? 'Obtenir ma soumission en 24h' : undefined}
-          titleFontWeight={isFr ? 600 : undefined}
-          titleFontSize={
-            isFr
-              ? { base: 'xl', sm: '2xl', md: '3xl', lg: '4xl', xl: '4xl' }
-              : undefined
-          }
-          contentMaxW={
-            isFr
-              ? { base: '100%', sm: '560px', md: '640px', lg: '720px' }
-              : undefined
-          }
-          contentPr={isFr ? { base: 0, sm: 0, md: 24, lg: 28 } : undefined}
         />
 
         <ControlSection onSubmissionOpen={onOpen} />

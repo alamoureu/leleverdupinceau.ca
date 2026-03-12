@@ -13,7 +13,7 @@ import { db } from '../firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import { PasswordProtection } from './SoumissionDashboard';
 
-export default function ContactsDashboard() {
+function ContactsDashboard() {
   const [contacts, setContacts] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -40,9 +40,14 @@ export default function ContactsDashboard() {
     }
   }, [isAuthenticated]);
 
+  const toSearchableString = (value) => {
+    if (value == null) return '';
+    if (typeof value === 'object' && typeof value.toDate === 'function') return value.toDate().toISOString();
+    try { return String(value); } catch { return ''; }
+  };
   const filteredContacts = contacts.filter((contact) =>
     Object.values(contact).some((value) =>
-      value.toString().toLowerCase().includes(searchTerm.toLowerCase())
+      toSearchableString(value).toLowerCase().includes(searchTerm.toLowerCase())
     )
   );
 
@@ -64,9 +69,9 @@ export default function ContactsDashboard() {
         mb={4}
       />
       <List spacing={3}>
-        {filteredContacts.map((contact) => (
+        {filteredContacts.map((contact, index) => (
           <ListItem
-            key={contact.id}
+            key={contact.id ?? `contact-${index}`}
             p={4}
             borderWidth="1px"
             borderRadius="md"
@@ -97,3 +102,5 @@ export default function ContactsDashboard() {
     </Box>
   );
 }
+ContactsDashboard.displayName = 'ContactsDashboard';
+export default ContactsDashboard;

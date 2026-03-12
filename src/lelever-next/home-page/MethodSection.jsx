@@ -104,7 +104,7 @@ export default function MethodSection({ onSubmissionOpen, hideCta = false }) {
                 </Heading>
                 <Text
                   color="gray.600"
-                  fontSize={{ base: 'sm', md: 'sm', lg: 'md' }}
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                   lineHeight="1.6"
                   textAlign="left"
                   css={{ hyphens: 'none', wordBreak: 'normal' }}

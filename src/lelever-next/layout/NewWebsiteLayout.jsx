@@ -323,7 +323,7 @@ export default function NewWebsiteLayout() {
                     >
                       leleverdupinceau@gmail.com
                     </Link>
-                    <Text color="white" textStyle="footerLink" fontSize={{ base: 'sm', sm: 'sm' }} wordBreak="break-word">
+                    <Text color="white" textStyle="footerLink" fontSize={{ base: 'sm', md: 'md' }} wordBreak="break-word">
                       2175 Rue Saint-Patrick, Montréal, QC H3K 1B4
                     </Text>
                   </Stack>

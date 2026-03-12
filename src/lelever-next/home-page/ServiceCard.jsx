@@ -128,7 +128,7 @@ export default function ServiceCard({
               mt={1}
               color="white"
               fontWeight="normal"
-              fontSize={{ base: '12px', md: 'md' }}
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
               lineHeight="1.4"
             >
               {subtitle}
@@ -175,7 +175,7 @@ export default function ServiceCard({
         >
           {bottomText && (
             <Text
-              fontSize={{ base: '12px', md: 'md' }}
+              fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
               lineHeight="1.5"
               color="gray.700"
               fontWeight="medium"
@@ -185,7 +185,7 @@ export default function ServiceCard({
             </Text>
           )}
           {ctaLabel && (
-            <HStack spacing={2} color="brand.500" fontWeight="medium" fontSize={{ base: 'xs', md: 'sm' }} flexShrink={0}>
+            <HStack spacing={2} color="brand.500" fontWeight="medium" fontSize={{ base: 'sm', md: 'md' }} flexShrink={0}>
               <Text as="span">{ctaLabel}</Text>
               <ArrowForwardIcon boxSize={4} />
             </HStack>
