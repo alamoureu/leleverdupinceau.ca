@@ -68,11 +68,7 @@ export default function ServicesSection() {
   ];
 
   return (
-    <Box
-      bg="white"
-      position="relative"
-      py={{ base: 12, md: 16, lg: 20 }}
-    >
+    <Box bg="white" position="relative" py={{ base: 12, md: 16, lg: 20 }}>
       <Container
         maxW="1440px"
         px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
@@ -128,9 +124,16 @@ export default function ServicesSection() {
               px={{ base: 4, md: 0 }}
               mx={{ base: -4, md: 0 }}
               sx={{
-                '&::-webkit-scrollbar': { height: 8 },
-                '&::-webkit-scrollbar-track': { bg: 'gray.100', borderRadius: 'full' },
-                '&::-webkit-scrollbar-thumb': { bg: 'gray.300', borderRadius: 'full', _hover: { bg: 'gray.400' } },
+                '&::-webkit-scrollbar': { height: 2 },
+                '&::-webkit-scrollbar-track': {
+                  bg: 'gray.100',
+                  borderRadius: 'full',
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  bg: 'gray.300',
+                  borderRadius: 'full',
+                  _hover: { bg: 'gray.400' },
+                },
                 '-ms-overflow-style': 'auto',
                 'scrollbar-width': 'auto',
               }}

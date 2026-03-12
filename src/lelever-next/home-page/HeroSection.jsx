@@ -44,8 +44,8 @@ export default function HeroSection({
       position="relative"
       w="100%"
       minW={0}
-      minH={{ base: '320px', sm: '350px', md: '500px', lg: '600px', xl: '680px', '2xl': '750px' }}
-      h={{ base: 'auto', sm: 'auto', md: '80vh', lg: '82vh', xl: '85vh', '2xl': '85vh' }}
+      minH={{ base: '320px', sm: '350px', md: '380px', lg: '420px', xl: '680px', '2xl': '750px' }}
+      h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '85vh', '2xl': '85vh' }}
       pb={{ base: 24, sm: 28, md: 0 }}
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}

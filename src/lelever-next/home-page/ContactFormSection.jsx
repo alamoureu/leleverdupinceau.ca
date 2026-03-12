@@ -22,12 +22,11 @@ export default function ContactFormSection() {
         w="100%"
         maxW={{
           base: '100%',
-          sm: '520px',
-          md: '720px',
-          lg: '900px',
-          xl: '960px',
-          '2xl': '1000px',
+          sm: '480px',
+          md: '560px',
+          lg: '600px',
         }}
+        mx="auto"
       >
         {!isFormSuccess && (
           <Text

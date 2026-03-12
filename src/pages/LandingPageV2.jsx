@@ -170,12 +170,11 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
             w="100%"
             maxW={{
               base: '100%',
-              sm: '520px',
-              md: '720px',
-              lg: '900px',
-              xl: '960px',
-              '2xl': '1000px',
+              sm: '480px',
+              md: '560px',
+              lg: '600px',
             }}
+            mx="auto"
           >
             {!isFormSuccess && (
               <Text
@@ -232,6 +231,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
 
         <ReviewsSection
           hideButton
+          desktopColumns={2}
           title={isFr ? 'Ce que nos clients disent de nous' : undefined}
           subtitle={isFr ? 'Plus de 100 avis 5 étoiles sur Google' : undefined}
         />

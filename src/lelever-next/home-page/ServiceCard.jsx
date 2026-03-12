@@ -76,6 +76,11 @@ export default function ServiceCard({
       h="100%"
       display="flex"
       flexDirection="column"
+      minH={
+        compact
+          ? { base: '248px', sm: '272px', md: '296px', lg: '316px' }
+          : { base: '340px', sm: '360px', md: '380px', lg: '400px', xl: '420px', '2xl': '440px' }
+      }
       maxW={{
         base: '100%',
         sm: '320px',
@@ -86,7 +91,7 @@ export default function ServiceCard({
       }}
       mx={{ base: 0, md: 'auto' }}
       {...(fillHeight && {
-        minH: { base: '280px', md: '300px', lg: '320px' },
+        minH: { base: '340px', sm: '360px', md: '380px', lg: '400px' },
       })}
     >
       <Box

@@ -3,8 +3,6 @@ import { Box, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 
 import img5969 from '../images/before_after/IMG_5969.jpg';
 import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5971 from '../images/before_after/IMG_5971.jpg';
-import img5972 from '../images/before_after/IMG_5972.jpg';
 import img5973 from '../images/before_after/IMG_5973.jpg';
 import img5974 from '../images/before_after/IMG_5974.jpg';
 import img5975 from '../images/before_after/IMG_5975.jpg';
@@ -21,7 +19,6 @@ import imgStaircaseAfter from '../images/IMG_5873.PNG';
 const DEFAULT_PAIRS = [
   [img5969, img5970],
   [imgStaircaseBefore, imgStaircaseAfter], // Staircase project
-  [img5972, img5971], // moved from 2nd to 3rd if needed, or I can just replace it.
   [img5973, img5974],
   [img5975, img5976],
   [img5977, img5978],
@@ -36,10 +33,6 @@ const DEFAULT_DESCRIPTIONS = [
   {
     fr: 'Cage d’escalier – réparation légère et peinture',
     en: 'Staircase – light repair and painting',
-  },
-  {
-    fr: 'Cuisine – murs repeints (teinte contemporaine)',
-    en: 'Kitchen – walls repainted (contemporary shade)',
   },
   {
     fr: 'Terrasse en bois – teinture et protection',

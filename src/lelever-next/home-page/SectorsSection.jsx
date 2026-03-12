@@ -20,11 +20,8 @@ import montrealSecteur from '../images/mtl.png';
 import lavalSecteur from '../images/laval.png';
 import longueuilSecteur from '../images/longueuil.png';
 import brossardSecteur from '../images/brossard.png';
-import riveSudSecteur from '../images/secteurs_desservis.jpg';
-import gatineauSecteur from '../images/neighborhood_placeholder.jpg';
-
 // Export images for reuse
-export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur, riveSudSecteur, gatineauSecteur };
+export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
 
 const defaultSectors = [
   {
@@ -46,16 +43,6 @@ const defaultSectors = [
     name: 'Brossard',
     link: '/secteurs-desservis/brossard',
     image: brossardSecteur,
-  },
-  {
-    name: 'Rive-Sud',
-    link: '/secteurs-desservis/rive-sud',
-    image: riveSudSecteur,
-  },
-  {
-    name: 'Gatineau',
-    link: '/secteurs-desservis/gatineau',
-    image: gatineauSecteur,
   },
 ];
 
@@ -98,10 +85,10 @@ export default function SectorsSection({
           </Stack>
 
           <SimpleGrid
-            columns={{ base: 2, sm: 2, md: 3 }}
-            spacing={6}
+            columns={{ base: 2, sm: 2, md: 2 }}
+            spacing={5}
             w="100%"
-            maxW="1100px"
+            maxW="600px"
           >
             {sectorsToDisplay.map((sector, index) => {
               const InnerContent = (
@@ -113,7 +100,7 @@ export default function SectorsSection({
                   borderColor="gray.200"
                   cursor={disableLinks ? 'default' : 'pointer'}
                   transition="all 0.2s"
-                  minH={{ base: '180px', md: '200px' }}
+                  minH={{ base: '150px', md: '170px' }}
                   h="100%"
                   w="100%"
                   _hover={
@@ -164,22 +151,30 @@ export default function SectorsSection({
                   <Box
                     position="relative"
                     zIndex={2}
-                    p={8}
+                    p={{ base: 5, md: 6 }}
                     h="100%"
                     display="flex"
                     flexDirection="column"
                     alignItems="center"
                     justifyContent="center"
                   >
-                    <Stack spacing={4} align="center">
+                    <Stack spacing={3} align="center">
                       <Icon
                         as={FontAwesomeIcon}
                         icon={faMapMarkerAlt}
-                        boxSize={6}
+                        boxSize={5}
                         color="white"
                         filter="drop-shadow(0 2px 4px rgba(0,0,0,0.3))"
                       />
-                      <Text fontWeight="700" color="white" textStyle="bodyLarge" as="span" letterSpacing="-0.02em" lineHeight="1.4" textShadow="0 2px 4px rgba(0,0,0,0.3)">
+                      <Text
+                        fontWeight="700"
+                        color="white"
+                        textStyle="bodyLarge"
+                        as="span"
+                        letterSpacing="-0.02em"
+                        lineHeight="1.4"
+                        textShadow="0 2px 4px rgba(0,0,0,0.3)"
+                      >
                         {sector.name}
                       </Text>
                     </Stack>
@@ -202,7 +197,15 @@ export default function SectorsSection({
                     </Link>
                   )}
                   {sector.subText && (
-                    <Text textStyle="caption" textAlign="center" color="gray.600" lineHeight="1.4" maxW="180px" mx="auto" fontWeight="normal">
+                    <Text
+                      textStyle="caption"
+                      textAlign="center"
+                      color="gray.600"
+                      lineHeight="1.4"
+                      maxW="180px"
+                      mx="auto"
+                      fontWeight="normal"
+                    >
                       {sector.subText}
                     </Text>
                   )}
@@ -233,11 +236,21 @@ export default function SectorsSection({
             </Link>
           )}
 
-          <Text textStyle="bodyLarge" color="gray.600" textAlign="center" mt={4}>
-            {isFr 
+          <Text
+            textStyle="bodyLarge"
+            color="gray.600"
+            textAlign="center"
+            mt={4}
+          >
+            {isFr
               ? 'Et dans plus de 20 quartiers de Montréal: Griffintown, Plateau, Rosemont, Verdun, Outremont, Westmount, Notre-Dame-de-Grâce... '
               : 'And in over 20 Montreal neighborhoods: Griffintown, Plateau, Rosemont, Verdun, Outremont, Westmount, Notre-Dame-de-Grâce... '}
-            <Link as={RouterLink} to="/secteurs-desservis" color="brand.500" fontWeight="bold">
+            <Link
+              as={RouterLink}
+              to="/secteurs-desservis"
+              color="brand.500"
+              fontWeight="bold"
+            >
               {isFr ? 'Voir tous les quartiers →' : 'View all neighborhoods →'}
             </Link>
           </Text>

@@ -144,7 +144,7 @@ export const translations = {
     resourcesSubtitle: 'Nos articles les plus utiles',
     article1Title: 'Comment choisir un peintre professionnel',
     article2Title: "Prix d'un projet de peinture à Montréal",
-    article3Title: 'Peindre ses armoires de cuisine — Guide 2026',
+    article3Title: 'Erreurs à éviter avant de peindre',
     readArticle: "Lire l'article",
 
     methodTopText: 'en moins de 24h',
@@ -321,7 +321,7 @@ export const translations = {
     resourcesSubtitle: 'Our most useful articles',
     article1Title: 'How to choose a professional painter',
     article2Title: 'Price of a painting project in Montreal',
-    article3Title: 'Painting your kitchen cabinets — 2026 Guide',
+    article3Title: 'Errors to avoid before painting',
     readArticle: 'Read article',
 
     methodTopText: 'in less than 24h',

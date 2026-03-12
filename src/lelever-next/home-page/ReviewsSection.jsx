@@ -12,6 +12,7 @@ import {
   IconButton,
   HStack,
   Image,
+  SimpleGrid,
 } from '@chakra-ui/react';
 import {
   ArrowForwardIcon,
@@ -24,12 +25,65 @@ import { useTranslation } from '../i18n';
 import appContext from '../../AppProvider';
 import { motion, AnimatePresence } from 'framer-motion';
 
+function ReviewCard({ review }) {
+  return (
+    <Box
+      bg='white'
+      p={{ base: 4, md: 6 }}
+      borderRadius='xl'
+      border='1px solid'
+      borderColor='gray.200'
+      w='100%'
+      h='100%'
+      display='flex'
+      flexDirection='column'
+      minH={{ base: '280px', md: '260px' }}
+    >
+      <Stack spacing={2} flexShrink={0}>
+        <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
+          <Box>
+            <Text fontWeight='bold' textStyle='bodyLarge' color='gray.800'>
+              {review.name}
+            </Text>
+            <Text textStyle='caption' color='gray.500' mt={0.5}>
+              {review.time}
+            </Text>
+          </Box>
+          <Image
+            src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
+            alt='Google'
+            h={{ base: '32px', md: '40px' }}
+            w={{ base: '32px', md: '40px' }}
+            flexShrink={0}
+            loading='lazy'
+            decoding='async'
+          />
+        </Box>
+        <Box display='flex' alignItems='center' gap={0.5}>
+          {[...Array(5)].map((_, i) => (
+            <Icon key={i} as={FaStar} color='#EAA82E' boxSize={4} />
+          ))}
+        </Box>
+      </Stack>
+      <Box flex={1} overflowY='auto' mt={3} pb={1}>
+        <Text fontSize={{ base: 'sm', md: 'md' }} color='gray.700' lineHeight='1.6' textAlign='left'>
+          {review.content}
+        </Text>
+      </Box>
+      <Box mt={3} display='flex' alignItems='flex-end'>
+        <Icon as={FiThumbsUp} color='gray.500' fontSize='lg' />
+      </Box>
+    </Box>
+  );
+}
+
 export default function ReviewsSection({
   hideTitle = false,
   hideButton = false,
   title,
   subtitle,
   reviewsOverride,
+  desktopColumns,
 }) {
   const { t } = useTranslation();
   const { currentLang } = useContext(appContext);
@@ -108,12 +162,41 @@ export default function ReviewsSection({
           ? 'Excellente expérience avec le levé du pinceau\u00A0! Professionnels, respectueux des lieux, honnêtes et travail parfait. Je recommande vivement cette équipe\u00A0!'
           : 'Great experience with brush lifting! Professional, respectful of the place, honest and perfect work. I highly recommend this team!',
     },
+    {
+      name: 'Mike S',
+      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
+      content:
+        currentLang === 'fr'
+          ? 'Excellente expérience. Très bons communicateurs. Super facile de travailler avec eux. Ils sont arrivés à l\'heure, ont fourni un devis raisonnable, ont travaillé efficacement et ont fait un excellent travail (plâtre et peinture). Je les engagerai sans hésiter à nouveau.'
+          : 'Excellent experience. Great communicators. Super easy to work with. They came on time, provided a reasonable quote, worked efficiently, and did a great job (plaster and paint). Will definitely hire them again.',
+    },
+    {
+      name: 'Jennifer Broadfoot',
+      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
+      content:
+        currentLang === 'fr'
+          ? 'Les peintres ont travaillé efficacement et ont fait un excellent travail. Très satisfaite des résultats et de l\'expérience dans l\'ensemble.'
+          : 'The painters worked efficiently and did a great job. Happy with the results and experience overall.',
+    },
+    {
+      name: 'Robbie',
+      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
+      content:
+        currentLang === 'fr'
+          ? 'J\'adore cette équipe! Ils sont compétents, super gentils et professionnels. Je recommande fortement. Alex et Philippe sont les meilleurs! Ils ont fait ma terrasse arrière et je suis ravi du résultat! Merci 🙏'
+          : 'I love these guys! They are competent and super sweet and professional. I highly recommend. Alex and Philippe are the best!! They did my back deck and I am thrilled with the result!!!! Thank you 🙏',
+    },
   ];
 
   const allReviews = reviewsOverride || defaultReviews;
 
   const [currentIndex, setCurrentIndex] = useState(0); // Start at first review
   const [direction, setDirection] = useState(0);
+  const [desktopPageIndex, setDesktopPageIndex] = useState(0);
+
+  const perPage = desktopColumns != null ? desktopColumns : 3;
+  const desktopTotalPages = Math.ceil(allReviews.length / perPage);
+  const desktopReviews = allReviews.slice(desktopPageIndex * perPage, desktopPageIndex * perPage + perPage);
 
   const slideVariants = {
     enter: (direction) => ({
@@ -171,14 +254,83 @@ export default function ReviewsSection({
           <Stack
             spacing={6}
             w='100%'
-            maxW={{ base: '100%', md: '540px', lg: '580px' }}
+            maxW={{
+              base: '100%',
+              md: desktopColumns ? '100%' : '540px',
+              lg: desktopColumns ? '100%' : '580px',
+            }}
             align='center'
           >
+            {/* Desktop: 3 reviews per row with prev/next (landing page only) */}
+            {desktopColumns != null && (
+              <Box display={{ base: 'none', md: 'block' }} w='100%' maxW={{ md: '900px', lg: '960px' }} mx='auto'>
+                <Box position='relative' w='100%' px={{ md: 12 }} py={2}>
+                  <SimpleGrid columns={desktopColumns} spacing={5} w='100%'>
+                    {desktopReviews.map((review, index) => (
+                      <ReviewCard key={desktopPageIndex * perPage + index} review={review} />
+                    ))}
+                  </SimpleGrid>
+                  <IconButton
+                    aria-label='Previous reviews'
+                    icon={<ChevronLeftIcon />}
+                    onClick={() => setDesktopPageIndex((p) => (p === 0 ? desktopTotalPages - 1 : p - 1))}
+                    borderRadius='full'
+                    bg='white'
+                    border='1px solid'
+                    borderColor='gray.200'
+                    _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
+                    color='brand.500'
+                    size='md'
+                    position='absolute'
+                    left={{ md: 0 }}
+                    top='50%'
+                    transform='translateY(-50%)'
+                    zIndex={10}
+                    boxShadow='0 2px 8px rgba(0,0,0,0.1)'
+                  />
+                  <IconButton
+                    aria-label='Next reviews'
+                    icon={<ChevronRightIcon />}
+                    onClick={() => setDesktopPageIndex((p) => (p === desktopTotalPages - 1 ? 0 : p + 1))}
+                    borderRadius='full'
+                    bg='white'
+                    border='1px solid'
+                    borderColor='gray.200'
+                    _hover={{ bg: 'gray.50', borderColor: 'brand.500' }}
+                    color='brand.500'
+                    size='md'
+                    position='absolute'
+                    right={{ md: 0 }}
+                    top='50%'
+                    transform='translateY(-50%)'
+                    zIndex={10}
+                    boxShadow='0 2px 8px rgba(0,0,0,0.1)'
+                  />
+                </Box>
+                <HStack justify='center' spacing={3} mt={6}>
+                  {Array.from({ length: desktopTotalPages }, (_, i) => (
+                    <Box
+                      key={i}
+                      w={desktopPageIndex === i ? '10px' : '8px'}
+                      h={desktopPageIndex === i ? '10px' : '8px'}
+                      borderRadius='full'
+                      bg={desktopPageIndex === i ? 'brand.500' : 'gray.300'}
+                      cursor='pointer'
+                      onClick={() => setDesktopPageIndex(i)}
+                      transition='all 0.2s'
+                    />
+                  ))}
+                </HStack>
+              </Box>
+            )}
+
+            {/* Carousel: mobile always; desktop when not desktopColumns */}
             <Box
               position='relative'
               w='100%'
               minH={{ base: '350px', md: '280px' }}
               pb={4}
+              display={{ base: 'block', md: desktopColumns != null ? 'none' : 'block' }}
             >
               <AnimatePresence initial={false} custom={direction}>
                 <motion.div
@@ -339,13 +491,14 @@ export default function ReviewsSection({
               />
             </Box>
 
-            {/* Dots indicator - below the carousel */}
+            {/* Dots indicator - below the carousel (hidden when desktop grid is shown) */}
             <HStack
               justify='center'
               spacing={1}
               w='100%'
               position='relative'
               zIndex={2}
+              display={{ base: 'flex', md: desktopColumns != null ? 'none' : 'flex' }}
             >
               {allReviews.map((_, index) => (
                 <Box

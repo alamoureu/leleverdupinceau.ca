@@ -14,10 +14,17 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import commentChoisirPeintre from '../images/5-landing-page/Photo/louis_Consultation.jpeg';
 import prixProjetPeinture from '../images/1-page-principale/blog hub/prix-projet-montreal.png';
-import peindreArmoiresCuisine from '../images/IMG_5873.PNG';
+import erreursEviterImage from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
 
-export default function ResourcesSection({ title, subtitle, excludeSlugs = [] }) {
+export default function ResourcesSection({ title, subtitle, excludeSlugs = [], thirdArticleOverride }) {
   const { t } = useTranslation();
+
+  const defaultThird = {
+    title: t.article3Title,
+    href: '/blog/erreurs-a-eviter-peinture-interieure',
+    image: erreursEviterImage,
+  };
+  const thirdArticle = thirdArticleOverride ?? defaultThird;
 
   const articles = [
     {
@@ -30,11 +37,7 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [] })
       href: '/blog/comment-choisir-un-peintre-professionnel',
       image: commentChoisirPeintre,
     },
-    {
-      title: t.article3Title,
-      href: '/blog/peindre-armoires-cuisine',
-      image: peindreArmoiresCuisine,
-    },
+    thirdArticle,
   ].filter((article) => !excludeSlugs.includes(article.href));
   const columns = useBreakpointValue({ base: 1, md: 3 });
 
