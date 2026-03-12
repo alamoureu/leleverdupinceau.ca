@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
@@ -42,17 +42,11 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
   const { t } = useTranslation();
   const [isFormSuccess, setIsFormSuccess] = useState(false);
 
-  // Use route lang when provided (/fr/peintre-montreal or /en/peintre-montreal) so EN page displays in English
-  const lang = (langProp != null && langProp !== '' ? langProp : currentLang) || 'fr';
+  // Prefer currentLang so the floating toggle updates language live.
+  // Fallback to langProp (from route) only when context is not yet set.
+  const lang = currentLang || langProp || 'fr';
   const isFr = lang === 'fr';
   const pageContext = t.pageContextName ?? (isFr ? 'Accueil' : 'Home');
-
-  // Sync app language to route so HeroSection, ControlSection, etc. (useTranslation) show correct language
-  useEffect(() => {
-    if (langProp != null && langProp !== '' && currentLang !== langProp) {
-      setCurrentLang(langProp);
-    }
-  }, [langProp, currentLang, setCurrentLang]);
 
   const meta = META[lang] || META.fr;
 
