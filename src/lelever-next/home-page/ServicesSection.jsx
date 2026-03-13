@@ -112,13 +112,13 @@ export default function ServicesSection() {
             </Text>
           </Stack>
 
-          <Stack spacing={{ base: 6, md: 8 }} w="100%" minW={0}>
+          <Stack spacing={{ base: 6, md: 8 }} w="100%" minW={0} align="center">
             {/* Horizontal scroll on all breakpoints; scrollbar visible on desktop */}
             <Box
               w="100%"
               maxW="100%"
               minW={0}
-              overflowX="auto"
+              overflowX={{ base: 'visible', md: 'auto' }}
               overflowY="hidden"
               pb={4}
               px={{ base: 4, md: 0 }}
@@ -138,7 +138,11 @@ export default function ServicesSection() {
                 'scrollbar-width': 'auto',
               }}
             >
-              <Flex gap={4} direction="row">
+              <Flex
+                gap={4}
+                direction={{ base: 'column', md: 'row' }}
+                align={{ base: 'center', md: 'stretch' }}
+              >
                 {services.map((service, index) => (
                   <Box
                     key={index}

@@ -79,7 +79,14 @@ export default function ServiceCard({
       minH={
         compact
           ? { base: '248px', sm: '272px', md: '296px', lg: '316px' }
-          : { base: '340px', sm: '360px', md: '380px', lg: '400px', xl: '420px', '2xl': '440px' }
+          : {
+              base: '340px',
+              sm: '360px',
+              md: '380px',
+              lg: '400px',
+              xl: '420px',
+              '2xl': '440px',
+            }
       }
       maxW={{
         base: '100%',
