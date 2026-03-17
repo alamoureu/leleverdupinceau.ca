@@ -17,8 +17,8 @@ import SubmissionForm from '../lelever-next/home-page/SubmissionForm';
 import { useTranslation } from '../lelever-next/i18n';
 
 const SUBMISSION_FORM_ID = 'submission-form-modal';
-const BRAND_BLUE = '#1E4BBA';
-const BRAND_BLUE_HOVER = '#183D9A';
+const BRAND_BLUE = '#2355CA';
+const BRAND_BLUE_HOVER = '#1E4BB5';
 
 function SubmissionModal({ isOpen, onClose }) {
   const { t, currentLang } = useTranslation();

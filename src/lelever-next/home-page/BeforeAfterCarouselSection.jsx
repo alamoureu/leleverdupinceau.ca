@@ -87,7 +87,7 @@ export default function BeforeAfterCarouselSection({
   }, [images, isFr, kitchenPairOverride]);
 
   return (
-    <Box py={{ base: 12, md: 16, lg: 20 }} bg="white" overflowX="hidden">
+    <Box pt={{ base: 8, md: 12, lg: 16 }} bg="white" overflowX="hidden">
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={{ base: 6, md: 8 }} align="center">
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="900px">

@@ -22,7 +22,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
     >
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={{ base: 6, md: 8 }} align="center" textAlign="center">
-          <Stack spacing={{ base: 1, md: 2 }} maxW="720px">
+          <Stack spacing={{ base: 5, md: 6 }} maxW="720px">
             <Text
               fontSize={{ base: 'sm', md: 'lg' }}
               fontWeight="semibold"
@@ -65,14 +65,14 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
             align="center"
             gap={{ base: 6, md: 10, lg: 12 }}
             direction={{ base: 'column', md: 'row' }}
-            pt={{ base: 2, md: 4 }}
+            pt={{ base: 1, md: 3 }}
             w="100%"
           >
             <Box textAlign="center" minW={{ md: '180px' }}>
               <Text
                 fontSize={{ base: '3xl', md: '4xl' }}
                 fontWeight="bold"
-                color="gray.900"
+                color="#53514E"
               >
                 800+
               </Text>
@@ -87,7 +87,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
               <Text
                 fontSize={{ base: '3xl', md: '4xl' }}
                 fontWeight="bold"
-                color="gray.900"
+                color="#53514E"
               >
                 4.9+
               </Text>
@@ -126,7 +126,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
               <Text
                 fontSize={{ base: '3xl', md: '4xl' }}
                 fontWeight="bold"
-                color="gray.900"
+                color="#53514E"
               >
                 100%
               </Text>
@@ -146,8 +146,8 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
           >
             <Box
               position="relative"
-              w={{ base: '60%', sm: '320px' }}
-              maxW="320px"
+              w={{ base: '70%', sm: '340px' }}
+              maxW="360px"
             >
               <Button
                 bg="brand.500"
@@ -159,7 +159,9 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
                 boxShadow="md"
                 onClick={onSubmissionOpen}
               >
-                {lang === 'fr' ? 'Soumission gratuite' : 'Free Quote'}
+                {lang === 'fr'
+                  ? 'Soumission gratuite en 24h'
+                  : 'Free quote in 24h'}
               </Button>
               <Box
                 position="absolute"

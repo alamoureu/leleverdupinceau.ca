@@ -33,7 +33,7 @@ body {
 html,
 #main {
   scrollbar-width: thin;
-  scrollbar-color: #1E4BBA rgba(0, 0, 0, 0.08);
+  scrollbar-color: #2355CA rgba(0, 0, 0, 0.08);
 }
 
 #main::-webkit-scrollbar,
@@ -50,14 +50,14 @@ html::-webkit-scrollbar-track {
 
 #main::-webkit-scrollbar-thumb,
 html::-webkit-scrollbar-thumb {
-  background: #1E4BBA;
+  background: #2355CA;
   border-radius: 10px;
   border: 2px solid rgba(0, 0, 0, 0.06);
 }
 
 #main::-webkit-scrollbar-thumb:hover,
 html::-webkit-scrollbar-thumb:hover {
-  background: #183D9A;
+  background: #1E4BB5;
 }
 
 .skip-link {

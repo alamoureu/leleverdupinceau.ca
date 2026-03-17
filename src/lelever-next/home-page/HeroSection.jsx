@@ -210,7 +210,7 @@ export default function HeroSection({
                 }}
                 h="auto"
                 w="100%"
-                maxW={{ base: '360px', sm: '380px', md: '420px', lg: '460px' }}
+                maxW={{ base: '280px', sm: '320px', md: '360px', lg: '380px' }}
                 borderRadius="full"
                 boxShadow="lg"
                 _hover={{ bg: 'brand.600' }}

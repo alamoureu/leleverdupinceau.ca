@@ -18,8 +18,8 @@ import { useTranslation } from '../i18n';
 import appContext from '../../AppProvider';
 
 const SUBMISSION_FORM_ID = 'submission-form-modal';
-const BRAND_BLUE = '#1E4BBA';
-const BRAND_BLUE_HOVER = '#183D9A';
+const BRAND_BLUE = '#2355CA';
+const BRAND_BLUE_HOVER = '#1E4BB5';
 
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();

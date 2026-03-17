@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import {
   Stack,
   FormControl,
-  FormErrorMessage,
   FormLabel,
   Input,
   Textarea,
@@ -12,7 +11,6 @@ import {
   Text,
   Radio,
   RadioGroup,
-  Checkbox,
   Link,
   Box,
   useToast,
@@ -29,8 +27,8 @@ const activeLabelStyles = {
   transform: 'scale(0.8) translateY(-27px)',
 };
 
-const BRAND_BLUE = '#1E4BBA';
-const BRAND_BLUE_HOVER = '#183D9A';
+const BRAND_BLUE = '#2355CA';
+const BRAND_BLUE_HOVER = '#1E4BB5';
 
 const theme = extendTheme({
   fonts: {
@@ -44,7 +42,8 @@ const theme = extendTheme({
         floating: {
           container: {
             _focusWithin: { label: { ...activeLabelStyles } },
-            'input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label': { ...activeLabelStyles },
+            'input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label':
+              { ...activeLabelStyles },
             label: {
               top: 0,
               left: 0,
@@ -173,7 +172,8 @@ export default function SubmissionForm({
     ...fields,
   };
 
-  const resolvedProjectDetailsLabelBase = projectDetailsLabel ?? t.formProjectDetails;
+  const resolvedProjectDetailsLabelBase =
+    projectDetailsLabel ?? t.formProjectDetails;
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -207,15 +207,24 @@ export default function SubmissionForm({
   const getErrors = () => {
     const suffix = t.formRequiredSuffix ?? ' required';
     const err = {};
-    if (effectiveFields.name && !formData.name?.trim()) err.name = (t.formName ?? '') + suffix;
-    if (effectiveFields.email && !formData.email?.trim()) err.email = (t.formEmail ?? '') + suffix;
-    if (effectiveFields.phone && !formData.phone?.trim()) err.phone = (t.formPhone ?? '') + suffix;
-    if (effectiveFields.address && !formData.address?.trim()) err.address = (t.formAddress ?? '') + suffix;
-    if (effectiveFields.projectDetails === true && !formData.projectDetails?.trim()) {
+    if (effectiveFields.name && !formData.name?.trim())
+      err.name = (t.formName ?? '') + suffix;
+    if (effectiveFields.email && !formData.email?.trim())
+      err.email = (t.formEmail ?? '') + suffix;
+    if (effectiveFields.phone && !formData.phone?.trim())
+      err.phone = (t.formPhone ?? '') + suffix;
+    if (effectiveFields.address && !formData.address?.trim())
+      err.address = (t.formAddress ?? '') + suffix;
+    if (
+      effectiveFields.projectDetails === true &&
+      !formData.projectDetails?.trim()
+    ) {
       err.projectDetails = (t.formProjectDetails ?? '') + suffix;
     }
-    if (effectiveFields.paintingType && !formData.paintingType) err.paintingType = (t.formPaintingType ?? '') + suffix;
-    if (effectiveFields.consentAccepted && !formData.consentAccepted) err.consentAccepted = t.formConsentRequired ?? '';
+    if (effectiveFields.paintingType && !formData.paintingType)
+      err.paintingType = (t.formPaintingType ?? '') + suffix;
+    if (effectiveFields.consentAccepted && !formData.consentAccepted)
+      err.consentAccepted = t.formConsentRequired ?? '';
     return err;
   };
 
@@ -226,7 +235,8 @@ export default function SubmissionForm({
     if (Object.keys(errors).length > 0) {
       toast({
         title: t.formErrorTitle ?? 'Error',
-        description: t.formErrorDescription ?? 'Please fill in all required fields.',
+        description:
+          t.formErrorDescription ?? 'Please fill in all required fields.',
         status: 'warning',
         duration: 4000,
         isClosable: true,
@@ -250,21 +260,30 @@ export default function SubmissionForm({
 
       await addDoc(collection(db, 'Soumission'), firebaseData);
 
-      const termsText = [t.formConsentText, t.formTermsAndConditions, t.formAnd, t.formPrivacyPolicy, t.formOf]
+      const termsText = [
+        t.formConsentText,
+        t.formTermsAndConditions,
+        t.formAnd,
+        t.formPrivacyPolicy,
+        t.formOf,
+      ]
         .filter(Boolean)
         .join(' ');
 
       const ghlData = {
         ...formData,
         address: effectiveFields.address ? formData.address : '',
-        projectDetails: effectiveFields.projectDetails ? formData.projectDetails : '',
+        projectDetails: effectiveFields.projectDetails
+          ? formData.projectDetails
+          : '',
         paintingType: effectiveFields.paintingType ? formData.paintingType : '',
         terms_and_conditions: termsText,
       };
       try {
         await sendToGoHighLevel(ghlData, { language: currentLang });
       } catch (webhookError) {
-        if (import.meta.env?.DEV) console.error('GoHighLevel webhook error:', webhookError);
+        if (import.meta.env?.DEV)
+          console.error('GoHighLevel webhook error:', webhookError);
       }
 
       if (onSubmit) onSubmit(formData);
@@ -284,7 +303,8 @@ export default function SubmissionForm({
       if (import.meta.env?.DEV) console.error('Submission error:', error);
       toast({
         title: t.formErrorTitle ?? 'Error',
-        description: t.formErrorTryAgain ?? 'An error occurred. Please try again.',
+        description:
+          t.formErrorTryAgain ?? 'An error occurred. Please try again.',
         status: 'error',
         duration: 5000,
         isClosable: true,
@@ -310,20 +330,20 @@ export default function SubmissionForm({
               }}
             >
               <Box
-                display='flex'
-                justifyContent='center'
-                alignItems='center'
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
                 w={{ base: '60px', md: '80px' }}
                 h={{ base: '60px', md: '80px' }}
-                mx='auto'
+                mx="auto"
                 bg={BRAND_BLUE}
                 borderRadius="full"
                 boxShadow="0 4px 15px rgba(1, 76, 196, 0.3)"
               >
                 <Text
                   fontSize={{ base: '2xl', md: '3xl' }}
-                  color='white'
-                  fontWeight='bold'
+                  color="white"
+                  fontWeight="bold"
                 >
                   ✓
                 </Text>
@@ -331,35 +351,44 @@ export default function SubmissionForm({
             </motion.div>
 
             <Heading
-              as='h3'
+              as="h3"
               fontSize={{ base: 'xl', md: '2xl' }}
-              fontWeight='bold'
+              fontWeight="bold"
               color={BRAND_BLUE}
-              textAlign='center'
+              textAlign="center"
             >
               {t.formConfirmationTitle}
             </Heading>
 
             <Text
               fontSize={{ base: 'md', md: 'lg' }}
-              color='gray.600'
-              lineHeight='1.8'
-              maxW='500px'
-              mx='auto'
-              textAlign='center'
+              color="gray.600"
+              lineHeight="1.8"
+              maxW="500px"
+              mx="auto"
+              textAlign="center"
             >
-              {t.formConfirmationMessage?.split('(438) 868-0772').map((part, i, arr) =>
-                i < arr.length - 1
-                  ? <React.Fragment key={i}>{part}<span style={{ whiteSpace: 'nowrap' }}>(438) 868-0772</span></React.Fragment>
-                  : part
-              )}
+              {t.formConfirmationMessage
+                ?.split('(438) 868-0772')
+                .map((part, i, arr) =>
+                  i < arr.length - 1 ? (
+                    <React.Fragment key={i}>
+                      {part}
+                      <span style={{ whiteSpace: 'nowrap' }}>
+                        (438) 868-0772
+                      </span>
+                    </React.Fragment>
+                  ) : (
+                    part
+                  ),
+                )}
             </Text>
 
             {t.formSuccessClosing && (
               <Text
                 fontSize={{ base: 'sm', md: 'sm' }}
-                color='gray.500'
-                fontStyle='italic'
+                color="gray.500"
+                fontStyle="italic"
                 pt={2}
               >
                 {t.formSuccessClosing}
@@ -401,20 +430,27 @@ export default function SubmissionForm({
           >
             {effectiveFields.name && (
               <FormControl variant="floating" isRequired>
-              <Input
-                ref={initialFocusRef}
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder=" "
-                size="md"
-                fontSize="16px"
-                borderColor="gray.300"
-                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-              />
-              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
-                {t.formName}
-              </FormLabel>
+                <Input
+                  ref={initialFocusRef}
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  placeholder=" "
+                  size="md"
+                  fontSize="16px"
+                  borderColor="gray.300"
+                  _focus={{
+                    borderColor: 'brand.500',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                  }}
+                />
+                <FormLabel
+                  fontSize="sm"
+                  color="gray.700"
+                  requiredIndicator={null}
+                >
+                  {t.formName}
+                </FormLabel>
               </FormControl>
             )}
 
@@ -431,9 +467,16 @@ export default function SubmissionForm({
                       size="md"
                       fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
                     />
-                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                    <FormLabel
+                      fontSize="sm"
+                      color="gray.700"
+                      requiredIndicator={null}
+                    >
                       {t.formPhone}
                     </FormLabel>
                   </FormControl>
@@ -450,9 +493,16 @@ export default function SubmissionForm({
                       size="md"
                       fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
                     />
-                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                    <FormLabel
+                      fontSize="sm"
+                      color="gray.700"
+                      requiredIndicator={null}
+                    >
                       {t.formEmail}
                     </FormLabel>
                   </FormControl>
@@ -471,9 +521,16 @@ export default function SubmissionForm({
                       size="md"
                       fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
                     />
-                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                    <FormLabel
+                      fontSize="sm"
+                      color="gray.700"
+                      requiredIndicator={null}
+                    >
                       {t.formEmail}
                     </FormLabel>
                   </FormControl>
@@ -490,9 +547,16 @@ export default function SubmissionForm({
                       size="md"
                       fontSize="16px"
                       borderColor="gray.300"
-                      _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                      _focus={{
+                        borderColor: 'brand.500',
+                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                      }}
                     />
-                    <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                    <FormLabel
+                      fontSize="sm"
+                      color="gray.700"
+                      requiredIndicator={null}
+                    >
                       {t.formPhone}
                     </FormLabel>
                   </FormControl>
@@ -510,9 +574,16 @@ export default function SubmissionForm({
                   size="md"
                   fontSize="16px"
                   borderColor="gray.300"
-                  _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
+                  _focus={{
+                    borderColor: 'brand.500',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                  }}
                 />
-                <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                <FormLabel
+                  fontSize="sm"
+                  color="gray.700"
+                  requiredIndicator={null}
+                >
                   {t.formAddress}
                 </FormLabel>
               </FormControl>
@@ -523,42 +594,57 @@ export default function SubmissionForm({
                 variant="floating"
                 isRequired={effectiveFields.projectDetails === true}
               >
-              <Textarea
-                name="projectDetails"
-                value={formData.projectDetails}
-                onChange={handleChange}
-                placeholder=" "
-                onFocus={() => setIsProjectDetailsFocused(true)}
-                onBlur={() => setIsProjectDetailsFocused(false)}
-                rows={2}
-                size="md"
-                fontSize="16px"
-                borderColor="gray.300"
-                resize="vertical"
-                _placeholder={{
-                  fontSize: 'md',
-                  color: 'gray.400',
-                }}
-                _focus={{ borderColor: 'brand.500', boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)' }}
-              />
-              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
-                {effectiveFields.projectDetails === 'optional' &&
-                !isProjectDetailsFocused &&
-                !formData.projectDetails
-                  ? `${resolvedProjectDetailsLabelBase} ${
-                      currentLang === 'fr' ? '(optionnel)' : '(optional)'
-                    }`
-                  : resolvedProjectDetailsLabelBase}
-              </FormLabel>
+                <Textarea
+                  name="projectDetails"
+                  value={formData.projectDetails}
+                  onChange={handleChange}
+                  placeholder=" "
+                  onFocus={() => setIsProjectDetailsFocused(true)}
+                  onBlur={() => setIsProjectDetailsFocused(false)}
+                  rows={2}
+                  size="md"
+                  fontSize="16px"
+                  borderColor="gray.300"
+                  resize="vertical"
+                  _placeholder={{
+                    fontSize: 'md',
+                    color: 'gray.400',
+                  }}
+                  _focus={{
+                    borderColor: 'brand.500',
+                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+                  }}
+                />
+                <FormLabel
+                  fontSize="sm"
+                  color="gray.700"
+                  requiredIndicator={null}
+                >
+                  {effectiveFields.projectDetails === 'optional' &&
+                  !isProjectDetailsFocused &&
+                  !formData.projectDetails
+                    ? `${resolvedProjectDetailsLabelBase} ${
+                        currentLang === 'fr' ? '(optionnel)' : '(optional)'
+                      }`
+                    : resolvedProjectDetailsLabelBase}
+                </FormLabel>
               </FormControl>
             )}
 
             {effectiveFields.paintingType && (
               <FormControl isRequired w="100%">
-                <FormLabel fontSize="sm" color="gray.700" mb={1} requiredIndicator={null}>
+                <FormLabel
+                  fontSize="sm"
+                  color="gray.700"
+                  mb={1}
+                  requiredIndicator={null}
+                >
                   {t.formPaintingType}
                 </FormLabel>
-                <RadioGroup value={formData.paintingType} onChange={handleRadioChange}>
+                <RadioGroup
+                  value={formData.paintingType}
+                  onChange={handleRadioChange}
+                >
                   <Stack direction="column" spacing={1.5} w="100%">
                     <Radio value="interior" colorScheme="brand" size="md">
                       {t.formInteriorPainting ?? t.serviceInterior}
@@ -572,58 +658,76 @@ export default function SubmissionForm({
             )}
 
             {/* Consent moved under the button */}
+          </Stack>
 
-        </Stack>
-
-        {!isModal && (
-          <Box
-            flexShrink={0}
-            w="100%"
-            pt={{ base: 4, md: 6 }}
-            pb={0}
-            borderTopWidth={0}
-            borderColor="gray.200"
-            mt="auto"
-            bg="white"
-          >
-            <Button
-              type="submit"
-              bg={BRAND_BLUE}
-              color="white"
+          {!isModal && (
+            <Box
+              flexShrink={0}
               w="100%"
-              fontSize={{ base: 'md', md: 'md' }}
-              py={{ base: 3, md: 4 }}
-              fontWeight="semibold"
-              borderRadius="full"
-              _hover={{ bg: BRAND_BLUE_HOVER }}
-              _loading={{
-                opacity: 0.8,
-                cursor: 'not-allowed',
-              }}
-              isLoading={isSubmitting}
-              loadingText={t.formSubmitting}
-              spinnerPlacement="start"
-              disabled={isSubmitting}
+              pt={{ base: 4, md: 6 }}
+              pb={0}
+              borderTopWidth={0}
+              borderColor="gray.200"
+              mt="auto"
+              bg="white"
             >
-              {t.formSubmit}
-            </Button>
+              <Button
+                type="submit"
+                bg={BRAND_BLUE}
+                color="white"
+                w="100%"
+                fontSize={{ base: 'md', md: 'md' }}
+                py={{ base: 3, md: 4 }}
+                fontWeight="semibold"
+                borderRadius="full"
+                _hover={{ bg: BRAND_BLUE_HOVER }}
+                _loading={{
+                  opacity: 0.8,
+                  cursor: 'not-allowed',
+                }}
+                isLoading={isSubmitting}
+                loadingText={t.formSubmitting}
+                spinnerPlacement="start"
+                disabled={isSubmitting}
+              >
+                {t.formSubmit}
+              </Button>
 
-            {effectiveFields.consentAccepted && (
-              <Box fontSize="xs" color="gray.500" textAlign="center" lineHeight="1.5" pt={3} px={1}>
-                {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
-                <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                  {t.formTermsAndConditions}
-                </Link>{' '}
-                {t.formAnd}{' '}
-                <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                  {t.formPrivacyPolicy}
-                </Link>
-              </Box>
-            )}
-          </Box>
-        )}
+              {effectiveFields.consentAccepted && (
+                <Box
+                  fontSize="xs"
+                  color="gray.500"
+                  textAlign="center"
+                  lineHeight="1.5"
+                  pt={3}
+                  px={1}
+                >
+                  {currentLang === 'fr'
+                    ? 'En soumettant ce formulaire, vous acceptez les'
+                    : 'By submitting this form, you agree to the'}{' '}
+                  <Link
+                    href="/politiques/termes-conditions"
+                    color="#1E4BBA"
+                    textDecoration="underline"
+                    _hover={{ color: '#183D9A' }}
+                  >
+                    {t.formTermsAndConditions}
+                  </Link>{' '}
+                  {t.formAnd}{' '}
+                  <Link
+                    href="/politiques/confidentialite"
+                    color="#1E4BBA"
+                    textDecoration="underline"
+                    _hover={{ color: '#183D9A' }}
+                  >
+                    {t.formPrivacyPolicy}
+                  </Link>
+                </Box>
+              )}
+            </Box>
+          )}
+        </Box>
       </Box>
-    </Box>
     </ChakraProvider>
   );
 }

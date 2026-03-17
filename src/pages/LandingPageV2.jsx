@@ -166,8 +166,8 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
           }
           buttonText={
             isFr
-              ? 'Obtenir ma soumission gratuite en moins de 24h'
-              : 'Get my free quote in less than 24h'
+              ? 'Soumission gratuite en 24h'
+              : 'Free quote in 24h'
           }
           compactTrustBanner
         />
