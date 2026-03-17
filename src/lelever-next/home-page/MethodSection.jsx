@@ -194,7 +194,7 @@ export default function MethodSection({ onSubmissionOpen, hideCta = false }) {
                     xl: '3xl',
                     '2xl': '3xl',
                   }}
-                  boxShadow="0 4px 24px rgba(1, 76, 196, 0.45)"
+                  boxShadow="0 4px 24px rgba(35, 85, 202, 0.35)"
                   pointerEvents="none"
                 >
                   {index + 1}

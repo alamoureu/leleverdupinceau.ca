@@ -187,7 +187,7 @@ export default function App() {
             />
             <Route
               path="painter-montreal"
-              element={<Navigate to="/en/peintre-montreal" replace />}
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
             />
           </Route>
 

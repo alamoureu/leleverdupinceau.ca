@@ -32,14 +32,16 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
-      : (location.pathname === '/fr/peintre-montreal' || location.pathname === '/en/peintre-montreal');
+      : (location.pathname === '/fr/peintre-montreal' ||
+          location.pathname === '/en/peintre-montreal' ||
+          location.pathname === '/en/painter-montreal');
 
   return (
     <Box
       as="header"
       spacing={0}
       gap={0}
-      bg="brand.700"
+      bg={isNewLanding ? 'white' : 'brand.700'}
       position="fixed"
       top={0}
       left={0}
@@ -126,7 +128,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
 
       <Box
         w="100%"
-        bg="brand.700"
+        bg={isNewLanding ? 'white' : 'brand.700'}
         py={{ base: 2.5, sm: 2, md: 3, lg: 4 }}
         px={{ base: 4, sm: 6, lg: 8 }}
         shadow="md"
@@ -169,6 +171,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 maxW="100%"
                 objectFit="contain"
                 pointerEvents="none"
+                style={{
+                  filter: isNewLanding ? 'invert(1)' : undefined,
+                }}
               />
             </Box>
 
@@ -184,16 +189,10 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 ml={{ base: 2, lg: 4 }}
                 minW="max-content"
               >
-                <Icon
-                  as={FontAwesomeIcon}
-                  icon={faPhoneAlt}
-                  color="white"
-                  textStyle="nav"
-                />
                 <a href="tel:+14388680772">
                   <Text
                     textStyle="nav"
-                    color="white"
+                    color="brand.500"
                     fontWeight="medium"
                     _hover={{ textDecoration: 'underline' }}
                     whiteSpace="nowrap"

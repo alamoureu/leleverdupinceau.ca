@@ -148,20 +148,20 @@ export const translations = {
     readArticle: "Lire l'article",
 
     methodTopText: 'en moins de 24h',
-    methodTitle: 'Notre méthode structurée, appliquée à chaque projet',
+    methodTitle: 'NOTRE MÉTHODE EN 4 ÉTAPES',
     methodSubtitle: 'un processus clair, sans aucune improvisation',
-    methodStep1Title: 'Offre de service gratuite',
+    methodStep1Title: 'Évaluation du projet',
     methodStep1Desc:
-      'Nous faisons une visite rapide pour comprendre le projet, surfaces, délais, contraintes et vous donner des recommandations de produits',
+      'Nous évaluons les surfaces, les délais et vos besoins pour préparer une soumission claire.',
     methodStep2Title: 'Préparation des surfaces',
     methodStep2Desc:
-      'Nous faisons la protection des lieux, la réparation de plâtre et le calfeutrage',
+      'Nous protégeons les lieux, réparons le plâtre et faisons le calfeutrage au besoin.',
     methodStep3Title: 'Application professionnelle',
     methodStep3Desc:
-      "Nos peintres ayant chacun plus de 10 ans d'expérience utilisent des méthodes précises et des produits de qualité",
+      'Nos peintres appliquent des produits de qualité avec des méthodes précises et soignées.',
     methodStep4Title: 'Inspection finale',
     methodStep4Desc:
-      'Avant de vous livrer le projet, nous laissons les lieux propres et validons les travaux avec vous.',
+      'Nous nettoyons les lieux et validons le résultat avec vous avant la fin du projet.',
     promiseText:
       "Notre promesse : Nous travaillons jusqu'à ce que vous soyez ravi des travaux effectués.",
     ctaSubtitle: 'en moins de 24h',
@@ -325,19 +325,20 @@ export const translations = {
     readArticle: 'Read article',
 
     methodTopText: 'in less than 24h',
-    methodTitle: 'Our structured method, applied to every project',
+    methodTitle: 'OUR 4-STEP METHOD',
     methodSubtitle: 'a clear process, with no improvisation',
-    methodStep1Title: 'Free service offer',
+    methodStep1Title: 'Project assessment',
     methodStep1Desc:
-      'We make a quick visit to understand the project, surfaces, deadlines, constraints and give you product recommendations.',
+      'We assess the surfaces, timeline, and your needs to prepare a clear, detailed quote.',
     methodStep2Title: 'Surface preparation',
-    methodStep2Desc: 'We protect the premises, repair plaster and caulk.',
+    methodStep2Desc:
+      'We protect your space, repair drywall, and handle caulking where needed.',
     methodStep3Title: 'Professional application',
     methodStep3Desc:
-      'Our painters, each with over 10 years of experience, use precise methods and quality products.',
+      'Our painters apply quality products using precise, consistent techniques.',
     methodStep4Title: 'Final inspection',
     methodStep4Desc:
-      'Before delivering the project, we leave the premises clean and validate the work with you.',
+      'We clean the area and review the results with you before the project is complete.',
     promiseText:
       'Our promise: We work until you are delighted with the work done.',
     ctaSubtitle: 'in less than 24h',

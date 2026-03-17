@@ -15,8 +15,8 @@ const colors = {
     200: '#9EC0FA',
     300: '#77A7F7',
     400: '#508EF5',
-    500: '#1E4BBA',  // CTA primary (buttons + CTA section bg)
-    600: '#183D9A',  // CTA hover
+    500: '#2355CA',  // CTA primary (buttons + CTA section bg)
+    600: '#1E4BB5',  // CTA hover
     700: '#0A2B68',  // Navbar & footer (denser blue)
     800: '#072052',
     900: '#041538',

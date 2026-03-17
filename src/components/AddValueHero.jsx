@@ -3,7 +3,7 @@ import { Center, Stack, Text } from '@chakra-ui/react';
 
 export default function AddValueHero({ lang }) {
   return (
-    <Stack pt={{ base: '0px', md: '50px' }} textColor="#53514E">
+    <Stack textColor="#53514E">
       <Center>
         <Stack spacing="20px" position="relative">
           <Text

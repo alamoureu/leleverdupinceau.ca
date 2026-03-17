@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function BetonelBanerHero({ isMobile, lang }) {
   return (
-    <Stack pb={{ base: '50px', md: '100px' }} mt="20px">
+    <Stack>
       <Image
         loading="lazy"
         decoding="async"
@@ -12,9 +12,13 @@ export default function BetonelBanerHero({ isMobile, lang }) {
           isMobile
             ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerSm+(1).png'
             : lang === 'fr'
-            ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop+(1).png'
-            : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/sdsd+(1).png'
+              ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop+(1).png'
+              : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/sdsd+(1).png'
         }
+        w="100%"
+        maxW="100%"
+        h={isMobile ? '140px' : 'auto'}
+        objectFit="contain"
       />
     </Stack>
   );

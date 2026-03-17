@@ -64,8 +64,12 @@ export default function TrustBanner({ compact = false }) {
   ];
 
   const paddingY = compact ? { base: 5, sm: 6, md: 7 } : { base: 4, md: 5 };
-  const paddingX = compact ? { base: 6, sm: 8, md: 10, lg: 12 } : { base: 6, sm: 6, md: 8, lg: 10 };
-  const gap = compact ? { base: 6, sm: 8, md: 10, lg: 12 } : { base: 4, sm: 5, md: 8, lg: 10 };
+  const paddingX = compact
+    ? { base: 4, sm: 6, md: 10, lg: 12 }
+    : { base: 6, sm: 6, md: 8, lg: 10 };
+  const gap = compact
+    ? { base: 3, sm: 6, md: 10, lg: 12 }
+    : { base: 4, sm: 5, md: 8, lg: 10 };
 
   return (
     <Box
@@ -100,6 +104,7 @@ export default function TrustBanner({ compact = false }) {
         align="center"
         justify={{ base: 'space-evenly', sm: 'space-between' }}
         gap={gap}
+        wrap="nowrap"
         minW={0}
       >
         {TRUST_ITEMS.map((item, index) => (
@@ -120,6 +125,7 @@ export default function TrustBanner({ compact = false }) {
                   lineHeight="1"
                   color="gray.800"
                   textAlign="center"
+                  whiteSpace="nowrap"
                 >
                   {item.value}
                 </Text>
@@ -133,6 +139,7 @@ export default function TrustBanner({ compact = false }) {
                   display="block"
                   loading="lazy"
                   decoding="async"
+                  flexShrink={0}
                 />
               )}
               <Text
@@ -142,6 +149,9 @@ export default function TrustBanner({ compact = false }) {
                 lineHeight="1.2"
                 textAlign="center"
                 w="100%"
+                whiteSpace="nowrap"
+                noOfLines={1}
+                mt={item.isMetric ? 1 : 0}
               >
                 {item.isMetric ? item.label : item.text}
               </Text>
@@ -151,6 +161,7 @@ export default function TrustBanner({ compact = false }) {
                 orientation="vertical"
                 borderColor="gray.200"
                 flexShrink={0}
+                display={{ base: 'none', sm: 'block' }}
                 h={compact ? { base: '40px', sm: '48px', md: '56px' } : { base: '36px', sm: '44px' }}
                 alignSelf="center"
               />

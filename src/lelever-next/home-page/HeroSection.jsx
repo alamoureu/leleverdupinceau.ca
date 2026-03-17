@@ -44,8 +44,22 @@ export default function HeroSection({
       position="relative"
       w="100%"
       minW={0}
-      minH={{ base: '320px', sm: '350px', md: '380px', lg: '420px', xl: '680px', '2xl': '750px' }}
-      h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '85vh', '2xl': '85vh' }}
+      minH={{
+        base: '320px',
+        sm: '350px',
+        md: '380px',
+        lg: '420px',
+        xl: '680px',
+        '2xl': '750px',
+      }}
+      h={{
+        base: 'auto',
+        sm: 'auto',
+        md: '52vh',
+        lg: '55vh',
+        xl: '85vh',
+        '2xl': '85vh',
+      }}
       pb={{ base: 24, sm: 28, md: 0 }}
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
@@ -70,23 +84,30 @@ export default function HeroSection({
         decoding="async"
       />
       <Box
-        position='absolute'
+        position="absolute"
         top={0}
         left={0}
         right={0}
         bottom={0}
-        bg='rgba(0, 0, 0, 0.4)'
+        bg="rgba(0, 0, 0, 0.4)"
         zIndex={1}
       />
-      <Container maxW='1440px' h='100%' position='relative' zIndex={2} px={{ base: 4, sm: 4, md: 6, lg: 8 }} minW={0}>
+      <Container
+        maxW="1440px"
+        h="100%"
+        position="relative"
+        zIndex={2}
+        px={{ base: 4, sm: 4, md: 6, lg: 8 }}
+        minW={0}
+      >
         <Stack
           h="100%"
           minW={0}
           pt={{
-            base: '52px',
-            sm: '56px',
-            md: '80px',
-            lg: '100px',
+            base: '62px',
+            sm: '62px',
+            md: '120px',
+            lg: '120px',
             xl: '140px',
             '2xl': '160px',
           }}
@@ -102,9 +123,18 @@ export default function HeroSection({
               as="h1"
               size="page"
               fontWeight={heroTitleFontWeight}
-              fontSize={heroTitleFontSize ?? { base: 'xl', md: '2xl', lg: '3xl', xl: '4xl' }}
-              color='white'
-              lineHeight='1.05'
+              fontSize={
+                heroTitleFontSize ?? {
+                  base: '2xl',
+                  sm: '3xl',
+                  md: '4xl',
+                  lg: '5xl',
+                  xl: '6xl',
+                  '2xl': '7xl',
+                }
+              }
+              color="white"
+              lineHeight="1.05"
               minW={0}
             >
               {typeof heroTitle === 'string'
@@ -112,7 +142,11 @@ export default function HeroSection({
                   ? heroTitle.split(', ').map((line, idx) => (
                       <React.Fragment key={idx}>
                         {line}
-                        {idx === 0 && <>,<br /></>}
+                        {idx === 0 && (
+                          <>
+                            ,<br />
+                          </>
+                        )}
                       </React.Fragment>
                     ))
                   : heroTitle.split('\n').map((line, idx) => (
@@ -124,7 +158,12 @@ export default function HeroSection({
                 : heroTitle}
               {heroTitleSecondLine && (
                 <>
-                  {typeof heroTitle === 'string' && heroTitle.trimEnd().endsWith(',') ? <br /> : ' '}
+                  {typeof heroTitle === 'string' &&
+                  heroTitle.trimEnd().endsWith(',') ? (
+                    <br />
+                  ) : (
+                    ' '
+                  )}
                   {heroTitleSecondLine}
                 </>
               )}
@@ -132,7 +171,7 @@ export default function HeroSection({
 
             <Text
               textStyle="bodyLarge"
-              fontSize={{ base: 'sm', md: 'md', lg: 'lg', xl: 'xl' }}
+              fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
               color="white"
               fontWeight="thin"
               minW={0}
@@ -170,13 +209,13 @@ export default function HeroSection({
                   '2xl': '76px',
                 }}
                 h="auto"
-                w={{ base: '100%', sm: '280px', md: '320px', lg: '360px', xl: '380px', '2xl': '400px' }}
-                minW="280px"
-                maxW={{ base: '280px', sm: 'unset' }}
-                borderRadius='full'
-                boxShadow='lg'
+                w="100%"
+                maxW={{ base: '360px', sm: '380px', md: '420px', lg: '460px' }}
+                borderRadius="full"
+                boxShadow="lg"
                 _hover={{ bg: 'brand.600' }}
-                whiteSpace="nowrap"
+                whiteSpace="normal"
+                lineHeight="1.15"
               >
                 {heroButton}
               </Button>

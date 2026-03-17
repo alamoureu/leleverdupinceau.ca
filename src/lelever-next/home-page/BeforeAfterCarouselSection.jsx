@@ -169,14 +169,14 @@ export default function BeforeAfterCarouselSection({
                         />
                         <Box
                           position="absolute"
-                          top={3}
-                          left={3}
-                          bg="brand.500"
+                          top={{ base: 2, md: 3 }}
+                          left={{ base: 2, md: 3 }}
+                          bg="gray.900"
                           color="white"
-                          px={3}
-                          py={1}
-                          borderRadius="md"
-                          fontSize="sm"
+                          px={{ base: 2, md: 3 }}
+                          py={{ base: 0.5, md: 1 }}
+                          borderRadius={{ base: 'sm', md: 'md' }}
+                          fontSize={{ base: 'xs', md: 'sm' }}
                           fontWeight="bold"
                           boxShadow="sm"
                         >
@@ -199,14 +199,14 @@ export default function BeforeAfterCarouselSection({
                         />
                         <Box
                           position="absolute"
-                          top={3}
-                          left={3}
-                          bg="brand.500"
+                          top={{ base: 2, md: 3 }}
+                          left={{ base: 2, md: 3 }}
+                          bg="gray.900"
                           color="white"
-                          px={3}
-                          py={1}
-                          borderRadius="md"
-                          fontSize="sm"
+                          px={{ base: 2, md: 3 }}
+                          py={{ base: 0.5, md: 1 }}
+                          borderRadius={{ base: 'sm', md: 'md' }}
+                          fontSize={{ base: 'xs', md: 'sm' }}
                           fontWeight="bold"
                           boxShadow="sm"
                         >

@@ -3,7 +3,6 @@ import { Helmet } from 'react-helmet';
 import { Box, useDisclosure, Stack, Text } from '@chakra-ui/react';
 import appContext from '../AppProvider';
 import HeroSection from '../lelever-next/home-page/HeroSection';
-import ControlSection from '../lelever-next/home-page/ControlSection';
 import MethodSection from '../lelever-next/home-page/MethodSection';
 import ReviewsSection from '../lelever-next/home-page/ReviewsSection';
 import FAQSection from '../lelever-next/home-page/FAQSection';
@@ -11,11 +10,11 @@ import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
 import SubmissionForm from '../lelever-next/home-page/SubmissionForm';
 import SubmissionModal from '../components/SubmissionModal';
 import { useTranslation } from '../lelever-next/i18n';
-import GuaranteeSection from '../lelever-next/home-page/GuaranteeSection';
 import BeforeAfterCarouselSection from '../lelever-next/home-page/BeforeAfterCarouselSection';
+import WhyUsHero from '../components/WhyUsHero';
 import beforeKitchenReplacement from '../lelever-next/images/IMG_7678.PNG';
 import afterKitchenReplacement from '../lelever-next/images/IMG_5873.PNG';
-import guaranteeBadgeOverride from '../lelever-next/images/IMG_2574\ (1).PNG';
+import BetonelBanerHero from '../components/BetonelBanerHero';
 
 const META = {
   fr: {
@@ -37,7 +36,7 @@ const META = {
 const CANONICAL_BASE = 'https://www.leleverdupinceau.ca';
 
 function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
-  const { currentLang, setCurrentLang } = useContext(appContext);
+  const { currentLang } = useContext(appContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t } = useTranslation();
   const [isFormSuccess, setIsFormSuccess] = useState(false);
@@ -52,43 +51,57 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
 
   const landingFaqs = [
     {
-      question: isFr ? 'Combien coûte un peintre professionnel à Montréal?' : 'How much does a professional painter cost in Montreal?',
+      question: isFr
+        ? 'Combien coûte un peintre professionnel à Montréal?'
+        : 'How much does a professional painter cost in Montreal?',
       answer: isFr
         ? "Le coût dépend de la superficie, de l'état des surfaces et du nombre de couches. En moyenne, pour un projet résidentiel standard, comptez entre 1$ et 3$ par pied carré."
-        : "The cost depends on the area, surface condition, and number of coats. On average, expect between $1 and $3 per square foot for a standard residential project.",
+        : 'The cost depends on the area, surface condition, and number of coats. On average, expect between $1 and $3 per square foot for a standard residential project.',
     },
     {
-      question: isFr ? 'Offrez-vous une garantie sur vos travaux?' : 'Do you offer a guarantee on your work?',
+      question: isFr
+        ? 'Offrez-vous une garantie sur vos travaux?'
+        : 'Do you offer a guarantee on your work?',
       answer: isFr
         ? 'Oui. Nous offrons une garantie satisfaction à 100%. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.'
         : "Yes. We offer a 100% satisfaction guarantee. If the result doesn't meet your expectations, we will correct it at no additional cost.",
     },
     {
-      question: isFr ? 'Quel est le délai pour obtenir une soumission?' : 'What is the turnaround time for a quote?',
+      question: isFr
+        ? 'Quel est le délai pour obtenir une soumission?'
+        : 'What is the turnaround time for a quote?',
       answer: isFr
         ? "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."
         : 'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
     },
     {
-      question: isFr ? 'Est-ce que vos peintres sont licenciés RBQ?' : 'Are your painters RBQ licensed?',
+      question: isFr
+        ? 'Est-ce que vos peintres sont licenciés RBQ?'
+        : 'Are your painters RBQ licensed?',
       answer: isFr
         ? 'Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. Tous nos peintres ont plus de 10 ans d’expérience.'
         : 'Yes. Le Lever du Pinceau holds RBQ license #5864-1481-01 and $5M liability insurance. All our painters have over 10 years of experience.',
     },
     {
-      question: isFr ? 'Est-ce que vous protégez les surfaces avant de peindre ?' : 'Do you protect surfaces before painting?',
+      question: isFr
+        ? 'Est-ce que vous protégez les surfaces avant de peindre ?'
+        : 'Do you protect surfaces before painting?',
       answer: isFr
         ? 'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.'
         : 'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
     },
     {
-      question: isFr ? "Quelle est la durée typique d'un projet de peinture?" : 'What is the typical duration of a painting project?',
+      question: isFr
+        ? "Quelle est la durée typique d'un projet de peinture?"
+        : 'What is the typical duration of a painting project?',
       answer: isFr
         ? "La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission."
         : 'Duration varies depending on project scope. For a standard room (bedroom or living room), expect 1 to 2 days. A complete apartment (3-4 rooms) generally takes 3 to 5 days. A complete house may require 1 to 2 weeks depending on size. Commercial projects are scheduled according to your operational constraints. We will provide you with a precise timeline when quoting.',
     },
     {
-      question: isFr ? 'Utilisez-vous des peintures écologiques et sans odeur ?' : 'Do you use eco-friendly and low-odor paints?',
+      question: isFr
+        ? 'Utilisez-vous des peintures écologiques et sans odeur ?'
+        : 'Do you use eco-friendly and low-odor paints?',
       answer: isFr
         ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
         : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands such as Bétonel Dulux, using in particular the VIP, Diamond and Lifemaster ranges, known for their durability, excellent coverage and low VOC emissions. We will advise you on the best choice based on your project and budget.",
@@ -129,27 +142,46 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
         )}
       </Helmet>
 
-      <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden" position="relative">
+      <Box
+        w="100%"
+        minW={0}
+        maxW="100%"
+        bg="white"
+        overflowX="hidden"
+        position="relative"
+      >
         <HeroSection
           onSubmissionOpen={onOpen}
           pageContext={pageContext}
-          title={isFr ? 'Redonnez vie à votre\nmaison sans lever le petit doigt' : undefined}
-          titleSecondLine={isFr ? '' : undefined}
-          subtitle={isFr ? 'Un service rapide, propre et garanti à Montréal' : undefined}
-          buttonText={isFr ? 'Obtenir ma soumission en 24h' : undefined}
+          title={
+            isFr
+              ? "Peintres d'expériences\nmontréalais"
+              : 'Experienced\nMontreal painters'
+          }
+          titleSecondLine=""
+          subtitle={
+            isFr
+              ? 'Qualité garantie, au meilleur prix'
+              : 'Guaranteed quality, at the best price'
+          }
+          buttonText={
+            isFr
+              ? 'Obtenir ma soumission gratuite en moins de 24h'
+              : 'Get my free quote in less than 24h'
+          }
+          compactTrustBanner
         />
 
-        <ControlSection onSubmissionOpen={onOpen} />
+        <WhyUsHero lang={lang} onSubmissionOpen={onOpen} />
 
-        <GuaranteeSection
-          onSubmissionOpen={onOpen}
-          badgeSrc={guaranteeBadgeOverride}
-          mt={{ base: 8, sm: 10, md: 12 }}
-          body={
-            isFr
-              ? 'Nous ne quittons pas le chantier tant que vous n’êtes pas 100% satisfait des travaux effectués.'
-              : "We don't leave the jobsite until you're 100% satisfied."
-          }
+        <BetonelBanerHero isMobile={false} lang={lang} />
+
+        <BeforeAfterCarouselSection
+          isFr={isFr}
+          kitchenPairOverride={{
+            before: beforeKitchenReplacement,
+            after: afterKitchenReplacement,
+          }}
         />
 
         <MethodSection onSubmissionOpen={onOpen} hideCta />
@@ -202,10 +234,7 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
                 en moins de 24h
               </Text>
             )}
-            <Box
-              px={{ base: 0, sm: 0, md: 0 }}
-              py={{ base: 0, sm: 0, md: 0 }}
-            >
+            <Box px={{ base: 0, sm: 0, md: 0 }} py={{ base: 0, sm: 0, md: 0 }}>
               <SubmissionForm
                 onSubmissionStateChange={setIsFormSuccess}
                 fields={{
@@ -217,7 +246,9 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
                   projectDetails: 'optional',
                 }}
                 phoneFirst
-                projectDetailsLabel={isFr ? 'Description du projet' : 'Project description'}
+                projectDetailsLabel={
+                  isFr ? 'Description du projet' : 'Project description'
+                }
               />
             </Box>
           </Box>
@@ -228,11 +259,6 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
           desktopColumns={2}
           title={isFr ? 'Ce que nos clients disent de nous' : undefined}
           subtitle={isFr ? 'Plus de 100 avis 5 étoiles sur Google' : undefined}
-        />
-
-        <BeforeAfterCarouselSection
-          isFr={isFr}
-          kitchenPairOverride={{ before: beforeKitchenReplacement, after: afterKitchenReplacement }}
         />
 
         <FAQSection faqsOverride={landingFaqs} />
