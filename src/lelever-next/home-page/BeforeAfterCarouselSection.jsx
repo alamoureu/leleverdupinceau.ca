@@ -1,54 +1,66 @@
 import React, { useMemo } from 'react';
 import { Box, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react';
 
-import img5969 from '../images/before_after/IMG_5969.jpg';
-import img5970 from '../images/before_after/IMG_5970.jpg';
-import img5973 from '../images/before_after/IMG_5973.jpg';
-import img5974 from '../images/before_after/IMG_5974.jpg';
-import img5975 from '../images/before_after/IMG_5975.jpg';
-import img5976 from '../images/before_after/IMG_5976.jpg';
-import img5977 from '../images/before_after/IMG_5977.jpg';
-import img5978 from '../images/before_after/IMG_5978.jpg';
-import img5982 from '../images/before_after/IMG_5982.jpg';
-import img5984 from '../images/before_after/IMG_5984.jpg';
-
-// New staircase project images
-import imgStaircaseBefore from '../images/IMG_7678.PNG';
-import imgStaircaseAfter from '../images/IMG_5873.PNG';
+import img7922 from '../images/Avant après landing Page/Copie de IMG_7922.jpg';
+import img7924 from '../images/Avant après landing Page/Copie de IMG_7924.jpg';
+import img7971 from '../images/Avant après landing Page/Copie de IMG_7971.jpg';
+import img7974 from '../images/Avant après landing Page/Copie de IMG_7974.jpg';
+import img7975 from '../images/Avant après landing Page/Copie de IMG_7975.jpg';
+import img7985 from '../images/Avant après landing Page/Copie de IMG_7985.jpg';
+import img7988 from '../images/Avant après landing Page/Copie de IMG_7988.jpg';
+import img7990 from '../images/Avant après landing Page/Copie de IMG_7990.jpg';
+import img7992 from '../images/Avant après landing Page/Copie de IMG_7992.jpg';
+import img7994 from '../images/Avant après landing Page/Copie de IMG_7994.jpg';
+import img7997 from '../images/Avant après landing Page/Copie de IMG_7997 2.jpg';
+import img7999 from '../images/Avant après landing Page/Copie de IMG_7999 2.jpg';
+import img6755 from '../images/Avant après landing Page/Copie de IMG_6755.jpg';
+import img6757 from '../images/Avant après landing Page/Copie de IMG_6757.jpg';
 
 const DEFAULT_PAIRS = [
-  [img5969, img5970],
-  [imgStaircaseBefore, imgStaircaseAfter], // Staircase project
-  [img5973, img5974],
-  [img5975, img5976],
-  [img5977, img5978],
-  [img5984, img5982], // inverted: before = unpainted, after = painted
+  // Salon
+  [img7924, img7922],
+  // Escalier extérieur
+  [img7975, img7974],
+  // Sous-sol
+  [img7990, img7988],
+  // Cuisine (plafond / réparation)
+  [img7992, img7994],
+  // Boiseries & murs (rafraîchissement)
+  [img7999, img7997],
+  // Extérieur
+  [img7971, img6755],
+  // Industriel
+  [img7985, img6757],
 ];
 
 const DEFAULT_DESCRIPTIONS = [
   {
-    fr: 'Salon – murs plâtre et peinture',
-    en: 'Living room – walls, plaster and paint',
+    fr: 'Salon – peinture murale (avant / après)',
+    en: 'Living room – wall painting (before / after)',
   },
   {
-    fr: 'Cage d’escalier – réparation légère et peinture',
-    en: 'Staircase – light repair and painting',
+    fr: 'Escalier extérieur – décapage et peinture',
+    en: 'Outdoor staircase – stripping and painting',
   },
   {
-    fr: 'Terrasse en bois – teinture et protection',
-    en: 'Wood deck – stain and protection',
+    fr: 'Sous-sol – rafraîchissement complet',
+    en: 'Basement – complete refresh',
   },
   {
-    fr: 'Cuisine – armoires peintes en blanc',
-    en: 'Kitchen – cabinets painted white',
+    fr: 'Cuisine – réparation et finition',
+    en: 'Kitchen – repair and finish',
   },
   {
-    fr: 'Espace industriel – plafond steel deck et murs peints',
-    en: 'Industrial space – steel deck ceiling and walls painted',
+    fr: 'Murs et boiseries – finition propre',
+    en: 'Walls and trim – clean finish',
   },
   {
-    fr: 'Maison – murs rafraîchis (protection et peinture)',
-    en: 'House – walls refreshed (protection and painting)',
+    fr: 'Maison – extérieur rafraîchi',
+    en: 'Home – refreshed exterior',
+  },
+  {
+    fr: 'Espace industriel – préparation et peinture',
+    en: 'Industrial space – prep and painting',
   },
 ];
 
@@ -222,6 +234,10 @@ export default function BeforeAfterCarouselSection({
                       textAlign="center"
                       mt={4}
                       fontWeight="medium"
+                      maxW="320px"
+                      mx="auto"
+                      noOfLines={2}
+                      lineHeight="1.3"
                     >
                       {pair.description}
                     </Text>

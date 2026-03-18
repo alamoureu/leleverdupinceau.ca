@@ -12,8 +12,6 @@ import SubmissionModal from '../components/SubmissionModal';
 import { useTranslation } from '../lelever-next/i18n';
 import BeforeAfterCarouselSection from '../lelever-next/home-page/BeforeAfterCarouselSection';
 import WhyUsHero from '../components/WhyUsHero';
-import beforeKitchenReplacement from '../lelever-next/images/IMG_7678.PNG';
-import afterKitchenReplacement from '../lelever-next/images/IMG_5873.PNG';
 import BetonelBanerHero from '../components/BetonelBanerHero';
 
 const META = {
@@ -178,10 +176,6 @@ function LandingPageV2({ lang: langProp = undefined, indexable = false } = {}) {
 
         <BeforeAfterCarouselSection
           isFr={isFr}
-          kitchenPairOverride={{
-            before: beforeKitchenReplacement,
-            after: afterKitchenReplacement,
-          }}
         />
 
         <MethodSection onSubmissionOpen={onOpen} hideCta />
