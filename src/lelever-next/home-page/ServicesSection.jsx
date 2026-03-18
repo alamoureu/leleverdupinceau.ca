@@ -134,8 +134,8 @@ export default function ServicesSection() {
                   borderRadius: 'full',
                   _hover: { bg: 'gray.400' },
                 },
-                '-ms-overflow-style': 'auto',
-                'scrollbar-width': 'auto',
+                msOverflowStyle: 'auto',
+                scrollbarWidth: 'auto',
               }}
             >
               <Flex

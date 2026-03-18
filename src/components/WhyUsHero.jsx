@@ -11,8 +11,10 @@ import {
 } from '@chakra-ui/react';
 import React from 'react';
 import { FaStar } from 'react-icons/fa6';
+import { useTranslation } from '../lelever-next/i18n';
 
-export default function WhyUsHero({ lang, onSubmissionOpen }) {
+export default function WhyUsHero({ onSubmissionOpen }) {
+  const { t } = useTranslation();
   return (
     <Box
       bg="white"
@@ -29,12 +31,10 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
               fontStyle="italic"
               color="#53514E"
             >
-              {lang === 'fr'
-                ? 'Augmentez la valeur de votre maison'
-                : 'Increase Your Home Value'}
+              {t.whyUsAddValue}
               <br />
               <Box as="span" fontWeight="normal" fontStyle="normal">
-                {lang === 'fr' ? 'sans effort de votre part' : 'Effortlessly'}
+                {t.whyUsAddValueSub}
               </Box>
             </Text>
 
@@ -45,18 +45,14 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
               color="gray.800"
               sx={{ textWrap: 'balance' }}
             >
-              {lang === 'fr'
-                ? 'Pourquoi choisir Le Lever du Pinceau ?'
-                : 'Why Choose Le Lever du Pinceau?'}
+              {t.whyUsChooseTitle}
             </Heading>
             <Text
               fontSize={{ base: 'sm', md: 'lg' }}
               color="gray.600"
               sx={{ textWrap: 'balance' }}
             >
-              {lang === 'fr'
-                ? "Gagnez du temps, profitez d'un résultat parfait"
-                : 'Save time, enjoy perfect results'}
+              {t.whyUsChooseSub}
             </Text>
           </Stack>
 
@@ -77,9 +73,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
                 800+
               </Text>
               <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600">
-                {lang === 'fr'
-                  ? 'Plus de 800 clients ravis'
-                  : 'Over 800 delighted clients'}
+                {t.whyUsClients}
               </Text>
             </Box>
 
@@ -104,9 +98,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
                 gap={1}
               >
                 <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600">
-                  {lang === 'fr'
-                    ? 'Noté 4.9 étoiles sur'
-                    : 'Rated 4.9 stars on'}
+                  {t.whyUsRated}
                 </Text>
                 <Image
                   loading="lazy"
@@ -131,9 +123,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
                 100%
               </Text>
               <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600">
-                {lang === 'fr'
-                  ? '100% satisfaction garantie'
-                  : '100% satisfaction guaranteed'}
+                {t.whyUsSatisfaction}
               </Text>
             </Box>
           </Flex>
@@ -159,9 +149,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
                 boxShadow="md"
                 onClick={onSubmissionOpen}
               >
-                {lang === 'fr'
-                  ? 'Soumission gratuite en 24h'
-                  : 'Free quote in 24h'}
+                {t.whyUsCtaButton}
               </Button>
               <Box
                 position="absolute"
@@ -194,9 +182,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
                 fontWeight="semibold"
                 sx={{ textWrap: 'balance' }}
               >
-                {lang === 'fr'
-                  ? 'Vous voulez savoir combien coûte votre projet rapidement ?'
-                  : 'Want to know how much your project will cost quickly?'}
+                {t.whyUsWantToKnow}
               </Text>
               <Box
                 display="flex"
@@ -210,7 +196,7 @@ export default function WhyUsHero({ lang, onSubmissionOpen }) {
                   fontWeight="semibold"
                   color="gray.900"
                 >
-                  {lang === 'fr' ? 'moins de' : 'less than'}
+                  {t.whyUsLessThan}
                 </Text>
                 <Image
                   loading="lazy"

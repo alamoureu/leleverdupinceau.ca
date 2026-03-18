@@ -1,5 +1,6 @@
 import React, { useMemo } from 'react';
 import { Box, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react';
+import { useTranslation } from '../i18n';
 
 import img7922 from '../images/Avant après landing Page/Copie de IMG_7922.jpg';
 import img7924 from '../images/Avant après landing Page/Copie de IMG_7924.jpg';
@@ -16,52 +17,54 @@ import img7999 from '../images/Avant après landing Page/Copie de IMG_7999 2.jpg
 import img6755 from '../images/Avant après landing Page/Copie de IMG_6755.jpg';
 import img6757 from '../images/Avant après landing Page/Copie de IMG_6757.jpg';
 
+// Old before_after set
+import img5969 from '../images/before_after/IMG_5969.jpg';
+import img5970 from '../images/before_after/IMG_5970.jpg';
+import img5973 from '../images/before_after/IMG_5973.jpg';
+import img5974 from '../images/before_after/IMG_5974.jpg';
+import img5975 from '../images/before_after/IMG_5975.jpg';
+import img5976 from '../images/before_after/IMG_5976.jpg';
+import img5977 from '../images/before_after/IMG_5977.jpg';
+import img5978 from '../images/before_after/IMG_5978.jpg';
+import img5982 from '../images/before_after/IMG_5982.jpg';
+import img5984 from '../images/before_after/IMG_5984.jpg';
+import imgStaircaseBefore from '../images/IMG_7678.PNG';
+import imgStaircaseAfter from '../images/IMG_5873.PNG';
+
 const DEFAULT_PAIRS = [
-  // Salon
+  // Old before_after set (first)
+  [img5969, img5970],
+  [imgStaircaseBefore, imgStaircaseAfter],
+  [img5973, img5974],
+  [img5975, img5976],
+  [img5977, img5978],
+  [img5984, img5982],
+  // New landing page set
   [img7924, img7922],
-  // Escalier extérieur
   [img7975, img7974],
-  // Sous-sol
   [img7990, img7988],
-  // Cuisine (plafond / réparation)
   [img7992, img7994],
-  // Boiseries & murs (rafraîchissement)
   [img7999, img7997],
-  // Extérieur
   [img7971, img6755],
-  // Industriel
   [img7985, img6757],
 ];
 
 const DEFAULT_DESCRIPTIONS = [
-  {
-    fr: 'Salon – peinture murale (avant / après)',
-    en: 'Living room – wall painting (before / after)',
-  },
-  {
-    fr: 'Escalier extérieur – décapage et peinture',
-    en: 'Outdoor staircase – stripping and painting',
-  },
-  {
-    fr: 'Sous-sol – rafraîchissement complet',
-    en: 'Basement – complete refresh',
-  },
-  {
-    fr: 'Cuisine – réparation et finition',
-    en: 'Kitchen – repair and finish',
-  },
-  {
-    fr: 'Murs et boiseries – finition propre',
-    en: 'Walls and trim – clean finish',
-  },
-  {
-    fr: 'Maison – extérieur rafraîchi',
-    en: 'Home – refreshed exterior',
-  },
-  {
-    fr: 'Espace industriel – préparation et peinture',
-    en: 'Industrial space – prep and painting',
-  },
+  // Old list (first)
+  { fr: 'Salon – murs plâtre et peinture', en: 'Living room – walls, plaster and paint' },
+  { fr: 'Cage d’escalier – réparation légère et peinture', en: 'Staircase – light repair and painting' },
+  { fr: 'Terrasse en bois – teinture et protection', en: 'Wood deck – stain and protection' },
+  { fr: 'Cuisine – armoires peintes en blanc', en: 'Kitchen – cabinets painted white' },
+  { fr: 'Espace industriel – plafond steel deck et murs peints', en: 'Industrial space – steel deck ceiling and walls painted' },
+  { fr: 'Maison – murs rafraîchis (protection et peinture)', en: 'House – walls refreshed (protection and painting)' },
+  // New landing page set
+  { fr: 'Salon – peinture murale (avant / après)', en: 'Living room – wall painting (before / after)' },
+  { fr: 'Escalier extérieur – décapage et peinture', en: 'Outdoor staircase – stripping and painting' },
+  { fr: 'Sous-sol – dégâts d’eau et rafraîchissement', en: 'Basement – water damage and refresh' },
+  { fr: 'Cuisine – réparation et finition', en: 'Kitchen – repair and finish' },
+  { fr: 'Murs et boiseries – finition propre', en: 'Walls and trim – clean finish' },
+  { fr: 'Maison – extérieur rafraîchi', en: 'Home – refreshed exterior' },
+  { fr: 'Espace industriel – préparation et peinture', en: 'Industrial space – prep and painting' },
 ];
 
 function buildDefaultImages(isFr) {
@@ -73,12 +76,17 @@ function buildDefaultImages(isFr) {
 }
 
 export default function BeforeAfterCarouselSection({
-  isFr = true,
-  title = 'Des transformations visibles dès le premier coup de pinceau',
-  subtitle = 'Quelques-uns de nos projets récents à Montréal',
+  isFr: isFrProp,
+  title: titleProp,
+  subtitle: subtitleProp,
   images,
   kitchenPairOverride,
 }) {
+  const { t, currentLang } = useTranslation();
+  const isFr = isFrProp ?? currentLang === 'fr';
+  const title = titleProp ?? t.beforeAfterTitle;
+  const subtitle = subtitleProp ?? t.beforeAfterSubtitle;
+
   const items = useMemo(() => {
     const base =
       images && images.length > 0 ? images : buildDefaultImages(isFr);
@@ -137,8 +145,8 @@ export default function BeforeAfterCarouselSection({
                 borderRadius: 'full',
                 _hover: { bg: 'gray.400' },
               },
-              '-ms-overflow-style': 'auto',
-              'scrollbar-width': 'auto',
+              msOverflowStyle: 'auto',
+              scrollbarWidth: 'auto',
             }}
           >
             <Flex
@@ -174,7 +182,7 @@ export default function BeforeAfterCarouselSection({
                         <Box
                           as="img"
                           src={pair.before}
-                          alt={isFr ? 'Avant' : 'Before'}
+                          alt={t.beforeAfterAltBefore}
                           w="100%"
                           objectFit="cover"
                           style={{ aspectRatio: '3/2' }}
@@ -192,7 +200,7 @@ export default function BeforeAfterCarouselSection({
                           fontWeight="bold"
                           boxShadow="sm"
                         >
-                          {isFr ? 'AVANT' : 'BEFORE'}
+                          {t.beforeAfterLabelBefore}
                         </Box>
                       </Box>
                       {/* Après */}
@@ -204,7 +212,7 @@ export default function BeforeAfterCarouselSection({
                         <Box
                           as="img"
                           src={pair.after}
-                          alt={isFr ? 'Après' : 'After'}
+                          alt={t.beforeAfterAltAfter}
                           w="100%"
                           objectFit="cover"
                           style={{ aspectRatio: '3/2' }}
@@ -222,7 +230,7 @@ export default function BeforeAfterCarouselSection({
                           fontWeight="bold"
                           boxShadow="sm"
                         >
-                          {isFr ? 'APRÈS' : 'AFTER'}
+                          {t.beforeAfterLabelAfter}
                         </Box>
                       </Box>
                     </Stack>

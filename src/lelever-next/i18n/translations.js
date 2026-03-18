@@ -4,6 +4,7 @@ export const translations = {
     heroTitleSecondLine: 'rien de moins',
     heroSubtitle: 'Un service rapide, propre et garanti.',
     heroButton: 'Recevoir ma soumission gratuite',
+    heroImageAlt: 'Services de peinture résidentielle et commerciale',
 
     servicesTitle: 'Nos services de peinture à Montréal',
     servicesSubtitle: 'Des solutions pour chaque type de projet',
@@ -177,12 +178,61 @@ export const translations = {
     trustBannerClientsSatisfaits: 'Clients ravis',
     trustBannerAssurance: 'Assurance 5M$',
     trustBannerTrushieldAlt: 'TruShield Insurance',
+
+    beforeAfterTitle: 'Des transformations visibles dès le premier coup de pinceau',
+    beforeAfterSubtitle: 'Quelques-uns de nos projets récents à Montréal',
+    beforeAfterLabelBefore: 'AVANT',
+    beforeAfterLabelAfter: 'APRÈS',
+    beforeAfterAltBefore: 'Avant',
+    beforeAfterAltAfter: 'Après',
+    contactFormSubtitle: 'en moins de 24h',
+
+    whyUsAddValue: 'Augmentez la valeur de votre maison',
+    whyUsAddValueSub: 'sans effort de votre part',
+    whyUsChooseTitle: 'Pourquoi choisir Le Lever du Pinceau ?',
+    whyUsChooseSub: "Gagnez du temps, profitez d'un résultat parfait",
+    whyUsClients: 'Plus de 800 clients ravis',
+    whyUsRated: 'Noté 4.9 étoiles sur',
+    whyUsSatisfaction: '100% satisfaction garantie',
+    whyUsCtaButton: 'Soumission gratuite en 24h',
+    whyUsWantToKnow: 'Vous voulez savoir combien coûte votre projet rapidement ?',
+    whyUsLessThan: 'moins de',
+
+    faqDefaultTitle: 'Questions fréquentes sur nos peintres professionnels',
+    faqPricingLink: 'Voir notre article sur les prix.',
+
+    landingHeroTitle: "Peintres d'expériences\nmontréalais",
+    landingHeroSubtitle: 'Qualité garantie, au meilleur prix',
+    landingHeroButton: 'Soumission gratuite en 24h',
+
+    landingFaq1Question: 'Combien coûte un peintre professionnel à Montréal?',
+    landingFaq1Answer:
+      "Le coût dépend de la superficie, de l'état des surfaces et du nombre de couches. En moyenne, pour un projet résidentiel standard, comptez entre 1$ et 3$ par pied carré.",
+    landingFaq2Question: 'Offrez-vous une garantie sur vos travaux?',
+    landingFaq2Answer:
+      'Oui. Nous offrons une garantie satisfaction à 100%. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.',
+    landingFaq3Question: 'Quel est le délai pour obtenir une soumission?',
+    landingFaq3Answer:
+      "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus.",
+    landingFaq4Question: 'Est-ce que vos peintres sont licenciés RBQ?',
+    landingFaq4Answer:
+      "Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. Tous nos peintres ont plus de 10 ans d'expérience.",
+    landingFaq5Question: 'Est-ce que vous protégez les surfaces avant de peindre ?',
+    landingFaq5Answer:
+      'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.',
+    landingFaq6Question: "Quelle est la durée typique d'un projet de peinture?",
+    landingFaq6Answer:
+      "La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission.",
+    landingFaq7Question: 'Utilisez-vous des peintures écologiques et sans odeur ?',
+    landingFaq7Answer:
+      "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget.",
   },
   en: {
     heroTitle: 'An impeccable result,',
     heroTitleSecondLine: 'nothing less',
     heroSubtitle: 'A fast, clean and guaranteed service.',
     heroButton: 'Get my free quote',
+    heroImageAlt: 'Residential and commercial painting services',
 
     servicesTitle: 'Our painting services in Montreal',
     servicesSubtitle: 'Solutions for every kind of project',
@@ -354,5 +404,53 @@ export const translations = {
     trustBannerClientsSatisfaits: 'Delighted Clients',
     trustBannerAssurance: '$5M Insurance',
     trustBannerTrushieldAlt: 'TruShield Insurance',
+
+    beforeAfterTitle: 'Visible transformations from the first brushstroke',
+    beforeAfterSubtitle: 'Some of our recent projects in Montreal',
+    beforeAfterLabelBefore: 'BEFORE',
+    beforeAfterLabelAfter: 'AFTER',
+    beforeAfterAltBefore: 'Before',
+    beforeAfterAltAfter: 'After',
+    contactFormSubtitle: 'in less than 24h',
+
+    whyUsAddValue: 'Increase Your Home Value',
+    whyUsAddValueSub: 'Effortlessly',
+    whyUsChooseTitle: 'Why Choose Le Lever du Pinceau?',
+    whyUsChooseSub: 'Save time, enjoy perfect results',
+    whyUsClients: 'Over 800 delighted clients',
+    whyUsRated: 'Rated 4.9 stars on',
+    whyUsSatisfaction: '100% satisfaction guaranteed',
+    whyUsCtaButton: 'Free quote in 24h',
+    whyUsWantToKnow: 'Want to know how much your project will cost quickly?',
+    whyUsLessThan: 'less than',
+
+    faqDefaultTitle: 'Frequently asked questions about our professional painters',
+    faqPricingLink: 'See our article on pricing.',
+
+    landingHeroTitle: 'Experienced\nMontreal painters',
+    landingHeroSubtitle: 'Guaranteed quality, at the best price',
+    landingHeroButton: 'Free quote in 24h',
+
+    landingFaq1Question: 'How much does a professional painter cost in Montreal?',
+    landingFaq1Answer:
+      'The cost depends on the area, surface condition, and number of coats. On average, expect between $1 and $3 per square foot for a standard residential project.',
+    landingFaq2Question: 'Do you offer a guarantee on your work?',
+    landingFaq2Answer:
+      "Yes. We offer a 100% satisfaction guarantee. If the result doesn't meet your expectations, we will correct it at no additional cost.",
+    landingFaq3Question: 'What is the turnaround time for a quote?',
+    landingFaq3Answer:
+      'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
+    landingFaq4Question: 'Are your painters RBQ licensed?',
+    landingFaq4Answer:
+      'Yes. Le Lever du Pinceau holds RBQ license #5864-1481-01 and $5M liability insurance. All our painters have over 10 years of experience.',
+    landingFaq5Question: 'Do you protect surfaces before painting?',
+    landingFaq5Answer:
+      'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
+    landingFaq6Question: 'What is the typical duration of a painting project?',
+    landingFaq6Answer:
+      'Duration varies depending on project scope. For a standard room (bedroom or living room), expect 1 to 2 days. A complete apartment (3-4 rooms) generally takes 3 to 5 days. A complete house may require 1 to 2 weeks depending on size. Commercial projects are scheduled according to your operational constraints. We will provide you with a precise timeline when quoting.',
+    landingFaq7Question: 'Do you use eco-friendly and low-odor paints?',
+    landingFaq7Answer:
+      "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands such as Bétonel Dulux, using in particular the VIP, Diamond and Lifemaster ranges, known for their durability, excellent coverage and low VOC emissions. We will advise you on the best choice based on your project and budget.",
   },
 };

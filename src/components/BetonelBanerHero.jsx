@@ -1,7 +1,9 @@
 import { Image, Stack } from '@chakra-ui/react';
 import React from 'react';
+import { useTranslation } from '../lelever-next/i18n';
 
-export default function BetonelBanerHero({ isMobile, lang }) {
+export default function BetonelBanerHero({ isMobile }) {
+  const { currentLang } = useTranslation();
   return (
     <Stack>
       <Image
@@ -11,7 +13,7 @@ export default function BetonelBanerHero({ isMobile, lang }) {
         src={
           isMobile
             ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannerSm+(1).png'
-            : lang === 'fr'
+            : currentLang === 'fr'
               ? 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/bannner-desktop+(1).png'
               : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/sdsd+(1).png'
         }

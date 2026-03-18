@@ -24,7 +24,7 @@ export default function CustomProjectsSection({
   const isFr = currentLang === 'fr';
   const columns = useBreakpointValue({ base: 1, sm: 2, md: 3 });
   const [currentImageIndex, setCurrentImageIndex] = useState({});
-  const [imageLoading, setImageLoading] = useState({});
+  const [, setImageLoading] = useState({});
   const [imageErrors, setImageErrors] = useState({});
 
   const fadeVariants = {

@@ -28,7 +28,7 @@ export default function HeroSection({
   children,
   compactTrustBanner,
 }) {
-  const { t, currentLang } = useTranslation();
+  const { t } = useTranslation();
   const heroTitle = title ?? t.heroTitle;
   const heroTitleSecondLine = titleSecondLine ?? t.heroTitleSecondLine;
   const heroSubtitle = subtitle ?? t.heroSubtitle;
@@ -67,11 +67,7 @@ export default function HeroSection({
     >
       <Image
         src={imageBackground || heroImage}
-        alt={
-          currentLang === 'fr'
-            ? `Services de peinture résidentielle et commerciale${pageContext ? ' - ' + pageContext : ''}`
-            : `Residential and commercial painting services${pageContext ? ' - ' + pageContext : ''}`
-        }
+        alt={`${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`}
         position="absolute"
         top={0}
         left={0}

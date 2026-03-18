@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {
   Box,
   Container,
@@ -13,7 +13,7 @@ import {
   AccordionIcon,
 } from '@chakra-ui/react';
 import { Link as RouterLink } from 'react-router-dom';
-import appContext from '../../AppProvider';
+import { useTranslation } from '../i18n';
 
 function getFaqs(isFr) {
   return [
@@ -70,7 +70,7 @@ function getFaqs(isFr) {
 }
 
 export default function FAQSection({ faqsOverride, title }) {
-  const { currentLang } = useContext(appContext);
+  const { t, currentLang } = useTranslation();
   const isFr = currentLang === 'fr';
   const faqs = Array.isArray(faqsOverride) && faqsOverride.length > 0 ? faqsOverride : getFaqs(isFr);
 
@@ -94,9 +94,7 @@ export default function FAQSection({ faqsOverride, title }) {
         <Stack spacing={8}>
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
             <Heading as="h2" size="section" color="gray.800">
-              {title || (isFr
-                ? 'Questions fréquentes sur nos peintres professionnels'
-                : 'Frequently asked questions about our professional painters')}
+              {title ?? t.faqDefaultTitle}
             </Heading>
           </Stack>
 
@@ -135,7 +133,7 @@ export default function FAQSection({ faqsOverride, title }) {
                         fontWeight="medium"
                         _hover={{ textDecoration: 'underline' }}
                       >
-                        {isFr ? 'Voir notre article sur les prix.' : 'See our article on pricing.'}
+                        {t.faqPricingLink}
                       </Link>
                     )}
                   </Text>

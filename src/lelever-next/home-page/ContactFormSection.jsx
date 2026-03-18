@@ -1,14 +1,30 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { Box, Stack, Text } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import SubmissionForm from './SubmissionForm';
-import appContext from '../../AppProvider';
 
-export default function ContactFormSection() {
+const DEFAULT_FIELDS = {
+  name: true,
+  phone: true,
+  email: true,
+  address: false,
+  paintingType: false,
+  projectDetails: 'optional',
+};
+
+export default function ContactFormSection({
+  fields = DEFAULT_FIELDS,
+  phoneFirst = false,
+  projectDetailsLabel,
+  onSubmissionStateChange,
+}) {
   const { t } = useTranslation();
-  const { currentLang } = useContext(appContext);
-  const isFr = currentLang === 'fr';
   const [isFormSuccess, setIsFormSuccess] = useState(false);
+
+  const handleStateChange = (success) => {
+    setIsFormSuccess(success);
+    onSubmissionStateChange?.(success);
+  };
 
   return (
     <Stack
@@ -57,22 +73,15 @@ export default function ContactFormSection() {
             fontWeight="medium"
             pb={2}
           >
-            en moins de 24h
+            {t.contactFormSubtitle}
           </Text>
         )}
-        <Box px={{ base: 0, sm: 0, md: 0 }} py={{ base: 0, sm: 0, md: 0 }}>
+        <Box px={0} py={0}>
           <SubmissionForm
-            onSubmissionStateChange={setIsFormSuccess}
-            fields={{
-              name: true,
-              phone: true,
-              email: true,
-              address: false,
-              paintingType: false,
-              projectDetails: 'optional',
-            }}
-            phoneFirst
-            projectDetailsLabel={isFr ? 'Description du projet' : 'Project description'}
+            onSubmissionStateChange={handleStateChange}
+            fields={fields}
+            phoneFirst={phoneFirst}
+            projectDetailsLabel={projectDetailsLabel ?? t.formProjectDetails}
           />
         </Box>
       </Box>
