@@ -47,8 +47,8 @@ export default function HeroSection({
       minH={{
         base: '320px',
         sm: '350px',
-        md: '380px',
-        lg: '420px',
+        md: '440px',
+        lg: '480px',
         xl: '680px',
         '2xl': '750px',
       }}
@@ -60,7 +60,14 @@ export default function HeroSection({
         xl: '85vh',
         '2xl': '85vh',
       }}
-      pb={{ base: 24, sm: 28, md: 0 }}
+      pb={{
+        base: 24,
+        sm: 32,
+        md: 28,
+        lg: 32,
+        xl: 0,
+        '2xl': 0,
+      }}
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
       overflow="visible"

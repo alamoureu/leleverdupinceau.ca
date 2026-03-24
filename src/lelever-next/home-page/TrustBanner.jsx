@@ -76,7 +76,11 @@ export default function TrustBanner({ compact = false }) {
       position="absolute"
       left="50%"
       bottom={0}
-      transform="translate(-50%, 50%)"
+      transform={{
+        base: 'translate(-50%, 50%)',
+        md: 'translate(-50%, calc(50% + 1.25rem))',
+        xl: 'translate(-50%, 50%)',
+      }}
       maxW={compact ? '820px' : '1440px'}
       w={
         compact
