@@ -32,9 +32,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
-      : (location.pathname === '/fr/peintre-montreal' ||
-          location.pathname === '/en/peintre-montreal' ||
-          location.pathname === '/en/painter-montreal');
+      : location.pathname === '/fr/peintre-montreal' ||
+        location.pathname === '/en/peintre-montreal' ||
+        location.pathname === '/en/painter-montreal';
 
   return (
     <Box
@@ -308,17 +308,71 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 bg="white"
                 pointerEvents="auto"
                 borderTopRadius="none"
-                borderBottomRadius={{ base: '50px', sm: '60px', md: '80px', lg: '100px' }}
-                p={{ base: 2, sm: 2.5, md: 3 }}
+                borderBottomRadius={
+                  isNewLanding
+                    ? {
+                        base: '50px',
+                        sm: '56px',
+                        md: '64px',
+                        lg: '72px',
+                        xl: '88px',
+                      }
+                    : { base: '50px', sm: '60px', md: '80px', lg: '100px' }
+                }
+                p={
+                  isNewLanding
+                    ? { base: 2, sm: 2.5, md: 2.5, lg: 2.5, xl: 3 }
+                    : { base: 2, sm: 2.5, md: 3 }
+                }
                 boxShadow="0 4px 6px rgba(0, 0, 0, 0.1)"
-                minW={{ base: '64px', sm: '92px', md: '94px' }}
-                maxW={{ base: '84px', sm: '112px', md: '116px' }}
+                minW={
+                  isNewLanding
+                    ? {
+                        base: '64px',
+                        sm: '88px',
+                        md: '86px',
+                        lg: '90px',
+                        xl: '94px',
+                      }
+                    : { base: '64px', sm: '92px', md: '94px' }
+                }
+                maxW={
+                  isNewLanding
+                    ? {
+                        base: '84px',
+                        sm: '106px',
+                        md: '102px',
+                        lg: '108px',
+                        xl: '116px',
+                      }
+                    : { base: '84px', sm: '112px', md: '116px' }
+                }
                 overflow="visible"
-                minH={{ base: '72px', sm: '80px', md: '88px' }}
+                minH={
+                  isNewLanding
+                    ? {
+                        base: '72px',
+                        sm: '76px',
+                        md: '74px',
+                        lg: '78px',
+                        xl: '88px',
+                      }
+                    : { base: '72px', sm: '80px', md: '88px' }
+                }
               >
                 <Stack spacing={0} align="center" overflow="visible">
                   <Text
-                    fontSize={{ base: '2xs', sm: 'xs', md: 'sm' }}
+                    fontSize={
+                      isNewLanding
+                        ? {
+                            base: '2xs',
+                            sm: 'xs',
+                            md: 'xs',
+                            lg: 'xs',
+                            xl: 'sm',
+                          }
+                        : { base: '2xs', sm: 'xs', md: 'sm' }
+                    }
                     color="gray.600"
                     fontWeight="600"
                     textAlign="center"
@@ -329,7 +383,17 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   </Text>
                   <Flex align="center" gap={0.5}>
                     <Text
-                      fontSize={{ base: '2xs', sm: 'xs', md: 'sm' }}
+                      fontSize={
+                        isNewLanding
+                          ? {
+                              base: '2xs',
+                              sm: 'xs',
+                              md: 'xs',
+                              lg: 'xs',
+                              xl: 'sm',
+                            }
+                          : { base: '2xs', sm: 'xs', md: 'sm' }
+                      }
                       color="gray.600"
                       fontWeight="600"
                     >
@@ -340,7 +404,11 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                         <StarIcon
                           key={i}
                           color="#FBBC04"
-                          boxSize={{ base: 1.5, sm: 2.5, md: 3 }}
+                          boxSize={
+                            isNewLanding
+                              ? { base: 1.5, sm: 2, md: 2, lg: 2.5, xl: 3 }
+                              : { base: 1.5, sm: 2.5, md: 3 }
+                          }
                         />
                       ))}
                     </Flex>
@@ -348,8 +416,28 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   <Image
                     src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png"
                     alt="Google"
-                    h={{ base: '22px', sm: '24px', md: '40px' }}
-                    w={{ base: '22px', sm: '24px', md: '40px' }}
+                    h={
+                      isNewLanding
+                        ? {
+                            base: '22px',
+                            sm: '24px',
+                            md: '26px',
+                            lg: '28px',
+                            xl: '36px',
+                          }
+                        : { base: '22px', sm: '24px', md: '40px' }
+                    }
+                    w={
+                      isNewLanding
+                        ? {
+                            base: '22px',
+                            sm: '24px',
+                            md: '26px',
+                            lg: '28px',
+                            xl: '36px',
+                          }
+                        : { base: '22px', sm: '24px', md: '40px' }
+                    }
                     mt={{ base: 0.5, sm: 0.5, md: 1 }}
                     objectFit="contain"
                     loading="lazy"

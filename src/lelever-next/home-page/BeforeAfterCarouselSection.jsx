@@ -75,12 +75,17 @@ function buildDefaultImages(isFr) {
   }));
 }
 
+const DEFAULT_SECTION_PY = { base: 8, md: 12, lg: 16 };
+
 export default function BeforeAfterCarouselSection({
   isFr: isFrProp,
   title: titleProp,
   subtitle: subtitleProp,
   images,
   kitchenPairOverride,
+  sectionPy,
+  sectionPaddingTop,
+  sectionPaddingBottom,
 }) {
   const { t, currentLang } = useTranslation();
   const isFr = isFrProp ?? currentLang === 'fr';
@@ -106,8 +111,12 @@ export default function BeforeAfterCarouselSection({
     return base;
   }, [images, isFr, kitchenPairOverride]);
 
+  const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
+  const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
+  const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
+
   return (
-    <Box pt={{ base: 8, md: 12, lg: 16 }} bg="white" overflowX="hidden">
+    <Box pt={pt} pb={pb} bg="white" overflowX="hidden">
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={{ base: 6, md: 8 }} align="center">
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="900px">

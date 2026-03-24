@@ -10,18 +10,21 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 
+const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
+
 export default function FinalCTASection({
   onSubmissionOpen,
   title,
   subtitle,
   buttonText,
+  sectionPy,
 }) {
   const { t } = useTranslation();
 
   return (
     <Box
       w='100%'
-      py={{ base: 12, md: 16, lg: 20 }}
+      py={sectionPy ?? DEFAULT_SECTION_PY}
       bg='app.ctaBg'
       position='relative'
       overflow='hidden'

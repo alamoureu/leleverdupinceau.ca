@@ -47,7 +47,7 @@ export const translations = {
 
     reviewsTitle: 'Ce que nos clients disent de nous',
     reviewsSubtitle:
-      'Plus de 100 avis 5 étoiles sur Google',
+      'Plus de 150 avis 5 étoiles sur Google',
     reviewTime2Months: 'Il y a 2 mois',
     reviewTime6Days: 'Il y a 6 jours',
     reviewTime1Month: 'Il y a 1 mois',
@@ -170,7 +170,7 @@ export const translations = {
     ctaTitle: 'Prêt à commencer ?',
     ctaButton: 'Soumission gratuite',
 
-    googleReviews: '100 + avis',
+    googleReviews: '150 + avis',
     googleRating: '4,9',
 
     trustBannerRbqAlt: 'Régie du bâtiment du Québec',
@@ -189,7 +189,8 @@ export const translations = {
 
     whyUsAddValue: 'Augmentez la valeur de votre maison',
     whyUsAddValueSub: 'sans effort de votre part',
-    whyUsChooseTitle: 'Pourquoi choisir Le Lever du Pinceau ?',
+    // Espaces insécables dans le nom : évite « … choisir Le » / « Lever du … » au retour à la ligne
+    whyUsChooseTitle: 'Pourquoi choisir Le\u00A0Lever\u00A0du\u00A0Pinceau\u00A0?',
     whyUsChooseSub: "Gagnez du temps, profitez d'un résultat parfait",
     whyUsClients: 'Plus de 800 clients ravis',
     whyUsRated: 'Noté 4.9 étoiles sur',
@@ -204,6 +205,12 @@ export const translations = {
     landingHeroTitle: "Peintres d'expériences\nmontréalais",
     landingHeroSubtitle: 'Qualité garantie, au meilleur prix',
     landingHeroButton: 'Soumission gratuite en 24h',
+
+    guaranteeTitle: 'Notre engagement',
+    guaranteeBody:
+      'Nous ne quittons pas le chantier tant que vous n’êtes pas 100% satisfait des travaux effectués.',
+    guaranteeBadgeAlt: 'Sceau 100 % satisfaction garantie',
+    guaranteeFallbackShort: '100% satisfaction',
 
     landingFaq1Question: 'Combien coûte un peintre professionnel à Montréal?',
     landingFaq1Answer:
@@ -274,7 +281,7 @@ export const translations = {
 
     reviewsTitle: 'What our clients say about us',
     reviewsSubtitle:
-      'Over 100 5-star reviews on Google',
+      'Over 150 5-star reviews on Google',
     reviewTime2Months: '2 months ago',
     reviewTime6Days: '6 days ago',
     reviewTime1Month: '1 month ago',
@@ -396,7 +403,7 @@ export const translations = {
     ctaTitle: 'Ready to get started?',
     ctaButton: 'Free quote',
 
-    googleReviews: '100 + reviews',
+    googleReviews: '150 + reviews',
     googleRating: '4.9',
 
     trustBannerRbqAlt: 'Quebec Building Authority',
@@ -415,7 +422,7 @@ export const translations = {
 
     whyUsAddValue: 'Increase Your Home Value',
     whyUsAddValueSub: 'Effortlessly',
-    whyUsChooseTitle: 'Why Choose Le Lever du Pinceau?',
+    whyUsChooseTitle: 'Why Choose Le\u00A0Lever\u00A0du\u00A0Pinceau?',
     whyUsChooseSub: 'Save time, enjoy perfect results',
     whyUsClients: 'Over 800 delighted clients',
     whyUsRated: 'Rated 4.9 stars on',
@@ -430,6 +437,12 @@ export const translations = {
     landingHeroTitle: 'Experienced\nMontreal painters',
     landingHeroSubtitle: 'Guaranteed quality, at the best price',
     landingHeroButton: 'Free quote in 24h',
+
+    guaranteeTitle: 'Our commitment',
+    guaranteeBody:
+      "We don't leave the job site until you are 100% satisfied with the work performed.",
+    guaranteeBadgeAlt: '100% satisfaction guaranteed seal',
+    guaranteeFallbackShort: '100% satisfaction',
 
     landingFaq1Question: 'How much does a professional painter cost in Montreal?',
     landingFaq1Answer:

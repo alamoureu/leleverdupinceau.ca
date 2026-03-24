@@ -102,7 +102,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     ratingValue: '4.9',
     bestRating: '5',
     worstRating: '1',
-    ratingCount: '100',
+    ratingCount: '150',
   },
   image: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
   sameAs: [

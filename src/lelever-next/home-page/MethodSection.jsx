@@ -17,7 +17,9 @@ import method4 from '../images/new-landing/method-4.PNG';
 
 const stepImages = [method1, method2, method3, method4];
 
-export default function MethodSection({ onSubmissionOpen, hideCta = false }) {
+const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
+
+export default function MethodSection({ onSubmissionOpen, hideCta = false, sectionPy }) {
   const { t } = useTranslation();
   const titleParts = t.methodTitle.split(', ');
   const hasTwoParts = titleParts.length >= 2;
@@ -30,10 +32,7 @@ export default function MethodSection({ onSubmissionOpen, hideCta = false }) {
   ];
 
   return (
-    <Box
-      py={{ base: 12, md: 16, lg: 20 }}
-      bg="white"
-    >
+    <Box py={sectionPy ?? DEFAULT_SECTION_PY} bg="white">
       <Container
         maxW="1440px"
         px={{ base: 4, sm: 5, md: 5, lg: 8, xl: 10, '2xl': 12 }}

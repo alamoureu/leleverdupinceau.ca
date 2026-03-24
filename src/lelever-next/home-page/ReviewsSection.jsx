@@ -37,9 +37,9 @@ function ReviewCard({ review }) {
       h='100%'
       display='flex'
       flexDirection='column'
-      minH={{ base: '280px', md: '260px' }}
+      minH={{ base: '240px', md: '260px' }}
     >
-      <Stack spacing={2} flexShrink={0}>
+      <Stack spacing={{ base: 2.5, md: 2 }} flexShrink={0}>
         <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
           <Box>
             <Text fontWeight='bold' textStyle='bodyLarge' color='gray.800'>
@@ -65,12 +65,12 @@ function ReviewCard({ review }) {
           ))}
         </Box>
       </Stack>
-      <Box flex={1} overflowY='auto' mt={3} pb={1}>
-        <Text fontSize={{ base: 'sm', md: 'md' }} color='gray.700' lineHeight='1.6' textAlign='left'>
+      <Box flex={{ base: '0 1 auto', md: 1 }} overflowY='auto' mt={{ base: 3.5, md: 3 }} pb={{ base: 1.5, md: 1 }} minH={0} pr={{ base: 1, md: 0 }}>
+        <Text fontSize={{ base: 'sm', md: 'md' }} color='gray.700' lineHeight={{ base: '1.65', md: '1.6' }} textAlign='left'>
           {review.content}
         </Text>
       </Box>
-      <Box mt={3} display='flex' alignItems='flex-end'>
+      <Box mt={{ base: 3.5, md: 3 }} pt={{ base: 0.5, md: 0 }} display='flex' alignItems='flex-end'>
         <Icon as={FiThumbsUp} color='gray.500' fontSize='lg' />
       </Box>
     </Box>
@@ -84,6 +84,14 @@ export default function ReviewsSection({
   subtitle,
   reviewsOverride,
   desktopColumns,
+  /** e.g. landing: "white" so the bandeau RBQ sous les avis n’est pas sur gray.50 */
+  sectionBg = 'gray.50',
+  /** Si défini, remplace le padding haut */
+  sectionPaddingTop,
+  /** Si défini, remplace le padding bas (ex. avant TrustBanner) pour équilibrer l’espace */
+  sectionPaddingBottom,
+  /** Moins d’espace entre les points et le bas de section (ex. landing + TrustBanner) */
+  compactDotsMargin = false,
 }) {
   const { t } = useTranslation();
   const { currentLang } = useContext(appContext);
@@ -236,8 +244,19 @@ export default function ReviewsSection({
     });
   };
 
+  const defaultSectionPt = { base: 12, md: 16, lg: 20 };
+  const sectionPt =
+    sectionPaddingTop !== undefined ? sectionPaddingTop : defaultSectionPt;
+  const sectionPb =
+    sectionPaddingBottom !== undefined ? sectionPaddingBottom : defaultSectionPt;
+
   return (
-    <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
+    <Box
+      pt={sectionPt}
+      pb={sectionPb}
+      bg={sectionBg}
+      borderRadius={sectionBg === 'white' ? 'none' : 'xl'}
+    >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8} align='center'>
           {!hideTitle && (
@@ -252,7 +271,7 @@ export default function ReviewsSection({
           )}
 
           <Stack
-            spacing={6}
+            spacing={{ base: 7, md: 6 }}
             w='100%'
             maxW={{
               base: '100%',
@@ -307,7 +326,7 @@ export default function ReviewsSection({
                     boxShadow='0 2px 8px rgba(0,0,0,0.1)'
                   />
                 </Box>
-                <HStack justify='center' spacing={3} mt={6}>
+                <HStack justify='center' spacing={3} mt={compactDotsMargin ? 3 : 6}>
                   {Array.from({ length: desktopTotalPages }, (_, i) => (
                     <Box
                       key={i}
@@ -328,8 +347,8 @@ export default function ReviewsSection({
             <Box
               position='relative'
               w='100%'
-              minH={{ base: '350px', md: '280px' }}
-              pb={4}
+              minH={{ base: '268px', md: '280px' }}
+              pb={{ base: 5, md: 4 }}
               display={{ base: 'block', md: desktopColumns != null ? 'none' : 'block' }}
             >
               <AnimatePresence initial={false} custom={direction}>
@@ -371,9 +390,9 @@ export default function ReviewsSection({
                     h='100%'
                     display='flex'
                     flexDirection='column'
-                    minH={{ base: '350px', md: '280px' }}
+                    minH={{ base: '268px', md: '280px' }}
                   >
-                    <Stack spacing={2} flexShrink={0}>
+                    <Stack spacing={{ base: 2.5, md: 2 }} flexShrink={0}>
                       <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
                         <Box>
                           <Text fontWeight='bold' textStyle='bodyLarge' color='gray.800'>
@@ -406,11 +425,12 @@ export default function ReviewsSection({
                       </Box>
                     </Stack>
                     <Box
-                      flex={1}
+                      flex={{ base: '0 1 auto', md: 1 }}
                       overflowY='auto'
                       mt={3}
-                      pr={{ base: 4, md: 5 }}
+                      pr={{ base: 3, md: 5 }}
                       pb={1}
+                      minH={0}
                       sx={{
                         scrollbarGutter: 'stable',
                         scrollbarWidth: 'thin',
@@ -432,12 +452,13 @@ export default function ReviewsSection({
                         },
                       }}
                     >
-                      <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} color='gray.700' lineHeight='1.6' textAlign='left'>
+                      <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} color='gray.700' lineHeight={{ base: '1.65', md: '1.6' }} textAlign='left'>
                         {allReviews[currentIndex].content}
                       </Text>
                     </Box>
                     <Box
-                      mt={3}
+                      mt={{ base: 3.5, md: 3 }}
+                      pt={{ base: 0.5, md: 0 }}
                       display='flex'
                       justifyContent='space-between'
                       alignItems='flex-end'
@@ -494,11 +515,12 @@ export default function ReviewsSection({
             {/* Dots indicator - below the carousel (hidden when desktop grid is shown) */}
             <HStack
               justify='center'
-              spacing={1}
+              spacing={{ base: 1.5, md: 1 }}
               w='100%'
               position='relative'
               zIndex={2}
               display={{ base: 'flex', md: desktopColumns != null ? 'none' : 'flex' }}
+              pt={{ base: 1, md: 0 }}
             >
               {allReviews.map((_, index) => (
                 <Box

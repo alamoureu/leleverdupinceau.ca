@@ -21,7 +21,6 @@ import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
-
 export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
@@ -60,9 +59,7 @@ export default function NewWebsiteLayout() {
             minW={0}
             tabIndex={-1}
             flex="1"
-            pt={isLocaleLanding
-              ? { base: '72px', sm: '76px', md: '88px' }
-              : { base: '94px', sm: '98px', md: '112px' }}
+            pt={isLocaleLanding ? 0 : { base: '94px', sm: '98px', md: '112px' }}
             mt={0}
           >
             <Outlet />

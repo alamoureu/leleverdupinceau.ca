@@ -326,7 +326,7 @@ export default function AvisPage() {
     aggregateRating: {
       '@type': 'AggregateRating',
       ratingValue: '4.9',
-      reviewCount: '100',
+      reviewCount: '150',
     },
     review: [
       {

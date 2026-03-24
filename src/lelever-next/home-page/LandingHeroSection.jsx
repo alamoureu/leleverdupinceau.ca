@@ -10,138 +10,137 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.png';
-import TrustBanner from './TrustBanner';
+import {
+  LANDING_HERO_MOBILE_PT_COMPENSATION,
+  LANDING_MAIN_CONTENT_PT,
+} from '../landing/constants';
 
-export default function HeroSection({
+/** Même V qu’MainHero / ancienne v1 (bas du hero). */
+const CLIP_POLYGON = 'polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%)';
+
+/**
+ * Hero landing : hauteurs proches de HeroSection (accueil), clip en V en bas.
+ * Le dégagement nav (texte à gauche) est dans le Container (`LANDING_MAIN_CONTENT_PT`) ;
+ * `#main` landing est en pt:0 pour que la marge négative ne soit pas nécessaire.
+ */
+export default function LandingHeroSection({
   onSubmissionOpen,
   pageContext = '',
   title,
-  titleSecondLine,
+  titleSecondLine = '',
   subtitle,
-  description,
   buttonText,
-  titleFontWeight,
-  titleFontSize,
-  contentMaxW,
-  contentPr,
   imageBackground,
   children,
-  compactTrustBanner,
-  showHeroTrustBanner = true,
 }) {
   const { t } = useTranslation();
   const heroTitle = title ?? t.heroTitle;
   const heroTitleSecondLine = titleSecondLine ?? t.heroTitleSecondLine;
   const heroSubtitle = subtitle ?? t.heroSubtitle;
-  const heroDescription = description ?? null;
   const heroButton = buttonText ?? t.heroButton;
-  const heroTitleFontWeight = titleFontWeight ?? '700';
-  const heroTitleFontSize = titleFontSize ?? undefined;
-  const heroContentMaxW = contentMaxW ?? undefined;
-  const heroContentPr = contentPr ?? undefined;
 
   return (
     <Box
+      as="section"
       position="relative"
       w="100%"
       minW={0}
-      minH={{
-        base: '320px',
-        sm: '350px',
-        md: '440px',
-        lg: '480px',
-        xl: '680px',
-        '2xl': '750px',
-      }}
-      h={{
-        base: 'auto',
-        sm: 'auto',
-        md: '52vh',
-        lg: '55vh',
-        xl: '85vh',
-        '2xl': '85vh',
-      }}
-      pb={{
-        base: 24,
-        sm: 32,
-        md: 28,
-        lg: 32,
-        xl: 32,
-        '2xl': 36,
-      }}
-      bgColor="gray.600"
-      px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
-      overflow="visible"
+      bg="white"
+      overflow="hidden"
     >
-      <>
-        <Image
-          src={imageBackground || heroImage}
-          alt={`${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`}
-          position="absolute"
-          top={0}
-          left={0}
-          w="100%"
-          h="100%"
-          objectFit="cover"
-          zIndex={0}
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
+      <Box
+        position="relative"
+        display="flex"
+        flexDirection="column"
+        minH={{
+          base: '430px',
+          sm: '450px',
+          md: '560px',
+          lg: '620px',
+          xl: '790px',
+          '2xl': '790px',
+        }}
+        h={{
+          base: 'auto',
+          sm: 'min(64vh, 480px)',
+          md: 'min(82vh, 760px)',
+          lg: 'min(86vh, 820px)',
+          xl: 'min(88vh, 900px)',
+          '2xl': 'min(90vh, 960px)',
+        }}
+        w="100%"
+      >
         <Box
           position="absolute"
           top={0}
           left={0}
           right={0}
           bottom={0}
-          bg="rgba(0, 0, 0, 0.4)"
-          zIndex={1}
-        />
-      </>
-      <Container
-        maxW="1440px"
-        h="100%"
-        position="relative"
-        zIndex={2}
-        px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-        minW={0}
-      >
-        <Stack
-          h="100%"
+          zIndex={0}
+          style={{ clipPath: CLIP_POLYGON }}
+          overflow="hidden"
+          aria-hidden
+        >
+          <Image
+            src={imageBackground || heroImage}
+            alt={`${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`}
+            position="absolute"
+            top={0}
+            left={0}
+            w="100%"
+            h="100%"
+            objectFit="cover"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <Box
+            position="absolute"
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            bg="rgba(0, 0, 0, 0.4)"
+          />
+        </Box>
+
+        <Container
+          maxW="1440px"
+          position="relative"
+          zIndex={2}
           minW={0}
-          pt={{
-            base: '62px',
-            sm: '62px',
-            md: '120px',
-            lg: '120px',
-            xl: '140px',
-            '2xl': '160px',
-          }}
+          flex="1"
+          display="flex"
+          flexDirection="column"
+          justifyContent="flex-start"
+          minH="0"
+          px={{ base: 4, sm: 4, md: 6, lg: 8 }}
+          pt={LANDING_MAIN_CONTENT_PT}
+          pb={{ base: 5, sm: 6, md: 14, lg: 16, xl: 18, '2xl': 20 }}
         >
           <Stack
-            spacing={{ base: 3, sm: 4, md: 5, lg: 6 }}
+            spacing={{ base: 2, sm: 3, md: 5, lg: 6 }}
             minW={0}
-            maxW={heroContentMaxW}
-            pr={heroContentPr}
+            justify="flex-start"
+            flexShrink={0}
           >
             {children}
             <Heading
               as="h1"
               size="page"
-              fontWeight={heroTitleFontWeight}
-              fontSize={
-                heroTitleFontSize ?? {
-                  base: '2xl',
-                  sm: '3xl',
-                  md: '4xl',
-                  lg: '5xl',
-                  xl: '6xl',
-                  '2xl': '7xl',
-                }
-              }
+              fontWeight="800"
+              fontSize={{
+                base: '2xl',
+                sm: '3xl',
+                md: '4xl',
+                lg: '5xl',
+                xl: '6xl',
+                '2xl': '7xl',
+              }}
               color="white"
               lineHeight="1.05"
               minW={0}
+              textShadow="0 2px 24px rgba(0,0,0,0.35)"
             >
               {typeof heroTitle === 'string'
                 ? heroTitle.includes(', ') && heroTitle === t.heroTitle
@@ -162,7 +161,7 @@ export default function HeroSection({
                       </React.Fragment>
                     ))
                 : heroTitle}
-              {heroTitleSecondLine && (
+              {heroTitleSecondLine ? (
                 <>
                   {typeof heroTitle === 'string' &&
                   heroTitle.trimEnd().endsWith(',') ? (
@@ -172,7 +171,7 @@ export default function HeroSection({
                   )}
                   {heroTitleSecondLine}
                 </>
-              )}
+              ) : null}
             </Heading>
 
             <Text
@@ -183,20 +182,10 @@ export default function HeroSection({
               minW={0}
               overflowWrap="break-word"
               wordBreak="break-word"
+              textShadow="0 1px 12px rgba(0,0,0,0.35)"
             >
               {heroSubtitle}
             </Text>
-
-            {heroDescription && (
-              <Text
-                color="whiteAlpha.800"
-                fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                lineHeight="1.6"
-                maxW={{ base: '560px', md: '640px', lg: '720px' }}
-              >
-                {heroDescription}
-              </Text>
-            )}
 
             <Box pt={{ base: 2, sm: 3, md: 4 }}>
               <Button
@@ -227,9 +216,20 @@ export default function HeroSection({
               </Button>
             </Box>
           </Stack>
-        </Stack>
-      </Container>
-      {showHeroTrustBanner && <TrustBanner compact={compactTrustBanner} />}
+          <Box
+            aria-hidden
+            flexGrow={{ base: 0, md: 1 }}
+            minH={{
+              ...LANDING_HERO_MOBILE_PT_COMPENSATION,
+              md: 0,
+              lg: 0,
+              xl: 0,
+              '2xl': 0,
+            }}
+            minW={0}
+          />
+        </Container>
+      </Box>
     </Box>
   );
 }

@@ -4,6 +4,10 @@ import appContext from '../../AppProvider';
 import quebecLogo from '../images/rbqlogo.png';
 import trushieldLogo from '../images/trushieldlogo.png';
 
+/** Évite un bandeau trop étiré sur grands écrans (accueil = flottant ; landing = compact + inline). */
+const TRUST_BANNER_MAX_W_COMPACT = '820px';
+const TRUST_BANNER_MAX_W_FULL = '960px';
+
 const translations = {
   fr: {
     rbqAlt: 'Régie du bâtiment du Québec',
@@ -21,16 +25,19 @@ const translations = {
   },
 };
 
-export default function TrustBanner({ compact = false }) {
+export default function TrustBanner({ compact = false, inline = false }) {
   const { currentLang } = useContext(appContext);
-  const t = translations[currentLang];
+  const t = translations[currentLang] || translations.fr;
+  const landingInline = compact && inline;
 
   const TRUST_ITEMS = [
     {
       image: quebecLogo,
       alt: t.rbqAlt,
       text: t.rbqText,
-      imageHeight: compact
+      imageHeight: landingInline
+        ? { base: '30px', sm: '32px', md: '36px', lg: '40px' }
+        : compact
         ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
         : {
             base: '20px',
@@ -50,7 +57,9 @@ export default function TrustBanner({ compact = false }) {
       image: trushieldLogo,
       alt: t.trushieldAlt,
       text: t.assurance,
-      imageHeight: compact
+      imageHeight: landingInline
+        ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
+        : compact
         ? { base: '22px', sm: '24px', md: '28px', lg: '32px' }
         : {
             base: '18px',
@@ -63,38 +72,73 @@ export default function TrustBanner({ compact = false }) {
     },
   ];
 
-  const paddingY = compact ? { base: 5, sm: 6, md: 7 } : { base: 4, md: 5 };
-  const paddingX = compact
-    ? { base: 4, sm: 6, md: 10, lg: 12 }
-    : { base: 6, sm: 6, md: 8, lg: 10 };
-  const gap = compact
-    ? { base: 3, sm: 6, md: 10, lg: 12 }
-    : { base: 4, sm: 5, md: 8, lg: 10 };
+  const paddingY = landingInline
+    ? { base: 7, sm: 8, md: 9, lg: 10, xl: 10, '2xl': 12 }
+    : compact
+      ? { base: 5, sm: 6, md: 7 }
+      : { base: 4, md: 5 };
+  const paddingX = landingInline
+    ? { base: 5, sm: 7, md: 11, lg: 14 }
+    : compact
+      ? { base: 4, sm: 6, md: 10, lg: 12 }
+      : { base: 6, sm: 6, md: 8, lg: 10 };
+  const gap = landingInline
+    ? { base: 4, sm: 7, md: 11, lg: 14 }
+    : compact
+      ? { base: 3, sm: 6, md: 10, lg: 12 }
+      : {
+          base: 4,
+          sm: 5,
+          md: 6,
+          lg: 8,
+          xl: 10,
+          '2xl': 12,
+        };
+
+  const floatingLayout = !inline;
 
   return (
     <Box
-      position="absolute"
-      left="50%"
-      bottom={0}
-      transform={{
-        base: 'translate(-50%, 50%)',
-        md: 'translate(-50%, calc(50% + 1.25rem))',
-        xl: 'translate(-50%, 50%)',
-      }}
-      maxW={compact ? '820px' : '1440px'}
-      w={
-        compact
-          ? { base: 'calc(100% - 32px)', sm: 'calc(100% - 32px)', md: 'min(720px, calc(100% - 48px))', lg: 'min(820px, calc(100% - 64px))' }
-          : {
-              base: 'calc(100% - 32px)',
-              sm: 'calc(100% - 32px)',
-              md: 'calc(100% - 48px)',
-              lg: 'calc(100% - 80px)',
-              xl: 'calc(100% - 96px)',
-              '2xl': 'calc(100% - 120px)',
+      position={floatingLayout ? 'absolute' : 'relative'}
+      left={floatingLayout ? '50%' : 'auto'}
+      bottom={floatingLayout ? 0 : 'auto'}
+      transform={
+        floatingLayout
+          ? {
+              base: 'translate(-50%, 50%)',
+              md: 'translate(-50%, calc(50% + 1.25rem))',
+              xl: 'translate(-50%, calc(50% + 1.25rem))',
+              '2xl': 'translate(-50%, calc(50% + 1.25rem))',
             }
+          : 'none'
       }
-      zIndex={10}
+      mx={inline ? 'auto' : undefined}
+      maxW={compact ? TRUST_BANNER_MAX_W_COMPACT : TRUST_BANNER_MAX_W_FULL}
+      w={
+        inline
+          ? {
+              /** Pleine largeur du parent sur mobile (évite double marge avec le Container). */
+              base: '100%',
+              sm: '100%',
+              md: `min(${TRUST_BANNER_MAX_W_COMPACT}, calc(100% - 48px))`,
+            }
+          : compact
+            ? {
+                base: 'calc(100% - 32px)',
+                sm: 'calc(100% - 32px)',
+                md: `min(720px, calc(100% - 48px))`,
+                lg: `min(${TRUST_BANNER_MAX_W_COMPACT}, calc(100% - 64px))`,
+              }
+            : {
+                base: 'calc(100% - 32px)',
+                sm: 'calc(100% - 32px)',
+                md: 'calc(100% - 48px)',
+                lg: 'calc(100% - 80px)',
+                xl: 'calc(100% - 96px)',
+                '2xl': 'calc(100% - 120px)',
+              }
+      }
+      zIndex={floatingLayout ? 10 : 1}
       bg="white"
       borderRadius={compact ? 'xl' : '2xl'}
       border="1px solid"
@@ -110,21 +154,29 @@ export default function TrustBanner({ compact = false }) {
         gap={gap}
         wrap="nowrap"
         minW={0}
+        overflowX={{ base: 'auto', md: 'visible' }}
+        sx={{ WebkitOverflowScrolling: 'touch' }}
       >
         {TRUST_ITEMS.map((item, index) => (
           <React.Fragment key={index}>
             <Flex
-              flex={1}
-              minW={0}
+              flex="1 0 auto"
+              minW="max-content"
               direction="column"
               align="center"
               justify="center"
               textAlign="center"
-              gap={compact ? 1 : 2}
+              gap={landingInline ? 1.5 : compact ? 1 : 2}
             >
               {item.isMetric ? (
                 <Text
-                  fontSize={compact ? { base: 'lg', sm: 'xl', md: '2xl' } : { base: 'md', md: 'lg' }}
+                  fontSize={
+                    landingInline
+                      ? { base: 'xl', sm: '2xl', md: '3xl' }
+                      : compact
+                        ? { base: 'lg', sm: 'xl', md: '2xl' }
+                        : { base: 'md', md: 'lg' }
+                  }
                   fontWeight="bold"
                   lineHeight="1"
                   color="gray.800"
@@ -147,14 +199,18 @@ export default function TrustBanner({ compact = false }) {
                 />
               )}
               <Text
-                fontSize={compact ? { base: 'xs', sm: 'sm', md: 'md' } : { base: 'xs', sm: 'sm' }}
+                fontSize={
+                  landingInline
+                    ? { base: 'sm', sm: 'md', md: 'lg' }
+                    : compact
+                      ? { base: 'xs', sm: 'sm', md: 'md' }
+                      : { base: 'xs', sm: 'sm' }
+                }
                 color="gray.700"
                 fontWeight="medium"
-                lineHeight="1.2"
+                lineHeight="1.25"
                 textAlign="center"
-                w="100%"
                 whiteSpace="nowrap"
-                noOfLines={1}
                 mt={item.isMetric ? 1 : 0}
               >
                 {item.isMetric ? item.label : item.text}
@@ -166,7 +222,20 @@ export default function TrustBanner({ compact = false }) {
                 borderColor="gray.200"
                 flexShrink={0}
                 display={{ base: 'none', sm: 'block' }}
-                h={compact ? { base: '40px', sm: '48px', md: '56px' } : { base: '36px', sm: '44px' }}
+                h={
+                  landingInline
+                    ? { base: '48px', sm: '56px', md: '64px' }
+                    : compact
+                      ? { base: '40px', sm: '48px', md: '56px' }
+                      : {
+                          base: '36px',
+                          sm: '44px',
+                          md: '48px',
+                          lg: '52px',
+                          xl: '56px',
+                          '2xl': '60px',
+                        }
+                }
                 alignSelf="center"
               />
             )}

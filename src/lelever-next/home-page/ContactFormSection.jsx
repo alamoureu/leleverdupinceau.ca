@@ -12,11 +12,15 @@ const DEFAULT_FIELDS = {
   projectDetails: 'optional',
 };
 
+const DEFAULT_SECTION_PT = { base: 4, sm: 6, md: 8, lg: 10 };
+const DEFAULT_SECTION_PB = { base: 8, sm: 10, md: 12, lg: 14 };
+
 export default function ContactFormSection({
   fields = DEFAULT_FIELDS,
   phoneFirst = false,
   projectDetailsLabel,
   onSubmissionStateChange,
+  sectionPy,
 }) {
   const { t } = useTranslation();
   const [isFormSuccess, setIsFormSuccess] = useState(false);
@@ -28,8 +32,8 @@ export default function ContactFormSection({
 
   return (
     <Stack
-      pt={{ base: 4, sm: 6, md: 8, lg: 10 }}
-      pb={{ base: 8, sm: 10, md: 12, lg: 14 }}
+      pt={sectionPy ?? DEFAULT_SECTION_PT}
+      pb={sectionPy ?? DEFAULT_SECTION_PB}
       align="center"
       px={{ base: 3, sm: 4, md: 6, lg: 8 }}
       bg="white"

@@ -69,7 +69,9 @@ function getFaqs(isFr) {
   ];
 }
 
-export default function FAQSection({ faqsOverride, title }) {
+const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
+
+export default function FAQSection({ faqsOverride, title, sectionPy }) {
   const { t, currentLang } = useTranslation();
   const isFr = currentLang === 'fr';
   const faqs = Array.isArray(faqsOverride) && faqsOverride.length > 0 ? faqsOverride : getFaqs(isFr);
@@ -89,7 +91,7 @@ export default function FAQSection({ faqsOverride, title }) {
   };
 
   return (
-    <Box w="100%" py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
+    <Box w="100%" py={sectionPy ?? DEFAULT_SECTION_PY} bg="gray.50">
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
