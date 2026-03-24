@@ -21,6 +21,8 @@ export default function ContactFormSection({
   projectDetailsLabel,
   onSubmissionStateChange,
   sectionPy,
+  sectionPaddingTop,
+  sectionPaddingBottom,
 }) {
   const { t } = useTranslation();
   const [isFormSuccess, setIsFormSuccess] = useState(false);
@@ -30,10 +32,15 @@ export default function ContactFormSection({
     onSubmissionStateChange?.(success);
   };
 
+  const fallbackPt = sectionPy ?? DEFAULT_SECTION_PT;
+  const fallbackPb = sectionPy ?? DEFAULT_SECTION_PB;
+  const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPt;
+  const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPb;
+
   return (
     <Stack
-      pt={sectionPy ?? DEFAULT_SECTION_PT}
-      pb={sectionPy ?? DEFAULT_SECTION_PB}
+      pt={pt}
+      pb={pb}
       align="center"
       px={{ base: 3, sm: 4, md: 6, lg: 8 }}
       bg="white"

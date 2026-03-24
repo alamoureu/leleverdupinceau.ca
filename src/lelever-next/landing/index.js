@@ -10,6 +10,7 @@ export {
   LANDING_MAIN_CONTENT_PT,
   LANDING_META,
   LANDING_SECTION_PY,
+  LANDING_SECTION_PY_HALF,
   LANDING_WHYUS_SECTION_PT,
 } from './constants';
 export { buildLandingFaqs } from './landingFaqs';

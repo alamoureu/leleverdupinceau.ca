@@ -19,10 +19,20 @@ const stepImages = [method1, method2, method3, method4];
 
 const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
 
-export default function MethodSection({ onSubmissionOpen, hideCta = false, sectionPy }) {
+export default function MethodSection({
+  onSubmissionOpen,
+  hideCta = false,
+  sectionPy,
+  sectionPaddingTop,
+  sectionPaddingBottom,
+}) {
   const { t } = useTranslation();
   const titleParts = t.methodTitle.split(', ');
   const hasTwoParts = titleParts.length >= 2;
+
+  const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
+  const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
+  const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
 
   const steps = [
     { title: t.methodStep1Title, description: t.methodStep1Desc },
@@ -32,7 +42,7 @@ export default function MethodSection({ onSubmissionOpen, hideCta = false, secti
   ];
 
   return (
-    <Box py={sectionPy ?? DEFAULT_SECTION_PY} bg="white">
+    <Box pt={pt} pb={pb} bg="white">
       <Container
         maxW="1440px"
         px={{ base: 4, sm: 5, md: 5, lg: 8, xl: 10, '2xl': 12 }}

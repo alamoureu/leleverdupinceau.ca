@@ -13,6 +13,16 @@ import { useTranslation } from '../i18n';
 import satisfactionBadgeFr from '../images/satisfaction_fr.PNG';
 import satisfactionBadgeEn from '../images/satisfaction_en.PNG';
 
+/** Même cadre carré FR / EN ; les deux PNG devraient idéalement avoir le même cadrage du sceau. */
+const SATISFACTION_BADGE_FRAME = {
+  base: '118px',
+  sm: '128px',
+  md: '152px',
+  lg: '188px',
+  xl: '216px',
+  '2xl': '236px',
+};
+
 /** Sceaux : `src/lelever-next/images/satisfaction_fr.PNG` | `satisfaction_en.PNG` */
 export default function GuaranteeSection({
   onSubmissionOpen,
@@ -107,23 +117,9 @@ export default function GuaranteeSection({
           >
             <Box
               flexShrink={0}
-              w={{
-                base: '118px',
-                sm: '128px',
-                md: '152px',
-                lg: '188px',
-                xl: '216px',
-                '2xl': '236px',
-              }}
+              w={SATISFACTION_BADGE_FRAME}
               aspectRatio={1}
-              maxH={{
-                base: '118px',
-                sm: '128px',
-                md: '152px',
-                lg: '188px',
-                xl: '216px',
-                '2xl': '236px',
-              }}
+              maxH={SATISFACTION_BADGE_FRAME}
               display="flex"
               alignItems="center"
               justifyContent="center"

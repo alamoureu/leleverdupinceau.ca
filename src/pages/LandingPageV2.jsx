@@ -8,6 +8,7 @@ import {
   LANDING_BETONEL_BAND_PY,
   LANDING_META,
   LANDING_SECTION_PY,
+  LANDING_SECTION_PY_HALF,
   LANDING_WHYUS_SECTION_PT,
   buildLandingFaqs,
 } from '../lelever-next/landing';
@@ -109,12 +110,14 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         <BeforeAfterCarouselSection
           sectionPy={LANDING_SECTION_PY}
           sectionPaddingTop={LANDING_BETONEL_BAND_PY}
+          sectionPaddingBottom={LANDING_SECTION_PY_HALF}
         />
 
         <MethodSection
           onSubmissionOpen={onOpen}
           hideCta
           sectionPy={LANDING_SECTION_PY}
+          sectionPaddingTop={LANDING_SECTION_PY_HALF}
         />
 
         <GuaranteeSection
@@ -128,6 +131,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           phoneFirst
           projectDetailsLabel={t.formProjectDetails}
           sectionPy={LANDING_SECTION_PY}
+          sectionPaddingBottom={LANDING_SECTION_PY_HALF}
         />
 
         <Box bg="white" w="100%">
@@ -137,7 +141,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
             title={t.reviewsTitle}
             subtitle={t.reviewsSubtitle}
             sectionBg="white"
-            sectionPaddingTop={LANDING_SECTION_PY}
+            sectionPaddingTop={LANDING_SECTION_PY_HALF}
             sectionPaddingBottom={0}
             compactDotsMargin
           />

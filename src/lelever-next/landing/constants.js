@@ -36,6 +36,16 @@ export const LANDING_SECTION_PY = {
   '2xl': 24,
 };
 
+/** 50 % de `LANDING_SECTION_PY` : paires pb + pt pour réduire de moitié l’espace entre deux blocs (landing). */
+export const LANDING_SECTION_PY_HALF = {
+  base: 5,
+  sm: 5,
+  md: 8,
+  lg: 10,
+  xl: 10,
+  '2xl': 12,
+};
+
 /**
  * Moins d’espace vertical autour du bandeau Bétonel (mobile) : moitié de `LANDING_SECTION_PY` en base/sm, identique au-dessus de md.
  */
