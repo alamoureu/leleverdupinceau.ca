@@ -10,18 +10,14 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.png';
-import {
-  LANDING_HERO_MOBILE_PT_COMPENSATION,
-  LANDING_MAIN_CONTENT_PT,
-} from '../landing/constants';
+import { LANDING_MAIN_CONTENT_PT } from '../landing/constants';
 
 /** Même V qu’MainHero / ancienne v1 (bas du hero). */
 const CLIP_POLYGON = 'polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%)';
 
 /**
- * Hero landing : hauteurs proches de HeroSection (accueil), clip en V en bas.
- * Le dégagement nav (texte à gauche) est dans le Container (`LANDING_MAIN_CONTENT_PT`) ;
- * `#main` landing est en pt:0 pour que la marge négative ne soit pas nécessaire.
+ * Hero landing : clip en V en bas. Nav fixe → `pt` + `pb` symétriques.
+ * Le bloc contenu est centré dans le hero ; titre, texte et CTA restent alignés à gauche dans ce bloc.
  */
 export default function LandingHeroSection({
   onSubmissionOpen,
@@ -39,6 +35,9 @@ export default function LandingHeroSection({
   const heroSubtitle = subtitle ?? t.heroSubtitle;
   const heroButton = buttonText ?? t.heroButton;
 
+  /** Même pb que le pt (dégagement nav) sur tous les breakpoints → bande utile symétrique, centre vertical = milieu du hero. */
+  const heroPb = { ...LANDING_MAIN_CONTENT_PT };
+
   return (
     <Box
       as="section"
@@ -53,20 +52,20 @@ export default function LandingHeroSection({
         display="flex"
         flexDirection="column"
         minH={{
-          base: '430px',
-          sm: '450px',
-          md: '560px',
-          lg: '620px',
-          xl: '790px',
-          '2xl': '790px',
+          base: 'min(76vh, 440px)',
+          sm: 'min(74vh, 460px)',
+          md: 'min(78vh, 560px)',
+          lg: 'min(80vh, 640px)',
+          xl: 'min(82vh, 720px)',
+          '2xl': 'min(84vh, 780px)',
         }}
         h={{
-          base: 'auto',
-          sm: 'min(64vh, 480px)',
-          md: 'min(82vh, 760px)',
-          lg: 'min(86vh, 820px)',
-          xl: 'min(88vh, 900px)',
-          '2xl': 'min(90vh, 960px)',
+          base: 'min(76vh, 520px)',
+          sm: 'min(74vh, 540px)',
+          md: 'min(82vh, 680px)',
+          lg: 'min(84vh, 760px)',
+          xl: 'min(86vh, 860px)',
+          '2xl': 'min(88vh, 920px)',
         }}
         w="100%"
       >
@@ -112,122 +111,135 @@ export default function LandingHeroSection({
           flex="1"
           display="flex"
           flexDirection="column"
-          justifyContent="flex-start"
           minH="0"
           px={{ base: 4, sm: 4, md: 6, lg: 8 }}
           pt={LANDING_MAIN_CONTENT_PT}
-          pb={{ base: 5, sm: 6, md: 14, lg: 16, xl: 18, '2xl': 20 }}
+          pb={heroPb}
         >
-          <Stack
-            spacing={{ base: 2, sm: 3, md: 5, lg: 6 }}
-            minW={0}
-            justify="flex-start"
-            flexShrink={0}
-          >
-            {children}
-            <Heading
-              as="h1"
-              size="page"
-              fontWeight="800"
-              fontSize={{
-                base: '2xl',
-                sm: '3xl',
-                md: '4xl',
-                lg: '5xl',
-                xl: '6xl',
-                '2xl': '7xl',
-              }}
-              color="white"
-              lineHeight="1.05"
-              minW={0}
-              textShadow="0 2px 24px rgba(0,0,0,0.35)"
-            >
-              {typeof heroTitle === 'string'
-                ? heroTitle.includes(', ') && heroTitle === t.heroTitle
-                  ? heroTitle.split(', ').map((line, idx) => (
-                      <React.Fragment key={idx}>
-                        {line}
-                        {idx === 0 && (
-                          <>
-                            ,<br />
-                          </>
-                        )}
-                      </React.Fragment>
-                    ))
-                  : heroTitle.split('\n').map((line, idx) => (
-                      <React.Fragment key={idx}>
-                        {idx > 0 && <br />}
-                        {line}
-                      </React.Fragment>
-                    ))
-                : heroTitle}
-              {heroTitleSecondLine ? (
-                <>
-                  {typeof heroTitle === 'string' &&
-                  heroTitle.trimEnd().endsWith(',') ? (
-                    <br />
-                  ) : (
-                    ' '
-                  )}
-                  {heroTitleSecondLine}
-                </>
-              ) : null}
-            </Heading>
-
-            <Text
-              textStyle="bodyLarge"
-              fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
-              color="white"
-              fontWeight="thin"
-              minW={0}
-              overflowWrap="break-word"
-              wordBreak="break-word"
-              textShadow="0 1px 12px rgba(0,0,0,0.35)"
-            >
-              {heroSubtitle}
-            </Text>
-
-            <Box pt={{ base: 2, sm: 3, md: 4 }}>
-              <Button
-                onClick={onSubmissionOpen}
-                bg="brand.500"
-                color="white"
-                textStyle="nav"
-                px={{ base: 8, sm: 10, md: 12, lg: 14, xl: 16 }}
-                py={{ base: 3, sm: 4, md: 5, lg: 6 }}
-                minH={{
-                  base: '48px',
-                  sm: '52px',
-                  md: '56px',
-                  lg: '64px',
-                  xl: '72px',
-                  '2xl': '76px',
-                }}
-                h="auto"
-                w="100%"
-                maxW={{ base: '280px', sm: '320px', md: '360px', lg: '380px' }}
-                borderRadius="full"
-                boxShadow="lg"
-                _hover={{ bg: 'brand.600' }}
-                whiteSpace="normal"
-                lineHeight="1.15"
-              >
-                {heroButton}
-              </Button>
-            </Box>
-          </Stack>
           <Box
-            aria-hidden
-            flexGrow={{ base: 0, md: 1 }}
-            minH={{
-              ...LANDING_HERO_MOBILE_PT_COMPENSATION,
-              md: 0,
-              lg: 0,
-              xl: 0,
-              '2xl': 0,
-            }}
+            flex="1"
+            minH={0}
             minW={0}
-          />
+            w="100%"
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Stack
+              spacing={{ base: 3, sm: 4, md: 7, lg: 8, xl: 8 }}
+              minW={0}
+              maxW={{ base: '100%', md: '900px', lg: '960px', xl: '1100px' }}
+              w="100%"
+              align="flex-start"
+              alignSelf="center"
+              flexShrink={0}
+            >
+              {children}
+              <Heading
+                as="h1"
+                size="page"
+                fontWeight="800"
+                fontSize={{
+                  base: '2xl',
+                  sm: '3xl',
+                  md: '4xl',
+                  lg: '5xl',
+                  xl: '6xl',
+                  '2xl': '7xl',
+                }}
+                color="white"
+                lineHeight={{ base: '1.08', md: '1.1', lg: '1.12' }}
+                minW={0}
+                textAlign="left"
+                textShadow="0 2px 24px rgba(0,0,0,0.35)"
+              >
+                {typeof heroTitle === 'string'
+                  ? heroTitle.includes(', ') && heroTitle === t.heroTitle
+                    ? heroTitle.split(', ').map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {line}
+                          {idx === 0 && (
+                            <>
+                              ,<br />
+                            </>
+                          )}
+                        </React.Fragment>
+                      ))
+                    : heroTitle.split('\n').map((line, idx) => (
+                        <React.Fragment key={idx}>
+                          {idx > 0 && <br />}
+                          {line}
+                        </React.Fragment>
+                      ))
+                  : heroTitle}
+                {heroTitleSecondLine ? (
+                  <>
+                    {typeof heroTitle === 'string' &&
+                    heroTitle.trimEnd().endsWith(',') ? (
+                      <br />
+                    ) : (
+                      ' '
+                    )}
+                    {heroTitleSecondLine}
+                  </>
+                ) : null}
+              </Heading>
+
+              <Text
+                textStyle="bodyLarge"
+                fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                color="white"
+                fontWeight="thin"
+                minW={0}
+                overflowWrap="break-word"
+                wordBreak="break-word"
+                textAlign="left"
+                textShadow="0 1px 12px rgba(0,0,0,0.35)"
+              >
+                {heroSubtitle}
+              </Text>
+
+              <Box
+                pt={{ base: 2, sm: 3, md: 2, lg: 2, xl: 3 }}
+                w="100%"
+                display="flex"
+                justifyContent="flex-start"
+              >
+                <Button
+                  onClick={onSubmissionOpen}
+                  bg="brand.500"
+                  color="white"
+                  textStyle="nav"
+                  px={{ base: 8, sm: 10, md: 12, lg: 14, xl: 16 }}
+                  py={{ base: 3, sm: 4, md: 5, lg: 6 }}
+                  minH={{
+                    base: '48px',
+                    sm: '52px',
+                    md: '56px',
+                    lg: '64px',
+                    xl: '72px',
+                    '2xl': '76px',
+                  }}
+                  h="auto"
+                  w="100%"
+                  maxW={{
+                    base: 'min(100%, 320px)',
+                    sm: '340px',
+                    md: '380px',
+                    lg: '400px',
+                  }}
+                  borderRadius="full"
+                  boxShadow="lg"
+                  _hover={{ bg: 'brand.600' }}
+                  whiteSpace="normal"
+                  lineHeight="1.15"
+                >
+                  {heroButton}
+                </Button>
+              </Box>
+            </Stack>
+          </Box>
         </Container>
       </Box>
     </Box>

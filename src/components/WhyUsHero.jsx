@@ -47,12 +47,12 @@ export default function WhyUsHero({
     <Box
       bg="white"
       mt={{
-        base: '-1rem',
-        sm: '-1.125rem',
-        md: '-0.75rem',
-        lg: '-1rem',
-        xl: 'calc(-1 * min(14vh, 8.5rem))',
-        '2xl': 'calc(-1 * min(16vh, 9.5rem))',
+        base: '-0.75rem',
+        sm: '-0.875rem',
+        md: '-0.5rem',
+        lg: '-0.75rem',
+        xl: '-1.25rem',
+        '2xl': '-1.5rem',
       }}
       pt={pt}
       pb={pb}

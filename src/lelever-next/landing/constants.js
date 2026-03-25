@@ -5,22 +5,22 @@
 export const CANONICAL_BASE = 'https://www.leleverdupinceau.ca';
 
 /**
- * Padding-top du contenu hero : dégagement surtout de la barre fixe (logo + tel).
- * Le badge Google est à droite ; le titre est à gauche, donc pas besoin d’empiler la hauteur du badge.
- * La hauteur visuelle du bloc est préservée via un spacer sous le contenu dans `LandingHeroSection`.
+ * Padding-top du contenu hero sous la nav fixe (landing : pas de bandeau noir, une seule rangée).
+ * Valeurs calées sur `WebsiteNavBar` (py + logo ~52–68px) + petite marge, pas sur l’accueil `#main`+hero.
  */
 export const LANDING_MAIN_CONTENT_PT = {
-  base: '130px',
-  sm: '130px',
-  md: '175px',
-  lg: '175px',
-  xl: '225px',
+  base: '5.5rem',
+  sm: '5.75rem',
+  md: '7rem',
+  lg: '7.5rem',
+  xl: '8rem',
+  '2xl': '8.25rem',
 };
 
-/** Sur mobile (`h: auto`), réserve sous le CTA ; un peu moins haut pour rapprocher WhyUs du clip en V. */
+/** Sous le CTA sur mobile : léger souffle avant le clip en V (évite un spacer excessif). */
 export const LANDING_HERO_MOBILE_PT_COMPENSATION = {
-  base: '44px',
-  sm: '48px',
+  base: '1.25rem',
+  sm: '1.5rem',
 };
 
 /**
@@ -58,14 +58,14 @@ export const LANDING_BETONEL_BAND_PY = {
   '2xl': 24,
 };
 
-/** Pt du bloc Why Us sous le hero (un peu moins que `LANDING_SECTION_PY` sur mobile). */
+/** Pt du bloc Why Us sous le hero (cohérent avec le chevauchement léger du clip en V). */
 export const LANDING_WHYUS_SECTION_PT = {
-  base: 3,
-  sm: 3,
+  base: 4,
+  sm: 4,
   md: 8,
   lg: 10,
-  xl: '95px',
-  '2xl': '125px',
+  xl: 10,
+  '2xl': 12,
 };
 
 export const LANDING_META = {
