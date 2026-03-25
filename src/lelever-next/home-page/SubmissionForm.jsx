@@ -21,6 +21,7 @@ import { useTranslation } from '../i18n';
 import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
+import { sendWebsiteLeadToErp } from '../../utils/erpWebsiteWebhook';
 import { fontFamily } from '../../theme';
 
 const activeLabelStyles = {
@@ -284,6 +285,12 @@ export default function SubmissionForm({
       } catch (webhookError) {
         if (import.meta.env?.DEV)
           console.error('GoHighLevel webhook error:', webhookError);
+      }
+      try {
+        await sendWebsiteLeadToErp(ghlData, { language: currentLang });
+      } catch (erpError) {
+        if (import.meta.env?.DEV)
+          console.error('ERP website lead error:', erpError);
       }
 
       if (onSubmit) onSubmit(formData);

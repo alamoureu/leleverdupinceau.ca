@@ -26,6 +26,7 @@ import { sendEmail } from '../sendEmail';
 import { db } from '../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../utils/gohighlevelWebhook';
+import { sendWebsiteLeadToErp } from '../utils/erpWebsiteWebhook';
 
 export default function SoumissionForm() {
   const { currentLang } = useContext(appContext);
@@ -287,6 +288,23 @@ export default function SoumissionForm() {
         // Log webhook error but don't fail the submission
         if (import.meta?.env?.DEV) console.error('GoHighLevel webhook error:', webhookError);
         // Optionally show a warning but continue
+      }
+
+      try {
+        await sendWebsiteLeadToErp(
+          {
+            name: formData.name,
+            email: formData.email,
+            phone: formData.tel,
+            address: formData.address,
+            typePeinture: formData.typePeinture,
+            besoinPeinture: formData.besoinPeinture,
+            message: formData.message,
+          },
+          { language: currentLang }
+        );
+      } catch (erpError) {
+        if (import.meta?.env?.DEV) console.error('ERP website lead error:', erpError);
       }
 
       setLoading(false);
