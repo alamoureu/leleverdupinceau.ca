@@ -1,5 +1,36 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
+/** Path proxied by Vite (dev) and Netlify to the real ERP server — same-origin in the browser. */
+const ERP_LEAD_PROXY_PATH = '/api/webhooks/leads/website';
+
+/**
+ * Use a relative URL when the configured endpoint matches the proxy path so the
+ * browser does not cross-origin POST (ERP often has no CORS on webhooks).
+ * Set VITE_ERP_WEBSITE_LEAD_DIRECT=true to always use the absolute URL from env.
+ */
+function resolveErpWebsiteLeadUrl(raw) {
+  if (!raw) return '';
+  const t = String(raw).trim();
+  if (t.startsWith('/')) return t;
+  if (
+    typeof import.meta !== 'undefined' &&
+    import.meta.env?.VITE_ERP_WEBSITE_LEAD_DIRECT === 'true'
+  ) {
+    return t;
+  }
+  try {
+    const u = new URL(t);
+    const path = u.pathname.replace(/\/$/, '') || '/';
+    const proxyPath = ERP_LEAD_PROXY_PATH.replace(/\/$/, '') || '/';
+    if (path === proxyPath) {
+      return ERP_LEAD_PROXY_PATH;
+    }
+  } catch {
+    return t;
+  }
+  return t;
+}
+
 function normalizePhoneForErp(phone) {
   const digits = String(phone ?? '').replace(/\D/g, '');
   if (digits.length === 11 && digits.startsWith('1')) return digits.slice(1);
@@ -77,10 +108,11 @@ export function buildErpWebsiteLeadPayload(formData, options = {}) {
  * No-op if VITE_ERP_WEBSITE_LEAD_URL is unset (e.g. local dev without ERP).
  */
 export async function sendWebsiteLeadToErp(formData, options = {}) {
-  const url =
+  const configured =
     typeof import.meta !== 'undefined' && import.meta.env?.VITE_ERP_WEBSITE_LEAD_URL
       ? String(import.meta.env.VITE_ERP_WEBSITE_LEAD_URL).trim()
       : '';
+  const url = resolveErpWebsiteLeadUrl(configured);
 
   if (!url) {
     if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
