@@ -58,13 +58,6 @@
   status = 301
   force = true
 
-# ERP lead webhook: browser POST stays same-origin (avoids CORS). Must be before SPA fallback.
-[[redirects]]
-  from = "/api/webhooks/leads/website"
-  to = "https://llp-erp-server.onrender.com/api/webhooks/leads/website"
-  status = 200
-  force = true
-
 # SPA fallback
 [[redirects]]
   from = "/*"

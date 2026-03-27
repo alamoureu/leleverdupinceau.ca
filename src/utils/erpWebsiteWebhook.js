@@ -1,16 +1,8 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
-/** ERP website lead webhook (Render). Proxied in dev/production — see vite.config.mjs + netlify.toml. */
+/** ERP website lead webhook (Render) — POST goes here from the browser, not via leleverdupinceau.ca. */
 export const ERP_WEBSITE_LEAD_URL =
   'https://llp-erp-server.onrender.com/api/webhooks/leads/website';
-
-function getBrowserLeadPostUrl() {
-  try {
-    return new URL(ERP_WEBSITE_LEAD_URL).pathname;
-  } catch {
-    return '/api/webhooks/leads/website';
-  }
-}
 
 function normalizePhoneForErp(phone) {
   const digits = String(phone ?? '').replace(/\D/g, '');
@@ -85,15 +77,14 @@ export function buildErpWebsiteLeadPayload(formData, options = {}) {
 }
 
 /**
- * Sends a website lead to the ERP webhook.
- * Uses a same-origin path in the browser so Vite/Netlify can proxy without CORS.
+ * Sends a website lead to the ERP webhook (direct POST to Render).
+ * ERP must allow CORS from your site origin and from localhost (dev) if you test there.
  */
 export async function sendWebsiteLeadToErp(formData, options = {}) {
-  const url = getBrowserLeadPostUrl();
   const payload = buildErpWebsiteLeadPayload(formData, options);
 
   try {
-    const response = await fetch(url, {
+    const response = await fetch(ERP_WEBSITE_LEAD_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

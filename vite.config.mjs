@@ -6,13 +6,6 @@ export default defineConfig({
   server: {
     host: true,
     port: 5173,
-    // Same-origin proxy: avoids CORS when POSTing JSON from localhost to Render.
-    proxy: {
-      '/api/webhooks/leads/website': {
-        target: 'https://llp-erp-server.onrender.com',
-        changeOrigin: true,
-      },
-    },
   },
   build: {
     sourcemap: false,
