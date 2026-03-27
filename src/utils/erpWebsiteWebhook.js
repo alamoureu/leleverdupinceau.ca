@@ -1,34 +1,15 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
-/** Path proxied by Vite (dev) and Netlify to the real ERP server — same-origin in the browser. */
-const ERP_LEAD_PROXY_PATH = '/api/webhooks/leads/website';
+/** ERP website lead webhook (Render). Proxied in dev/production — see vite.config.mjs + netlify.toml. */
+export const ERP_WEBSITE_LEAD_URL =
+  'https://llp-erp-server.onrender.com/api/webhooks/leads/website';
 
-/**
- * Use a relative URL when the configured endpoint matches the proxy path so the
- * browser does not cross-origin POST (ERP often has no CORS on webhooks).
- * Set VITE_ERP_WEBSITE_LEAD_DIRECT=true to always use the absolute URL from env.
- */
-function resolveErpWebsiteLeadUrl(raw) {
-  if (!raw) return '';
-  const t = String(raw).trim();
-  if (t.startsWith('/')) return t;
-  if (
-    typeof import.meta !== 'undefined' &&
-    import.meta.env?.VITE_ERP_WEBSITE_LEAD_DIRECT === 'true'
-  ) {
-    return t;
-  }
+function getBrowserLeadPostUrl() {
   try {
-    const u = new URL(t);
-    const path = u.pathname.replace(/\/$/, '') || '/';
-    const proxyPath = ERP_LEAD_PROXY_PATH.replace(/\/$/, '') || '/';
-    if (path === proxyPath) {
-      return ERP_LEAD_PROXY_PATH;
-    }
+    return new URL(ERP_WEBSITE_LEAD_URL).pathname;
   } catch {
-    return t;
+    return '/api/webhooks/leads/website';
   }
-  return t;
 }
 
 function normalizePhoneForErp(phone) {
@@ -104,25 +85,11 @@ export function buildErpWebsiteLeadPayload(formData, options = {}) {
 }
 
 /**
- * Sends a website lead to the custom ERP webhook.
- * No-op if VITE_ERP_WEBSITE_LEAD_URL is unset (e.g. local dev without ERP).
+ * Sends a website lead to the ERP webhook.
+ * Uses a same-origin path in the browser so Vite/Netlify can proxy without CORS.
  */
 export async function sendWebsiteLeadToErp(formData, options = {}) {
-  const configured =
-    typeof import.meta !== 'undefined' && import.meta.env?.VITE_ERP_WEBSITE_LEAD_URL
-      ? String(import.meta.env.VITE_ERP_WEBSITE_LEAD_URL).trim()
-      : '';
-  const url = resolveErpWebsiteLeadUrl(configured);
-
-  if (!url) {
-    if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
-      console.info(
-        '[ERP] VITE_ERP_WEBSITE_LEAD_URL is unset; skipping ERP lead POST'
-      );
-    }
-    return null;
-  }
-
+  const url = getBrowserLeadPostUrl();
   const payload = buildErpWebsiteLeadPayload(formData, options);
 
   try {
