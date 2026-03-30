@@ -11,13 +11,13 @@ import {
   Text,
   Radio,
   RadioGroup,
-  Link,
   Box,
   useToast,
   Heading,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n';
+import ShakeButton from './ShakeButton';
 import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
@@ -678,59 +678,38 @@ export default function SubmissionForm({
               mt="auto"
               bg="white"
             >
-              <Button
-                type="submit"
-                bg={BRAND_BLUE}
-                color="white"
-                w="100%"
-                fontSize={{ base: 'md', md: 'md' }}
-                py={{ base: 3, md: 4 }}
-                fontWeight="semibold"
-                borderRadius="full"
-                _hover={{ bg: BRAND_BLUE_HOVER }}
-                _loading={{
-                  opacity: 0.8,
-                  cursor: 'not-allowed',
-                }}
-                isLoading={isSubmitting}
-                loadingText={t.formSubmitting}
-                spinnerPlacement="start"
-                disabled={isSubmitting}
-              >
-                {t.formSubmit}
-              </Button>
-
-              {effectiveFields.consentAccepted && (
-                <Box
-                  fontSize="xs"
-                  color="gray.500"
-                  textAlign="center"
-                  lineHeight="1.5"
-                  pt={3}
-                  px={1}
+              <ShakeButton>
+                <Button
+                  type="submit"
+                  bgGradient={`linear(to-r, ${BRAND_BLUE}, ${BRAND_BLUE_HOVER})`}
+                  color="white"
+                  w="100%"
+                  fontSize={{ base: 'md', md: 'md' }}
+                  py={{ base: 3, md: 4 }}
+                  fontWeight="bold"
+                  letterSpacing="0.01em"
+                  borderRadius="full"
+                  boxShadow="0 8px 28px rgba(35, 85, 202, 0.45)"
+                  _hover={{
+                    bgGradient: `linear(to-r, ${BRAND_BLUE_HOVER}, #183D9A)`,
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 12px 36px rgba(35, 85, 202, 0.55)',
+                  }}
+                  _active={{ transform: 'translateY(0)' }}
+                  _loading={{
+                    opacity: 0.8,
+                    cursor: 'not-allowed',
+                  }}
+                  transition="all 0.22s cubic-bezier(0.4, 0, 0.2, 1)"
+                  isLoading={isSubmitting}
+                  loadingText={t.formSubmitting}
+                  spinnerPlacement="start"
+                  disabled={isSubmitting}
                 >
-                  {currentLang === 'fr'
-                    ? 'En soumettant ce formulaire, vous acceptez les'
-                    : 'By submitting this form, you agree to the'}{' '}
-                  <Link
-                    href="/politiques/termes-conditions"
-                    color="#1E4BBA"
-                    textDecoration="underline"
-                    _hover={{ color: '#183D9A' }}
-                  >
-                    {t.formTermsAndConditions}
-                  </Link>{' '}
-                  {t.formAnd}{' '}
-                  <Link
-                    href="/politiques/confidentialite"
-                    color="#1E4BBA"
-                    textDecoration="underline"
-                    _hover={{ color: '#183D9A' }}
-                  >
-                    {t.formPrivacyPolicy}
-                  </Link>
-                </Box>
-              )}
+                  {t.formSubmit}
+                </Button>
+              </ShakeButton>
+
             </Box>
           )}
         </Box>

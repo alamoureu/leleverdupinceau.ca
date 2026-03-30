@@ -11,6 +11,7 @@ import {
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.png';
 import { LANDING_MAIN_CONTENT_PT } from '../landing/constants';
+import ShakeButton from './ShakeButton';
 
 /** Même V qu’MainHero / ancienne v1 (bas du hero). */
 const CLIP_POLYGON = 'polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%)';
@@ -27,6 +28,7 @@ export default function LandingHeroSection({
   subtitle,
   buttonText,
   imageBackground,
+  contentPt,
   children,
 }) {
   const { t } = useTranslation();
@@ -35,8 +37,15 @@ export default function LandingHeroSection({
   const heroSubtitle = subtitle ?? t.heroSubtitle;
   const heroButton = buttonText ?? t.heroButton;
 
-  /** Même pb que le pt (dégagement nav) sur tous les breakpoints → bande utile symétrique, centre vertical = milieu du hero. */
-  const heroPb = { ...LANDING_MAIN_CONTENT_PT };
+  /** pb plus grand que pt pour compenser le clip en V (~20 % du bas coupé) → remonte le contenu vers le centre visuel. */
+  const heroPb = {
+    base: '9rem',
+    sm: '9.5rem',
+    md: '12rem',
+    lg: '13rem',
+    xl: '14rem',
+    '2xl': '14rem',
+  };
 
   return (
     <Box
@@ -54,18 +63,18 @@ export default function LandingHeroSection({
         minH={{
           base: 'min(76vh, 440px)',
           sm: 'min(74vh, 460px)',
-          md: 'min(78vh, 560px)',
-          lg: 'min(80vh, 640px)',
-          xl: 'min(82vh, 720px)',
-          '2xl': 'min(84vh, 780px)',
+          md: 'min(88vh, 700px)',
+          lg: 'min(92vh, 820px)',
+          xl: 'min(94vh, 920px)',
+          '2xl': 'min(96vh, 1020px)',
         }}
         h={{
           base: 'min(76vh, 520px)',
           sm: 'min(74vh, 540px)',
-          md: 'min(82vh, 680px)',
-          lg: 'min(84vh, 760px)',
-          xl: 'min(86vh, 860px)',
-          '2xl': 'min(88vh, 920px)',
+          md: '92vh',
+          lg: '100vh',
+          xl: '100vh',
+          '2xl': '100vh',
         }}
         w="100%"
       >
@@ -113,7 +122,7 @@ export default function LandingHeroSection({
           flexDirection="column"
           minH="0"
           px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-          pt={LANDING_MAIN_CONTENT_PT}
+          pt={contentPt ?? LANDING_MAIN_CONTENT_PT}
           pb={heroPb}
         >
           <Box
@@ -203,40 +212,50 @@ export default function LandingHeroSection({
               <Box
                 pt={{ base: 2, sm: 3, md: 2, lg: 2, xl: 3 }}
                 w="100%"
+                maxW={{
+                  base: 'min(100%, 320px)',
+                  sm: '340px',
+                  md: '380px',
+                  lg: '400px',
+                }}
                 display="flex"
                 justifyContent="flex-start"
               >
-                <Button
-                  onClick={onSubmissionOpen}
-                  bg="brand.500"
-                  color="white"
-                  textStyle="nav"
-                  px={{ base: 8, sm: 10, md: 12, lg: 14, xl: 16 }}
-                  py={{ base: 3, sm: 4, md: 5, lg: 6 }}
-                  minH={{
-                    base: '48px',
-                    sm: '52px',
-                    md: '56px',
-                    lg: '64px',
-                    xl: '72px',
-                    '2xl': '76px',
-                  }}
-                  h="auto"
-                  w="100%"
-                  maxW={{
-                    base: 'min(100%, 320px)',
-                    sm: '340px',
-                    md: '380px',
-                    lg: '400px',
-                  }}
-                  borderRadius="full"
-                  boxShadow="lg"
-                  _hover={{ bg: 'brand.600' }}
-                  whiteSpace="normal"
-                  lineHeight="1.15"
-                >
-                  {heroButton}
-                </Button>
+                <ShakeButton>
+                  <Button
+                    onClick={onSubmissionOpen}
+                    bgGradient="linear(to-r, brand.500, brand.600)"
+                    color="white"
+                    textStyle="nav"
+                    fontWeight="bold"
+                    letterSpacing="0.01em"
+                    px={{ base: 8, sm: 10, md: 12, lg: 14, xl: 16 }}
+                    py={{ base: 3, sm: 4, md: 5, lg: 6 }}
+                    minH={{
+                      base: '48px',
+                      sm: '52px',
+                      md: '56px',
+                      lg: '64px',
+                      xl: '72px',
+                      '2xl': '76px',
+                    }}
+                    h="auto"
+                    w="100%"
+                    borderRadius="full"
+                    boxShadow="0 8px 28px rgba(35, 85, 202, 0.5)"
+                    _hover={{
+                      bgGradient: 'linear(to-r, brand.600, brand.700)',
+                      transform: 'translateY(-2px)',
+                      boxShadow: '0 12px 36px rgba(35, 85, 202, 0.6)',
+                    }}
+                    _active={{ transform: 'translateY(0)' }}
+                    transition="all 0.22s cubic-bezier(0.4, 0, 0.2, 1)"
+                    whiteSpace="normal"
+                    lineHeight="1.15"
+                  >
+                    {heroButton}
+                  </Button>
+                </ShakeButton>
               </Box>
             </Stack>
           </Box>

@@ -92,7 +92,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
           />
         </ModalBody>
         {!isSuccess && (
-          <ModalFooter display="flex" flexDirection="column" gap={3}>
+          <ModalFooter display="flex" flexDirection="column" gap={3} py={3}>
             <Button
               form={SUBMISSION_FORM_ID}
               type="submit"
@@ -109,16 +109,6 @@ export default function SubmissionModal({ isOpen, onClose }) {
             >
               {t.formSubmit}
             </Button>
-            <Box fontSize={{ base: 'xs', md: 'sm' }} color="gray.500" textAlign="center" lineHeight="1.5" px={1}>
-              {currentLang === 'fr' ? 'En soumettant ce formulaire, vous acceptez les' : 'By submitting this form, you agree to the'}{' '}
-              <Link href="/politiques/termes-conditions" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                {t.formTermsAndConditions}
-              </Link>{' '}
-              {t.formAnd}{' '}
-              <Link href="/politiques/confidentialite" color="#1E4BBA" textDecoration="underline" _hover={{ color: '#183D9A' }}>
-                {t.formPrivacyPolicy}
-              </Link>
-            </Box>
           </ModalFooter>
         )}
       </ModalContent>

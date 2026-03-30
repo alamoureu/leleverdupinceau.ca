@@ -9,12 +9,12 @@ export const CANONICAL_BASE = 'https://www.leleverdupinceau.ca';
  * Valeurs calées sur `WebsiteNavBar` (py + logo ~52–68px) + petite marge, pas sur l’accueil `#main`+hero.
  */
 export const LANDING_MAIN_CONTENT_PT = {
-  base: '5.5rem',
-  sm: '5.75rem',
-  md: '7rem',
-  lg: '7.5rem',
-  xl: '8rem',
-  '2xl': '8.25rem',
+  base: '9.75rem',
+  sm: '10.25rem',
+  md: '12.125rem',
+  lg: '12.625rem',
+  xl: '13.125rem',
+  '2xl': '13.375rem',
 };
 
 /** Sous le CTA sur mobile : léger souffle avant le clip en V (évite un spacer excessif). */

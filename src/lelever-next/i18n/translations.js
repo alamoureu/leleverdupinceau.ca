@@ -192,7 +192,7 @@ export const translations = {
     // Espaces insécables dans le nom : évite « … choisir Le » / « Lever du … » au retour à la ligne
     whyUsChooseTitle: 'Pourquoi choisir Le\u00A0Lever\u00A0du\u00A0Pinceau\u00A0?',
     whyUsChooseSub: "Gagnez du temps, profitez d'un résultat parfait",
-    whyUsClients: 'Plus de 800 clients ravis',
+    whyUsClients: 'Plus de 850 clients ravis',
     whyUsRated: 'Noté 4.9 étoiles sur',
     whyUsSatisfaction: '100% satisfaction garantie',
     whyUsCtaButton: 'Soumission gratuite en 24h',
@@ -202,8 +202,8 @@ export const translations = {
     faqDefaultTitle: 'Questions fréquentes sur nos peintres professionnels',
     faqPricingLink: 'Voir notre article sur les prix.',
 
-    landingHeroTitle: "Peintres d'expériences\nmontréalais",
-    landingHeroSubtitle: 'Qualité garantie, au meilleur prix',
+    landingHeroTitle: 'Peintres Professionnels\nà Montréal',
+    landingHeroSubtitle: 'Service de peinture intérieure et extérieure à prix compétitif dans le Grand Montréal',
     landingHeroButton: 'Soumission gratuite en 24h',
 
     guaranteeTitle: 'Notre engagement',
@@ -424,7 +424,7 @@ export const translations = {
     whyUsAddValueSub: 'Effortlessly',
     whyUsChooseTitle: 'Why Choose Le\u00A0Lever\u00A0du\u00A0Pinceau?',
     whyUsChooseSub: 'Save time, enjoy perfect results',
-    whyUsClients: 'Over 800 delighted clients',
+    whyUsClients: 'Over 850 delighted clients',
     whyUsRated: 'Rated 4.9 stars on',
     whyUsSatisfaction: '100% satisfaction guaranteed',
     whyUsCtaButton: 'Free quote in 24h',
@@ -434,8 +434,8 @@ export const translations = {
     faqDefaultTitle: 'Frequently asked questions about our professional painters',
     faqPricingLink: 'See our article on pricing.',
 
-    landingHeroTitle: 'Experienced\nMontreal painters',
-    landingHeroSubtitle: 'Guaranteed quality, at the best price',
+    landingHeroTitle: 'Professional Painters\nin Montreal',
+    landingHeroSubtitle: 'Interior and exterior painting services at competitive prices in Greater Montreal',
     landingHeroButton: 'Free quote in 24h',
 
     guaranteeTitle: 'Our commitment',

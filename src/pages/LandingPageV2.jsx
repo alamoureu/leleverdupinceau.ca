@@ -1,28 +1,24 @@
-import React, { Fragment, useContext, useMemo } from 'react';
+import React, { Fragment, useContext, useMemo, useRef, useEffect, useCallback } from 'react';
 import { Helmet } from 'react-helmet';
-import { Box, Container, useDisclosure } from '@chakra-ui/react';
+import { Box, useDisclosure } from '@chakra-ui/react';
 import appContext from '../AppProvider';
 import { useTranslation } from '../lelever-next/i18n';
 import {
   CANONICAL_BASE,
-  LANDING_BETONEL_BAND_PY,
   LANDING_META,
   LANDING_SECTION_PY,
-  LANDING_SECTION_PY_HALF,
-  LANDING_WHYUS_SECTION_PT,
   buildLandingFaqs,
 } from '../lelever-next/landing';
 import heroImage from '../lelever-next/images/heroImage.png';
+import PromoBanner, { PROMO_BANNER_HEIGHT } from '../lelever-next/home-page/PromoBanner';
 
 import LandingHeroSection from '../lelever-next/home-page/LandingHeroSection';
-import WhyUsHero from '../components/WhyUsHero';
-import BetonelBanerHero from '../components/BetonelBanerHero';
-import BeforeAfterCarouselSection from '../lelever-next/home-page/BeforeAfterCarouselSection';
-import MethodSection from '../lelever-next/home-page/MethodSection';
-import GuaranteeSection from '../lelever-next/home-page/GuaranteeSection';
-import ContactFormSection from '../lelever-next/home-page/ContactFormSection';
 import TrustBanner from '../lelever-next/home-page/TrustBanner';
 import ReviewsSection from '../lelever-next/home-page/ReviewsSection';
+import LandingServicesSection from '../lelever-next/home-page/LandingServicesSection';
+import BeforeAfterCarouselSection from '../lelever-next/home-page/BeforeAfterCarouselSection';
+import ContactFormSection from '../lelever-next/home-page/ContactFormSection';
+import MethodSection from '../lelever-next/home-page/MethodSection';
 import FAQSection from '../lelever-next/home-page/FAQSection';
 import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
 import SubmissionModal from '../components/SubmissionModal';
@@ -36,6 +32,20 @@ const LANDING_FORM_FIELDS = {
   projectDetails: 'optional',
 };
 
+/**
+ * The hero content pt must clear: fixed promo banner + fixed navbar.
+ * Banner heights come from PROMO_BANNER_HEIGHT; navbar heights from LANDING_MAIN_CONTENT_PT.
+ * We use CSS calc() to combine them.
+ */
+const HERO_CONTENT_PT = {
+  base: `calc(5.5rem + ${PROMO_BANNER_HEIGHT.base})`,
+  sm: `calc(5.75rem + ${PROMO_BANNER_HEIGHT.sm})`,
+  md: `calc(7rem + ${PROMO_BANNER_HEIGHT.md})`,
+  lg: `calc(7.5rem + ${PROMO_BANNER_HEIGHT.lg})`,
+  xl: `calc(8rem + ${PROMO_BANNER_HEIGHT.xl})`,
+  '2xl': `calc(8.25rem + ${PROMO_BANNER_HEIGHT['2xl']})`,
+};
+
 function LandingPageV2({ lang: langProp, indexable = false }) {
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
@@ -44,6 +54,33 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
   const lang = currentLang || langProp || 'fr';
   const meta = LANDING_META[lang] ?? LANDING_META.fr;
   const landingFaqs = useMemo(() => buildLandingFaqs(t), [t]);
+
+  // Popup fires once, 1s after the user scrolls past the end of the method section.
+  const methodEndRef = useRef(null);
+  const hasTriggered = useRef(false);
+  const popupTimerRef = useRef(null);
+
+  const handleMethodEndIntersect = useCallback(
+    ([entry], observer) => {
+      if (entry.isIntersecting && !hasTriggered.current) {
+        hasTriggered.current = true;
+        observer.disconnect();
+        popupTimerRef.current = setTimeout(onOpen, 1000);
+      }
+    },
+    [onOpen],
+  );
+
+  useEffect(() => {
+    const el = methodEndRef.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(handleMethodEndIntersect, { threshold: 0 });
+    observer.observe(el);
+    return () => {
+      observer.disconnect();
+      if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
+    };
+  }, [handleMethodEndIntersect]);
 
   return (
     <Fragment>
@@ -80,6 +117,9 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {!indexable && <meta name="googlebot" content="noindex, nofollow" />}
       </Helmet>
 
+      {/* Promo bar pinned at viewport top (zIndex 10000, above the fixed navbar) */}
+      <PromoBanner />
+
       <Box
         w="100%"
         minW={0}
@@ -88,6 +128,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         overflowX="hidden"
         position="relative"
       >
+        {/* 1. Hero — contentPt clears the fixed promo banner + fixed navbar */}
         <LandingHeroSection
           onSubmissionOpen={onOpen}
           pageContext={t.pageContextName}
@@ -95,66 +136,59 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           titleSecondLine=""
           subtitle={t.landingHeroSubtitle}
           buttonText={t.landingHeroButton}
+          contentPt={HERO_CONTENT_PT}
         />
 
-        <WhyUsHero
-          onSubmissionOpen={onOpen}
-          sectionPt={LANDING_WHYUS_SECTION_PT}
-          sectionPb={LANDING_BETONEL_BAND_PY}
-        />
-
-        <Box py={LANDING_BETONEL_BAND_PY} bg="white" w="100%">
-          <BetonelBanerHero isMobile={false} />
+        {/* 2. Trust bar — full-width grey strip */}
+        <Box bg="gray.50" w="100%">
+          <TrustBanner noCard />
         </Box>
 
+        {/* 3. Reviews */}
+        <ReviewsSection
+          hideButton
+          desktopColumns={3}
+          title={t.reviewsTitle}
+          subtitle={t.reviewsSubtitle}
+          sectionBg="white"
+          sectionPaddingTop={LANDING_SECTION_PY}
+          sectionPaddingBottom={LANDING_SECTION_PY}
+        />
+
+        {/* 4. Services (2 cards: intérieure + extérieure) */}
+        <LandingServicesSection
+          onSubmissionOpen={onOpen}
+          sectionPy={LANDING_SECTION_PY}
+        />
+
+        {/* 5. Before/After */}
         <BeforeAfterCarouselSection
           sectionPy={LANDING_SECTION_PY}
-          sectionPaddingTop={LANDING_BETONEL_BAND_PY}
-          sectionPaddingBottom={LANDING_SECTION_PY_HALF}
+          sectionPaddingTop={LANDING_SECTION_PY}
+          sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        <MethodSection
-          onSubmissionOpen={onOpen}
-          hideCta
-          sectionPy={LANDING_SECTION_PY}
-          sectionPaddingTop={LANDING_SECTION_PY_HALF}
-        />
-
-        <GuaranteeSection
-          hideCta
-          onSubmissionOpen={onOpen}
-          sectionPy={LANDING_SECTION_PY}
-        />
-
+        {/* 6. Contact form — blue background */}
         <ContactFormSection
           fields={LANDING_FORM_FIELDS}
           phoneFirst
           projectDetailsLabel={t.formProjectDetails}
           sectionPy={LANDING_SECTION_PY}
-          sectionPaddingBottom={LANDING_SECTION_PY_HALF}
+          sectionBg="app.ctaBg"
         />
 
-        <Box bg="white" w="100%">
-          <ReviewsSection
-            hideButton
-            desktopColumns={2}
-            title={t.reviewsTitle}
-            subtitle={t.reviewsSubtitle}
-            sectionBg="white"
-            sectionPaddingTop={LANDING_SECTION_PY_HALF}
-            sectionPaddingBottom={0}
-            compactDotsMargin
-          />
+        {/* 7. Method section — sentinel at the end triggers popup after 1s */}
+        <MethodSection
+          onSubmissionOpen={onOpen}
+          hideCta
+          sectionPy={LANDING_SECTION_PY}
+        />
+        <Box ref={methodEndRef} h={0} aria-hidden="true" />
 
-          <Box py={LANDING_SECTION_PY}>
-            <Container maxW="1440px" px={{ base: 2, sm: 3, md: 6, lg: 8 }}>
-              <TrustBanner compact inline />
-            </Container>
-          </Box>
-        </Box>
-
+        {/* 8. FAQ */}
         <FAQSection faqsOverride={landingFaqs} sectionPy={LANDING_SECTION_PY} />
 
+        {/* 9. Final CTA */}
         <FinalCTASection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}

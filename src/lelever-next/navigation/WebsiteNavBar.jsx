@@ -21,6 +21,7 @@ import { MobileDrawer } from './MobileDrawer';
 import { useNavigate, useLocation } from 'react-router-dom';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
+import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();
@@ -43,7 +44,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
       gap={0}
       bg={isNewLanding ? 'white' : 'brand.700'}
       position="fixed"
-      top={0}
+      top={isNewLanding ? PROMO_BANNER_HEIGHT : 0}
       left={0}
       right={0}
       width="100%"

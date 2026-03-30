@@ -23,6 +23,7 @@ export default function ContactFormSection({
   sectionPy,
   sectionPaddingTop,
   sectionPaddingBottom,
+  sectionBg = 'white',
 }) {
   const { t } = useTranslation();
   const [isFormSuccess, setIsFormSuccess] = useState(false);
@@ -37,25 +38,24 @@ export default function ContactFormSection({
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPt;
   const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPb;
 
+  const isBlue = sectionBg !== 'white' && sectionBg !== 'gray.50';
+
   return (
     <Stack
       pt={pt}
       pb={pb}
       align="center"
       px={{ base: 3, sm: 4, md: 6, lg: 8 }}
-      bg="white"
+      bg={sectionBg}
+      spacing={isBlue ? { base: 4, md: 6 } : 0}
     >
-      <Box
-        w="100%"
-        maxW={{
-          base: '100%',
-          sm: '480px',
-          md: '560px',
-          lg: '600px',
-        }}
-        mx="auto"
-      >
-        {!isFormSuccess && (
+      {/* Title + subtitle above the card */}
+      {!isFormSuccess && (
+        <Box
+          w="100%"
+          maxW={{ base: '100%', sm: '480px', md: '560px', lg: '600px' }}
+          mx="auto"
+        >
           <Text
             as="h2"
             id="submission-form-title"
@@ -68,33 +68,41 @@ export default function ContactFormSection({
               '2xl': '4xl',
             }}
             fontWeight="bold"
-            color="gray.900"
+            color={isBlue ? 'white' : 'gray.900'}
             textAlign="center"
             pb={1}
             textTransform="uppercase"
           >
             {t.contactFormTitle}
           </Text>
-        )}
-        {!isFormSuccess && (
           <Text
             textAlign="center"
-            color="gray.600"
+            color={isBlue ? 'whiteAlpha.800' : 'gray.600'}
             fontSize={{ base: 'sm', md: 'lg' }}
             fontWeight="medium"
-            pb={2}
           >
             {t.contactFormSubtitle}
           </Text>
-        )}
-        <Box px={0} py={0}>
-          <SubmissionForm
-            onSubmissionStateChange={handleStateChange}
-            fields={fields}
-            phoneFirst={phoneFirst}
-            projectDetailsLabel={projectDetailsLabel ?? t.formProjectDetails}
-          />
         </Box>
+      )}
+
+      {/* Form — white card when section is blue */}
+      <Box
+        w="100%"
+        maxW={{ base: '100%', sm: '480px', md: '560px', lg: '600px' }}
+        mx="auto"
+        bg={isBlue ? 'white' : 'transparent'}
+        borderRadius={isBlue ? '2xl' : 'none'}
+        boxShadow={isBlue ? '0 8px 40px rgba(0,0,0,0.18)' : 'none'}
+        pt={isBlue ? { base: 2, md: 4 } : 0}
+        pb={isBlue ? { base: 2, md: 4 } : 0}
+      >
+        <SubmissionForm
+          onSubmissionStateChange={handleStateChange}
+          fields={fields}
+          phoneFirst={phoneFirst}
+          projectDetailsLabel={projectDetailsLabel ?? t.formProjectDetails}
+        />
       </Box>
     </Stack>
   );
