@@ -25,19 +25,23 @@ const translations = {
   },
 };
 
-export default function TrustBanner({ compact = false, inline = false, noCard = false }) {
+export default function TrustBanner({
+  compact = false,
+  inline = false,
+  noCard = false,
+  showSatisfactionGuarantee = true,
+}) {
   const { currentLang } = useContext(appContext);
   const t = translations[currentLang] || translations.fr;
   const landingInline = compact && inline;
 
-  const TRUST_ITEMS = [
-    {
-      image: quebecLogo,
-      alt: t.rbqAlt,
-      text: t.rbqText,
-      imageHeight: landingInline
-        ? { base: '30px', sm: '32px', md: '36px', lg: '40px' }
-        : compact
+  const rbqItem = {
+    image: quebecLogo,
+    alt: t.rbqAlt,
+    text: t.rbqText,
+    imageHeight: landingInline
+      ? { base: '30px', sm: '32px', md: '36px', lg: '40px' }
+      : compact
         ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
         : {
             base: '20px',
@@ -47,24 +51,24 @@ export default function TrustBanner({ compact = false, inline = false, noCard = 
             xl: '30px',
             '2xl': '32px',
           },
-    },
-    {
-      isMetric: true,
-      value: '850+',
-      label: t.clientsSatisfaits,
-    },
-    {
-      isMetric: true,
-      value: '100%',
-      label: currentLang === 'en' ? 'satisfaction guaranteed' : 'satisfaction garantie',
-    },
-    {
-      image: trushieldLogo,
-      alt: t.trushieldAlt,
-      text: t.assurance,
-      imageHeight: landingInline
-        ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
-        : compact
+  };
+  const clientsItem = {
+    isMetric: true,
+    value: '850+',
+    label: t.clientsSatisfaits,
+  };
+  const satisfactionItem = {
+    isMetric: true,
+    value: '100%',
+    label: currentLang === 'en' ? 'satisfaction guaranteed' : 'satisfaction garantie',
+  };
+  const trushieldItem = {
+    image: trushieldLogo,
+    alt: t.trushieldAlt,
+    text: t.assurance,
+    imageHeight: landingInline
+      ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
+      : compact
         ? { base: '22px', sm: '24px', md: '28px', lg: '32px' }
         : {
             base: '18px',
@@ -74,8 +78,11 @@ export default function TrustBanner({ compact = false, inline = false, noCard = 
             xl: '28px',
             '2xl': '30px',
           },
-    },
-  ];
+  };
+
+  const TRUST_ITEMS = showSatisfactionGuarantee
+    ? [rbqItem, clientsItem, satisfactionItem, trushieldItem]
+    : [rbqItem, clientsItem, trushieldItem];
 
   const paddingY = landingInline
     ? { base: 7, sm: 8, md: 9, lg: 10, xl: 10, '2xl': 12 }

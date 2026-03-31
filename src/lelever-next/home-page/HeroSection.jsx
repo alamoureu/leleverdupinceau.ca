@@ -229,7 +229,9 @@ export default function HeroSection({
           </Stack>
         </Stack>
       </Container>
-      {showHeroTrustBanner && <TrustBanner compact={compactTrustBanner} />}
+      {showHeroTrustBanner && (
+        <TrustBanner compact={compactTrustBanner} showSatisfactionGuarantee={false} />
+      )}
     </Box>
   );
 }

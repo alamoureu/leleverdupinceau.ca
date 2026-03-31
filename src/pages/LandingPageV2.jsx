@@ -1,4 +1,5 @@
 import React, { Fragment, useContext, useMemo, useRef, useEffect, useCallback } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import appContext from '../AppProvider';
@@ -37,6 +38,9 @@ const LANDING_FORM_FIELDS = {
  * Banner heights come from PROMO_BANNER_HEIGHT; navbar heights from LANDING_MAIN_CONTENT_PT.
  * We use CSS calc() to combine them.
  */
+/** Microsoft Clarity project — loaded only on /fr/peintre-montreal */
+const CLARITY_PROJECT_ID = 'w4hw2yfvew';
+
 const HERO_CONTENT_PT = {
   base: `calc(5.5rem + ${PROMO_BANNER_HEIGHT.base})`,
   sm: `calc(5.75rem + ${PROMO_BANNER_HEIGHT.sm})`,
@@ -47,6 +51,7 @@ const HERO_CONTENT_PT = {
 };
 
 function LandingPageV2({ lang: langProp, indexable = false }) {
+  const location = useLocation();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -81,6 +86,24 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
       if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
     };
   }, [handleMethodEndIntersect]);
+
+  useEffect(() => {
+    if (location.pathname !== '/fr/peintre-montreal') return;
+    const src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
+    if (document.querySelector(`script[src="${src}"]`)) return;
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = 'https://www.clarity.ms/tag/' + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
+  }, [location.pathname]);
 
   return (
     <Fragment>
