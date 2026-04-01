@@ -23,6 +23,7 @@ import MethodSection from '../lelever-next/home-page/MethodSection';
 import FAQSection from '../lelever-next/home-page/FAQSection';
 import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
 import SubmissionModal from '../components/SubmissionModal';
+import MicrosoftClarity from '../lelever-next/analytics/MicrosoftClarity';
 
 const LANDING_FORM_FIELDS = {
   name: true,
@@ -139,6 +140,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {!indexable && <meta name="robots" content="noindex, nofollow" />}
         {!indexable && <meta name="googlebot" content="noindex, nofollow" />}
       </Helmet>
+      <MicrosoftClarity />
 
       {/* Promo bar pinned at viewport top (zIndex 10000, above the fixed navbar) */}
       <PromoBanner />

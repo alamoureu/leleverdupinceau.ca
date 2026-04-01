@@ -1,5 +1,6 @@
 import React, { Fragment, useContext } from 'react';
 import { Box, useDisclosure } from '@chakra-ui/react';
+import MicrosoftClarity from '../analytics/MicrosoftClarity';
 import HeroSection from '../home-page/HeroSection';
 import ControlSection from '../home-page/ControlSection';
 import ServicesSection from '../home-page/ServicesSection';
@@ -36,6 +37,7 @@ export default function NewHomePage() {
         canonicalPath="/"
         keywords={KEYWORDS[currentLang] || KEYWORDS.fr}
       />
+      <MicrosoftClarity />
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
         <HeroSection onSubmissionOpen={onOpen} pageContext={pageContext} />
