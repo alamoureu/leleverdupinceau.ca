@@ -22,6 +22,7 @@ import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { sendWebsiteLeadToErp } from '../../utils/erpWebsiteWebhook';
+import { trackFormCompletion } from '../../config/analytics';
 import { fontFamily } from '../../theme';
 
 const activeLabelStyles = {
@@ -292,6 +293,11 @@ export default function SubmissionForm({
         if (import.meta.env?.DEV)
           console.error('ERP website lead error:', erpError);
       }
+
+      trackFormCompletion({
+        form_name: isModal ? 'website_modal_quote_form' : 'website_inline_quote_form',
+        language: currentLang,
+      });
 
       if (onSubmit) onSubmit(formData);
       setIsSubmitted(true);

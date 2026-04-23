@@ -100,7 +100,7 @@ export default function FAQSection({ faqsOverride, title, sectionPy }) {
             </Heading>
           </Stack>
 
-          <Accordion allowToggle allowMultiple w="100%" maxW="800px" mx="auto">
+          <Accordion allowMultiple w="100%" maxW="800px" mx="auto">
             {faqs.map((faq) => (
               <AccordionItem
                 key={faq.question}

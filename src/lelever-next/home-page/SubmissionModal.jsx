@@ -10,8 +10,6 @@ import {
   Button,
   Stack,
   Text,
-  Box,
-  Link,
 } from '@chakra-ui/react';
 import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
@@ -73,7 +71,15 @@ export default function SubmissionModal({ isOpen, onClose }) {
           </ModalHeader>
         )}
         <ModalCloseButton />
-        <ModalBody overflowY="auto" overflowX="visible" flex="1" minH={0} px={0} pt={0} pb={0}>
+        <ModalBody
+          overflowY={isSuccess ? 'hidden' : 'auto'}
+          overflowX="hidden"
+          flex="1"
+          minH={0}
+          px={0}
+          pt={0}
+          pb={0}
+        >
           <SubmissionForm
             isModal
             formId={SUBMISSION_FORM_ID}

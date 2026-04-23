@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import appContext from '../AppProvider';
 import { Box, Text } from '@chakra-ui/react';
-import { GA_MEASUREMENT_ID, FORM_COMPLETION_EVENT } from '../config/analytics';
+import { trackFormCompletion } from '../config/analytics';
 
 const SOUMISSION_PATH = '/soumission';
 
@@ -18,8 +18,8 @@ function useConversionTracking(trackConversion) {
         const data = typeof event.data === 'string' ? JSON.parse(event.data) : event.data;
         if (!data) return;
         const type = String(data.type || data.event || '').toLowerCase();
-        if (['form_submit', 'formsubmit', 'form_complete', 'submit'].includes(type) && typeof window.gtag === 'function') {
-          window.gtag('event', FORM_COMPLETION_EVENT, { send_to: GA_MEASUREMENT_ID });
+        if (['form_submit', 'formsubmit', 'form_complete', 'submit'].includes(type)) {
+          trackFormCompletion({ form_name: 'website_embedded_ghl_form' });
         }
       } catch (_) {}
     };

@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -107,6 +108,11 @@ export default function AuditImagesPage() {
               Audit des images
             </Text>
           </HStack>
+
+          <Helmet>
+            <title>Audit des images (interne) – Le Lever du Pinceau</title>
+            <meta name="robots" content="noindex, nofollow" />
+          </Helmet>
 
           <Heading as="h1" size="lg" color="gray.800">
             Audit des images – toutes les pages

@@ -52,6 +52,7 @@ const ErreursAEviterPeintureInterieurePage = lazyRoute(() => import('./lelever-n
 const NotFoundPage = lazyRoute(() => import('./lelever-next/pages/NotFoundPage'), 'NotFoundPage');
 const AuditImagesPage = lazyRoute(() => import('./lelever-next/pages/AuditImagesPage'), 'AuditImagesPage');
 const SoumissionDashboard = lazyRoute(() => import('./pages/SoumissionDashboard'), 'SoumissionDashboard');
+const SoumissionPage = lazyRoute(() => import('./pages/SoumissionPage'), 'SoumissionPage');
 const AdminDashboard = lazyRoute(() => import('./pages/AdminDashboard'), 'AdminDashboard');
 const EmploiesDashboard = lazyRoute(() => import('./pages/EmploiesDashboard'), 'EmploiesDashboard');
 const ContactDashboard = lazyRoute(() => import('./pages/ContactDashboard'), 'ContactDashboard');
@@ -95,6 +96,7 @@ export default function App() {
               element={<Suspense fallback={<PageSkeleton />}><ThermOfUsePage /></Suspense>}
             />
             <Route path="audit-images" element={<Suspense fallback={<PageSkeleton />}><AuditImagesPage /></Suspense>} />
+            <Route path="soumission" element={<Suspense fallback={<PageSkeleton />}><SoumissionPage /></Suspense>} />
           </Route>
           <Route path="/peintre-professionnel" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><PeintreProfessionnelPage /></Suspense>} />
