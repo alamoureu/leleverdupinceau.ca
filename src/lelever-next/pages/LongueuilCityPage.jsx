@@ -256,17 +256,17 @@ export default function LongueuilCityPage() {
     { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
     { label: 'Peinture extérieure', to: '/services/peinture-exterieure' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
-    { label: 'Obtenir une soumission', to: '/soumission' },
+    { label: 'Obtenir une soumission', to: '/contact' },
     { label: 'Peintre Rive-Sud', to: '/secteurs/rive-sud' },
-    { label: 'Avis clients', to: '/avis' },
+    { label: 'Voir nos réalisations', to: '/realisations' },
   ] : [
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Interior painting', to: '/services/peinture-interieure' },
     { label: 'Exterior painting', to: '/services/peinture-exterieure' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
-    { label: 'Get a quote', to: '/soumission' },
+    { label: 'Get a quote', to: '/contact' },
     { label: 'Painter on the South Shore', to: '/secteurs/rive-sud' },
-    { label: 'Client reviews', to: '/avis' },
+    { label: 'View our projects', to: '/realisations' },
   ];
 
   // Render
@@ -358,7 +358,7 @@ export default function LongueuilCityPage() {
                 </Text>
 
                 <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/soumission" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       bg="brand.500"
@@ -372,7 +372,7 @@ export default function LongueuilCityPage() {
                       {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                     </Button>
                   </Link>
-                  <Link as={RouterLink} to="/avis" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant="outline"
@@ -384,7 +384,7 @@ export default function LongueuilCityPage() {
                       size="lg"
                       _hover={{ bg: 'brand.500', color: 'white' }}
                     >
-                      {isFr ? 'Avis clients' : 'Client reviews'}
+                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
                     </Button>
                   </Link>
                 </HStack>

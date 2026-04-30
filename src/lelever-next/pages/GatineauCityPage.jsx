@@ -229,16 +229,16 @@ export default function GatineauCityPage() {
     { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
     { label: 'Peinture extérieure', to: '/services/peinture-exterieure' },
     { label: 'Pourquoi choisir un peintre professionnel', to: '/peintre-professionnel' },
-    { label: 'Avis clients', to: '/avis' },
-    { label: 'Obtenir une soumission', to: '/soumission' },
+    { label: 'Voir nos réalisations', to: '/realisations' },
+    { label: 'Obtenir une soumission', to: '/contact' },
   ] : [
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
     { label: 'Interior painting', to: '/services/peinture-interieure' },
     { label: 'Exterior painting', to: '/services/peinture-exterieure' },
     { label: 'Why choose a professional painter', to: '/peintre-professionnel' },
-    { label: 'Client reviews', to: '/avis' },
-    { label: 'Get a quote', to: '/soumission' },
+    { label: 'View our projects', to: '/realisations' },
+    { label: 'Get a quote', to: '/contact' },
   ];
 
   // ─── Render ──────────────────────────────────────────────────────────────────
@@ -330,7 +330,7 @@ export default function GatineauCityPage() {
                 </Text>
 
                 <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/soumission" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       bg="brand.500"
@@ -344,7 +344,7 @@ export default function GatineauCityPage() {
                       {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                     </Button>
                   </Link>
-                  <Link as={RouterLink} to="/avis" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant="outline"
@@ -356,7 +356,7 @@ export default function GatineauCityPage() {
                       size="lg"
                       _hover={{ bg: 'brand.500', color: 'white' }}
                     >
-                      {isFr ? 'Avis clients' : 'Client reviews'}
+                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
                     </Button>
                   </Link>
                 </HStack>

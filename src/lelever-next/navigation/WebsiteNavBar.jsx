@@ -216,7 +216,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             >
               <ServicesPopover />
               <Button
-                onClick={() => navigate('/secteurs-desservis')}
+                onClick={() => navigate('/secteurs')}
                 textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
                 color="white"
@@ -236,7 +236,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   : 'Professional Painters'}
               </Button>
               <Button
-                onClick={() => navigate('/avis')}
+                onClick={() => navigate('/avis-clients')}
                 textStyle="nav"
                 px={{ base: 3, lg: 3, xl: 3 }}
                 color="white"

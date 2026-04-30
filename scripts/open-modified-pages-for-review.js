@@ -25,22 +25,18 @@ const MODIFIED_PAGES = [
   ['/services', 'Services'],
   ['/contact', 'Contact'],
   ['/peintre-professionnel', 'Peintre professionnel'],
-  ['/secteurs-desservis', 'Secteurs desservis'],
-  ['/avis', 'Avis clients'],
+  ['/secteurs', 'Secteurs desservis'],
+  ['/secteurs/montreal', 'Montréal'],
+  ['/avis-clients', 'Avis clients'],
+  ['/realisations', 'Réalisations'],
   ['/blog', 'Blog'],
   ['/blog/comment-choisir-un-peintre-professionnel', 'Blog – Comment choisir un peintre'],
   ['/blog/prix-peinture-montreal', 'Blog – Prix peinture Montréal'],
   ['/blog/erreurs-a-eviter-peinture-interieure', 'Blog – Erreurs à éviter'],
-  // 4 sous-services (titles, image descriptions)
-  ['/services/peinture-residentielle/interieure', 'Résidentielle intérieure'],
-  ['/services/peinture-residentielle/exterieure', 'Résidentielle extérieure'],
-  ['/services/peinture-commerciale/interieure', 'Commerciale intérieure'],
-  ['/services/peinture-commerciale/exterieure', 'Commerciale extérieure'],
-  // Peinture industrielle × ville (project photos removed)
-  ['/services/peinture-industrielle/montreal', 'Industrielle – Montréal'],
-  ['/services/peinture-industrielle/laval', 'Industrielle – Laval'],
-  ['/services/peinture-industrielle/longueuil', 'Industrielle – Longueuil'],
-  ['/services/peinture-industrielle/brossard', 'Industrielle – Brossard'],
+  ['/services/peinture-residentielle/maison', 'L3 – Maison'],
+  ['/services/peinture-residentielle/condo', 'L3 – Condo'],
+  ['/services/peinture-interieure/armoires-de-cuisine', 'L3 – Armoires'],
+  ['/services/teinture-exterieure', 'Spécialisé – Teinture extérieure'],
 ];
 
 function openInBrowser(urlOrPath, isLocalFile = false) {

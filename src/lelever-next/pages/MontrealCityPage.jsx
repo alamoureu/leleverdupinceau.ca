@@ -14,6 +14,8 @@ import {
   SimpleGrid,
   Flex,
   Button,
+  Wrap,
+  WrapItem,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
@@ -268,22 +270,24 @@ export default function MontrealCityPage() {
     { label: 'Peinture extérieure à Montréal', to: '/services/peinture-exterieure' },
     { label: 'Peinture résidentielle', to: '/services/peinture-residentielle' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
-    { label: 'Avis clients', to: '/avis' },
-    { label: 'Obtenir une soumission', to: '/soumission' },
+    { label: 'Avis clients', to: '/avis-clients' },
+    { label: 'Voir nos réalisations', to: '/realisations' },
+    { label: 'Obtenir une soumission', to: '/contact' },
   ] : [
     { label: 'Interior painting in Montreal', to: '/services/peinture-interieure' },
     { label: 'Exterior painting in Montreal', to: '/services/peinture-exterieure' },
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
-    { label: 'Client reviews', to: '/avis' },
-    { label: 'Get a quote', to: '/soumission' },
+    { label: 'Client reviews', to: '/avis-clients' },
+    { label: 'Get a quote', to: '/contact' },
   ];
 
-  const quartierLinks = [
-    { label: 'Westmount', to: '/services/peinture-residentielle/westmount' },
-    { label: 'Outremont', to: '/services/peinture-residentielle/outremont' },
-    { label: 'Plateau Mont-Royal', to: '/services/peinture-residentielle/plateau-mont-royal' },
-    { label: 'Ville-Marie', to: '/services/peinture-residentielle/ville-marie' },
+  /** Quartiers mis en avant - même destination (page Montréal) pour éviter les URLs service×quartier sans contenu. */
+  const montrealQuartierHighlights = [
+    { label: 'Plateau Mont-Royal', to: '/secteurs/montreal' },
+    { label: 'Ville-Marie', to: '/secteurs/montreal' },
+    { label: 'Outremont', to: '/secteurs/montreal' },
+    { label: 'Westmount', to: '/secteurs/montreal' },
   ];
 
   // Render
@@ -375,7 +379,7 @@ export default function MontrealCityPage() {
                 </Text>
 
                 <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/soumission" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       bg="brand.500"
@@ -389,7 +393,7 @@ export default function MontrealCityPage() {
                       {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                     </Button>
                   </Link>
-                  <Link as={RouterLink} to="/avis" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant="outline"
@@ -401,7 +405,7 @@ export default function MontrealCityPage() {
                       size="lg"
                       _hover={{ bg: 'brand.500', color: 'white' }}
                     >
-                      {isFr ? 'Avis clients' : 'Client reviews'}
+                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
                     </Button>
                   </Link>
                 </HStack>
@@ -632,40 +636,40 @@ export default function MontrealCityPage() {
                 </Text>
               </Stack>
 
-              <SimpleGrid
-                columns={{ base: 2, md: 4 }}
-                spacing={{ base: 3, md: 4 }}
-                maxW="900px"
-                mx="auto"
-              >
-                {['Plateau Mont-Royal', 'Ville-Marie', 'Outremont', 'Westmount'].map((quartier) => (
-                  <Box
-                    key={quartier}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 4, md: 5 }}
-                    textAlign="center"
-                    boxShadow="sm"
-                    minH={{ base: '60px', md: '70px' }}
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="center"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                  >
-                    <Text
-                      fontWeight="bold"
-                      color="gray.800"
-                      fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
-                      textAlign="center"
-                    >
-                      {quartier}
-                    </Text>
-                  </Box>
+              <Wrap spacing={{ base: 3, md: 4 }} justify="center" maxW="900px" mx="auto">
+                {montrealQuartierHighlights.map(({ label, to }) => (
+                  <WrapItem key={label}>
+                    <Link as={RouterLink} to={to} _hover={{ textDecoration: 'none' }}>
+                      <Box
+                        bg="white"
+                        border="1px solid"
+                        borderColor="gray.200"
+                        borderRadius="xl"
+                        px={{ base: 4, md: 5 }}
+                        py={{ base: 4, md: 5 }}
+                        minW={{ base: '140px', md: '160px' }}
+                        textAlign="center"
+                        boxShadow="sm"
+                        minH={{ base: '60px', md: '70px' }}
+                        display="flex"
+                        alignItems="center"
+                        justifyContent="center"
+                        _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
+                        transition="all 0.2s"
+                      >
+                        <Text
+                          fontWeight="bold"
+                          color="gray.800"
+                          fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
+                          textAlign="center"
+                        >
+                          {label}
+                        </Text>
+                      </Box>
+                    </Link>
+                  </WrapItem>
                 ))}
-              </SimpleGrid>
+              </Wrap>
 
               <Text
                 fontSize={{ base: 'sm', md: 'md' }}
@@ -714,76 +718,13 @@ export default function MontrealCityPage() {
                 </Text>
               </Stack>
 
-              {/* Services + conversion */}
-              <SimpleGrid
-                columns={{ base: 1, sm: 2, md: 3 }}
-                spacing={{ base: 3, md: 4 }}
-                maxW="900px"
-                mx="auto"
-              >
+              {/* Services + conversion (Wrap pour centrer proprement FR 7 / EN 6 cartes) */}
+              <Wrap spacing={{ base: 3, md: 4 }} justify="center" maxW="960px" mx="auto">
                 {serviceLinks.map((link) => (
-                  <Link
-                    key={link.to}
-                    as={RouterLink}
-                    to={link.to}
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    <Box
-                      px={{ base: 4, md: 5 }}
-                      py={{ base: 4, md: 5 }}
-                      bg="gray.50"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      borderRadius="xl"
-                      textAlign="center"
-                      h="100%"
-                      minH={{ base: '60px', md: '68px' }}
-                      display="flex"
-                      alignItems="center"
-                      justifyContent="center"
-                      _hover={{ borderColor: 'brand.500', bg: 'brand.50' }}
-                      transition="all 0.2s"
-                    >
-                      <HStack spacing={2} justify="center" align="center">
-                        <Text
-                          fontWeight="medium"
-                          color="gray.700"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.4"
-                        >
-                          {link.label}
-                        </Text>
-                        <ArrowForwardIcon color="brand.500" boxSize={3} flexShrink={0} />
-                      </HStack>
-                    </Box>
-                  </Link>
-                ))}
-              </SimpleGrid>
-
-              {/* Quartiers */}
-              <Stack spacing={4}>
-                <Text
-                  fontWeight="semibold"
-                  color="gray.600"
-                  fontSize={{ base: 'sm', md: 'md' }}
-                  textAlign="center"
-                >
-                  {isFr ? 'Quartiers de Montréal' : 'Montreal neighborhoods'}
-                </Text>
-                <SimpleGrid
-                  columns={{ base: 2, md: 4 }}
-                  spacing={{ base: 3, md: 4 }}
-                  maxW="900px"
-                  mx="auto"
-                >
-                  {quartierLinks.map((link) => (
-                    <Link
-                      key={link.to}
-                      as={RouterLink}
-                      to={link.to}
-                      _hover={{ textDecoration: 'none' }}
-                    >
+                  <WrapItem key={`${link.label}-${link.to}`}>
+                    <Link as={RouterLink} to={link.to} _hover={{ textDecoration: 'none' }}>
                       <Box
+                        w={{ base: '100%', sm: '260px', md: '280px' }}
                         px={{ base: 4, md: 5 }}
                         py={{ base: 4, md: 5 }}
                         bg="gray.50"
@@ -791,7 +732,6 @@ export default function MontrealCityPage() {
                         borderColor="gray.200"
                         borderRadius="xl"
                         textAlign="center"
-                        h="100%"
                         minH={{ base: '60px', md: '68px' }}
                         display="flex"
                         alignItems="center"
@@ -812,9 +752,9 @@ export default function MontrealCityPage() {
                         </HStack>
                       </Box>
                     </Link>
-                  ))}
-                </SimpleGrid>
-              </Stack>
+                  </WrapItem>
+                ))}
+              </Wrap>
 
             </Stack>
           </Container>

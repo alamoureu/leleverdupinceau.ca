@@ -213,7 +213,7 @@ export default function NewWebsiteLayout() {
                       </Link>
                       <Link
                         as={RouterLink}
-                        to="/avis"
+                        to="/avis-clients"
                         color="white"
                         textStyle="footerLink"
                         _hover={{
@@ -277,7 +277,7 @@ export default function NewWebsiteLayout() {
                       </Link>
                       <Link
                         as={RouterLink}
-                        to="/secteurs-desservis"
+                        to="/secteurs"
                         color="white"
                         textStyle="footerLink"
                         _hover={{
@@ -356,7 +356,7 @@ export default function NewWebsiteLayout() {
                 >
                   <Link
                     as={RouterLink}
-                    to="/politiques/termes-conditions"
+                    to="/mentions-legales"
                     color="white"
                     textStyle="footerLink"
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}
@@ -368,7 +368,7 @@ export default function NewWebsiteLayout() {
                   </Text>
                   <Link
                     as={RouterLink}
-                    to="/politiques/confidentialite"
+                    to="/politique-de-confidentialite"
                     color="white"
                     textStyle="footerLink"
                     _hover={{ textDecoration: 'underline', color: 'gray.300' }}

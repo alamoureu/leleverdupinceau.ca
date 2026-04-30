@@ -8,7 +8,7 @@ import {
 import { AppProvider } from './AppProvider';
 import NewWebsiteLayout from './lelever-next/layout/NewWebsiteLayout';
 import ScrollToTop from './lelever-next/components/ScrollToTop';
-import SmartServiceRouter from './lelever-next/services-pages/SmartServiceRouter';
+import LegacyTripleSegmentRedirect from './lelever-next/services-pages/LegacyTripleSegmentRedirect';
 import PageSkeleton from './PageSkeleton';
 
 // Always resolve to a component with a string displayName so React never hits "Cannot convert object to primitive value" in lazyInitializer/printWarning.
@@ -44,7 +44,6 @@ const PeintureExterieurePage = lazyRoute(() => import('./lelever-next/services-p
 const PeintureResidentiellePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureResidentiellePage'), 'PeintureResidentiellePage');
 const PeintureInterieurePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureInterieurePage'), 'PeintureInterieurePage');
 const PeintureIndustriellePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureIndustriellePage'), 'PeintureIndustriellePage');
-const ServiceQuartierPage = lazyRoute(() => import('./lelever-next/services-pages/service_ville/ServiceQuartierPage'), 'ServiceQuartierPage');
 const SousServicePage = lazyRoute(() => import('./lelever-next/services-pages/sous_service/SousServicePage'), 'SousServicePage');
 const BlogPage = lazyRoute(() => import('./lelever-next/pages/BlogPage'), 'BlogPage');
 const CommentChoisirPeintreProfessionnelPage = lazyRoute(() => import('./lelever-next/pages/CommentChoisirPeintreProfessionnelPage'), 'CommentChoisirPeintreProfessionnelPage');
@@ -53,7 +52,6 @@ const ErreursAEviterPeintureInterieurePage = lazyRoute(() => import('./lelever-n
 const NotFoundPage = lazyRoute(() => import('./lelever-next/pages/NotFoundPage'), 'NotFoundPage');
 const AuditImagesPage = lazyRoute(() => import('./lelever-next/pages/AuditImagesPage'), 'AuditImagesPage');
 const SoumissionDashboard = lazyRoute(() => import('./pages/SoumissionDashboard'), 'SoumissionDashboard');
-const SoumissionPage = lazyRoute(() => import('./pages/SoumissionPage'), 'SoumissionPage');
 const AdminDashboard = lazyRoute(() => import('./pages/AdminDashboard'), 'AdminDashboard');
 const EmploiesDashboard = lazyRoute(() => import('./pages/EmploiesDashboard'), 'EmploiesDashboard');
 const ContactDashboard = lazyRoute(() => import('./pages/ContactDashboard'), 'ContactDashboard');
@@ -63,6 +61,15 @@ const EmployeeManagement = lazyRoute(() => import('./pages/EmployeeManagement'),
 const EmployeeDetails = lazyRoute(() => import('./pages/EmployeeDetails'), 'EmployeeDetails');
 const ThermOfUsePage = lazyRoute(() => import('./pages/ThermOfUse'), 'ThermOfUsePage');
 const PrivacyPolicyPage = lazyRoute(() => import('./pages/PrivacyPolicyPage'), 'PrivacyPolicyPage');
+const RealisationsPage = lazyRoute(() => import('./lelever-next/pages/RealisationsPage'), 'RealisationsPage');
+const SpecializedServiceHubPage = lazyRoute(
+  () => import('./lelever-next/pages/SpecializedServiceHubPage'),
+  'SpecializedServiceHubPage'
+);
+const PeintureMontrealHubPage = lazyRoute(
+  () => import('./lelever-next/pages/PeintureMontrealHubPage'),
+  'PeintureMontrealHubPage'
+);
 
 export default function App() {
   return (
@@ -84,26 +91,59 @@ export default function App() {
             element={<Navigate to="/contact" replace />}
           />
 
+          <Route
+            path="/politiques/confidentialite"
+            element={<Navigate to="/politique-de-confidentialite" replace />}
+          />
+          <Route
+            path="/politiques/termes-conditions"
+            element={<Navigate to="/mentions-legales" replace />}
+          />
+          <Route path="/soumission" element={<Navigate to="/contact" replace />} />
+          <Route path="/avis" element={<Navigate to="/avis-clients" replace />} />
+          <Route path="/brossard" element={<Navigate to="/secteurs/rive-sud" replace />} />
+
           <Route path="/" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><NewHomePage /></Suspense>} />
             <Route path="contact" element={<Suspense fallback={<PageSkeleton />}><ContactPage /></Suspense>} />
             <Route path="a-propos" element={<Suspense fallback={<PageSkeleton />}><AboutPage /></Suspense>} />
-            <Route
-              path="politiques/confidentialite"
-              element={<Suspense fallback={<PageSkeleton />}><PrivacyPolicyPage /></Suspense>}
-            />
-            <Route
-              path="politiques/termes-conditions"
-              element={<Suspense fallback={<PageSkeleton />}><ThermOfUsePage /></Suspense>}
-            />
             <Route path="audit-images" element={<Suspense fallback={<PageSkeleton />}><AuditImagesPage /></Suspense>} />
-            <Route path="soumission" element={<Suspense fallback={<PageSkeleton />}><SoumissionPage /></Suspense>} />
+          </Route>
+
+          <Route path="/politique-de-confidentialite" element={<NewWebsiteLayout />}>
+            <Route index element={<Suspense fallback={<PageSkeleton />}><PrivacyPolicyPage /></Suspense>} />
+          </Route>
+          <Route path="/mentions-legales" element={<NewWebsiteLayout />}>
+            <Route index element={<Suspense fallback={<PageSkeleton />}><ThermOfUsePage /></Suspense>} />
           </Route>
           <Route path="/peintre-professionnel" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><PeintreProfessionnelPage /></Suspense>} />
           </Route>
-          <Route path="/avis" element={<NewWebsiteLayout />}>
+          <Route path="/avis-clients" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><AvisPage /></Suspense>} />
+          </Route>
+          <Route path="/realisations" element={<NewWebsiteLayout />}>
+            <Route index element={<Suspense fallback={<PageSkeleton />}><RealisationsPage /></Suspense>} />
+          </Route>
+          <Route path="/peinture-interieure-montreal" element={<NewWebsiteLayout />}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <PeintureMontrealHubPage variant="interieur" />
+                </Suspense>
+              }
+            />
+          </Route>
+          <Route path="/peinture-exterieure-montreal" element={<NewWebsiteLayout />}>
+            <Route
+              index
+              element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <PeintureMontrealHubPage variant="exterieur" />
+                </Suspense>
+              }
+            />
           </Route>
           {/* Redirects 301 depuis les anciennes URLs /secteurs-desservis vers /secteurs */}
           <Route path="/secteurs-desservis" element={<Navigate to="/secteurs" replace />} />
@@ -154,16 +194,68 @@ export default function App() {
               element={<Suspense fallback={<PageSkeleton />}><PeintureIndustriellePage /></Suspense>}
             />
             <Route
+              path="teinture-exterieure"
+              element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <SpecializedServiceHubPage slug="teinture-exterieure" />
+                </Suspense>
+              }
+            />
+            <Route
+              path="preparation-de-surfaces"
+              element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <SpecializedServiceHubPage slug="preparation-de-surfaces" />
+                </Suspense>
+              }
+            />
+            <Route
+              path="peinture-au-pistolet"
+              element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <SpecializedServiceHubPage slug="peinture-au-pistolet" />
+                </Suspense>
+              }
+            />
+            <Route
+              path="reparation-de-platre-et-gypse"
+              element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <SpecializedServiceHubPage slug="reparation-de-platre-et-gypse" />
+                </Suspense>
+              }
+            />
+            <Route
+              path="peinture-apres-sinistre"
+              element={
+                <Suspense fallback={<PageSkeleton />}>
+                  <SpecializedServiceHubPage slug="peinture-apres-sinistre" />
+                </Suspense>
+              }
+            />
+            <Route
+              path="peinture-residentielle/interieure"
+              element={<Navigate to="/services/peinture-residentielle" replace />}
+            />
+            <Route
+              path="peinture-residentielle/exterieure"
+              element={<Navigate to="/services/peinture-residentielle" replace />}
+            />
+            <Route
+              path="peinture-commerciale/interieure"
+              element={<Navigate to="/services/peinture-commerciale" replace />}
+            />
+            <Route
+              path="peinture-commerciale/exterieure"
+              element={<Navigate to="/services/peinture-commerciale" replace />}
+            />
+            <Route
               path=":serviceSlug/:subServiceSlug"
               element={<Suspense fallback={<PageSkeleton />}><SousServicePage /></Suspense>}
             />
             <Route
               path=":serviceSlug/:param2/:param3"
-              element={<SmartServiceRouter />}
-            />
-            <Route
-              path=":serviceSlug/:citySlug"
-              element={<Suspense fallback={<PageSkeleton />}><ServiceQuartierPage /></Suspense>}
+              element={<LegacyTripleSegmentRedirect />}
             />
           </Route>
           <Route path="/blog" element={<NewWebsiteLayout />}>
@@ -183,7 +275,7 @@ export default function App() {
           </Route>
 
           <Route
-            path="peintre-montreal"
+            path="/peintre-montreal"
             element={<Navigate to="/fr/peintre-montreal" replace />}
           />
           <Route path="/fr" element={<NewWebsiteLayout />}>

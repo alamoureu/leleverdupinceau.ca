@@ -111,8 +111,7 @@ function isValidRoute(link, validRoutes) {
     return true;
   }
 
-  if (link.startsWith('/secteurs-desservis/')) {
-    // City pages are dynamic
+  if (link.startsWith('/secteurs/')) {
     return true;
   }
 

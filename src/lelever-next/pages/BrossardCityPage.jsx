@@ -38,13 +38,13 @@ export default function BrossardCityPage() {
         '@type': 'ListItem',
         position: 2,
         name: isFr ? 'Secteurs desservis' : 'Service areas',
-        item: 'https://www.leleverdupinceau.ca/secteurs-desservis',
+        item: 'https://www.leleverdupinceau.ca/secteurs',
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Brossard',
-        item: 'https://www.leleverdupinceau.ca/secteurs-desservis/brossard',
+        item: 'https://www.leleverdupinceau.ca/secteurs/rive-sud',
       },
     ],
   };
@@ -59,14 +59,14 @@ export default function BrossardCityPage() {
       '• Une excellente maîtrise des types de constructions de Brossard',
       '• Des produits adaptés au climat québécois (UV, humidité, température)',
       '• Une approche propre, professionnelle et efficace',
-      "• Une finition durable — autant intérieure qu'extérieure",
+      "• Une finition durable - autant intérieure qu'extérieure",
     ]
     : [
       '• Fast service in all alphabetical sectors',
       '• Excellent knowledge of Brossard construction types',
       '• Products adapted to Quebec climate (UV, humidity, temperature)',
       '• A clean, professional and efficient approach',
-      '• Durable finish — both interior and exterior',
+      '• Durable finish - both interior and exterior',
     ];
 
   return (
@@ -87,7 +87,7 @@ export default function BrossardCityPage() {
         />
         <link
           rel='canonical'
-          href='https://www.leleverdupinceau.ca/secteurs-desservis/brossard'
+          href='https://www.leleverdupinceau.ca/secteurs/rive-sud'
         />
         <script type='application/ld+json'>
           {JSON.stringify(breadcrumbSchema)}
@@ -125,7 +125,7 @@ export default function BrossardCityPage() {
                 <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
                 <Link
                   as={RouterLink}
-                  to='/secteurs-desservis'
+                  to='/secteurs'
                   _hover={{ textDecoration: 'underline' }}
                   color='gray.600'
                   fontSize={{ base: 'md', md: 'lg' }}

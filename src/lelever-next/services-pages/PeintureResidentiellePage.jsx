@@ -313,7 +313,7 @@ export default function PeintureResidentiellePage() {
                   >
                     <Link
                       as={RouterLink}
-                      to='/services/peinture-residentielle/interieure'
+                      to='/services/peinture-interieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -378,7 +378,7 @@ export default function PeintureResidentiellePage() {
 
                     <Link
                       as={RouterLink}
-                      to='/services/peinture-residentielle/exterieure'
+                      to='/services/peinture-exterieure'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -455,22 +455,22 @@ export default function PeintureResidentiellePage() {
               sectors={[
                 {
                   name: 'Montréal',
-                  link: '/services/peinture-residentielle/montreal',
+                  link: '/secteurs/montreal',
                   image: montrealSecteur,
                 },
                 {
                   name: 'Laval',
-                  link: '/services/peinture-residentielle/laval',
+                  link: '/secteurs/laval',
                   image: lavalSecteur,
                 },
                 {
                   name: 'Longueuil',
-                  link: '/services/peinture-residentielle/longueuil',
+                  link: '/secteurs/longueuil',
                   image: longueuilSecteur,
                 },
                 {
                   name: 'Brossard',
-                  link: '/services/peinture-residentielle/brossard',
+                  link: '/secteurs/rive-sud',
                   image: brossardSecteur,
                 },
               ]}

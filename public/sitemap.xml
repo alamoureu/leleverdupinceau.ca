@@ -2,139 +2,145 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.leleverdupinceau.ca/</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/contact</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/a-propos</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/services</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/services/peinture-interieure</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/services/peinture-exterieure</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/services/peinture-residentielle</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/services/peinture-commerciale</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/services/peinture-industrielle</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/secteurs-desservis</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/secteurs</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.85</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/montreal</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/secteurs/montreal</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/laval</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/secteurs/laval</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/longueuil</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/secteurs/longueuil</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/secteurs-desservis/brossard</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/secteurs/gatineau</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/avis</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/secteurs/rive-sud</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/avis-clients</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
+    <loc>https://www.leleverdupinceau.ca/realisations</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
     <loc>https://www.leleverdupinceau.ca/peintre-professionnel</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/blog</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/blog/prix-peinture-montreal</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure</loc>
-    <lastmod>2026-04-22</lastmod>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/soumission</loc>
-    <lastmod>2026-04-22</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.leleverdupinceau.ca/politiques/confidentialite</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/politique-de-confidentialite</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://www.leleverdupinceau.ca/politiques/termes-conditions</loc>
-    <lastmod>2026-04-22</lastmod>
+    <loc>https://www.leleverdupinceau.ca/mentions-legales</loc>
+    <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

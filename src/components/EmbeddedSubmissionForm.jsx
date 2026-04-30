@@ -4,7 +4,7 @@ import appContext from '../AppProvider';
 import { Box, Text } from '@chakra-ui/react';
 import { trackFormCompletion } from '../config/analytics';
 
-const SOUMISSION_PATH = '/soumission';
+const SOUMISSION_PATH = '/contact';
 
 function useConversionTracking(trackConversion) {
   const location = useLocation();

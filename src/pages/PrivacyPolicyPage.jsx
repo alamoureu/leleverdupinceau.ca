@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
         description={isFr
           ? 'Comment Le Lever du Pinceau recueille, utilise et protège vos données. Politique de confidentialité.'
           : 'How Le Lever du Pinceau collects, uses and protects your data. Privacy policy.'}
-        canonicalPath="/politiques/confidentialite"
+        canonicalPath="/politique-de-confidentialite"
       />
     <Container
       maxW="6xl"

@@ -12,101 +12,45 @@ const BASE_URL = 'http://localhost:5173';
 const DELAY_MS = 500; // Delay between opening each route
 
 const allRoutes = {
-  'Main Routes (8)': [
+  'Main Routes': [
     '/',
     '/contact',
     '/peintre-professionnel',
-    '/secteurs-desservis',
+    '/secteurs',
     '/services',
     '/blog',
     '/a-propos',
-    '/avis',
+    '/avis-clients',
+    '/realisations',
+    '/politique-de-confidentialite',
+    '/mentions-legales',
   ],
-  'City Routes (4)': [
-    '/secteurs-desservis/montreal',
-    '/secteurs-desservis/laval',
-    '/secteurs-desservis/longueuil',
-    '/secteurs-desservis/brossard',
+  'City Routes': [
+    '/secteurs/montreal',
+    '/secteurs/laval',
+    '/secteurs/longueuil',
+    '/secteurs/gatineau',
+    '/secteurs/rive-sud',
   ],
-  'Main Service Routes (5)': [
+  'Main Service Routes': [
     '/services/peinture-commerciale',
     '/services/peinture-residentielle',
     '/services/peinture-interieure',
     '/services/peinture-exterieure',
     '/services/peinture-industrielle',
   ],
-  'Sub-Service Routes (4)': [
-    '/services/peinture-commerciale/interieure',
-    '/services/peinture-commerciale/exterieure',
-    '/services/peinture-residentielle/interieure',
-    '/services/peinture-residentielle/exterieure',
+  'L3 / specialized': [
+    '/services/peinture-residentielle/maison',
+    '/services/peinture-residentielle/condo',
+    '/services/peinture-residentielle/appartement',
+    '/services/peinture-interieure/armoires-de-cuisine',
+    '/services/teinture-exterieure',
+    '/services/preparation-de-surfaces',
+    '/services/peinture-au-pistolet',
+    '/services/reparation-de-platre-et-gypse',
+    '/services/peinture-apres-sinistre',
   ],
-  'Service × City Routes (20)': [
-    '/services/peinture-commerciale/montreal',
-    '/services/peinture-commerciale/laval',
-    '/services/peinture-commerciale/longueuil',
-    '/services/peinture-commerciale/brossard',
-    '/services/peinture-residentielle/montreal',
-    '/services/peinture-residentielle/laval',
-    '/services/peinture-residentielle/longueuil',
-    '/services/peinture-residentielle/brossard',
-    '/services/peinture-interieure/montreal',
-    '/services/peinture-interieure/laval',
-    '/services/peinture-interieure/longueuil',
-    '/services/peinture-interieure/brossard',
-    '/services/peinture-exterieure/montreal',
-    '/services/peinture-exterieure/laval',
-    '/services/peinture-exterieure/longueuil',
-    '/services/peinture-exterieure/brossard',
-    '/services/peinture-industrielle/montreal',
-    '/services/peinture-industrielle/laval',
-    '/services/peinture-industrielle/longueuil',
-    '/services/peinture-industrielle/brossard',
-  ],
-  'Sous-Service × City Routes (16)': [
-    '/services/peinture-commerciale/interieure/montreal',
-    '/services/peinture-commerciale/interieure/laval',
-    '/services/peinture-commerciale/interieure/longueuil',
-    '/services/peinture-commerciale/interieure/brossard',
-    '/services/peinture-commerciale/exterieure/montreal',
-    '/services/peinture-commerciale/exterieure/laval',
-    '/services/peinture-commerciale/exterieure/longueuil',
-    '/services/peinture-commerciale/exterieure/brossard',
-    '/services/peinture-residentielle/interieure/montreal',
-    '/services/peinture-residentielle/interieure/laval',
-    '/services/peinture-residentielle/interieure/longueuil',
-    '/services/peinture-residentielle/interieure/brossard',
-    '/services/peinture-residentielle/exterieure/montreal',
-    '/services/peinture-residentielle/exterieure/laval',
-    '/services/peinture-residentielle/exterieure/longueuil',
-    '/services/peinture-residentielle/exterieure/brossard',
-  ],
-  'Service × Quartier Routes (23)': [
-    '/services/peinture-interieure/montreal/ahuntsic',
-    '/services/peinture-interieure/montreal/bois-franc',
-    '/services/peinture-interieure/montreal/centre-ville',
-    '/services/peinture-interieure/montreal/cote-des-neiges',
-    '/services/peinture-interieure/montreal/griffintown',
-    '/services/peinture-interieure/montreal/hochelaga',
-    '/services/peinture-interieure/montreal/ile-des-soeurs',
-    '/services/peinture-interieure/montreal/lachine',
-    '/services/peinture-interieure/montreal/lasalle',
-    '/services/peinture-interieure/montreal/le-village',
-    '/services/peinture-interieure/montreal/mile-end',
-    '/services/peinture-interieure/montreal/notre-dame-de-grace',
-    '/services/peinture-interieure/montreal/outremont',
-    '/services/peinture-interieure/montreal/plateau-mont-royal',
-    '/services/peinture-interieure/montreal/pointe-saint-charles',
-    '/services/peinture-interieure/montreal/rosemont-petite-patrie',
-    '/services/peinture-interieure/montreal/saint-henri',
-    '/services/peinture-interieure/montreal/saint-leonard',
-    '/services/peinture-interieure/montreal/verdun',
-    '/services/peinture-interieure/montreal/ville-mont-royal',
-    '/services/peinture-interieure/montreal/villeray',
-    '/services/peinture-interieure/montreal/ville-saint-laurent',
-    '/services/peinture-interieure/montreal/westmount',
-  ],
-  'Blog Routes (3)': [
+  'Blog Routes': [
     '/blog/comment-choisir-un-peintre-professionnel',
     '/blog/prix-peinture-montreal',
     '/blog/erreurs-a-eviter-peinture-interieure',
@@ -161,7 +105,7 @@ async function openAllRoutes() {
   }
 
   console.log(`📊 Total routes to open: ${totalRoutes}\n`);
-  console.log('⚠️  WARNING: This will open 84 browser tabs!\n');
+  console.log(`⚠️  WARNING: This will open ${totalRoutes} browser tabs!\n`);
 
   for (const [category, routes] of Object.entries(allRoutes)) {
     await openRoutesByCategory(category, routes);
@@ -182,7 +126,7 @@ async function openSpecificCategory() {
   categories.forEach((cat, idx) => {
     console.log(`  ${idx + 1}. ${cat}`);
   });
-  console.log(`  ${categories.length + 1}. ALL ROUTES (84 tabs)`);
+  console.log(`  ${categories.length + 1}. ALL ROUTES`);
   console.log('  0. Exit\n');
 
   const rl = readline.createInterface({

@@ -303,7 +303,7 @@ export default function AvisPage() {
         '@type': 'ListItem',
         position: 2,
         name: isFr ? 'Avis' : 'Reviews',
-        item: 'https://leleverdupinceau.ca/avis',
+        item: 'https://leleverdupinceau.ca/avis-clients',
       },
     ],
   };
@@ -365,7 +365,7 @@ export default function AvisPage() {
       <SEOHead
         title={isFr ? 'Avis clients peinture Montréal | Témoignages – Le Lever du Pinceau' : 'Painting reviews Montreal | Client testimonials – Le Lever du Pinceau'}
         description={isFr ? 'Avis et témoignages de clients à Montréal, Laval, Longueuil. Peinture résidentielle et commerciale. Photos avant/après, évaluations 5 étoiles. Peintre recommandé Montréal.' : 'Reviews and testimonials in Montreal, Laval, Longueuil. Residential and commercial painting. Before/after photos, 5-star ratings. Recommended painter Montreal.'}
-        canonicalPath="/avis"
+        canonicalPath="/avis-clients"
         schemaArray={[breadcrumbSchema, reviewSchema]}
       />
 

@@ -274,12 +274,12 @@ export default function PeintureIndustriellePage() {
               sectors={[
                 {
                   name: 'Montréal',
-                  link: '/services/peinture-industrielle/montreal',
+                  link: '/secteurs/montreal',
                   image: montrealSecteur,
                 },
                 {
                   name: 'Laval',
-                  link: '/services/peinture-industrielle/laval',
+                  link: '/secteurs/laval',
                   image: lavalSecteur,
                 },
                 {
@@ -289,7 +289,7 @@ export default function PeintureIndustriellePage() {
                 },
                 {
                   name: 'Brossard',
-                  link: '/services/peinture-industrielle/brossard',
+                  link: '/secteurs/rive-sud',
                   image: brossardSecteur,
                 },
               ]}

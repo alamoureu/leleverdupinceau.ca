@@ -307,7 +307,7 @@ export default function PeintureCommercialePage() {
                   >
                     <Link
                       as={RouterLink}
-                      to="/services/peinture-commerciale/interieure"
+                      to="/services/peinture-interieure"
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -354,7 +354,7 @@ export default function PeintureCommercialePage() {
 
                     <Link
                       as={RouterLink}
-                      to="/services/peinture-commerciale/exterieure"
+                      to="/services/peinture-exterieure"
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Box
@@ -413,22 +413,22 @@ export default function PeintureCommercialePage() {
               sectors={[
                 {
                   name: 'Montréal',
-                  link: '/services/peinture-commerciale/montreal',
+                  link: '/secteurs/montreal',
                   image: montrealSecteur,
                 },
                 {
                   name: 'Laval',
-                  link: '/services/peinture-commerciale/laval',
+                  link: '/secteurs/laval',
                   image: lavalSecteur,
                 },
                 {
                   name: 'Longueuil',
-                  link: '/services/peinture-commerciale/longueuil',
+                  link: '/secteurs/longueuil',
                   image: longueuilSecteur,
                 },
                 {
                   name: 'Brossard',
-                  link: '/services/peinture-commerciale/brossard',
+                  link: '/secteurs/rive-sud',
                   image: brossardSecteur,
                 },
               ]}

@@ -133,7 +133,7 @@ export const MobileDrawer = () => {
                 variant='tertiary'
                 justifyContent='start'
                 leftIcon={<FontAwesomeIcon icon={faMapMarkerAlt} />}
-                onClick={() => handleNav('/secteurs-desservis')}
+                onClick={() => handleNav('/secteurs')}
                 py={{ base: 3, sm: 4 }}
                 textStyle='drawer'
                 fontWeight='medium'
@@ -165,7 +165,7 @@ export const MobileDrawer = () => {
                 variant='tertiary'
                 justifyContent='start'
                 leftIcon={<FontAwesomeIcon icon={faStar} />}
-                onClick={() => handleNav('/avis')}
+                onClick={() => handleNav('/avis-clients')}
                 py={{ base: 3, sm: 4 }}
                 textStyle='drawer'
                 fontWeight='medium'

@@ -326,14 +326,31 @@ export default function SousServicePage() {
   }
 
   const subServiceName = pageData.name[isFr ? 'fr' : 'en'];
+  const serviceSlugLabels = {
+    'peinture-commerciale': {
+      fr: 'Peinture commerciale',
+      en: 'Commercial painting',
+    },
+    'peinture-residentielle': {
+      fr: 'Peinture résidentielle',
+      en: 'Residential painting',
+    },
+    'peinture-interieure': {
+      fr: 'Peinture intérieure',
+      en: 'Interior painting',
+    },
+    'peinture-exterieure': {
+      fr: 'Peinture extérieure',
+      en: 'Exterior painting',
+    },
+    'peinture-industrielle': {
+      fr: 'Peinture industrielle',
+      en: 'Industrial painting',
+    },
+  };
   const serviceName =
-    serviceSlug === 'peinture-commerciale'
-      ? isFr
-        ? 'Peinture commerciale'
-        : 'Commercial painting'
-      : isFr
-        ? 'Peinture résidentielle'
-        : 'Residential painting';
+    serviceSlugLabels[serviceSlug]?.[isFr ? 'fr' : 'en'] ||
+    (isFr ? 'Services' : 'Services');
 
   // Build breadcrumb schema
   const breadcrumbSchema = {
@@ -380,8 +397,8 @@ export default function SousServicePage() {
       <Helmet>
         <title>
           {isFr
-            ? `${subServiceName} – Le Lever du Pinceau`
-            : `${subServiceName} – Le Lever du Pinceau`}
+            ? `${subServiceName} - Le Lever du Pinceau`
+            : `${subServiceName} - Le Lever du Pinceau`}
         </title>
         <meta
           name='description'

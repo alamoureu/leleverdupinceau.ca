@@ -1,9 +1,10 @@
 export const translations = {
   fr: {
-    heroTitle: 'Un résultat impeccable,',
-    heroTitleSecondLine: 'rien de moins',
-    heroSubtitle: 'Un service rapide, propre et garanti.',
-    heroButton: 'Recevoir ma soumission gratuite',
+    heroTitle: 'Peintre professionnel à Montréal',
+    heroTitleSecondLine: '',
+    heroSubtitle: 'Un résultat impeccable, rien de moins.',
+    heroDescription: 'Service de peinture intérieure et extérieure, résidentielle et commerciale, clé en main, exécuté par des peintres de métier.',
+    heroButton: 'Obtenir ma soumission gratuite',
     heroImageAlt: 'Services de peinture résidentielle et commerciale',
 
     servicesTitle: 'Nos services de peinture à Montréal',
@@ -85,7 +86,7 @@ export const translations = {
     formConfirmationTitle: 'Merci ! Votre demande est bien reçue.',
     formConfirmationMessage:
       "Nous vous recontacterons dans les plus brefs délais pour discuter de votre projet. D'ici là, n'hésitez pas à nous appeler au (438) 868-0772 si vous avez des questions.",
-    formSuccessClosing: "À très bientôt ! — L'équipe Le Lever du Pinceau",
+    formSuccessClosing: "À très bientôt ! - L'équipe Le Lever du Pinceau",
     formRequiredSuffix: ' requis',
     formErrorTitle: 'Erreur',
     formErrorDescription: 'Veuillez remplir tous les champs obligatoires.',
@@ -199,7 +200,11 @@ export const translations = {
     whyUsWantToKnow: 'Vous voulez savoir combien coûte votre projet rapidement ?',
     whyUsLessThan: 'moins de',
 
-    faqDefaultTitle: 'Questions fréquentes sur nos peintres professionnels',
+    faqDefaultTitle: 'Questions fréquentes sur nos services de peinture',
+    faqArmCabinetQuestion: 'Est-ce que vous peinturez les armoires de cuisine?',
+    faqArmCabinetAnswer: 'Absolument. La peinture d\'armoires est l\'un de nos services les plus demandés. Nous utilisons un processus spécifique (sablage, apprêt, 2-3 couches) pour un fini durable qui coûte une fraction du remplacement.',
+    faqRbqQuestion: 'Est-ce que vos peintres sont licenciés RBQ?',
+    faqRbqAnswer: 'Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. De plus, tous nos peintres de métier ont plus de 10 ans d\'expérience.',
     faqPricingLink: 'Voir notre article sur les prix.',
 
     landingHeroTitle: 'Peintres Professionnels\nà Montréal',
@@ -235,9 +240,10 @@ export const translations = {
       "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget.",
   },
   en: {
-    heroTitle: 'An impeccable result,',
-    heroTitleSecondLine: 'nothing less',
-    heroSubtitle: 'A fast, clean and guaranteed service.',
+    heroTitle: 'Professional Painter in Montreal',
+    heroTitleSecondLine: '',
+    heroSubtitle: 'An impeccable result, nothing less.',
+    heroDescription: 'Interior and exterior painting, residential and commercial, turnkey service, performed by professional painters.',
     heroButton: 'Get my free quote',
     heroImageAlt: 'Residential and commercial painting services',
 
@@ -318,7 +324,7 @@ export const translations = {
     formConfirmationTitle: 'Thank you! Your request has been received.',
     formConfirmationMessage:
       'We will get back to you at our earliest convenience to discuss your project. In the meantime, feel free to call us at (438) 868-0772 if you have any questions.',
-    formSuccessClosing: 'Talk soon! — The Le Lever du Pinceau team',
+    formSuccessClosing: 'Talk soon! - The Le Lever du Pinceau team',
     formRequiredSuffix: ' required',
     formErrorTitle: 'Error',
     formErrorDescription: 'Please fill in all required fields.',
@@ -431,7 +437,11 @@ export const translations = {
     whyUsWantToKnow: 'Want to know how much your project will cost quickly?',
     whyUsLessThan: 'less than',
 
-    faqDefaultTitle: 'Frequently asked questions about our professional painters',
+    faqDefaultTitle: 'Frequently asked questions about our painting services',
+    faqArmCabinetQuestion: 'Do you paint kitchen cabinets?',
+    faqArmCabinetAnswer: 'Absolutely. Cabinet painting is one of our most popular services. We use a specific process (sanding, primer, 2-3 coats) for a durable finish that costs a fraction of replacement.',
+    faqRbqQuestion: 'Are your painters RBQ licensed?',
+    faqRbqAnswer: 'Yes. Le Lever du Pinceau holds RBQ license #5864-1481-01 and $5M liability insurance. All our professional painters have over 10 years of experience.',
     faqPricingLink: 'See our article on pricing.',
 
     landingHeroTitle: 'Professional Painters\nin Montreal',

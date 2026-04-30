@@ -411,7 +411,7 @@ export default function ContactPage() {
               pageContext={isFr ? 'Page Contact' : 'Contact Page'}
               disableLinks={true}
               showButton={true}
-              buttonLink='/secteurs-desservis'
+              buttonLink='/secteurs'
               buttonText={isFr ? 'Voir les secteurs' : 'View service areas'}
             />
 
@@ -457,7 +457,7 @@ export default function ContactPage() {
                   <Box textAlign='center' pt={4}>
                     <Link
                       as={RouterLink}
-                      to='/avis'
+                      to='/avis-clients'
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Button

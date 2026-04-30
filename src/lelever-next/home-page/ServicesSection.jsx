@@ -31,20 +31,6 @@ export default function ServicesSection() {
 
   const services = [
     {
-      image: serviceImages[3],
-      title: t.serviceInterior,
-      subtitle: t.serviceInteriorDesc,
-      stripText: t.serviceInteriorStrip,
-      link: '/services/peinture-interieure',
-    },
-    {
-      image: serviceImages[4],
-      title: t.serviceExterior,
-      subtitle: t.serviceExteriorDesc,
-      stripText: t.serviceExteriorStrip,
-      link: '/services/peinture-exterieure',
-    },
-    {
       image: serviceImages[0],
       title: t.serviceResidential,
       subtitle: t.serviceResidentialDesc,
@@ -64,6 +50,20 @@ export default function ServicesSection() {
       subtitle: t.serviceIndustrialDesc,
       stripText: t.serviceIndustrialStrip,
       link: '/services/peinture-industrielle',
+    },
+    {
+      image: serviceImages[3],
+      title: t.serviceInterior,
+      subtitle: t.serviceInteriorDesc,
+      stripText: t.serviceInteriorStrip,
+      link: '/services/peinture-interieure',
+    },
+    {
+      image: serviceImages[4],
+      title: t.serviceExterior,
+      subtitle: t.serviceExteriorDesc,
+      stripText: t.serviceExteriorStrip,
+      link: '/services/peinture-exterieure',
     },
   ];
 

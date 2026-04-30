@@ -1,5 +1,7 @@
 import React, { useMemo } from 'react';
-import { Box, Container, Flex, Heading, Stack, Text } from '@chakra-ui/react';
+import { Link as RouterLink } from 'react-router-dom';
+import { Box, Button, Container, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 
 import img7922 from '../images/Avant après landing Page/Copie de IMG_7922.jpg';
@@ -263,6 +265,26 @@ export default function BeforeAfterCarouselSection({
               ))}
             </Flex>
           </Box>
+          <Link
+            as={RouterLink}
+            to="/realisations"
+            _hover={{ textDecoration: 'none' }}
+          >
+            <Button
+              rightIcon={<ArrowForwardIcon />}
+              variant="outline"
+              borderColor="brand.500"
+              color="brand.500"
+              bg="white"
+              borderRadius="full"
+              textStyle="nav"
+              px={{ base: 5, md: 7 }}
+              py={{ base: 3, md: 4 }}
+              _hover={{ bg: 'brand.500', color: 'white' }}
+            >
+              {isFr ? 'Voir toutes nos réalisations' : 'View all our projects'}
+            </Button>
+          </Link>
         </Stack>
       </Container>
     </Box>

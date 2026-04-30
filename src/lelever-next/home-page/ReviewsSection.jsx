@@ -347,7 +347,7 @@ export default function ReviewsSection({
             <Box
               position='relative'
               w='100%'
-              minH={{ base: '268px', md: '280px' }}
+              minH={{ base: '320px', md: '360px' }}
               pb={{ base: 5, md: 4 }}
               display={{ base: 'block', md: desktopColumns != null ? 'none' : 'block' }}
             >
@@ -390,7 +390,7 @@ export default function ReviewsSection({
                     h='100%'
                     display='flex'
                     flexDirection='column'
-                    minH={{ base: '268px', md: '280px' }}
+                    minH={{ base: '320px', md: '360px' }}
                   >
                     <Stack spacing={{ base: 2.5, md: 2 }} flexShrink={0}>
                       <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
@@ -425,32 +425,10 @@ export default function ReviewsSection({
                       </Box>
                     </Stack>
                     <Box
-                      flex={{ base: '0 1 auto', md: 1 }}
-                      overflowY='auto'
+                      flex='0 0 auto'
                       mt={3}
                       pr={{ base: 3, md: 5 }}
                       pb={1}
-                      minH={0}
-                      sx={{
-                        scrollbarGutter: 'stable',
-                        scrollbarWidth: 'thin',
-                        scrollbarColor: 'rgba(160, 174, 192, 0.45) transparent'
-                      }}
-                      css={{
-                        '&::-webkit-scrollbar': {
-                          width: '4px',
-                        },
-                        '&::-webkit-scrollbar-track': {
-                          background: 'transparent',
-                        },
-                        '&::-webkit-scrollbar-thumb': {
-                          background: 'rgba(160, 174, 192, 0.45)',
-                          borderRadius: '999px',
-                        },
-                        '&::-webkit-scrollbar-thumb:hover': {
-                          background: 'rgba(160, 174, 192, 0.65)',
-                        },
-                      }}
                     >
                       <Text fontSize={{ base: 'sm', md: 'md', lg: 'lg' }} color='gray.700' lineHeight={{ base: '1.65', md: '1.6' }} textAlign='left'>
                         {allReviews[currentIndex].content}
@@ -543,7 +521,7 @@ export default function ReviewsSection({
           {!hideButton && (
             <Link
               as={RouterLink}
-              to='/avis'
+              to='/avis-clients'
               _hover={{ textDecoration: 'none' }}
             >
               <Button

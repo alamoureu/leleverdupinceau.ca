@@ -259,17 +259,17 @@ export default function LavalCityPage() {
     { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
     { label: 'Peinture extérieure', to: '/services/peinture-exterieure' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
-    { label: 'Obtenir une soumission', to: '/soumission' },
+    { label: 'Obtenir une soumission', to: '/contact' },
     { label: 'Pourquoi choisir un peintre professionnel', to: '/peintre-professionnel' },
-    { label: 'Avis clients', to: '/avis' },
+    { label: 'Voir nos réalisations', to: '/realisations' },
   ] : [
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Interior painting', to: '/services/peinture-interieure' },
     { label: 'Exterior painting', to: '/services/peinture-exterieure' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
-    { label: 'Get a quote', to: '/soumission' },
+    { label: 'Get a quote', to: '/contact' },
     { label: 'Why choose a professional painter', to: '/peintre-professionnel' },
-    { label: 'Client reviews', to: '/avis' },
+    { label: 'View our projects', to: '/realisations' },
   ];
 
   // ─── Render ──────────────────────────────────────────────────────────────────
@@ -361,7 +361,7 @@ export default function LavalCityPage() {
                 </Text>
 
                 <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/soumission" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       bg="brand.500"
@@ -375,7 +375,7 @@ export default function LavalCityPage() {
                       {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                     </Button>
                   </Link>
-                  <Link as={RouterLink} to="/avis" _hover={{ textDecoration: 'none' }}>
+                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
                     <Button
                       rightIcon={<ArrowForwardIcon />}
                       variant="outline"
@@ -387,7 +387,7 @@ export default function LavalCityPage() {
                       size="lg"
                       _hover={{ bg: 'brand.500', color: 'white' }}
                     >
-                      {isFr ? 'Avis clients' : 'Client reviews'}
+                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
                     </Button>
                   </Link>
                 </HStack>

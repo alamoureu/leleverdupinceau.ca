@@ -20,29 +20,41 @@ import montrealSecteur from '../images/mtl.png';
 import lavalSecteur from '../images/laval.png';
 import longueuilSecteur from '../images/longueuil.png';
 import brossardSecteur from '../images/brossard.png';
+import riveSudSecteur from '../images/brossard_secteur.png';
+import gatineauSecteur from '../images/neighborhood_placeholder.png';
 // Export images for reuse
 export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
 
 const defaultSectors = [
   {
     name: 'Montréal',
-    link: '/secteurs-desservis/montreal',
+    link: '/secteurs/montreal',
     image: montrealSecteur,
   },
   {
     name: 'Laval',
-    link: '/secteurs-desservis/laval',
+    link: '/secteurs/laval',
     image: lavalSecteur,
   },
   {
     name: 'Longueuil',
-    link: '/secteurs-desservis/longueuil',
+    link: '/secteurs/longueuil',
     image: longueuilSecteur,
   },
   {
     name: 'Brossard',
-    link: '/secteurs-desservis/brossard',
+    link: '/secteurs/rive-sud',
     image: brossardSecteur,
+  },
+  {
+    name: 'Rive-Sud',
+    link: '/secteurs/rive-sud',
+    image: riveSudSecteur,
+  },
+  {
+    name: 'Gatineau',
+    link: '/secteurs/gatineau',
+    image: gatineauSecteur,
   },
 ];
 
@@ -52,7 +64,7 @@ export default function SectorsSection({
   sectors,
   showButton = true,
   buttonText,
-  buttonLink = '/secteurs-desservis',
+  buttonLink = '/secteurs',
   pageContext = '',
   disableLinks = false,
 }) {
@@ -85,10 +97,10 @@ export default function SectorsSection({
           </Stack>
 
           <SimpleGrid
-            columns={{ base: 2, sm: 2, md: 2 }}
+            columns={{ base: 2, sm: 2, md: 3 }}
             spacing={5}
             w="100%"
-            maxW="600px"
+            maxW={{ base: '600px', md: '900px' }}
           >
             {sectorsToDisplay.map((sector, index) => {
               const InnerContent = (
@@ -247,7 +259,7 @@ export default function SectorsSection({
               : 'And in over 20 Montreal neighborhoods: Griffintown, Plateau, Rosemont, Verdun, Outremont, Westmount, Notre-Dame-de-Grâce... '}
             <Link
               as={RouterLink}
-              to="/secteurs-desservis"
+              to="/secteurs"
               color="brand.500"
               fontWeight="bold"
             >

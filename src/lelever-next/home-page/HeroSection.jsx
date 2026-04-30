@@ -25,6 +25,8 @@ export default function HeroSection({
   contentMaxW,
   contentPr,
   imageBackground,
+  /** Overlay on background image (CSS background value). Default: dark translucent. */
+  overlayBg = 'rgba(0, 0, 0, 0.4)',
   children,
   compactTrustBanner,
   showHeroTrustBanner = true,
@@ -94,7 +96,7 @@ export default function HeroSection({
           left={0}
           right={0}
           bottom={0}
-          bg="rgba(0, 0, 0, 0.4)"
+          bg={overlayBg}
           zIndex={1}
         />
       </>

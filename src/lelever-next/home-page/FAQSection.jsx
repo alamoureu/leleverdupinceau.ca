@@ -19,14 +19,6 @@ function getFaqs(isFr) {
   return [
     {
       question: isFr
-        ? 'Quel est le délai pour obtenir une soumission ?'
-        : 'What is the turnaround time for a quote?',
-      answer: isFr
-        ? "Nous répondons généralement sous 24 heures et planifions rapidement une visite sur place pour vous fournir une soumission détaillée et transparente."
-        : 'We generally respond within 24 hours and quickly schedule an on-site visit to provide a detailed and transparent quote.',
-    },
-    {
-      question: isFr
         ? 'Combien coûte un peintre professionnel à Montréal ?'
         : 'How much does a professional painter cost in Montreal?',
       answer: isFr
@@ -36,19 +28,27 @@ function getFaqs(isFr) {
     },
     {
       question: isFr
-        ? 'Est-ce que vous protégez les surfaces avant de peindre ?'
-        : 'Do you protect surfaces before painting?',
+        ? 'Offrez-vous une garantie sur vos travaux ?'
+        : 'Do you offer a guarantee on your work?',
       answer: isFr
-        ? 'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.'
-        : 'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
+        ? 'Oui. Nous offrons une garantie satisfaction à 100%. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.'
+        : "Yes. We offer a 100% satisfaction guarantee. If the result doesn't meet your expectations, we will correct it at no additional cost.",
     },
     {
       question: isFr
-        ? 'Travaillez-vous sur des projets commerciaux ?'
-        : 'Do you work on commercial projects?',
+        ? 'Est-ce que vos peintres sont licenciés RBQ ?'
+        : 'Are your painters RBQ licensed?',
       answer: isFr
-        ? "Oui, nous sommes spécialisés dans les projets commerciaux et comprenons les exigences spécifiques des entreprises. Nous intervenons dans les bureaux, commerces de détail, restaurants, cliniques médicales, cabinets professionnels, écoles privées, halls d'immeubles et espaces de coworking. Nous offrons des horaires flexibles (soirs et fins de semaine) pour minimiser l'impact sur vos opérations, respectons les normes de sécurité commerciales et coordonnons efficacement avec les gestionnaires d'immeubles."
-        : 'Yes, we specialize in commercial projects and understand the specific requirements of businesses. We work in offices, retail stores, restaurants, medical clinics, professional offices, private schools, building halls, and coworking spaces. We offer flexible schedules (evenings and weekends) to minimize impact on your operations, comply with commercial safety standards, and coordinate effectively with building managers.',
+        ? "Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. De plus, tous nos peintres de métier ont plus de 10 ans d'expérience."
+        : 'Yes. Le Lever du Pinceau holds RBQ license #5864-1481-01 and $5M liability insurance. All our professional painters have over 10 years of experience.',
+    },
+    {
+      question: isFr
+        ? 'Quel est le délai pour obtenir une soumission ?'
+        : 'What is the turnaround time for a quote?',
+      answer: isFr
+        ? "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."
+        : 'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',
     },
     {
       question: isFr
@@ -60,8 +60,24 @@ function getFaqs(isFr) {
     },
     {
       question: isFr
+        ? 'Est-ce que vous protégez les surfaces avant de peindre ?'
+        : 'Do you protect surfaces before painting?',
+      answer: isFr
+        ? 'Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.'
+        : 'Yes, absolutely. Protection is an integral part of our professional process. We systematically cover floors with protective cloths, protect all furniture and objects, mask door and window frames, and use professional-quality masking tape to ensure clean lines. We also thoroughly clean up after each workday to leave you with a clean and protected space.',
+    },
+    {
+      question: isFr
+        ? 'Est-ce que vous peinturez les armoires de cuisine ?'
+        : 'Do you paint kitchen cabinets?',
+      answer: isFr
+        ? "Absolument. La peinture d'armoires est l'un de nos services les plus demandés. Nous utilisons un processus spécifique (sablage, apprêt, 2-3 couches) pour un fini durable qui coûte une fraction du remplacement."
+        : 'Absolutely. Cabinet painting is one of our most popular services. We use a specific process (sanding, primer, 2-3 coats) for a durable finish that costs a fraction of replacement.',
+    },
+    {
+      question: isFr
         ? 'Utilisez-vous des peintures écologiques et sans odeur ?'
-        : 'Do you use eco-friendly and odorless paints?',
+        : 'Do you use eco-friendly and low-odor paints?',
       answer: isFr
         ? "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."
         : "Yes, we offer a complete range of eco-friendly low-VOC (volatile organic compounds) paints. These products are ideal for children's rooms, people sensitive to odors, and commercial spaces that need to remain operational. We work with reputable brands such as Bétonel Dulux, using in particular the VIP, Diamond and Lifemaster ranges, known for their durability, excellent coverage and low VOC emissions. We will advise you on the best choice based on your project and budget.",

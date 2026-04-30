@@ -88,6 +88,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     { '@type': 'City', name: 'Longueuil' },
     { '@type': 'City', name: 'Brossard' },
     { '@type': 'City', name: 'Gatineau' },
+    { '@type': 'AdministrativeArea', name: 'Rive-Sud' },
     { '@type': 'AdministrativeArea', name: 'Grand Montréal' },
   ],
   priceRange: '$$',

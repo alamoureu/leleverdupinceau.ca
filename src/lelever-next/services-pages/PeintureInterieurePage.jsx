@@ -237,7 +237,7 @@ export default function PeintureInterieurePage() {
                   description: isFr
                     ? 'Maisons, condos, appartements et résidences privées.'
                     : 'Houses, condos, apartments and private residences.',
-                  link: '/services/peinture-residentielle/interieure',
+                  link: '/services/peinture-interieure',
                   image: imgResInterieure,
                 },
                 {
@@ -247,7 +247,7 @@ export default function PeintureInterieurePage() {
                   description: isFr
                     ? 'Bureaux, commerces, restaurants et espaces commerciaux.'
                     : 'Offices, stores, restaurants and commercial spaces.',
-                  link: '/services/peinture-commerciale/interieure',
+                  link: '/services/peinture-interieure',
                   image: imgComInterieure,
                 },
               ]}
@@ -263,22 +263,22 @@ export default function PeintureInterieurePage() {
               sectors={[
                 {
                   name: 'Montréal',
-                  link: '/services/peinture-interieure/montreal',
+                  link: '/secteurs/montreal',
                   image: montrealSecteur,
                 },
                 {
                   name: 'Laval',
-                  link: '/services/peinture-interieure/laval',
+                  link: '/secteurs/laval',
                   image: lavalSecteur,
                 },
                 {
                   name: 'Longueuil',
-                  link: '/services/peinture-interieure/longueuil',
+                  link: '/secteurs/longueuil',
                   image: longueuilSecteur,
                 },
                 {
                   name: 'Brossard',
-                  link: '/services/peinture-interieure/brossard',
+                  link: '/secteurs/rive-sud',
                   image: brossardSecteur,
                 },
               ]}

@@ -15,7 +15,7 @@ export default function TermsOfUse() {
         description={isFr
           ? "Conditions d'utilisation du site et des services de peinture Le Lever du Pinceau."
           : 'Terms of use for Le Lever du Pinceau website and painting services.'}
-        canonicalPath="/politiques/termes-conditions"
+        canonicalPath="/mentions-legales"
       />
     <Container
       maxW="6xl"

@@ -5,6 +5,12 @@ import { peintureCommercialeExterieureData } from './peintureCommercialeExterieu
 import { peintureCommercialeInterieureData } from './peintureCommercialeInterieureData';
 import { peintureResidentielleExterieureData } from './peintureResidentielleExterieureData';
 import { peintureResidentielleInterieureData } from './peintureResidentielleInterieureData';
+import {
+  residentielleMaisonData,
+  residentielleCondoData,
+  residentielleAppartementData,
+  interieureArmoiresData,
+} from './hubL3MinimalData';
 
 // Merge all sous-service data into one object
 export const allSousServiceData = {
@@ -15,6 +21,12 @@ export const allSousServiceData = {
   'peinture-residentielle': {
     exterieure: peintureResidentielleExterieureData,
     interieure: peintureResidentielleInterieureData,
+    maison: residentielleMaisonData,
+    condo: residentielleCondoData,
+    appartement: residentielleAppartementData,
+  },
+  'peinture-interieure': {
+    'armoires-de-cuisine': interieureArmoiresData,
   },
 };
 
