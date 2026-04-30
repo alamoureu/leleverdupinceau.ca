@@ -44,6 +44,9 @@ const PeintureExterieurePage = lazyRoute(() => import('./lelever-next/services-p
 const PeintureResidentiellePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureResidentiellePage'), 'PeintureResidentiellePage');
 const PeintureInterieurePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureInterieurePage'), 'PeintureInterieurePage');
 const PeintureIndustriellePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureIndustriellePage'), 'PeintureIndustriellePage');
+const PeintureCondoPage = lazyRoute(() => import('./lelever-next/pages/PeintureCondoPage'), 'PeintureCondoPage');
+const PeintureAppartementPage = lazyRoute(() => import('./lelever-next/pages/PeintureAppartementPage'), 'PeintureAppartementPage');
+const PeintureArmoiresCuisinePage = lazyRoute(() => import('./lelever-next/pages/PeintureArmoiresCuisinePage'), 'PeintureArmoiresCuisinePage');
 const SousServicePage = lazyRoute(() => import('./lelever-next/services-pages/sous_service/SousServicePage'), 'SousServicePage');
 const BlogPage = lazyRoute(() => import('./lelever-next/pages/BlogPage'), 'BlogPage');
 const CommentChoisirPeintreProfessionnelPage = lazyRoute(() => import('./lelever-next/pages/CommentChoisirPeintreProfessionnelPage'), 'CommentChoisirPeintreProfessionnelPage');
@@ -248,6 +251,18 @@ export default function App() {
             <Route
               path="peinture-commerciale/exterieure"
               element={<Navigate to="/services/peinture-commerciale" replace />}
+            />
+            <Route
+              path="peinture-residentielle/condo"
+              element={<Suspense fallback={<PageSkeleton />}><PeintureCondoPage /></Suspense>}
+            />
+            <Route
+              path="peinture-residentielle/appartement"
+              element={<Suspense fallback={<PageSkeleton />}><PeintureAppartementPage /></Suspense>}
+            />
+            <Route
+              path="peinture-interieure/armoires-de-cuisine"
+              element={<Suspense fallback={<PageSkeleton />}><PeintureArmoiresCuisinePage /></Suspense>}
             />
             <Route
               path=":serviceSlug/:subServiceSlug"
