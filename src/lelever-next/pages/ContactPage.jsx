@@ -405,8 +405,8 @@ export default function ContactPage() {
               }
               subtitle={
                 isFr
-                  ? 'Montréal, Laval, Longueuil, Brossard — tous les quartiers desservis'
-                  : 'Montreal, Laval, Longueuil, Brossard — all neighborhoods served'
+                  ? 'Montréal, Laval, Longueuil, Brossard - tous les quartiers desservis'
+                  : 'Montreal, Laval, Longueuil, Brossard - all neighborhoods served'
               }
               pageContext={isFr ? 'Page Contact' : 'Contact Page'}
               disableLinks={true}

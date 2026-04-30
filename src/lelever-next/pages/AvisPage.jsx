@@ -413,8 +413,8 @@ export default function AvisPage() {
                   maxW="800px"
                 >
                   {isFr
-                    ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur — toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons.'
-                    : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior — all our work is carried out with precision, cleanliness and impeccable attention to detail. This page brings together authentic reviews from our clients in Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve.'}
+                    ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur - toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons.'
+                    : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior - all our work is carried out with precision, cleanliness and impeccable attention to detail. This page brings together authentic reviews from our clients in Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve.'}
                 </Text>
                 <Text
                   textStyle="bodyLarge"

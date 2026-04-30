@@ -1,0 +1,38 @@
+---
+description: Content writing standards for leleverdupinceau.ca – typography and copy rules
+alwaysApply: true
+---
+
+# Content Standards – leleverdupinceau.ca
+
+## Caractère interdit : tiret em (—)
+
+**JAMAIS utiliser le tiret em (—) dans aucun fichier de ce projet.**
+
+Utiliser uniquement le tiret simple `-` ou une virgule selon le contexte.
+
+```jsx
+// ❌ INTERDIT
+'Résidentiel, commercial, intérieur ou extérieur — toutes nos interventions'
+'Montréal, Laval, Longueuil — tous les quartiers desservis'
+
+// ✅ CORRECT
+'Résidentiel, commercial, intérieur ou extérieur - toutes nos interventions'
+'Montréal, Laval, Longueuil - tous les quartiers desservis'
+```
+
+Cette règle s'applique à **tout** : strings JSX, commentaires visibles, JSON-LD, meta descriptions, alt text, title attributes, données de composants (arrays, objets), et contenu bilingue (français et anglais).
+
+## Accents français
+
+Toujours utiliser les accents corrects dans tout le contenu français :
+- é, è, ê, ë → jamais e sans accent quand l'accent est requis
+- à, â → jamais a sans accent
+- î, ï → jamais i sans accent
+- ô → jamais o sans accent
+- û, ù → jamais u sans accent
+- ç → jamais c sans accent
+
+## Pages de ville – template
+
+Réutiliser les composants `TrustBanner`, `CityWhyUsSection`, `BeforeAfterCarouselSection`, `FAQSection`, `CityCTASection` pour toutes les pages de ville. Ne pas créer de composants one-off.

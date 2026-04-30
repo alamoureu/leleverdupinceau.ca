@@ -23,18 +23,20 @@ import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection'
 import FAQSection from '../home-page/FAQSection';
 import CityCTASection from '../city-pages/CityCTASection';
 
-import headerLongueuil from '../images/3-ville/longueuil/header.JPEG';
-// Avant/apres Longueuil - paires identifiees
-import lonImg5973 from '../images/3-ville/longueuil/avant-apres/IMG_5973 5.jpg';
-import lonImg5974 from '../images/3-ville/longueuil/avant-apres/IMG_5974 5.jpg';
-import lonImg7992 from '../images/3-ville/longueuil/avant-apres/IMG_7992 6.jpg';
-import lonImg7994 from '../images/3-ville/longueuil/avant-apres/IMG_7994 6.jpg';
-import lonImg7990 from '../images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg';
-import lonImg7988 from '../images/3-ville/longueuil/avant-apres/IMG_7988 4.jpg';
-import lonImg6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg';
-import lonImg8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg';
+import headerRiveSud from '../images/3-ville/rive-sud/header (1).JPEG';
+// Avant/apres Rive-Sud - paires identifiees
+import rsImg5973 from '../images/3-ville/rive-sud/avant-apres/IMG_5973 6.jpg';
+import rsImg5974 from '../images/3-ville/rive-sud/avant-apres/IMG_5974 6.jpg';
+import rsImg7974 from '../images/3-ville/rive-sud/avant-apres/IMG_7974 4.jpg';
+import rsImg7975 from '../images/3-ville/rive-sud/avant-apres/IMG_7975 4.jpg';
+import rsImg7988 from '../images/3-ville/rive-sud/avant-apres/IMG_7988 5.jpg';
+import rsImg7990 from '../images/3-ville/rive-sud/avant-apres/IMG_7990 5.jpg';
+import rsImg7992 from '../images/3-ville/rive-sud/avant-apres/IMG_7992 7.jpg';
+import rsImg7994 from '../images/3-ville/rive-sud/avant-apres/IMG_7994 7.jpg';
+import rsImg7997 from '../images/3-ville/rive-sud/avant-apres/IMG_7997 8.jpg';
+import rsImg7999 from '../images/3-ville/rive-sud/avant-apres/IMG_7999 8.jpg';
 
-export default function LongueuilCityPage() {
+export default function RiveSudCityPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
@@ -46,54 +48,56 @@ export default function LongueuilCityPage() {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: isFr ? 'Accueil' : 'Home', item: 'https://www.leleverdupinceau.ca/' },
       { '@type': 'ListItem', position: 2, name: isFr ? 'Secteurs desservis' : 'Service areas', item: 'https://www.leleverdupinceau.ca/secteurs' },
-      { '@type': 'ListItem', position: 3, name: 'Longueuil', item: 'https://www.leleverdupinceau.ca/secteurs/longueuil' },
+      { '@type': 'ListItem', position: 3, name: 'Rive-Sud', item: 'https://www.leleverdupinceau.ca/secteurs/rive-sud' },
     ],
   };
 
   const localBusinessSchema = {
     '@context': 'https://schema.org',
     '@type': 'Painter',
-    name: 'Le Lever du Pinceau - Longueuil',
-    url: 'https://www.leleverdupinceau.ca/secteurs/longueuil',
+    name: 'Le Lever du Pinceau - Rive-Sud',
+    url: 'https://www.leleverdupinceau.ca/secteurs/rive-sud',
     telephone: '+14388680772',
     areaServed: [
+      { '@type': 'AdministrativeArea', name: 'Rive-Sud' },
       { '@type': 'City', name: 'Longueuil' },
-      { '@type': 'Neighborhood', name: 'Vieux-Longueuil' },
-      { '@type': 'Neighborhood', name: 'Saint-Hubert' },
+      { '@type': 'City', name: 'Saint-Lambert' },
+      { '@type': 'City', name: 'Boucherville' },
       { '@type': 'Neighborhood', name: 'Greenfield Park' },
+      { '@type': 'City', name: 'Saint-Bruno' },
     ],
   };
 
   // Section 3 - Checkmarks
 
   const checkmarks = isFr ? [
-    'Habitués aux maisons, condos et projets de transition - À Longueuil, beaucoup de projets concernent des propriétés occupées, des condos, des rafraîchissements avant vente ou des espaces à remettre au propre avant une nouvelle étape.',
-    'Logistique simple et bien planifiée - Stationnement, accès, circulation du matériel et séquence des pièces sont organisés pour garder le chantier fluide, surtout dans des propriétés habitées.',
+    "Habitués aux maisons, condos et projets familiaux de la Rive-Sud - Une grande partie des projets concerne des propriétés occupées, des condos récents ou des remises à niveau avant vente ou emménagement.",
+    "Coordination simple d'une municipalité à l'autre - Accès, stationnement, circulation du matériel et séquence du chantier sont planifiés pour garder une exécution fluide partout sur la Rive-Sud.",
     "Échéancier clair pour les moments sensibles - Avant mise en marché, avant déménagement, entre deux occupations ou pendant un horaire familial serré.",
-    'Protection complète des espaces habités - Dans une maison ou un condo occupé, les protections et le nettoyage quotidien comptent autant que le résultat visuel.',
-    'Communication simple du début à la fin - Le client sait quoi attendre, quand les travaux commencent, ce qui est inclus et comment le chantier va se dérouler.',
-    "Connaissance des secteurs de Longueuil - Vieux-Longueuil, Saint-Hubert, Greenfield Park et les zones résidentielles plus familiales n'impliquent pas les mêmes contextes; l'approche s'adapte.",
+    "Protection complète des espaces habités - Dans une maison ou un condo occupé, les protections, la propreté et le nettoyage quotidien comptent autant que le résultat visuel.",
+    "Communication simple du début à la fin - Le client sait quoi attendre, ce qui est inclus et comment le chantier va se dérouler, peu importe la ville desservie.",
+    "Connaissance des contextes locaux de la Rive-Sud - Longueuil, Saint-Lambert, Boucherville, Greenfield Park, Saint-Bruno ou d'autres secteurs voisins : les contextes changent, l'approche s'adapte.",
   ] : [
-    'Experienced with homes, condos and transition projects - In Longueuil, many projects involve occupied properties, condos, pre-sale refreshes or spaces to clean up before a new chapter.',
-    'Simple and well-planned logistics - Parking, access, material flow and room sequencing are organized to keep the site running smoothly, especially in occupied properties.',
-    'Clear schedule for sensitive moments - Before listing, before moving, between occupations or during a tight family schedule.',
-    'Full protection of occupied spaces - In an occupied home or condo, protections and daily cleanup matter as much as the visual result.',
-    'Simple communication from start to finish - The client knows what to expect, when work starts, what is included and how the site will run.',
-    "Knowledge of Longueuil's sectors - Vieux-Longueuil, Saint-Hubert, Greenfield Park and the more residential family zones don't all involve the same context; the approach adapts.",
+    "Experienced with homes, condos and family projects on the South Shore - Most projects involve occupied properties, newer condos or updates before a sale or move-in.",
+    "Simple coordination from one municipality to the next - Access, parking, material flow and site sequencing are planned to keep execution smooth across the entire South Shore.",
+    "Clear schedule for sensitive moments - Before listing, before moving, between occupations or during a tight family schedule.",
+    "Full protection of occupied spaces - In an occupied home or condo, protections, cleanliness and daily cleanup matter as much as the visual result.",
+    "Simple communication from start to finish - The client knows what to expect, what is included and how the site will run, regardless of the city being served.",
+    "Knowledge of South Shore local contexts - Longueuil, Saint-Lambert, Boucherville, Greenfield Park, Saint-Bruno and neighbouring areas: the context changes, the approach adapts.",
   ];
 
-  // Section 4 - Contextes longueuillois
+  // Section 4 - Contextes Rive-Sud
 
   const contexts = isFr ? [
     {
       number: '01',
-      title: 'Maison unifamiliale occupée',
+      title: 'Maison familiale occupée',
       description: 'Projet à planifier pièce par pièce, avec protections, rythme de chantier clair et souci du quotidien familial.',
     },
     {
       number: '02',
       title: 'Condo ou unité en copropriété',
-      description: "Accès, circulation, espaces communs et propreté prennent plus d'importance dans les immeubles récents ou les copropriétés.",
+      description: "Accès, ascenseur, espaces communs, circulation et propreté prennent plus d'importance dans les immeubles récents de la région.",
     },
     {
       number: '03',
@@ -113,13 +117,13 @@ export default function LongueuilCityPage() {
   ] : [
     {
       number: '01',
-      title: 'Occupied single-family home',
+      title: 'Occupied family home',
       description: 'Project to plan room by room, with protections, clear site rhythm and attention to daily family life.',
     },
     {
       number: '02',
       title: 'Condo or co-ownership unit',
-      description: 'Access, circulation, common areas and cleanliness take on more importance in recent buildings or co-ownerships.',
+      description: 'Access, elevator, common areas, circulation and cleanliness take on more importance in newer buildings in the region.',
     },
     {
       number: '03',
@@ -138,28 +142,33 @@ export default function LongueuilCityPage() {
     },
   ];
 
-  // Section 5 - Avant/apres Longueuil
+  // Section 5 - Avant/apres Rive-Sud
 
-  const longueuilBeforeAfterPairs = [
+  const riveSudBeforeAfterPairs = [
     {
-      before: lonImg5973,
-      after: lonImg5974,
-      description: isFr ? 'Peinture intérieure - Maison à Vieux-Longueuil' : 'Interior painting - House in Vieux-Longueuil',
+      before: rsImg5973,
+      after: rsImg5974,
+      description: isFr ? 'Peinture intérieure - Maison à Boucherville' : 'Interior painting - House in Boucherville',
     },
     {
-      before: lonImg7992,
-      after: lonImg7994,
-      description: isFr ? 'Rafraîchissement complet - Condo à Saint-Hubert' : 'Full refresh - Condo in Saint-Hubert',
+      before: rsImg7992,
+      after: rsImg7994,
+      description: isFr ? 'Rafraîchissement complet - Condo à Saint-Lambert' : 'Full refresh - Condo in Saint-Lambert',
     },
     {
-      before: lonImg7990,
-      after: lonImg7988,
-      description: isFr ? 'Peinture résidentielle - Maison à Greenfield Park' : 'Residential painting - House in Greenfield Park',
+      before: rsImg7990,
+      after: rsImg7988,
+      description: isFr ? 'Peinture résidentielle - Maison à Saint-Bruno' : 'Residential painting - House in Saint-Bruno',
     },
     {
-      before: lonImg6031,
-      after: lonImg8108,
-      description: isFr ? 'Mise à niveau avant vente - Propriété à Longueuil' : 'Pre-sale update - Property in Longueuil',
+      before: rsImg7999,
+      after: rsImg7997,
+      description: isFr ? 'Mise à niveau avant vente - Propriété à Greenfield Park' : 'Pre-sale update - Property in Greenfield Park',
+    },
+    {
+      before: rsImg7975,
+      after: rsImg7974,
+      description: isFr ? 'Peinture extérieure - Rampe métallique repeinte sur la Rive-Sud' : 'Exterior painting - Metal railing repainted on the South Shore',
     },
   ];
 
@@ -199,38 +208,38 @@ export default function LongueuilCityPage() {
     },
   ];
 
-  // Section 7 - FAQ Longueuil
+  // Section 7 - FAQ Rive-Sud
 
-  const longueuilFaqs = [
+  const riveSudFaqs = [
     {
-      question: isFr ? 'Est-ce que vous vous déplacez partout à Longueuil?' : 'Do you travel throughout Longueuil?',
+      question: isFr ? 'Est-ce que vous desservez toute la Rive-Sud?' : 'Do you serve the entire South Shore?',
       answer: isFr
-        ? "Oui. Nous desservons Longueuil et ses principaux secteurs, dont Vieux-Longueuil, Saint-Hubert et Greenfield Park, selon le type de projet. Lors de la soumission, nous confirmons rapidement la disponibilité et l'échéancier selon votre secteur."
-        : 'Yes. We serve Longueuil and its main sectors, including Vieux-Longueuil, Saint-Hubert and Greenfield Park, depending on the type of project. When quoting, we quickly confirm availability and scheduling based on your area.',
+        ? "Oui. Nous desservons la Rive-Sud et plusieurs secteurs clés de la région. Selon le type de projet, nous pouvons aussi vous orienter vers notre page Longueuil si votre besoin est très localisé."
+        : 'Yes. We serve the South Shore and several key areas in the region. Depending on the type of project, we can also direct you to our Longueuil page if your need is very localized.',
+    },
+    {
+      question: isFr ? 'Faites-vous aussi des projets à Longueuil?' : 'Do you also work on projects in Longueuil?',
+      answer: isFr
+        ? "Oui. Longueuil fait partie de la Rive-Sud, mais nous avons aussi une page spécifique pour les visiteurs qui cherchent un contenu plus localisé à cette ville."
+        : 'Yes. Longueuil is part of the South Shore, but we also have a dedicated page for visitors looking for content more specific to that city.',
     },
     {
       question: isFr ? 'Faites-vous des projets dans des maisons occupées?' : 'Do you work in occupied homes?',
       answer: isFr
-        ? 'Oui. Une grande partie de nos projets à Longueuil se font dans des maisons ou condos habités. Nous planifions les protections, la séquence des pièces et le nettoyage pour limiter les impacts au quotidien et garder le chantier le plus discret possible.'
-        : 'Yes. A large portion of our Longueuil projects take place in occupied homes or condos. We plan protections, room sequencing and cleanup to minimize daily disruptions and keep the job site as unobtrusive as possible.',
+        ? "Oui. Une grande partie de nos projets sur la Rive-Sud se font dans des maisons ou condos habités. Nous planifions les protections, la séquence des pièces et le nettoyage pour limiter les impacts au quotidien."
+        : 'Yes. A large portion of our South Shore projects take place in occupied homes or condos. We plan protections, room sequencing and cleanup to minimize daily disruptions.',
     },
     {
-      question: isFr ? 'Combien de temps faut-il pour peindre une propriété à Longueuil?' : 'How long does it take to paint a property in Longueuil?',
+      question: isFr ? 'Faites-vous aussi les condos et copropriétés sur la Rive-Sud?' : 'Do you also work on condos and co-ownerships on the South Shore?',
       answer: isFr
-        ? "Cela dépend de la taille, de l'état des surfaces et du niveau de préparation. Une soumission détaillée permet d'établir un échéancier clair et réaliste avant le début des travaux, pour que vous sachiez exactement à quoi vous attendre."
-        : 'It depends on the size of the project, the condition of the surfaces and the level of preparation required. A detailed quote allows us to establish a clear and realistic schedule before work begins, so you know exactly what to expect.',
-    },
-    {
-      question: isFr ? 'Faites-vous aussi les condos et copropriétés à Longueuil?' : 'Do you also work on condos and co-ownerships in Longueuil?',
-      answer: isFr
-        ? "Oui. Nous adaptons le chantier aux règles de l'immeuble, aux accès et à la circulation du matériel pour garder le projet simple, propre et respectueux des espaces communs et des voisins."
-        : 'Yes. We adapt our operations to building rules, access points and material flow to keep the project simple, clean and respectful of common areas and neighbors.',
+        ? "Oui. Nous adaptons le chantier aux règles de l'immeuble, aux accès, aux ascenseurs et à la circulation du matériel pour garder le projet simple et propre."
+        : 'Yes. We adapt our operations to building rules, access points, elevators and material flow to keep the project simple and clean.',
     },
     {
       question: isFr ? 'Peut-on obtenir une soumission rapidement?' : 'Can we get a quote quickly?',
       answer: isFr
-        ? 'Oui. Nous répondons rapidement et pouvons vous guider vers la bonne page service ou vous proposer une estimation adaptée à votre projet à Longueuil. Dans la majorité des cas, nous répondons en moins de 24 heures.'
-        : 'Yes. We respond quickly and can guide you to the right service page or provide an estimate tailored to your Longueuil project. In most cases, we respond within 24 hours.',
+        ? "Oui. Nous répondons rapidement et pouvons vous guider vers la bonne page service ou vers la bonne page locale selon votre secteur et votre projet. Dans la majorité des cas, nous répondons en moins de 24 heures."
+        : 'Yes. We respond quickly and can guide you to the right service page or local page based on your area and project. In most cases, we respond within 24 hours.',
     },
   ];
 
@@ -239,7 +248,7 @@ export default function LongueuilCityPage() {
   const faqPageSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: longueuilFaqs.map((faq) => ({
+    mainEntity: riveSudFaqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
       acceptedAnswer: {
@@ -256,16 +265,18 @@ export default function LongueuilCityPage() {
     { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
     { label: 'Peinture extérieure', to: '/services/peinture-exterieure' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
+    { label: 'Peintre à Longueuil', to: '/secteurs/longueuil' },
     { label: 'Obtenir une soumission', to: '/soumission' },
-    { label: 'Peintre Rive-Sud', to: '/secteurs/rive-sud' },
+    { label: 'Pourquoi choisir un peintre professionnel', to: '/peintre-professionnel' },
     { label: 'Avis clients', to: '/avis' },
   ] : [
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Interior painting', to: '/services/peinture-interieure' },
     { label: 'Exterior painting', to: '/services/peinture-exterieure' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
+    { label: 'Painter in Longueuil', to: '/secteurs/longueuil' },
     { label: 'Get a quote', to: '/soumission' },
-    { label: 'Painter on the South Shore', to: '/secteurs/rive-sud' },
+    { label: 'Why choose a professional painter', to: '/peintre-professionnel' },
     { label: 'Client reviews', to: '/avis' },
   ];
 
@@ -276,18 +287,18 @@ export default function LongueuilCityPage() {
       <Helmet>
         <title>
           {isFr
-            ? 'Peintre à Longueuil | Résidentiel et commercial | Le Lever du Pinceau'
-            : 'Painter in Longueuil | Residential and commercial | Le Lever du Pinceau'}
+            ? 'Peintre sur la Rive-Sud | Résidentiel et commercial | Le Lever du Pinceau'
+            : 'Painter on the South Shore | Residential and commercial | Le Lever du Pinceau'}
         </title>
         <meta
           name="description"
           content={
             isFr
-              ? 'Le Lever du Pinceau offre des services de peinture à Longueuil pour maisons, condos et commerces. Soumission gratuite, chantier propre, peintres de métier.'
-              : 'Le Lever du Pinceau offers painting services in Longueuil for homes, condos and businesses. Free quote, clean job site, professional painters.'
+              ? 'Le Lever du Pinceau offre des services de peinture sur la Rive-Sud pour maisons, condos et commerces. Peintres professionnels licenciés RBQ. Soumission gratuite.'
+              : 'Le Lever du Pinceau offers painting services on the South Shore for homes, condos and businesses. Licensed RBQ professional painters. Free quote.'
           }
         />
-        <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/longueuil" />
+        <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/rive-sud" />
         <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
         <script type="application/ld+json">{JSON.stringify(faqPageSchema)}</script>
@@ -332,7 +343,7 @@ export default function LongueuilCityPage() {
                   {isFr ? 'Secteurs desservis' : 'Service areas'}
                 </Link>
                 <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Text color="gray.800" fontWeight="medium" fontSize={{ base: 'md', md: 'lg' }}>Longueuil</Text>
+                <Text color="gray.800" fontWeight="medium" fontSize={{ base: 'md', md: 'lg' }}>Rive-Sud</Text>
               </HStack>
 
               <Stack spacing={5} textAlign="left">
@@ -342,19 +353,19 @@ export default function LongueuilCityPage() {
                   fontWeight="bold"
                   color="gray.800"
                 >
-                  {isFr ? 'Peintre à Longueuil' : 'Painter in Longueuil'}
+                  {isFr ? 'Peintre Rive-Sud' : 'Painter on the South Shore'}
                 </Heading>
 
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
                   {isFr
-                    ? 'Des peintres de métier pour vos projets résidentiels et commerciaux partout à Longueuil.'
-                    : 'Professional painters for your residential and commercial projects throughout Longueuil.'}
+                    ? 'Des peintres de métier pour vos projets résidentiels et commerciaux partout sur la Rive-Sud.'
+                    : 'Professional painters for your residential and commercial projects throughout the South Shore.'}
                 </Text>
 
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
                   {isFr
-                    ? 'Maisons familiales, condos, appartements et espaces commerciaux : nous réalisons des projets propres, rapides et bien coordonnés à Longueuil.'
-                    : 'Family homes, condos, apartments and commercial spaces: we deliver clean, fast and well-coordinated projects throughout Longueuil.'}
+                    ? 'Maisons, condos, logements locatifs et commerces sur la Rive-Sud : nous réalisons des projets propres, rapides et bien coordonnés dans la région, de Longueuil à Saint-Lambert, Boucherville et au-delà.'
+                    : 'Homes, condos, rental units and businesses on the South Shore: we deliver clean, fast and well-coordinated projects throughout the region, from Longueuil to Saint-Lambert, Boucherville and beyond.'}
                 </Text>
 
                 <HStack spacing={4} pt={2} flexWrap="wrap">
@@ -399,16 +410,16 @@ export default function LongueuilCityPage() {
               bg="gray.100"
             >
               <Image
-                src={headerLongueuil}
+                src={headerRiveSud}
                 alt={
                   isFr
-                    ? 'Peintre professionnel à Longueuil - Le Lever du Pinceau'
-                    : 'Professional painter in Longueuil - Le Lever du Pinceau'
+                    ? 'Peintre professionnel sur la Rive-Sud - Le Lever du Pinceau'
+                    : 'Professional painter on the South Shore - Le Lever du Pinceau'
                 }
                 title={
                   isFr
-                    ? 'Peintre professionnel Longueuil, Le Lever du Pinceau, projet de peinture résidentielle complété'
-                    : 'Professional painter Longueuil, Le Lever du Pinceau, residential painting project completed'
+                    ? 'Peintre professionnel Rive-Sud, Le Lever du Pinceau, projet de peinture résidentielle complété'
+                    : 'Professional painter South Shore, Le Lever du Pinceau, residential painting project completed'
                 }
                 w="100%"
                 h="100%"
@@ -429,23 +440,23 @@ export default function LongueuilCityPage() {
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
           <Stack spacing={0}>
 
-            {/* SECTION 3 - Checkmarks Longueuil */}
+            {/* SECTION 3 - Checkmarks Rive-Sud */}
             <CityWhyUsSection
-              cityName="Longueuil"
+              cityName="Rive-Sud"
               customTitle={
                 isFr
-                  ? 'Une équipe habituée aux réalités des projets à Longueuil'
-                  : 'A team familiar with the realities of projects in Longueuil'
+                  ? 'Une équipe habituée aux réalités des projets sur la Rive-Sud'
+                  : 'A team familiar with the realities of South Shore projects'
               }
               whyUsIntroText={
                 isFr
-                  ? "À Longueuil, la réussite d'un chantier dépend autant de la planification que de la finition."
-                  : 'In Longueuil, the success of a job depends as much on planning as on the finish.'
+                  ? "Sur la Rive-Sud, la qualité d'un chantier dépend autant de la coordination régionale que de la finition."
+                  : 'On the South Shore, the quality of a job depends as much on regional coordination as on the finish.'
               }
               whyUsContent={checkmarks}
             />
 
-            {/* SECTION 4 - Contextes longueuillois */}
+            {/* SECTION 4 - Contextes Rive-Sud */}
             <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Stack spacing={8}>
                 <Stack spacing={3} textAlign="center">
@@ -456,13 +467,13 @@ export default function LongueuilCityPage() {
                     color="gray.800"
                   >
                     {isFr
-                      ? 'Des projets différents selon le type de propriété à Longueuil'
-                      : 'Different projects depending on the type of property in Longueuil'}
+                      ? 'Des projets différents selon le type de propriété sur la Rive-Sud'
+                      : 'Different projects depending on the type of property on the South Shore'}
                   </Heading>
                   <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="680px" mx="auto">
                     {isFr
-                      ? 'Une maison familiale, un condo ou une propriété à remettre au propre avant une transition ne se gèrent pas de la même manière.'
-                      : 'A family home, a condo or a property to clean up before a transition are not managed the same way.'}
+                      ? 'Une maison familiale, un condo récent ou une propriété à vendre sur la Rive-Sud ne se gèrent pas de la même manière.'
+                      : 'A family home, a newer condo or a property for sale on the South Shore are not managed the same way.'}
                   </Text>
                 </Stack>
 
@@ -506,25 +517,25 @@ export default function LongueuilCityPage() {
           </Stack>
         </Container>
 
-        {/* SECTION 5 - Avant/apres Longueuil */}
+        {/* SECTION 5 - Avant/apres Rive-Sud */}
         <BeforeAfterCarouselSection
           isFr={isFr}
           title={
             isFr
-              ? 'Avant / après de projets à Longueuil'
-              : 'Before / after of projects in Longueuil'
+              ? 'Avant / après de projets sur la Rive-Sud'
+              : 'Before / after of projects on the South Shore'
           }
           subtitle={
             isFr
               ? 'Quelques exemples de transformations propres et bien exécutées dans la région.'
-              : 'A few examples of clean and well-executed transformations in the area.'
+              : 'A few examples of clean and well-executed transformations in the region.'
           }
-          images={longueuilBeforeAfterPairs}
+          images={riveSudBeforeAfterPairs}
           sectionPaddingTop={{ base: 12, md: 16, lg: 20 }}
           sectionPaddingBottom={{ base: 12, md: 16, lg: 20 }}
         />
 
-        {/* SECTION 6 - Pourquoi nous choisir a Longueuil */}
+        {/* SECTION 6 - Pourquoi nous choisir sur la Rive-Sud */}
         <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={8}>
@@ -536,13 +547,13 @@ export default function LongueuilCityPage() {
                   color="gray.800"
                 >
                   {isFr
-                    ? 'Une exécution fiable, propre et bien encadrée'
-                    : 'Reliable, clean and well-managed execution'}
+                    ? 'Une exécution fiable, propre et bien coordonnée'
+                    : 'Reliable, clean and well-coordinated execution'}
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="680px" mx="auto">
                   {isFr
-                    ? "Ce que les clients veulent à Longueuil, ce n'est pas seulement un beau résultat : c'est un chantier bien géré du début à la fin."
-                    : "What clients in Longueuil want is not just a beautiful result: it's a job site well managed from start to finish."}
+                    ? "Ce que les clients veulent sur la Rive-Sud, ce n'est pas seulement un beau résultat : c'est un chantier bien géré du début à la fin."
+                    : "What clients on the South Shore want is not just a beautiful result: it's a job site well managed from start to finish."}
                 </Text>
               </Stack>
 
@@ -582,7 +593,7 @@ export default function LongueuilCityPage() {
           </Container>
         </Box>
 
-        {/* SECTION 6b - Secteurs desservis a Longueuil */}
+        {/* SECTION 6b - Villes desservies sur la Rive-Sud */}
         <Container maxW="1440px" px={{ base: 4, md: 6 }}>
           <Box py={{ base: 12, md: 16, lg: 20 }}>
             <Stack spacing={8}>
@@ -594,23 +605,23 @@ export default function LongueuilCityPage() {
                   color="gray.800"
                 >
                   {isFr
-                    ? 'Nous desservons Longueuil et ses principaux secteurs'
-                    : 'We serve Longueuil and its main sectors'}
+                    ? 'Nous desservons la Rive-Sud et ses principaux secteurs'
+                    : 'We serve the South Shore and its main areas'}
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="680px" mx="auto">
                   {isFr
-                    ? 'Une présence locale crédible se construit aussi par la précision territoriale.'
-                    : 'A credible local presence is also built on territorial precision.'}
+                    ? 'Une couverture régionale crédible, de Longueuil aux municipalités voisines.'
+                    : 'Credible regional coverage, from Longueuil to neighbouring municipalities.'}
                 </Text>
               </Stack>
 
               <SimpleGrid
-                columns={{ base: 1, md: 3 }}
+                columns={{ base: 2, md: 3 }}
                 spacing={{ base: 3, md: 4 }}
                 maxW="700px"
                 mx="auto"
               >
-                {['Vieux-Longueuil', 'Saint-Hubert', 'Greenfield Park'].map((secteur) => (
+                {['Longueuil', 'Saint-Lambert', 'Boucherville', 'Greenfield Park', 'Saint-Bruno', 'Saint-Hubert'].map((secteur) => (
                   <Box
                     key={secteur}
                     bg="white"
@@ -631,7 +642,6 @@ export default function LongueuilCityPage() {
                       fontWeight="bold"
                       color="gray.800"
                       fontSize={{ base: 'sm', md: 'md' }}
-                      whiteSpace="nowrap"
                     >
                       {secteur}
                     </Text>
@@ -647,8 +657,8 @@ export default function LongueuilCityPage() {
                 mx="auto"
               >
                 {isFr
-                  ? "Nous intervenons aussi dans les zones résidentielles et commerciales de Longueuil selon le type de projet et l'échéancier."
-                  : 'We also work in the residential and commercial zones of Longueuil depending on the type of project and timeline.'}
+                  ? "Nous intervenons aussi dans les zones résidentielles et commerciales de la Rive-Sud selon le type de projet et l'échéancier."
+                  : 'We also work in residential and commercial zones across the South Shore depending on the type of project and timeline.'}
               </Text>
             </Stack>
           </Box>
@@ -656,11 +666,11 @@ export default function LongueuilCityPage() {
 
         {/* SECTION 7 - FAQ locale */}
         <FAQSection
-          faqsOverride={longueuilFaqs}
+          faqsOverride={riveSudFaqs}
           title={
             isFr
-              ? 'Questions fréquentes sur nos services de peinture à Longueuil'
-              : 'Frequently asked questions about our painting services in Longueuil'
+              ? 'Questions fréquentes sur nos services de peinture sur la Rive-Sud'
+              : 'Frequently asked questions about our painting services on the South Shore'
           }
         />
 
@@ -676,8 +686,8 @@ export default function LongueuilCityPage() {
                   color="gray.800"
                 >
                   {isFr
-                    ? 'Explorez les services les plus demandés à Longueuil'
-                    : 'Explore the most requested services in Longueuil'}
+                    ? 'Explorez les services les plus demandés sur la Rive-Sud'
+                    : 'Explore the most requested services on the South Shore'}
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="580px" mx="auto">
                   {isFr
@@ -735,7 +745,7 @@ export default function LongueuilCityPage() {
         </Box>
 
         {/* SECTION 9 - CTA final */}
-        <CityCTASection cityName="Longueuil" />
+        <CityCTASection cityName="Rive-Sud" />
 
       </Box>
     </Fragment>

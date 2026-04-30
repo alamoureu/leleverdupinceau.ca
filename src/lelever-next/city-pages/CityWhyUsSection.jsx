@@ -19,9 +19,30 @@ export default function CityWhyUsSection({
   cityName,
   whyUsContent,
   whyUsIntroText,
+  customTitle,
 }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+
+  const defaultTitle = isFr
+    ? cityName === 'Montréal'
+      ? 'Une équipe de peintres basée dans le Grand Montréal'
+      : cityName === 'Brossard'
+        ? 'Une équipe de peintres professionnels sur la Rive-Sud'
+        : cityName === 'Laval'
+          ? 'Une équipe de peintres professionnels basée près de Laval'
+          : cityName === 'Longueuil'
+            ? 'Une équipe locale, rapide et expérimentée'
+            : `Une équipe de peintres professionnels à ${cityName}`
+    : cityName === 'Montreal'
+      ? 'A team of painters based in Greater Montreal'
+      : cityName === 'Brossard'
+        ? 'A team of professional painters on the South Shore'
+        : cityName === 'Laval'
+          ? 'A team of professional painters based near Laval'
+          : cityName === 'Longueuil'
+            ? 'A local, fast and experienced team'
+            : `A team of professional painters in ${cityName}`;
 
   return (
     <Box
@@ -39,25 +60,7 @@ export default function CityWhyUsSection({
                 fontWeight='bold'
                 color='gray.800'
               >
-                {isFr
-                  ? cityName === 'Montréal'
-                    ? 'Une équipe de peintres basée dans le Grand Montréal'
-                    : cityName === 'Brossard'
-                      ? 'Une équipe de peintres professionnels sur la Rive-Sud'
-                      : cityName === 'Laval'
-                        ? 'Une équipe de peintres professionnels basée près de Laval'
-                        : cityName === 'Longueuil'
-                          ? 'Une équipe locale, rapide et expérimentée'
-                          : `Une équipe de peintres professionnels sur la Rive-Sud ${cityName}`
-                  : cityName === 'Montreal'
-                    ? 'A team of painters based in Greater Montreal'
-                    : cityName === 'Brossard'
-                      ? 'A team of professional painters on the South Shore'
-                      : cityName === 'Laval'
-                        ? 'A team of professional painters based near Laval'
-                        : cityName === 'Longueuil'
-                          ? 'A local, fast and experienced team'
-                          : `A team of professional painters on the South Shore ${cityName}`}
+                {customTitle || defaultTitle}
               </Heading>
             </Stack>
 

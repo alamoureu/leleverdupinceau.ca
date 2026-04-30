@@ -69,8 +69,8 @@ export default function CityResourcesSection({ cityName }) {
           },
           {
             title: isFr
-              ? 'Prix peinture Montréal/Longueuil — estimation utile'
-              : 'Painting prices Montreal/Longueuil — useful estimate',
+              ? 'Prix peinture Montréal/Longueuil - estimation utile'
+              : 'Painting prices Montreal/Longueuil - useful estimate',
             link: '/blog/prix-peinture-montreal',
           },
           {
@@ -89,8 +89,8 @@ export default function CityResourcesSection({ cityName }) {
           },
           {
             title: isFr
-              ? 'Prix peinture Montréal / Rive-Sud — analyse complète'
-              : 'Painting prices Montreal / South Shore — complete analysis',
+              ? 'Prix peinture Montréal / Rive-Sud - analyse complète'
+              : 'Painting prices Montreal / South Shore - complete analysis',
             link: '/blog/prix-peinture-montreal',
           },
           {

@@ -32,13 +32,13 @@ function getTomorrow(lang) {
  * Rendered directly in LandingPageV2 (not inside WebsiteNavBar).
  */
 export default function PromoBanner() {
-  const { currentLang } = useContext(appContext);
+  const { currentLang } = useContext(appContext); 
   const tomorrow = useMemo(() => getTomorrow(currentLang), [currentLang]);
 
   const text =
     currentLang === 'en'
-      ? `🏷️\u00A010\u00A0% off — fill out the form before ${tomorrow}`
-      : `🏷️\u00A010\u00A0% de rabais — remplissez le formulaire avant le ${tomorrow}`;
+      ? `🏷️\u00A010\u00A0% off - fill out the form before ${tomorrow}`
+      : `🏷️\u00A010\u00A0% de rabais - remplissez le formulaire avant le ${tomorrow}`;
 
   return (
     <Box
