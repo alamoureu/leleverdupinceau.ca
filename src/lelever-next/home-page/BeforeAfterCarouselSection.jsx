@@ -77,6 +77,26 @@ function buildDefaultImages(isFr) {
   }));
 }
 
+/**
+ * 6 paires sélectionnées pour la landing page.
+ * La cuisine mur bleu-gris est remplacée par la cage d'escalier (drive).
+ */
+export function buildLandingPagePairs(isFr) {
+  const pairs = [
+    { before: img7924, after: img7922, fr: 'Salon - peinture murale (avant / après)', en: 'Living room - wall painting (before / after)' },
+    { before: img7975, after: img7974, fr: 'Escalier extérieur - décapage et peinture', en: 'Outdoor staircase - stripping and painting' },
+    { before: img7990, after: img7988, fr: 'Sous-sol - dégâts d\'eau et rafraîchissement', en: 'Basement - water damage and refresh' },
+    { before: imgStaircaseBefore, after: imgStaircaseAfter, fr: 'Cage d\'escalier - réparation légère et peinture', en: 'Staircase - light repair and painting' },
+    { before: img7999, after: img7997, fr: 'Murs et boiseries - finition propre', en: 'Walls and trim - clean finish' },
+    { before: img7971, after: img6755, fr: 'Maison - extérieur rafraîchi', en: 'Home - refreshed exterior' },
+  ];
+  return pairs.map(({ before, after, fr, en }) => ({
+    before,
+    after,
+    description: isFr ? fr : en,
+  }));
+}
+
 const DEFAULT_SECTION_PY = { base: 8, md: 12, lg: 16 };
 
 export default function BeforeAfterCarouselSection({

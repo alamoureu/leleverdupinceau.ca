@@ -373,10 +373,10 @@ export default function PeintreProfessionnelPage() {
                   </Text>
                 </HStack>
 
-                <Heading
-                  as="h1"
-                  fontSize={{
-                    base: '2xl',
+                  <Heading
+                    as="h1"
+                    fontSize={{
+                      base: '2xl',
                     sm: '3xl',
                     md: '4xl',
                     lg: '5xl',
@@ -388,9 +388,9 @@ export default function PeintreProfessionnelPage() {
                   minW={0}
                 >
                   Pourquoi faire appel à un peintre professionnel à Montréal&#xA0;?
-                </Heading>
+                  </Heading>
 
-                <Text
+                  <Text
                   fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
                   color="white"
                   fontWeight="300"
@@ -399,7 +399,7 @@ export default function PeintreProfessionnelPage() {
                   wordBreak="break-word"
                 >
                   Les avantages concrets d'engager un vrai professionnel pour vos travaux de peinture.
-                </Text>
+                  </Text>
 
                 <Box pt={{ base: 2, sm: 3, md: 4 }}>
                   <Button
@@ -410,10 +410,10 @@ export default function PeintreProfessionnelPage() {
                     py={{ base: 3, sm: 4, md: 5, lg: 6 }}
                     minH={{ base: '48px', sm: '52px', md: '56px', lg: '64px' }}
                     h="auto"
-                    w="100%"
+                w="100%"
                     maxW={{ base: '280px', sm: '320px', md: '360px' }}
                     borderRadius="full"
-                    boxShadow="lg"
+                  boxShadow="lg"
                     _hover={{ bg: 'brand.600' }}
                     whiteSpace="normal"
                     lineHeight="1.15"
@@ -431,33 +431,33 @@ export default function PeintreProfessionnelPage() {
 
         {/* ===== SECTION 3 - POURQUOI UN PEINTRE PROFESSIONNEL ===== */}
         <Box
-          pt={{ base: 20, md: 24, lg: 28 }}
+              pt={{ base: 20, md: 24, lg: 28 }}
           pb={{ base: 14, md: 18, lg: 20 }}
           bg="white"
-        >
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            >
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={10}>
               <Stack spacing={4} maxW="900px">
-                <Heading
-                  as="h2"
-                  size="section"
-                  fontWeight="bold"
-                  color="gray.800"
-                >
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
                   Ce que vous obtenez en engageant un peintre professionnel
-                </Heading>
+                    </Heading>
                 <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
                   Engager un peintre professionnel à Montréal ne garantit pas seulement un résultat esthétique. Cela garantit aussi que les travaux sont réalisés selon les normes de l'industrie, avec des produits adaptés et par des professionnels formés. Dans ce guide, découvrez pourquoi faire appel à un peintre licencié RBQ fait toute la différence pour la durabilité, la sécurité et la qualité du résultat.
-                </Text>
-              </Stack>
+                    </Text>
+                  </Stack>
 
               <Flex wrap="wrap" justify="center" gap={5}>
                 {WHY_PROFESSIONAL.map((item, i) => (
                   <Box
                     key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
+                        bg="white"
+                        border="1px solid"
+                        borderColor="gray.200"
                     borderRadius="xl"
                     p={{ base: 5, md: 6 }}
                     boxShadow="0 2px 12px rgba(0,0,0,0.05)"
@@ -474,18 +474,18 @@ export default function PeintreProfessionnelPage() {
                         bg="brand.50"
                         align="center"
                         justify="center"
-                        flexShrink={0}
+                          flexShrink={0}
                       >
                         <Icon as={item.icon} color="brand.500" boxSize={5} />
                       </Flex>
-                      <Text
+                  <Text
                         fontWeight="bold"
                         color="gray.800"
                         fontSize={{ base: 'sm', md: 'md' }}
                         lineHeight="1.3"
                       >
                         {item.title}
-                      </Text>
+                  </Text>
                     </HStack>
                     <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
                       {item.text}
@@ -493,24 +493,24 @@ export default function PeintreProfessionnelPage() {
                   </Box>
                 ))}
               </Flex>
-            </Stack>
-          </Container>
-        </Box>
+                </Stack>
+              </Container>
+            </Box>
 
         {/* ===== SECTION 4 - RISQUES D'ENGAGER AU NOIR ===== */}
         <Box py={{ base: 14, md: 18, lg: 20 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={10}>
               <Stack spacing={3} maxW="800px">
-                <Heading
-                  as="h2"
-                  size="section"
-                  fontWeight="bold"
-                  color="gray.800"
-                >
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
                   Les risques réels d'engager un peintre sans licence
-                </Heading>
-              </Stack>
+                    </Heading>
+                  </Stack>
 
               <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={5}>
                 {RISKS.map((risk, i) => (
@@ -525,13 +525,13 @@ export default function PeintreProfessionnelPage() {
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
                     transition="all 0.2s"
                   >
-                    <Flex
+                  <Flex
                       w="44px"
                       h="44px"
                       borderRadius="lg"
                       bg="brand.700"
                       align="center"
-                      justify="center"
+                    justify="center"
                       mb={3}
                     >
                       <Icon as={risk.icon} color="white" boxSize={5} />
@@ -542,8 +542,8 @@ export default function PeintreProfessionnelPage() {
                     <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.6">
                       {risk.text}
                     </Text>
-                  </Box>
-                ))}
+                      </Box>
+                    ))}
               </SimpleGrid>
 
               <Box
@@ -566,7 +566,7 @@ export default function PeintreProfessionnelPage() {
                 <Link
                   href="https://www.pes.rbq.gouv.qc.ca/RegistreLicences/FicheDetenteur/5864148101?mode=Entreprise"
                   isExternal
-                  color="brand.500"
+                      color="brand.500"
                   fontWeight="bold"
                   fontSize={{ base: 'sm', md: 'md' }}
                   _hover={{ textDecoration: 'underline' }}
@@ -575,10 +575,10 @@ export default function PeintreProfessionnelPage() {
                   Consulter le registre RBQ
                   <ArrowForwardIcon ml={1} />
                 </Link>
-              </Box>
-            </Stack>
-          </Container>
-        </Box>
+                  </Box>
+                </Stack>
+              </Container>
+            </Box>
 
         {/* ===== SECTION 5 - NOS CERTIFICATIONS ===== */}
         <Box py={{ base: 14, md: 18, lg: 20 }} bg="white">
@@ -609,7 +609,7 @@ export default function PeintreProfessionnelPage() {
                     <Flex
                       w="56px"
                       h="56px"
-                      borderRadius="xl"
+              borderRadius="xl"
                       bg="brand.500"
                       align="center"
                       justify="center"
@@ -632,17 +632,17 @@ export default function PeintreProfessionnelPage() {
 
         {/* ===== SECTION 6 - CHECKLIST 7 QUESTIONS ===== */}
         <Box py={{ base: 14, md: 18, lg: 20 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={10} align="center">
               <Stack spacing={3} maxW="720px" mx="auto" textAlign="center">
-                <Heading
-                  as="h2"
-                  size="section"
-                  fontWeight="bold"
-                  color="gray.800"
-                >
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
                   7 questions à poser avant d'engager un peintre
-                </Heading>
+                    </Heading>
                 <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
                   Un guide rapide pour éviter les mauvaises surprises
                 </Text>
@@ -683,14 +683,14 @@ export default function PeintreProfessionnelPage() {
               </Box>
 
               <Box textAlign="center" maxW="800px" mx="auto" w="100%">
-                <Text
-                  textStyle="bodyLarge"
+                    <Text
+                      textStyle="bodyLarge"
                   fontWeight="medium"
                   color="gray.700"
                   mb={4}
-                >
+                    >
                   Le Lever du Pinceau coche toutes ces cases. Vérifiez par vous-même.
-                </Text>
+                    </Text>
                 <Button
                   onClick={onOpen}
                   bg="brand.500"
@@ -711,9 +711,9 @@ export default function PeintreProfessionnelPage() {
                   Obtenir ma soumission gratuite
                 </Button>
               </Box>
-            </Stack>
-          </Container>
-        </Box>
+                </Stack>
+              </Container>
+            </Box>
 
         {/* ===== SECTION 7 - TEMOIGNAGES (orientés expertise) ===== */}
         <ReviewsSection
@@ -725,65 +725,65 @@ export default function PeintreProfessionnelPage() {
 
         {/* ===== SECTION 8 - FAQ ===== */}
         <Box py={{ base: 14, md: 18, lg: 20 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={8}>
-              <Stack spacing={3} textAlign="center">
-                <Heading
-                  as="h2"
-                  size="section"
-                  fontWeight="bold"
-                  color="gray.800"
-                >
+              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={3} textAlign="center">
+                    <Heading
+                      as="h2"
+                      size="section"
+                      fontWeight="bold"
+                      color="gray.800"
+                    >
                   Questions fréquentes sur les peintres professionnels
-                </Heading>
-              </Stack>
+                    </Heading>
+                  </Stack>
 
-              <Accordion
-                allowToggle
-                allowMultiple
-                w="100%"
-                maxW="800px"
-                mx="auto"
-              >
-                {FAQS.map((faq, index) => (
-                  <AccordionItem
-                    key={index}
-                    bg="white"
-                    mb={4}
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    overflow="hidden"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'sm' }}
-                    transition="all 0.2s"
-                    boxShadow="sm"
-                    _last={{ mb: 0 }}
+                  <Accordion
+                    allowToggle
+                    allowMultiple
+                    w="100%"
+                    maxW="800px"
+                    mx="auto"
                   >
+                {FAQS.map((faq, index) => (
+                      <AccordionItem
+                        key={index}
+                        bg="white"
+                        mb={4}
+                        border="1px solid"
+                        borderColor="gray.200"
+                        borderRadius="xl"
+                        overflow="hidden"
+                        _hover={{ borderColor: 'brand.500', boxShadow: 'sm' }}
+                        transition="all 0.2s"
+                        boxShadow="sm"
+                        _last={{ mb: 0 }}
+                      >
                     <h3>
                       <AccordionButton py={6} px={8} _hover={{ bg: 'gray.50' }}>
-                        <Box
-                          flex="1"
-                          textAlign="left"
-                          fontWeight="bold"
-                          color="gray.800"
-                          textStyle="bodyLarge"
-                        >
-                          {faq.question}
-                        </Box>
-                        <AccordionIcon color="brand.500" />
-                      </AccordionButton>
+                            <Box
+                              flex="1"
+                              textAlign="left"
+                              fontWeight="bold"
+                              color="gray.800"
+                              textStyle="bodyLarge"
+                            >
+                              {faq.question}
+                            </Box>
+                            <AccordionIcon color="brand.500" />
+                          </AccordionButton>
                     </h3>
-                    <AccordionPanel pb={6} px={8} pt={0}>
-                      <Text color="gray.600" lineHeight="1.7">
-                        {faq.answer}
-                      </Text>
-                    </AccordionPanel>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Stack>
-          </Container>
-        </Box>
+                        <AccordionPanel pb={6} px={8} pt={0}>
+                          <Text color="gray.600" lineHeight="1.7">
+                            {faq.answer}
+                          </Text>
+                        </AccordionPanel>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Stack>
+              </Container>
+            </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
         <Box
@@ -813,18 +813,18 @@ export default function PeintreProfessionnelPage() {
               </Stack>
 
               <Box>
-                <Button
+                  <Button
                   onClick={onOpen}
-                  rightIcon={<ArrowForwardIcon />}
-                  bg="white"
-                  color="brand.500"
-                  borderRadius="full"
-                  textStyle="nav"
+                    rightIcon={<ArrowForwardIcon />}
+                    bg="white"
+                    color="brand.500"
+                    borderRadius="full"
+                    textStyle="nav"
                   px={{ base: 8, md: 10 }}
-                  py={{ base: 3, md: 4 }}
-                  _hover={{ bg: 'gray.100' }}
-                  size="lg"
-                >
+                    py={{ base: 3, md: 4 }}
+                    _hover={{ bg: 'gray.100' }}
+                    size="lg"
+                  >
                   Obtenir ma soumission gratuite
                 </Button>
               </Box>

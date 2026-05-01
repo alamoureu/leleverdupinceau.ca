@@ -207,9 +207,9 @@ export const translations = {
     faqRbqAnswer: 'Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. De plus, tous nos peintres de métier ont plus de 10 ans d\'expérience.',
     faqPricingLink: 'Voir notre article sur les prix.',
 
-    landingHeroTitle: 'Peintres Professionnels\nà Montréal',
-    landingHeroSubtitle: 'Service de peinture intérieure et extérieure à prix compétitif dans le Grand Montréal',
-    landingHeroButton: 'Soumission gratuite en 24h',
+    landingHeroTitle: 'Redonnez vie à votre maison\nsans lever le petit doigt',
+    landingHeroSubtitle: 'Un service rapide, propre et garanti à Montréal',
+    landingHeroButton: 'Obtenir ma soumission en 24h',
 
     guaranteeTitle: 'Notre engagement',
     guaranteeBody:

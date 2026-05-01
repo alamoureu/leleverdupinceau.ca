@@ -17,9 +17,10 @@ import LandingHeroSection from '../lelever-next/home-page/LandingHeroSection';
 import TrustBanner from '../lelever-next/home-page/TrustBanner';
 import ReviewsSection from '../lelever-next/home-page/ReviewsSection';
 import LandingServicesSection from '../lelever-next/home-page/LandingServicesSection';
-import BeforeAfterCarouselSection from '../lelever-next/home-page/BeforeAfterCarouselSection';
+import BeforeAfterCarouselSection, { buildLandingPagePairs } from '../lelever-next/home-page/BeforeAfterCarouselSection';
 import ContactFormSection from '../lelever-next/home-page/ContactFormSection';
 import MethodSection from '../lelever-next/home-page/MethodSection';
+import GuaranteeSection from '../lelever-next/home-page/GuaranteeSection';
 import FAQSection from '../lelever-next/home-page/FAQSection';
 import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
 import SubmissionModal from '../components/SubmissionModal';
@@ -60,6 +61,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
   const lang = currentLang || langProp || 'fr';
   const meta = LANDING_META[lang] ?? LANDING_META.fr;
   const landingFaqs = useMemo(() => buildLandingFaqs(t), [t]);
+  const landingPairs = useMemo(() => buildLandingPagePairs(lang === 'fr'), [lang]);
 
   // Popup fires once, 1s after the user scrolls past the end of the method section.
   const methodEndRef = useRef(null);
@@ -164,12 +166,41 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           contentPt={HERO_CONTENT_PT}
         />
 
-        {/* 2. Trust bar — full-width grey strip */}
+        {/* 2. Trust bar — full-width grey strip (bénéfices) */}
         <Box bg="gray.50" w="100%">
           <TrustBanner noCard />
         </Box>
 
-        {/* 3. Reviews */}
+        {/* 3. Services (2 cartes : intérieure + extérieure) */}
+        <LandingServicesSection
+          onSubmissionOpen={onOpen}
+          sectionPy={LANDING_SECTION_PY}
+        />
+
+        {/* 4. Section garantie — CTA + badge + engagement */}
+        <GuaranteeSection
+          onSubmissionOpen={onOpen}
+          sectionPy={LANDING_SECTION_PY}
+        />
+
+        {/* 5. Méthode en 4 étapes — sentinel déclenche le popup après 1s */}
+        <MethodSection
+          onSubmissionOpen={onOpen}
+          hideCta
+          sectionPy={LANDING_SECTION_PY}
+        />
+        <Box ref={methodEndRef} h={0} aria-hidden="true" />
+
+        {/* 6. Formulaire de contact — fond bleu */}
+        <ContactFormSection
+          fields={LANDING_FORM_FIELDS}
+          phoneFirst
+          projectDetailsLabel={t.formProjectDetails}
+          sectionPy={LANDING_SECTION_PY}
+          sectionBg="app.ctaBg"
+        />
+
+        {/* 7. Avis clients */}
         <ReviewsSection
           hideButton
           desktopColumns={3}
@@ -180,37 +211,15 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        {/* 4. Services (2 cards: intérieure + extérieure) */}
-        <LandingServicesSection
-          onSubmissionOpen={onOpen}
-          sectionPy={LANDING_SECTION_PY}
-        />
-
-        {/* 5. Before/After */}
+        {/* 8. Avant/Après — 6 paires, carousel swipe mobile */}
         <BeforeAfterCarouselSection
+          images={landingPairs}
           sectionPy={LANDING_SECTION_PY}
           sectionPaddingTop={LANDING_SECTION_PY}
           sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        {/* 6. Contact form — blue background */}
-        <ContactFormSection
-          fields={LANDING_FORM_FIELDS}
-          phoneFirst
-          projectDetailsLabel={t.formProjectDetails}
-          sectionPy={LANDING_SECTION_PY}
-          sectionBg="app.ctaBg"
-        />
-
-        {/* 7. Method section — sentinel at the end triggers popup after 1s */}
-        <MethodSection
-          onSubmissionOpen={onOpen}
-          hideCta
-          sectionPy={LANDING_SECTION_PY}
-        />
-        <Box ref={methodEndRef} h={0} aria-hidden="true" />
-
-        {/* 8. FAQ */}
+        {/* 9. FAQ */}
         <FAQSection faqsOverride={landingFaqs} sectionPy={LANDING_SECTION_PY} />
 
         {/* 9. Final CTA */}

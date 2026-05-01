@@ -165,6 +165,137 @@ export default function BlogPage() {
               title={isFr ? 'Guides essentiels' : 'Essential Guides'}
             />
 
+            <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Stack spacing={8}>
+                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
+                    <Heading as='h2' size='section' fontWeight='bold' color='gray.800' lineHeight='1.3'>
+                      {isFr ? 'Derniers articles' : 'Latest articles'}
+                    </Heading>
+                    <Text textStyle='bodyLarge' color='gray.600' lineHeight='1.7'>
+                      {isFr
+                        ? 'Guides pratiques publiés récemment par notre équipe.'
+                        : 'Practical guides recently published by our team.'}
+                    </Text>
+                  </Stack>
+                  <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 4, md: 6 }}>
+                    <Link href='/blog/peinture-armoires-cuisine-guide' _hover={{ textDecoration: 'none' }}>
+                      <Box
+                        bg='white'
+                        borderRadius='xl'
+                        overflow='hidden'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{ borderColor: 'brand.500', transform: 'translateY(-2px)', boxShadow: 'md' }}
+                        transition='all 0.2s'
+                      >
+                        <Box
+                          h='160px'
+                          bg='linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%)'
+                          display='flex'
+                          alignItems='center'
+                          justifyContent='center'
+                          px={6}
+                        >
+                          <Text
+                            fontSize={{ base: 'xl', md: '2xl' }}
+                            fontWeight='bold'
+                            color='white'
+                            textAlign='center'
+                            lineHeight='1.3'
+                          >
+                            {isFr ? 'Guide armoires de cuisine' : 'Kitchen cabinet guide'}
+                          </Text>
+                        </Box>
+                        <Stack p={6} spacing={3} flex={1}>
+                          <HStack spacing={2}>
+                            <Text fontSize='xs' fontWeight='bold' color='brand.500' textTransform='uppercase' letterSpacing='wide'>
+                              {isFr ? 'Guide pratique' : 'Practical guide'}
+                            </Text>
+                            <Text fontSize='xs' color='gray.400'>·</Text>
+                            <Text fontSize='xs' color='gray.500'>{isFr ? '9 min de lecture' : '9 min read'}</Text>
+                          </HStack>
+                          <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge' lineHeight='1.5' letterSpacing='-0.01em'>
+                            {isFr
+                              ? 'Peindre ses armoires de cuisine - Guide complet 2026'
+                              : 'Painting kitchen cabinets - Complete guide 2026'}
+                          </Text>
+                          <Text fontSize='sm' color='gray.600' lineHeight='1.6' noOfLines={3}>
+                            {isFr
+                              ? "Étapes, coûts, erreurs à éviter et DIY vs professionnel. Tout ce qu'il faut savoir avant de peindre vos armoires à Montréal."
+                              : 'Steps, costs, mistakes to avoid and DIY vs professional. Everything you need to know before painting your cabinets in Montreal.'}
+                          </Text>
+                          <Box display='flex' alignItems='center' color='brand.500' fontWeight='semibold' fontSize='sm' mt='auto' pt={2}>
+                            <Text mr={2}>{isFr ? 'Lire l\'article' : 'Read article'}</Text>
+                            <ArrowForwardIcon boxSize={4} />
+                          </Box>
+                        </Stack>
+                      </Box>
+                    </Link>
+                    <Link href='/blog/betonel-vs-benjamin-moore' _hover={{ textDecoration: 'none' }}>
+                      <Box
+                        bg='white'
+                        borderRadius='xl'
+                        overflow='hidden'
+                        border='1px solid'
+                        borderColor='gray.200'
+                        h='100%'
+                        display='flex'
+                        flexDirection='column'
+                        _hover={{ borderColor: 'brand.500', transform: 'translateY(-2px)', boxShadow: 'md' }}
+                        transition='all 0.2s'
+                      >
+                        <Box
+                          h='160px'
+                          bg='linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%)'
+                          display='flex'
+                          alignItems='center'
+                          justifyContent='center'
+                          px={6}
+                        >
+                          <Text
+                            fontSize={{ base: 'xl', md: '2xl' }}
+                            fontWeight='bold'
+                            color='white'
+                            textAlign='center'
+                            lineHeight='1.3'
+                          >
+                            Bétonel vs Benjamin Moore
+                          </Text>
+                        </Box>
+                        <Stack p={6} spacing={3} flex={1}>
+                          <HStack spacing={2}>
+                            <Text fontSize='xs' fontWeight='bold' color='brand.500' textTransform='uppercase' letterSpacing='wide'>
+                              {isFr ? 'Comparatif' : 'Comparison'}
+                            </Text>
+                            <Text fontSize='xs' color='gray.400'>·</Text>
+                            <Text fontSize='xs' color='gray.500'>{isFr ? '7 min de lecture' : '7 min read'}</Text>
+                          </HStack>
+                          <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge' lineHeight='1.5' letterSpacing='-0.01em'>
+                            {isFr
+                              ? 'Bétonel vs Benjamin Moore : quelle peinture choisir ?'
+                              : 'Bétonel vs Benjamin Moore: which paint to choose?'}
+                          </Text>
+                          <Text fontSize='sm' color='gray.600' lineHeight='1.6' noOfLines={3}>
+                            {isFr
+                              ? 'Comparatif complet sur les prix, la qualité des produits, les palettes de couleurs et les avis des peintres professionnels.'
+                              : 'Complete comparison on prices, product quality, color palettes and professional painter reviews.'}
+                          </Text>
+                          <Box display='flex' alignItems='center' color='brand.500' fontWeight='semibold' fontSize='sm' mt='auto' pt={2}>
+                            <Text mr={2}>{isFr ? 'Lire l\'article' : 'Read article'}</Text>
+                            <ArrowForwardIcon boxSize={4} />
+                          </Box>
+                        </Stack>
+                      </Box>
+                    </Link>
+                  </SimpleGrid>
+                </Stack>
+              </Container>
+            </Box>
+
             <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
                 <SimpleGrid

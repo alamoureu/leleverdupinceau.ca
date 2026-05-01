@@ -52,6 +52,8 @@ const BlogPage = lazyRoute(() => import('./lelever-next/pages/BlogPage'), 'BlogP
 const CommentChoisirPeintreProfessionnelPage = lazyRoute(() => import('./lelever-next/pages/CommentChoisirPeintreProfessionnelPage'), 'CommentChoisirPeintreProfessionnelPage');
 const PrixPeintureMontrealPage = lazyRoute(() => import('./lelever-next/pages/PrixPeintureMontrealPage'), 'PrixPeintureMontrealPage');
 const ErreursAEviterPeintureInterieurePage = lazyRoute(() => import('./lelever-next/pages/ErreursAEviterPeintureInterieurePage'), 'ErreursAEviterPeintureInterieurePage');
+const PeintureArmoiresCuisineGuidePage = lazyRoute(() => import('./lelever-next/pages/PeintureArmoiresCuisineGuidePage'), 'PeintureArmoiresCuisineGuidePage');
+const BetonelVsBenjaminMoorePage = lazyRoute(() => import('./lelever-next/pages/BetonelVsBenjaminMoorePage'), 'BetonelVsBenjaminMoorePage');
 const NotFoundPage = lazyRoute(() => import('./lelever-next/pages/NotFoundPage'), 'NotFoundPage');
 const AuditImagesPage = lazyRoute(() => import('./lelever-next/pages/AuditImagesPage'), 'AuditImagesPage');
 const SoumissionDashboard = lazyRoute(() => import('./pages/SoumissionDashboard'), 'SoumissionDashboard');
@@ -73,6 +75,17 @@ const PeintureMontrealHubPage = lazyRoute(
   () => import('./lelever-next/pages/PeintureMontrealHubPage'),
   'PeintureMontrealHubPage'
 );
+const WestmountPage = lazyRoute(() => import('./lelever-next/pages/WestmountPage'), 'WestmountPage');
+const VilleMariePage = lazyRoute(() => import('./lelever-next/pages/VilleMariePage'), 'VilleMariePage');
+const PlateauMontRoyalPage = lazyRoute(() => import('./lelever-next/pages/PlateauMontRoyalPage'), 'PlateauMontRoyalPage');
+const OutremontPage = lazyRoute(() => import('./lelever-next/pages/OutremontPage'), 'OutremontPage');
+const PeintureInterieurMontrealPage = lazyRoute(() => import('./lelever-next/pages/PeintureInterieurMontrealPage'), 'PeintureInterieurMontrealPage');
+const PeintureExterieurMontrealPage = lazyRoute(() => import('./lelever-next/pages/PeintureExterieurMontrealPage'), 'PeintureExterieurMontrealPage');
+const TeintureExterieurePage = lazyRoute(() => import('./lelever-next/pages/TeintureExterieurePage'), 'TeintureExterieurePage');
+const PreparationSurfacesPage = lazyRoute(() => import('./lelever-next/services-pages/PreparationSurfacesPage'), 'PreparationSurfacesPage');
+const PeintureAuPistoletPage = lazyRoute(() => import('./lelever-next/services-pages/PeintureAuPistoletPage'), 'PeintureAuPistoletPage');
+const ReparationPlatreGysePage = lazyRoute(() => import('./lelever-next/services-pages/ReparationPlatreGysePage'), 'ReparationPlatreGysePage');
+const PeintureApresSinistrePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureApresSinistrePage'), 'PeintureApresSinistrePage');
 
 export default function App() {
   return (
@@ -133,7 +146,7 @@ export default function App() {
               index
               element={
                 <Suspense fallback={<PageSkeleton />}>
-                  <PeintureMontrealHubPage variant="interieur" />
+                  <PeintureInterieurMontrealPage />
                 </Suspense>
               }
             />
@@ -143,7 +156,7 @@ export default function App() {
               index
               element={
                 <Suspense fallback={<PageSkeleton />}>
-                  <PeintureMontrealHubPage variant="exterieur" />
+                  <PeintureExterieurMontrealPage />
                 </Suspense>
               }
             />
@@ -159,6 +172,10 @@ export default function App() {
           <Route path="/secteurs" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><SecteursDesservisPage /></Suspense>} />
             <Route path="montreal" element={<Suspense fallback={<PageSkeleton />}><MontrealCityPage /></Suspense>} />
+            <Route path="montreal/westmount" element={<Suspense fallback={<PageSkeleton />}><WestmountPage /></Suspense>} />
+            <Route path="montreal/ville-marie" element={<Suspense fallback={<PageSkeleton />}><VilleMariePage /></Suspense>} />
+            <Route path="montreal/plateau-mont-royal" element={<Suspense fallback={<PageSkeleton />}><PlateauMontRoyalPage /></Suspense>} />
+            <Route path="montreal/outremont" element={<Suspense fallback={<PageSkeleton />}><OutremontPage /></Suspense>} />
             <Route path="laval" element={<Suspense fallback={<PageSkeleton />}><LavalCityPage /></Suspense>} />
             <Route path="longueuil" element={<Suspense fallback={<PageSkeleton />}><LongueuilCityPage /></Suspense>} />
             <Route path="gatineau" element={<Suspense fallback={<PageSkeleton />}><GatineauCityPage /></Suspense>} />
@@ -198,43 +215,23 @@ export default function App() {
             />
             <Route
               path="teinture-exterieure"
-              element={
-                <Suspense fallback={<PageSkeleton />}>
-                  <SpecializedServiceHubPage slug="teinture-exterieure" />
-                </Suspense>
-              }
+              element={<Suspense fallback={<PageSkeleton />}><TeintureExterieurePage /></Suspense>}
             />
             <Route
               path="preparation-de-surfaces"
-              element={
-                <Suspense fallback={<PageSkeleton />}>
-                  <SpecializedServiceHubPage slug="preparation-de-surfaces" />
-                </Suspense>
-              }
+              element={<Suspense fallback={<PageSkeleton />}><PreparationSurfacesPage /></Suspense>}
             />
             <Route
               path="peinture-au-pistolet"
-              element={
-                <Suspense fallback={<PageSkeleton />}>
-                  <SpecializedServiceHubPage slug="peinture-au-pistolet" />
-                </Suspense>
-              }
+              element={<Suspense fallback={<PageSkeleton />}><PeintureAuPistoletPage /></Suspense>}
             />
             <Route
               path="reparation-de-platre-et-gypse"
-              element={
-                <Suspense fallback={<PageSkeleton />}>
-                  <SpecializedServiceHubPage slug="reparation-de-platre-et-gypse" />
-                </Suspense>
-              }
+              element={<Suspense fallback={<PageSkeleton />}><ReparationPlatreGysePage /></Suspense>}
             />
             <Route
               path="peinture-apres-sinistre"
-              element={
-                <Suspense fallback={<PageSkeleton />}>
-                  <SpecializedServiceHubPage slug="peinture-apres-sinistre" />
-                </Suspense>
-              }
+              element={<Suspense fallback={<PageSkeleton />}><PeintureApresSinistrePage /></Suspense>}
             />
             <Route
               path="peinture-residentielle/interieure"
@@ -286,6 +283,14 @@ export default function App() {
             <Route
               path="erreurs-a-eviter-peinture-interieure"
               element={<Suspense fallback={<PageSkeleton />}><ErreursAEviterPeintureInterieurePage /></Suspense>}
+            />
+            <Route
+              path="peinture-armoires-cuisine-guide"
+              element={<Suspense fallback={<PageSkeleton />}><PeintureArmoiresCuisineGuidePage /></Suspense>}
+            />
+            <Route
+              path="betonel-vs-benjamin-moore"
+              element={<Suspense fallback={<PageSkeleton />}><BetonelVsBenjaminMoorePage /></Suspense>}
             />
           </Route>
 

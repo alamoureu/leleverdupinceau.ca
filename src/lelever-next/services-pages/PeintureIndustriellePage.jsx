@@ -1,33 +1,166 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
   Heading,
   Text,
   Stack,
-  Link,
   Button,
-  HStack,
   Flex,
-  Grid,
+  Link,
   Icon,
+  HStack,
+  SimpleGrid,
+  Image,
+  Accordion,
+  AccordionItem,
+  AccordionButton,
+  AccordionPanel,
+  AccordionIcon,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
-import appContext from '../../AppProvider';
-import ResourcesSection from '../home-page/ResourcesSection';
-import SectorsSection, {
-  montrealSecteur,
-  lavalSecteur,
-  longueuilSecteur,
-  brossardSecteur,
-} from '../home-page/SectorsSection';
+import {
+  FaIndustry,
+  FaShieldAlt,
+  FaTools,
+  FaFlask,
+  FaHardHat,
+  FaLayerGroup,
+  FaWarehouse,
+  FaWrench,
+  FaMapMarkedAlt,
+  FaSprayCan,
+} from 'react-icons/fa';
+import SEOHead from '../seo/SEOHead';
+import TrustBanner from '../home-page/TrustBanner';
+import SubmissionModal from '../home-page/SubmissionModal';
+import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+
+import industrielleImg1 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peint ce plafond en steel deck en mur à Montréal est.jpg';
+import industrielleImg2 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
+import industrielleImg3 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine sur la rive nord de Montréal.jpg';
+import industrielleImg4 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle dans le grand Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine à Laval.jpg';
+import industrielleImg5 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
+import industrielleImg6 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel sur l_île de Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck en mur à Montréal.jpg';
+
+const CHECKMARKS = [
+  {
+    icon: FaIndustry,
+    title: 'Revêtements adaptés aux conditions industrielles',
+    text: 'Époxy, uréthane, peinture résistante aux produits chimiques, aux chocs et à l\'usure intensive. Pas les mêmes produits qu\'en résidentiel.',
+  },
+  {
+    icon: FaHardHat,
+    title: 'Application au pistolet airless',
+    text: 'Pour couvrir de grandes surfaces rapidement et uniformément - plafonds steel deck, structures métalliques, murs de béton.',
+  },
+  {
+    icon: FaShieldAlt,
+    title: 'Sécurité et conformité sur le chantier industriel',
+    text: 'Équipements de protection, ventilation, gestion des produits chimiques. Nos équipes sont formées pour travailler en environnement industriel.',
+  },
+  {
+    icon: FaTools,
+    title: 'Préparation des surfaces métalliques',
+    text: 'Sablage, traitement antirouille, apprêt d\'adhérence. Une surface métallique mal préparée ne retient pas la peinture.',
+  },
+  {
+    icon: FaLayerGroup,
+    title: 'Systèmes multicouches pour la durabilité',
+    text: 'Fond de teinte, couche intermédiaire et finition : les applications industrielles demandent des systèmes de peinture complets.',
+  },
+  {
+    icon: FaFlask,
+    title: 'Produits conformes aux normes',
+    text: 'Peintures à faible teneur en COV disponibles, conformité aux normes environnementales et de santé au travail selon les exigences du site.',
+  },
+];
+
+const SPECIALITES = [
+  {
+    icon: FaWarehouse,
+    title: 'Entrepôt et usine',
+    text: 'Murs, plafonds steel deck et colonnes. Application au pistolet pour couvrir rapidement de grandes surfaces avec un fini uniforme.',
+    link: null,
+  },
+  {
+    icon: FaLayerGroup,
+    title: 'Plancher époxy',
+    text: 'Revêtement époxy pour planchers industriels - résistance aux impacts, aux produits chimiques et à l\'usure du trafic lourd.',
+    link: null,
+  },
+  {
+    icon: FaWrench,
+    title: 'Structures métalliques',
+    text: 'Poutrelles, charpentes, équipements et surfaces métalliques. Traitement antirouille, apprêt et finition adaptés.',
+    link: null,
+  },
+  {
+    icon: FaMapMarkedAlt,
+    title: 'Marquage au sol',
+    text: 'Lignes de circulation, zones de sécurité, allées de chariot élévateur. Peinture ou époxy selon les exigences du site.',
+    link: null,
+  },
+  {
+    icon: FaSprayCan,
+    title: 'Extérieur d\'usine et de bâtiment industriel',
+    text: 'Revêtements extérieurs résistants aux intempéries et aux conditions climatiques du Québec pour les bâtiments industriels.',
+    link: null,
+  },
+  {
+    icon: FaIndustry,
+    title: 'Stationnement et garage',
+    text: 'Plancher en béton, murs et colonnes de stationnement. Revêtements résistants à l\'usure et aux produits pétroliers.',
+    link: null,
+  },
+];
+
+const FAQS = [
+  {
+    question: 'Quelle est la différence entre une peinture industrielle et une peinture commerciale\u00A0?',
+    answer: 'Les peintures industrielles sont formulées pour résister à des conditions plus exigeantes : produits chimiques, chaleur, usure mécanique intense, exposition prolongée aux intempéries. Elles utilisent souvent des systèmes multicouches (époxy, uréthane) et demandent une préparation de surface plus poussée.',
+  },
+  {
+    question: 'Pouvez-vous peindre des plafonds steel deck très hauts\u00A0?',
+    answer: 'Oui. Nous disposons de l\'équipement nécessaire pour les grandes hauteurs : échafaudages, plateformes élévatrices et pistolets airless à long portée. La planification de l\'accès fait partie de notre soumission.',
+  },
+  {
+    question: 'Est-ce que vous faites du marquage au sol dans les entrepôts\u00A0?',
+    answer: 'Oui. Nous réalisons le traçage et le marquage au sol selon vos plans : lignes de sécurité, zones de circulation, emplacements de stockage. Nous utilisons des peintures durables ou de l\'époxy selon les contraintes du plancher et du trafic.',
+  },
+  {
+    question: 'Combien de temps faut-il pour le séchage d\'un plancher époxy\u00A0?',
+    answer: 'Le temps de séchage varie selon le système époxy utilisé, la température ambiante et le taux d\'humidité. En général, le retour à la marche se fait en 24 à 48 heures, et le retour au trafic lourd après 5 à 7 jours. Ces délais sont intégrés à la planification du chantier.',
+  },
+];
+
+const INTERNAL_LINKS = [
+  {
+    title: 'Peinture commerciale',
+    description: 'Bureau, restaurant, commerce - travaux hors heures et délais serrés.',
+    to: '/services/peinture-commerciale',
+  },
+  {
+    title: 'Peinture au pistolet',
+    description: 'Application airless pour grands espaces industriels et commerciaux.',
+    to: '/services/peinture-au-pistolet',
+  },
+  {
+    title: 'Préparation de surfaces',
+    description: 'Sablage, décapage et apprêt - fondation du travail industriel.',
+    to: '/services/preparation-de-surfaces',
+  },
+  {
+    title: 'Pourquoi choisir un peintre professionnel\u00A0?',
+    description: 'Licence RBQ, assurance, expertise - ce qui fait la différence.',
+    to: '/peintre-professionnel',
+  },
+];
+
 export default function PeintureIndustriellePage() {
-  const { currentLang } = useContext(appContext);
-  const isFr = currentLang === 'fr';
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -36,392 +169,529 @@ export default function PeintureIndustriellePage() {
       {
         '@type': 'ListItem',
         position: 1,
-        name: isFr ? 'Accueil' : 'Home',
+        name: 'Accueil',
         item: 'https://leleverdupinceau.ca/',
       },
       {
         '@type': 'ListItem',
         position: 2,
-        name: isFr ? 'Services' : 'Services',
+        name: 'Services',
         item: 'https://leleverdupinceau.ca/services',
       },
       {
         '@type': 'ListItem',
         position: 3,
-        name: isFr ? 'Peinture industrielle' : 'Industrial painting',
+        name: 'Peinture industrielle',
         item: 'https://leleverdupinceau.ca/services/peinture-industrielle',
       },
     ],
   };
 
-  const whyUsContent = isFr
-    ? [
-      "Résistance aux chocs, à l'humidité et aux produits chimiques",
-      'Protection anticorrosion (revêtements spécialisés)',
-      'Produits à faible odeur ou à séchage rapide selon le site',
-      "Application conforme aux normes d'environnement industriel",
-      'Sécurité renforcée sur le chantier',
-      'Équipe formée pour environnements complexes',
-    ]
-    : [
-      'Resistance to shocks, humidity and chemicals',
-      'Anti-corrosion protection (specialized coatings)',
-      'Low odor or fast drying products depending on the site',
-      'Application compliant with industrial environment standards',
-      'Enhanced safety on site',
-      'Team trained for complex environments',
-    ];
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.answer,
+      },
+    })),
+  };
+
+  const carouselImages = [
+    {
+      before: industrielleImg1,
+      after: industrielleImg2,
+      description: 'Peinture plafond steel deck - entrepôt Montréal Est',
+    },
+    {
+      before: industrielleImg3,
+      after: industrielleImg4,
+      description: 'Peinture extérieure usine au pistolet - Rive-Nord de Montréal',
+    },
+    {
+      before: industrielleImg5,
+      after: industrielleImg6,
+      description: 'Peinture steel deck airless - Montréal',
+    },
+  ];
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
-            ? 'Peinture industrielle – Le Lever du Pinceau | Services professionnels pour industries'
-            : 'Industrial painting – Le Lever du Pinceau | Professional services for industries'}
-        </title>
-        <meta
-          name='description'
-          content={
-            isFr
-              ? 'Le Lever du Pinceau offre des services de peinture industrielle pour usines, entrepôts, centres logistiques et bâtiments industriels dans le Grand Montréal. Revêtements résistants, protection anticorrosion, équipe formée.'
-              : 'Le Lever du Pinceau offers industrial painting services for factories, warehouses, logistics centers and industrial buildings in Greater Montreal. Resistant coatings, anti-corrosion protection, trained team.'
-          }
-        />
-        <link
-          rel='canonical'
-          href='https://www.leleverdupinceau.ca/services/peinture-industrielle'
-        />
-        <script type='application/ld+json'>
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
+      <SEOHead
+        title="Peinture industrielle à Montréal | Entrepôt, usine, stationnement | Le Lever du Pinceau"
+        description="Service de peinture industrielle à Montréal. Entrepôt, usine, plancher époxy, structures métalliques, marquage au sol. Application au pistolet airless. Licence RBQ. Soumission gratuite."
+        canonicalPath="/services/peinture-industrielle"
+        schemaArray={[breadcrumbSchema, faqSchema]}
+      />
 
-      <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
-        <Container
-          maxW='1440px'
-          px={{ base: 4, md: 6 }}
-          pt={{ base: 12, md: 16, lg: 20 }}
+      <Box w="100%" minW={0} bg="white" overflowX="hidden">
+
+        {/* ===== SECTION 1 - HERO ===== */}
+        <Box
+          position="relative"
+          w="100%"
+          minW={0}
+          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
+          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          pb={{ base: 24, sm: 32, md: 28, lg: 32 }}
+          bgColor="gray.700"
+          overflow="visible"
+          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
         >
-          <Grid
-            templateColumns="1fr"
-            gap={{ base: 6, md: 8, lg: 10 }}
-            mb={{ base: 12, md: 16 }}
-            alignItems={{ md: 'flex-start' }}
+          <Image
+            src={industrielleImg2}
+            alt="Peinture industrielle à Montréal - plafond steel deck au pistolet airless"
+            position="absolute"
+            top={0}
+            left={0}
+            w="100%"
+            h="100%"
+            objectFit="cover"
+            zIndex={0}
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <Box
+            position="absolute"
+            top={0}
+            left={0}
+            right={0}
+            bottom={0}
+            bg="rgba(0, 0, 0, 0.60)"
+            zIndex={1}
+          />
+          <Container
+            maxW="1440px"
+            h="100%"
+            position="relative"
+            zIndex={2}
+            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
+            minW={0}
           >
-            <Stack spacing={0} minW={0}>
-              <HStack
-                spacing={3}
-                fontSize={{ base: 'md', md: 'lg' }}
-                color='gray.600'
-                mb={{ base: 4, md: 6 }}
-              >
-                <Link
-                  as={RouterLink}
-                  to='/'
-                  _hover={{ textDecoration: 'underline' }}
-                  color='gray.600'
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Accueil' : 'Home'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Link
-                  as={RouterLink}
-                  to='/services'
-                  _hover={{ textDecoration: 'underline' }}
-                  color='gray.600'
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Services' : 'Services'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Text
-                  color='gray.800'
-                  fontWeight='medium'
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Peinture industrielle' : 'Industrial painting'}
-                </Text>
-              </HStack>
-              <Stack spacing={4} textAlign='left'>
-                <Heading
-                  as='h1'
-                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                  fontWeight='bold'
-                  color='gray.800'
-                >
-                  {isFr ? 'Peinture industrielle' : 'Industrial painting'}
-                </Heading>
-                <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color='gray.600'
-                  lineHeight='1.7'
-                  maxW='900px'
-                >
-                  {isFr
-                    ? 'La peinture industrielle requiert des produits robustes, une préparation rigoureuse et des techniques adaptées aux environnements exigeants. Le Lever du Pinceau intervient dans les usines, entrepôts, centres logistiques, bâtiments industriels et équipements spécialisés à Montréal, Laval, Longueuil et Brossard.'
-                    : 'Industrial painting requires robust products, rigorous preparation and techniques adapted to demanding environments. Le Lever du Pinceau works in factories, warehouses, logistics centers, industrial buildings and specialized equipment in Montreal, Laval, Longueuil and Brossard.'}
-                </Text>
-                <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color='gray.600'
-                  lineHeight='1.7'
-                  maxW='900px'
-                  mt={2}
-                  fontWeight='medium'
-                >
-                  {isFr
-                    ? '👉 Nos peintres professionnels utilisent des revêtements industriels résistants, adaptés aux surfaces métalliques, béton, acier, structures extérieures et environnements à forte circulation. Pour protéger vos surfaces industrielles et améliorer la durabilité de vos installations, notre équipe est prête à intervenir rapidement.'
-                    : '👉 Our professional painters use resistant industrial coatings, adapted to metal surfaces, concrete, steel, exterior structures and high-traffic environments. To protect your industrial surfaces and improve the durability of your installations, our team is ready to intervene quickly.'}
-                </Text>
-              </Stack>
-            </Stack>
-          </Grid>
-          <Stack spacing={0}>
-
-            {/* Section 1 — Pourquoi choisir notre service industriel */}
-            <Box
-              py={{ base: 12, md: 16, lg: 20 }}
-              bg='gray.50'
-              borderRadius='xl'
-              mb={{ base: 8, md: 12 }}
+            <Stack
+              h="100%"
+              minW={0}
+              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
             >
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign='left'>
-                    <Heading
-                      as='h2'
-                      fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                      fontWeight='bold'
-                      color='gray.800'
-                    >
-                      {isFr
-                        ? 'Résistance, durabilité et conformité industrielle'
-                        : 'Resistance, durability and industrial compliance'}
-                    </Heading>
-                    <Text
-                      fontSize={{ base: 'md', md: 'lg' }}
-                      color='gray.600'
-                      lineHeight='1.7'
-                    >
-                      {isFr
-                        ? 'Nos services de peinture industrielle sont conçus pour offrir :'
-                        : 'Our industrial painting services are designed to offer:'}
-                    </Text>
-                  </Stack>
-
-                  <Stack spacing={3}>
-                    {whyUsContent.map((item, index) => (
-                      <Flex
-                        key={index}
-                        align='start'
-                        gap={4}
-                        p={4}
-                        bg='white'
-                        borderRadius='lg'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        _hover={{
-                          borderColor: 'brand.500',
-                          boxShadow: 'sm',
-                          transform: 'translateX(4px)',
-                        }}
-                        transition='all 0.2s ease'
-                      >
-                        <Icon
-                          as={FontAwesomeIcon}
-                          icon={faCheckCircle}
-                          color='brand.500'
-                          boxSize={5}
-                          mt={0.5}
-                          flexShrink={0}
-                        />
-                        <Text
-                          fontSize='md'
-                          color='gray.700'
-                          lineHeight='1.6'
-                          fontWeight='500'
-                          textAlign='left'
-                        >
-                          {item}
-                        </Text>
-                      </Flex>
-                    ))}
-                  </Stack>
-
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    lineHeight='1.7'
-                    mt={4}
-                  >
-                    {isFr
-                      ? 'Nous travaillons sur des bâtiments, planchers industriels, poutres, structures métalliques, équipements, conduits, docks et aires de chargement.'
-                      : 'We work on buildings, industrial floors, beams, metal structures, equipment, ducts, docks and loading areas.'}
-                  </Text>
-                </Stack>
-              </Container>
-            </Box>
-
-            {/* Section 2 — Peinture industrielle par ville */}
-            <SectorsSection
-              title={
-                isFr
-                  ? 'Disponible dans toutes les zones industrielles du Grand Montréal'
-                  : 'Available in all industrial areas of Greater Montreal'
-              }
-              sectors={[
-                {
-                  name: 'Montréal',
-                  link: '/secteurs/montreal',
-                  image: montrealSecteur,
-                },
-                {
-                  name: 'Laval',
-                  link: '/secteurs/laval',
-                  image: lavalSecteur,
-                },
-                {
-                  name: 'Longueuil',
-                  link: '/services/peinture-industrielle/longueuil',
-                  image: longueuilSecteur,
-                },
-                {
-                  name: 'Brossard',
-                  link: '/secteurs/rive-sud',
-                  image: brossardSecteur,
-                },
-              ]}
-            />
-
-            {/* Section 4 — Guides & ressources */}
-            <ResourcesSection
-              title={
-                isFr
-                  ? 'Conseils pour projets industriels'
-                  : 'Tips for industrial projects'
-              }
-            />
-
-            {/* Section 6 — À propos de nos peintres professionnels */}
-            <Box
-              py={{ base: 12, md: 16, lg: 20 }}
-              bg='gray.50'
-              borderRadius='xl'
-              mb={{ base: 8, md: 12 }}
-            >
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={6} textAlign='center' align='center'>
-                  <Heading
-                    as='h2'
-                    fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                    fontWeight='bold'
-                    color='gray.800'
-                  >
-                    {isFr
-                      ? 'Une équipe formée pour les environnements industriels'
-                      : 'A team trained for industrial environments'}
-                  </Heading>
-                  <Text
-                    fontSize={{ base: 'md', md: 'lg' }}
-                    color='gray.600'
-                    lineHeight='1.7'
-                  >
-                    {isFr
-                      ? 'Nos peintres industriels sont formés pour travailler dans des environnements techniques, avec des risques spécifiques (hauteur, machinerie, matériaux spécialisés).'
-                      : 'Our industrial painters are trained to work in technical environments, with specific risks (height, machinery, specialized materials).'}
-                  </Text>
+              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
+                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap">
                   <Link
                     as={RouterLink}
-                    to='/peintre-professionnel'
-                    _hover={{ textDecoration: 'none' }}
-                    w={{ base: '100%', md: 'auto' }}
+                    to="/"
+                    color="whiteAlpha.800"
+                    _hover={{ color: 'white', textDecoration: 'underline' }}
                   >
-                    <Button
-                      rightIcon={<ArrowForwardIcon />}
-                      variant='outline'
-                      borderColor='brand.500'
-                      color='brand.500'
-                      borderRadius='full'
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 5, md: 7 }}
-                      py={{ base: 3, md: 4 }}
-                      _hover={{ bg: 'brand.500', color: 'white' }}
-                      whiteSpace='normal'
-                      textAlign='center'
-                      lineHeight='1.4'
-                      h='auto'
-                      minH='48px'
-                    >
-                      {isFr
-                        ? 'En savoir plus'
-                        : 'Learn more'}
-                    </Button>
+                    Accueil
                   </Link>
-                </Stack>
-              </Container>
-            </Box>
-          </Stack>
-        </Container>
+                  <Text color="whiteAlpha.600">›</Text>
+                  <Link
+                    as={RouterLink}
+                    to="/services"
+                    color="whiteAlpha.800"
+                    _hover={{ color: 'white', textDecoration: 'underline' }}
+                  >
+                    Services
+                  </Link>
+                  <Text color="whiteAlpha.600">›</Text>
+                  <Text color="white" fontWeight="medium">
+                    Peinture industrielle
+                  </Text>
+                </HStack>
 
-        {/* Section 7 — CTA final */}
-        <Box
-          w='100%'
-          py={{ base: 12, md: 16, lg: 20 }}
-          bg='app.ctaBg'
-          mt={{ base: 8, md: 12 }}
-        >
-          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} textAlign='center'>
-              <Stack spacing={3}>
                 <Heading
-                  as='h2'
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight='bold'
-                  color='white'
+                  as="h1"
+                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' }}
+                  fontWeight="700"
+                  color="white"
+                  lineHeight="1.05"
+                  minW={0}
                 >
-                  {isFr
-                    ? 'Obtenez une soumission pour votre projet industriel'
-                    : 'Get a quote for your industrial project'}
+                  Peinture industrielle à Montréal - Entrepôt, usine, stationnement
                 </Heading>
+
                 <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color='whiteAlpha.900'
-                  maxW='800px'
-                  mx='auto'
+                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                  color="white"
+                  fontWeight="300"
+                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
+                  lineHeight="1.5"
                 >
-                  {isFr
-                    ? 'Nous offrons des solutions adaptées aux besoins industriels : durabilité, sécurité et efficacité.'
-                    : 'We offer solutions adapted to industrial needs: durability, safety and efficiency.'}
+                  Revêtements spécialisés, application au pistolet et produits conçus pour les exigences industrielles.
+                </Text>
+
+                <Box pt={{ base: 2, md: 3 }}>
+                  <Button
+                    size={{ base: 'md', md: 'lg' }}
+                    bg="brand.500"
+                    color="white"
+                    _hover={{ bg: 'brand.600' }}
+                    rightIcon={<ArrowForwardIcon />}
+                    onClick={onOpen}
+                    borderRadius="full"
+                    px={{ base: 6, md: 8 }}
+                    fontWeight="600"
+                  >
+                    Obtenir ma soumission gratuite
+                  </Button>
+                </Box>
+              </Stack>
+            </Stack>
+          </Container>
+
+          <TrustBanner compact showSatisfactionGuarantee={false} />
+        </Box>
+
+        {/* ===== SECTION 3 - CHECKMARKS ===== */}
+        <Box py={{ base: 16, md: 20, lg: 24 }} pt={{ base: 20, md: 24, lg: 28 }} bg="white">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={{ base: 10, md: 14 }}>
+              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+                <Heading
+                  as="h2"
+                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                  fontWeight="bold"
+                  color="gray.800"
+                >
+                  Ce qui distingue notre approche industrielle
+                </Heading>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
+                  La peinture industrielle n&apos;est pas de la peinture résidentielle appliquée dans une usine - c&apos;est une spécialité à part entière
                 </Text>
               </Stack>
 
-              <Box>
-                <Link
-                  as={RouterLink}
-                  to='/contact'
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    rightIcon={<ArrowForwardIcon />}
-                    bg='white'
-                    color='brand.500'
-                    borderRadius='full'
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                    _hover={{ bg: 'gray.100' }}
-                    size='lg'
+              <Flex wrap="wrap" justify="center" gap={5}>
+                {CHECKMARKS.map((item, i) => (
+                  <Box
+                    key={i}
+                    bg="white"
+                    border="1px solid"
+                    borderColor="gray.200"
+                    borderRadius="xl"
+                    p={{ base: 5, md: 6 }}
+                    boxShadow="0 2px 12px rgba(0,0,0,0.05)"
+                    _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
+                    transition="all 0.2s"
+                    w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
+                    maxW={{ lg: '420px' }}
                   >
-                    {isFr ? 'Soumission gratuite' : 'Free quote'}
-                  </Button>
-                </Link>
-              </Box>
+                    <HStack spacing={4} mb={3} align="center">
+                      <Flex
+                        w="44px"
+                        h="44px"
+                        borderRadius="lg"
+                        bg="brand.50"
+                        align="center"
+                        justify="center"
+                        flexShrink={0}
+                      >
+                        <Icon as={item.icon} color="brand.500" boxSize={5} />
+                      </Flex>
+                      <Text
+                        fontWeight="bold"
+                        color="gray.800"
+                        fontSize={{ base: 'sm', md: 'md' }}
+                        lineHeight="1.3"
+                      >
+                        {item.title}
+                      </Text>
+                    </HStack>
+                    <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
+                      {item.text}
+                    </Text>
+                  </Box>
+                ))}
+              </Flex>
             </Stack>
           </Container>
         </Box>
+
+        {/* ===== SECTION 4 - SPÉCIALITÉS ===== */}
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={{ base: 10, md: 14 }}>
+              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+                <Heading
+                  as="h2"
+                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                  fontWeight="bold"
+                  color="gray.800"
+                >
+                  Nos spécialités en peinture industrielle
+                </Heading>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
+                  Des revêtements adaptés aux surfaces et aux contraintes de chaque environnement industriel
+                </Text>
+              </Stack>
+
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={5}>
+                {SPECIALITES.map((item, i) => (
+                  <Box
+                    key={i}
+                    bg="white"
+                    border="1px solid"
+                    borderColor="gray.200"
+                    borderRadius="xl"
+                    p={{ base: 6, md: 7 }}
+                    boxShadow="sm"
+                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
+                    transition="all 0.2s"
+                    display="flex"
+                    flexDirection="column"
+                  >
+                    <Stack spacing={3} flex={1}>
+                      <Flex
+                        w="44px"
+                        h="44px"
+                        borderRadius="xl"
+                        bg="brand.50"
+                        align="center"
+                        justify="center"
+                        flexShrink={0}
+                      >
+                        <Icon as={item.icon} color="brand.500" boxSize={5} />
+                      </Flex>
+                      <Heading
+                        as="h3"
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        fontWeight="700"
+                        color="gray.800"
+                        lineHeight="1.3"
+                      >
+                        {item.title}
+                      </Heading>
+                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7" flex={1}>
+                        {item.text}
+                      </Text>
+                    </Stack>
+                  </Box>
+                ))}
+              </SimpleGrid>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
+        <BeforeAfterCarouselSection
+          isFr={true}
+          title="Exemples de projets industriels réalisés"
+          subtitle="Plafonds steel deck, usines et entrepôts - des travaux réalisés avec le bon équipement et les bons produits."
+          images={carouselImages}
+          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
+          sectionPaddingBottom={{ base: 6, md: 8 }}
+        />
+
+        {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
+          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
+            <Stack spacing={6} align="center">
+              <Flex
+                w="64px"
+                h="64px"
+                borderRadius="full"
+                bg="brand.500"
+                align="center"
+                justify="center"
+              >
+                <Icon as={FaShieldAlt} color="white" boxSize={7} />
+              </Flex>
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                fontWeight="bold"
+                color="gray.800"
+              >
+                Garantie satisfaction 100%
+              </Heading>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color="gray.700"
+                lineHeight="1.8"
+                maxW="720px"
+              >
+                En industriel, un revêtement qui écaille ou un plancher qui s&apos;use prématurément coûte cher à refaire. Nous utilisons les bons produits, au bon endroit, avec la bonne préparation pour que le résultat dure.
+              </Text>
+              <Button
+                size={{ base: 'md', md: 'lg' }}
+                bg="brand.500"
+                color="white"
+                _hover={{ bg: 'brand.600' }}
+                rightIcon={<ArrowForwardIcon />}
+                onClick={onOpen}
+                borderRadius="full"
+                px={{ base: 6, md: 8 }}
+                fontWeight="600"
+              >
+                Obtenir ma soumission gratuite
+              </Button>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* ===== SECTION 7 - FAQ ===== */}
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
+          <Container maxW="900px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={{ base: 8, md: 12 }}>
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                fontWeight="bold"
+                color="gray.800"
+                textAlign="center"
+              >
+                Questions fréquentes sur la peinture industrielle
+              </Heading>
+
+              <Accordion allowMultiple>
+                {FAQS.map((faq, i) => (
+                  <AccordionItem
+                    key={i}
+                    border="1px solid"
+                    borderColor="gray.200"
+                    borderRadius="lg"
+                    mb={3}
+                    overflow="hidden"
+                  >
+                    <AccordionButton
+                      py={{ base: 4, md: 5 }}
+                      px={{ base: 5, md: 6 }}
+                      _hover={{ bg: 'gray.50' }}
+                      _expanded={{ bg: 'gray.50' }}
+                    >
+                      <Box flex="1" textAlign="left">
+                        <Text
+                          fontWeight="600"
+                          color="gray.800"
+                          fontSize={{ base: 'sm', md: 'md' }}
+                          lineHeight="1.4"
+                        >
+                          {faq.question}
+                        </Text>
+                      </Box>
+                      <AccordionIcon color="brand.500" />
+                    </AccordionButton>
+                    <AccordionPanel
+                      pb={{ base: 4, md: 5 }}
+                      px={{ base: 5, md: 6 }}
+                      pt={0}
+                      bg="gray.50"
+                    >
+                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.8">
+                        {faq.answer}
+                      </Text>
+                    </AccordionPanel>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* ===== SECTION 8 - LIENS INTERNES ===== */}
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={{ base: 8, md: 12 }}>
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                fontWeight="bold"
+                color="gray.800"
+                textAlign="center"
+              >
+                Services connexes
+              </Heading>
+
+              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
+                {INTERNAL_LINKS.map((link, i) => (
+                  <Link
+                    key={i}
+                    as={RouterLink}
+                    to={link.to}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    <Box
+                      bg="white"
+                      border="1px solid"
+                      borderColor="gray.200"
+                      borderRadius="xl"
+                      p={5}
+                      h="100%"
+                      display="flex"
+                      flexDirection="column"
+                      _hover={{
+                        borderColor: 'brand.500',
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'md',
+                      }}
+                      transition="all 0.2s"
+                    >
+                      <Stack spacing={3} flex={1} justify="space-between">
+                        <Text
+                          fontWeight="600"
+                          color="gray.800"
+                          fontSize={{ base: 'sm', md: 'md' }}
+                          lineHeight="1.3"
+                        >
+                          {link.title}
+                        </Text>
+                        <Text color="gray.500" fontSize="sm" lineHeight="1.6">
+                          {link.description}
+                        </Text>
+                        <HStack spacing={1} color="brand.500">
+                          <Text fontSize="sm" fontWeight="medium">Voir</Text>
+                          <ArrowForwardIcon boxSize={3} />
+                        </HStack>
+                      </Stack>
+                    </Box>
+                  </Link>
+                ))}
+              </SimpleGrid>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* ===== SECTION 9 - CTA FINAL ===== */}
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
+          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
+            <Stack spacing={6} align="center">
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                fontWeight="bold"
+                color="white"
+              >
+                Prêt à planifier votre projet industriel&#xA0;?
+              </Heading>
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color="whiteAlpha.900"
+                lineHeight="1.7"
+              >
+                Soumission gratuite en moins de 24h
+              </Text>
+              <Button
+                size={{ base: 'md', md: 'lg' }}
+                bg="white"
+                color="brand.500"
+                _hover={{ bg: 'gray.100' }}
+                rightIcon={<ArrowForwardIcon />}
+                onClick={onOpen}
+                borderRadius="full"
+                px={{ base: 6, md: 8 }}
+                fontWeight="700"
+              >
+                Obtenir ma soumission gratuite
+              </Button>
+            </Stack>
+          </Container>
+        </Box>
+
       </Box>
+
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

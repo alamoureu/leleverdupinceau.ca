@@ -127,6 +127,30 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs/montreal/westmount</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs/montreal/ville-marie</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs/montreal/plateau-mont-royal</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/secteurs/montreal/outremont</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://www.leleverdupinceau.ca/secteurs/laval</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
@@ -188,6 +212,18 @@
   </url>
   <url>
     <loc>https://www.leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/blog/peinture-armoires-cuisine-guide</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.leleverdupinceau.ca/blog/betonel-vs-benjamin-moore</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

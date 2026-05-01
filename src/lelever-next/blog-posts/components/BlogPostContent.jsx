@@ -1076,6 +1076,122 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           </Box>
         );
 
+      case 'table': {
+        const headers = Array.isArray(item.headers)
+          ? item.headers
+          : (item.headers?.[isFr ? 'fr' : 'en'] || []);
+        const rows = Array.isArray(item.rows)
+          ? item.rows
+          : (item.rows?.[isFr ? 'fr' : 'en'] || []);
+        return (
+          <Box
+            key={index}
+            mb={{ base: 6, md: 8 }}
+            mt={{ base: 4, md: 6 }}
+            overflowX="auto"
+            borderRadius="xl"
+            border="1px solid"
+            borderColor="gray.200"
+            boxShadow="sm"
+          >
+            <Box as="table" w="100%" minW="480px" style={{ borderCollapse: 'collapse' }}>
+              {headers.length > 0 && (
+                <Box as="thead" bg="gray.50">
+                  <Box as="tr">
+                    {headers.map((h, i) => (
+                      <Box
+                        key={i}
+                        as="th"
+                        px={{ base: 3, md: 4 }}
+                        py={3}
+                        textAlign="left"
+                        fontSize={{ base: 'sm', md: 'md' }}
+                        fontWeight="bold"
+                        color="gray.800"
+                        borderBottom="2px solid"
+                        borderColor="brand.500"
+                        whiteSpace="nowrap"
+                      >
+                        {h}
+                      </Box>
+                    ))}
+                  </Box>
+                </Box>
+              )}
+              <Box as="tbody">
+                {rows.map((row, ri) => (
+                  <Box
+                    key={ri}
+                    as="tr"
+                    bg={ri % 2 === 0 ? 'white' : 'gray.50'}
+                    _hover={{ bg: 'blue.50' }}
+                    transition="background 0.15s"
+                  >
+                    {row.map((cell, ci) => (
+                      <Box
+                        key={ci}
+                        as="td"
+                        px={{ base: 3, md: 4 }}
+                        py={{ base: 2, md: 3 }}
+                        fontSize={{ base: 'sm', md: 'md' }}
+                        color={ci === 0 ? 'gray.800' : 'gray.700'}
+                        fontWeight={ci === 0 ? '600' : '400'}
+                        borderBottom="1px solid"
+                        borderColor="gray.200"
+                        lineHeight="1.6"
+                        dangerouslySetInnerHTML={{
+                          __html: preventOrphanedPunctuation(cell),
+                        }}
+                      />
+                    ))}
+                  </Box>
+                ))}
+              </Box>
+            </Box>
+          </Box>
+        );
+      }
+
+      case 'cta': {
+        const ctaText = item.text?.[isFr ? 'fr' : 'en'] || item.text;
+        const ctaHref = item.href || '/contact';
+        return (
+          <Box
+            key={index}
+            mb={{ base: 6, md: 8 }}
+            mt={{ base: 4, md: 6 }}
+            py={{ base: 5, md: 6 }}
+            px={{ base: 5, md: 8 }}
+            bg="blue.50"
+            borderRadius="xl"
+            border="1px solid"
+            borderColor="brand.200"
+          >
+            <Link href={ctaHref} _hover={{ textDecoration: 'none' }}>
+              <Box
+                as="button"
+                bg="brand.500"
+                color="white"
+                borderRadius="full"
+                fontSize={{ base: 'sm', md: 'md' }}
+                px={{ base: 6, md: 8 }}
+                py={{ base: 3, md: 4 }}
+                _hover={{ bg: 'brand.600', transform: 'translateY(-1px)', boxShadow: 'md' }}
+                fontWeight="semibold"
+                display="inline-flex"
+                alignItems="center"
+                gap={2}
+                transition="all 0.2s"
+                cursor="pointer"
+                border="none"
+              >
+                {ctaText}
+              </Box>
+            </Link>
+          </Box>
+        );
+      }
+
       default:
         return null;
     }
