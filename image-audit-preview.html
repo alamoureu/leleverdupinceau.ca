@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Audit visuel des images - Le Lever du Pinceau</title>
+  <style>
+    :root { font-family: system-ui, sans-serif; color: #1a1a1a; background: #f4f4f5; }
+    body { margin: 0; padding: 1rem 1.5rem 3rem; max-width: 1400px; margin-inline: auto; }
+    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    .lead { color: #444; line-height: 1.5; margin-bottom: 1.5rem; max-width: 80ch; }
+    .toolbar { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 1.25rem; }
+    .toolbar label { display: flex; align-items: center; gap: 0.35rem; cursor: pointer; font-size: 0.9rem; }
+    .stats { font-size: 0.9rem; color: #555; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 1rem; }
+    .card { background: #fff; border: 1px solid #ddd; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; }
+    .card[data-missing="1"] { border-color: #c0392b; background: #fdf2f2; }
+    .thumb { background: #e8e8ea; min-height: 200px; display: flex; align-items: center; justify-content: center; padding: 0.5rem; }
+    .thumb img { max-width: 100%; max-height: 220px; width: auto; height: auto; object-fit: contain; }
+    .missing { color: #c0392b; font-weight: 600; padding: 1rem; text-align: center; }
+    .meta { padding: 0.75rem 1rem 1rem; font-size: 0.8rem; flex: 1; }
+    .count { font-weight: 700; margin: 0 0 0.25rem; color: #0a5; }
+    .count-note { font-size: 0.75rem; color: #666; margin: 0 0 0.5rem; line-height: 1.35; }
+    .card-shared { border-left: 4px solid #e67e22; }
+    .card-shared .count { color: #b45309; }
+    .card[data-missing="1"] .count { color: #c0392b; }
+    .path { margin: 0 0 0.5rem; word-break: break-all; }
+    .path code { font-size: 0.72rem; }
+    ul.files { margin: 0; padding-left: 1.1rem; max-height: 120px; overflow-y: auto; }
+    ul.files li { margin: 0.15rem 0; }
+    ul.files code { font-size: 0.68rem; }
+  </style>
+</head>
+<body>
+  <h1>Audit visuel des images (imports statiques)</h1>
+  <p class="lead">
+    <strong>Lecture :</strong> « N importateur(s) de code » = <strong>N fichiers .jsx/.js</strong> qui contiennent un <code>import … from '…'</code> vers <strong>cette même image</strong> sur le disque.
+    Ce n'est pas « N copies du fichier », ni une erreur de build : c'est la <strong>réutilisation volontaire</strong> du même asset (souvent accueil + hub + pages Avis/Blog/Services, ou <code>*Data.js</code> + page ville).
+    Pour les mêmes <strong>octets</strong> sous deux chemins différents, utiliser <code>npm run audit:image-byte-dupes</code>.
+    <br /><br />
+    Ce fichier doit être ouvert depuis la <strong>racine du dépôt</strong> (même dossier que le dossier <code>src</code>),
+    par exemple double-clic sur <code>image-audit-preview.html</code>. Les <code>&lt;img src&gt;</code> sont des chemins relatifs vers les fichiers du repo.
+    Régénération : <code>npm run audit:image-html</code> ou <code>node scripts/generate-image-audit-html.js</code>.
+  </p>
+  <div class="toolbar">
+    <label><input type="checkbox" id="hideOk" /> Masquer les images sans sujet (1 importateur, fichier présent)</label>
+    <span class="stats">236 images · généré le 2026-05-13 00:28:27 UTC (relancer après tout changement d'import)</span>
+  </div>
+  <div class="grid" id="grid">
+    
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/a propos/Photo header/IMG_6772.PNG" alt="IMG_6772.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/a propos/Photo header/IMG_6772.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/AboutPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/blog hub/erreurs-eviter-peindre.png" alt="erreurs-eviter-peindre.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/blog hub/erreurs-eviter-peindre.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/ResourcesSection.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/components/ServiceQuartierGuidesSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG" alt="IMG_6753.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/BlogPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/blog hub/prix-projet-montreal.png" alt="prix-projet-montreal.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/blog hub/prix-projet-montreal.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/ResourcesSection.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/components/ServiceQuartierGuidesSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/Home/Projet extérieur/IMG_6755.PNG" alt="IMG_6755.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/Home/Projet extérieur/IMG_6755.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/RecentProjectsSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG" alt="IMG_6751.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintreProfessionnelPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG" alt="IMG_6753.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintreProfessionnelPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG" alt="IMG_6752.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintreProfessionnelPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG" alt="IMG_6764.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintreProfessionnelPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG" alt="IMG_6763.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintreProfessionnelPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/service hub/Peinture extérieure/IMG_6767.PNG" alt="IMG_6767.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/service hub/Peinture extérieure/IMG_6767.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/LandingServicesSection.jsx</code></li><li><code>src/lelever-next/home-page/ServicesSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="4">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG" alt="IMG_6757.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">4 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/RecentProjectsSection.jsx</code></li><li><code>src/lelever-next/home-page/ServicesSection.jsx</code></li><li><code>src/lelever-next/pages/BlogPage.jsx</code></li><li><code>src/lelever-next/pages/ServicesPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="5">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG" alt="IMG_6758.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">5 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/LandingServicesSection.jsx</code></li><li><code>src/lelever-next/home-page/ServicesSection.jsx</code></li><li><code>src/lelever-next/pages/AvisPage.jsx</code></li><li><code>src/lelever-next/pages/BlogPage.jsx</code></li><li><code>src/lelever-next/pages/ServicesPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="4">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG" alt="IMG_6768.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">4 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/ServicesSection.jsx</code></li><li><code>src/lelever-next/pages/AvisPage.jsx</code></li><li><code>src/lelever-next/pages/BlogPage.jsx</code></li><li><code>src/lelever-next/pages/ServicesPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/1-page-principale/service hub/Photo header/IMG_6771.PNG" alt="IMG_6771.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/1-page-principale/service hub/Photo header/IMG_6771.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/ContactPage.jsx</code></li><li><code>src/lelever-next/pages/PeintreProfessionnelPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="9">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG" alt="IMG_6760.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">9 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/RecentProjectsSection.jsx</code></li><li><code>src/lelever-next/home-page/ServicesSection.jsx</code></li><li><code>src/lelever-next/pages/AvisPage.jsx</code></li><li><code>src/lelever-next/pages/BlogPage.jsx</code></li><li><code>src/lelever-next/pages/ServicesPage.jsx</code></li><li><code>src/lelever-next/services-pages/PeintureCommercialePage.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureCommercialeData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureIndustrielleData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureResidentielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG" alt="IMG_6759.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture commerciale/2. réalisations/IMG_6759.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureCommercialeData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureResidentielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG" alt="IMG_6777.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture commerciale/3. réalisations/IMG_6777.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureCommercialeData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="5">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG" alt="IMG_6755.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">5 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/AvisPage.jsx</code></li><li><code>src/lelever-next/pages/BlogPage.jsx</code></li><li><code>src/lelever-next/pages/ServicesPage.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureCommercialeData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture extérieure/2. réalisations/IMG_6761.PNG" alt="IMG_6761.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture extérieure/2. réalisations/IMG_6761.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture extérieure/3. réalisations/IMG_6756.PNG" alt="IMG_6756.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture extérieure/3. réalisations/IMG_6756.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG" alt="IMG_6777.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture extérieure/Peinture résidentielle extérieure/IMG_6763.PNG" alt="IMG_6763.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture extérieure/Peinture résidentielle extérieure/IMG_6763.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG" alt="IMG_0989.JPG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureExterieurePage.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG" alt="IMG_6752.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture industrielle/1. réalisations/IMG_6752.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureIndustrielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG" alt="IMG_6757.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture industrielle/2. réalisations/IMG_6757.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureIndustrielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG" alt="IMG_5978.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture industrielle/3. réalisations/IMG_5978.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureIndustrielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="5">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG" alt="IMG_6032.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">5 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture intérieure/1. réalisations/IMG_6032.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/RecentProjectsSection.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureCommercialeData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureIndustrielleData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureInterieureData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureResidentielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="3">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG" alt="IMG_6768.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">3 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture intérieure/2. réalisations/IMG_6768.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureCommercialeData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureIndustrielleData.js</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG" alt="IMG_6762.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture intérieure/3. réalisations/IMG_6762.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture intérieure/4. réalisations/IMG_6751.PNG" alt="IMG_6751.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture intérieure/4. réalisations/IMG_6751.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture intérieure/5. réalisations/IMG_6754.PNG" alt="IMG_6754.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture intérieure/5. réalisations/IMG_6754.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture intérieure/6. réalisations/IMG_5976.PNG" alt="IMG_5976.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture intérieure/6. réalisations/IMG_5976.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg" alt="Rolling_Door.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureInterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG" alt="IMG_6778.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture résidentielle/1. réalisations/IMG_6778.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/RecentProjectsSection.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureResidentielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG" alt="IMG_6779.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture résidentielle/2. réalisations/IMG_6779.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/RecentProjectsSection.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/peintureResidentielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture résidentielle/3. réalisations/IMG_6764.PNG" alt="IMG_6764.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture résidentielle/3. réalisations/IMG_6764.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/service_ville/peintureResidentielleData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG" alt="IMG_6763.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg" alt="Paint Cut-in Louis.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureResidentiellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/brossard/+Header/IMG_6784.PNG" alt="IMG_6784.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/brossard/+Header/IMG_6784.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/BrossardCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5973 3.jpg" alt="IMG_5973 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5973 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5974 3.jpg" alt="IMG_5974 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5974 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5975 3.jpg" alt="IMG_5975 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5975 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5976 4.jpg" alt="IMG_5976 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_5976 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7988 2.jpg" alt="IMG_7988 2.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7988 2.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7990 2.jpg" alt="IMG_7990 2.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7990 2.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7992 4.jpg" alt="IMG_7992 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7992 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7994 4.jpg" alt="IMG_7994 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7994 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7997 7.jpg" alt="IMG_7997 7.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7997 7.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7999 7.jpg" alt="IMG_7999 7.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/avant-apres/IMG_7999 7.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/gatineau/header_gatineau_city.PNG" alt="header_gatineau_city.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/gatineau/header_gatineau_city.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/GatineauCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_5973 4.jpg" alt="IMG_5973 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_5973 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_5974 4.jpg" alt="IMG_5974 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_5974 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_5975 4.jpg" alt="IMG_5975 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_5975 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_5976 5.jpg" alt="IMG_5976 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_5976 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_6031 3.jpg" alt="IMG_6031 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_6031 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_7992 5.jpg" alt="IMG_7992 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_7992 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_7994 5.jpg" alt="IMG_7994 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_7994 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/avant-apres/IMG_8108 3.jpg" alt="IMG_8108 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/avant-apres/IMG_8108 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/laval/header.jpg" alt="header.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/laval/header.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LavalCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_5973 5.jpg" alt="IMG_5973 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_5973 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_5974 5.jpg" alt="IMG_5974 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_5974 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg" alt="IMG_6031 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7988 4.jpg" alt="IMG_7988 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7988 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg" alt="IMG_7990 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7992 6.jpg" alt="IMG_7992 6.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7992 6.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7994 6.jpg" alt="IMG_7994 6.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_7994 6.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg" alt="IMG_8108 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/longueuil/header.JPEG" alt="header.JPEG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/longueuil/header.JPEG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/LongueuilCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/5. réalisations/IMG_5877.JPG" alt="IMG_5877.JPG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/5. réalisations/IMG_5877.JPG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_5873 3.jpg" alt="IMG_5873 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_5873 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_6755 3.jpg" alt="IMG_6755 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_6755 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7678 3.jpg" alt="IMG_7678 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7678 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7922 3.jpg" alt="IMG_7922 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7922 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7924 4.jpg" alt="IMG_7924 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7924 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7971 5.jpg" alt="IMG_7971 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7971 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7997 9.jpg" alt="IMG_7997 9.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7997 9.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7999 9.jpg" alt="IMG_7999 9.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/avant-apres/IMG_7999 9.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/Montréal/header (1).jpg" alt="header (1).jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/Montréal/header (1).jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/MontrealCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_5973 6.jpg" alt="IMG_5973 6.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_5973 6.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_5974 6.jpg" alt="IMG_5974 6.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_5974 6.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7974 4.jpg" alt="IMG_7974 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7974 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7975 4.jpg" alt="IMG_7975 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7975 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RealisationsPage.jsx</code></li><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7988 5.jpg" alt="IMG_7988 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7988 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7990 5.jpg" alt="IMG_7990 5.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7990 5.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7992 7.jpg" alt="IMG_7992 7.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7992 7.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7994 7.jpg" alt="IMG_7994 7.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7994 7.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7997 8.jpg" alt="IMG_7997 8.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7997 8.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7999 8.jpg" alt="IMG_7999 8.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/avant-apres/IMG_7999 8.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/3-ville/rive-sud/header (1).JPEG" alt="header (1).JPEG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/3-ville/rive-sud/header (1).JPEG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/RiveSudCityPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/commercial x éxtérieure/1. réalisations/IMG_6777.PNG" alt="IMG_6777.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/commercial x éxtérieure/1. réalisations/IMG_6777.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureCommercialeExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.PNG" alt="IMG_6756.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureCommercialeExterieureData.js</code></li><li><code>src/lelever-next/services-pages/sous_service/peintureCommercialeInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/commercial x intérieure/1. réalisations/IMG_6759.PNG" alt="IMG_6759.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/commercial x intérieure/1. réalisations/IMG_6759.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureCommercialeInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/commercial x intérieure/2. réalisations/IMG_6760.PNG" alt="IMG_6760.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/commercial x intérieure/2. réalisations/IMG_6760.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureCommercialeInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.PNG" alt="IMG_6762.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureCommercialeInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résdientielle x intérieure/1. réalisations/IMG_6764.PNG" alt="IMG_6764.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résdientielle x intérieure/1. réalisations/IMG_6764.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résdientielle x intérieure/2. réalisations/IMG_5976.PNG" alt="IMG_5976.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résdientielle x intérieure/2. réalisations/IMG_5976.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résdientielle x intérieure/3. réalisations/IMG_6024.PNG" alt="IMG_6024.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résdientielle x intérieure/3. réalisations/IMG_6024.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résdientielle x intérieure/4. réalisations/IMG_5900.PNG" alt="IMG_5900.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résdientielle x intérieure/4. réalisations/IMG_5900.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résdientielle x intérieure/5. réalisations/IMG_5873.PNG" alt="IMG_5873.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résdientielle x intérieure/5. réalisations/IMG_5873.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résdientielle x intérieure/6. réalisations/IMG_5982.PNG" alt="IMG_5982.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résdientielle x intérieure/6. réalisations/IMG_5982.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleInterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résidentielle x éxtérieure/1. réalisations/IMG_6778.PNG" alt="IMG_6778.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résidentielle x éxtérieure/1. réalisations/IMG_6778.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résidentielle x éxtérieure/2. réalisations/IMG_6755.PNG" alt="IMG_6755.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résidentielle x éxtérieure/2. réalisations/IMG_6755.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/4-sous-services/résidentielle x éxtérieure/3. réalisations/IMG_6761.PNG" alt="IMG_6761.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/4-sous-services/résidentielle x éxtérieure/3. réalisations/IMG_6761.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/sous_service/peintureResidentielleExterieureData.js</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/5-landing-page/Photo/Danny_Wraping.jpeg" alt="Danny_Wraping.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/5-landing-page/Photo/Danny_Wraping.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/BlogPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/5-landing-page/Photo/louis_Consultation.jpeg" alt="louis_Consultation.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/5-landing-page/Photo/louis_Consultation.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/ResourcesSection.jsx</code></li><li><code>src/lelever-next/services-pages/service_ville/components/ServiceQuartierGuidesSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="3">
+  <div class="thumb"><img src="src/lelever-next/images/5-landing-page/Photo/spray man 3000.jpeg" alt="spray man 3000.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">3 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/5-landing-page/Photo/spray man 3000.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/TeamSection.jsx</code></li><li><code>src/lelever-next/pages/AvisPage.jsx</code></li><li><code>src/lelever-next/pages/ServicesPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_6755.jpg" alt="Copie de IMG_6755.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_6755.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_6757.jpg" alt="Copie de IMG_6757.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_6757.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7922.jpg" alt="Copie de IMG_7922.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7922.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7924.jpg" alt="Copie de IMG_7924.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7924.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7971.jpg" alt="Copie de IMG_7971.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7971.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7974.jpg" alt="Copie de IMG_7974.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7974.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7975.jpg" alt="Copie de IMG_7975.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7975.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7985.jpg" alt="Copie de IMG_7985.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7985.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7988.jpg" alt="Copie de IMG_7988.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7988.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7990.jpg" alt="Copie de IMG_7990.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7990.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7992.jpg" alt="Copie de IMG_7992.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7992.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7994.jpg" alt="Copie de IMG_7994.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7994.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7997 2.jpg" alt="Copie de IMG_7997 2.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7997 2.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Avant après landing Page/Copie de IMG_7999 2.jpg" alt="Copie de IMG_7999 2.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Avant après landing Page/Copie de IMG_7999 2.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5969.jpg" alt="IMG_5969.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5969.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5970.jpg" alt="IMG_5970.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5970.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5971.jpg" alt="IMG_5971.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5971.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5972.jpg" alt="IMG_5972.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5972.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5973.jpg" alt="IMG_5973.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5973.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5974.jpg" alt="IMG_5974.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5974.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5975.jpg" alt="IMG_5975.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5975.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5976.jpg" alt="IMG_5976.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5976.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5977.jpg" alt="IMG_5977.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5977.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5978.jpg" alt="IMG_5978.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5978.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5982.jpg" alt="IMG_5982.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5982.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/before_after/IMG_5984.jpg" alt="IMG_5984.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/before_after/IMG_5984.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/BeforeAfter.jsx</code></li><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/brossard_secteur.png" alt="brossard_secteur.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/brossard_secteur.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/SectorsSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/brossard.png" alt="brossard.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/brossard.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/SectorsSection.jsx</code></li><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/control-2-min.png" alt="control-2-min.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/control-2-min.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/ControlSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="4">
+  <div class="thumb"><img src="src/lelever-next/images/heroImage.png" alt="heroImage.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">4 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/heroImage.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/HeroSection.jsx</code></li><li><code>src/lelever-next/home-page/LandingHeroSection.jsx</code></li><li><code>src/pages/LandingPageGatineau.jsx</code></li><li><code>src/pages/LandingPageV2.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/IMG_5873.PNG" alt="IMG_5873.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/IMG_5873.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/IMG_7678.PNG" alt="IMG_7678.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/IMG_7678.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/BeforeAfterCarouselSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/IMG_7844.PNG" alt="IMG_7844.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/IMG_7844.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/ControlSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint  l_ensemble de cette maison victorienne à Westmount, Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peint  l_ensemble de cette maison victorienne à Westmount, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint  l_ensemble de cette maison victorienne à Westmount, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureInterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé et ont faites les réparations de plâtre sur les plafonds et les murs de cette maison à Westmount, Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peinturé et ont faites les réparations de plâtre sur les plafonds et les murs de cette maison à Westmount, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé et ont faites les réparations de plâtre sur les plafonds et les murs de cette maison à Westmount, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureInterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureInterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg" alt="Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureInterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres professionnels à Montréal, Le Lever du Pinceau a installé la protection et peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg" alt="Peintres professionnels à Montréal, Le Lever du Pinceau a installé la protection et peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres professionnels à Montréal, Le Lever du Pinceau a installé la protection et peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureInterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg" alt="Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureInterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre commercial dans le grand Montréal, Le Lever du Pinceau a peint ce bureau commerciale au centre ville de Montréal.jpg" alt="Peintre commercial dans le grand Montréal, Le Lever du Pinceau a peint ce bureau commerciale au centre ville de Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre commercial dans le grand Montréal, Le Lever du Pinceau a peint ce bureau commerciale au centre ville de Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureCommercialePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal de profession, Le Lever du Pinceau a peinturé ce local commercial dans NDG, Montréal.jpg" alt="Peintre Montréal de profession, Le Lever du Pinceau a peinturé ce local commercial dans NDG, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal de profession, Le Lever du Pinceau a peinturé ce local commercial dans NDG, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureCommercialePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal professionnel, Le Lever du Pinceau a peinturé ce local commercial dans le quartier Notre-dame-de-grâce, Mtl.jpg" alt="Peintre Montréal professionnel, Le Lever du Pinceau a peinturé ce local commercial dans le quartier Notre-dame-de-grâce, Mtl.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal professionnel, Le Lever du Pinceau a peinturé ce local commercial dans le quartier Notre-dame-de-grâce, Mtl.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureCommercialePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier dans le quartier Outremont.jpg" alt="Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier dans le quartier Outremont.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier dans le quartier Outremont.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureCommercialePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a complété ce bureau commerciale au centre ville.jpg" alt="Peintre professionnel commercial à Montréal, Le Lever du Pinceau a complété ce bureau commerciale au centre ville.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a complété ce bureau commerciale au centre ville.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureCommercialePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier à Outremont, Montréal.jpg" alt="Peintre professionnel commercial à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier à Outremont, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier à Outremont, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureCommercialePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg" alt="Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest àMontréal.jpg" alt="Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest àMontréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest àMontréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg" alt="Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest à Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest à Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest à Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg" alt="Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureIndustriellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle dans le grand Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine à Laval.jpg" alt="Peintre industrielle dans le grand Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine à Laval.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle dans le grand Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine à Laval.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureIndustriellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peint ce plafond en steel deck en mur à Montréal est.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peint ce plafond en steel deck en mur à Montréal est.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peint ce plafond en steel deck en mur à Montréal est.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureIndustriellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine sur la rive nord de Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine sur la rive nord de Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine sur la rive nord de Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureIndustriellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg" alt="Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureIndustriellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel sur l_île de Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck en mur à Montréal.jpg" alt="Peintre professionnel sur l_île de Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck en mur à Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel sur l_île de Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck en mur à Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureIndustriellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint ce condo divise dans le quartier de Griffintown à Montréal.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peint ce condo divise dans le quartier de Griffintown à Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint ce condo divise dans le quartier de Griffintown à Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureResidentiellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg" alt="Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureResidentiellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg" alt="Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureResidentiellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg" alt="Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureResidentiellePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/header.jpg" alt="header.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/header.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureApresSinistrePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7988.jpg" alt="IMG_7988.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7988.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureApresSinistrePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7990.jpg" alt="IMG_7990.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7990.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureApresSinistrePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7992.jpg" alt="IMG_7992.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7992.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureApresSinistrePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7994.jpg" alt="IMG_7994.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7994.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureApresSinistrePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -pistolet/header-spray man.JPEG" alt="header-spray man.JPEG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -pistolet/header-spray man.JPEG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureAuPistoletPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.jpg" alt="IMG_5977 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureAuPistoletPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg" alt="IMG_5978 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PeintureAuPistoletPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6030.PNG" alt="IMG_6030.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6030.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/ReparationPlatreGysePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6031.PNG" alt="IMG_6031.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6031.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/ReparationPlatreGysePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.PNG" alt="IMG_8106.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/ReparationPlatreGysePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.PNG" alt="IMG_8108.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/ReparationPlatreGysePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG" alt="header _plaster.JPEG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/ReparationPlatreGysePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5914.JPG" alt="IMG_5914.JPG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5914.JPG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PreparationSurfacesPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5916.JPG" alt="IMG_5916.JPG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5916.JPG</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PreparationSurfacesPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg" alt="IMG_8099.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/services-pages/PreparationSurfacesPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG" alt="IMG_5973.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/TeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.PNG" alt="IMG_5974.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/TeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L2 Services specialise/Photo page teinture/Header.PNG" alt="Header.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L2 Services specialise/Photo page teinture/Header.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/TeintureExterieurePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau après.jpg" alt="plateau après.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau après.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureExterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau avant.jpg" alt="plateau avant.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau avant.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureExterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg" alt="verdun après.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureExterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg" alt="verdun avant.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureExterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/header extérieure.jpg" alt="header extérieure.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/header extérieure.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureExterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown après.JPG" alt="Griffintown après.JPG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown après.JPG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown avant.jpg" alt="Griffintown avant.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown avant.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.jpg" alt="Notre-dame-de-grâce après.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.jpg" alt="Notre-dame-de-grâce avant.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg" alt="plateau après.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg" alt="plateau avant.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg" alt="westmount après.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg" alt="westmount avant.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg" alt="header.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureInterieurMontrealPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.jpg" alt="IMG_6031.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureCondoPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg" alt="IMG_7922 2.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureCondoPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg" alt="IMG_7924 3.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureCondoPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.jpg" alt="IMG_7997 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureCondoPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7999 4.jpg" alt="IMG_7999 4.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7999 4.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureCondoPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg" alt="IMG_8108.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureCondoPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page -peinture condo/header.jpg" alt="header.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page -peinture condo/header.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureCondoPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.jpg" alt="IMG_6759 2.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureAppartementPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg" alt="IMG_7983 2.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureAppartementPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page appartement/header.PNG" alt="header.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page appartement/header.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureAppartementPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.PNG" alt="IMG_5975.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureArmoiresCuisinePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG" alt="IMG_5976.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureArmoiresCuisinePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG" alt="IMG_8114.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureArmoiresCuisinePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG" alt="IMG_8120.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureArmoiresCuisinePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/header.jpeg" alt="header.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/L3 Sous services/Photo page armoires de cuisine/header.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/PeintureArmoiresCuisinePage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/laval.png" alt="laval.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/laval.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/SectorsSection.jsx</code></li><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/longueuil.png" alt="longueuil.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/longueuil.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/SectorsSection.jsx</code></li><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/Moses&amp;Dany_Wraping.jpeg" alt="Moses&amp;Dany_Wraping.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/Moses&amp;Dany_Wraping.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/AvisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/mtl.png" alt="mtl.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/mtl.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/SectorsSection.jsx</code></li><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="4">
+  <div class="thumb"><img src="src/lelever-next/images/neighborhood_placeholder.jpg" alt="neighborhood_placeholder.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">4 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/neighborhood_placeholder.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/OutremontPage.jsx</code></li><li><code>src/lelever-next/pages/PlateauMontRoyalPage.jsx</code></li><li><code>src/lelever-next/pages/VilleMariePage.jsx</code></li><li><code>src/lelever-next/pages/WestmountPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/new-landing/control-3.jpeg" alt="control-3.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/new-landing/control-3.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/ControlSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/new-landing/method-1.jpeg" alt="method-1.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/new-landing/method-1.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/ProcessStepsSection.jsx</code></li><li><code>src/lelever-next/home-page/MethodSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/new-landing/method-2.jpeg" alt="method-2.jpeg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/new-landing/method-2.jpeg</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/ProcessStepsSection.jsx</code></li><li><code>src/lelever-next/home-page/MethodSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/new-landing/method-3.PNG" alt="method-3.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/new-landing/method-3.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/ProcessStepsSection.jsx</code></li><li><code>src/lelever-next/home-page/MethodSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/new-landing/method-4.PNG" alt="method-4.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/new-landing/method-4.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/components/ProcessStepsSection.jsx</code></li><li><code>src/lelever-next/home-page/MethodSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card card-shared" data-missing="0" data-importers="2">
+  <div class="thumb"><img src="src/lelever-next/images/pillar-pages/IMG_2585.jpg" alt="IMG_2585.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">2 importateur(s) de code</p>
+    <p class="count-note">Même fichier image réutilisé dans plusieurs modules (normal pour hub / accueil ; à diversifier si crédibilité).</p>
+    <p class="path"><code>src/lelever-next/images/pillar-pages/IMG_2585.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/SectorsSection.jsx</code></li><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/pillar-pages/secteur-hub/IMG_7894.jpg" alt="IMG_7894.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/pillar-pages/secteur-hub/IMG_7894.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/pillar-pages/secteur-hub/IMG_7896.jpg" alt="IMG_7896.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/pillar-pages/secteur-hub/IMG_7896.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/pillar-pages/secteur-hub/IMG_7898.jpg" alt="IMG_7898.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/pillar-pages/secteur-hub/IMG_7898.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/pillar-pages/secteur-hub/IMG_7900.jpg" alt="IMG_7900.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/pillar-pages/secteur-hub/IMG_7900.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/pillar-pages/secteur-hub/IMG_7902.jpg" alt="IMG_7902.jpg" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/pillar-pages/secteur-hub/IMG_7902.jpg</code></p>
+    <ul class="files"><li><code>src/lelever-next/pages/SecteursDesservisPage.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/rbqlogo.png" alt="rbqlogo.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/rbqlogo.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/TrustBanner.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/satisfaction_en.PNG" alt="satisfaction_en.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/satisfaction_en.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/GuaranteeSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/satisfaction_fr.PNG" alt="satisfaction_fr.PNG" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/satisfaction_fr.PNG</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/GuaranteeSection.jsx</code></li></ul>
+  </div>
+</section>
+
+<section class="card" data-missing="0" data-importers="1">
+  <div class="thumb"><img src="src/lelever-next/images/trushieldlogo.png" alt="trushieldlogo.png" loading="lazy" width="400" /></div>
+  <div class="meta">
+    <p class="count">1 importateur(s) de code</p>
+    <p class="count-note">Un seul module importe ce fichier.</p>
+    <p class="path"><code>src/lelever-next/images/trushieldlogo.png</code></p>
+    <ul class="files"><li><code>src/lelever-next/home-page/TrustBanner.jsx</code></li></ul>
+  </div>
+</section>
+  </div>
+  <script>
+    (function () {
+      var cb = document.getElementById('hideOk');
+      var grid = document.getElementById('grid');
+      if (!cb || !grid) return;
+      function apply() {
+        var on = cb.checked;
+        grid.querySelectorAll('.card').forEach(function (el) {
+          var isMissing = el.getAttribute('data-missing') === '1';
+          var count = parseInt(el.getAttribute('data-importers'), 10) || 0;
+          var multi = count > 1;
+          var show = !on || isMissing || multi;
+          el.style.display = show ? '' : 'none';
+        });
+      }
+      cb.addEventListener('change', apply);
+    })();
+  </script>
+</body>
+</html>

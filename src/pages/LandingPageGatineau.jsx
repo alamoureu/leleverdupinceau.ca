@@ -6,7 +6,6 @@ import appContext from '../AppProvider';
 import { useTranslation } from '../lelever-next/i18n';
 import {
   CANONICAL_BASE,
-  LANDING_META,
   LANDING_SECTION_PY,
   buildLandingFaqs,
 } from '../lelever-next/landing';
@@ -35,12 +34,6 @@ const LANDING_FORM_FIELDS = {
   projectDetails: 'optional',
 };
 
-/**
- * The hero content pt must clear: fixed promo banner + fixed navbar.
- * Banner heights come from PROMO_BANNER_HEIGHT; navbar heights from LANDING_MAIN_CONTENT_PT.
- * We use CSS calc() to combine them.
- */
-/** Microsoft Clarity project — loaded only on /fr/peintre-montreal */
 const CLARITY_PROJECT_ID = 'w4hw2yfvew';
 
 const HERO_CONTENT_PT = {
@@ -52,18 +45,34 @@ const HERO_CONTENT_PT = {
   '2xl': `calc(8.25rem + ${PROMO_BANNER_HEIGHT['2xl']})`,
 };
 
-function LandingPageV2({ lang: langProp, indexable = false }) {
+const META = {
+  fr: {
+    title: 'Peintre Gatineau | Peinture résidentielle et commerciale | Le Lever du Pinceau',
+    description:
+      'Peintre professionnel à Gatineau. Service rapide, propre et garanti. Peinture intérieure et extérieure, résidentielle et commerciale. Licence RBQ. Soumission gratuite en 24h.',
+    keywords:
+      'peintre Gatineau, peinture Gatineau, peintre professionnel Gatineau, peinture intérieure Gatineau, peinture extérieure Gatineau',
+  },
+  en: {
+    title: 'Painter Gatineau | Residential & Commercial Painting | Le Lever du Pinceau',
+    description:
+      'Professional painter in Gatineau. Fast, clean and guaranteed service. Interior and exterior, residential and commercial painting. RBQ license. Free quote in 24h.',
+    keywords:
+      'painter Gatineau, painting Gatineau, professional painter Gatineau, interior painting Gatineau, exterior painting Gatineau',
+  },
+};
+
+function LandingPageGatineau({ lang: langProp, indexable = false }) {
   const location = useLocation();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const lang = currentLang || langProp || 'fr';
-  const meta = LANDING_META[lang] ?? LANDING_META.fr;
+  const meta = META[lang] ?? META.fr;
   const landingFaqs = useMemo(() => buildLandingFaqs(t), [t]);
   const landingPairs = useMemo(() => buildLandingPagePairs(lang === 'fr'), [lang]);
 
-  // Popup fires once, 1s after the user scrolls past the end of the method section.
   const methodEndRef = useRef(null);
   const hasTriggered = useRef(false);
   const popupTimerRef = useRef(null);
@@ -91,7 +100,8 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
   }, [handleMethodEndIntersect]);
 
   useEffect(() => {
-    if (location.pathname !== '/fr/peintre-montreal') return;
+    const path = location.pathname;
+    if (!path.includes('peintre-gatineau')) return;
     const src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
     if (document.querySelector(`script[src="${src}"]`)) return;
     (function (c, l, a, r, i, t, y) {
@@ -108,6 +118,16 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
     })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
   }, [location.pathname]);
 
+  const heroSubtitle =
+    lang === 'fr'
+      ? 'Un service rapide, propre et garanti à Gatineau'
+      : 'A fast, clean and guaranteed service in Gatineau';
+
+  const reviewsSubtitle =
+    lang === 'fr'
+      ? 'Plus de 100 avis 5 étoiles sur Google'
+      : 'Over 100 5-star reviews on Google';
+
   return (
     <Fragment>
       <Helmet>
@@ -119,71 +139,58 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {indexable && (
           <link
             rel="canonical"
-            href={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
+            href={`${CANONICAL_BASE}/${lang}/peintre-gatineau`}
           />
         )}
         {indexable && <meta property="og:type" content="website" />}
         {indexable && <meta property="og:title" content={meta.title} />}
-        {indexable && (
-          <meta property="og:description" content={meta.description} />
-        )}
+        {indexable && <meta property="og:description" content={meta.description} />}
         {indexable && (
           <meta
             property="og:url"
-            content={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
+            content={`${CANONICAL_BASE}/${lang}/peintre-gatineau`}
           />
         )}
         {indexable && (
-          <meta
-            property="og:locale"
-            content={lang === 'fr' ? 'fr_CA' : 'en_CA'}
-          />
+          <meta property="og:locale" content={lang === 'fr' ? 'fr_CA' : 'en_CA'} />
         )}
         {!indexable && <meta name="robots" content="noindex, nofollow" />}
         {!indexable && <meta name="googlebot" content="noindex, nofollow" />}
       </Helmet>
       <MicrosoftClarity />
 
-      {/* Promo bar pinned at viewport top (zIndex 10000, above the fixed navbar) */}
       <PromoBanner />
 
-      <Box
-        w="100%"
-        minW={0}
-        maxW="100%"
-        bg="white"
-        overflowX="hidden"
-        position="relative"
-      >
-        {/* 1. Hero — contentPt clears the fixed promo banner + fixed navbar */}
+      <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden" position="relative">
+        {/* 1. Hero */}
         <LandingHeroSection
           onSubmissionOpen={onOpen}
           pageContext={t.pageContextName}
           title={t.landingHeroTitle}
           titleSecondLine=""
-          subtitle={t.landingHeroSubtitle}
+          subtitle={heroSubtitle}
           buttonText={t.landingHeroButton}
           contentPt={HERO_CONTENT_PT}
         />
 
-        {/* 2. Trust bar — full-width grey strip (bénéfices) */}
+        {/* 2. Bénéfices */}
         <Box bg="gray.50" w="100%">
           <TrustBanner />
         </Box>
 
-        {/* 3. Services (2 cartes : intérieure + extérieure) */}
+        {/* 3. Services */}
         <LandingServicesSection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}
         />
 
-        {/* 4. Section garantie — CTA + badge + engagement */}
+        {/* 4. Garantie — CTA + badge + engagement */}
         <GuaranteeSection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}
         />
 
-        {/* 5. Méthode en 4 étapes — sentinel déclenche le popup après 1s */}
+        {/* 5. Méthode — sentinel déclenche le popup après 1s */}
         <MethodSection
           onSubmissionOpen={onOpen}
           hideCta
@@ -191,7 +198,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         />
         <Box ref={methodEndRef} h={0} aria-hidden="true" />
 
-        {/* 6. Formulaire de contact — fond bleu */}
+        {/* 6. Formulaire */}
         <ContactFormSection
           fields={LANDING_FORM_FIELDS}
           phoneFirst
@@ -205,13 +212,13 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           hideButton
           desktopColumns={3}
           title={t.reviewsTitle}
-          subtitle={lang === 'fr' ? 'Plus de 100 avis 5 étoiles sur Google' : 'Over 100 5-star reviews on Google'}
+          subtitle={reviewsSubtitle}
           sectionBg="white"
           sectionPaddingTop={LANDING_SECTION_PY}
           sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        {/* 8. Avant/Après — 6 paires, carousel swipe mobile */}
+        {/* 8. Avant/Après */}
         <BeforeAfterCarouselSection
           images={landingPairs}
           sectionPy={LANDING_SECTION_PY}
@@ -222,7 +229,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {/* 9. FAQ */}
         <FAQSection faqsOverride={landingFaqs} sectionPy={LANDING_SECTION_PY} />
 
-        {/* 9. Final CTA */}
+        {/* 10. Final CTA */}
         <FinalCTASection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}
@@ -234,4 +241,4 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
   );
 }
 
-export default LandingPageV2;
+export default LandingPageGatineau;

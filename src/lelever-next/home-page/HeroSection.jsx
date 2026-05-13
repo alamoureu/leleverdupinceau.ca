@@ -28,7 +28,6 @@ export default function HeroSection({
   /** Overlay on background image (CSS background value). Default: dark translucent. */
   overlayBg = 'rgba(0, 0, 0, 0.4)',
   children,
-  compactTrustBanner,
   showHeroTrustBanner = true,
 }) {
   const { t } = useTranslation();
@@ -43,6 +42,7 @@ export default function HeroSection({
   const heroContentPr = contentPr ?? undefined;
 
   return (
+    <>
     <Box
       position="relative"
       w="100%"
@@ -64,12 +64,12 @@ export default function HeroSection({
         '2xl': '85vh',
       }}
       pb={{
-        base: 24,
-        sm: 32,
-        md: 28,
-        lg: 32,
-        xl: 32,
-        '2xl': 36,
+        base: 10,
+        sm: 12,
+        md: 14,
+        lg: 16,
+        xl: 16,
+        '2xl': 18,
       }}
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
@@ -231,9 +231,18 @@ export default function HeroSection({
           </Stack>
         </Stack>
       </Container>
-      {showHeroTrustBanner && (
-        <TrustBanner compact={compactTrustBanner} showSatisfactionGuarantee={false} />
-      )}
     </Box>
+    {showHeroTrustBanner && (
+      <Box
+        bg="gray.50"
+        borderTop="1px solid"
+        borderTopColor="gray.200"
+        borderBottom="1px solid"
+        borderBottomColor="gray.200"
+      >
+        <TrustBanner />
+      </Box>
+    )}
+    </>
   );
 }

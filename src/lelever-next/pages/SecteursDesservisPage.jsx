@@ -97,7 +97,7 @@ export default function SecteursDesservisPage() {
         : 'Residential and commercial painting in Hull, Aylmer and Gatineau.',
       link: '/secteurs/gatineau',
       image: gatineauSecteur,
-      imgScale: 1,
+      imgScale: 1.12,
       imgTop: '0',
     },
     {
@@ -107,7 +107,7 @@ export default function SecteursDesservisPage() {
         : 'Longueuil, Brossard, Saint-Lambert, Saint-Bruno and surrounding areas.',
       link: '/secteurs/rive-sud',
       image: riveSudSecteur,
-      imgScale: 1,
+      imgScale: 1.34,
       imgTop: '0',
     },
   ];
@@ -207,7 +207,7 @@ export default function SecteursDesservisPage() {
         borderColor="gray.200"
         cursor="pointer"
         transition="all 0.2s"
-        bg="white"
+        bg={city.imgScale < 1 ? '#022a68' : 'white'}
         minH={{ base: '260px', md: '300px' }}
         h="100%"
         _hover={{
@@ -227,6 +227,7 @@ export default function SecteursDesservisPage() {
           objectFit="cover"
           zIndex={0}
           transform={city.imgScale !== 1 ? `scale(${city.imgScale})` : undefined}
+          transformOrigin="center center"
           loading="lazy"
           decoding="async"
         />
@@ -346,7 +347,7 @@ export default function SecteursDesservisPage() {
           borderBottom="1px solid"
           borderBottomColor="gray.200"
         >
-          <TrustBanner noCard showSatisfactionGuarantee={false} />
+          <TrustBanner />
         </Box>
 
         {/* SECTION 3 - Nos villes desservies (5 cartes) */}

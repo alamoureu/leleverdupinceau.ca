@@ -822,7 +822,7 @@ export default function RealisationsPage() {
           borderBottom="1px solid"
           borderBottomColor="gray.200"
         >
-          <TrustBanner noCard showSatisfactionGuarantee={false} />
+          <TrustBanner />
         </Box>
 
         {/* ── Section 3 - Projets vedettes avant / après ────────────────────── */}

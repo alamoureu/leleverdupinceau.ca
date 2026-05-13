@@ -7,7 +7,6 @@ Allow: /
 Disallow: /admin
 Disallow: /admin/
 Disallow: /timesheet
-Disallow: /audit-images
 Disallow: /fr/peintre-montreal
 Disallow: /en/peintre-montreal
 

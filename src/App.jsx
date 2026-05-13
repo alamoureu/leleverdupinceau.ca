@@ -27,6 +27,7 @@ function lazyRoute(importFn, displayName) {
 }
 
 const LandingPageV2 = lazyRoute(() => import('./pages/LandingPageV2'), 'LandingPageV2');
+const LandingPageGatineau = lazyRoute(() => import('./pages/LandingPageGatineau'), 'LandingPageGatineau');
 const NewHomePage = lazyRoute(() => import('./lelever-next/pages/NewHomePage'), 'NewHomePage');
 const ContactPage = lazyRoute(() => import('./lelever-next/pages/ContactPage'), 'ContactPage');
 const AvisPage = lazyRoute(() => import('./lelever-next/pages/AvisPage'), 'AvisPage');
@@ -55,7 +56,6 @@ const ErreursAEviterPeintureInterieurePage = lazyRoute(() => import('./lelever-n
 const PeintureArmoiresCuisineGuidePage = lazyRoute(() => import('./lelever-next/pages/PeintureArmoiresCuisineGuidePage'), 'PeintureArmoiresCuisineGuidePage');
 const BetonelVsBenjaminMoorePage = lazyRoute(() => import('./lelever-next/pages/BetonelVsBenjaminMoorePage'), 'BetonelVsBenjaminMoorePage');
 const NotFoundPage = lazyRoute(() => import('./lelever-next/pages/NotFoundPage'), 'NotFoundPage');
-const AuditImagesPage = lazyRoute(() => import('./lelever-next/pages/AuditImagesPage'), 'AuditImagesPage');
 const SoumissionDashboard = lazyRoute(() => import('./pages/SoumissionDashboard'), 'SoumissionDashboard');
 const AdminDashboard = lazyRoute(() => import('./pages/AdminDashboard'), 'AdminDashboard');
 const EmploiesDashboard = lazyRoute(() => import('./pages/EmploiesDashboard'), 'EmploiesDashboard');
@@ -67,14 +67,6 @@ const EmployeeDetails = lazyRoute(() => import('./pages/EmployeeDetails'), 'Empl
 const ThermOfUsePage = lazyRoute(() => import('./pages/ThermOfUse'), 'ThermOfUsePage');
 const PrivacyPolicyPage = lazyRoute(() => import('./pages/PrivacyPolicyPage'), 'PrivacyPolicyPage');
 const RealisationsPage = lazyRoute(() => import('./lelever-next/pages/RealisationsPage'), 'RealisationsPage');
-const SpecializedServiceHubPage = lazyRoute(
-  () => import('./lelever-next/pages/SpecializedServiceHubPage'),
-  'SpecializedServiceHubPage'
-);
-const PeintureMontrealHubPage = lazyRoute(
-  () => import('./lelever-next/pages/PeintureMontrealHubPage'),
-  'PeintureMontrealHubPage'
-);
 const WestmountPage = lazyRoute(() => import('./lelever-next/pages/WestmountPage'), 'WestmountPage');
 const VilleMariePage = lazyRoute(() => import('./lelever-next/pages/VilleMariePage'), 'VilleMariePage');
 const PlateauMontRoyalPage = lazyRoute(() => import('./lelever-next/pages/PlateauMontRoyalPage'), 'PlateauMontRoyalPage');
@@ -123,7 +115,6 @@ export default function App() {
             <Route index element={<Suspense fallback={<PageSkeleton />}><NewHomePage /></Suspense>} />
             <Route path="contact" element={<Suspense fallback={<PageSkeleton />}><ContactPage /></Suspense>} />
             <Route path="a-propos" element={<Suspense fallback={<PageSkeleton />}><AboutPage /></Suspense>} />
-            <Route path="audit-images" element={<Suspense fallback={<PageSkeleton />}><AuditImagesPage /></Suspense>} />
           </Route>
 
           <Route path="/politique-de-confidentialite" element={<NewWebsiteLayout />}>
@@ -303,6 +294,10 @@ export default function App() {
               path="peintre-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
             />
+            <Route
+              path="peintre-gatineau"
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="fr" indexable={false} /></Suspense>}
+            />
           </Route>
           <Route path="/en" element={<NewWebsiteLayout />}>
             <Route
@@ -312,6 +307,10 @@ export default function App() {
             <Route
               path="painter-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
+            />
+            <Route
+              path="painter-gatineau"
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="en" indexable={false} /></Suspense>}
             />
           </Route>
 

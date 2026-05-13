@@ -73,7 +73,7 @@ export default function GuaranteeSection({
   return (
     <Box mt={mt} pt={defaultPtPb.pt} pb={defaultPtPb.pb} bg="white">
       <Container
-        maxW={hideCta ? '1440px' : '550px'}
+        maxW={hideCta ? '1440px' : '750px'}
         px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
       >
         <Stack spacing={{ base: 2, sm: 3, md: 5 }} align="center">
@@ -107,12 +107,14 @@ export default function GuaranteeSection({
 
           <Flex
             w="100%"
-            mx="auto"
-            align="center"
-            justify="center"
-            flexWrap="nowrap"
-            gap={{ base: 6, sm: 7, md: 7, lg: 9, xl: 10, '2xl': 12 }}
+            direction={{ base: 'column', md: 'row' }}
+            align={{ base: 'center', md: 'center' }}
+            justify={{ base: 'center', md: 'center' }}
+            gap={{ base: 8, sm: 10, md: 14, lg: 16, xl: 20, '2xl': 22 }}
             minW={0}
+            maxW="100%"
+            mx="auto"
+            px={{ base: 0, sm: 2, md: 4 }}
             mt={hideCta ? { base: 0, md: 0 } : { base: 10, sm: 12, md: 16 }}
           >
             <Box
@@ -123,6 +125,7 @@ export default function GuaranteeSection({
               display="flex"
               alignItems="center"
               justifyContent="center"
+              mx={{ base: 'auto', md: 0 }}
             >
               {!badgeError && badgeSrc ? (
                 <Image
@@ -161,12 +164,19 @@ export default function GuaranteeSection({
             </Box>
 
             <Stack
-              spacing={{ base: 2, md: 2, lg: 2.5, xl: 3 }}
-              textAlign="left"
-              align="flex-start"
-              flex="1 1 0"
+              spacing={{ base: 3, sm: 3.5, md: 4, lg: 4 }}
+              textAlign={{ base: 'center', md: 'left' }}
+              align={{ base: 'center', md: 'flex-start' }}
+              flex={{ base: 'none', md: '1 1 0%' }}
+              w={{ base: '100%', md: 'auto' }}
               minW={0}
-              maxW="min(100%, clamp(17rem, 12vw + 11rem, 28rem))"
+              maxW={{
+                base: 'min(100%, 24rem)',
+                sm: 'min(100%, 28rem)',
+                md: '100%',
+              }}
+              pl={{ base: 0, md: 2, lg: 4 }}
+              pr={{ base: 0, md: 0 }}
             >
               <Heading
                 as="h3"
@@ -181,6 +191,7 @@ export default function GuaranteeSection({
                 fontWeight="bold"
                 color="gray.900"
                 lineHeight={{ base: '1.25', lg: '1.2' }}
+                w="100%"
               >
                 {title}
               </Heading>
@@ -197,6 +208,7 @@ export default function GuaranteeSection({
                 lineHeight={{ base: '1.65', md: '1.7', lg: '1.75' }}
                 overflowWrap="break-word"
                 wordBreak="break-word"
+                w="100%"
               >
                 {body}
               </Text>

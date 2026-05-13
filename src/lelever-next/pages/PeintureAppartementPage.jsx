@@ -40,12 +40,10 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import appartHeroImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
-import appartImg5969 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_5969.PNG';
-import appartImg5970 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_5970.PNG';
 import appartImg6759 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.jpg';
 import appartImg7983 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg';
-import appartImg7992 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7992 2.jpg';
-import appartImg7994 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7994 2.jpg';
+
+const PLACEHOLDER_PAIR = { before: null, after: null };
 
 const CHECKMARKS = [
   {
@@ -228,9 +226,9 @@ export default function PeintureAppartementPage() {
 
   const carouselImages = [
     {
-      before: appartImg5969,
-      after: appartImg5970,
-      description: 'Remise en état appartement Montréal - avant / après',
+      ...PLACEHOLDER_PAIR,
+      description:
+        'Emplacement : paire appartement à photographier (les visuels Plateau étaient déjà sur la page peinture intérieure Montréal).',
     },
     {
       before: appartImg7983,
@@ -238,9 +236,9 @@ export default function PeintureAppartementPage() {
       description: 'Cage d\'escalier - Remise en état, Montréal',
     },
     {
-      before: appartImg7992,
-      after: appartImg7994,
-      description: 'Rafraîchissement appartement avant location - Montréal',
+      ...PLACEHOLDER_PAIR,
+      description:
+        'Troisième emplacement : éviter la même paire que la page après sinistre ou préparation de surfaces.',
     },
   ];
 
@@ -262,7 +260,7 @@ export default function PeintureAppartementPage() {
           minW={0}
           minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
           h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
-          pb={{ base: 24, sm: 32, md: 28, lg: 32 }}
+          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
@@ -376,12 +374,13 @@ export default function PeintureAppartementPage() {
               </Stack>
             </Stack>
           </Container>
-
-          <TrustBanner compact showSatisfactionGuarantee={false} />
+        </Box>
+        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
+          <TrustBanner />
         </Box>
 
         {/* ===== SECTION 3 - CHECKMARKS LOGEMENT LOCATIF ===== */}
-        <Box pt={{ base: 20, md: 24, lg: 28 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
+        <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">

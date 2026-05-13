@@ -263,7 +263,7 @@ export default function PeintureExterieurePage() {
           minW={0}
           minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
           h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
-          pb={{ base: 24, sm: 32, md: 28, lg: 32 }}
+          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
@@ -368,12 +368,13 @@ export default function PeintureExterieurePage() {
               </Stack>
             </Stack>
           </Container>
-
-          <TrustBanner compact showSatisfactionGuarantee={false} />
+        </Box>
+        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
+          <TrustBanner />
         </Box>
 
         {/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} pt={{ base: 20, md: 24, lg: 28 }} bg="white">
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">

@@ -379,8 +379,8 @@ export default function GatineauCityPage() {
                 }
                 title={
                   isFr
-                    ? 'Peintre professionnel Gatineau, Le Lever du Pinceau, projet de peinture résidentielle complété'
-                    : 'Professional painter Gatineau, Le Lever du Pinceau, residential painting project completed'
+                    ? 'Équipe Le Lever du Pinceau en chantier de peinture, région de Gatineau'
+                    : 'Le Lever du Pinceau team on a painting project, Gatineau region'
                 }
                 w="100%"
                 h="100%"
@@ -395,7 +395,7 @@ export default function GatineauCityPage() {
 
         {/* ── SECTION 2 - Barre de confiance ──────────────────────────────── */}
         <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner noCard showSatisfactionGuarantee={false} />
+          <TrustBanner />
         </Box>
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>

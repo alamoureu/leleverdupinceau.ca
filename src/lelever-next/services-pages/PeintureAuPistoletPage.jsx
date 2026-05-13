@@ -26,8 +26,7 @@ import {
   FaBolt,
   FaLayerGroup,
   FaShieldAlt,
-  FaClock,
-  FaSliders,
+  FaSlidersH,
   FaDoorOpen,
   FaUtensils,
   FaBuilding,
@@ -41,11 +40,10 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import pistoletHeroImg from '../images/L2 Services specialise/Photo page -pistolet/header-spray man.JPEG';
-
 import pistoletAvant1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.jpg';
-import pistoletApres1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_7997 2.jpg';
-import pistoletAvant2 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg';
-import pistoletApres2 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_7999 2.jpg';
+import pistoletApres1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg';
+
+const PLACEHOLDER_PAIR = { before: null, after: null };
 
 const CHECKMARKS = [
   {
@@ -74,7 +72,7 @@ const CHECKMARKS = [
     text: 'Pour certains éléments comme les portes, cadrages, armoires ou boiseries, le pistolet peut offrir un fini plus lisse et plus régulier qu\'une application au rouleau ou au pinceau.',
   },
   {
-    icon: FaSliders,
+    icon: FaSlidersH,
     title: 'Choix de méthode selon le support, pas par automatisme',
     text: 'Le pistolet n\'est pas toujours la bonne réponse. Nous le choisissons seulement quand il améliore réellement le résultat, la vitesse ou l\'uniformité.',
   },
@@ -240,12 +238,12 @@ export default function PeintureAuPistoletPage() {
     {
       before: pistoletAvant1,
       after: pistoletApres1,
-      description: 'Peinture au pistolet Montréal avant après',
+      description: 'Chantier au pistolet - séquence locale (fichiers du dossier pistolet uniquement).',
     },
     {
-      before: pistoletAvant2,
-      after: pistoletApres2,
-      description: 'Application au pistolet airless sur surface ouverte - Montréal',
+      ...PLACEHOLDER_PAIR,
+      description:
+        'Deuxième emplacement : ajouter une autre paire airless dédiée (sans reprendre les visuels condo).',
     },
   ];
 
@@ -267,7 +265,7 @@ export default function PeintureAuPistoletPage() {
           minW={0}
           minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
           h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
-          pb={{ base: 24, sm: 32, md: 28, lg: 32 }}
+          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
@@ -372,12 +370,13 @@ export default function PeintureAuPistoletPage() {
               </Stack>
             </Stack>
           </Container>
-
-          <TrustBanner compact showSatisfactionGuarantee={false} />
+        </Box>
+        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
+          <TrustBanner />
         </Box>
 
         {/* ===== SECTION 3 - CHECKMARKS MÉTHODE D'APPLICATION ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} pt={{ base: 20, md: 24, lg: 28 }} bg="white">
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">

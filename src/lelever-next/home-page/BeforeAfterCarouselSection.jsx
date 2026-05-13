@@ -187,7 +187,13 @@ export default function BeforeAfterCarouselSection({
               minW="100%"
               pb={2}
             >
-              {items.map((pair, index) => (
+              {items.map((pair, index) => {
+                const hasPair = Boolean(pair?.before && pair?.after);
+                const placeholderBody = isFr
+                  ? 'Visuels avant/après à dédier à cette page uniquement, sans réutiliser une photo déjà affichée sur un autre service.'
+                  : 'Before/after visuals to add for this page only, without reusing a photo already shown on another service.';
+
+                return (
                 <Box
                   key={index}
                   minW={{
@@ -207,6 +213,7 @@ export default function BeforeAfterCarouselSection({
                     transition="box-shadow 0.2s"
                     bg="white"
                   >
+                    {hasPair ? (
                     <Stack spacing={0}>
                       {/* Avant */}
                       <Box position="relative" w="100%">
@@ -265,6 +272,30 @@ export default function BeforeAfterCarouselSection({
                         </Box>
                       </Box>
                     </Stack>
+                    ) : (
+                      <Flex
+                        direction="column"
+                        align="center"
+                        justify="center"
+                        minH={{ base: '280px', md: '300px' }}
+                        px={4}
+                        py={8}
+                        bg="gray.50"
+                        borderWidth="2px"
+                        borderStyle="dashed"
+                        borderColor="gray.300"
+                      >
+                        <Text
+                          fontSize="sm"
+                          color="gray.600"
+                          textAlign="center"
+                          lineHeight="1.6"
+                          maxW="280px"
+                        >
+                          {placeholderBody}
+                        </Text>
+                      </Flex>
+                    )}
                   </Box>
                   {pair.description && (
                     <Text
@@ -275,14 +306,15 @@ export default function BeforeAfterCarouselSection({
                       fontWeight="medium"
                       maxW="320px"
                       mx="auto"
-                      noOfLines={2}
+                      noOfLines={3}
                       lineHeight="1.3"
                     >
                       {pair.description}
                     </Text>
                   )}
                 </Box>
-              ))}
+                );
+              })}
             </Flex>
           </Box>
           <Link

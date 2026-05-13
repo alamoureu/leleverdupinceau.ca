@@ -21,9 +21,35 @@ import lavalSecteur from '../images/laval.png';
 import longueuilSecteur from '../images/longueuil.png';
 import brossardSecteur from '../images/brossard.png';
 import riveSudSecteur from '../images/brossard_secteur.png';
-import gatineauSecteur from '../images/neighborhood_placeholder.png';
+import gatineauSecteur from '../images/pillar-pages/IMG_2585.jpg';
 // Export images for reuse
-export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
+export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur, gatineauSecteur };
+
+/** Cadrage des tuiles secteurs (object-fit cover + scale, comme Montréal). */
+function sectorTileImageProps(sectorName) {
+  if (sectorName === 'Montréal') {
+    return {
+      top: '-20px',
+      transform: 'scale(1.25)',
+      transformOrigin: 'center center',
+    };
+  }
+  if (sectorName === 'Rive-Sud') {
+    return {
+      top: 0,
+      transform: 'scale(1.34)',
+      transformOrigin: 'center center',
+    };
+  }
+  if (sectorName === 'Gatineau') {
+    return {
+      top: 0,
+      transform: 'scale(1.12)',
+      transformOrigin: 'center center',
+    };
+  }
+  return { top: 0, transform: undefined, transformOrigin: 'center center' };
+}
 
 const defaultSectors = [
   {
@@ -103,6 +129,9 @@ export default function SectorsSection({
             maxW={{ base: '600px', md: '900px' }}
           >
             {sectorsToDisplay.map((sector, index) => {
+              const imgProps =
+                sector.imageTransform || sectorTileImageProps(sector.name);
+
               const InnerContent = (
                 <Box
                   position="relative"
@@ -137,15 +166,14 @@ export default function SectorsSection({
                           }`
                     }
                     position="absolute"
-                    top={sector.name === 'Montréal' ? '-20px' : 0}
+                    top={imgProps.top}
                     left={0}
                     w="100%"
                     h="100%"
                     objectFit="cover"
                     zIndex={0}
-                    transform={
-                      sector.name === 'Montréal' ? 'scale(1.25)' : 'none'
-                    }
+                    transform={imgProps.transform}
+                    transformOrigin={imgProps.transformOrigin}
                     loading="lazy"
                     decoding="async"
                   />

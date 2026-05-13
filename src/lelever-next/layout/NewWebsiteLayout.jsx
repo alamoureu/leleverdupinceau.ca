@@ -28,7 +28,9 @@ export default function NewWebsiteLayout() {
   const isLocaleLanding =
     location.pathname === '/fr/peintre-montreal' ||
     location.pathname === '/en/peintre-montreal' ||
-    location.pathname === '/en/painter-montreal';
+    location.pathname === '/en/painter-montreal' ||
+    location.pathname === '/fr/peintre-gatineau' ||
+    location.pathname === '/en/painter-gatineau';
 
   return (
     <Fragment>

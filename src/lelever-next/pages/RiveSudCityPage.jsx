@@ -434,7 +434,7 @@ export default function RiveSudCityPage() {
 
         {/* SECTION 2 - Barre de confiance */}
         <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner noCard showSatisfactionGuarantee={false} />
+          <TrustBanner />
         </Box>
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>

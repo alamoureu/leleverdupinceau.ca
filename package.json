@@ -44,7 +44,11 @@
     "open:modified:chrome": "node scripts/open-modified-pages.js --chrome",
     "review:pages": "node scripts/open-modified-pages-for-review.js",
     "review:pages:list": "node scripts/open-modified-pages-for-review.js --list",
-    "images:compress": "node scripts/compress-images.js"
+    "images:compress": "node scripts/compress-images.js",
+    "audit:image-dupes": "node scripts/audit-image-import-dupes.js",
+    "audit:image-byte-dupes": "node scripts/find-image-byte-dupes.js",
+    "audit:image-inventory": "node scripts/audit-image-inventory.js",
+    "audit:image-html": "node scripts/generate-image-audit-html.js"
   },
   "eslintConfig": {
     "extends": [

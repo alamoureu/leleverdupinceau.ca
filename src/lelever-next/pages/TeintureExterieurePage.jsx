@@ -43,8 +43,8 @@ import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection'
 import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
 import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG';
 import teintureImg5974 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.PNG';
-import teintureImg7966 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_7966.PNG';
-import teintureImg8112 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_8112.PNG';
+
+const PLACEHOLDER_PAIR = { before: null, after: null };
 
 const CHECKMARKS = [
   {
@@ -225,9 +225,9 @@ export default function TeintureExterieurePage() {
       description: 'Teinture extérieure bois Montréal - avant / après',
     },
     {
-      before: teintureImg7966,
-      after: teintureImg8112,
-      description: 'Protection bois extérieur - avant / après Montréal',
+      ...PLACEHOLDER_PAIR,
+      description:
+        'Deuxième exemple : à remplir avec une paire teinture bois (la même que la page peinture extérieure Montréal a été retirée ici).',
     },
   ];
 
@@ -249,7 +249,7 @@ export default function TeintureExterieurePage() {
           minW={0}
           minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
           h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
-          pb={{ base: 24, sm: 32, md: 28, lg: 32 }}
+          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
@@ -363,12 +363,13 @@ export default function TeintureExterieurePage() {
               </Stack>
             </Stack>
           </Container>
-
-          <TrustBanner compact showSatisfactionGuarantee={false} />
+        </Box>
+        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
+          <TrustBanner />
         </Box>
 
         {/* ===== SECTION 3 - CHECKMARKS ===== */}
-        <Box pt={{ base: 20, md: 24, lg: 28 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
+        <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">

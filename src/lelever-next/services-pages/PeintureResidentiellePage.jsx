@@ -44,8 +44,6 @@ import residentielleHeroImg from '../images/2-services/Page peinture résidentie
 
 import avantApresRes1a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg';
 import avantApresRes1b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg';
-import avantApresRes2a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint cette appartement au Plateau-Mont-Royal à Montréal.jpg';
-import avantApresRes2b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre pro Montréal, Le Lever du Pinceau a peint cette appartement du 3e étage au Plateau-Mont-Royal à Montréal.jpg';
 import avantApresRes3a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint ce condo divise dans le quartier de Griffintown à Montréal.jpg';
 import avantApresRes3b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg';
 
@@ -224,11 +222,6 @@ export default function PeintureResidentiellePage() {
       description: 'Peinture résidentielle - maison complète Montréal',
     },
     {
-      before: avantApresRes2a,
-      after: avantApresRes2b,
-      description: 'Peinture appartement - Plateau-Mont-Royal, Montréal',
-    },
-    {
       before: avantApresRes3a,
       after: avantApresRes3b,
       description: 'Peinture condo - Griffintown, Montréal',
@@ -253,7 +246,7 @@ export default function PeintureResidentiellePage() {
           minW={0}
           minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
           h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
-          pb={{ base: 24, sm: 32, md: 28, lg: 32 }}
+          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
@@ -358,12 +351,13 @@ export default function PeintureResidentiellePage() {
               </Stack>
             </Stack>
           </Container>
-
-          <TrustBanner compact showSatisfactionGuarantee={false} />
+        </Box>
+        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
+          <TrustBanner />
         </Box>
 
         {/* ===== SECTION 3 - CHECKMARKS EXPÉRIENCE CLIENT ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} pt={{ base: 20, md: 24, lg: 28 }} bg="white">
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">

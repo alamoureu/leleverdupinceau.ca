@@ -40,7 +40,6 @@
   - `src/lelever-next/pages/` (toutes les pages)
   - `src/lelever-next/services-pages/` (pages de services)
   - `src/lelever-next/city-pages/` (pages de villes)
-- **Outil:** Utiliser `AuditImagesPage` (`/audit-images`) pour identifier les images sans title
 
 ### 5. Supprimer les routes dynamiques obsolètes dans App.jsx
 - [ ] Supprimer le pattern `SmartServiceRouter` (service × sous-service × ville)

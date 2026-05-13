@@ -33,9 +33,6 @@ import {
   FaKey,
   FaPaintBrush,
   FaBriefcase,
-  FaCheckCircle,
-  FaRoute,
-  FaLayerGroup,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
@@ -43,12 +40,8 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import heroImg from '../images/neighborhood_placeholder.jpg';
-import condoImg7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg';
-import condoImg7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg';
-import condoImg7999 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7999 4.jpg';
-import condoImg7997 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.jpg';
-import condoImg8108 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
-import condoImg6031 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.jpg';
+
+const PLACEHOLDER = { before: null, after: null };
 
 const CHECKMARKS = [
   {
@@ -204,19 +197,19 @@ export default function OutremontPage() {
 
   const carouselImages = [
     {
-      before: condoImg7924,
-      after: condoImg7922,
-      description: 'Salon - Condo Montréal, rafraîchissement intérieur',
+      ...PLACEHOLDER,
+      description:
+        'Emplacement 1 : avant/après à tourner sur un chantier Outremont (pas de visuels repris de la page condo).',
     },
     {
-      before: condoImg7999,
-      after: condoImg7997,
-      description: 'Rafraîchissement intérieur - Résidence Montréal',
+      ...PLACEHOLDER,
+      description:
+        'Emplacement 2 : deuxième paire locale pour crédibiliser le quartier sans dupliquer d\'autres services.',
     },
     {
-      before: condoImg8108,
-      after: condoImg6031,
-      description: 'Rénovation avant vente - Secteur central Montréal',
+      ...PLACEHOLDER,
+      description:
+        'Emplacement 3 : troisième paire réservée aux réalisations Outremont.',
     },
   ];
 
@@ -295,7 +288,7 @@ export default function OutremontPage() {
           minW={0}
           minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
           h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
-          pb={{ base: 24, sm: 32, md: 28, lg: 32 }}
+          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
@@ -433,12 +426,13 @@ export default function OutremontPage() {
               </Stack>
             </Stack>
           </Container>
-
-          <TrustBanner compact showSatisfactionGuarantee={false} />
+        </Box>
+        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
+          <TrustBanner />
         </Box>
 
         {/* ===== SECTION 3 - CHECKMARKS OUTREMONT ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} pt={{ base: 20, md: 24, lg: 28 }} bg="white">
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">

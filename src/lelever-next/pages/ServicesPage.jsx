@@ -418,10 +418,14 @@ export default function ServicesPage() {
           </HStack>
         </HeroSection>
 
-        <Box bg="white" py={{ base: 8, md: 10 }} borderBottom="1px solid" borderColor="gray.100">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <TrustBanner compact />
-          </Container>
+        <Box
+          bg="gray.50"
+          borderTop="1px solid"
+          borderTopColor="gray.200"
+          borderBottom="1px solid"
+          borderBottomColor="gray.200"
+        >
+          <TrustBanner />
         </Box>
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} py={{ base: 12, md: 16, lg: 20 }}>

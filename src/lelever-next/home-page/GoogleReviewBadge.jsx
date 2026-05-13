@@ -66,10 +66,10 @@ export default function GoogleReviewBadge() {
         <Image
           src='https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png'
           alt='Google'
-          h={{ base: 9, sm: 8, md: 6, lg: 5, xl: 5 }}
-          w={{ base: 9, sm: 8, md: 6, lg: 5, xl: 5 }}
-          minW={{ base: 9, sm: 8, md: 6, lg: 5, xl: 5 }}
-          minH={{ base: 9, sm: 8, md: 6, lg: 5, xl: 5 }}
+          h={{ base: 11, sm: 10, md: 6, lg: 5, xl: 5 }}
+          w={{ base: 11, sm: 10, md: 6, lg: 5, xl: 5 }}
+          minW={{ base: 11, sm: 10, md: 6, lg: 5, xl: 5 }}
+          minH={{ base: 11, sm: 10, md: 6, lg: 5, xl: 5 }}
           objectFit='contain'
           flexShrink={0}
           loading="lazy"

@@ -32,7 +32,6 @@
 - **Breadcrumb schema** – Service/ville/sous-service pages that build breadcrumb `item` URLs in JS could use `SITE_URL` from `seo/config.js` so everything stays www.
 
 ### Console
-- **AuditImagesPage** – `console.warn` on save failures (dev/debug).
 - **SubmissionForm** – `console.error` on webhook/submission errors (useful in production for debugging; optional to gate with `NODE_ENV` or remove).
 
 ### Sitemap
