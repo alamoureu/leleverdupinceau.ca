@@ -58,7 +58,7 @@
   status = 301
   force = true
 
-# SPA fallback
+# SPA fallback (static files in publish root, e.g. image-audit-preview.html, are still served first)
 [[redirects]]
   from = "/*"
   to = "/index.html"

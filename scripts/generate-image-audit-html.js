@@ -1,9 +1,8 @@
 /**
- * Page HTML locale : toutes les images trouvées par l’audit (imports ESM),
+ * Page HTML : toutes les images trouvées par l'audit (imports ESM),
  * rendues en <img> pour vérification visuelle.
  *
- * Ouvrir le fichier depuis la racine du repo (double-clic ou file://…/image-audit-preview.html).
- * Les chemins src sont relatifs à ce fichier (placé à la racine du dépôt).
+ * Sortie : public/image-audit-preview.html (copié dans dist par Vite ; les <img> utilisent des URLs racine /src/...).
  *
  * Usage: node scripts/generate-image-audit-html.js
  */
@@ -13,7 +12,7 @@ const path = require('path');
 const { scanImageImports } = require('./lib/image-import-scan');
 
 const REPO_ROOT = path.join(__dirname, '..');
-const OUT = path.join(REPO_ROOT, 'image-audit-preview.html');
+const OUT = path.join(REPO_ROOT, 'public', 'image-audit-preview.html');
 
 function esc(s) {
   return String(s)
@@ -28,13 +27,13 @@ function main() {
   const sorted = [...byAsset.entries()].sort((a, b) => a[0].localeCompare(b[0]));
 
   const cards = sorted.map(([canonical, importers]) => {
-    const relFromHtml = canonical;
     const exists = fs.existsSync(path.join(REPO_ROOT, canonical));
     const n = importers.size;
     const files = [...importers].sort().map((f) => `<li><code>${esc(f)}</code></li>`).join('');
     const miss = !exists || missing.has(canonical);
+    const imgUrl = `/${canonical.split('/').filter(Boolean).map(encodeURIComponent).join('/')}`;
     const imgTag = exists
-      ? `<img src="${esc(relFromHtml)}" alt="${esc(path.basename(canonical))}" loading="lazy" width="400" />`
+      ? `<img src="${esc(imgUrl)}" alt="${esc(path.basename(canonical))}" loading="lazy" width="400" />`
       : `<div class="missing">Fichier absent sur disque</div>`;
 
     const shared = n >= 2;
@@ -90,8 +89,7 @@ function main() {
     Ce n'est pas « N copies du fichier », ni une erreur de build : c'est la <strong>réutilisation volontaire</strong> du même asset (souvent accueil + hub + pages Avis/Blog/Services, ou <code>*Data.js</code> + page ville).
     Pour les mêmes <strong>octets</strong> sous deux chemins différents, utiliser <code>npm run audit:image-byte-dupes</code>.
     <br /><br />
-    Ce fichier doit être ouvert depuis la <strong>racine du dépôt</strong> (même dossier que le dossier <code>src</code>),
-    par exemple double-clic sur <code>image-audit-preview.html</code>. Les <code>&lt;img src&gt;</code> sont des chemins relatifs vers les fichiers du repo.
+    <strong>Où l'ouvrir :</strong> en dev, <code>http://localhost:5173/image-audit-preview.html</code> (après <code>npm start</code>). Après build ou sur le site : <code>/image-audit-preview.html</code>. Les vignettes pointent vers <code>/src/lelever-next/images/...</code> (dossier copié dans <code>dist</code> au build).
     Régénération : <code>npm run audit:image-html</code> ou <code>node scripts/generate-image-audit-html.js</code>.
   </p>
   <div class="toolbar">
@@ -122,6 +120,7 @@ function main() {
 </body>
 </html>`;
 
+  fs.mkdirSync(path.dirname(OUT), { recursive: true });
   fs.writeFileSync(OUT, html, 'utf8');
   process.stdout.write(`Écrit : ${path.relative(REPO_ROOT, OUT)}\n`);
 }

@@ -38,6 +38,9 @@ bower_components
 # Compiled binary addons (https://nodejs.org/api/addons.html)
 dist/
 
+# Généré au démarrage Vite / à chaque build (évite un gros diff ; Netlify le recrée à partir du code)
+public/image-audit-preview.html
+
 # Dependency directories
 node_modules/
 jspm_packages/
