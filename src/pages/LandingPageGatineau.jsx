@@ -6,9 +6,9 @@ import appContext from '../AppProvider';
 import { useTranslation } from '../lelever-next/i18n';
 import {
   CANONICAL_BASE,
-  LANDING_META,
+  LANDING_META_GATINEAU,
   LANDING_SECTION_PY,
-  buildLandingFaqs,
+  buildLandingFaqsGatineau,
 } from '../lelever-next/landing';
 import heroImage from '../lelever-next/images/heroImage.png';
 import PromoBanner, { PROMO_BANNER_HEIGHT } from '../lelever-next/home-page/PromoBanner';
@@ -39,8 +39,14 @@ const LANDING_FORM_FIELDS = {
  * Banner heights come from PROMO_BANNER_HEIGHT; navbar heights from LANDING_MAIN_CONTENT_PT.
  * We use CSS calc() to combine them.
  */
-/** Microsoft Clarity project — loaded only on /fr/peintre-montreal */
+/** Microsoft Clarity project — chargé sur la landing Gatineau (même id que Montréal). */
 const CLARITY_PROJECT_ID = 'w4hw2yfvew';
+
+const CLARITY_GATINEAU_PATHS = [
+  '/fr/peintre-gatineau',
+  '/en/peintre-gatineau',
+  '/en/painter-gatineau',
+];
 
 const HERO_CONTENT_PT = {
   base: `calc(5.5rem + ${PROMO_BANNER_HEIGHT.base})`,
@@ -51,17 +57,21 @@ const HERO_CONTENT_PT = {
   '2xl': `calc(8.25rem + ${PROMO_BANNER_HEIGHT['2xl']})`,
 };
 
-function LandingPageV2({ lang: langProp, indexable = false }) {
+function gatineauize(str) {
+  if (typeof str !== 'string') return str;
+  return str.replace(/Montréal/g, 'Gatineau').replace(/Montreal/gi, 'Gatineau');
+}
+
+function LandingPageGatineau({ lang: langProp, indexable = false }) {
   const location = useLocation();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const lang = currentLang || langProp || 'fr';
-  const meta = LANDING_META[lang] ?? LANDING_META.fr;
-  const landingFaqs = useMemo(() => buildLandingFaqs(t), [t]);
+  const meta = LANDING_META_GATINEAU[lang] ?? LANDING_META_GATINEAU.fr;
+  const landingFaqs = useMemo(() => buildLandingFaqsGatineau(t), [t]);
 
-  // Popup fires once, 1s after the user scrolls past the end of the method section.
   const methodEndRef = useRef(null);
   const hasTriggered = useRef(false);
   const popupTimerRef = useRef(null);
@@ -89,7 +99,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
   }, [handleMethodEndIntersect]);
 
   useEffect(() => {
-    if (location.pathname !== '/fr/peintre-montreal') return;
+    if (!CLARITY_GATINEAU_PATHS.includes(location.pathname)) return;
     const src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
     if (document.querySelector(`script[src="${src}"]`)) return;
     (function (c, l, a, r, i, t, y) {
@@ -117,7 +127,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {indexable && (
           <link
             rel="canonical"
-            href={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
+            href={`${CANONICAL_BASE}/${lang}/peintre-gatineau`}
           />
         )}
         {indexable && <meta property="og:type" content="website" />}
@@ -128,7 +138,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {indexable && (
           <meta
             property="og:url"
-            content={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
+            content={`${CANONICAL_BASE}/${lang}/peintre-gatineau`}
           />
         )}
         {indexable && (
@@ -142,7 +152,6 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
       </Helmet>
       <MicrosoftClarity />
 
-      {/* Promo bar pinned at viewport top (zIndex 10000, above the fixed navbar) */}
       <PromoBanner onSubmissionOpen={onOpen} />
 
       <Box
@@ -153,23 +162,20 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         overflowX="hidden"
         position="relative"
       >
-        {/* 1. Hero — contentPt clears the fixed promo banner + fixed navbar */}
         <LandingHeroSection
           onSubmissionOpen={onOpen}
           pageContext={t.pageContextName}
-          title={t.landingHeroTitle}
+          title={gatineauize(t.landingHeroTitle)}
           titleSecondLine=""
-          subtitle={t.landingHeroSubtitle}
+          subtitle={gatineauize(t.landingHeroSubtitle)}
           buttonText={t.landingHeroButton}
           contentPt={HERO_CONTENT_PT}
         />
 
-        {/* 2. Trust bar — full-width grey strip */}
         <Box bg="gray.50" w="100%">
           <TrustBanner noCard />
         </Box>
 
-        {/* 3. Reviews */}
         <ReviewsSection
           hideButton
           desktopColumns={3}
@@ -180,20 +186,18 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        {/* 4. Services (2 cards: intérieure + extérieure) */}
         <LandingServicesSection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}
         />
 
-        {/* 5. Before/After */}
         <BeforeAfterCarouselSection
           sectionPy={LANDING_SECTION_PY}
           sectionPaddingTop={LANDING_SECTION_PY}
           sectionPaddingBottom={LANDING_SECTION_PY}
+          subtitle={gatineauize(t.beforeAfterSubtitle)}
         />
 
-        {/* 6. Contact form — blue background */}
         <ContactFormSection
           fields={LANDING_FORM_FIELDS}
           phoneFirst
@@ -202,7 +206,6 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           sectionBg="app.ctaBg"
         />
 
-        {/* 7. Method section — sentinel at the end triggers popup after 1s */}
         <MethodSection
           onSubmissionOpen={onOpen}
           hideCta
@@ -210,10 +213,8 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         />
         <Box ref={methodEndRef} h={0} aria-hidden="true" />
 
-        {/* 8. FAQ */}
         <FAQSection faqsOverride={landingFaqs} sectionPy={LANDING_SECTION_PY} />
 
-        {/* 9. Final CTA */}
         <FinalCTASection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}
@@ -225,4 +226,4 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
   );
 }
 
-export default LandingPageV2;
+export default LandingPageGatineau;

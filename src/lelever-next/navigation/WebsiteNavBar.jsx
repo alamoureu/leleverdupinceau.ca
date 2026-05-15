@@ -35,7 +35,10 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
       ? isNewLandingProp
       : location.pathname === '/fr/peintre-montreal' ||
         location.pathname === '/en/peintre-montreal' ||
-        location.pathname === '/en/painter-montreal';
+        location.pathname === '/en/painter-montreal' ||
+        location.pathname === '/fr/peintre-gatineau' ||
+        location.pathname === '/en/peintre-gatineau' ||
+        location.pathname === '/en/painter-gatineau';
 
   return (
     <Box

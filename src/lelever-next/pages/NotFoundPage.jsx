@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import {
   Box,
@@ -15,8 +15,14 @@ import appContext from '../../AppProvider';
 
 export default function NotFoundPage() {
   const { currentLang } = useContext(appContext);
-  const isFr = currentLang === 'fr';
+  const location = useLocation();
   const navigate = useNavigate();
+
+  const isFr = location.pathname.startsWith('/en')
+    ? false
+    : location.pathname.startsWith('/fr')
+      ? true
+      : currentLang === 'fr';
 
   return (
     <>
@@ -76,8 +82,8 @@ export default function NotFoundPage() {
               </Heading>
               <Text textStyle='bodyLarge' color='gray.600' lineHeight={{ base: '1.6', md: '1.7' }} px={{ base: 2, sm: 0 }}>
                 {isFr
-                  ? "Désolé, la page que vous recherchez n'existe pas ou a été déplacée."
-                  : "Sorry, the page you're looking for doesn't exist or has been moved."}
+                  ? "Désolé, la page que vous recherchez n'existe pas."
+                  : "Sorry, the page you're looking for doesn't exist."}
               </Text>
             </VStack>
 

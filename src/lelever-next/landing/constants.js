@@ -84,3 +84,21 @@ export const LANDING_META = {
       'Interior painting Montreal, Exterior painting Montreal, Residential painting services, Professional painters, Painting quote Montreal',
   },
 };
+
+/** Meta landing Gatineau (Google Ads) — même structure que LANDING_META, ville adaptée. */
+export const LANDING_META_GATINEAU = {
+  fr: {
+    title: 'Entreprise de Peinture à Gatineau | Le Lever du Pinceau',
+    description:
+      "Découvrez les meilleurs services de peinture intérieure et extérieure à Gatineau avec Le Lever du Pinceau. Travail professionnel, matériaux de qualité et prix compétitifs. Demandez votre soumission gratuite dès aujourd'hui.",
+    keywords:
+      'Peinture intérieure Gatineau, Peinture extérieure Gatineau, Services de peinture résidentielle, Peintres professionnels, Devis peinture Gatineau',
+  },
+  en: {
+    title: 'Painting Company Gatineau | Le Lever du Pinceau',
+    description:
+      'Discover the best interior and exterior painting services in Gatineau with Le Lever du Pinceau. Professional work, quality materials and competitive prices. Request your free quote today.',
+    keywords:
+      'Interior painting Gatineau, Exterior painting Gatineau, Residential painting services, Professional painters, Painting quote Gatineau',
+  },
+};

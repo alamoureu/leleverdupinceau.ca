@@ -31,7 +31,7 @@ function getTomorrow(lang) {
  * Thin promo bar pinned at the very top of the viewport (above the fixed navbar).
  * Rendered directly in LandingPageV2 (not inside WebsiteNavBar).
  */
-export default function PromoBanner() {
+export default function PromoBanner({ onSubmissionOpen }) {
   const { currentLang } = useContext(appContext);
   const tomorrow = useMemo(() => getTomorrow(currentLang), [currentLang]);
 
@@ -40,8 +40,17 @@ export default function PromoBanner() {
       ? `🏷️\u00A010\u00A0% off — fill out the form before ${tomorrow}`
       : `🏷️\u00A010\u00A0% de rabais — remplissez le formulaire avant le ${tomorrow}`;
 
+  const ariaLabel =
+    currentLang === 'en'
+      ? '10% off — open the quote request form'
+      : '10 % de rabais — ouvrir le formulaire de soumission';
+
   return (
     <Box
+      as="button"
+      type="button"
+      onClick={onSubmissionOpen}
+      aria-label={ariaLabel}
       position="fixed"
       top={0}
       left={0}
@@ -54,6 +63,11 @@ export default function PromoBanner() {
       justifyContent="center"
       color="white"
       w="100%"
+      border="none"
+      cursor={onSubmissionOpen ? 'pointer' : 'default'}
+      _hover={onSubmissionOpen ? { filter: 'brightness(1.08)' } : undefined}
+      _active={onSubmissionOpen ? { filter: 'brightness(0.95)' } : undefined}
+      transition="filter 0.15s ease"
     >
       <Text
         textAlign="center"

@@ -27,6 +27,10 @@ function lazyRoute(importFn, displayName) {
 }
 
 const LandingPageV2 = lazyRoute(() => import('./pages/LandingPageV2'), 'LandingPageV2');
+const LandingPageGatineau = lazyRoute(
+  () => import('./pages/LandingPageGatineau'),
+  'LandingPageGatineau',
+);
 const NewHomePage = lazyRoute(() => import('./lelever-next/pages/NewHomePage'), 'NewHomePage');
 const ContactPage = lazyRoute(() => import('./lelever-next/pages/ContactPage'), 'ContactPage');
 const AvisPage = lazyRoute(() => import('./lelever-next/pages/AvisPage'), 'AvisPage');
@@ -63,6 +67,12 @@ const EmployeeDetails = lazyRoute(() => import('./pages/EmployeeDetails'), 'Empl
 const ThermOfUsePage = lazyRoute(() => import('./pages/ThermOfUse'), 'ThermOfUsePage');
 const PrivacyPolicyPage = lazyRoute(() => import('./pages/PrivacyPolicyPage'), 'PrivacyPolicyPage');
 
+const notFoundElement = (
+  <Suspense fallback={<PageSkeleton />}>
+    <NotFoundPage />
+  </Suspense>
+);
+
 export default function App() {
   return (
     <Router>
@@ -97,12 +107,15 @@ export default function App() {
             />
             <Route path="audit-images" element={<Suspense fallback={<PageSkeleton />}><AuditImagesPage /></Suspense>} />
             <Route path="soumission" element={<Suspense fallback={<PageSkeleton />}><SoumissionPage /></Suspense>} />
+            <Route path="*" element={notFoundElement} />
           </Route>
           <Route path="/peintre-professionnel" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><PeintreProfessionnelPage /></Suspense>} />
+            <Route path="*" element={notFoundElement} />
           </Route>
           <Route path="/avis" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><AvisPage /></Suspense>} />
+            <Route path="*" element={notFoundElement} />
           </Route>
           <Route path="/secteurs-desservis" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><SecteursDesservisPage /></Suspense>} />
@@ -110,6 +123,7 @@ export default function App() {
             <Route path="montreal" element={<Suspense fallback={<PageSkeleton />}><MontrealCityPage /></Suspense>} />
             <Route path="laval" element={<Suspense fallback={<PageSkeleton />}><LavalCityPage /></Suspense>} />
             <Route path="longueuil" element={<Suspense fallback={<PageSkeleton />}><LongueuilCityPage /></Suspense>} />
+            <Route path="*" element={notFoundElement} />
           </Route>
           <Route path="/services" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><ServicesPage /></Suspense>} />
@@ -155,6 +169,7 @@ export default function App() {
               path=":serviceSlug/:citySlug"
               element={<Suspense fallback={<PageSkeleton />}><ServiceQuartierPage /></Suspense>}
             />
+            <Route path="*" element={notFoundElement} />
           </Route>
           <Route path="/blog" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><BlogPage /></Suspense>} />
@@ -170,17 +185,27 @@ export default function App() {
               path="erreurs-a-eviter-peinture-interieure"
               element={<Suspense fallback={<PageSkeleton />}><ErreursAEviterPeintureInterieurePage /></Suspense>}
             />
+            <Route path="*" element={notFoundElement} />
           </Route>
 
           <Route
             path="peintre-montreal"
             element={<Navigate to="/fr/peintre-montreal" replace />}
           />
+          <Route
+            path="peintre-gatineau"
+            element={<Navigate to="/fr/peintre-gatineau" replace />}
+          />
           <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
             />
+            <Route
+              path="peintre-gatineau"
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="fr" indexable={false} /></Suspense>}
+            />
+            <Route path="*" element={notFoundElement} />
           </Route>
           <Route path="/en" element={<NewWebsiteLayout />}>
             <Route
@@ -188,9 +213,18 @@ export default function App() {
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
             />
             <Route
+              path="peintre-gatineau"
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="en" indexable={false} /></Suspense>}
+            />
+            <Route
               path="painter-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
             />
+            <Route
+              path="painter-gatineau"
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="en" indexable={false} /></Suspense>}
+            />
+            <Route path="*" element={notFoundElement} />
           </Route>
 
           <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
@@ -205,10 +239,10 @@ export default function App() {
           </Route>
           <Route path="/timesheet" element={<Suspense fallback={<PageSkeleton />}><TimeSheet /></Suspense>} />
           <Route path="/404" element={<NewWebsiteLayout />}>
-            <Route index element={<Suspense fallback={<PageSkeleton />}><NotFoundPage /></Suspense>} />
+            <Route index element={notFoundElement} />
           </Route>
           <Route path="*" element={<NewWebsiteLayout />}>
-            <Route index element={<Suspense fallback={<PageSkeleton />}><NotFoundPage /></Suspense>} />
+            <Route path="*" element={notFoundElement} />
           </Route>
         </Routes>
       </AppProvider>

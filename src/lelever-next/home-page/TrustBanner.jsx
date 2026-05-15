@@ -2,7 +2,8 @@ import React, { useContext } from 'react';
 import { Box, Flex, Text, Image, Divider } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import quebecLogo from '../images/rbqlogo.png';
-import trushieldLogo from '../images/trushieldlogo.png';
+import intactAssuranceFr from '../images/assurance-intact/Intact_Assurance_fr.svg';
+import intactInsuranceEn from '../images/assurance-intact/Intact_Insurance_idn-HFcHKw_1.svg';
 
 /** Évite un bandeau trop étiré sur grands écrans (accueil = flottant ; landing = compact + inline). */
 const TRUST_BANNER_MAX_W_COMPACT = '820px';
@@ -14,14 +15,14 @@ const translations = {
     rbqText: '5864-1481-01',
     clientsSatisfaits: 'Clients ravis',
     assurance: 'Assurance 5M$',
-    trushieldAlt: 'TruShield Insurance',
+    intactAlt: 'Intact Assurance',
   },
   en: {
     rbqAlt: 'Quebec Building Authority',
     rbqText: '5864-1481-01',
     clientsSatisfaits: 'Delighted Clients',
     assurance: '$5M Insurance',
-    trushieldAlt: 'TruShield Insurance',
+    intactAlt: 'Intact Insurance',
   },
 };
 
@@ -40,16 +41,16 @@ export default function TrustBanner({
     alt: t.rbqAlt,
     text: t.rbqText,
     imageHeight: landingInline
-      ? { base: '30px', sm: '32px', md: '36px', lg: '40px' }
+      ? { base: '36px', sm: '38px', md: '42px', lg: '46px' }
       : compact
-        ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
+        ? { base: '32px', sm: '34px', md: '38px', lg: '42px' }
         : {
-            base: '20px',
-            sm: '22px',
-            md: '24px',
-            lg: '28px',
-            xl: '30px',
-            '2xl': '32px',
+            base: '26px',
+            sm: '28px',
+            md: '30px',
+            lg: '34px',
+            xl: '36px',
+            '2xl': '38px',
           },
   };
   const clientsItem = {
@@ -62,27 +63,27 @@ export default function TrustBanner({
     value: '100%',
     label: currentLang === 'en' ? 'satisfaction guaranteed' : 'satisfaction garantie',
   };
-  const trushieldItem = {
-    image: trushieldLogo,
-    alt: t.trushieldAlt,
+  const intactItem = {
+    image: currentLang === 'en' ? intactInsuranceEn : intactAssuranceFr,
+    alt: t.intactAlt,
     text: t.assurance,
     imageHeight: landingInline
-      ? { base: '26px', sm: '28px', md: '32px', lg: '36px' }
+      ? { base: '28px', sm: '30px', md: '34px', lg: '38px' }
       : compact
-        ? { base: '22px', sm: '24px', md: '28px', lg: '32px' }
+        ? { base: '24px', sm: '26px', md: '30px', lg: '34px' }
         : {
-            base: '18px',
-            sm: '20px',
-            md: '22px',
-            lg: '26px',
-            xl: '28px',
-            '2xl': '30px',
+            base: '22px',
+            sm: '24px',
+            md: '28px',
+            lg: '32px',
+            xl: '34px',
+            '2xl': '36px',
           },
   };
 
   const TRUST_ITEMS = showSatisfactionGuarantee
-    ? [rbqItem, clientsItem, satisfactionItem, trushieldItem]
-    : [rbqItem, clientsItem, trushieldItem];
+    ? [rbqItem, clientsItem, satisfactionItem, intactItem]
+    : [rbqItem, clientsItem, intactItem];
 
   const paddingY = landingInline
     ? { base: 7, sm: 8, md: 9, lg: 10, xl: 10, '2xl': 12 }
@@ -149,7 +150,7 @@ export default function TrustBanner({
                   <Image
                     src={item.image}
                     alt={item.alt}
-                    h={{ base: '30px', sm: '32px', md: '36px', lg: '40px' }}
+                    h={item.imageHeight ?? { base: '30px', sm: '32px', md: '36px', lg: '40px' }}
                     w="auto"
                     objectFit="contain"
                     display="block"

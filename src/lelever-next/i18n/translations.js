@@ -177,7 +177,7 @@ export const translations = {
     trustBannerRbqText: '5864-1481-01',
     trustBannerClientsSatisfaits: 'Clients ravis',
     trustBannerAssurance: 'Assurance 5M$',
-    trustBannerTrushieldAlt: 'TruShield Insurance',
+    trustBannerTrushieldAlt: 'Intact Assurance',
 
     beforeAfterTitle: 'Des transformations visibles dès le premier coup de pinceau',
     beforeAfterSubtitle: 'Quelques-uns de nos projets récents à Montréal',
@@ -410,7 +410,7 @@ export const translations = {
     trustBannerRbqText: '5864-1481-01',
     trustBannerClientsSatisfaits: 'Delighted Clients',
     trustBannerAssurance: '$5M Insurance',
-    trustBannerTrushieldAlt: 'TruShield Insurance',
+    trustBannerTrushieldAlt: 'Intact Insurance',
 
     beforeAfterTitle: 'Visible transformations from the first brushstroke',
     beforeAfterSubtitle: 'Some of our recent projects in Montreal',
