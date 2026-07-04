@@ -27,10 +27,6 @@ function lazyRoute(importFn, displayName) {
 }
 
 const LandingPageV2 = lazyRoute(() => import('./pages/LandingPageV2'), 'LandingPageV2');
-const LandingPageGatineau = lazyRoute(
-  () => import('./pages/LandingPageGatineau'),
-  'LandingPageGatineau',
-);
 const NewHomePage = lazyRoute(() => import('./lelever-next/pages/NewHomePage'), 'NewHomePage');
 const ContactPage = lazyRoute(() => import('./lelever-next/pages/ContactPage'), 'ContactPage');
 const AvisPage = lazyRoute(() => import('./lelever-next/pages/AvisPage'), 'AvisPage');
@@ -192,18 +188,10 @@ export default function App() {
             path="peintre-montreal"
             element={<Navigate to="/fr/peintre-montreal" replace />}
           />
-          <Route
-            path="peintre-gatineau"
-            element={<Navigate to="/fr/peintre-gatineau" replace />}
-          />
           <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
-            />
-            <Route
-              path="peintre-gatineau"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="fr" indexable={false} /></Suspense>}
             />
             <Route path="*" element={notFoundElement} />
           </Route>
@@ -213,16 +201,8 @@ export default function App() {
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
             />
             <Route
-              path="peintre-gatineau"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="en" indexable={false} /></Suspense>}
-            />
-            <Route
               path="painter-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
-            />
-            <Route
-              path="painter-gatineau"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="en" indexable={false} /></Suspense>}
             />
             <Route path="*" element={notFoundElement} />
           </Route>

@@ -137,8 +137,8 @@ export const translations = {
     previousImage: 'Image précédente',
     nextImage: 'Image suivante',
 
-    sectorsTitle: 'Nos services de peinture dans le Grand Montréal et à Gatineau',
-    sectorsSubtitle: 'Nous réalisons des projets de peinture à Montréal, Gatineau, Laval, Longueuil et partout sur la Rive-Sud.',
+    sectorsTitle: 'Nos services de peinture dans le Grand Montréal',
+    sectorsSubtitle: 'Nous réalisons des projets de peinture à Montréal, Laval, Longueuil et partout sur la Rive-Sud.',
     viewAllSectors: 'Voir tous les secteurs desservis',
 
     resourcesTitle: 'Conseils de nos experts en peinture',
@@ -370,8 +370,8 @@ export const translations = {
     previousImage: 'Previous image',
     nextImage: 'Next image',
 
-    sectorsTitle: 'Our painting services in Greater Montreal and Gatineau',
-    sectorsSubtitle: 'We carry out painting projects in Montreal, Gatineau, Laval, Longueuil and everywhere on the South Shore.',
+    sectorsTitle: 'Our painting services in Greater Montreal',
+    sectorsSubtitle: 'We carry out painting projects in Montreal, Laval, Longueuil and everywhere on the South Shore.',
     viewAllSectors: 'View all service areas',
 
     resourcesTitle: 'Tips from our painting experts',

@@ -1,6 +1,5 @@
 # https://www.robotstxt.org/robotstxt.html
 # Le Lever du Pinceau – Peinture à Montréal (Grand Montréal : Laval, Longueuil, Brossard)
-# Franchise à Gatineau – peinture résidentielle et commerciale, même standard de qualité.
 # Infos pour assistants IA : https://www.leleverdupinceau.ca/llm.txt
 User-agent: *
 Allow: /
@@ -11,9 +10,6 @@ Disallow: /timesheet
 Disallow: /audit-images
 Disallow: /fr/peintre-montreal
 Disallow: /en/peintre-montreal
-Disallow: /fr/peintre-gatineau
-Disallow: /en/peintre-gatineau
-Disallow: /en/painter-gatineau
 
 # Sitemap
 Sitemap: https://www.leleverdupinceau.ca/sitemap.xml

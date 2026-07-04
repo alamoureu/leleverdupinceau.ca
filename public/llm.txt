@@ -6,8 +6,6 @@
 
 Le Lever du Pinceau est une entreprise de peinture basée à Montréal, spécialisée dans la peinture résidentielle et commerciale au Grand Montréal. Nous desservons principalement Montréal, Laval, Longueuil et Brossard.
 
-Nous offrons aussi une **franchise à Gatineau** : même qualité de service, peintres professionnels et processus éprouvé, pour la peinture résidentielle et commerciale dans la région de Gatineau.
-
 ## Services
 
 - Peinture intérieure (maisons, condos, bureaux)
@@ -18,8 +16,7 @@ Nous offrons aussi une **franchise à Gatineau** : même qualité de service, pe
 
 ## Zones desservies
 
-- **Montréal et Grand Montréal** (Laval, Longueuil, Brossard) — marché principal
-- **Gatineau** — franchise locale
+- **Montréal et Grand Montréal** (Laval, Longueuil, Brossard)
 
 ## Contact
 
@@ -30,4 +27,4 @@ Nous offrons aussi une **franchise à Gatineau** : même qualité de service, pe
 
 ## English summary
 
-Le Lever du Pinceau is a professional painting company headquartered in Montreal, serving Greater Montreal (Laval, Longueuil, Brossard). We also operate a **Gatineau franchise** offering the same residential and commercial painting services. Free quotes. RBQ-licensed team.
+Le Lever du Pinceau is a professional painting company headquartered in Montreal, serving Greater Montreal (Laval, Longueuil, Brossard). Free quotes. RBQ-licensed team.
