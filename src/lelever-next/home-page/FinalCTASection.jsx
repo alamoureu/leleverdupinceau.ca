@@ -19,6 +19,7 @@ export default function FinalCTASection({
   subtitle,
   buttonText,
   sectionPy,
+  compactMobile = false,
 }) {
   const { t } = useTranslation();
 
@@ -30,7 +31,12 @@ export default function FinalCTASection({
       position='relative'
       overflow='hidden'
     >
-      <Container maxW='1000px' px={{ base: 4, md: 6 }} position='relative' zIndex={1}>
+      <Container
+        maxW='1000px'
+        px={compactMobile ? { base: 3, md: 6 } : { base: 4, md: 6 }}
+        position='relative'
+        zIndex={1}
+      >
         <Stack spacing={{ base: 4, md: 6 }} align='center' textAlign='center'>
           <Stack spacing={{ base: 2, md: 3 }}>
             <Heading as='h2' size='page' color='white' letterSpacing='tight' lineHeight='1.1' fontWeight='800'>

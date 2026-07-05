@@ -29,6 +29,8 @@ export default function LandingHeroSection({
   buttonText,
   imageBackground,
   contentPt,
+  flatBottom = false,
+  imageObjectPosition,
   children,
 }) {
   const { t } = useTranslation();
@@ -38,14 +40,54 @@ export default function LandingHeroSection({
   const heroButton = buttonText ?? t.heroButton;
 
   /** pb plus grand que pt pour compenser le clip en V (~20 % du bas coupé) → remonte le contenu vers le centre visuel. */
-  const heroPb = {
-    base: '9rem',
-    sm: '9.5rem',
-    md: '12rem',
-    lg: '13rem',
-    xl: '14rem',
-    '2xl': '14rem',
-  };
+  const heroPb = flatBottom
+    ? { base: '3rem', sm: '3.5rem', md: '4rem', lg: '4.5rem' }
+    : {
+        base: '9rem',
+        sm: '9.5rem',
+        md: '12rem',
+        lg: '13rem',
+        xl: '14rem',
+        '2xl': '14rem',
+      };
+
+  const heroHeights = flatBottom
+    ? {
+        minH: {
+          base: 'min(74vh, 460px)',
+          sm: 'min(72vh, 500px)',
+          md: 'min(75vh, 680px)',
+          lg: 'min(82vh, 740px)',
+          xl: 'min(85vh, 780px)',
+          '2xl': 'min(88vh, 820px)',
+        },
+        h: {
+          base: 'min(74vh, 500px)',
+          sm: 'min(72vh, 540px)',
+          md: 'min(75vh, 680px)',
+          lg: 'min(82vh, 740px)',
+          xl: 'min(85vh, 780px)',
+          '2xl': 'min(88vh, 820px)',
+        },
+      }
+    : {
+        minH: {
+          base: 'min(76vh, 440px)',
+          sm: 'min(74vh, 460px)',
+          md: 'min(88vh, 700px)',
+          lg: 'min(92vh, 820px)',
+          xl: 'min(94vh, 920px)',
+          '2xl': 'min(96vh, 1020px)',
+        },
+        h: {
+          base: 'min(76vh, 520px)',
+          sm: 'min(74vh, 540px)',
+          md: '92vh',
+          lg: '100vh',
+          xl: '100vh',
+          '2xl': '100vh',
+        },
+      };
 
   return (
     <Box
@@ -60,22 +102,8 @@ export default function LandingHeroSection({
         position="relative"
         display="flex"
         flexDirection="column"
-        minH={{
-          base: 'min(76vh, 440px)',
-          sm: 'min(74vh, 460px)',
-          md: 'min(88vh, 700px)',
-          lg: 'min(92vh, 820px)',
-          xl: 'min(94vh, 920px)',
-          '2xl': 'min(96vh, 1020px)',
-        }}
-        h={{
-          base: 'min(76vh, 520px)',
-          sm: 'min(74vh, 540px)',
-          md: '92vh',
-          lg: '100vh',
-          xl: '100vh',
-          '2xl': '100vh',
-        }}
+        minH={heroHeights.minH}
+        h={heroHeights.h}
         w="100%"
       >
         <Box
@@ -85,7 +113,7 @@ export default function LandingHeroSection({
           right={0}
           bottom={0}
           zIndex={0}
-          style={{ clipPath: CLIP_POLYGON }}
+          style={flatBottom ? undefined : { clipPath: CLIP_POLYGON }}
           overflow="hidden"
           aria-hidden
         >
@@ -98,6 +126,7 @@ export default function LandingHeroSection({
             w="100%"
             h="100%"
             objectFit="cover"
+            objectPosition={imageObjectPosition ?? 'center center'}
             loading="eager"
             fetchpriority="high"
             decoding="async"
@@ -121,7 +150,11 @@ export default function LandingHeroSection({
           display="flex"
           flexDirection="column"
           minH="0"
-          px={{ base: 4, sm: 4, md: 6, lg: 8 }}
+          px={
+            flatBottom
+              ? { base: 3, sm: 4, md: 6, lg: 8 }
+              : { base: 4, sm: 4, md: 6, lg: 8 }
+          }
           pt={contentPt ?? LANDING_MAIN_CONTENT_PT}
           pb={heroPb}
         >
@@ -133,7 +166,7 @@ export default function LandingHeroSection({
             display="flex"
             flexDirection="column"
             justifyContent="center"
-            alignItems="center"
+            alignItems={flatBottom ? { base: 'flex-start', md: 'center' } : 'center'}
           >
             <Stack
               spacing={{ base: 3, sm: 4, md: 7, lg: 8, xl: 8 }}
@@ -141,7 +174,7 @@ export default function LandingHeroSection({
               maxW={{ base: '100%', md: '900px', lg: '960px', xl: '1100px' }}
               w="100%"
               align="flex-start"
-              alignSelf="center"
+              alignSelf={flatBottom ? { base: 'stretch', md: 'center' } : 'center'}
               flexShrink={0}
             >
               {children}

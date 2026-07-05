@@ -26,6 +26,9 @@ export default function ServiceCard({
   alt,
   noHoverBorder = false,
   fillHeight = false,
+  fillColumn = false,
+  expandImage = false,
+  imageObjectPosition = 'center center',
   compact = false,
   children,
 }) {
@@ -58,6 +61,19 @@ export default function ServiceCard({
     ? { base: '56px', md: '60px' }
     : { base: '68px', md: '72px', lg: '76px' };
 
+  const cardMinH = expandImage
+    ? { base: '380px', sm: '400px', md: '460px', lg: '500px', xl: '520px' }
+    : compact
+      ? { base: '248px', sm: '272px', md: '296px', lg: '316px' }
+      : {
+          base: '340px',
+          sm: '360px',
+          md: '380px',
+          lg: '400px',
+          xl: '420px',
+          '2xl': '440px',
+        };
+
   return (
     <Box
       position="relative"
@@ -76,27 +92,20 @@ export default function ServiceCard({
       h="100%"
       display="flex"
       flexDirection="column"
-      minH={
-        compact
-          ? { base: '248px', sm: '272px', md: '296px', lg: '316px' }
+      minH={cardMinH}
+      maxW={
+        fillColumn
+          ? '100%'
           : {
-              base: '340px',
-              sm: '360px',
-              md: '380px',
-              lg: '400px',
-              xl: '420px',
-              '2xl': '440px',
+              base: '100%',
+              sm: '320px',
+              md: '360px',
+              lg: '380px',
+              xl: '400px',
+              '2xl': '420px',
             }
       }
-      maxW={{
-        base: '100%',
-        sm: '320px',
-        md: '360px',
-        lg: '380px',
-        xl: '400px',
-        '2xl': '420px',
-      }}
-      mx={{ base: 0, md: 'auto' }}
+      mx={fillColumn ? 0 : { base: 0, md: 'auto' }}
       {...(fillHeight && {
         minH: { base: '340px', sm: '360px', md: '380px', lg: '400px' },
       })}
@@ -104,21 +113,41 @@ export default function ServiceCard({
       <Box
         position="relative"
         overflow="hidden"
-        bg="white"
+        bg="gray.900"
         w="100%"
         minW="100%"
-        h={imageHeights}
-        flexShrink={0}
+        h={expandImage ? undefined : imageHeights}
+        flex={expandImage ? '1 1 0' : undefined}
+        minH={expandImage ? { base: '260px', md: '340px', lg: '380px' } : undefined}
+        flexShrink={expandImage ? undefined : 0}
       >
-        <Image
-          src={image}
-          alt={alt || title}
-          w="100%"
-          h="100%"
-          objectFit="cover"
-          objectPosition="center center"
-          display="block"
-        />
+        {expandImage ? (
+          <Box
+            position="absolute"
+            inset={0}
+            overflow="hidden"
+            aria-hidden
+          >
+            <Box
+              position="absolute"
+              inset="-10%"
+              bgImage={`url(${image})`}
+              bgSize="cover"
+              bgPosition={imageObjectPosition}
+              bgRepeat="no-repeat"
+            />
+          </Box>
+        ) : (
+          <Image
+            src={image}
+            alt={alt || title}
+            w="100%"
+            h="100%"
+            objectFit="cover"
+            objectPosition={imageObjectPosition}
+            display="block"
+          />
+        )}
         {/* Dark overlay: title + subtitle */}
         <Box
           position="absolute"
@@ -150,11 +179,9 @@ export default function ServiceCard({
         {/* White fade at bottom of image */}
         <Box
           position="absolute"
-          top={0}
-          left={0}
-          right={0}
-          w="100%"
-          h={fadeHeights}
+          {...(expandImage
+            ? { bottom: 0, left: 0, right: 0, h: '42%' }
+            : { top: 0, left: 0, right: 0, w: '100%', h: fadeHeights })}
           pointerEvents="none"
           zIndex={2}
           display="flex"

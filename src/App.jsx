@@ -27,6 +27,10 @@ function lazyRoute(importFn, displayName) {
 }
 
 const LandingPageV2 = lazyRoute(() => import('./pages/LandingPageV2'), 'LandingPageV2');
+const LandingPageStlp = lazyRoute(
+  () => import('./pages/LandingPageStlp'),
+  'LandingPageStlp',
+);
 const NewHomePage = lazyRoute(() => import('./lelever-next/pages/NewHomePage'), 'NewHomePage');
 const ContactPage = lazyRoute(() => import('./lelever-next/pages/ContactPage'), 'ContactPage');
 const AvisPage = lazyRoute(() => import('./lelever-next/pages/AvisPage'), 'AvisPage');
@@ -188,10 +192,15 @@ export default function App() {
             path="peintre-montreal"
             element={<Navigate to="/fr/peintre-montreal" replace />}
           />
+          <Route path="stlp" element={<Navigate to="/fr/stlp" replace />} />
           <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
+            />
+            <Route
+              path="stlp"
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="fr" indexable /></Suspense>}
             />
             <Route path="*" element={notFoundElement} />
           </Route>
@@ -203,6 +212,10 @@ export default function App() {
             <Route
               path="painter-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
+            />
+            <Route
+              path="stlp"
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="en" indexable /></Suspense>}
             />
             <Route path="*" element={notFoundElement} />
           </Route>

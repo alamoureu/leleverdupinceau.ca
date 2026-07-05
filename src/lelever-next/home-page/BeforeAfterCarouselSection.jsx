@@ -86,6 +86,8 @@ export default function BeforeAfterCarouselSection({
   sectionPy,
   sectionPaddingTop,
   sectionPaddingBottom,
+  maxItems,
+  compactMobile = false,
 }) {
   const { t, currentLang } = useTranslation();
   const isFr = isFrProp ?? currentLang === 'fr';
@@ -111,13 +113,26 @@ export default function BeforeAfterCarouselSection({
     return base;
   }, [images, isFr, kitchenPairOverride]);
 
+  const visibleItems =
+    maxItems && maxItems > 0 ? items.slice(0, maxItems) : items;
+
+  const centerOnDesktop =
+    maxItems != null && maxItems > 0 && visibleItems.length <= maxItems && maxItems <= 4;
+
   const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
   const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
 
   return (
     <Box pt={pt} pb={pb} bg="white" overflowX="hidden">
-      <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+      <Container
+        maxW="1440px"
+        px={
+          compactMobile
+            ? { base: 3, md: 6 }
+            : { base: 4, md: 6 }
+        }
+      >
         <Stack spacing={{ base: 6, md: 8 }} align="center">
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="900px">
             <Heading
@@ -138,34 +153,45 @@ export default function BeforeAfterCarouselSection({
             w="100%"
             maxW="100%"
             minW={0}
-            overflowX="auto"
+            overflowX={{ base: 'auto', md: centerOnDesktop ? 'visible' : 'auto' }}
             overflowY="hidden"
             pb={6}
-            px={{ base: 4, md: 0 }}
-            mx={{ base: -4, md: 0 }}
-            sx={{
-              '&::-webkit-scrollbar': { height: 2 },
-              '&::-webkit-scrollbar-track': {
-                bg: 'gray.100',
-                borderRadius: 'full',
-              },
-              '&::-webkit-scrollbar-thumb': {
-                bg: 'gray.300',
-                borderRadius: 'full',
-                _hover: { bg: 'gray.400' },
-              },
-              msOverflowStyle: 'auto',
-              scrollbarWidth: 'auto',
-            }}
+            px={{ base: compactMobile ? 3 : 4, md: 0 }}
+            mx={{ base: compactMobile ? -3 : -4, md: 0 }}
+            sx={
+              centerOnDesktop
+                ? {
+                    md: {
+                      '&::-webkit-scrollbar': { display: 'none' },
+                      msOverflowStyle: 'none',
+                      scrollbarWidth: 'none',
+                    },
+                  }
+                : {
+                    '&::-webkit-scrollbar': { height: 2 },
+                    '&::-webkit-scrollbar-track': {
+                      bg: 'gray.100',
+                      borderRadius: 'full',
+                    },
+                    '&::-webkit-scrollbar-thumb': {
+                      bg: 'gray.300',
+                      borderRadius: 'full',
+                      _hover: { bg: 'gray.400' },
+                    },
+                    msOverflowStyle: 'auto',
+                    scrollbarWidth: 'auto',
+                  }
+            }
           >
             <Flex
               direction="row"
               gap={{ base: 6, md: 8, lg: 10 }}
-              w="max-content"
-              minW="100%"
+              w={{ base: 'max-content', md: centerOnDesktop ? '100%' : 'max-content' }}
+              minW={{ base: '100%', md: centerOnDesktop ? undefined : '100%' }}
+              justify={{ base: 'flex-start', md: centerOnDesktop ? 'center' : 'flex-start' }}
               pb={2}
             >
-              {items.map((pair, index) => (
+              {visibleItems.map((pair, index) => (
                 <Box
                   key={index}
                   minW={{

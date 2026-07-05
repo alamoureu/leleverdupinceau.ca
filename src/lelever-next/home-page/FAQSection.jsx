@@ -71,7 +71,7 @@ function getFaqs(isFr) {
 
 const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
 
-export default function FAQSection({ faqsOverride, title, sectionPy }) {
+export default function FAQSection({ faqsOverride, title, sectionPy, compactMobile = false }) {
   const { t, currentLang } = useTranslation();
   const isFr = currentLang === 'fr';
   const faqs = Array.isArray(faqsOverride) && faqsOverride.length > 0 ? faqsOverride : getFaqs(isFr);
@@ -92,7 +92,10 @@ export default function FAQSection({ faqsOverride, title, sectionPy }) {
 
   return (
     <Box w="100%" py={sectionPy ?? DEFAULT_SECTION_PY} bg="gray.50">
-      <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+      <Container
+        maxW="1440px"
+        px={compactMobile ? { base: 3, md: 6 } : { base: 4, md: 6 }}
+      >
         <Stack spacing={8}>
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
             <Heading as="h2" size="section" color="gray.800">

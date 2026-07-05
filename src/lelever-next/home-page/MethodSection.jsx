@@ -15,8 +15,6 @@ import method2 from '../images/new-landing/method-2.jpeg';
 import method3 from '../images/new-landing/method-3.PNG';
 import method4 from '../images/new-landing/method-4.PNG';
 
-const stepImages = [method1, method2, method3, method4];
-
 const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
 
 export default function MethodSection({
@@ -25,6 +23,8 @@ export default function MethodSection({
   sectionPy,
   sectionPaddingTop,
   sectionPaddingBottom,
+  stepImages: stepImagesProp,
+  compactMobile = false,
 }) {
   const { t } = useTranslation();
   const titleParts = t.methodTitle.split(', ');
@@ -33,6 +33,8 @@ export default function MethodSection({
   const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
   const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
+
+  const stepImages = stepImagesProp ?? [method1, method2, method3, method4];
 
   const steps = [
     { title: t.methodStep1Title, description: t.methodStep1Desc },
@@ -45,7 +47,11 @@ export default function MethodSection({
     <Box pt={pt} pb={pb} bg="white">
       <Container
         maxW="1440px"
-        px={{ base: 4, sm: 5, md: 5, lg: 8, xl: 10, '2xl': 12 }}
+        px={
+          compactMobile
+            ? { base: 3, sm: 4, md: 5, lg: 8, xl: 10, '2xl': 12 }
+            : { base: 4, sm: 5, md: 5, lg: 8, xl: 10, '2xl': 12 }
+        }
       >
         <Stack spacing={{ base: 4, sm: 6, md: 6, lg: 8, xl: 10, '2xl': 12 }}>
           <Stack

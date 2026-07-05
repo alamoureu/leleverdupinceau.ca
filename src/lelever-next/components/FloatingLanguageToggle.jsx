@@ -1,12 +1,29 @@
 import React, { useContext } from 'react';
 import { Button, Text } from '@chakra-ui/react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import appContext from '../../AppProvider';
+
+const LOCALE_LANDING_PATHS = {
+  '/fr/stlp': '/en/stlp',
+  '/en/stlp': '/fr/stlp',
+  '/fr/peintre-montreal': '/en/painter-montreal',
+  '/en/painter-montreal': '/fr/peintre-montreal',
+  '/en/peintre-montreal': '/fr/peintre-montreal',
+};
 
 export default function FloatingLanguageToggle() {
   const { currentLang, setCurrentLang } = useContext(appContext);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'fr' ? 'en' : 'fr';
+    const targetPath = LOCALE_LANDING_PATHS[location.pathname];
+    if (targetPath) {
+      setCurrentLang(newLang);
+      navigate(targetPath);
+      return;
+    }
     setCurrentLang(newLang);
   };
 

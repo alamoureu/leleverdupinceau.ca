@@ -24,7 +24,11 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-81FGM6EH3M');
+      gtag('config', 'G-81FGM6EH3M', {
+        /* Avoid ad.doubleclick.net pings blocked by ad blockers; GA4 + form_completion still work. */
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false,
+      });
     </script>
   </head>
   <body>

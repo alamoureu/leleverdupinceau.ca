@@ -36,7 +36,14 @@ const translations = {
   },
 };
 
-export default function LandingServicesSection({ onSubmissionOpen, sectionPy }) {
+export default function LandingServicesSection({
+  onSubmissionOpen,
+  sectionPy,
+  hideCta = false,
+  fillCards = false,
+  compactCards = false,
+  compactMobile = false,
+}) {
   const { t, currentLang } = useTranslation();
   const py = sectionPy ?? DEFAULT_SECTION_PY;
   const copy = translations[currentLang] || translations.fr;
@@ -58,7 +65,14 @@ export default function LandingServicesSection({ onSubmissionOpen, sectionPy }) 
 
   return (
     <Box bg="gray.50" py={py} w="100%">
-      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>
+      <Container
+        maxW="1440px"
+        px={
+          compactMobile
+            ? { base: 3, sm: 5, md: 6, lg: 8 }
+            : { base: 4, sm: 5, md: 6, lg: 8 }
+        }
+      >
         <Stack spacing={{ base: 6, md: 10 }} align="center">
           <Stack spacing={{ base: 1, md: 3 }} textAlign="center">
             <Heading
@@ -87,8 +101,8 @@ export default function LandingServicesSection({ onSubmissionOpen, sectionPy }) 
             {services.map((service, idx) => (
               <Box
                 key={idx}
-                w={{ base: '85%', sm: '300px', md: '50%' }}
-                maxW={{ base: '340px', md: 'none' }}
+                w={fillCards ? '100%' : { base: '85%', sm: '300px', md: '50%' }}
+                maxW={fillCards ? 'none' : { base: '340px', md: 'none' }}
                 flex={{ md: '1 1 0' }}
               >
                 <ServiceCard
@@ -97,31 +111,35 @@ export default function LandingServicesSection({ onSubmissionOpen, sectionPy }) 
                   subtitle={service.subtitle}
                   stripText={service.stripText}
                   noHoverBorder
+                  fillColumn={fillCards}
+                  compact={compactCards}
                 />
               </Box>
             ))}
           </Flex>
 
-          <ShakeButton style={{ display: 'inline-block', width: 'auto' }}>
-            <Button
-              onClick={onSubmissionOpen}
-              bg="brand.500"
-              color="white"
-              borderRadius="full"
-              px={{ base: 8, md: 12 }}
-              py={{ base: 3, md: 5 }}
-              minH={{ base: '52px', md: '60px' }}
-              h="auto"
-              fontSize={{ base: 'md', md: 'lg' }}
-              fontWeight="bold"
-              boxShadow="md"
-              _hover={{ bg: 'brand.600' }}
-              whiteSpace="normal"
-              lineHeight="1.15"
-            >
-              {copy.cta}
-            </Button>
-          </ShakeButton>
+          {!hideCta && (
+            <ShakeButton style={{ display: 'inline-block', width: 'auto' }}>
+              <Button
+                onClick={onSubmissionOpen}
+                bg="brand.500"
+                color="white"
+                borderRadius="full"
+                px={{ base: 8, md: 12 }}
+                py={{ base: 3, md: 5 }}
+                minH={{ base: '52px', md: '60px' }}
+                h="auto"
+                fontSize={{ base: 'md', md: 'lg' }}
+                fontWeight="bold"
+                boxShadow="md"
+                _hover={{ bg: 'brand.600' }}
+                whiteSpace="normal"
+                lineHeight="1.15"
+              >
+                {copy.cta}
+              </Button>
+            </ShakeButton>
+          )}
         </Stack>
       </Container>
     </Box>

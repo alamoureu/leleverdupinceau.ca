@@ -22,6 +22,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
+import { STLP_LOGO } from '../landing/stlpAssets';
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();
@@ -30,12 +31,15 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const { t } = useTranslation();
 
   const isHomePage = location.pathname === '/';
+  const isStlpLanding =
+    location.pathname === '/fr/stlp' || location.pathname === '/en/stlp';
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
       : location.pathname === '/fr/peintre-montreal' ||
         location.pathname === '/en/peintre-montreal' ||
-        location.pathname === '/en/painter-montreal';
+        location.pathname === '/en/painter-montreal' ||
+        isStlpLanding;
 
   return (
     <Box
@@ -131,7 +135,11 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
         w="100%"
         bg={isNewLanding ? 'white' : 'brand.700'}
         py={{ base: 2.5, sm: 2, md: 3, lg: 4 }}
-        px={{ base: 4, sm: 6, lg: 8 }}
+        px={
+          isStlpLanding
+            ? { base: 3, sm: 6, lg: 8 }
+            : { base: 4, sm: 6, lg: 8 }
+        }
         shadow="md"
         position="relative"
         zIndex={2}
@@ -160,20 +168,32 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               aria-label={currentLang === 'fr' ? 'Accueil' : 'Home'}
               display="flex"
               alignItems="center"
-              h={{ base: '52px', sm: '56px', md: '64px', lg: '68px' }}
-              maxW={{ base: '160px', sm: '180px', md: 'none' }}
+              h={
+                isStlpLanding
+                  ? { base: '64px', sm: '60px', md: '68px', lg: '72px' }
+                  : { base: '52px', sm: '56px', md: '64px', lg: '68px' }
+              }
+              maxW={
+                isStlpLanding
+                  ? { base: '96px', sm: '92px', md: '100px', lg: '108px' }
+                  : { base: '160px', sm: '180px', md: 'none' }
+              }
             >
               <Image
                 loading="lazy"
                 decoding="async"
-                src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
+                src={
+                  isStlpLanding
+                    ? STLP_LOGO
+                    : 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
+                }
                 h="100%"
                 w="auto"
                 maxW="100%"
                 objectFit="contain"
                 pointerEvents="none"
                 style={{
-                  filter: isNewLanding ? 'invert(1)' : undefined,
+                  filter: isNewLanding && !isStlpLanding ? 'invert(1)' : undefined,
                 }}
               />
             </Box>

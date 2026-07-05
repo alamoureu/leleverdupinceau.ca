@@ -31,6 +31,7 @@ export default function TrustBanner({
   inline = false,
   noCard = false,
   showSatisfactionGuarantee = true,
+  compactMobile = false,
 }) {
   const { currentLang } = useContext(appContext);
   const t = translations[currentLang] || translations.fr;
@@ -61,7 +62,7 @@ export default function TrustBanner({
   const satisfactionItem = {
     isMetric: true,
     value: '100%',
-    label: currentLang === 'en' ? 'satisfaction guaranteed' : 'satisfaction garantie',
+    label: currentLang === 'en' ? 'Satisfaction guaranteed' : 'Satisfaction garantie',
   };
   const intactItem = {
     image: currentLang === 'en' ? intactInsuranceEn : intactAssuranceFr,
@@ -90,11 +91,13 @@ export default function TrustBanner({
     : compact
       ? { base: 5, sm: 6, md: 7 }
       : { base: 4, md: 5 };
-  const paddingX = landingInline
-    ? { base: 5, sm: 7, md: 11, lg: 14 }
-    : compact
-      ? { base: 4, sm: 6, md: 10, lg: 12 }
-      : { base: 6, sm: 6, md: 8, lg: 10 };
+  const paddingX = compactMobile
+    ? { base: 3, sm: 5, md: 8, lg: 10 }
+    : landingInline
+      ? { base: 5, sm: 7, md: 11, lg: 14 }
+      : compact
+        ? { base: 4, sm: 6, md: 10, lg: 12 }
+        : { base: 6, sm: 6, md: 8, lg: 10 };
   const gap = landingInline
     ? { base: 4, sm: 7, md: 11, lg: 14 }
     : compact

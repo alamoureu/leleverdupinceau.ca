@@ -84,3 +84,21 @@ export const LANDING_META = {
       'Interior painting Montreal, Exterior painting Montreal, Residential painting services, Professional painters, Painting quote Montreal',
   },
 };
+
+/** Meta landing STLP — indexable Montreal landing, Google Ads + main SEO cluster. */
+export const LANDING_META_STLP = {
+  fr: {
+    title: 'Entreprise de Peinture à Montréal | STLP',
+    description:
+      "Découvrez les meilleurs services de peinture intérieure et extérieure à Montréal avec STLP. Travail professionnel, matériaux de qualité et prix compétitifs. Demandez votre soumission gratuite dès aujourd'hui.",
+    keywords:
+      'Peinture intérieure Montréal, Peinture extérieure Montréal, Services de peinture résidentielle, Peintres professionnels, Devis peinture Montréal',
+  },
+  en: {
+    title: 'Painting Company Montreal | STLP',
+    description:
+      'Discover the best interior and exterior painting services in Montreal with STLP. Professional work, quality materials and competitive prices. Request your free quote today.',
+    keywords:
+      'Interior painting Montreal, Exterior painting Montreal, Residential painting services, Professional painters, Painting quote Montreal',
+  },
+};
