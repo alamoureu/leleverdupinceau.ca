@@ -1,13 +1,12 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
 /**
- * Hardcoded ERP website lead webhooks (Render).
- * POST goes here from the browser — not via leleverdupinceau.ca, and not from env vars
- * (VITE_ERP_WEBSITE_LEAD_URL is intentionally unused).
+ * Hardcoded ERP website lead webhooks (Render servers).
+ * POST goes directly from the browser to each server — not via leleverdupinceau.ca.
  */
 export const ERP_WEBSITE_LEAD_URLS = [
   'https://llp-erp-server.onrender.com/api/webhooks/leads/website',
-  'https://ldp-systems-client.onrender.com/api/webhooks/leads/website',
+  'https://ldp-systems-server.onrender.com/api/webhooks/leads/website',
 ];
 
 /** @deprecated use ERP_WEBSITE_LEAD_URLS */
@@ -56,7 +55,10 @@ function buildDescriptionDuProjet(formData, lang = 'fr') {
     return parts.join('\n');
   }
 
-  const pt = paintingTypeLabel(formData.paintingType, lang);
+  const pt = paintingTypeLabel(
+    formData.paintingType ?? formData.typePeinture,
+    lang
+  );
   const parts = [];
   if (pt) parts.push(pt);
   if (msg) parts.push(msg);

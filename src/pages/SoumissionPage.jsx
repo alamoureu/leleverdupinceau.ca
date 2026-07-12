@@ -1,7 +1,7 @@
 import React, { Fragment, useEffect } from 'react';
-import { Flex, Stack } from '@chakra-ui/react';
+import { Box, Flex, Stack } from '@chakra-ui/react';
 import { Helmet } from 'react-helmet';
-import EmbeddedSubmissionForm from '../components/EmbeddedSubmissionForm';
+import SubmissionForm from '../lelever-next/home-page/SubmissionForm';
 
 export default function SoumissionPage() {
   useEffect(() => {
@@ -35,8 +35,10 @@ export default function SoumissionPage() {
         mt="30px"
       >
         <Stack id="soumission" w="100%" align="center">
-          <Stack align="center" w={{ base: '100%', md: '500px' }}>
-            <EmbeddedSubmissionForm isModal={false} trackConversion={true} />
+          <Stack align="center" w={{ base: '100%', md: '600px' }}>
+            <Box w="100%" px={{ base: 4, md: 0 }}>
+              <SubmissionForm />
+            </Box>
           </Stack>
         </Stack>
       </Flex>
