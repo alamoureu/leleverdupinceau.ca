@@ -1,8 +1,17 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
-/** ERP website lead webhook (Render) — POST goes here from the browser, not via leleverdupinceau.ca. */
-export const ERP_WEBSITE_LEAD_URL =
-  'https://llp-erp-server.onrender.com/api/webhooks/leads/website';
+/**
+ * Hardcoded ERP website lead webhooks (Render).
+ * POST goes here from the browser — not via leleverdupinceau.ca, and not from env vars
+ * (VITE_ERP_WEBSITE_LEAD_URL is intentionally unused).
+ */
+export const ERP_WEBSITE_LEAD_URLS = [
+  'https://llp-erp-server.onrender.com/api/webhooks/leads/website',
+  'https://ldp-systems-client.onrender.com/api/webhooks/leads/website',
+];
+
+/** @deprecated use ERP_WEBSITE_LEAD_URLS */
+export const ERP_WEBSITE_LEAD_URL = ERP_WEBSITE_LEAD_URLS[0];
 
 function normalizePhoneForErp(phone) {
   const digits = String(phone ?? '').replace(/\D/g, '');
@@ -76,27 +85,51 @@ export function buildErpWebsiteLeadPayload(formData, options = {}) {
   };
 }
 
+async function postWebsiteLead(url, payload) {
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status} (${url})`);
+  }
+
+  return response;
+}
+
 /**
- * Sends a website lead to the ERP webhook (direct POST to Render).
+ * Sends a website lead to all ERP webhooks (direct POST to Render).
  * ERP must allow CORS from your site origin and from localhost (dev) if you test there.
  */
 export async function sendWebsiteLeadToErp(formData, options = {}) {
   const payload = buildErpWebsiteLeadPayload(formData, options);
 
   try {
-    const response = await fetch(ERP_WEBSITE_LEAD_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(payload),
-    });
+    const results = await Promise.allSettled(
+      ERP_WEBSITE_LEAD_URLS.map((url) => postWebsiteLead(url, payload))
+    );
 
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    const failures = results.filter((result) => result.status === 'rejected');
+
+    if (failures.length === results.length) {
+      throw failures[0].reason;
     }
 
-    return response;
+    if (
+      failures.length &&
+      typeof import.meta !== 'undefined' &&
+      import.meta.env?.DEV
+    ) {
+      failures.forEach((failure) => {
+        console.error('Error sending to ERP website webhook:', failure.reason);
+      });
+    }
+
+    return results.find((result) => result.status === 'fulfilled')?.value;
   } catch (error) {
     if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
       console.error('Error sending to ERP website webhook:', error);
