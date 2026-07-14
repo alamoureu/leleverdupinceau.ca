@@ -1,16 +1,8 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
-/**
- * Hardcoded ERP website lead webhooks (Render servers).
- * POST goes directly from the browser to each server — not via leleverdupinceau.ca.
- */
-export const ERP_WEBSITE_LEAD_URLS = [
-  'https://llp-erp-server.onrender.com/api/webhooks/leads/website',
-  'https://ldp-systems-server.onrender.com/api/webhooks/leads/website',
-];
-
-/** @deprecated use ERP_WEBSITE_LEAD_URLS */
-export const ERP_WEBSITE_LEAD_URL = ERP_WEBSITE_LEAD_URLS[0];
+/** ERP website lead webhook — single destination for all website forms. */
+export const ERP_WEBSITE_LEAD_URL =
+  'https://ldp-systems-server.onrender.com/api/webhooks/leads/website';
 
 function normalizePhoneForErp(phone) {
   const digits = String(phone ?? '').replace(/\D/g, '');
@@ -87,51 +79,27 @@ export function buildErpWebsiteLeadPayload(formData, options = {}) {
   };
 }
 
-async function postWebsiteLead(url, payload) {
-  const response = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(payload),
-  });
-
-  if (!response.ok) {
-    throw new Error(`HTTP error! status: ${response.status} (${url})`);
-  }
-
-  return response;
-}
-
 /**
- * Sends a website lead to all ERP webhooks (direct POST to Render).
+ * Sends a website lead to the ERP webhook.
  * ERP must allow CORS from your site origin and from localhost (dev) if you test there.
  */
 export async function sendWebsiteLeadToErp(formData, options = {}) {
   const payload = buildErpWebsiteLeadPayload(formData, options);
 
   try {
-    const results = await Promise.allSettled(
-      ERP_WEBSITE_LEAD_URLS.map((url) => postWebsiteLead(url, payload))
-    );
+    const response = await fetch(ERP_WEBSITE_LEAD_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    });
 
-    const failures = results.filter((result) => result.status === 'rejected');
-
-    if (failures.length === results.length) {
-      throw failures[0].reason;
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
 
-    if (
-      failures.length &&
-      typeof import.meta !== 'undefined' &&
-      import.meta.env?.DEV
-    ) {
-      failures.forEach((failure) => {
-        console.error('Error sending to ERP website webhook:', failure.reason);
-      });
-    }
-
-    return results.find((result) => result.status === 'fulfilled')?.value;
+    return response;
   } catch (error) {
     if (typeof import.meta !== 'undefined' && import.meta.env?.DEV) {
       console.error('Error sending to ERP website webhook:', error);

@@ -20,7 +20,6 @@ import { useTranslation } from '../i18n';
 import ShakeButton from './ShakeButton';
 import { db } from '../../firebase';
 import { collection, addDoc, Timestamp } from 'firebase/firestore';
-import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { sendWebsiteLeadToErp } from '../../utils/erpWebsiteWebhook';
 import { trackFormCompletion } from '../../config/analytics';
 import { fontFamily } from '../../theme';
@@ -262,33 +261,16 @@ export default function SubmissionForm({
 
       await addDoc(collection(db, 'Soumission'), firebaseData);
 
-      const termsText = [
-        t.formConsentText,
-        t.formTermsAndConditions,
-        t.formAnd,
-        t.formPrivacyPolicy,
-        t.formOf,
-      ]
-        .filter(Boolean)
-        .join(' ');
-
-      const ghlData = {
+      const leadData = {
         ...formData,
         address: effectiveFields.address ? formData.address : '',
         projectDetails: effectiveFields.projectDetails
           ? formData.projectDetails
           : '',
         paintingType: effectiveFields.paintingType ? formData.paintingType : '',
-        terms_and_conditions: termsText,
       };
       try {
-        await sendToGoHighLevel(ghlData, { language: currentLang });
-      } catch (webhookError) {
-        if (import.meta.env?.DEV)
-          console.error('GoHighLevel webhook error:', webhookError);
-      }
-      try {
-        await sendWebsiteLeadToErp(ghlData, { language: currentLang });
+        await sendWebsiteLeadToErp(leadData, { language: currentLang });
       } catch (erpError) {
         if (import.meta.env?.DEV)
           console.error('ERP website lead error:', erpError);
