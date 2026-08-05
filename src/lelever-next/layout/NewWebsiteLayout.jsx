@@ -29,8 +29,8 @@ export default function NewWebsiteLayout() {
     location.pathname === '/fr/peintre-montreal' ||
     location.pathname === '/en/peintre-montreal' ||
     location.pathname === '/en/painter-montreal' ||
-    location.pathname === '/fr/stlp' ||
-    location.pathname === '/en/stlp';
+    location.pathname === '/fr/stlp-peinture-inc' ||
+    location.pathname === '/en/stlp-peinture-inc';
 
   return (
     <Fragment>

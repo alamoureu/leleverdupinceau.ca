@@ -192,15 +192,23 @@ export default function App() {
             path="peintre-montreal"
             element={<Navigate to="/fr/peintre-montreal" replace />}
           />
-          <Route path="stlp" element={<Navigate to="/fr/stlp" replace />} />
+          <Route
+            path="stlp-peinture-inc"
+            element={<Navigate to="/fr/stlp-peinture-inc" replace />}
+          />
+          <Route path="stlp" element={<Navigate to="/fr/stlp-peinture-inc" replace />} />
           <Route path="/fr" element={<NewWebsiteLayout />}>
             <Route
               path="peintre-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
             />
             <Route
-              path="stlp"
+              path="stlp-peinture-inc"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="fr" indexable /></Suspense>}
+            />
+            <Route
+              path="stlp"
+              element={<Navigate to="/fr/stlp-peinture-inc" replace />}
             />
             <Route path="*" element={notFoundElement} />
           </Route>
@@ -214,8 +222,12 @@ export default function App() {
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
             />
             <Route
-              path="stlp"
+              path="stlp-peinture-inc"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="en" indexable /></Suspense>}
+            />
+            <Route
+              path="stlp"
+              element={<Navigate to="/en/stlp-peinture-inc" replace />}
             />
             <Route path="*" element={notFoundElement} />
           </Route>

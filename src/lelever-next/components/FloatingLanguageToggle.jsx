@@ -4,8 +4,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import appContext from '../../AppProvider';
 
 const LOCALE_LANDING_PATHS = {
-  '/fr/stlp': '/en/stlp',
-  '/en/stlp': '/fr/stlp',
+  '/fr/stlp-peinture-inc': '/en/stlp-peinture-inc',
+  '/en/stlp-peinture-inc': '/fr/stlp-peinture-inc',
   '/fr/peintre-montreal': '/en/painter-montreal',
   '/en/painter-montreal': '/fr/peintre-montreal',
   '/en/peintre-montreal': '/fr/peintre-montreal',

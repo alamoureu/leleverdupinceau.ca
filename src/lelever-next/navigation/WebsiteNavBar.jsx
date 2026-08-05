@@ -32,7 +32,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
 
   const isHomePage = location.pathname === '/';
   const isStlpLanding =
-    location.pathname === '/fr/stlp' || location.pathname === '/en/stlp';
+    location.pathname === '/fr/stlp-peinture-inc' ||
+    location.pathname === '/en/stlp-peinture-inc';
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp

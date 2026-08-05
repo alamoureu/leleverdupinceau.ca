@@ -126,19 +126,19 @@ function LandingPageStlp({ lang: langProp, indexable = false }) {
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
         {indexable && (
-          <link rel="canonical" href={`${CANONICAL_BASE}/${lang}/stlp`} />
+          <link rel="canonical" href={`${CANONICAL_BASE}/${lang}/stlp-peinture-inc`} />
         )}
         {indexable && (
-          <link rel="alternate" hrefLang="fr" href={`${CANONICAL_BASE}/fr/stlp`} />
+          <link rel="alternate" hrefLang="fr" href={`${CANONICAL_BASE}/fr/stlp-peinture-inc`} />
         )}
         {indexable && (
-          <link rel="alternate" hrefLang="en" href={`${CANONICAL_BASE}/en/stlp`} />
+          <link rel="alternate" hrefLang="en" href={`${CANONICAL_BASE}/en/stlp-peinture-inc`} />
         )}
         {indexable && (
           <link
             rel="alternate"
             hrefLang="x-default"
-            href={`${CANONICAL_BASE}/fr/stlp`}
+            href={`${CANONICAL_BASE}/fr/stlp-peinture-inc`}
           />
         )}
         {indexable && <meta property="og:type" content="website" />}
@@ -147,7 +147,7 @@ function LandingPageStlp({ lang: langProp, indexable = false }) {
           <meta property="og:description" content={meta.description} />
         )}
         {indexable && (
-          <meta property="og:url" content={`${CANONICAL_BASE}/${lang}/stlp`} />
+          <meta property="og:url" content={`${CANONICAL_BASE}/${lang}/stlp-peinture-inc`} />
         )}
         {indexable && (
           <meta
@@ -213,7 +213,6 @@ function LandingPageStlp({ lang: langProp, indexable = false }) {
 
         <BeforeAfterCarouselSection
           images={beforeAfterImages}
-          maxItems={3}
           compactMobile
           sectionPy={LANDING_SECTION_PY}
           sectionPaddingTop={LANDING_SECTION_PY}
