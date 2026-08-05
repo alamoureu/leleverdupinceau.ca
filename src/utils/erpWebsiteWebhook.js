@@ -1,8 +1,8 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
-/** ERP website lead webhook (Render) — POST goes here from the browser, not via leleverdupinceau.ca. */
+/** ERP website lead webhook — single destination for all website forms. */
 export const ERP_WEBSITE_LEAD_URL =
-  'https://llp-erp-server.onrender.com/api/webhooks/leads/website';
+  'https://ldp-systems-server.onrender.com/api/webhooks/leads/website';
 
 function normalizePhoneForErp(phone) {
   const digits = String(phone ?? '').replace(/\D/g, '');
@@ -47,7 +47,10 @@ function buildDescriptionDuProjet(formData, lang = 'fr') {
     return parts.join('\n');
   }
 
-  const pt = paintingTypeLabel(formData.paintingType, lang);
+  const pt = paintingTypeLabel(
+    formData.paintingType ?? formData.typePeinture,
+    lang
+  );
   const parts = [];
   if (pt) parts.push(pt);
   if (msg) parts.push(msg);
@@ -77,7 +80,7 @@ export function buildErpWebsiteLeadPayload(formData, options = {}) {
 }
 
 /**
- * Sends a website lead to the ERP webhook (direct POST to Render).
+ * Sends a website lead to the ERP webhook.
  * ERP must allow CORS from your site origin and from localhost (dev) if you test there.
  */
 export async function sendWebsiteLeadToErp(formData, options = {}) {
