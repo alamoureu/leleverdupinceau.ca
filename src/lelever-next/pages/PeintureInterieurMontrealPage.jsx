@@ -343,7 +343,7 @@ export default function PeintureInterieurMontrealPage() {
 
                 <Text
                   fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="whiteAlpha.900"
+                  color="white"
                   maxW={{ base: '100%', md: '640px', lg: '720px' }}
                   lineHeight="1.6"
                 >

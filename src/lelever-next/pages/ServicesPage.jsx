@@ -413,7 +413,7 @@ export default function ServicesPage() {
             <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline', color: 'white' }}>
               {isFr ? 'Accueil' : 'Home'}
             </Link>
-            <Text opacity={0.9}>›</Text>
+            <Text color="white" opacity={0.9}>›</Text>
             <Text color="white" fontWeight="medium">
               {isFr ? 'Services' : 'Services'}
             </Text>

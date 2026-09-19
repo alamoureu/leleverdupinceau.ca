@@ -33,6 +33,8 @@ const PORT = Number(process.env.PRERENDER_PORT || 4179);
 const CONCURRENCY = Number(process.env.PRERENDER_CONCURRENCY || 4);
 /** Délai max d'attente du rendu React pour une page. */
 const PAGE_TIMEOUT = Number(process.env.PRERENDER_TIMEOUT || 45000);
+/** Tentatives par route (vite preview renvoie parfois un 404 transitoire sous charge). */
+const ROUTE_RETRIES = Number(process.env.PRERENDER_RETRIES || 3);
 
 /**
  * Hôtes de mesure d'audience bloqués pendant le crawl. Sans ça, chaque build enverrait
@@ -203,7 +205,7 @@ function cleanDocumentForSerialization({ template, trackerHosts }) {
   // Le CSS Emotion est déjà flushé (4b) + max-width de secours (4c).
 }
 
-async function renderRoute(browser, baseUrl, route, template) {
+async function renderRouteOnce(browser, baseUrl, route, template) {
   const page = await browser.newPage({
     viewport: { width: 1366, height: 900 },
     // Certaines sections attendent un UA "réel" avant d'afficher le contenu enrichi.
@@ -246,6 +248,21 @@ async function renderRoute(browser, baseUrl, route, template) {
   } finally {
     await page.close();
   }
+}
+
+async function renderRoute(browser, baseUrl, route, template) {
+  let lastError;
+  for (let attempt = 1; attempt <= ROUTE_RETRIES; attempt += 1) {
+    try {
+      return await renderRouteOnce(browser, baseUrl, route, template);
+    } catch (error) {
+      lastError = error;
+      if (attempt < ROUTE_RETRIES) {
+        await new Promise((r) => setTimeout(r, 250 * attempt));
+      }
+    }
+  }
+  throw lastError;
 }
 
 async function main() {
@@ -315,6 +332,16 @@ async function main() {
     fs.writeFileSync(file, html, 'utf-8');
   }
 
+  // Échecs isolés : écrire le shell SPA pour que dist reste couvert (Netlify
+  // servira le HTML puis hydratera React). Sans ça, le check "fichiers manquants"
+  // cassait le build alors que le message parlait déjà de fallback SPA.
+  const spaShell = fs.readFileSync(path.join(DIST, 'index.html'), 'utf-8');
+  for (const { route } of failed) {
+    const file = outputFileFor(route);
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, spaShell, 'utf-8');
+  }
+
   // Anciennes URLs : HTML de redirection (preview local) + _redirects Netlify en 301!
   // force (!) pour que le 301 gagne même si un fichier HTML existe dans dist.
   const contentPaths = new Set(rendered.keys());
@@ -335,18 +362,29 @@ async function main() {
 
   redirectLines.push('');
   redirectLines.push('# SPA fallback (admin, 404, routes inconnues)');
+  redirectLines.push('# Sans force (!) : les /path/index.html pré-rendus sont servis en priorité aux crawlers');
   redirectLines.push('/*  /index.html  200');
   fs.writeFileSync(path.join(DIST, '_redirects'), `${redirectLines.join('\n')}\n`, 'utf-8');
+
+  // Sitemap indexable (hors landings ads) pour que Google découvre toutes les pages pré-rendues
+  try {
+    const { writeSitemap } = await import('./generate-sitemap.mjs');
+    const { count } = writeSitemap();
+    console.log(`${c.green}✓${c.reset} sitemap.xml (${count} URLs indexables)`);
+  } catch (error) {
+    console.error(`${c.red}✗ sitemap.xml non généré :${c.reset}`, error.message);
+    process.exit(1);
+  }
 
   console.log(
     `\n${c.bold}${rendered.size}/${routes.length} pages pré-rendues${c.reset}` +
       ` ${c.dim}+ ${redirectCount} redirections 301 legacy${c.reset}` +
-      (failed.length > 0 ? ` ${c.yellow}(${failed.length} en échec)${c.reset}` : '')
+      (failed.length > 0 ? ` ${c.yellow}(${failed.length} en échec → shell SPA)${c.reset}` : '')
   );
 
   if (failed.length > 0) {
     console.log(
-      `${c.yellow}Ces pages restent servies en SPA (fallback Netlify) :${c.reset}`
+      `${c.yellow}Ces pages restent servies en SPA (shell index.html écrit dans dist) :${c.reset}`
     );
     failed.forEach(({ route, message }) => console.log(`  ${route} - ${message}`));
   }

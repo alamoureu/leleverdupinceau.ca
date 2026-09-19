@@ -1,0 +1,139 @@
+Full crawler SEO audit (JS off)
+Site: http://127.0.0.1:4180
+Content pages: 70 | Legacy redirects: 57
+
+✓ /blog — PASS (357 words, h1 ok, ld=2)
+✓ /blog/betonel-vs-benjamin-moore — PASS (1603 words, h1 ok, ld=3)
+✓ /blog/comment-choisir-un-peintre-professionnel — PASS (1399 words, h1 ok, ld=3)
+✓ /a-propos — PASS (473 words, h1 ok, ld=3)
+✓ /avis-clients — PASS (1115 words, h1 ok, ld=3)
+✓ / — PASS (1143 words, h1 ok, ld=2)
+✓ /blog/erreurs-a-eviter-peinture-interieure — PASS (1150 words, h1 ok, ld=3)
+✓ /blog/prix-peinture-montreal — PASS (935 words, h1 ok, ld=3)
+✓ /blog/peinture-armoires-cuisine-guide — PASS (2253 words, h1 ok, ld=3)
+✓ /contact — PASS (414 words, h1 ok, ld=3)
+✓ /en/painter-gatineau — PASS (747 words, h1 ok, ld=2)
+✓ /mentions-legales — PASS (377 words, h1 ok, ld=1)
+✓ /en/peintre-montreal — PASS (746 words, h1 ok, ld=2)
+✓ /en/painter-montreal — PASS (746 words, h1 ok, ld=2)
+✓ /fr/peintre-gatineau — PASS (818 words, h1 ok, ld=2)
+✓ /fr/peintre-montreal — PASS (816 words, h1 ok, ld=2)
+✓ /politique-de-confidentialite — PASS (410 words, h1 ok, ld=1)
+✓ /peinture-exterieure-montreal — PASS (880 words, h1 ok, ld=4)
+✓ /peintre-professionnel — PASS (1363 words, h1 ok, ld=4)
+✓ /peinture-interieure-montreal — PASS (890 words, h1 ok, ld=4)
+✓ /realisations — PASS (1208 words, h1 ok, ld=3)
+✓ /secteurs — PASS (357 words, h1 ok, ld=3)
+✓ /secteurs/gatineau — PASS (972 words, h1 ok, ld=5)
+✓ /secteurs/laval — PASS (951 words, h1 ok, ld=5)
+✓ /secteurs/longueuil — PASS (970 words, h1 ok, ld=5)
+✓ /secteurs/montreal — PASS (950 words, h1 ok, ld=5)
+✓ /secteurs/montreal/outremont — PASS (1200 words, h1 ok, ld=4)
+✓ /secteurs/montreal/plateau-mont-royal — PASS (1289 words, h1 ok, ld=4)
+✓ /secteurs/montreal/ville-marie — PASS (1236 words, h1 ok, ld=4)
+✓ /secteurs/montreal/westmount — PASS (1207 words, h1 ok, ld=4)
+✓ /services — PASS (348 words, h1 ok, ld=2)
+✓ /secteurs/rive-sud — PASS (983 words, h1 ok, ld=5)
+✓ /services/peinture-apres-sinistre — PASS (1081 words, h1 ok, ld=4)
+✓ /services/peinture-au-pistolet — PASS (1099 words, h1 ok, ld=3)
+✓ /services/peinture-commerciale/brossard — PASS (392 words, h1 ok, ld=2)
+✓ /services/peinture-commerciale — PASS (792 words, h1 ok, ld=3)
+✓ /services/peinture-commerciale/exterieure — PASS (792 words, h1 ok, ld=3)
+✓ /services/peinture-commerciale/interieure — PASS (792 words, h1 ok, ld=3)
+✓ /services/peinture-commerciale/laval — PASS (337 words, h1 ok, ld=2)
+✓ /services/peinture-commerciale/longueuil — PASS (354 words, h1 ok, ld=2)
+✓ /services/peinture-commerciale/montreal — PASS (354 words, h1 ok, ld=2)
+✓ /services/peinture-exterieure/brossard — PASS (384 words, h1 ok, ld=2)
+✓ /services/peinture-exterieure — PASS (857 words, h1 ok, ld=3)
+✓ /services/peinture-exterieure/laval — PASS (347 words, h1 ok, ld=2)
+✓ /services/peinture-exterieure/longueuil — PASS (347 words, h1 ok, ld=2)
+✓ /services/peinture-exterieure/montreal — PASS (398 words, h1 ok, ld=2)
+✓ /services/peinture-industrielle — PASS (796 words, h1 ok, ld=3)
+✓ /services/peinture-industrielle/brossard — PASS (363 words, h1 ok, ld=2)
+✓ /services/peinture-industrielle/laval — PASS (348 words, h1 ok, ld=2)
+✓ /services/peinture-industrielle/longueuil — PASS (343 words, h1 ok, ld=2)
+✓ /services/peinture-industrielle/montreal — PASS (341 words, h1 ok, ld=2)
+✓ /services/peinture-interieure — PASS (889 words, h1 ok, ld=3)
+✓ /services/peinture-interieure/laval — PASS (376 words, h1 ok, ld=2)
+✓ /services/peinture-interieure/brossard — PASS (420 words, h1 ok, ld=2)
+✓ /services/peinture-interieure/armoires-de-cuisine — PASS (888 words, h1 ok, ld=3)
+✓ /services/peinture-interieure/longueuil — PASS (417 words, h1 ok, ld=2)
+✓ /services/peinture-interieure/montreal — PASS (394 words, h1 ok, ld=2)
+✓ /services/peinture-residentielle — PASS (824 words, h1 ok, ld=3)
+✓ /services/peinture-residentielle/brossard — PASS (361 words, h1 ok, ld=2)
+✓ /services/peinture-residentielle/appartement — PASS (1003 words, h1 ok, ld=3)
+✓ /services/peinture-residentielle/condo — PASS (935 words, h1 ok, ld=3)
+✓ /services/peinture-residentielle/exterieure — PASS (824 words, h1 ok, ld=3)
+✓ /services/peinture-residentielle/interieure — PASS (824 words, h1 ok, ld=3)
+✓ /services/peinture-residentielle/laval — PASS (354 words, h1 ok, ld=2)
+✓ /services/peinture-residentielle/longueuil — PASS (389 words, h1 ok, ld=2)
+✓ /services/peinture-residentielle/maison — PASS (232 words, h1 ok, ld=2)
+✓ /services/peinture-residentielle/montreal — PASS (389 words, h1 ok, ld=2)
+✓ /services/preparation-de-surfaces — PASS (1016 words, h1 ok, ld=3)
+✓ /services/reparation-de-platre-et-gypse — PASS (987 words, h1 ok, ld=3)
+✓ /services/teinture-exterieure — PASS (968 words, h1 ok, ld=3)
+
+--- Legacy redirects ---
+
+✓ /brossard → /secteurs/rive-sud — HTML redirect stub | dest 983 words
+✓ /a-propos-de-nous → /a-propos — HTML redirect stub | dest 473 words
+✓ /new-contact → /contact — HTML redirect stub | dest 414 words
+✓ /new-home/a-propos → /a-propos — HTML redirect stub | dest 473 words
+✓ /avis → /avis-clients — HTML redirect stub | dest 1115 words
+✓ /new-home → / — HTML redirect stub | dest 1143 words
+✓ /politiques/confidentialite → /politique-de-confidentialite — HTML redirect stub | dest 410 words
+✓ /new-home/contact → /contact — HTML redirect stub | dest 414 words
+✓ /politiques/termes-conditions → /mentions-legales — HTML redirect stub | dest 377 words
+✓ /peintre-montreal → /fr/peintre-montreal — HTML redirect stub | dest 816 words
+✓ /secteurs-desservis → /secteurs — HTML redirect stub | dest 357 words
+✓ /secteurs-desservis/brossard → /secteurs/rive-sud — HTML redirect stub | dest 983 words
+✓ /secteurs-desservis/longueuil → /secteurs/longueuil — HTML redirect stub | dest 970 words
+✓ /secteurs-desservis/laval → /secteurs/laval — HTML redirect stub | dest 951 words
+✓ /secteurs-desservis/montreal → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/new-peinture-exterieure → /services/peinture-exterieure — HTML redirect stub | dest 857 words
+✓ /services/new-peinture-interieure → /services/peinture-interieure — HTML redirect stub | dest 889 words
+✓ /services/peinture-commerciale/exterieure/brossard → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-commerciale/exterieure/longueuil → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-commerciale/exterieure/laval → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-commerciale/interieure/brossard → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-commerciale/exterieure/montreal → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-commerciale/interieure/laval → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-commerciale/interieure/longueuil → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-commerciale/interieure/montreal → /services/peinture-commerciale — HTML redirect stub | dest 792 words
+✓ /services/peinture-interieure/montreal/ahuntsic → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/bois-franc → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/centre-ville → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/cote-des-neiges → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/ile-des-soeurs → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/griffintown → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/hochelaga → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/lachine → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/lasalle → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/le-village → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/mile-end → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/outremont → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/notre-dame-de-grace → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/plateau-mont-royal → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/pointe-saint-charles → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/rosemont-petite-patrie → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/saint-leonard → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/verdun → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/saint-henri → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/ville-mont-royal → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/villeray → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-interieure/montreal/ville-saint-laurent → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-residentielle/exterieure/laval → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /services/peinture-interieure/montreal/westmount → /secteurs/montreal — HTML redirect stub | dest 950 words
+✓ /services/peinture-residentielle/exterieure/brossard → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /services/peinture-residentielle/exterieure/montreal → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /services/peinture-residentielle/exterieure/longueuil → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /services/peinture-residentielle/interieure/brossard → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /services/peinture-residentielle/interieure/longueuil → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /services/peinture-residentielle/interieure/laval → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /services/peinture-residentielle/interieure/montreal → /services/peinture-residentielle — HTML redirect stub | dest 824 words
+✓ /soumission → /contact — HTML redirect stub | dest 414 words
+
+========================================================================
+CONTENT   : 70/70 PASS
+REDIRECTS : 57/57 PASS
+TOTAL     : 127/127

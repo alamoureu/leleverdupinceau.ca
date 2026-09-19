@@ -193,7 +193,7 @@ export default function HeroSection({
 
             {heroDescription && (
               <Text
-                color="whiteAlpha.800"
+                color="white"
                 fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
                 lineHeight="1.6"
                 maxW={{ base: '560px', md: '640px', lg: '720px' }}

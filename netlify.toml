@@ -63,7 +63,9 @@
   status = 301
   force = true
 
-# SPA fallback (static files in publish root, e.g. image-audit-preview.html, are still served first)
+# SPA fallback for unknown routes (admin, 404).
+# Do NOT use force=true: Netlify must serve prerendered /path/index.html first
+# so crawlers get real HTML, not the home SPA shell.
 [[redirects]]
   from = "/*"
   to = "/index.html"
