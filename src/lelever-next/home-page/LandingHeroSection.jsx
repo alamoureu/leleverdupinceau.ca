@@ -9,7 +9,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
-import heroImage from '../images/heroImage.png';
+import heroImage from '../images/heroImage.webp';
 import { LANDING_MAIN_CONTENT_PT } from '../landing/constants';
 import ShakeButton from './ShakeButton';
 
@@ -101,6 +101,8 @@ export default function LandingHeroSection({
             loading="eager"
             fetchpriority="high"
             decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
           />
           <Box
             position="absolute"

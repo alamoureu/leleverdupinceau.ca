@@ -1,6 +1,11 @@
 [build]
   publish = "dist"
-  command = "npm run build"
+  command = "npx playwright install chromium && npm run build"
+
+[build.environment]
+  # Installe Chromium dans node_modules (que Netlify met en cache) plutôt que dans
+  # ~/.cache/ms-playwright, qui serait retéléchargé à chaque build.
+  PLAYWRIGHT_BROWSERS_PATH = "0"
 
 # Old site gone: /legacy → home (301)
 [[redirects]]

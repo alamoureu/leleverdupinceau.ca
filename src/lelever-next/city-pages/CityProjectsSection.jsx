@@ -195,6 +195,8 @@ export default function CityProjectsSection({
                         h="100%"
                         loading="lazy"
                         decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                         objectFit="cover"
                         objectPosition="center"
                         display="block"

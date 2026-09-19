@@ -10,8 +10,8 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
-import satisfactionBadgeFr from '../images/satisfaction_fr.PNG';
-import satisfactionBadgeEn from '../images/satisfaction_en.PNG';
+import satisfactionBadgeFr from '../images/satisfaction_fr.webp';
+import satisfactionBadgeEn from '../images/satisfaction_en.webp';
 
 /** Même cadre carré FR / EN ; les deux PNG devraient idéalement avoir le même cadrage du sceau. */
 const SATISFACTION_BADGE_FRAME = {
@@ -23,7 +23,7 @@ const SATISFACTION_BADGE_FRAME = {
   '2xl': '236px',
 };
 
-/** Sceaux : `src/lelever-next/images/satisfaction_fr.PNG` | `satisfaction_en.PNG` */
+/** Sceaux : `src/lelever-next/images/satisfaction_fr.webp` | `satisfaction_en.webp` */
 export default function GuaranteeSection({
   onSubmissionOpen,
   hideCta = false,
@@ -141,6 +141,8 @@ export default function GuaranteeSection({
                   loading={hideCta ? 'eager' : 'lazy'}
                   decoding="async"
                   draggable={false}
+                  htmlWidth={743}
+                  htmlHeight={763}
                   onError={() => setBadgeError(true)}
                 />
               ) : (

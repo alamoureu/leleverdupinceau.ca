@@ -89,6 +89,8 @@ export const MobileDrawer = () => {
               maxW='200px'
               objectFit='contain'
               filter='brightness(0)'
+              htmlWidth={1409}
+              htmlHeight={873}
             />
             <IconButton
               icon={<FontAwesomeIcon icon={faTimes} />}

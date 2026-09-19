@@ -163,16 +163,22 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               display="flex"
               alignItems="center"
               h={{ base: '52px', sm: '56px', md: '64px', lg: '68px' }}
+              // Explicit width from 1409×873 so the logo never expands on decode (CLS)
+              w={{ base: '84px', sm: '90px', md: '103px', lg: '110px' }}
               maxW={{ base: '160px', sm: '180px', md: 'none' }}
             >
               <Image
-                loading="lazy"
+                loading="eager"
+                fetchPriority="low"
                 decoding="async"
                 src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
+                alt="Logo Le Lever du Pinceau"
+                htmlWidth={1409}
+                htmlHeight={873}
                 h="100%"
-                w="auto"
-                maxW="100%"
+                w="100%"
                 objectFit="contain"
+                display="block"
                 pointerEvents="none"
                 style={{
                   filter: isNewLanding ? 'invert(1)' : undefined,
@@ -445,6 +451,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     objectFit="contain"
                     loading="lazy"
                     decoding="async"
+            htmlWidth={128}
+            htmlHeight={128}
                   />
                 </Stack>
               </Box>

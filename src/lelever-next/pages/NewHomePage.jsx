@@ -1,4 +1,11 @@
-import React, { Fragment, useContext } from 'react';
+import React, {
+  Fragment,
+  Suspense,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import MicrosoftClarity from '../analytics/MicrosoftClarity';
 import HeroSection from '../home-page/HeroSection';
@@ -13,12 +20,17 @@ import ReviewsSection from '../home-page/ReviewsSection';
 import SectorsSection from '../home-page/SectorsSection';
 import FAQSection from '../home-page/FAQSection';
 import ResourcesSection from '../home-page/ResourcesSection';
-import ContactFormSection from '../home-page/ContactFormSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import { KEYWORDS, LOCAL_BUSINESS_SCHEMA } from '../seo/config';
-import SubmissionModal from '../home-page/SubmissionModal';
+
+const ContactFormSection = React.lazy(() =>
+  import('../home-page/ContactFormSection'),
+);
+const SubmissionModal = React.lazy(() =>
+  import('../home-page/SubmissionModal'),
+);
 
 export default function NewHomePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -26,6 +38,32 @@ export default function NewHomePage() {
   const { t } = useTranslation();
   const isFr = currentLang === 'fr';
   const pageContext = isFr ? 'Accueil' : 'Home';
+  const [loadForm, setLoadForm] = useState(false);
+  const formSentinelRef = useRef(null);
+
+  useEffect(() => {
+    if (loadForm) return undefined;
+    const el = formSentinelRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setLoadForm(true);
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadForm(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '240px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [loadForm]);
+
+  useEffect(() => {
+    if (isOpen) setLoadForm(true);
+  }, [isOpen]);
 
   const title = isFr
     ? 'Peintre Montréal | Peinture résidentielle & commerciale | Le Lever du Pinceau'
@@ -76,12 +114,23 @@ export default function NewHomePage() {
 
         <ResourcesSection />
 
-        <ContactFormSection phoneFirst />
+        <Box ref={formSentinelRef} minH="1px" aria-hidden />
+        {loadForm ? (
+          <Suspense fallback={<Box minH={{ base: '320px', md: '280px' }} />}>
+            <ContactFormSection phoneFirst />
+          </Suspense>
+        ) : (
+          <Box minH={{ base: '320px', md: '280px' }} />
+        )}
 
         <FinalCTASection onSubmissionOpen={onOpen} />
       </Box>
 
-      <SubmissionModal isOpen={isOpen} onClose={onClose} />
+      {loadForm && (
+        <Suspense fallback={null}>
+          <SubmissionModal isOpen={isOpen} onClose={onClose} />
+        </Suspense>
+      )}
     </Fragment>
   );
 }

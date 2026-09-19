@@ -7,8 +7,8 @@ import { useTranslation } from '../i18n';
 import img7922 from '../images/Avant après landing Page/Copie de IMG_7922.jpg';
 import img7924 from '../images/Avant après landing Page/Copie de IMG_7924.jpg';
 import img7971 from '../images/Avant après landing Page/Copie de IMG_7971.jpg';
-import img7974 from '../images/Avant après landing Page/Copie de IMG_7974.jpg';
-import img7975 from '../images/Avant après landing Page/Copie de IMG_7975.jpg';
+import img7974 from '../images/Avant après landing Page/Copie de IMG_7974.webp';
+import img7975 from '../images/Avant après landing Page/Copie de IMG_7975.webp';
 import img7985 from '../images/Avant après landing Page/Copie de IMG_7985.jpg';
 import img7988 from '../images/Avant après landing Page/Copie de IMG_7988.jpg';
 import img7990 from '../images/Avant après landing Page/Copie de IMG_7990.jpg';
@@ -217,13 +217,14 @@ export default function BeforeAfterCarouselSection({
                     <Stack spacing={0}>
                       {/* Avant */}
                       <Box position="relative" w="100%">
-                        <Box
-                          as="img"
+                        <img
                           src={pair.before}
                           alt={t.beforeAfterAltBefore}
-                          w="100%"
-                          objectFit="cover"
-                          style={{ aspectRatio: '3/2' }}
+                          width={1200}
+                          height={800}
+                          loading="lazy"
+                          decoding="async"
+                          style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
                         />
                         <Box
                           position="absolute"
@@ -247,13 +248,14 @@ export default function BeforeAfterCarouselSection({
                         w="100%"
                         borderTop="2px solid white"
                       >
-                        <Box
-                          as="img"
+                        <img
                           src={pair.after}
                           alt={t.beforeAfterAltAfter}
-                          w="100%"
-                          objectFit="cover"
-                          style={{ aspectRatio: '3/2' }}
+                          width={1200}
+                          height={800}
+                          loading="lazy"
+                          decoding="async"
+                          style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
                         />
                         <Box
                           position="absolute"

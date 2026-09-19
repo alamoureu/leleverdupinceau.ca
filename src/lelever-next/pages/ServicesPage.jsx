@@ -65,6 +65,8 @@ function MainHubCard({
             objectPosition="center"
             loading="lazy"
             decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
           />
           <Box
             position="absolute"

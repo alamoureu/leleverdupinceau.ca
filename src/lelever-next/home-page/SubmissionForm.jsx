@@ -18,8 +18,6 @@ import {
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n';
 import ShakeButton from './ShakeButton';
-import { db } from '../../firebase';
-import { collection, addDoc, Timestamp } from 'firebase/firestore';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { sendWebsiteLeadToErp } from '../../utils/erpWebsiteWebhook';
 import { trackFormCompletion } from '../../config/analytics';
@@ -249,6 +247,12 @@ export default function SubmissionForm({
     setIsSubmitting(true);
 
     try {
+      // Load Firebase only on submit so marketing pages stay off the critical path
+      const [{ db }, { collection, addDoc, Timestamp }] = await Promise.all([
+        import('../../firebase'),
+        import('firebase/firestore'),
+      ]);
+
       const firebaseData = {
         name: formData.name,
         email: formData.email,

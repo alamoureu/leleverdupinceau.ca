@@ -105,6 +105,8 @@ export default function ServiceCitiesSectorsSection({
                       zIndex={0}
                       loading="lazy"
                       decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                     />
                     {/* Color Overlay Filter */}
                     <Box

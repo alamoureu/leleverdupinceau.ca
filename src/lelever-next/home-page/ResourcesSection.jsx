@@ -8,7 +8,6 @@ import {
   SimpleGrid,
   Link,
   Image,
-  useBreakpointValue,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
@@ -39,7 +38,6 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [], t
     },
     thirdArticle,
   ].filter((article) => !excludeSlugs.includes(article.href));
-  const columns = useBreakpointValue({ base: 1, md: 3 });
 
   return (
     <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
@@ -54,7 +52,7 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [], t
             </Text>
           </Stack>
 
-          <SimpleGrid columns={columns} spacing={{ base: 4, md: 5, lg: 6 }}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 4, md: 5, lg: 6 }}>
             {articles.map((article, index) => (
               <Link
                 key={index}
@@ -85,6 +83,8 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [], t
                       objectFit='cover'
                       loading="lazy"
                       decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                     />
                   </Box>
 

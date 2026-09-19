@@ -1,0 +1,52 @@
+# Le Lever du Pinceau
+
+> Entreprise de peinture résidentielle et commerciale à Montréal, Laval, Longueuil, Rive-Sud et Gatineau. Licence RBQ 5864-1481-01. Devis gratuit en ligne.
+
+Site web public en français. Contenu marketing et informationnel sur les services de peinture, les secteurs desservis et les guides pratiques. Ne pas indexer les zones admin, timesheet ni les pages publicitaires payantes listées dans robots.txt.
+
+## Pages principales
+
+- [Accueil](https://www.leleverdupinceau.ca/): Présentation de l'entreprise et demande de soumission
+- [Contact / Soumission](https://www.leleverdupinceau.ca/contact): Formulaire de devis gratuit
+- [À propos](https://www.leleverdupinceau.ca/a-propos): Histoire, équipe et valeurs
+- [Services](https://www.leleverdupinceau.ca/services): Catalogue des services de peinture
+- [Secteurs desservis](https://www.leleverdupinceau.ca/secteurs): Zones d'intervention au Québec
+- [Avis clients](https://www.leleverdupinceau.ca/avis-clients): Témoignages et notes Google
+- [Réalisations](https://www.leleverdupinceau.ca/realisations): Projets avant/après
+- [Peintre professionnel](https://www.leleverdupinceau.ca/peintre-professionnel): Pourquoi choisir un peintre professionnel
+- [Blog](https://www.leleverdupinceau.ca/blog): Guides et conseils peinture
+
+## Services
+
+- [Peinture intérieure](https://www.leleverdupinceau.ca/services/peinture-interieure): Peinture intérieure résidentielle et commerciale
+- [Peinture extérieure](https://www.leleverdupinceau.ca/services/peinture-exterieure): Façades, boiseries et extérieur
+- [Peinture résidentielle](https://www.leleverdupinceau.ca/services/peinture-residentielle): Maisons, condos et appartements
+- [Peinture commerciale](https://www.leleverdupinceau.ca/services/peinture-commerciale): Bureaux, commerces et locaux
+- [Peinture industrielle](https://www.leleverdupinceau.ca/services/peinture-industrielle): Entrepôts et espaces industriels
+- [Préparation de surfaces](https://www.leleverdupinceau.ca/services/preparation-de-surfaces): Sablage, réparation et apprêt
+- [Réparation de plâtre et gypse](https://www.leleverdupinceau.ca/services/reparation-de-platre-et-gypse): Réparations avant peinture
+- [Peinture après sinistre](https://www.leleverdupinceau.ca/services/peinture-apres-sinistre): Remise en état après dégât
+- [Teinture extérieure](https://www.leleverdupinceau.ca/services/teinture-exterieure): Teinture de boiseries extérieures
+- [Peinture au pistolet](https://www.leleverdupinceau.ca/services/peinture-au-pistolet): Application au pistolet
+
+## Secteurs
+
+- [Montréal](https://www.leleverdupinceau.ca/secteurs/montreal): Peinture à Montréal et arrondissements
+- [Laval](https://www.leleverdupinceau.ca/secteurs/laval): Peinture à Laval
+- [Longueuil](https://www.leleverdupinceau.ca/secteurs/longueuil): Peinture à Longueuil
+- [Rive-Sud](https://www.leleverdupinceau.ca/secteurs/rive-sud): Peinture sur la Rive-Sud
+- [Gatineau](https://www.leleverdupinceau.ca/secteurs/gatineau): Peinture à Gatineau
+
+## Blog
+
+- [Comment choisir un peintre professionnel](https://www.leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel): Critères de sélection d'un peintre
+- [Prix peinture Montréal](https://www.leleverdupinceau.ca/blog/prix-peinture-montreal): Ordres de grandeur des coûts
+- [Erreurs à éviter en peinture intérieure](https://www.leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure): Pièges courants à éviter
+- [Guide peinture armoires de cuisine](https://www.leleverdupinceau.ca/blog/peinture-armoires-cuisine-guide): Refaire les armoires sans les remplacer
+- [Betonel vs Benjamin Moore](https://www.leleverdupinceau.ca/blog/betonel-vs-benjamin-moore): Comparaison de marques de peinture
+
+## Optional
+
+- [Sitemap XML](https://www.leleverdupinceau.ca/sitemap.xml): Liste complète des URLs indexables
+- [Politique de confidentialité](https://www.leleverdupinceau.ca/politique-de-confidentialite): Vie privée et données
+- [Mentions légales](https://www.leleverdupinceau.ca/mentions-legales): Conditions d'utilisation

@@ -278,6 +278,8 @@ export default function PeintureAppartementPage() {
             loading="eager"
             fetchpriority="high"
             decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
           />
           <Box
             position="absolute"

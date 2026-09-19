@@ -259,6 +259,10 @@ export default function ContactPage() {
                 h='100%'
                 objectFit='cover'
                 objectPosition='center'
+                htmlWidth={1600}
+                htmlHeight={1067}
+                loading="lazy"
+                decoding="async"
               />
             </Box>
           </Grid>

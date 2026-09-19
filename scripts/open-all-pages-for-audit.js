@@ -58,8 +58,15 @@ const PAGES = [
   ['/mentions-legales', 'Mentions légales'],
 ];
 
+/** Vite preview SPA-fallback: `/contact` serves home HTML; `/contact/` serves prerendered page. */
+function previewUrl(routePath) {
+  if (!routePath || routePath === '/') return `${BASE_URL}/`;
+  const withSlash = routePath.endsWith('/') ? routePath : `${routePath}/`;
+  return `${BASE_URL}${withSlash}`;
+}
+
 function openInBrowser(urlOrPath, isLocalFile = false) {
-  const target = isLocalFile ? path.resolve(urlOrPath) : BASE_URL + urlOrPath;
+  const target = isLocalFile ? path.resolve(urlOrPath) : previewUrl(urlOrPath);
   const command =
     process.platform === 'win32'
       ? `start "" "${target}"`

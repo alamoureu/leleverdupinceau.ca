@@ -30,7 +30,12 @@
   },
   "scripts": {
     "start": "vite",
-    "build": "vite build",
+    "build": "PLAYWRIGHT_BROWSERS_PATH=0 vite build && PLAYWRIGHT_BROWSERS_PATH=0 node scripts/prerender.mjs",
+    "build:spa": "vite build",
+    "prerender": "PLAYWRIGHT_BROWSERS_PATH=0 node scripts/prerender.mjs",
+    "prerender:audit": "node scripts/all-public-routes.mjs",
+    "validate:crawler": "node scripts/validate-crawler-seo-all.mjs",
+    "playwright:install": "PLAYWRIGHT_BROWSERS_PATH=0 playwright install chromium",
     "preview": "vite preview",
     "lint": "eslint src --ext .js,.jsx --max-warnings 0",
     "test": "node src/test/verify-routes.js",
@@ -74,6 +79,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "playwright": "^1.49.1",
     "sharp": "^0.33.5",
     "vite": "^6.0.3"
   },

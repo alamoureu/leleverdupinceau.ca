@@ -57,6 +57,8 @@ function ReviewCard({ review }) {
             flexShrink={0}
             loading='lazy'
             decoding='async'
+            htmlWidth={128}
+            htmlHeight={128}
           />
         </Box>
         <Box display='flex' alignItems='center' gap={0.5}>
@@ -411,6 +413,8 @@ export default function ReviewsSection({
                           flexShrink={0}
                           loading="lazy"
                           decoding="async"
+            htmlWidth={128}
+            htmlHeight={128}
                         />
                       </Box>
                       <Box display='flex' alignItems='center' gap={0.5}>

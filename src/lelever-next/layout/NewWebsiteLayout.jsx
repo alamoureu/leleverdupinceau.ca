@@ -54,6 +54,7 @@ export default function NewWebsiteLayout() {
           <WebsiteNavBar isNewLanding={isLocaleLanding} />
 
           <Stack
+            as="main"
             id="main"
             gap={0}
             spacing={0}
@@ -85,11 +86,17 @@ export default function NewWebsiteLayout() {
                   <RouterLink to="/">
                     <Image
                       loading="lazy"
+                      decoding="async"
                       src={
                         'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
                       }
+                      alt="Logo Le Lever du Pinceau"
+                      htmlWidth={1409}
+                      htmlHeight={873}
                       h={{ base: '60px', md: '70px' }}
-                      w="auto"
+                      w={{ base: '97px', md: '113px' }}
+                      objectFit="contain"
+                      display="block"
                       cursor="pointer"
                     />
                   </RouterLink>

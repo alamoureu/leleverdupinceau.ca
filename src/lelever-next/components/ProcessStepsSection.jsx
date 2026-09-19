@@ -9,8 +9,8 @@ import {
   Image,
   Button,
 } from '@chakra-ui/react';
-import method1 from '../images/new-landing/method-1.jpeg';
-import method2 from '../images/new-landing/method-2.jpeg';
+import method1 from '../images/new-landing/method-1.webp';
+import method2 from '../images/new-landing/method-2.webp';
 import method3 from '../images/new-landing/method-3.PNG';
 import method4 from '../images/new-landing/method-4.PNG';
 
@@ -102,6 +102,8 @@ export default function ProcessStepsSection({
                     display="block"
                     loading="lazy"
                     decoding="async"
+                    htmlWidth={800}
+                    htmlHeight={600}
                   />
                 </Box>
                 <Flex

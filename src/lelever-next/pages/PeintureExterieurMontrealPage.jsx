@@ -266,6 +266,8 @@ export default function PeintureExterieurMontrealPage() {
             loading="eager"
             fetchpriority="high"
             decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
           />
           <Box
             position="absolute"
@@ -328,7 +330,7 @@ export default function PeintureExterieurMontrealPage() {
 
                 <Text
                   fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="whiteAlpha.850"
+                  color="whiteAlpha.900"
                   maxW={{ base: '100%', md: '640px', lg: '720px' }}
                   lineHeight="1.6"
                 >

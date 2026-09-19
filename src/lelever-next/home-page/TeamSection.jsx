@@ -41,6 +41,8 @@ export default function TeamSection({ pageContext = '' }) {
               h='auto'
               loading="lazy"
               decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
               objectFit='cover'
             />
           </Box>

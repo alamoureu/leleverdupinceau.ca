@@ -30,11 +30,11 @@ import quartierWestmount from '../images/pillar-pages/secteur-hub/IMG_7896.jpg';
 import quartierOutremont from '../images/pillar-pages/secteur-hub/IMG_7898.jpg';
 import quartierPlateau from '../images/pillar-pages/secteur-hub/IMG_7900.jpg';
 import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.jpg';
-import montrealSecteur from '../images/mtl.png';
-import lavalSecteur from '../images/laval.png';
-import longueuilSecteur from '../images/longueuil.png';
-import riveSudSecteur from '../images/brossard.png';
-import gatineauSecteur from '../images/pillar-pages/IMG_2585.jpg';
+import montrealSecteur from '../images/mtl.webp';
+import lavalSecteur from '../images/laval.webp';
+import longueuilSecteur from '../images/longueuil.webp';
+import riveSudSecteur from '../images/brossard.webp';
+import gatineauSecteur from '../images/pillar-pages/IMG_2585.webp';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -230,6 +230,8 @@ export default function SecteursDesservisPage() {
           transformOrigin="center center"
           loading="lazy"
           decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
         />
         <Box
           position="absolute"
@@ -448,6 +450,8 @@ export default function SecteursDesservisPage() {
                         zIndex={0}
                         loading="lazy"
                         decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                       />
                       <Box
                         position="absolute"

@@ -157,6 +157,8 @@ export default function BlogPage() {
                 objectPosition='center'
                 loading="lazy"
                 decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
               />
             </Box>
           </Grid>
@@ -317,6 +319,8 @@ export default function BlogPage() {
                       maxH='400px'
                       loading="lazy"
                       decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                     />
                   </Box>
                   <Stack spacing={6}>
@@ -424,6 +428,8 @@ export default function BlogPage() {
                                 display='block'
                                 loading="lazy"
                                 decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                               />
                             </Box>
                           )}

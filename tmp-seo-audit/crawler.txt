@@ -1,0 +1,113 @@
+Crawler SEO validation (JavaScript OFF)
+Site: https://leafy-kheer-5bf952.netlify.app
+========================================================================
+
+/
+  HTTP 200 | 91940 bytes
+  title : Peintre Montréal | Peinture résidentielle &amp; commerciale | Le Lever du P
+  desc  : Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main 
+  canon : https://www.leleverdupinceau.ca/
+  h1    : Peintre professionnel à Montréal
+  words : 1159 | empty #root: false | JSON-LD: ProfessionalService, FAQPage
+  PASS (full HTML visible without JavaScript)
+
+/contact
+  HTTP 301 → /contact/
+  Destination title: Devis peinture gratuit Montréal | Contact – Le Lever du Pinceau
+  Destination h1   : Contactez Le Lever du Pinceau
+  Destination words: 414 | JSON-LD: ProfessionalService, BreadcrumbList, ContactPage
+  PASS (301 + content at destination)
+
+/a-propos
+  HTTP 301 → /a-propos/
+  Destination title: À propos | Équipe peinture Montréal – Le Lever du Pinceau
+  Destination h1   : À propos de Le Lever du Pinceau
+  Destination words: 473 | JSON-LD: ProfessionalService, BreadcrumbList, AboutPage
+  PASS (301 + content at destination)
+
+/services/peinture-interieure
+  HTTP 301 → /services/peinture-interieure/
+  Destination title: Peinture intérieure à Montréal | Murs, plafonds, armoires | Le Lever d
+  Destination h1   : Peinture intérieure à Montréal pour murs, plafonds, boiseries et armoi
+  Destination words: 889 | JSON-LD: ProfessionalService, BreadcrumbList, FAQPage
+  PASS (301 + content at destination)
+
+/services/peinture-interieure/montreal
+  HTTP 301 → /services/peinture-interieure/montreal/
+  Destination title: Peinture intérieure à Montréal – Le Lever du Pinceau
+  Destination h1   : Peinture intérieure à Montréal
+  Destination words: 394 | JSON-LD: ProfessionalService, BreadcrumbList
+  PASS (301 + content at destination)
+
+/services/peinture-commerciale/interieure
+  HTTP 301 → /services/peinture-commerciale/interieure/
+  Destination title: Peinture commerciale à Montréal | Bureau, restaurant, commerce | Le Le
+  Destination h1   : Peinture commerciale à Montréal - Bureau, restaurant, commerce
+  Destination words: 792 | JSON-LD: ProfessionalService, BreadcrumbList, FAQPage
+  PASS (301 + content at destination)
+
+/secteurs/laval
+  HTTP 301 → /secteurs/laval/
+  Destination title: Peintre à Laval | Résidentiel et commercial | Le Lever du Pinceau
+  Destination h1   : Peintre à Laval
+  Destination words: 951 | JSON-LD: ProfessionalService, BreadcrumbList, Painter, FAQPage, FAQPage
+  PASS (301 + content at destination)
+
+/secteurs/montreal/westmount
+  HTTP 301 → /secteurs/montreal/westmount/
+  Destination title: Peintre à Westmount | Résidentiel et commercial léger | Le Lever du Pi
+  Destination h1   : Peintre à Westmount
+  Destination words: 1207 | JSON-LD: ProfessionalService, BreadcrumbList, LocalBusiness, FAQPage
+  PASS (301 + content at destination)
+
+/blog/prix-peinture-montreal
+  HTTP 301 → /blog/prix-peinture-montreal/
+  Destination title: Prix peinture Montréal 2026 : Coûts, exemples et conseils pour payer l
+  Destination h1   : Prix peinture Montréal 2026 : Combien ça coûte vraiment ?
+  Destination words: 935 | JSON-LD: ProfessionalService, BreadcrumbList, ok
+  PASS (301 + content at destination)
+
+/peintre-professionnel
+  HTTP 301 → /peintre-professionnel/
+  Destination title: Peintre professionnel à Montréal | Pourquoi engager un pro | Le Lever 
+  Destination h1   : Pourquoi faire appel à un peintre professionnel à Montréal&nbsp;?
+  Destination words: 1363 | JSON-LD: ProfessionalService, BreadcrumbList, FAQPage, Article
+  PASS (301 + content at destination)
+
+/fr/peintre-montreal
+  HTTP 301 → /fr/peintre-montreal/
+  Destination title: Entreprise de Peinture à Montréal | Le Lever du Pinceau
+  Destination h1   : Redonnez vie à votre maison sans lever le petit doigt
+  Destination words: 816 | JSON-LD: ProfessionalService, FAQPage
+  PASS (301 + content at destination)
+
+/services/peinture-interieure/montreal/westmount
+  HTTP 301 → /secteurs/montreal
+  Destination title: Peintre à Montréal | Résidentiel et commercial | Le Lever du Pinceau
+  Destination h1   : Peintre à Montréal
+  Destination words: 950 | JSON-LD: ProfessionalService, BreadcrumbList, Painter, FAQPage, FAQPage
+  PASS (301 + content at destination)
+
+/soumission
+  HTTP 301 → /contact
+  Destination title: Devis peinture gratuit Montréal | Contact – Le Lever du Pinceau
+  Destination h1   : Contactez Le Lever du Pinceau
+  Destination words: 414 | JSON-LD: ProfessionalService, BreadcrumbList, ContactPage
+  PASS (301 + content at destination)
+
+/avis
+  HTTP 301 → /avis-clients
+  Destination title: Avis clients peinture Montréal | Témoignages – Le Lever du Pinceau
+  Destination h1   : Avis de nos clients
+  Destination words: 1115 | JSON-LD: ProfessionalService, BreadcrumbList, LocalBusiness
+  PASS (301 + content at destination)
+
+/secteurs-desservis/laval
+  HTTP 301 → /secteurs/laval
+  Destination title: Peintre à Laval | Résidentiel et commercial | Le Lever du Pinceau
+  Destination h1   : Peintre à Laval
+  Destination words: 951 | JSON-LD: ProfessionalService, BreadcrumbList, Painter, FAQPage, FAQPage
+  PASS (301 + content at destination)
+
+========================================================================
+RESULT: 15 pass, 0 fail / 15

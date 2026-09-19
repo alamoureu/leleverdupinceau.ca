@@ -16,12 +16,12 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from '../i18n';
-import montrealSecteur from '../images/mtl.png';
-import lavalSecteur from '../images/laval.png';
-import longueuilSecteur from '../images/longueuil.png';
-import brossardSecteur from '../images/brossard.png';
-import riveSudSecteur from '../images/brossard_secteur.png';
-import gatineauSecteur from '../images/pillar-pages/IMG_2585.jpg';
+import montrealSecteur from '../images/mtl.webp';
+import lavalSecteur from '../images/laval.webp';
+import longueuilSecteur from '../images/longueuil.webp';
+import brossardSecteur from '../images/brossard.webp';
+import riveSudSecteur from '../images/brossard_secteur.webp';
+import gatineauSecteur from '../images/pillar-pages/IMG_2585.webp';
 // Export images for reuse
 export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur, gatineauSecteur };
 
@@ -176,6 +176,8 @@ export default function SectorsSection({
                     transformOrigin={imgProps.transformOrigin}
                     loading="lazy"
                     decoding="async"
+                    htmlWidth={600}
+                    htmlHeight={400}
                   />
                   <Box
                     position="absolute"

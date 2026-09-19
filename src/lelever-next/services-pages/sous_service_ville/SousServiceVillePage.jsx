@@ -264,6 +264,8 @@ export default function SousServiceVillePage() {
                       objectFit="cover"
                       loading="lazy"
                       decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                     />
                   ))}
                 </SimpleGrid>

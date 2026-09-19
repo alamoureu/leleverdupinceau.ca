@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="light" style="color-scheme: light;"><head>
+    <meta charset="utf-8">
+    <style type="text/css">:root, :host {
+  --fa-font-solid: normal 900 1em/1 "Font Awesome 7 Free";
+  --fa-font-regular: normal 400 1em/1 "Font Awesome 7 Free";
+  --fa-font-light: normal 300 1em/1 "Font Awesome 7 Pro";
+  --fa-font-thin: normal 100 1em/1 "Font Awesome 7 Pro";
+  --fa-font-duotone: normal 900 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-regular: normal 400 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-light: normal 300 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-duotone-thin: normal 100 1em/1 "Font Awesome 7 Duotone";
+  --fa-font-brands: normal 400 1em/1 "Font Awesome 7 Brands";
+  --fa-font-sharp-solid: normal 900 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-regular: normal 400 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-light: normal 300 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-thin: normal 100 1em/1 "Font Awesome 7 Sharp";
+  --fa-font-sharp-duotone-solid: normal 900 1em/1 "Font Awesome 7 Sharp Duotone";
+  --fa-font-sharp-duotone-regular: normal 400 1em/1 "Font Awesome 7 Sharp Duotone";
+  --fa-font-sharp-duotone-light: normal 300 1em/1 "Font Awesome 7 Sharp Duotone";
+  --fa-font-sharp-duotone-thin: normal 100 1em/1 "Font Awesome 7 Sharp Duotone";
+  --fa-font-slab-regular: normal 400 1em/1 "Font Awesome 7 Slab";
+  --fa-font-slab-press-regular: normal 400 1em/1 "Font Awesome 7 Slab Press";
+  --fa-font-whiteboard-semibold: normal 600 1em/1 "Font Awesome 7 Whiteboard";
+  --fa-font-thumbprint-light: normal 300 1em/1 "Font Awesome 7 Thumbprint";
+  --fa-font-notdog-solid: normal 900 1em/1 "Font Awesome 7 Notdog";
+  --fa-font-notdog-duo-solid: normal 900 1em/1 "Font Awesome 7 Notdog Duo";
+  --fa-font-etch-solid: normal 900 1em/1 "Font Awesome 7 Etch";
+  --fa-font-jelly-regular: normal 400 1em/1 "Font Awesome 7 Jelly";
+  --fa-font-jelly-fill-regular: normal 400 1em/1 "Font Awesome 7 Jelly Fill";
+  --fa-font-jelly-duo-regular: normal 400 1em/1 "Font Awesome 7 Jelly Duo";
+  --fa-font-chisel-regular: normal 400 1em/1 "Font Awesome 7 Chisel";
+  --fa-font-utility-semibold: normal 600 1em/1 "Font Awesome 7 Utility";
+  --fa-font-utility-duo-semibold: normal 600 1em/1 "Font Awesome 7 Utility Duo";
+  --fa-font-utility-fill-semibold: normal 600 1em/1 "Font Awesome 7 Utility Fill";
+}
+
+.svg-inline--fa {
+  box-sizing: content-box;
+  display: var(--fa-display, inline-block);
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+  width: var(--fa-width, 1.25em);
+}
+.svg-inline--fa.fa-2xs {
+  vertical-align: 0.1em;
+}
+.svg-inline--fa.fa-xs {
+  vertical-align: 0em;
+}
+.svg-inline--fa.fa-sm {
+  vertical-align: -0.0714285714em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.2em;
+}
+.svg-inline--fa.fa-xl {
+  vertical-align: -0.25em;
+}
+.svg-inline--fa.fa-2xl {
+  vertical-align: -0.3125em;
+}
+.svg-inline--fa.fa-pull-left,
+.svg-inline--fa .fa-pull-start {
+  float: inline-start;
+  margin-inline-end: var(--fa-pull-margin, 0.3em);
+}
+.svg-inline--fa.fa-pull-right,
+.svg-inline--fa .fa-pull-end {
+  float: inline-end;
+  margin-inline-start: var(--fa-pull-margin, 0.3em);
+}
+.svg-inline--fa.fa-li {
+  width: var(--fa-li-width, 2em);
+  inset-inline-start: calc(-1 * var(--fa-li-width, 2em));
+  inset-block-start: 0.25em; /* syncing vertical alignment with Web Font rendering */
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: var(--fa-width, 1.25em);
+}
+.fa-layers .svg-inline--fa {
+  inset: 0;
+  margin: auto;
+  position: absolute;
+  transform-origin: center center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: var(--fa-counter-background-color, #ff253a);
+  border-radius: var(--fa-counter-border-radius, 1em);
+  box-sizing: border-box;
+  color: var(--fa-inverse, #fff);
+  line-height: var(--fa-counter-line-height, 1);
+  max-width: var(--fa-counter-max-width, 5em);
+  min-width: var(--fa-counter-min-width, 1.5em);
+  overflow: hidden;
+  padding: var(--fa-counter-padding, 0.25em 0.5em);
+  right: var(--fa-right, 0);
+  text-overflow: ellipsis;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-counter-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: var(--fa-bottom, 0);
+  right: var(--fa-right, 0);
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: var(--fa-bottom, 0);
+  left: var(--fa-left, 0);
+  right: auto;
+  top: auto;
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  top: var(--fa-top, 0);
+  right: var(--fa-right, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: var(--fa-left, 0);
+  right: auto;
+  top: var(--fa-top, 0);
+  transform: scale(var(--fa-layers-scale, 0.25));
+  transform-origin: top left;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-2xs {
+  font-size: calc(10 / 16 * 1em); /* converts a 10px size into an em-based value that's relative to the scale's 16px base */
+  line-height: calc(1 / 10 * 1em); /* sets the line-height of the icon back to that of it's parent */
+  vertical-align: calc((6 / 10 - 0.375) * 1em); /* vertically centers the icon taking into account the surrounding text's descender */
+}
+
+.fa-xs {
+  font-size: calc(12 / 16 * 1em); /* converts a 12px size into an em-based value that's relative to the scale's 16px base */
+  line-height: calc(1 / 12 * 1em); /* sets the line-height of the icon back to that of it's parent */
+  vertical-align: calc((6 / 12 - 0.375) * 1em); /* vertically centers the icon taking into account the surrounding text's descender */
+}
+
+.fa-sm {
+  font-size: calc(14 / 16 * 1em); /* converts a 14px size into an em-based value that's relative to the scale's 16px base */
+  line-height: calc(1 / 14 * 1em); /* sets the line-height of the icon back to that of it's parent */
+  vertical-align: calc((6 / 14 - 0.375) * 1em); /* vertically centers the icon taking into account the surrounding text's descender */
+}
+
+.fa-lg {
+  font-size: calc(20 / 16 * 1em); /* converts a 20px size into an em-based value that's relative to the scale's 16px base */
+  line-height: calc(1 / 20 * 1em); /* sets the line-height of the icon back to that of it's parent */
+  vertical-align: calc((6 / 20 - 0.375) * 1em); /* vertically centers the icon taking into account the surrounding text's descender */
+}
+
+.fa-xl {
+  font-size: calc(24 / 16 * 1em); /* converts a 24px size into an em-based value that's relative to the scale's 16px base */
+  line-height: calc(1 / 24 * 1em); /* sets the line-height of the icon back to that of it's parent */
+  vertical-align: calc((6 / 24 - 0.375) * 1em); /* vertically centers the icon taking into account the surrounding text's descender */
+}
+
+.fa-2xl {
+  font-size: calc(32 / 16 * 1em); /* converts a 32px size into an em-based value that's relative to the scale's 16px base */
+  line-height: calc(1 / 32 * 1em); /* sets the line-height of the icon back to that of it's parent */
+  vertical-align: calc((6 / 32 - 0.375) * 1em); /* vertically centers the icon taking into account the surrounding text's descender */
+}
+
+.fa-width-auto {
+  --fa-width: auto;
+}
+
+.fa-fw,
+.fa-width-fixed {
+  --fa-width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-inline-start: var(--fa-li-margin, 2.5em);
+  padding-inline-start: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  inset-inline-start: calc(-1 * var(--fa-li-width, 2em));
+  position: absolute;
+  text-align: center;
+  width: var(--fa-li-width, 2em);
+  line-height: inherit;
+}
+
+/* Heads Up: Bordered Icons will not be supported in the future!
+  - This feature will be deprecated in the next major release of Font Awesome (v8)!
+  - You may continue to use it in this version *v7), but it will not be supported in Font Awesome v8.
+*/
+/* Notes:
+* --@{v.$css-prefix}-border-width = 1/16 by default (to render as ~1px based on a 16px default font-size)
+* --@{v.$css-prefix}-border-padding =
+  ** 3/16 for vertical padding (to give ~2px of vertical whitespace around an icon considering it's vertical alignment)
+  ** 4/16 for horizontal padding (to give ~4px of horizontal whitespace around an icon)
+*/
+.fa-border {
+  border-color: var(--fa-border-color, #eee);
+  border-radius: var(--fa-border-radius, 0.1em);
+  border-style: var(--fa-border-style, solid);
+  border-width: var(--fa-border-width, 0.0625em);
+  box-sizing: var(--fa-border-box-sizing, content-box);
+  padding: var(--fa-border-padding, 0.1875em 0.25em);
+}
+
+.fa-pull-left,
+.fa-pull-start {
+  float: inline-start;
+  margin-inline-end: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-pull-right,
+.fa-pull-end {
+  float: inline-end;
+  margin-inline-start: var(--fa-pull-margin, 0.3em);
+}
+
+.fa-beat {
+  animation-name: fa-beat;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-bounce {
+  animation-name: fa-bounce;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.28, 0.84, 0.42, 1));
+}
+
+.fa-fade {
+  animation-name: fa-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-beat-fade {
+  animation-name: fa-beat-fade;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, cubic-bezier(0.4, 0, 0.6, 1));
+}
+
+.fa-flip {
+  animation-name: fa-flip;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, ease-in-out);
+}
+
+.fa-shake {
+  animation-name: fa-shake;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin {
+  animation-name: fa-spin;
+  animation-delay: var(--fa-animation-delay, 0s);
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 2s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, linear);
+}
+
+.fa-spin-reverse {
+  --fa-animation-direction: reverse;
+}
+
+.fa-pulse,
+.fa-spin-pulse {
+  animation-name: fa-spin;
+  animation-direction: var(--fa-animation-direction, normal);
+  animation-duration: var(--fa-animation-duration, 1s);
+  animation-iteration-count: var(--fa-animation-iteration-count, infinite);
+  animation-timing-function: var(--fa-animation-timing, steps(8));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fa-beat,
+  .fa-bounce,
+  .fa-fade,
+  .fa-beat-fade,
+  .fa-flip,
+  .fa-pulse,
+  .fa-shake,
+  .fa-spin,
+  .fa-spin-pulse {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+@keyframes fa-beat {
+  0%, 90% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(var(--fa-beat-scale, 1.25));
+  }
+}
+@keyframes fa-bounce {
+  0% {
+    transform: scale(1, 1) translateY(0);
+  }
+  10% {
+    transform: scale(var(--fa-bounce-start-scale-x, 1.1), var(--fa-bounce-start-scale-y, 0.9)) translateY(0);
+  }
+  30% {
+    transform: scale(var(--fa-bounce-jump-scale-x, 0.9), var(--fa-bounce-jump-scale-y, 1.1)) translateY(var(--fa-bounce-height, -0.5em));
+  }
+  50% {
+    transform: scale(var(--fa-bounce-land-scale-x, 1.05), var(--fa-bounce-land-scale-y, 0.95)) translateY(0);
+  }
+  57% {
+    transform: scale(1, 1) translateY(var(--fa-bounce-rebound, -0.125em));
+  }
+  64% {
+    transform: scale(1, 1) translateY(0);
+  }
+  100% {
+    transform: scale(1, 1) translateY(0);
+  }
+}
+@keyframes fa-fade {
+  50% {
+    opacity: var(--fa-fade-opacity, 0.4);
+  }
+}
+@keyframes fa-beat-fade {
+  0%, 100% {
+    opacity: var(--fa-beat-fade-opacity, 0.4);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(var(--fa-beat-fade-scale, 1.125));
+  }
+}
+@keyframes fa-flip {
+  50% {
+    transform: rotate3d(var(--fa-flip-x, 0), var(--fa-flip-y, 1), var(--fa-flip-z, 0), var(--fa-flip-angle, -180deg));
+  }
+}
+@keyframes fa-shake {
+  0% {
+    transform: rotate(-15deg);
+  }
+  4% {
+    transform: rotate(15deg);
+  }
+  8%, 24% {
+    transform: rotate(-18deg);
+  }
+  12%, 28% {
+    transform: rotate(18deg);
+  }
+  16% {
+    transform: rotate(-22deg);
+  }
+  20% {
+    transform: rotate(22deg);
+  }
+  32% {
+    transform: rotate(-12deg);
+  }
+  36% {
+    transform: rotate(12deg);
+  }
+  40%, 100% {
+    transform: rotate(0deg);
+  }
+}
+@keyframes fa-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  transform: scale(1, -1);
+}
+
+.fa-flip-both,
+.fa-flip-horizontal.fa-flip-vertical {
+  transform: scale(-1, -1);
+}
+
+.fa-rotate-by {
+  transform: rotate(var(--fa-rotate-angle, 0));
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.svg-inline--fa.fa-inverse {
+  fill: var(--fa-inverse, #fff);
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: var(--fa-inverse, #fff);
+}
+
+.svg-inline--fa.fa-stack-1x {
+  --fa-width: 1.25em;
+  height: 1em;
+  width: var(--fa-width);
+}
+.svg-inline--fa.fa-stack-2x {
+  --fa-width: 2.5em;
+  height: 2em;
+  width: var(--fa-width);
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  inset: 0;
+  margin: auto;
+  position: absolute;
+  z-index: var(--fa-stack-z-index, auto);
+}</style><link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#0A2B68">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    
+    <meta name="geo.region" content="CA-QC">
+    <meta name="geo.placename" content="Montréal">
+    <meta name="google-site-verification" content="N5FaA7rVVWKjku53ezIKZmaZD5XcucLfvyD-cAqdF8g">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link rel="preconnect" href="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com" crossorigin="">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"></noscript>
+    <title>Peintre Montréal | Peinture résidentielle &amp; commerciale | Le Lever du Pinceau</title>
+
+    <!-- Google tag (gtag.js) - GA4 + Enhanced Conversions / Enhanced conversions for leads -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-81FGM6EH3M"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-81FGM6EH3M');
+    </script>
+    <script async="" type="module" crossorigin="" src="/assets/index-DuhT2qbp.js"></script>
+    <link rel="modulepreload" crossorigin="" href="/assets/vendor-Cw23MLhl.js">
+  <link rel="modulepreload" as="script" crossorigin="" href="/assets/NewHomePage-D0GRu6R5.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/MicrosoftClarity-CAPX7uTv.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/SubmissionForm-CqPbd_Dq.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/firebase-DHCHnx1L.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/HeroSection-CXuQcrhl.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/heroImage-BvgtBs9_.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/TrustBanner-QLKQcHFO.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/ServiceCard-BI1JiFaM.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/IMG_6768-DS-BMZHr.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/IMG_6760-DvyRhCBw.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/IMG_6758-CH7DzxgT.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/IMG_6757-gVCzzgQK.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/BeforeAfterCarouselSection-CqIrAEoo.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/IMG_5984-DGTdZcd1.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/spray man 3000-B2XEoccG.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/ReviewsSection-DAUtoVOi.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/index-DdZvpFb0.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/SectorsSection-B2oc__i8.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/IMG_2585-Cr-Vdq7J.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/FAQSection-yDQpAGRW.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/ResourcesSection-COKr4jrk.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/erreurs-eviter-peindre-DQTqi2IZ.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/FinalCTASection-vY2iovks.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/SEOHead-BDVqhfUv.js"><link rel="modulepreload" as="script" crossorigin="" href="/assets/SubmissionModal-LBoJbg2l.js"><style data-emotion="css-global" data-s=""></style><style data-emotion="css-global" data-s=""></style><style data-emotion="css-global" data-s=""></style><style data-emotion="css-global" data-s=""></style><style data-emotion="css-global" data-s=""></style><style data-emotion="css-global" data-s=""></style><style data-emotion="css" data-s=""></style><script type="application/ld+json" data-react-helmet="true">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://www.leleverdupinceau.ca/#organization","name":"Le Lever du Pinceau","alternateName":"Le Lever du Pinceau – Peintres professionnels Montréal","description":"Entreprise de peinture professionnelle à Montréal, Laval, Longueuil et Brossard. Peinture résidentielle, commerciale, intérieure, extérieure et industrielle. Devis gratuit. Équipe qualifiée RBQ.","url":"https://www.leleverdupinceau.ca","telephone":"+14388680772","email":"leleverdupinceau@gmail.com","address":{"@type":"PostalAddress","streetAddress":"2175 Rue Saint-Patrick","addressLocality":"Montréal","addressRegion":"QC","postalCode":"H3K 1B4","addressCountry":"CA"},"geo":{"@type":"GeoCoordinates","latitude":45.48264,"longitude":-73.56835},"areaServed":[{"@type":"City","name":"Montréal","containedInPlace":{"@type":"State","name":"Quebec"}},{"@type":"City","name":"Laval"},{"@type":"City","name":"Longueuil"},{"@type":"City","name":"Brossard"},{"@type":"City","name":"Gatineau"},{"@type":"AdministrativeArea","name":"Rive-Sud"},{"@type":"AdministrativeArea","name":"Grand Montréal"}],"priceRange":"$$","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"05:30","closes":"23:30"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","bestRating":"5","worstRating":"1","ratingCount":"150"},"image":"https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg","sameAs":["https://www.facebook.com/profile.php?id=100094900160859","https://www.instagram.com/leleverdupinceau"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services de peinture","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture résidentielle"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture commerciale"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture intérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture extérieure"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Peinture industrielle"}}]}}</script><link rel="canonical" href="https://www.leleverdupinceau.ca/" data-react-helmet="true"><link rel="alternate" hreflang="fr" href="https://www.leleverdupinceau.ca/" data-react-helmet="true"><link rel="alternate" hreflang="en" href="https://www.leleverdupinceau.ca/" data-react-helmet="true"><link rel="alternate" hreflang="x-default" href="https://www.leleverdupinceau.ca/" data-react-helmet="true"><meta name="description" content="Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. 100+ avis 5★. Licence RBQ. Soumission gratuite en 24h." data-react-helmet="true"><meta name="keywords" content="peinture Montréal, peintre professionnel Montréal, peinture résidentielle Montréal, peinture commerciale Montréal, peinture intérieure Montréal, peinture extérieure Montréal, peintre Laval, peinture Longueuil, peinture Brossard, Grand Montréal peinture, devis peinture gratuit Montréal, entreprise de peinture Montréal, peintre recommandé Montréal" data-react-helmet="true"><meta property="og:title" content="Peintre Montréal | Peinture résidentielle &amp; commerciale | Le Lever du Pinceau" data-react-helmet="true"><meta property="og:description" content="Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. 100+ avis 5★. Licence RBQ. Soumission gratuite en 24h." data-react-helmet="true"><meta property="og:url" content="https://www.leleverdupinceau.ca/" data-react-helmet="true"><meta property="og:image" content="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg" data-react-helmet="true"><meta property="og:type" content="website" data-react-helmet="true"><meta property="og:locale" content="fr_CA" data-react-helmet="true"><meta property="og:site_name" content="Le Lever du Pinceau" data-react-helmet="true"><meta name="twitter:title" content="Peintre Montréal | Peinture résidentielle &amp; commerciale | Le Lever du Pinceau" data-react-helmet="true"><meta name="twitter:description" content="Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. 100+ avis 5★. Licence RBQ. Soumission gratuite en 24h." data-react-helmet="true"><meta name="twitter:image" content="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg" data-react-helmet="true"><meta name="twitter:card" content="summary_large_image" data-react-helmet="true"></head>
+  <body class="chakra-ui-light">
+    <div id="root"><div class="css-1m9iwvw"><div spacing="0" class="css-1olj5i6"><header spacing="0" class="css-tnm2ok"><div class="css-1p33shc"><div class="css-60uyzb"><div class="chakra-stack css-1nkbehs"><div class="chakra-stack css-1rafi8n"><div class="chakra-stack css-fcp64l"><p class="chakra-text css-1d3zo64">Suivez-nous</p><a class="chakra-button css-66y01v" aria-label="Instagram" href="https://www.instagram.com/leleverdupinceau/"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a><a class="chakra-button css-vsb181" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=100094900160859"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" class="svg-inline--fa fa-facebook" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z"></path></svg></a></div></div><div class="chakra-stack css-1uodvt1"><svg focusable="false" data-prefix="fas" data-icon="phone-flip" class="svg-inline--fa fa-phone-flip chakra-icon css-1gyjqm5" role="img" viewBox="0 0 512 512" aria-hidden="true"><path fill="currentColor" d="M351.8 25c7.8-18.8 28.4-28.9 48.1-23.5l5.5 1.5c64.6 17.6 119.8 80.2 103.7 156.4-37.1 175-174.8 312.7-349.8 349.8-76.3 16.2-138.8-39.1-156.4-103.7l-1.5-5.5c-5.4-19.7 4.7-40.3 23.5-48.1l97.3-40.5c16.5-6.9 35.6-2.1 47 11.8l38.6 47.2c70.3-34.9 126.8-93.3 159.3-164.9l-44.1-36.1c-13.9-11.3-18.6-30.4-11.8-47L351.8 25z"></path></svg><a href="tel:+14388680772"><p class="chakra-text css-1r5q1oq">(438) 868-0772</p></a></div></div></div></div><div class="css-tjxutn"><div class="css-1km5g0v"><div class="chakra-stack css-1aewpd6"><button type="button" aria-label="Accueil" class="css-1723m20"><img src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png" loading="lazy" class="chakra-image css-12n17d9" decoding="async"></button><div class="css-obbx8x"></div><div class="css-obbx8x"></div><div role="group" class="chakra-button__group css-1v94w3l" data-orientation="horizontal"><button type="button" class="chakra-button css-1lrq0gq" id="popover-trigger-:r8:" aria-haspopup="dialog" aria-expanded="false" aria-controls="popover-content-:r8:">Services<span class="chakra-button__icon css-1hzyiq5"><svg focusable="false" aria-hidden="true" data-prefix="fas" data-icon="chevron-down" class="svg-inline--fa fa-chevron-down chakra-icon css-p1tijm" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M201.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 338.7 54.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"></path></svg></span></button><div class="chakra-popover__popper css-iy22zq" style="visibility: hidden; position: absolute; min-width: max-content; inset: 0px auto auto 0px;"><section id="popover-content-:r8:" tabindex="-1" role="tooltip" class="chakra-popover__content css-9pwnsn" style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.95);"><div class="chakra-stack css-xelf75"><button class="css-15c5s30">Peinture résidentielle</button><button class="css-15c5s30">Peinture commerciale</button><button class="css-15c5s30">Peinture intérieure</button><button class="css-15c5s30">Peinture extérieure</button><button class="css-15c5s30">Peinture industrielle</button><hr aria-orientation="horizontal" class="chakra-divider css-1153dqh"><button class="css-dijbe4">Voir tous les services</button></div></section></div><button type="button" class="chakra-button css-1lrq0gq">Secteurs desservis</button><button type="button" class="chakra-button css-1lrq0gq">Peintres professionnels</button><button type="button" class="chakra-button css-1lrq0gq">Avis</button><button type="button" class="chakra-button css-1lrq0gq">Blog</button><button type="button" class="chakra-button css-1vdkh5t">Contact</button></div><div class="css-1ne1rnl"><button type="button" class="chakra-button css-o43bcs" aria-label="Open menu"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-pqvka2" variant="unstyled" aria-hidden="true" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></button></div></div></div><div class="css-1dpi16a"><div class="css-140hw4q"><div class="css-xa36iq"><div class="chakra-stack css-95vqlr"><p class="chakra-text css-1kgrcu2">150 + avis</p><div class="css-i95tep"><p class="chakra-text css-1l0bth">4,9</p><div class="css-k3kwl"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-y5dbso"><path fill="currentColor" d="M23.555,8.729a1.505,1.505,0,0,0-1.406-.98H16.062a.5.5,0,0,1-.472-.334L13.405,1.222a1.5,1.5,0,0,0-2.81,0l-.005.016L8.41,7.415a.5.5,0,0,1-.471.334H1.85A1.5,1.5,0,0,0,.887,10.4l5.184,4.3a.5.5,0,0,1,.155.543L4.048,21.774a1.5,1.5,0,0,0,2.31,1.684l5.346-3.92a.5.5,0,0,1,.591,0l5.344,3.919a1.5,1.5,0,0,0,2.312-1.683l-2.178-6.535a.5.5,0,0,1,.155-.543l5.194-4.306A1.5,1.5,0,0,0,23.555,8.729Z"></path></svg><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-y5dbso"><path fill="currentColor" d="M23.555,8.729a1.505,1.505,0,0,0-1.406-.98H16.062a.5.5,0,0,1-.472-.334L13.405,1.222a1.5,1.5,0,0,0-2.81,0l-.005.016L8.41,7.415a.5.5,0,0,1-.471.334H1.85A1.5,1.5,0,0,0,.887,10.4l5.184,4.3a.5.5,0,0,1,.155.543L4.048,21.774a1.5,1.5,0,0,0,2.31,1.684l5.346-3.92a.5.5,0,0,1,.591,0l5.344,3.919a1.5,1.5,0,0,0,2.312-1.683l-2.178-6.535a.5.5,0,0,1,.155-.543l5.194-4.306A1.5,1.5,0,0,0,23.555,8.729Z"></path></svg><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-y5dbso"><path fill="currentColor" d="M23.555,8.729a1.505,1.505,0,0,0-1.406-.98H16.062a.5.5,0,0,1-.472-.334L13.405,1.222a1.5,1.5,0,0,0-2.81,0l-.005.016L8.41,7.415a.5.5,0,0,1-.471.334H1.85A1.5,1.5,0,0,0,.887,10.4l5.184,4.3a.5.5,0,0,1,.155.543L4.048,21.774a1.5,1.5,0,0,0,2.31,1.684l5.346-3.92a.5.5,0,0,1,.591,0l5.344,3.919a1.5,1.5,0,0,0,2.312-1.683l-2.178-6.535a.5.5,0,0,1,.155-.543l5.194-4.306A1.5,1.5,0,0,0,23.555,8.729Z"></path></svg><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-y5dbso"><path fill="currentColor" d="M23.555,8.729a1.505,1.505,0,0,0-1.406-.98H16.062a.5.5,0,0,1-.472-.334L13.405,1.222a1.5,1.5,0,0,0-2.81,0l-.005.016L8.41,7.415a.5.5,0,0,1-.471.334H1.85A1.5,1.5,0,0,0,.887,10.4l5.184,4.3a.5.5,0,0,1,.155.543L4.048,21.774a1.5,1.5,0,0,0,2.31,1.684l5.346-3.92a.5.5,0,0,1,.591,0l5.344,3.919a1.5,1.5,0,0,0,2.312-1.683l-2.178-6.535a.5.5,0,0,1,.155-.543l5.194-4.306A1.5,1.5,0,0,0,23.555,8.729Z"></path></svg><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-y5dbso"><path fill="currentColor" d="M23.555,8.729a1.505,1.505,0,0,0-1.406-.98H16.062a.5.5,0,0,1-.472-.334L13.405,1.222a1.5,1.5,0,0,0-2.81,0l-.005.016L8.41,7.415a.5.5,0,0,1-.471.334H1.85A1.5,1.5,0,0,0,.887,10.4l5.184,4.3a.5.5,0,0,1,.155.543L4.048,21.774a1.5,1.5,0,0,0,2.31,1.684l5.346-3.92a.5.5,0,0,1,.591,0l5.344,3.919a1.5,1.5,0,0,0,2.312-1.683l-2.178-6.535a.5.5,0,0,1,.155-.543l5.194-4.306A1.5,1.5,0,0,0,23.555,8.729Z"></path></svg></div></div><img alt="Google" src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" loading="lazy" class="chakra-image css-neclkq" decoding="async"></div></div></div></div></div></header><div class="chakra-stack css-xk3l1z" id="main" tabindex="-1"><div class="css-1hy1wyf"><div class="css-nwrwsi"><img alt="Services de peinture résidentielle et commerciale - Accueil" src="/assets/heroImage-D0P9NM7F.png" loading="eager" class="chakra-image css-1946td" fetchpriority="high" decoding="async"><div class="css-1c7aoht"></div><div class="chakra-container css-1jncuet"><div class="chakra-stack css-tvvdbs"><div class="chakra-stack css-orgz1y"><h1 class="chakra-heading css-10nysg8">Peintre professionnel à Montréal</h1><p class="chakra-text css-8mvj70">Un résultat impeccable, rien de moins.</p><p class="chakra-text css-1pusmz5">Service de peinture intérieure et extérieure, résidentielle et commerciale, clé en main, exécuté par des peintres de métier.</p><div class="css-1pps10g"><button type="button" class="chakra-button css-h8jw8s">Obtenir ma soumission gratuite</button></div></div></div></div></div><div class="css-1h9jqex"><div class="css-1dbh5lc"><div class="css-qap7wd"><div class="css-i86f5i"><img alt="Régie du bâtiment du Québec" src="/assets/rbqlogo-BdkRnajR.png" loading="lazy" class="chakra-image css-132kxk7" decoding="async"><p class="chakra-text css-1n350w9">5864-1481-01</p></div><hr aria-orientation="vertical" class="chakra-divider css-1a9fozb"><div class="css-i86f5i"><p class="chakra-text css-ubx0vz">850+</p><p class="chakra-text css-lwcrqn">Clients ravis</p></div><hr aria-orientation="vertical" class="chakra-divider css-1a9fozb"><div class="css-i86f5i"><img alt="TruShield Insurance" src="/assets/trushieldlogo-C5Akqe-p.png" loading="lazy" class="chakra-image css-1yjvu6y" decoding="async"><p class="chakra-text css-1n350w9">Assurance 5M$</p></div></div></div></div><div class="css-1r4cbx8"><div class="chakra-container css-1qnomu7"><div class="chakra-stack css-4dya59"><div class="chakra-stack css-1tsqj55"><h2 class="chakra-heading css-1uoydrk">Quand tout est sous contrôle, <span class="css-myp8l2">tout devient simple</span></h2><p class="chakra-text css-q3p2mn">Voici ce qui permet à nos clients d'éviter les complications inutiles.</p></div><div class="css-2lbi7h"><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Prise en charge de A à Z" src="/assets/IMG_7844-BUkZKD0c.PNG" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Prise en charge de A à Z</h3><p class="chakra-text css-14j980l">De la préparation à la livraison</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Nous nous occupons de chaque étape : estimation, planification, exécution et nettoyage.</p></div></div><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Échéancier clair" src="/assets/control-2-min-CIBGOmB4.png" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Échéancier clair</h3><p class="chakra-text css-14j980l">un projet qui ne s'éternise pas</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Vous planifiez votre vie et votre déménagement sans stress ni incertitude.</p></div></div><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Finitions nettes" src="/assets/control-3-BAGi1D1S.jpeg" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Finitions nettes</h3><p class="chakra-text css-14j980l">aucun défaut visible</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Votre propriété paraît immédiatement plus propre, plus soignée et plus valorisée.</p></div></div></div></div></div></div><div class="css-1722480"><div class="chakra-container css-16jmzvz"><div class="chakra-stack css-oza502"><div class="chakra-stack css-7qn7qb"><button type="button" class="chakra-button css-pbzr95">Soumission gratuite</button><p class="chakra-text css-1bxbrdh">en moins de 24h</p></div><div class="css-1mnbzv5"><div class="css-5f8cpa"><img alt="Sceau 100 % satisfaction garantie" src="/assets/satisfaction_fr-DhctPTf6.PNG" loading="lazy" class="chakra-image css-og5tlm" decoding="async" draggable="false"></div><div class="chakra-stack css-1gjc781"><h3 class="chakra-heading css-1cs3xx7">Notre engagement</h3><p class="chakra-text css-jv73jc">Nous ne quittons pas le chantier tant que vous n’êtes pas 100% satisfait des travaux effectués.</p></div></div></div></div></div><div class="css-gs5in6"><div class="chakra-container css-1eqcrqo"><div class="chakra-stack css-1tz6lwa"><div class="chakra-stack css-1k67xfv"><h2 class="chakra-heading css-1uoydrk">NOTRE MÉTHODE EN 4 ÉTAPES</h2><p class="chakra-text css-q3p2mn">un processus clair, sans aucune improvisation</p></div><div class="css-1l552f6"><div class="chakra-stack css-j3dxou"><h3 class="chakra-heading css-1h1pme8">Évaluation du projet</h3><p class="chakra-text css-1bbg8ic">Nous évaluons les surfaces, les délais et vos besoins pour préparer une soumission claire.</p></div><div class="css-ic9lcv"><div class="css-gd8nf9"><img alt="Évaluation du projet" src="/assets/method-1-S_chygF1.jpeg" loading="lazy" class="chakra-image css-nct644" decoding="async"></div><div class="css-v0t6ui">1</div></div></div><div class="css-1l552f6"><div class="css-1igb0f1"><div class="css-gd8nf9"><img alt="Préparation des surfaces" src="/assets/method-2-BPb5F3t8.jpeg" loading="lazy" class="chakra-image css-nct644" decoding="async"></div><div class="css-9pjlyx">2</div></div><div class="chakra-stack css-ccrk0b"><h3 class="chakra-heading css-1h1pme8">Préparation des surfaces</h3><p class="chakra-text css-1bbg8ic">Nous protégeons les lieux, réparons le plâtre et faisons le calfeutrage au besoin.</p></div></div><div class="css-1l552f6"><div class="chakra-stack css-j3dxou"><h3 class="chakra-heading css-1h1pme8">Application professionnelle</h3><p class="chakra-text css-1bbg8ic">Nos peintres appliquent des produits de qualité avec des méthodes précises et soignées.</p></div><div class="css-ic9lcv"><div class="css-gd8nf9"><img alt="Application professionnelle" src="/assets/method-3-BCfP5_nN.PNG" loading="lazy" class="chakra-image css-nct644" decoding="async"></div><div class="css-v0t6ui">3</div></div></div><div class="css-1l552f6"><div class="css-1igb0f1"><div class="css-gd8nf9"><img alt="Inspection finale" src="/assets/method-4-SS0fg0t1.PNG" loading="lazy" class="chakra-image css-nct644" decoding="async"></div><div class="css-9pjlyx">4</div></div><div class="chakra-stack css-ccrk0b"><h3 class="chakra-heading css-1h1pme8">Inspection finale</h3><p class="chakra-text css-1bbg8ic">Nous nettoyons les lieux et validons le résultat avec vous avant la fin du projet.</p></div></div><div class="chakra-stack css-1bkf9pz"><button type="button" class="chakra-button css-p8uo9c">Soumission gratuite</button><p class="chakra-text css-11w4zqy">en moins de 24h</p></div></div></div></div><div class="css-am8oq3"><div class="chakra-container css-1qnomu7"><div class="chakra-stack css-1ekb7wm"><div class="chakra-stack css-1m896qw"><h2 class="chakra-heading css-mm9cn7">Nos services de peinture à Montréal</h2><p class="chakra-text css-q3p2mn">Des solutions pour chaque type de projet</p></div><div class="chakra-stack css-1lqfg0c"><div class="css-dkm2b9"><div class="css-1qvdm2a"><a class="css-1cgcdzc" href="/services/peinture-residentielle" data-discover="true"><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Résidentiel" src="/assets/IMG_6768-DxedA-OW.PNG" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Résidentiel</h3><p class="chakra-text css-14j980l">Maisons, condos, appartements</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Peinture soignée pour votre espace de vie.</p></div></div></a><a class="css-1cgcdzc" href="/services/peinture-commerciale" data-discover="true"><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Commercial" src="/assets/IMG_6760-Bt14SqY2.PNG" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Commercial</h3><p class="chakra-text css-14j980l">Bureaux, restaurants, commerces</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Travaux hors heures, zéro perturbation.</p></div></div></a><a class="css-1cgcdzc" href="/services/peinture-industrielle" data-discover="true"><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Industrielle" src="/assets/IMG_6757-oC_a-pDJ.PNG" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Industrielle</h3><p class="chakra-text css-14j980l">Entrepôt, usine, stationnement</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Époxy et revêtements spécialisés.</p></div></div></a><a class="css-1cgcdzc" href="/services/peinture-interieure" data-discover="true"><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Intérieure" src="/assets/IMG_6758-MDGSuoUL.PNG" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Intérieure</h3><p class="chakra-text css-14j980l">Murs, plafonds, boiseries, armoires</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Finitions nettes et durables.</p></div></div></a><a class="css-1cgcdzc" href="/services/peinture-exterieure" data-discover="true"><div class="css-rj0kcb"><div class="css-vwin2z"><img alt="Extérieure" src="/assets/IMG_6767-DbqILgE2.PNG" class="chakra-image css-1jgqvgm"><div class="css-imxhk7"><h3 class="chakra-heading css-h6zyaw">Extérieure</h3><p class="chakra-text css-14j980l">Revêtement, balcon, clôture</p></div><div class="css-1rg89k5"><div class="css-1f23r6y"></div></div></div><div class="css-1rzs2kv"><p class="chakra-text css-pll1ac">Protection contre le climat québécois.</p></div></div></a></div></div></div><div class="chakra-stack css-1dospsj"><a class="chakra-button css-10fwa5p" href="/services" data-discover="true">Voir tous nos services<span class="chakra-button__icon css-1hzyiq5"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></span></a></div></div></div></div><div class="css-1sdgncj"><div class="chakra-container css-s1btap"><div class="chakra-stack css-vprmqb"><div class="chakra-stack css-1nqq7w0"><h2 class="chakra-heading css-f0m4tk">Des transformations visibles dès le premier coup de pinceau</h2><p class="chakra-text css-q3p2mn">Quelques-uns de nos projets récents à Montréal</p></div><div class="css-1jl4fab"><div class="css-rx5zwu"><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/IMG_5969-Ny1FY-hb.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/IMG_5970-DQo1jVX6.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Salon – murs plâtre et peinture</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/IMG_7678-DQklOZbO.PNG" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/IMG_5873-Oop0zTuW.PNG" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Cage d’escalier – réparation légère et peinture</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/IMG_5973-DikDALhH.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/IMG_5974-J4zYfUhc.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Terrasse en bois – teinture et protection</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/IMG_5975-CDpbX47y.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/IMG_5976-noDPsSCG.PNG" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Cuisine – armoires peintes en blanc</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/IMG_5977-D8ecTrBh.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/IMG_5978-DJlRrkpv.PNG" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Espace industriel – plafond steel deck et murs peints</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/IMG_5984-SeqRoenq.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/IMG_5982-4uR3OxO_.PNG" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Maison – murs rafraîchis (protection et peinture)</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/Copie%20de%20IMG_7924-6I15yV_V.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/Copie%20de%20IMG_7922-By1jNgEZ.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Salon – peinture murale (avant / après)</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/Copie%20de%20IMG_7975-pE8j8fbe.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/Copie%20de%20IMG_7974-CCsnAoHm.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Escalier extérieur – décapage et peinture</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/Copie%20de%20IMG_7990-9x7iXYA_.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/Copie%20de%20IMG_7988-CGUSmgit.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Sous-sol – dégâts d’eau et rafraîchissement</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/Copie%20de%20IMG_7992-D1U5iZkW.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/Copie%20de%20IMG_7994-BSs0TExO.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Cuisine – réparation et finition</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/Copie%20de%20IMG_7999%202-Cfubahyi.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/Copie%20de%20IMG_7997%202-bHugCi4X.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Murs et boiseries – finition propre</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/Copie%20de%20IMG_7971-CkIAs9YC.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/Copie%20de%20IMG_6755-BDYc3LMZ.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Maison – extérieur rafraîchi</p></div><div class="css-nl711q"><div class="css-1oyv6kg"><div class="chakra-stack css-165casq"><div class="css-1jke4yk"><img src="/assets/Copie%20de%20IMG_7985-hNAqdRXY.jpg" alt="Avant" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">AVANT</div></div><div class="css-16l5wi8"><img src="/assets/Copie%20de%20IMG_6757-eWA7eRt7.jpg" alt="Après" class="css-1ud3ku6" style="aspect-ratio: 3 / 2;"><div class="css-1jrxxh7">APRÈS</div></div></div></div><p class="chakra-text css-1sdm947">Espace industriel – préparation et peinture</p></div></div></div><a class="chakra-link css-nl30na" href="/realisations" data-discover="true"><button type="button" class="chakra-button css-1aq61v7">Voir toutes nos réalisations<span class="chakra-button__icon css-1hzyiq5"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></span></button></a></div></div></div><div class="css-wer8hu"><div class="chakra-container css-s1btap"><div class="css-17i7iv8"><div class="css-8rk9eh"><img alt="Peintre professionnel au pistolet sur un plafond - Accueil" src="/assets/control-3-BAGi1D1S.jpeg" loading="lazy" class="chakra-image css-ktwzst" decoding="async"></div><div class="chakra-stack css-169vqck"><div class="chakra-stack css-1tanyq9"><h2 class="chakra-heading css-f0m4tk">Une équipe de peintres dédiés à votre projet</h2></div><p class="chakra-text css-q3p2mn">Nos peintres ont chacun plus de 10 ans d’expérience et sont formés pour livrer un travail impeccable.</p><a class="chakra-link css-gcriv9" href="/peintre-professionnel"><button type="button" class="chakra-button css-1t1r6vi">Rencontrez notre équipe →<span class="chakra-button__icon css-1hzyiq5"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></span></button></a></div></div></div></div><div class="css-cgwh7t"><div class="chakra-container css-s1btap"><div class="chakra-stack css-abvxnf"><div class="chakra-stack css-emqrd8"><h2 class="chakra-heading css-f0m4tk">Ce que nos clients disent de nous</h2><p class="chakra-text css-q3p2mn">Plus de 150 avis 5 étoiles sur Google</p></div><div class="chakra-stack css-nzjivz"><div class="css-1cixyo5"><div draggable="false" style="position: absolute; width: calc(100% - 92px); left: 46px; height: 100%; z-index: 1; opacity: 1; transform: none; user-select: none; touch-action: pan-y;"><div class="css-qywad6"><div class="chakra-stack css-1tqdt9n"><div class="css-1qdyvok"><div class="css-0"><p class="chakra-text css-19gzkeo">Zoé Boudreau</p><p class="chakra-text css-1c79p5s">Il y a 1 mois</p></div><img alt="Google" src="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png" loading="lazy" class="chakra-image css-rgvopl" decoding="async"></div><div class="css-i95tep"><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" focusable="false" class="chakra-icon css-oazcwo" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" focusable="false" class="chakra-icon css-oazcwo" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" focusable="false" class="chakra-icon css-oazcwo" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" focusable="false" class="chakra-icon css-oazcwo" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 576 512" focusable="false" class="chakra-icon css-oazcwo" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg></div></div><div class="css-csrad9"><p class="chakra-text css-1qkg09j">Je suis très ravie du service reçu&nbsp;! Équipe compétente, rapide et courtoise. Je recommande chaleureusement&nbsp;!</p></div><div class="css-hpl2ak"><div class="css-1w1vbxm"><svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" focusable="false" class="chakra-icon css-1sit61t" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path></svg></div></div></div></div><button type="button" class="chakra-button css-134ino9" aria-label="Previous review"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg></button><button type="button" class="chakra-button css-1bmr5og" aria-label="Next review"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg></button></div><div class="chakra-stack css-5oetwg"><div class="css-1uyt6od"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div><div class="css-o163eq"></div></div></div><a class="chakra-link css-nl30na" href="/avis-clients" data-discover="true"><button type="button" class="chakra-button css-1aq61v7">Voir tous nos avis<span class="chakra-button__icon css-1hzyiq5"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></span></button></a></div></div></div><div class="css-1h1aa3a"><div class="chakra-container css-s1btap"><div class="chakra-stack css-abvxnf"><div class="chakra-stack css-emqrd8"><h2 class="chakra-heading css-f0m4tk">Nos services de peinture dans le Grand Montréal et à Gatineau</h2><p class="chakra-text css-q3p2mn">Nous réalisons des projets de peinture à Montréal, Gatineau, Laval, Longueuil et partout sur la Rive-Sud.</p></div><div class="css-9tevgo"><div class="chakra-stack css-1xvuvvx"><a class="chakra-link css-1vp09xb" href="/secteurs/montreal" data-discover="true"><div class="css-3t8npg"><img alt="Secteur desservi : Montréal - Accueil" src="/assets/mtl-B8qrXAd6.png" loading="lazy" class="chakra-image css-13agg0i" decoding="async"><div class="css-ltd7oo"></div><div class="css-h8kohq"><div class="chakra-stack css-nek2wy"><svg focusable="false" data-prefix="fas" data-icon="location-dot" class="svg-inline--fa fa-location-dot chakra-icon css-hr5ldt" role="img" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"></path></svg><span class="chakra-text css-1imlm6x">Montréal</span></div></div></div></a></div><div class="chakra-stack css-1xvuvvx"><a class="chakra-link css-1vp09xb" href="/secteurs/laval" data-discover="true"><div class="css-3t8npg"><img alt="Secteur desservi : Laval - Accueil" src="/assets/laval-IaOjlPYf.png" loading="lazy" class="chakra-image css-6o26jt" decoding="async"><div class="css-ltd7oo"></div><div class="css-h8kohq"><div class="chakra-stack css-nek2wy"><svg focusable="false" data-prefix="fas" data-icon="location-dot" class="svg-inline--fa fa-location-dot chakra-icon css-hr5ldt" role="img" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"></path></svg><span class="chakra-text css-1imlm6x">Laval</span></div></div></div></a></div><div class="chakra-stack css-1xvuvvx"><a class="chakra-link css-1vp09xb" href="/secteurs/longueuil" data-discover="true"><div class="css-3t8npg"><img alt="Secteur desservi : Longueuil - Accueil" src="/assets/longueuil-D4luHJiu.png" loading="lazy" class="chakra-image css-6o26jt" decoding="async"><div class="css-ltd7oo"></div><div class="css-h8kohq"><div class="chakra-stack css-nek2wy"><svg focusable="false" data-prefix="fas" data-icon="location-dot" class="svg-inline--fa fa-location-dot chakra-icon css-hr5ldt" role="img" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"></path></svg><span class="chakra-text css-1imlm6x">Longueuil</span></div></div></div></a></div><div class="chakra-stack css-1xvuvvx"><a class="chakra-link css-1vp09xb" href="/secteurs/rive-sud" data-discover="true"><div class="css-3t8npg"><img alt="Secteur desservi : Brossard - Accueil" src="/assets/brossard-C-psdBtc.png" loading="lazy" class="chakra-image css-6o26jt" decoding="async"><div class="css-ltd7oo"></div><div class="css-h8kohq"><div class="chakra-stack css-nek2wy"><svg focusable="false" data-prefix="fas" data-icon="location-dot" class="svg-inline--fa fa-location-dot chakra-icon css-hr5ldt" role="img" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"></path></svg><span class="chakra-text css-1imlm6x">Brossard</span></div></div></div></a></div><div class="chakra-stack css-1xvuvvx"><a class="chakra-link css-1vp09xb" href="/secteurs/rive-sud" data-discover="true"><div class="css-3t8npg"><img alt="Secteur desservi : Rive-Sud - Accueil" src="/assets/brossard_secteur-C8dBo4Ty.png" loading="lazy" class="chakra-image css-ky98d2" decoding="async"><div class="css-ltd7oo"></div><div class="css-h8kohq"><div class="chakra-stack css-nek2wy"><svg focusable="false" data-prefix="fas" data-icon="location-dot" class="svg-inline--fa fa-location-dot chakra-icon css-hr5ldt" role="img" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"></path></svg><span class="chakra-text css-1imlm6x">Rive-Sud</span></div></div></div></a></div><div class="chakra-stack css-1xvuvvx"><a class="chakra-link css-1vp09xb" href="/secteurs/gatineau" data-discover="true"><div class="css-3t8npg"><img alt="Secteur desservi : Gatineau - Accueil" src="/assets/IMG_2585-D34JvXtN.jpg" loading="lazy" class="chakra-image css-52kej9" decoding="async"><div class="css-ltd7oo"></div><div class="css-h8kohq"><div class="chakra-stack css-nek2wy"><svg focusable="false" data-prefix="fas" data-icon="location-dot" class="svg-inline--fa fa-location-dot chakra-icon css-hr5ldt" role="img" viewBox="0 0 384 512" aria-hidden="true"><path fill="currentColor" d="M0 188.6C0 84.4 86 0 192 0S384 84.4 384 188.6c0 119.3-120.2 262.3-170.4 316.8-11.8 12.8-31.5 12.8-43.3 0-50.2-54.5-170.4-197.5-170.4-316.8zM192 256a64 64 0 1 0 0-128 64 64 0 1 0 0 128z"></path></svg><span class="chakra-text css-1imlm6x">Gatineau</span></div></div></div></a></div></div><a class="chakra-link css-nl30na" href="/secteurs" data-discover="true"><button type="button" class="chakra-button css-10fwa5p">Voir tous les secteurs desservis<span class="chakra-button__icon css-1hzyiq5"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></span></button></a><p class="chakra-text css-1dpgpkh">Et dans plus de 20 quartiers de Montréal: Griffintown, Plateau, Rosemont, Verdun, Outremont, Westmount, Notre-Dame-de-Grâce... <a class="chakra-link css-csfzk6" href="/secteurs" data-discover="true">Voir tous les quartiers →</a></p></div></div></div><div class="css-mip2df"><div class="chakra-container css-s1btap"><div class="chakra-stack css-18936vg"><div class="chakra-stack css-emqrd8"><h2 class="chakra-heading css-1aeyl51">Questions fréquentes sur nos services de peinture</h2></div><div class="chakra-accordion css-15mw73g"><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r10:" aria-expanded="false" aria-controls="accordion-panel-:r10:" class="chakra-accordion__button css-7ed1hn" data-index="0"><div class="css-hrple0">Combien coûte un peintre professionnel à Montréal ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r10:" aria-labelledby="accordion-button-:r10:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">Le coût dépend de la superficie, de l'état des surfaces et du nombre de couches. En moyenne, pour un projet résidentiel standard, comptez entre 1$ et 3$ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,<a class="chakra-link css-cro0ot" href="/blog/prix-peinture-montreal" data-discover="true">Voir notre article sur les prix.</a></p></div></div></div><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r12:" aria-expanded="false" aria-controls="accordion-panel-:r12:" class="chakra-accordion__button css-7ed1hn" data-index="1"><div class="css-hrple0">Offrez-vous une garantie sur vos travaux ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r12:" aria-labelledby="accordion-button-:r12:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">Oui. Nous offrons une garantie satisfaction à 100%. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.</p></div></div></div><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r14:" aria-expanded="false" aria-controls="accordion-panel-:r14:" class="chakra-accordion__button css-7ed1hn" data-index="2"><div class="css-hrple0">Est-ce que vos peintres sont licenciés RBQ ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r14:" aria-labelledby="accordion-button-:r14:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. De plus, tous nos peintres de métier ont plus de 10 ans d'expérience.</p></div></div></div><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r16:" aria-expanded="false" aria-controls="accordion-panel-:r16:" class="chakra-accordion__button css-7ed1hn" data-index="3"><div class="css-hrple0">Quel est le délai pour obtenir une soumission ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r16:" aria-labelledby="accordion-button-:r16:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus.</p></div></div></div><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r18:" aria-expanded="false" aria-controls="accordion-panel-:r18:" class="chakra-accordion__button css-7ed1hn" data-index="4"><div class="css-hrple0">Quelle est la durée typique d'un projet de peinture ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r18:" aria-labelledby="accordion-button-:r18:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission.</p></div></div></div><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r1a:" aria-expanded="false" aria-controls="accordion-panel-:r1a:" class="chakra-accordion__button css-7ed1hn" data-index="5"><div class="css-hrple0">Est-ce que vous protégez les surfaces avant de peindre ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r1a:" aria-labelledby="accordion-button-:r1a:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé.</p></div></div></div><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r1c:" aria-expanded="false" aria-controls="accordion-panel-:r1c:" class="chakra-accordion__button css-7ed1hn" data-index="6"><div class="css-hrple0">Est-ce que vous peinturez les armoires de cuisine ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r1c:" aria-labelledby="accordion-button-:r1c:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">Absolument. La peinture d'armoires est l'un de nos services les plus demandés. Nous utilisons un processus spécifique (sablage, apprêt, 2-3 couches) pour un fini durable qui coûte une fraction du remplacement.</p></div></div></div><div class="chakra-accordion__item css-1vavhli"><h2><button type="button" id="accordion-button-:r1e:" aria-expanded="false" aria-controls="accordion-panel-:r1e:" class="chakra-accordion__button css-7ed1hn" data-index="7"><div class="css-hrple0">Utilisez-vous des peintures écologiques et sans odeur ?</div><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon chakra-accordion__icon css-s1vzt4" aria-hidden="true"><path fill="currentColor" d="M16.59 8.59L12 13.17 7.41 8.59 6 10l6 6 6-6z"></path></svg></button></h2><div class="chakra-collapse" style="overflow: hidden; display: none; opacity: 0; height: 0px;"><div role="region" id="accordion-panel-:r1e:" aria-labelledby="accordion-button-:r1e:" class="chakra-accordion__panel css-m4ekws"><p class="chakra-text css-1tqxk6">Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget.</p></div></div></div></div></div></div><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Combien coûte un peintre professionnel à Montréal ?","acceptedAnswer":{"@type":"Answer","text":"Le coût dépend de la superficie, de l'état des surfaces et du nombre de couches. En moyenne, pour un projet résidentiel standard, comptez entre 1$ et 3$ par pied carré. Pour obtenir une estimation précise adaptée à votre projet,"}},{"@type":"Question","name":"Offrez-vous une garantie sur vos travaux ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Nous offrons une garantie satisfaction à 100%. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires."}},{"@type":"Question","name":"Est-ce que vos peintres sont licenciés RBQ ?","acceptedAnswer":{"@type":"Answer","text":"Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. De plus, tous nos peintres de métier ont plus de 10 ans d'expérience."}},{"@type":"Question","name":"Quel est le délai pour obtenir une soumission ?","acceptedAnswer":{"@type":"Answer","text":"Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus."}},{"@type":"Question","name":"Quelle est la durée typique d'un projet de peinture ?","acceptedAnswer":{"@type":"Answer","text":"La durée varie selon l'ampleur du projet. Pour une pièce standard (chambre ou salon), comptez 1 à 2 jours. Un appartement complet (3-4 pièces) prend généralement 3 à 5 jours. Une maison complète peut nécessiter 1 à 2 semaines selon la superficie. Les projets commerciaux sont planifiés selon vos contraintes opérationnelles. Nous vous fournirons un échéancier précis lors de la soumission."}},{"@type":"Question","name":"Est-ce que vous protégez les surfaces avant de peindre ?","acceptedAnswer":{"@type":"Answer","text":"Oui, absolument. La protection fait partie intégrante de notre processus professionnel. Nous couvrons systématiquement les planchers avec des toiles protectrices, protégeons tous les meubles et objets, masquons les cadres de portes et fenêtres, et utilisons du ruban de masquage de qualité professionnelle pour garantir des lignes nettes. Nous nettoyons également entièrement après chaque journée de travail pour vous laisser un espace propre et protégé."}},{"@type":"Question","name":"Est-ce que vous peinturez les armoires de cuisine ?","acceptedAnswer":{"@type":"Answer","text":"Absolument. La peinture d'armoires est l'un de nos services les plus demandés. Nous utilisons un processus spécifique (sablage, apprêt, 2-3 couches) pour un fini durable qui coûte une fraction du remplacement."}},{"@type":"Question","name":"Utilisez-vous des peintures écologiques et sans odeur ?","acceptedAnswer":{"@type":"Answer","text":"Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget."}}]}</script></div><div class="css-wer8hu"><div class="chakra-container css-s1btap"><div class="chakra-stack css-18936vg"><div class="chakra-stack css-emqrd8"><h2 class="chakra-heading css-f0m4tk">Conseils de nos experts en peinture</h2><p class="chakra-text css-q3p2mn">Nos articles les plus utiles</p></div><div class="css-m6hveh"><a class="chakra-link css-nl30na" href="/blog/prix-peinture-montreal"><div class="css-10ef4lb"><div class="css-man81l"><img alt="Prix d'un projet de peinture à Montréal" src="/assets/IMG_5900-QdPgA2Dt.PNG" loading="lazy" class="chakra-image css-bh4wo8" decoding="async"></div><div class="chakra-stack css-xtlghx"><p class="chakra-text css-15d1hel">Prix d'un projet de peinture à Montréal</p><div class="css-1yu3wf5"><p class="chakra-text css-139d68w">Lire l'article</p><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-1pckyyl"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></div></div></div></a><a class="chakra-link css-nl30na" href="/blog/comment-choisir-un-peintre-professionnel"><div class="css-10ef4lb"><div class="css-man81l"><img alt="Comment choisir un peintre professionnel" src="/assets/method-1-S_chygF1.jpeg" loading="lazy" class="chakra-image css-bh4wo8" decoding="async"></div><div class="chakra-stack css-xtlghx"><p class="chakra-text css-15d1hel">Comment choisir un peintre professionnel</p><div class="css-1yu3wf5"><p class="chakra-text css-139d68w">Lire l'article</p><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-1pckyyl"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></div></div></div></a><a class="chakra-link css-nl30na" href="/blog/erreurs-a-eviter-peinture-interieure"><div class="css-10ef4lb"><div class="css-man81l"><img alt="Erreurs à éviter avant de peindre" src="/assets/erreurs-eviter-peindre-DJNThChP.png" loading="lazy" class="chakra-image css-bh4wo8" decoding="async"></div><div class="chakra-stack css-xtlghx"><p class="chakra-text css-15d1hel">Erreurs à éviter avant de peindre</p><div class="css-1yu3wf5"><p class="chakra-text css-139d68w">Lire l'article</p><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-1pckyyl"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></div></div></div></a></div></div></div></div><div class="chakra-stack css-4tue9e"><div class="css-59nsnm"><h2 class="chakra-text css-1bcv1iz" id="submission-form-title">Obtenir une soumission gratuite</h2><p class="chakra-text css-lbc1le">en moins de 24h</p></div><div class="css-1o59vmg"><form class="css-z2j5vm"><div class="css-1fqm4zy"><div class="chakra-stack css-ivrbb4"><div role="group" class="chakra-form-control css-yq022j"><input name="name" placeholder=" " id="field-:r1g:" required="" aria-required="true" class="chakra-input css-529qy4" value=""><label id="field-:r1g:-label" for="field-:r1g:" class="chakra-form__label css-8exlka">Nom</label></div><div role="group" class="chakra-form-control css-yq022j"><input name="phone" type="tel" placeholder=" " id="field-:r1h:" required="" aria-required="true" class="chakra-input css-529qy4" value=""><label id="field-:r1h:-label" for="field-:r1h:" class="chakra-form__label css-8exlka">Téléphone</label></div><div role="group" class="chakra-form-control css-yq022j"><input name="email" type="email" placeholder=" " id="field-:r1i:" required="" aria-required="true" class="chakra-input css-529qy4" value=""><label id="field-:r1i:-label" for="field-:r1i:" class="chakra-form__label css-8exlka">Courriel</label></div><div role="group" class="chakra-form-control css-yq022j"><textarea rows="2" name="projectDetails" placeholder=" " id="field-:r1j:" class="chakra-textarea css-11ejk41"></textarea><label id="field-:r1j:-label" for="field-:r1j:" class="chakra-form__label css-8exlka">Détails du projet (optionnel)</label></div></div><div class="css-1s0fxdv"><div style="display: inline-block; width: 100%; position: relative; transform: scale(1.03194);"><div aria-hidden="true" style="position: absolute; inset: 0px; border-radius: 9999px; background: rgba(35, 85, 202, 0.45); pointer-events: none; z-index: 0; transform: scale(1.28); opacity: 0;"></div><div style="position: relative; z-index: 1;"><button type="submit" class="chakra-button css-14itnjr">Envoyer</button></div></div></div></div></form><span id="__chakra_env" hidden=""></span></div></div><div class="css-16kohld"><div class="chakra-container css-15qaxju"><div class="chakra-stack css-11bsnmt"><div class="chakra-stack css-1tanyq9"><h2 class="chakra-heading css-1rd72hz">Prêt à commencer ?</h2></div><div style="display: inline-block; width: auto; position: relative; transform: scale(1.03194);"><div aria-hidden="true" style="position: absolute; inset: 0px; border-radius: 9999px; background: rgba(255, 255, 255, 0.4); pointer-events: none; z-index: 0; transform: scale(1.28); opacity: 0;"></div><div style="position: relative; z-index: 1;"><button type="button" class="chakra-button css-wdy9cz">Soumission gratuite<span class="chakra-button__icon css-1hzyiq5"><svg viewBox="0 0 24 24" focusable="false" class="chakra-icon css-onkibi" aria-hidden="true"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"></path></svg></span></button></div></div></div></div></div></div></div><div class="css-vs6ccj"><div class="css-3emn1e"><div class="chakra-stack css-6ez0dr"><a href="/" data-discover="true"><img src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png" loading="lazy" class="chakra-image css-xi38bd"></a><a class="css-zv2q4z" href="/" data-discover="true"><p class="chakra-text css-l21uj2">Une peinture propre, rapide et impeccable.</p></a></div><hr aria-orientation="horizontal" class="chakra-divider css-q5n0r2"><div class="css-etcgai"><div class="chakra-stack css-2xph3x"><p class="chakra-text css-1cea36j">SERVICES</p><div class="chakra-stack css-2xph3x"><a class="chakra-link css-1pitfrp" href="/services/peinture-residentielle" data-discover="true">- Résidentiel</a><a class="chakra-link css-1pitfrp" href="/services/peinture-commerciale" data-discover="true">- Commercial</a><a class="chakra-link css-1pitfrp" href="/services/peinture-interieure" data-discover="true">- Intérieure</a><a class="chakra-link css-1pitfrp" href="/services/peinture-exterieure" data-discover="true">- Peinture extérieure</a><a class="chakra-link css-1pitfrp" href="/services/peinture-industrielle" data-discover="true">- Peinture industrielle</a></div></div><div class="chakra-stack css-2xph3x"><p class="chakra-text css-1cea36j">ENTREPRISE</p><div class="chakra-stack css-2xph3x"><a class="chakra-link css-1pitfrp" href="/a-propos" data-discover="true">- À propos</a><a class="chakra-link css-1pitfrp" href="/avis-clients" data-discover="true">- Avis clients</a><a class="chakra-link css-1pitfrp" href="/peintre-professionnel" data-discover="true">- Peintres professionnels</a></div></div><div class="chakra-stack css-2xph3x"><p class="chakra-text css-1cea36j">RESSOURCES</p><div class="chakra-stack css-2xph3x"><a class="chakra-link css-1pitfrp" href="/blog" data-discover="true">- Blog</a><a class="chakra-link css-1pitfrp" href="/contact" data-discover="true">- Contact</a><a class="chakra-link css-1pitfrp" href="/secteurs" data-discover="true">- Secteurs desservis</a></div></div></div><hr aria-orientation="horizontal" class="chakra-divider css-q5n0r2"><div spacing="4" class="css-1lf4w4j"><div class="chakra-stack css-2xph3x"><a class="chakra-link css-1pitfrp" href="tel:4388680772">(438) 868-0772</a><a class="chakra-link css-te66ig" href="mailto:leleverdupinceau@gmail.com">leleverdupinceau@gmail.com</a><p class="chakra-text css-5u678k">2175 Rue Saint-Patrick, Montréal, QC H3K 1B4</p></div><div role="group" class="chakra-button__group css-1q46ubq" data-orientation="horizontal"><a class="chakra-button css-1rhitih" aria-label="Instagram" href="https://www.instagram.com/leleverdupinceau/"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" class="svg-inline--fa fa-instagram" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M224.3 141a115 115 0 1 0 -.6 230 115 115 0 1 0 .6-230zm-.6 40.4a74.6 74.6 0 1 1 .6 149.2 74.6 74.6 0 1 1 -.6-149.2zm93.4-45.1a26.8 26.8 0 1 1 53.6 0 26.8 26.8 0 1 1 -53.6 0zm129.7 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM399 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg></a><a class="chakra-button css-1rhitih" aria-label="Facebook" href="https://www.facebook.com/profile.php?id=100094900160859"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" class="svg-inline--fa fa-facebook" role="img" viewBox="0 0 512 512"><path fill="currentColor" d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z"></path></svg></a></div></div><hr aria-orientation="horizontal" class="chakra-divider css-1syk23x"><div class="chakra-stack css-s37zpa"><a class="chakra-link css-1pitfrp" href="/mentions-legales" data-discover="true">Mentions légales</a><p class="chakra-text css-2w82ml">|</p><a class="chakra-link css-1pitfrp" href="/politique-de-confidentialite" data-discover="true">Politique de confidentialité</a></div></div></div><button type="button" class="chakra-button css-rh621q" aria-label="Switch to English"><p class="chakra-text css-kcihec">EN</p></button></div></div><span id="__chakra_env" hidden=""></span></div>
+  
+
+<div class="chakra-portal"><div role="region" aria-live="polite" aria-label="Notifications-top" id="chakra-toast-manager-top" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; margin: 0px auto; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-top-left" id="chakra-toast-manager-top-left" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; top: env(safe-area-inset-top, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-top-right" id="chakra-toast-manager-top-right" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-bottom-left" id="chakra-toast-manager-bottom-left" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; bottom: env(safe-area-inset-bottom, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-bottom" id="chakra-toast-manager-bottom" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; margin: 0px auto; bottom: env(safe-area-inset-bottom, 0px); right: env(safe-area-inset-right, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-bottom-right" id="chakra-toast-manager-bottom-right" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; bottom: env(safe-area-inset-bottom, 0px); right: env(safe-area-inset-right, 0px);"></div></div><div class="chakra-portal"><div role="region" aria-live="polite" aria-label="Notifications-top" id="chakra-toast-manager-top" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; margin: 0px auto; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-top-left" id="chakra-toast-manager-top-left" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; top: env(safe-area-inset-top, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-top-right" id="chakra-toast-manager-top-right" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; top: env(safe-area-inset-top, 0px); right: env(safe-area-inset-right, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-bottom-left" id="chakra-toast-manager-bottom-left" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; bottom: env(safe-area-inset-bottom, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-bottom" id="chakra-toast-manager-bottom" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; margin: 0px auto; bottom: env(safe-area-inset-bottom, 0px); right: env(safe-area-inset-right, 0px); left: env(safe-area-inset-left, 0px);"></div><div role="region" aria-live="polite" aria-label="Notifications-bottom-right" id="chakra-toast-manager-bottom-right" style="position: fixed; z-index: var(--toast-z-index, 5500); pointer-events: none; display: flex; flex-direction: column; bottom: env(safe-area-inset-bottom, 0px); right: env(safe-area-inset-right, 0px);"></div></div></body></html>

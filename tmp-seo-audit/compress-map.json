@@ -1,0 +1,66 @@
+[
+  {
+    "from": "src/lelever-next/images/satisfaction_fr.PNG",
+    "to": "src/lelever-next/images/satisfaction_fr.webp",
+    "before": 601572,
+    "after": 63804,
+    "tag": "q88",
+    "dims": "743x763"
+  },
+  {
+    "from": "src/lelever-next/images/satisfaction_en.PNG",
+    "to": "src/lelever-next/images/satisfaction_en.webp",
+    "before": 131029,
+    "after": 19598,
+    "tag": "q88",
+    "dims": "275x283"
+  },
+  {
+    "from": "src/lelever-next/images/control-2-min.png",
+    "to": "src/lelever-next/images/control-2-min.webp",
+    "before": 196191,
+    "after": 115260,
+    "tag": "webp85",
+    "dims": "1920x1434"
+  },
+  {
+    "from": "src/lelever-next/images/new-landing/method-1.jpeg",
+    "to": "src/lelever-next/images/new-landing/method-1.webp",
+    "before": 179657,
+    "after": 97508,
+    "tag": "webp85",
+    "dims": "1920x1072"
+  },
+  {
+    "from": "src/lelever-next/images/new-landing/method-2.jpeg",
+    "to": "src/lelever-next/images/new-landing/method-2.webp",
+    "before": 217683,
+    "after": 127582,
+    "tag": "webp85",
+    "dims": "1920x1072"
+  },
+  {
+    "from": "src/lelever-next/images/pillar-pages/IMG_2585.jpg",
+    "to": "src/lelever-next/images/pillar-pages/IMG_2585.webp",
+    "before": 283352,
+    "after": 101780,
+    "tag": "webp85",
+    "dims": "1010x1423"
+  },
+  {
+    "from": "src/lelever-next/images/Avant après landing Page/Copie de IMG_7974.jpg",
+    "to": "src/lelever-next/images/Avant après landing Page/Copie de IMG_7974.webp",
+    "before": 307651,
+    "after": 236852,
+    "tag": "webp85",
+    "dims": "1284x1528"
+  },
+  {
+    "from": "src/lelever-next/images/Avant après landing Page/Copie de IMG_7975.jpg",
+    "to": "src/lelever-next/images/Avant après landing Page/Copie de IMG_7975.webp",
+    "before": 184517,
+    "after": 154960,
+    "tag": "webp85",
+    "dims": "993x1263"
+  }
+]

@@ -129,14 +129,30 @@ export default function BeforeAfter({ images: imagesProp, title, isFr }) {
                 <Stack spacing={0}>
                   {/* Avant */}
                   <Box position="relative" w="100%">
-                    <Box as="img" src={pair.before} alt={isFr ? "Avant" : "Before"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
+                    <img
+                      src={pair.before}
+                      alt={isFr ? "Avant" : "Before"}
+                      width={1200}
+                      height={800}
+                      loading="lazy"
+                      decoding="async"
+                      style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
+                    />
                     <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
                       {isFr ? 'AVANT' : 'BEFORE'}
                     </Box>
                   </Box>
                   {/* Après */}
                   <Box position="relative" w="100%" borderTop="2px solid white">
-                    <Box as="img" src={pair.after} alt={isFr ? "Après" : "After"} w="100%" objectFit="cover" style={{ aspectRatio: '3/2' }} />
+                    <img
+                      src={pair.after}
+                      alt={isFr ? "Après" : "After"}
+                      width={1200}
+                      height={800}
+                      loading="lazy"
+                      decoding="async"
+                      style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
+                    />
                     <Box position="absolute" top={3} left={3} bg="brand.500" color="white" px={3} py={1} borderRadius="md" fontSize="sm" fontWeight="bold" boxShadow="sm">
                       {isFr ? 'APRÈS' : 'AFTER'}
                     </Box>

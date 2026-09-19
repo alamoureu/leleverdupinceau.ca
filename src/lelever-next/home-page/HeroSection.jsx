@@ -9,7 +9,7 @@ import {
   Image,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
-import heroImage from '../images/heroImage.png';
+import heroImage from '../images/heroImage.webp';
 import TrustBanner from './TrustBanner';
 
 export default function HeroSection({
@@ -87,8 +87,10 @@ export default function HeroSection({
           objectFit="cover"
           zIndex={0}
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
+          htmlWidth={1920}
+          htmlHeight={1266}
         />
         <Box
           position="absolute"

@@ -21,6 +21,11 @@ const colors = {
     800: '#072052',
     900: '#041538',
   },
+  // Chakra default gray.500 (#718096) is 4.02:1 on white - fails WCAG AA (4.5:1).
+  // #6B7280 is ~4.83:1 and keeps the same muted look for captions/secondary text.
+  gray: {
+    500: '#6B7280',
+  },
 };
 
 /** Spacing standards: use for consistent layout across all pages and components. */

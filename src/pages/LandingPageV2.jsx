@@ -10,7 +10,7 @@ import {
   LANDING_SECTION_PY,
   buildLandingFaqs,
 } from '../lelever-next/landing';
-import heroImage from '../lelever-next/images/heroImage.png';
+import heroImage from '../lelever-next/images/heroImage.webp';
 import PromoBanner, { PROMO_BANNER_HEIGHT } from '../lelever-next/home-page/PromoBanner';
 
 import LandingHeroSection from '../lelever-next/home-page/LandingHeroSection';

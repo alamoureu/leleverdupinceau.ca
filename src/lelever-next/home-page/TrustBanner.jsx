@@ -21,6 +21,25 @@ const translations = {
   },
 };
 
+/** Explicit CSS sizes (h × intrinsic ratio) so logos never expand on decode (mobile CLS). */
+function logoBoxSize(intrinsicW, intrinsicH, heights) {
+  const ratio = intrinsicW / intrinsicH;
+  const width = {};
+  Object.entries(heights).forEach(([bp, h]) => {
+    width[bp] = `${Math.round(h * ratio)}px`;
+  });
+  const height = {};
+  Object.entries(heights).forEach(([bp, h]) => {
+    height[bp] = `${h}px`;
+  });
+  return { width, height };
+}
+
+const RBQ_HEIGHTS = { base: 30, sm: 32, md: 36, lg: 40 };
+const TRUSHIELD_HEIGHTS = { base: 26, sm: 28, md: 32, lg: 36 };
+const RBQ_BOX = logoBoxSize(500, 198, RBQ_HEIGHTS);
+const TRUSHIELD_BOX = logoBoxSize(590, 181, TRUSHIELD_HEIGHTS);
+
 /**
  * Bandeau de confiance unique site-wide : RBQ, volume clients, assurance.
  * `showSatisfactionGuarantee` : ajoute la pastille « 100 % satisfaction garantie » (défaut false ; passer true si besoin sur une page).
@@ -34,7 +53,9 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
     image: quebecLogo,
     alt: t.rbqAlt,
     text: t.rbqText,
-    imageHeight: { base: '30px', sm: '32px', md: '36px', lg: '40px' },
+    intrinsicWidth: 500,
+    intrinsicHeight: 198,
+    box: RBQ_BOX,
   };
   const clientsItem = {
     isMetric: true,
@@ -50,7 +71,9 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
     image: trushieldLogo,
     alt: t.trushieldAlt,
     text: t.assurance,
-    imageHeight: { base: '26px', sm: '28px', md: '32px', lg: '36px' },
+    intrinsicWidth: 590,
+    intrinsicHeight: 181,
+    box: TRUSHIELD_BOX,
   };
 
   const TRUST_ITEMS = showSatisfactionGuarantee
@@ -62,7 +85,14 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
   const gap = { base: 4, sm: 7, md: 11, lg: 14 };
 
   return (
-    <Box w="100%" py={paddingY} px={paddingX}>
+    <Box
+      w="100%"
+      py={paddingY}
+      px={paddingX}
+      // Reserve two-row wrap height on mobile so items don't push the page when logos paint
+      minH={{ base: '168px', sm: '112px', md: '128px', lg: '140px' }}
+      boxSizing="border-box"
+    >
       <Flex
         direction="row"
         align="center"
@@ -72,6 +102,7 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
         minW={0}
         maxW="1200px"
         mx="auto"
+        minH={{ base: '112px', sm: '64px', md: '72px', lg: '80px' }}
       >
         {TRUST_ITEMS.map((item, index) => (
           <React.Fragment key={index}>
@@ -84,6 +115,8 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
               textAlign="center"
               gap={1.5}
               py={{ base: 2, sm: 0 }}
+              // Stable column height: logo slot + label (avoids vertical CLS on wrap)
+              minH={{ base: '72px', sm: '64px', md: '72px', lg: '80px' }}
             >
               {item.isMetric ? (
                 <Text
@@ -93,21 +126,34 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
                   color="gray.800"
                   textAlign="center"
                   whiteSpace="nowrap"
+                  h={{ base: '30px', sm: '32px', md: '36px', lg: '40px' }}
+                  display="flex"
+                  alignItems="center"
+                  justifyContent="center"
                 >
                   {item.value}
                 </Text>
               ) : (
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  h={item.imageHeight}
-                  w="auto"
-                  objectFit="contain"
-                  display="block"
-                  loading="lazy"
-                  decoding="async"
+                <Box
+                  w={item.box.width}
+                  h={item.box.height}
                   flexShrink={0}
-                />
+                  overflow="hidden"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    htmlWidth={item.intrinsicWidth}
+                    htmlHeight={item.intrinsicHeight}
+                    w="100%"
+                    h="100%"
+                    objectFit="contain"
+                    display="block"
+                    loading="eager"
+                    decoding="async"
+                    fetchPriority="low"
+                  />
+                </Box>
               )}
               <Text
                 fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
@@ -117,6 +163,7 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
                 textAlign="center"
                 whiteSpace={{ base: 'normal', sm: 'nowrap' }}
                 mt={item.isMetric ? 0.5 : 0}
+                minH={{ base: '2.6em', sm: '1.3em' }}
               >
                 {item.isMetric ? item.label : item.text}
               </Text>

@@ -6,7 +6,6 @@ import {
   Text,
   Stack,
   SimpleGrid,
-  useBreakpointValue,
   HStack,
   IconButton,
   Image,
@@ -22,7 +21,6 @@ export default function CustomProjectsSection({
 }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
-  const columns = useBreakpointValue({ base: 1, sm: 2, md: 3 });
   const [currentImageIndex, setCurrentImageIndex] = useState({});
   const [, setImageLoading] = useState({});
   const [imageErrors, setImageErrors] = useState({});
@@ -94,7 +92,7 @@ export default function CustomProjectsSection({
             )}
           </Stack>
 
-          <SimpleGrid columns={columns} spacing={{ base: 4, md: 5, lg: 6 }}>
+          <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={{ base: 4, md: 5, lg: 6 }}>
             {projects.map((project) => {
               const currentIndex = getCurrentImageIndex(project.id);
               // Filter out null, undefined, and empty string values
@@ -194,6 +192,8 @@ export default function CustomProjectsSection({
                                 h='100%'
                                 loading='lazy'
                                 decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
                                 onLoad={() => {
                                   setImageLoading((prev) => ({
                                     ...prev,

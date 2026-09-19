@@ -118,6 +118,10 @@ export default function ServiceCard({
           objectFit="cover"
           objectPosition="center center"
           display="block"
+          loading="lazy"
+          decoding="async"
+          htmlWidth={800}
+          htmlHeight={600}
         />
         {/* Dark overlay: title + subtitle */}
         <Box
