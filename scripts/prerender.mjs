@@ -283,7 +283,7 @@ async function main() {
     process.exit(1);
   }
 
-  const { content: routes, redirects: legacy, uncovered } = classifyPublicRoutes();
+  const { content: routes, redirects: legacy, spaOnly = [], uncovered } = classifyPublicRoutes();
   if (uncovered.length > 0) {
     console.error(`${c.red}✗ URLs publiques non classées (ni contenu ni redirect) :${c.reset}`);
     uncovered.forEach((p) => console.error(`  ${p}`));
@@ -292,7 +292,7 @@ async function main() {
 
   const template = readTemplateScripts();
   console.log(
-    `\n${c.cyan}${c.bold}Pré-rendu HTML${c.reset} ${c.dim}(${routes.length} pages contenu + ${Object.keys(legacy).length} redirects, ${CONCURRENCY} en parallèle)${c.reset}\n`
+    `\n${c.cyan}${c.bold}Pré-rendu HTML (Site LP)${c.reset} ${c.dim}(${routes.length} pages + ${Object.keys(legacy).length} redirects, ${spaOnly.length} SPA only, ${CONCURRENCY} en parallèle)${c.reset}\n`
   );
 
   const server = await preview({

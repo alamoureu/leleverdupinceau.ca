@@ -1,23 +1,83 @@
 #!/usr/bin/env node
 /**
- * Génère public/sitemap.xml (et dist/sitemap.xml si dist/ existe) à partir de
- * CONTENT_ROUTES, en excluant les landings ads (robots Disallow / noindex).
+ * Génère public/sitemap.xml (et dist/sitemap.xml si dist/ existe)
+ * selon le sitemap officiel "Site LP" (ordre du plan papier).
+ *
+ * Pages marquées "à ajouter" sont incluses même si le HTML n'existe pas encore.
  */
 
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CONTENT_ROUTES } from './all-public-routes.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
 const ORIGIN = 'https://www.leleverdupinceau.ca';
 
-const ADS_PREFIXES = ['/fr/', '/en/'];
-
-function isIndexable(route) {
-  return !ADS_PREFIXES.some((p) => route.startsWith(p));
-}
+/**
+ * Sitemap officiel Site LP - ordre du plan.
+ * Labels = intitulés du papier (référence humaine uniquement).
+ */
+export const OFFICIAL_SITE_LP_ROUTES = [
+  // Accueil & services
+  { path: '/', label: 'Main Page' },
+  { path: '/services', label: 'Tous les services' },
+  { path: '/services/peinture-residentielle', label: 'Résidentiel' },
+  { path: '/services/peinture-commerciale', label: 'Commercial' },
+  { path: '/services/peinture-interieure', label: 'Intérieure' },
+  { path: '/services/peinture-exterieure', label: 'Extérieure' },
+  { path: '/services/peinture-industrielle', label: 'Industrielle' },
+  // Entreprise
+  { path: '/avis-clients', label: 'Avis' },
+  { path: '/blog', label: 'Blog' },
+  { path: '/contact', label: 'Contact' },
+  { path: '/a-propos', label: 'À Propos' },
+  { path: '/peintre-professionnel', label: 'Peintre Professionnel' },
+  // Secteurs desservis
+  { path: '/secteurs', label: 'Secteurs desservis' },
+  { path: '/secteurs/montreal', label: 'Montréal' },
+  { path: '/secteurs/laval', label: 'Laval' },
+  { path: '/secteurs/longueuil', label: 'Longueuil' },
+  { path: '/secteurs/brossard', label: 'Brossard' },
+  { path: '/secteurs/st-lambert', label: 'St-Lambert' },
+  { path: '/secteurs/laprairie', label: 'Laprairie' },
+  { path: '/secteurs/montreal/westmount', label: 'Westmount' },
+  { path: '/secteurs/montreal/outremont', label: 'Outremont' },
+  { path: '/secteurs/montreal/plateau-mont-royal', label: 'Plateau Mont-Royal' },
+  { path: '/secteurs/montreal/ville-marie', label: 'Ville-Marie / Centre-Ville' },
+  // Pages piliers & sous-services
+  { path: '/peinture-interieure-montreal', label: 'Intérieure Montréal' },
+  { path: '/peinture-exterieure-montreal', label: 'Extérieure Montréal' },
+  {
+    path: '/services/peinture-interieure/armoires-de-cuisine',
+    label: 'Armoire de cuisine',
+  },
+  { path: '/services/teinture-exterieure', label: 'Teinture extérieure' },
+  {
+    path: '/services/preparation-de-surfaces',
+    label: 'Préparation de surfaces',
+  },
+  { path: '/services/peinture-au-pistolet', label: 'Pistolet' },
+  // Nos réalisations / sous-pages liées
+  { path: '/realisations', label: 'Nos réalisations' },
+  {
+    path: '/services/reparation-de-platre-et-gypse',
+    label: 'Réparation de plâtre & gypse',
+  },
+  {
+    path: '/services/peinture-apres-sinistre',
+    label: 'Peinture après sinistres',
+  },
+  {
+    path: '/services/peinture-residentielle/maison',
+    label: 'Maison unifamiliale',
+  },
+  { path: '/services/peinture-residentielle/condo', label: 'Condo' },
+  {
+    path: '/services/peinture-residentielle/appartement',
+    label: 'Appartement',
+  },
+];
 
 function priorityFor(route) {
   if (route === '/') return '1.0';
@@ -43,11 +103,7 @@ function changefreqFor(route) {
 }
 
 export function buildSitemapXml(lastmod = new Date().toISOString().slice(0, 10)) {
-  const routes = [...new Set(CONTENT_ROUTES.filter(isIndexable))].sort((a, b) => {
-    if (a === '/') return -1;
-    if (b === '/') return 1;
-    return a.localeCompare(b);
-  });
+  const routes = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
 
   const urls = routes
     .map((route) => {
@@ -77,7 +133,8 @@ export function writeSitemap() {
     fs.writeFileSync(path.join(distDir, 'sitemap.xml'), xml, 'utf8');
   }
   const count = (xml.match(/<loc>/g) || []).length;
-  return { publicPath, count };
+  const pending = OFFICIAL_SITE_LP_ROUTES.filter((r) => r.pending).length;
+  return { publicPath, count, pending };
 }
 
 const isCli =
@@ -85,6 +142,6 @@ const isCli =
   path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 
 if (isCli) {
-  const { count, publicPath } = writeSitemap();
-  console.log(`✓ sitemap.xml (${count} URLs) → ${path.relative(ROOT, publicPath)}`);
+  const { count, pending, publicPath } = writeSitemap();
+  console.log(`✓ sitemap.xml (${count} URLs, ${pending} à ajouter) → ${path.relative(ROOT, publicPath)}`);
 }

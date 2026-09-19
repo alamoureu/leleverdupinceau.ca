@@ -69,8 +69,18 @@ const defaultSectors = [
   },
   {
     name: 'Brossard',
-    link: '/secteurs/rive-sud',
+    link: '/secteurs/brossard',
     image: brossardSecteur,
+  },
+  {
+    name: 'St-Lambert',
+    link: '/secteurs/st-lambert',
+    image: riveSudSecteur,
+  },
+  {
+    name: 'Laprairie',
+    link: '/secteurs/laprairie',
+    image: riveSudSecteur,
   },
   {
     name: 'Rive-Sud',

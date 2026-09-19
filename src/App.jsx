@@ -39,6 +39,9 @@ const LavalCityPage = lazyRoute(() => import('./lelever-next/pages/LavalCityPage
 const LongueuilCityPage = lazyRoute(() => import('./lelever-next/pages/LongueuilCityPage'), 'LongueuilCityPage');
 const GatineauCityPage = lazyRoute(() => import('./lelever-next/pages/GatineauCityPage'), 'GatineauCityPage');
 const RiveSudCityPage = lazyRoute(() => import('./lelever-next/pages/RiveSudCityPage'), 'RiveSudCityPage');
+const BrossardCityPage = lazyRoute(() => import('./lelever-next/pages/BrossardCityPage'), 'BrossardCityPage');
+const StLambertCityPage = lazyRoute(() => import('./lelever-next/pages/StLambertCityPage'), 'StLambertCityPage');
+const LaprairieCityPage = lazyRoute(() => import('./lelever-next/pages/LaprairieCityPage'), 'LaprairieCityPage');
 const ServicesPage = lazyRoute(() => import('./lelever-next/pages/ServicesPage'), 'ServicesPage');
 const PeintureCommercialePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureCommercialePage'), 'PeintureCommercialePage');
 const PeintureExterieurePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureExterieurePage'), 'PeintureExterieurePage');
@@ -109,7 +112,7 @@ export default function App() {
           />
           <Route path="/soumission" element={<Navigate to="/contact" replace />} />
           <Route path="/avis" element={<Navigate to="/avis-clients" replace />} />
-          <Route path="/brossard" element={<Navigate to="/secteurs/rive-sud" replace />} />
+          <Route path="/brossard" element={<Navigate to="/secteurs/brossard" replace />} />
 
           <Route path="/" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><NewHomePage /></Suspense>} />
@@ -157,9 +160,9 @@ export default function App() {
           <Route path="/secteurs-desservis/montreal" element={<Navigate to="/secteurs/montreal" replace />} />
           <Route path="/secteurs-desservis/laval" element={<Navigate to="/secteurs/laval" replace />} />
           <Route path="/secteurs-desservis/longueuil" element={<Navigate to="/secteurs/longueuil" replace />} />
-          <Route path="/secteurs-desservis/brossard" element={<Navigate to="/secteurs/rive-sud" replace />} />
+          <Route path="/secteurs-desservis/brossard" element={<Navigate to="/secteurs/brossard" replace />} />
 
-          {/* /secteurs — URLs canoniques pour toutes les pages de ville */}
+          {/* /secteurs - URLs canoniques pour toutes les pages de ville */}
           <Route path="/secteurs" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><SecteursDesservisPage /></Suspense>} />
             <Route path="montreal" element={<Suspense fallback={<PageSkeleton />}><MontrealCityPage /></Suspense>} />
@@ -169,6 +172,9 @@ export default function App() {
             <Route path="montreal/outremont" element={<Suspense fallback={<PageSkeleton />}><OutremontPage /></Suspense>} />
             <Route path="laval" element={<Suspense fallback={<PageSkeleton />}><LavalCityPage /></Suspense>} />
             <Route path="longueuil" element={<Suspense fallback={<PageSkeleton />}><LongueuilCityPage /></Suspense>} />
+            <Route path="brossard" element={<Suspense fallback={<PageSkeleton />}><BrossardCityPage /></Suspense>} />
+            <Route path="st-lambert" element={<Suspense fallback={<PageSkeleton />}><StLambertCityPage /></Suspense>} />
+            <Route path="laprairie" element={<Suspense fallback={<PageSkeleton />}><LaprairieCityPage /></Suspense>} />
             <Route path="gatineau" element={<Suspense fallback={<PageSkeleton />}><GatineauCityPage /></Suspense>} />
             <Route path="rive-sud" element={<Suspense fallback={<PageSkeleton />}><RiveSudCityPage /></Suspense>} />
           </Route>

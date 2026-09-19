@@ -34,7 +34,6 @@ import montrealSecteur from '../images/mtl.webp';
 import lavalSecteur from '../images/laval.webp';
 import longueuilSecteur from '../images/longueuil.webp';
 import riveSudSecteur from '../images/brossard.webp';
-import gatineauSecteur from '../images/pillar-pages/IMG_2585.webp';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -70,10 +69,11 @@ export default function SecteursDesservisPage() {
     telephone: '+14388680772',
     areaServed: [
       { '@type': 'City', name: 'Montréal' },
-      { '@type': 'City', name: 'Gatineau' },
       { '@type': 'City', name: 'Laval' },
       { '@type': 'City', name: 'Longueuil' },
-      { '@type': 'AdministrativeArea', name: 'Rive-Sud' },
+      { '@type': 'City', name: 'Brossard' },
+      { '@type': 'City', name: 'St-Lambert' },
+      { '@type': 'City', name: 'Laprairie' },
     ],
   };
 
@@ -90,29 +90,6 @@ export default function SecteursDesservisPage() {
       imgScale: 1.25,
       imgTop: '-20px',
     },
-    {
-      name: 'Gatineau',
-      description: isFr
-        ? 'Peinture résidentielle et commerciale à Hull, Aylmer et Gatineau.'
-        : 'Residential and commercial painting in Hull, Aylmer and Gatineau.',
-      link: '/secteurs/gatineau',
-      image: gatineauSecteur,
-      imgScale: 1.12,
-      imgTop: '0',
-    },
-    {
-      name: 'Rive-Sud',
-      description: isFr
-        ? 'Longueuil, Brossard, Saint-Lambert, Saint-Bruno et environs.'
-        : 'Longueuil, Brossard, Saint-Lambert, Saint-Bruno and surrounding areas.',
-      link: '/secteurs/rive-sud',
-      image: riveSudSecteur,
-      imgScale: 1.34,
-      imgTop: '0',
-    },
-  ];
-
-  const citiesRow2 = [
     {
       name: 'Laval',
       description: isFr
@@ -131,6 +108,39 @@ export default function SecteursDesservisPage() {
       link: '/secteurs/longueuil',
       image: longueuilSecteur,
       imgScale: 1,
+      imgTop: '0',
+    },
+  ];
+
+  const citiesRow2 = [
+    {
+      name: 'Brossard',
+      description: isFr
+        ? 'Maisons, condos et commerces dans tous les secteurs de Brossard.'
+        : 'Homes, condos and businesses across all Brossard sectors.',
+      link: '/secteurs/brossard',
+      image: riveSudSecteur,
+      imgScale: 1,
+      imgTop: '0',
+    },
+    {
+      name: 'St-Lambert',
+      description: isFr
+        ? 'Peinture soignée pour maisons de caractère et propriétés familiales.'
+        : 'Careful painting for character homes and family properties.',
+      link: '/secteurs/st-lambert',
+      image: riveSudSecteur,
+      imgScale: 1.34,
+      imgTop: '0',
+    },
+    {
+      name: 'Laprairie',
+      description: isFr
+        ? 'Peinture résidentielle et commerciale à La Prairie et environs.'
+        : 'Residential and commercial painting in La Prairie and nearby.',
+      link: '/secteurs/laprairie',
+      image: riveSudSecteur,
+      imgScale: 1.34,
       imgTop: '0',
     },
   ];

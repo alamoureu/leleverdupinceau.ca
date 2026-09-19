@@ -61,14 +61,14 @@ const aboutBlock = {
 
 export const residentielleMaisonData = {
   name: {
-    fr: 'Peinture de maison',
-    en: 'House painting',
+    fr: 'Peinture maison unifamiliale',
+    en: 'Single-family house painting',
   },
   canonical:
     'https://leleverdupinceau.ca/services/peinture-residentielle/maison',
   h1: {
-    fr: 'Peinture de maison',
-    en: 'House painting',
+    fr: 'Peinture de maison unifamiliale',
+    en: 'Single-family house painting',
   },
   introduction: {
     fr: [
@@ -81,8 +81,8 @@ export const residentielleMaisonData = {
     ],
   },
   whyUsTitle: {
-    fr: 'Pourquoi faire appel à nous pour votre maison',
-    en: 'Why choose us for your house',
+    fr: 'Pourquoi faire appel à nous pour votre maison unifamiliale',
+    en: 'Why choose us for your single-family home',
   },
   whyUsIntro: {
     fr: 'Nous adaptons la méthode à chaque pièce et à chaque étage :',

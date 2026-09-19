@@ -10,6 +10,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { OFFICIAL_SITE_LP_ROUTES } from './generate-sitemap.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
@@ -18,60 +19,32 @@ const CITY_TO_SECTEUR = {
   montreal: '/secteurs/montreal',
   laval: '/secteurs/laval',
   longueuil: '/secteurs/longueuil',
-  brossard: '/secteurs/rive-sud',
+  brossard: '/secteurs/brossard',
 };
 
-/** Pages qui rendent encore du contenu React (pré-rendu HTML complet). */
-export const CONTENT_ROUTES = [
-  '/',
-  '/contact',
-  '/a-propos',
+/**
+ * Pages pré-rendues en HTML (SSR) = sitemap officiel Site LP uniquement.
+ * Les autres routes React restent en SPA (fallback Netlify).
+ */
+export const CONTENT_ROUTES = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
+
+/** Routes app hors Site LP - pas de pré-rendu, pas de 301 forcé. */
+export const SPA_ONLY_ROUTES = [
   '/politique-de-confidentialite',
   '/mentions-legales',
-  '/peintre-professionnel',
-  '/avis-clients',
-  '/realisations',
-  '/peinture-interieure-montreal',
-  '/peinture-exterieure-montreal',
-  '/secteurs',
-  '/secteurs/montreal',
-  '/secteurs/montreal/westmount',
-  '/secteurs/montreal/ville-marie',
-  '/secteurs/montreal/plateau-mont-royal',
-  '/secteurs/montreal/outremont',
-  '/secteurs/laval',
-  '/secteurs/longueuil',
   '/secteurs/gatineau',
   '/secteurs/rive-sud',
-  '/services',
-  '/services/peinture-commerciale',
-  '/services/peinture-exterieure',
-  '/services/peinture-residentielle',
-  '/services/peinture-interieure',
-  '/services/peinture-industrielle',
-  '/services/teinture-exterieure',
-  '/services/preparation-de-surfaces',
-  '/services/peinture-au-pistolet',
-  '/services/reparation-de-platre-et-gypse',
-  '/services/peinture-apres-sinistre',
-  '/services/peinture-residentielle/condo',
-  '/services/peinture-residentielle/appartement',
-  '/services/peinture-residentielle/maison',
   '/services/peinture-residentielle/interieure',
   '/services/peinture-residentielle/exterieure',
   '/services/peinture-commerciale/interieure',
   '/services/peinture-commerciale/exterieure',
-  '/services/peinture-interieure/armoires-de-cuisine',
-  // service × ville (SousServicePage)
   ...['peinture-interieure', 'peinture-exterieure', 'peinture-commerciale', 'peinture-residentielle', 'peinture-industrielle']
     .flatMap((s) => ['montreal', 'laval', 'longueuil', 'brossard'].map((c) => `/services/${s}/${c}`)),
-  '/blog',
   '/blog/comment-choisir-un-peintre-professionnel',
   '/blog/prix-peinture-montreal',
   '/blog/erreurs-a-eviter-peinture-interieure',
   '/blog/peinture-armoires-cuisine-guide',
   '/blog/betonel-vs-benjamin-moore',
-  // landings ads (noindex côté React, mais HTML réel)
   '/fr/peintre-montreal',
   '/fr/peintre-gatineau',
   '/en/peintre-montreal',
@@ -89,14 +62,14 @@ const ALIAS_REDIRECTS = {
   '/politiques/termes-conditions': '/mentions-legales',
   '/soumission': '/contact',
   '/avis': '/avis-clients',
-  '/brossard': '/secteurs/rive-sud',
+  '/brossard': '/secteurs/brossard',
   '/a-propos-de-nous': '/a-propos',
   '/peintre-montreal': '/fr/peintre-montreal',
   '/secteurs-desservis': '/secteurs',
   '/secteurs-desservis/montreal': '/secteurs/montreal',
   '/secteurs-desservis/laval': '/secteurs/laval',
   '/secteurs-desservis/longueuil': '/secteurs/longueuil',
-  '/secteurs-desservis/brossard': '/secteurs/rive-sud',
+  '/secteurs-desservis/brossard': '/secteurs/brossard',
   '/services/new-peinture-interieure': '/services/peinture-interieure',
   '/services/new-peinture-exterieure': '/services/peinture-exterieure',
 };
@@ -200,6 +173,7 @@ function readQuartierLegacyPaths() {
 export function getUniversePaths() {
   const set = new Set([
     ...CONTENT_ROUTES,
+    ...SPA_ONLY_ROUTES,
     ...Object.keys(ALIAS_REDIRECTS),
     ...readLocs(path.join(ROOT, 'public', 'sitemap.xml')),
     ...readLocs(path.join(ROOT, 'public', 'sitemap-test.xml')),
@@ -218,15 +192,17 @@ export function getUniversePaths() {
 }
 
 /**
- * @returns {{ content: string[], redirects: Record<string, string>, uncovered: string[] }}
+ * @returns {{ content: string[], redirects: Record<string, string>, spaOnly: string[], uncovered: string[] }}
  */
 export function classifyPublicRoutes() {
   const contentSet = new Set(CONTENT_ROUTES.map(normalize));
+  const spaOnlySet = new Set(SPA_ONLY_ROUTES.map(normalize));
   const redirects = { ...ALIAS_REDIRECTS };
   const uncovered = [];
 
   for (const pathname of getUniversePaths()) {
     if (contentSet.has(pathname)) continue;
+    if (spaOnlySet.has(pathname)) continue;
     if (redirects[pathname]) continue;
 
     const triple = resolveTriple(pathname);
@@ -235,24 +211,31 @@ export function classifyPublicRoutes() {
       continue;
     }
 
-    // Autres chemins /services/:a/:b inconnus → hub service ou /services
+    // Chemins /services/:a/:b hors Site LP → hub service (sauf SPA_ONLY déjà filtrés)
     const dual = pathname.match(/^\/services\/([^/]+)\/([^/]+)$/);
     if (dual) {
       redirects[pathname] = `/services/${dual[1]}`;
       continue;
     }
 
-    uncovered.push(pathname);
+    // Articles blog / landings / pages hors inventaire → SPA, pas d'échec build
+    spaOnlySet.add(pathname);
   }
 
   for (const [from, to] of Object.entries(redirects)) {
     if (from === to) delete redirects[from];
     if (contentSet.has(from)) delete redirects[from];
+    if (spaOnlySet.has(from)) delete redirects[from];
   }
 
   return {
-    content: [...contentSet].sort(),
+    content: [...contentSet].sort((a, b) => {
+      if (a === '/') return -1;
+      if (b === '/') return 1;
+      return a.localeCompare(b);
+    }),
     redirects,
+    spaOnly: [...spaOnlySet].sort(),
     uncovered,
   };
 }
@@ -279,13 +262,14 @@ export function redirectHtml(from, to) {
 // CLI : rapport de couverture
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  const { content, redirects, uncovered } = classifyPublicRoutes();
-  console.log(`Contenu à pré-rendre : ${content.length}`);
-  console.log(`Redirects 301        : ${Object.keys(redirects).length}`);
-  console.log(`Non classés          : ${uncovered.length}`);
+  const { content, redirects, spaOnly, uncovered } = classifyPublicRoutes();
+  console.log(`Contenu à pré-rendre (Site LP) : ${content.length}`);
+  console.log(`Redirects 301                 : ${Object.keys(redirects).length}`);
+  console.log(`SPA only (pas de HTML SSR)    : ${spaOnly.length}`);
+  console.log(`Non classés                   : ${uncovered.length}`);
   if (uncovered.length) {
     uncovered.forEach((p) => console.log(`  ✗ ${p}`));
     process.exit(1);
   }
-  console.log('OK - toutes les URLs publiques sont classées.');
+  console.log('OK - Site LP pré-rendu ; reste en SPA ou redirect.');
 }
