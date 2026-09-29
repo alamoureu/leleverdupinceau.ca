@@ -59,7 +59,8 @@ function buildDescriptionDuProjet(formData, lang = 'fr') {
 
 /**
  * Payload for POST /api/webhooks/leads/website (custom ERP).
- * Matches docs: name, email, phone, postal_code, description_du_projet, source.
+ * Matches docs: name, email, phone, postal_code, description_du_projet, source, landing_page.
+ * The ERP attributes the lead from landing_page (Google Ads, STLP or organic).
  */
 export function buildErpWebsiteLeadPayload(formData, options = {}) {
   const lang = options.language || formData.language || 'fr';
@@ -76,6 +77,7 @@ export function buildErpWebsiteLeadPayload(formData, options = {}) {
     postal_code,
     description_du_projet,
     source: ERP_LEAD_SOURCE,
+    landing_page: typeof window !== 'undefined' ? window.location.href : '',
   };
 }
 
