@@ -133,14 +133,11 @@ export default function PeintureMontrealHubPage({ variant }) {
             </Text>
             <Stack direction={{ base: 'column', sm: 'row' }} spacing={4} pt={2}>
               <Button
+                variant="ctaOutline"
                 as={RouterLink}
                 to="/secteurs/montreal"
-                variant="outline"
-                borderColor="brand.500"
-                color="brand.500"
                 borderRadius="full"
                 px={8}
-                _hover={{ bg: 'brand.50' }}
               >
                 {isFr ? 'Peintre à Montréal' : 'Painter in Montreal'}
               </Button>
@@ -160,14 +157,12 @@ export default function PeintureMontrealHubPage({ variant }) {
                 {isFr ? 'Hub service détaillé' : 'Full service hub'}
               </Button>
               <Button
+                variant="cta"
                 as={RouterLink}
                 to="/contact"
                 rightIcon={<ArrowForwardIcon />}
-                bg="brand.500"
-                color="white"
                 borderRadius="full"
                 px={8}
-                _hover={{ bg: 'brand.600' }}
               >
                 {isFr ? 'Soumission gratuite' : 'Free quote'}
               </Button>

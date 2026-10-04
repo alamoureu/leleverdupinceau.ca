@@ -34,8 +34,8 @@ export const peintureExterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Si vous souhaitez moderniser, protéger ou rafraîchir l’extérieur de votre maison ou condo à Brossard, nous livrons un résultat impeccable à chaque intervention.',
-          en: '👉 Whether you want to modernize, protect, or refresh the exterior of your home or condo in Brossard, we deliver an impeccable result with every intervention.',
+          fr: 'Si vous souhaitez moderniser, protéger ou rafraîchir l’extérieur de votre maison ou condo à Brossard, nous livrons un résultat impeccable à chaque intervention.',
+          en: 'Whether you want to modernize, protect, or refresh the exterior of your home or condo in Brossard, we deliver an impeccable result with every intervention.',
         },
         whyUsTitle: {
           fr: 'Une finition durable pour les propriétés modernes de Brossard',
@@ -298,8 +298,8 @@ export const peintureExterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour protéger votre propriété et améliorer son apparence, notre équipe de peintres extérieurs à Laval offre une finition durable et impeccable.',
-          en: '👉 To protect your property and improve its appearance, our team of exterior painters in Laval offers a durable and impeccable finish.',
+          fr: 'Pour protéger votre propriété et améliorer son apparence, notre équipe de peintres extérieurs à Laval offre une finition durable et impeccable.',
+          en: 'To protect your property and improve its appearance, our team of exterior painters in Laval offers a durable and impeccable finish.',
         },
         whyUsTitle: {
           fr: 'Une finition durable adaptée au climat de Laval',
@@ -562,8 +562,8 @@ export const peintureExterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour protéger votre maison, améliorer votre façade ou moderniser votre extérieur, nos peintres extérieurs livrent un travail durable et impeccable.',
-          en: '👉 To protect your house, improve your facade or modernize your exterior, our exterior painters deliver durable and impeccable work.',
+          fr: 'Pour protéger votre maison, améliorer votre façade ou moderniser votre extérieur, nos peintres extérieurs livrent un travail durable et impeccable.',
+          en: 'To protect your house, improve your facade or modernize your exterior, our exterior painters deliver durable and impeccable work.',
         },
         whyUsTitle: {
           fr: 'Une protection durable adaptée aux conditions de la Rive-Sud',
@@ -828,8 +828,8 @@ export const peintureExterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous soyez au Plateau, à Outremont, à Rosemont, à NDG ou dans un autre quartier, nos peintres extérieurs à Montréal vous offrent une finition durable et propre.',
-          en: '👉 Whether you are in Plateau, Outremont, Rosemont, NDG or another neighborhood, our exterior painters in Montreal offer you a durable and clean finish.',
+          fr: 'Que vous soyez au Plateau, à Outremont, à Rosemont, à NDG ou dans un autre quartier, nos peintres extérieurs à Montréal vous offrent une finition durable et propre.',
+          en: 'Whether you are in Plateau, Outremont, Rosemont, NDG or another neighborhood, our exterior painters in Montreal offer you a durable and clean finish.',
         },
         whyUsTitle: {
           fr: 'Une protection durable adaptée au climat de Montréal',

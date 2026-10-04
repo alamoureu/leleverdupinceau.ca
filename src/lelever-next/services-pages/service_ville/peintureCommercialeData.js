@@ -34,8 +34,8 @@ export const peintureCommercialeData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous souhaitiez moderniser votre commerce, rafraîchir des bureaux ou rénover un établissement professionnel, notre équipe de peintres commerciaux à Brossard offre un service rapide, propre et professionnel.',
-          en: '👉 Whether you want to modernize your business, refresh offices or renovate a professional establishment, our team of commercial painters in Brossard offers fast, clean and professional service.',
+          fr: 'Que vous souhaitiez moderniser votre commerce, rafraîchir des bureaux ou rénover un établissement professionnel, notre équipe de peintres commerciaux à Brossard offre un service rapide, propre et professionnel.',
+          en: 'Whether you want to modernize your business, refresh offices or renovate a professional establishment, our team of commercial painters in Brossard offers fast, clean and professional service.',
         },
         whyUsTitle: {
           fr: 'Un service pensé pour les entreprises de Brossard',
@@ -310,8 +310,8 @@ export const peintureCommercialeData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour rafraîchir vos bureaux, moderniser un commerce ou rénover l’intérieur d’un établissement professionnel, notre équipe de peintres commerciaux lavallois vous garantit un résultat impeccable.',
-          en: '👉 To refresh your offices, modernize a business or renovate the interior of a professional establishment, our team of Laval commercial painters guarantees you an impeccable result.',
+          fr: 'Pour rafraîchir vos bureaux, moderniser un commerce ou rénover l’intérieur d’un établissement professionnel, notre équipe de peintres commerciaux lavallois vous garantit un résultat impeccable.',
+          en: 'To refresh your offices, modernize a business or renovate the interior of a professional establishment, our team of Laval commercial painters guarantees you an impeccable result.',
         },
         whyUsTitle: {
           fr: 'Un service rapide, organisé et adapté aux entreprises lavalloises',
@@ -580,8 +580,8 @@ export const peintureCommercialeData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour moderniser vos bureaux, rafraîchir votre commerce ou effectuer des travaux dans un établissement professionnel, notre équipe de peintres commerciaux à Longueuil garantit un résultat propre, durable et adapté à votre image.',
-          en: '👉 To modernize your offices, refresh your business or carry out work in a professional establishment, our team of commercial painters in Longueuil guarantees a clean, durable result adapted to your image.',
+          fr: 'Pour moderniser vos bureaux, rafraîchir votre commerce ou effectuer des travaux dans un établissement professionnel, notre équipe de peintres commerciaux à Longueuil garantit un résultat propre, durable et adapté à votre image.',
+          en: 'To modernize your offices, refresh your business or carry out work in a professional establishment, our team of commercial painters in Longueuil guarantees a clean, durable result adapted to your image.',
         },
         whyUsTitle: {
           fr: 'Un service pensé pour les entreprises de Longueuil',
@@ -858,8 +858,8 @@ export const peintureCommercialeData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour rafraîchir votre commerce, moderniser vos bureaux ou améliorer l’image de votre entreprise, nos peintres commerciaux à Montréal livrent un résultat professionnel et durable.',
-          en: "👉 To refresh your business, modernize your offices or improve your company's image, our commercial painters in Montreal deliver a professional and durable result.",
+          fr: 'Pour rafraîchir votre commerce, moderniser vos bureaux ou améliorer l’image de votre entreprise, nos peintres commerciaux à Montréal livrent un résultat professionnel et durable.',
+          en: "To refresh your business, modernize your offices or improve your company's image, our commercial painters in Montreal deliver a professional and durable result.",
         },
         whyUsTitle: {
           fr: 'Un service conçu pour les entreprises montréalaises',

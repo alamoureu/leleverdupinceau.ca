@@ -147,8 +147,8 @@ export default function TermsOfUse() {
           </Heading>
           <Text textStyle="body" color="gray.700">
             {isFr
-              ? 'Pour toute question concernant ces conditions générales, veuillez nous contacter : 📞 (438) 868-0772'
-              : 'For any questions regarding these terms, please contact us: 📞 (438) 868-0772'}
+              ? 'Pour toute question concernant ces conditions générales, veuillez nous contacter : (438) 868-0772'
+              : 'For any questions regarding these terms, please contact us: (438) 868-0772'}
           </Text>
         </Box>
       </Stack>

@@ -6,7 +6,6 @@ import {
   Heading,
   Text,
   Stack,
-  Button,
   Flex,
   Link,
   Icon,
@@ -35,14 +34,51 @@ import {
   FaBriefcase,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
+import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import { RBQ_LICENSE } from '../constants/company';
 
-import heroImg from '../images/neighborhood_placeholder.jpg';
+import heroImg from '../images/3-ville/Montréal/outremont/header.jpg';
+import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
+import cuisineAvant from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
+import cuisineApres from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';
+import hallAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
+import hallApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
+import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
+import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
+import salleMangerAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0826.jpg';
+import salleMangerApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0827.jpg';
+import papierPeintAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint avant.jpg';
+import papierPeintApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint après.jpg';
+import mursVertsAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
+import mursVertsApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
+import platreAvant from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
+import platreApres from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
 
-const PLACEHOLDER = { before: null, after: null };
+const CAROUSEL_IMAGES = [
+  { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - murs repeints sous les moulures d\'origine' },
+  { before: hallAvant, after: hallApres, description: 'Hall d\'entrée - murs, lambris et boiseries' },
+  { before: moulureAvant, after: moulureApres, description: 'Peinture de boiseries - Moulure' },
+  { before: salleMangerAvant, after: salleMangerApres, description: 'Salle à manger - murs, lambris et plafond à caissons' },
+  { before: papierPeintAvant, after: papierPeintApres, description: 'Retrait de papier peint et peinture - Chambre' },
+  { before: mursVertsAvant, after: mursVertsApres, description: 'Chambre - murs et plinthes repeints en blanc' },
+  { before: platreAvant, after: platreApres, description: 'Réparation de plâtre - Coin de mur endommagé' },
+  { before: clotureAvant, after: clotureApres, description: 'Teinture extérieure - Clôture en bois' },
+];
+
+const BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Secteurs', to: '/secteurs' },
+  { label: 'Montréal', to: '/secteurs/montreal' },
+];
 
 const CHECKMARKS = [
   {
@@ -82,11 +118,17 @@ const CONTEXTES = [
     icon: FaCouch,
     title: 'Maison familiale occupée',
     text: 'Protection maximale, progression par zones, coordination simple pour que la vie continue pendant les travaux. Pas de compromis sur la propreté au quotidien.',
+    image: maisonImg,
+    to: '/services/peinture-residentielle',
+    linkLabel: 'Peinture résidentielle',
   },
   {
     icon: FaBuilding,
     title: 'Condo ou unité haut de gamme',
     text: 'Accès, voisinage, propreté et discrétion sont essentiels. Le chantier doit être contrôlé et propre à tout moment, du premier jour à la remise des lieux.',
+    image: condoImg,
+    to: '/services/peinture-residentielle/condo',
+    linkLabel: 'Peinture de condo',
   },
   {
     icon: FaKey,
@@ -163,11 +205,6 @@ const INTERNAL_LINKS = [
     description: 'Avant / après de projets réels pour juger la qualité.',
     to: '/realisations',
   },
-  {
-    title: 'Obtenir une soumission',
-    description: 'Réponse en moins de 24h, sans engagement.',
-    to: '/contact',
-  },
 ];
 
 const FAQS = [
@@ -199,24 +236,6 @@ const FAQS = [
 
 export default function OutremontPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const carouselImages = [
-    {
-      ...PLACEHOLDER,
-      description:
-        'Emplacement 1 : avant/après à tourner sur un chantier Outremont (pas de visuels repris de la page condo).',
-    },
-    {
-      ...PLACEHOLDER,
-      description:
-        'Emplacement 2 : deuxième paire locale pour crédibiliser le quartier sans dupliquer d\'autres services.',
-    },
-    {
-      ...PLACEHOLDER,
-      description:
-        'Emplacement 3 : troisième paire réservée aux réalisations Outremont.',
-    },
-  ];
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -259,7 +278,7 @@ export default function OutremontPage() {
       { '@type': 'City', name: 'Outremont' },
       { '@type': 'City', name: 'Montréal' },
     ],
-    hasCredential: 'RBQ #5864-1481-01',
+    hasCredential: `RBQ #${RBQ_LICENSE}`,
   };
 
   const faqSchema = {
@@ -286,154 +305,39 @@ export default function OutremontPage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext="Outremont"
+          imageBackground={heroImg}
+          title="Peintre à Outremont"
+          subtitle="Des peintres de métier pour les maisons, condos et projets soignés à Outremont."
+          buttonText="Obtenir ma soumission gratuite"
         >
-          <Image
-            src={heroImg}
-            alt="Peintre à Outremont - maisons et condos résidentiels soignés"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Secteurs
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs/montreal"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Montréal
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Outremont
-                  </Text>
-                </HStack>
-
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' }}
-                  fontWeight="700"
-                  color="white"
-                  lineHeight="1.05"
-                  minW={0}
-                >
-                  Peintre à Outremont
-                </Heading>
-
-                <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
-                  color="white"
-                  fontWeight="300"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                  lineHeight="1.5"
-                >
-                  Une équipe de peintres de métier pour les maisons, condos et projets soignés à Outremont.
-                </Text>
-
-                <Text
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="whiteAlpha.900"
-                  maxW={{ base: '100%', md: '620px', lg: '720px' }}
-                  lineHeight="1.7"
-                >
-                  Travaux propres, communication claire, échéancier respecté et finitions nettes pour les propriétés d&apos;Outremont.
-                </Text>
-
-                <Flex gap={3} wrap="wrap" pt={{ base: 2, md: 3 }}>
-                  <Button
-                    size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                  <Button
-                    as={RouterLink}
-                    to="/realisations"
-                    size={{ base: 'md', md: 'lg' }}
-                    variant="outline"
-                    color="white"
-                    borderColor="white"
-                    _hover={{ bg: 'whiteAlpha.200' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Voir nos réalisations à Montréal
-                  </Button>
-                </Flex>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
+          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
+            {BREADCRUMB.map((crumb) => (
+              <Fragment key={crumb.to}>
+                <Link as={RouterLink} to={crumb.to} _hover={{ textDecoration: 'underline', color: 'white' }}>
+                  {crumb.label}
+                </Link>
+                <Text>›</Text>
+              </Fragment>
+            ))}
+            <Text color="white" fontWeight="medium">Outremont</Text>
+          </HStack>
+        </HeroSection>
         <TrustBanner />
+
+        <BeforeAfterCarouselSection
+          isFr={true}
+          title="Quelques réalisations récentes près d'Outremont"
+          subtitle="Des projets montréalais comparables au niveau d'exigence du quartier."
+          images={CAROUSEL_IMAGES}
+          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
+          sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
+        />
+        <PageIntro>
+          Travaux propres, communication claire, échéancier respecté et finitions nettes pour les propriétés d&apos;Outremont.
+        </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS OUTREMONT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -502,8 +406,10 @@ export default function OutremontPage() {
           </Container>
         </Box>
 
+        <ContactFormSection sectionBg="gray.50" />
+
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS À OUTREMONT ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
@@ -528,12 +434,23 @@ export default function OutremontPage() {
                     border="1px solid"
                     borderColor="gray.200"
                     borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
+                    overflow="hidden"
                     boxShadow="sm"
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
                   >
-                    <Stack spacing={4}>
+                    {item.image && (
+                      <Image
+                        src={item.image}
+                        alt={`${item.title} - peinture à Outremont`}
+                        w="100%"
+                        h={{ base: '180px', md: '200px' }}
+                        objectFit="cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    )}
+                    <Stack spacing={4} p={{ base: 6, md: 7 }}>
                       <Flex w="48px" h="48px" borderRadius="xl" bg="brand.50" align="center" justify="center">
                         <Icon as={item.icon} color="brand.500" boxSize={5} />
                       </Flex>
@@ -543,6 +460,11 @@ export default function OutremontPage() {
                       <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
                         {item.text}
                       </Text>
+                      {item.to && (
+                        <Link as={RouterLink} to={item.to} color="brand.500" fontWeight="600" fontSize="sm">
+                          {item.linkLabel} <ArrowForwardIcon boxSize={3} />
+                        </Link>
+                      )}
                     </Stack>
                   </Box>
                 ))}
@@ -582,7 +504,7 @@ export default function OutremontPage() {
         </Box>
 
         {/* ===== SECTION 5 - SERVICES LES PLUS PERTINENTS POUR OUTREMONT ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
@@ -635,16 +557,6 @@ export default function OutremontPage() {
             </Stack>
           </Container>
         </Box>
-
-        {/* ===== SECTION 6 - RÉALISATIONS PROCHES D'OUTREMONT ===== */}
-        <BeforeAfterCarouselSection
-          isFr={true}
-          title="Quelques réalisations récentes près d'Outremont"
-          subtitle="La meilleure preuve locale reste de montrer des projets montréalais comparables au niveau d'exigence du quartier."
-          images={carouselImages}
-          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
-          sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
-        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">

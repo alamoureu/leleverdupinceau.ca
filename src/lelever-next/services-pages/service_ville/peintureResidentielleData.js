@@ -34,8 +34,8 @@ export const peintureResidentielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous soyez dans un secteur familial ou près du DIX30, nous pouvons transformer votre maison ou condo rapidement et proprement.',
-          en: '👉 Whether you are in a family sector or near DIX30, we can transform your house or condo quickly and cleanly.',
+          fr: 'Que vous soyez dans un secteur familial ou près du DIX30, nous pouvons transformer votre maison ou condo rapidement et proprement.',
+          en: 'Whether you are in a family sector or near DIX30, we can transform your house or condo quickly and cleanly.',
         },
         whyUsTitle: {
           fr: 'Un service adapté aux maisons et constructions de Brossard',
@@ -301,8 +301,8 @@ export const peintureResidentielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous souhaitiez transformer votre salon, rafraîchir une façade ou repeindre une maison complète, notre équipe de peintres résidentiels à Laval est prête à intervenir rapidement.',
-          en: '👉 Whether you want to transform your living room, refresh a facade or repaint a complete house, our team of residential painters in Laval is ready to work quickly.',
+          fr: 'Que vous souhaitiez transformer votre salon, rafraîchir une façade ou repeindre une maison complète, notre équipe de peintres résidentiels à Laval est prête à intervenir rapidement.',
+          en: 'Whether you want to transform your living room, refresh a facade or repaint a complete house, our team of residential painters in Laval is ready to work quickly.',
         },
         whyUsTitle: {
           fr: 'Adapté aux styles de maisons lavalloises',
@@ -566,8 +566,8 @@ export const peintureResidentielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous soyez dans le Vieux-Longueuil, Saint-Hubert, Greenfield Park ou un autre secteur de Longueuil, notre équipe de peintres résidentiels peut se déplacer rapidement pour votre projet.',
-          en: '👉 Whether you are in Vieux-Longueuil, Saint-Hubert, Greenfield Park or another sector of Longueuil, our team of residential painters can move quickly for your project.',
+          fr: 'Que vous soyez dans le Vieux-Longueuil, Saint-Hubert, Greenfield Park ou un autre secteur de Longueuil, notre équipe de peintres résidentiels peut se déplacer rapidement pour votre projet.',
+          en: 'Whether you are in Vieux-Longueuil, Saint-Hubert, Greenfield Park or another sector of Longueuil, our team of residential painters can move quickly for your project.',
         },
         whyUsTitle: {
           fr: 'Adapté aux propriétés de la Rive-Sud',
@@ -832,8 +832,8 @@ export const peintureResidentielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous souhaitiez moderniser une pièce, rafraîchir votre façade ou rénover un intérieur complet, notre équipe offre des résultats impeccables dans tous les quartiers de Montréal.',
-          en: '👉 Whether you want to modernize a room, refresh your facade or renovate a complete interior, our team offers impeccable results in all neighborhoods of Montreal.',
+          fr: 'Que vous souhaitiez moderniser une pièce, rafraîchir votre façade ou rénover un intérieur complet, notre équipe offre des résultats impeccables dans tous les quartiers de Montréal.',
+          en: 'Whether you want to modernize a room, refresh your facade or renovate a complete interior, our team offers impeccable results in all neighborhoods of Montreal.',
         },
         whyUsTitle: {
           fr: 'Adapté aux maisons, plex et condos montréalais',

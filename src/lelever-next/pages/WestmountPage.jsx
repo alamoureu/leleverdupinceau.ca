@@ -36,10 +36,42 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
+import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import ContactFormSection from '../home-page/ContactFormSection';
 
 import heroImg from '../images/neighborhood_placeholder.jpg';
+import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
+import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
+import emmenagementImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
+import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import salleEauAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0807.jpg';
+import salleEauApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0808.jpg';
+import salleMangerAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0826.jpg';
+import salleMangerApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0827.jpg';
+import porteAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0828.jpg';
+import porteApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0829.jpg';
+import chambreAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0846.jpg';
+import chambreApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0847.jpg';
+import hallAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0855.jpg';
+import hallApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0856.jpg';
+import plintheAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0861.jpg';
+import plintheApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0862.jpg';
+import salonAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_5984.jpg';
+import salonApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_5982.jpg';
+
+const BEFORE_AFTER = [
+  { before: salleEauAvant, after: salleEauApres, description: 'Salle d\'eau - murs repeints, moulures rafraîchies' },
+  { before: salleMangerAvant, after: salleMangerApres, description: 'Salle à manger - murs, lambris et plafond à caissons' },
+  { before: porteAvant, after: porteApres, description: 'Porte d\'entrée - décapage et laque lustrée' },
+  { before: chambreAvant, after: chambreApres, description: 'Chambre - murs et plinthes repeints en blanc' },
+  { before: hallAvant, after: hallApres, description: 'Hall d\'entrée - murs, lambris et boiseries' },
+  { before: plintheAvant, after: plintheApres, description: 'Plinthes - réparation et finition nette' },
+  { before: salonAvant, after: salonApres, description: 'Salon en baie - murs, moulures et fenêtres' },
+];
 
 const CHECKMARKS = [
   {
@@ -77,28 +109,41 @@ const CHECKMARKS = [
 const CONTEXTES = [
   {
     icon: FaHome,
+    image: maisonImg,
     title: 'Maison occupée avec standards élevés',
     text: 'Protection totale des surfaces existantes, propreté quotidienne, zones de travail bien séquencées et communication rassurante à chaque étape du chantier.',
+    to: '/services/peinture-residentielle',
+    linkLabel: 'Voir la peinture de maison',
   },
   {
     icon: FaBuilding,
+    image: condoImg,
     title: 'Condo raffiné ou unité haut de gamme',
     text: 'Accès, ascenseur, circulation du matériel, voisinage et gestion discrète du chantier : tout est planifié pour minimiser les irritants en copropriété.',
+    to: '/services/peinture-residentielle/condo',
+    linkLabel: 'Voir la peinture de condo',
   },
   {
     icon: FaTag,
+    image: miseEnVenteImg,
     title: 'Rafraîchissement avant mise en vente',
     text: 'Délais clairs, finition nette et propre, projet qui valorise immédiatement l\'espace. Un résultat visible en quelques jours pour maximiser la présentation.',
   },
   {
     icon: FaKey,
+    image: emmenagementImg,
     title: 'Mise à niveau avant emménagement',
     text: 'Travaux coordonnés avant l\'installation du mobilier et de la routine familiale. C\'est souvent le meilleur moment pour intervenir efficacement.',
+    to: '/services/peinture-residentielle/appartement',
+    linkLabel: 'Voir la peinture d\'appartement',
   },
   {
     icon: FaBriefcase,
+    image: commercialImg,
     title: 'Intervention commerciale légère ou bureau professionnel',
     text: 'Horaires encadrés, chantier propre et image soignée. Le chantier ne doit pas déranger les activités professionnelles en cours.',
+    to: '/services/peinture-commerciale',
+    linkLabel: 'Voir la peinture commerciale',
   },
 ];
 
@@ -194,11 +239,6 @@ const INTERNAL_LINKS = [
     title: 'Nos réalisations',
     description: 'Avant / après de projets réels pour juger la qualité.',
     to: '/realisations',
-  },
-  {
-    title: 'Demander une soumission',
-    description: 'Réponse en moins de 24h, sans engagement.',
-    to: '/contact',
   },
   {
     title: 'Nos autres secteurs à Montréal',
@@ -382,21 +422,10 @@ export default function WestmountPage() {
                   Une équipe de peintres de métier pour vos projets résidentiels et commerciaux légers à Westmount.
                 </Text>
 
-                <Text
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="whiteAlpha.900"
-                  maxW={{ base: '100%', md: '620px', lg: '720px' }}
-                  lineHeight="1.7"
-                >
-                  Maisons haut de gamme, condos occupés, espaces raffinés : nous réalisons des projets propres, discrets et bien coordonnés dans le secteur de Westmount.
-                </Text>
-
                 <Flex gap={3} wrap="wrap" pt={{ base: 2, md: 3 }}>
                   <Button
+                    variant="cta"
                     size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
                     rightIcon={<ArrowForwardIcon />}
                     onClick={onOpen}
                     borderRadius="full"
@@ -406,13 +435,10 @@ export default function WestmountPage() {
                     Obtenir ma soumission gratuite
                   </Button>
                   <Button
+                    variant="ctaOutlineLight"
                     as={RouterLink}
                     to="/realisations"
                     size={{ base: 'md', md: 'lg' }}
-                    variant="outline"
-                    color="white"
-                    borderColor="white"
-                    _hover={{ bg: 'whiteAlpha.200' }}
                     rightIcon={<ArrowForwardIcon />}
                     borderRadius="full"
                     px={{ base: 6, md: 8 }}
@@ -426,6 +452,9 @@ export default function WestmountPage() {
           </Container>
         </Box>
         <TrustBanner />
+        <PageIntro>
+          Maisons haut de gamme, condos occupés, espaces raffinés : nous réalisons des projets propres, discrets et bien coordonnés dans le secteur de Westmount.
+        </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS WESTMOUNT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -494,6 +523,15 @@ export default function WestmountPage() {
           </Container>
         </Box>
 
+        <BeforeAfterCarouselSection
+          isFr
+          title="Nos réalisations à Westmount"
+          subtitle="Des projets réels, avant et après, dans des maisons et condos du secteur."
+          images={BEFORE_AFTER}
+          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
+          sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
+        />
+
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS À WESTMOUNT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -512,85 +550,72 @@ export default function WestmountPage() {
                 </Text>
               </Stack>
 
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-                {CONTEXTES.slice(0, 3).map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
-                    boxShadow="sm"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                  >
-                    <Stack spacing={4}>
-                      <Flex
-                        w="48px"
-                        h="48px"
-                        borderRadius="xl"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading
-                        as="h3"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        fontWeight="700"
-                        color="gray.800"
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                        {item.text}
-                      </Text>
-                    </Stack>
-                  </Box>
-                ))}
-              </SimpleGrid>
-
               <Flex wrap="wrap" justify="center" gap={6}>
-                {CONTEXTES.slice(3).map((item, i) => (
+                {CONTEXTES.map((item) => (
                   <Box
-                    key={i}
+                    key={item.title}
                     bg="white"
                     border="1px solid"
                     borderColor="gray.200"
                     borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
+                    overflow="hidden"
                     boxShadow="sm"
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
                     w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
-                    maxW={{ lg: '420px' }}
+                    display="flex"
+                    flexDirection="column"
                   >
-                    <Stack spacing={4}>
-                      <Flex
-                        w="48px"
-                        h="48px"
-                        borderRadius="xl"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading
-                        as="h3"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        fontWeight="700"
-                        color="gray.800"
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} à Westmount`}
+                      w="100%"
+                      h={{ base: '180px', md: '200px' }}
+                      objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <Stack spacing={4} p={{ base: 6, md: 7 }} flex={1}>
+                      <HStack spacing={3} align="center">
+                        <Flex
+                          w="40px"
+                          h="40px"
+                          borderRadius="lg"
+                          bg="brand.50"
+                          align="center"
+                          justify="center"
+                          flexShrink={0}
+                        >
+                          <Icon as={item.icon} color="brand.500" boxSize={4} />
+                        </Flex>
+                        <Heading
+                          as="h3"
+                          fontSize={{ base: 'md', md: 'lg' }}
+                          fontWeight="700"
+                          color="gray.800"
+                          lineHeight="1.3"
+                        >
+                          {item.title}
+                        </Heading>
+                      </HStack>
+                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7" flex={1}>
                         {item.text}
                       </Text>
+                      {item.to && (
+                        <Link
+                          as={RouterLink}
+                          to={item.to}
+                          color="brand.500"
+                          fontSize="sm"
+                          fontWeight="600"
+                          display="inline-flex"
+                          alignItems="center"
+                          gap={1}
+                        >
+                          {item.linkLabel}
+                          <ArrowForwardIcon boxSize={3} />
+                        </Link>
+                      )}
                     </Stack>
                   </Box>
                 ))}
@@ -598,6 +623,8 @@ export default function WestmountPage() {
             </Stack>
           </Container>
         </Box>
+
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
 
         {/* ===== SECTION 5 - SERVICES LES PLUS DEMANDÉS À WESTMOUNT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">

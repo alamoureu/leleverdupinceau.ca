@@ -25,16 +25,31 @@ import laprairieSecteur from '../images/laprairie.webp';
 // Export images for reuse
 export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
 
-/** Cadrage des tuiles secteurs (object-fit cover + scale, comme Montréal). */
-function sectorTileImageProps(sectorName) {
-  if (sectorName === 'Montréal') {
+/** Centre vertical de l'icône pin (au-dessus du nom dans la tuile). */
+const PIN_CENTER_TOP = 'calc(50% - 18px)';
+
+/**
+ * Cadrage des tuiles secteurs. `focus` (en % de l'image) place le centre de la
+ * zone surlignée sous le pin ; le zoom de 150 % garde la tuile couverte sur mobile.
+ * `!important` : index.html plafonne `img[width][height]` à max-width 100 %.
+ */
+function sectorTileImageProps(sector) {
+  if (sector.imageTransform) return sector.imageTransform;
+  if (sector.focus) {
     return {
-      top: '-20px',
-      transform: 'scale(1.25)',
-      transformOrigin: 'center center',
+      top: PIN_CENTER_TOP,
+      left: '50%',
+      w: '150%',
+      h: 'auto',
+      maxW: 'none !important',
+      objectFit: undefined,
+      transform: `translate(-${sector.focus.x}%, -${sector.focus.y}%)`,
     };
   }
-  return { top: 0, transform: undefined, transformOrigin: 'center center' };
+  if (sector.name === 'Montréal') {
+    return { top: '-20px', transform: 'scale(1.25)' };
+  }
+  return {};
 }
 
 const defaultSectors = [
@@ -62,11 +77,13 @@ const defaultSectors = [
     name: 'Saint-Lambert',
     link: '/secteurs/st-lambert',
     image: stLambertSecteur,
+    focus: { x: 53, y: 60 },
   },
   {
     name: 'La Prairie',
     link: '/secteurs/laprairie',
     image: laprairieSecteur,
+    focus: { x: 55, y: 61 },
   },
 ];
 
@@ -115,8 +132,7 @@ export default function SectorsSection({
             maxW={{ base: '600px', md: '900px' }}
           >
             {sectorsToDisplay.map((sector, index) => {
-              const imgProps =
-                sector.imageTransform || sectorTileImageProps(sector.name);
+              const imgProps = sectorTileImageProps(sector);
 
               const InnerContent = (
                 <Box
@@ -152,14 +168,14 @@ export default function SectorsSection({
                           }`
                     }
                     position="absolute"
-                    top={imgProps.top}
+                    top={0}
                     left={0}
                     w="100%"
                     h="100%"
                     objectFit="cover"
                     zIndex={0}
-                    transform={imgProps.transform}
-                    transformOrigin={imgProps.transformOrigin}
+                    transformOrigin="center center"
+                    {...imgProps}
                     loading="lazy"
                     decoding="async"
                     htmlWidth={600}
@@ -249,15 +265,12 @@ export default function SectorsSection({
               _hover={{ textDecoration: 'none' }}
             >
               <Button
+                variant="ctaOutline"
                 rightIcon={<ArrowForwardIcon />}
-                variant="outline"
-                borderColor="brand.500"
-                color="brand.500"
                 borderRadius="full"
                 textStyle="nav"
                 px={{ base: 5, md: 7 }}
                 py={{ base: 3, md: 4 }}
-                _hover={{ bg: 'brand.500', color: 'white' }}
               >
                 {displayButtonText}
               </Button>

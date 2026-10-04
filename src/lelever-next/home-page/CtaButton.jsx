@@ -4,21 +4,6 @@ import ShakeButton from './ShakeButton';
 
 const WRAPPER_STYLE = { maxWidth: '420px' };
 
-const VARIANTS = {
-  primary: {
-    bg: 'brand.500',
-    color: 'white',
-    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
-    _hover: { bg: 'brand.600' },
-  },
-  light: {
-    bg: 'white',
-    color: 'brand.500',
-    boxShadow: '0 2px 6px rgba(0, 0, 0, 0.12)',
-    _hover: { bg: 'gray.50' },
-  },
-};
-
 /**
  * Bouton call-to-action unique du site : même taille partout + respiration lente.
  * `fullWidth` remplit le parent (ex. formulaire) au lieu du max 420px.
@@ -32,6 +17,7 @@ export default function CtaButton({
   return (
     <ShakeButton style={fullWidth ? undefined : WRAPPER_STYLE}>
       <Button
+        variant={variant === 'light' ? 'ctaLight' : 'cta'}
         w="100%"
         h="auto"
         minH={{ base: '56px', md: '64px', lg: '72px' }}
@@ -43,8 +29,6 @@ export default function CtaButton({
         borderRadius="full"
         whiteSpace="normal"
         lineHeight="1.15"
-        transition="background-color 0.2s ease"
-        {...VARIANTS[variant]}
         {...props}
       >
         {children}

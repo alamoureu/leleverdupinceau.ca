@@ -64,10 +64,8 @@ export default function TeamSection({ pageContext = '' }) {
               w={{ base: '100%', md: 'auto' }}
             >
               <Button
+                variant='ctaOutline'
                 rightIcon={<ArrowForwardIcon />}
-                variant='outline'
-                borderColor='brand.500'
-                color='brand.500'
                 borderRadius='full'
                 textStyle='nav'
                 px={{ base: 4, sm: 5, md: 7 }}
@@ -76,7 +74,6 @@ export default function TeamSection({ pageContext = '' }) {
                 maxW={{ base: '100%', sm: '100%', md: 'none' }}
                 whiteSpace='normal'
                 wordBreak='break-word'
-                _hover={{ bg: 'brand.500', color: 'white' }}
               >
                 {t.learnMorePainters}
               </Button>

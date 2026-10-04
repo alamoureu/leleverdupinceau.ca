@@ -161,10 +161,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         <TrustBanner />
 
         {/* 3. Services (2 cartes : intérieure + extérieure) */}
-        <LandingServicesSection
-          onSubmissionOpen={onOpen}
-          sectionPy={LANDING_SECTION_PY}
-        />
+        <LandingServicesSection sectionPy={LANDING_SECTION_PY} />
 
         {/* 4. Section garantie — CTA + badge + engagement */}
         <GuaranteeSection

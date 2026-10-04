@@ -376,29 +376,24 @@ export default function LongueuilCityPage() {
                 <HStack spacing={4} pt={2} flexWrap="wrap">
                   <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                     <Button
+                      variant="cta"
                       rightIcon={<ArrowForwardIcon />}
-                      bg="brand.500"
-                      color="white"
                       borderRadius="full"
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 6, md: 8 }}
                       size="lg"
-                      _hover={{ bg: 'brand.600' }}
                     >
                       {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                     </Button>
                   </Link>
                   <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
                     <Button
+                      variant="ctaOutline"
                       rightIcon={<ArrowForwardIcon />}
-                      variant="outline"
-                      borderColor="brand.500"
-                      color="brand.500"
                       borderRadius="full"
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 6, md: 8 }}
                       size="lg"
-                      _hover={{ bg: 'brand.500', color: 'white' }}
                     >
                       {isFr ? 'Voir nos réalisations' : 'View our projects'}
                     </Button>

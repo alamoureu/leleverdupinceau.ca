@@ -442,10 +442,8 @@ export default function PeintureInterieurePage() {
 
                 <Box pt={{ base: 2, md: 3 }}>
                   <Button
+                    variant="cta"
                     size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
                     rightIcon={<ArrowForwardIcon />}
                     onClick={onOpen}
                     borderRadius="full"

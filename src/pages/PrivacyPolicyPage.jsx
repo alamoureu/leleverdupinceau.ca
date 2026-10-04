@@ -141,8 +141,8 @@ export default function PrivacyPolicyPage() {
           </Heading>
           <Text textStyle="body" color="gray.700">
             {isFr
-              ? 'Pour toute question concernant notre politique de confidentialité, veuillez nous contacter : 📞 (438) 868-0772'
-              : 'For any questions regarding our privacy policy, please contact us: 📞 (438) 868-0772'}
+              ? 'Pour toute question concernant notre politique de confidentialité, veuillez nous contacter : (438) 868-0772'
+              : 'For any questions regarding our privacy policy, please contact us: (438) 868-0772'}
           </Text>
         </Box>
       </Stack>

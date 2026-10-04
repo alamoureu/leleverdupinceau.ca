@@ -19,7 +19,6 @@ import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
-import ReviewsSection from '../home-page/ReviewsSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import heroImage from '../images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG';
@@ -269,15 +268,12 @@ export default function BlogPage() {
                       w={{ base: '100%', md: 'auto' }}
                     >
                       <Button
+                        variant='ctaOutline'
                         rightIcon={<ArrowForwardIcon />}
-                        variant='outline'
-                        borderColor='brand.500'
-                        color='brand.500'
                         borderRadius='full'
                         textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: 'brand.500', color: 'white' }}
                         whiteSpace='normal'
                         textAlign='center'
                         lineHeight='1.4'
@@ -378,8 +374,6 @@ export default function BlogPage() {
             </Box>
           </Stack>
         </Container>
-
-        <ReviewsSection />
 
         <FinalCTASection
           title={isFr ? 'Planifiez votre prochain projet de peinture' : 'Plan your next painting project'}

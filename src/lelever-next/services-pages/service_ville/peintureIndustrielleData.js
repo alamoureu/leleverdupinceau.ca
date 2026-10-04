@@ -34,8 +34,8 @@ export const peintureIndustrielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour moderniser vos infrastructures, améliorer leur sécurité ou prolonger leur durabilité, notre équipe intervient rapidement dans toute la ville de Brossard.',
-          en: '👉 To modernize your infrastructure, improve their security or extend their durability, our team works quickly throughout the city of Brossard.',
+          fr: 'Pour moderniser vos infrastructures, améliorer leur sécurité ou prolonger leur durabilité, notre équipe intervient rapidement dans toute la ville de Brossard.',
+          en: 'To modernize your infrastructure, improve their security or extend their durability, our team works quickly throughout the city of Brossard.',
         },
         whyUsTitle: {
           fr: 'La solution idéale pour vos bâtiments industriels',
@@ -278,8 +278,8 @@ export const peintureIndustrielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour renforcer la durabilité de vos installations industrielles, améliorer la sécurité ou moderniser vos espaces techniques, notre équipe intervient rapidement dans toute la ville de Laval.',
-          en: '👉 To strengthen the durability of your industrial installations, improve security or modernize your technical spaces, our team works quickly throughout the city of Laval.',
+          fr: 'Pour renforcer la durabilité de vos installations industrielles, améliorer la sécurité ou moderniser vos espaces techniques, notre équipe intervient rapidement dans toute la ville de Laval.',
+          en: 'To strengthen the durability of your industrial installations, improve security or modernize your technical spaces, our team works quickly throughout the city of Laval.',
         },
         whyUsTitle: {
           fr: 'Résistance, durabilité et conformité industrielle',
@@ -524,8 +524,8 @@ export const peintureIndustrielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour améliorer la durabilité de vos surfaces industrielles, renforcer la sécurité ou moderniser vos installations, nos peintres industriels sont disponibles rapidement à Longueuil.',
-          en: '👉 To improve the durability of your industrial surfaces, strengthen security or modernize your installations, our industrial painters are available quickly in Longueuil.',
+          fr: 'Pour améliorer la durabilité de vos surfaces industrielles, renforcer la sécurité ou moderniser vos installations, nos peintres industriels sont disponibles rapidement à Longueuil.',
+          en: 'To improve the durability of your industrial surfaces, strengthen security or modernize your installations, our industrial painters are available quickly in Longueuil.',
         },
         whyUsTitle: {
           fr: 'Résistance, sécurité et durabilité pour vos installations industrielles',
@@ -772,8 +772,8 @@ export const peintureIndustrielleData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Pour prolonger la durée de vie de vos surfaces industrielles et améliorer la sécurité et l’apparence de vos installations, notre équipe intervient rapidement dans tout Montréal.',
-          en: '👉 To extend the lifespan of your industrial surfaces and improve the security and appearance of your installations, our team works quickly throughout Montreal.',
+          fr: 'Pour prolonger la durée de vie de vos surfaces industrielles et améliorer la sécurité et l’apparence de vos installations, notre équipe intervient rapidement dans tout Montréal.',
+          en: 'To extend the lifespan of your industrial surfaces and improve the security and appearance of your installations, our team works quickly throughout Montreal.',
         },
         whyUsTitle: {
           fr: 'Un service conçu pour les environnements industriels montréalais',

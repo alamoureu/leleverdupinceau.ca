@@ -23,6 +23,10 @@ Utiliser uniquement le tiret simple `-` ou une virgule selon le contexte.
 
 Cette règle s'applique à **tout** : strings JSX, commentaires visibles, JSON-LD, meta descriptions, alt text, title attributes, données de composants (arrays, objets), et contenu bilingue (français et anglais).
 
+## Aucun emoji
+
+**JAMAIS d'emoji dans le contenu du site** (👉, ✔, ❌, 📞, ★, 📷, etc.) : textes, données, meta descriptions, avis. Pour une icône, utiliser une icône Chakra ou FontAwesome. Pour styler une liste, utiliser un champ de données (ex. `variant: 'warning'`), pas un caractère.
+
 ## Accents français
 
 Toujours utiliser les accents corrects dans tout le contenu français :
@@ -38,7 +42,7 @@ Toujours utiliser les accents corrects dans tout le contenu français :
 Le héros contient **seulement** : fil d'Ariane, titre H1, **une** phrase courte (15 mots max), bouton CTA.
 
 - Jamais de paragraphe, jamais de deuxième bloc de texte (`description`) dans le héros.
-- Un texte d'intro plus long va dans la première section **sous** le héros (ou est retiré), jamais par-dessus la photo.
+- Un texte d'intro plus long va dans `<PageIntro>` (`components/PageIntro.jsx`), placé juste après `<TrustBanner />`, jamais par-dessus la photo.
 - Avant de livrer une page, vérifier le héros dans le navigateur : si le texte dépasse ~2 lignes sur desktop, c'est trop.
 
 ```jsx

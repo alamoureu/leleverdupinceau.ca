@@ -35,6 +35,7 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -329,15 +330,6 @@ export default function PeintureExterieurMontrealPage() {
                   Façades, balcons, escaliers, corniches et revêtements peints pour résister au climat montréalais.
                 </Text>
 
-                <Text
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="white"
-                  maxW={{ base: '100%', md: '640px', lg: '720px' }}
-                  lineHeight="1.6"
-                >
-                  Un service de peinture extérieure pensé pour les bâtiments montréalais : saison courte, surfaces exposées, accès serrés, hauteurs, escaliers métalliques, briques et revêtements visibles.
-                </Text>
-
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   spacing={4}
@@ -345,10 +337,8 @@ export default function PeintureExterieurMontrealPage() {
                   align={{ base: 'flex-start', sm: 'center' }}
                 >
                   <Button
+                    variant="cta"
                     size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
                     rightIcon={<ArrowForwardIcon />}
                     onClick={onOpen}
                     borderRadius="full"
@@ -373,6 +363,9 @@ export default function PeintureExterieurMontrealPage() {
           </Container>
         </Box>
         <TrustBanner />
+        <PageIntro>
+          Un service de peinture extérieure pensé pour les bâtiments montréalais : saison courte, surfaces exposées, accès serrés, hauteurs, escaliers métalliques, briques et revêtements visibles.
+        </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS EXTÉRIEUR MONTRÉAL ===== */}
         <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">

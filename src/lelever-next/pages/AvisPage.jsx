@@ -22,6 +22,7 @@ import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import { GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from '../constants/googleReviews';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
+import PageIntro from '../components/PageIntro';
 import ReviewsSection from '../home-page/ReviewsSection';
 import GoogleReviewBadge from '../home-page/GoogleReviewBadge';
 import BeforeAfterCarouselSection, { buildDefaultImages } from '../home-page/BeforeAfterCarouselSection';
@@ -206,34 +207,21 @@ export default function AvisPage() {
                   color="gray.600"
                   lineHeight="1.7"
                   maxW="800px"
-                >
-                  {isFr
-                    ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur - toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons.'
-                    : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior - all our work is carried out with precision, cleanliness and impeccable attention to detail. This page brings together authentic reviews from our clients in Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve.'}
-                </Text>
-                <Text
-                  textStyle="bodyLarge"
-                  color="gray.600"
-                  lineHeight="1.7"
-                  maxW="800px"
-                  mt={{ base: 2, md: 4 }}
                   fontWeight="medium"
                 >
                   {isFr
-                    ? '👉 Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
-                    : '👉 Discover their testimonials, before/after photos and complete evaluations.'}
+                    ? 'Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
+                    : 'Discover their testimonials, before/after photos and complete evaluations.'}
                 </Text>
                 <Box>
                   <Link href={GOOGLE_REVIEWS_URL} rel="nofollow" target="_blank" _hover={{ textDecoration: 'none' }}>
                     <Button
+                      variant="cta"
                       rightIcon={<ArrowForwardIcon />}
-                      bg="brand.500"
-                      color="white"
                       borderRadius="full"
                       textStyle="nav"
                       px={{ base: 5, md: 7 }}
                       py={{ base: 3, md: 4 }}
-                      _hover={{ bg: 'brand.600' }}
                     >
                       {isFr ? 'Laisser un avis Google' : 'Leave a Google review'}
                     </Button>
@@ -265,6 +253,11 @@ export default function AvisPage() {
             </Box>
           </Grid>
           <Stack spacing={0}>
+            <PageIntro>
+              {isFr
+                ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur - toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons.'
+                : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior - all our work is carried out with precision, cleanliness and impeccable attention to detail. This page brings together authentic reviews from our clients in Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve.'}
+            </PageIntro>
             <ReviewsSection hideButton />
 
             <Box

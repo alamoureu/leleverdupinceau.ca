@@ -36,8 +36,8 @@ export const peintureInterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous souhaitiez rafraîchir quelques pièces ou repeindre l’intérieur complet de votre maison ou condo, notre équipe vous garantit un résultat impeccable.',
-          en: '👉 Whether you want to refresh a few rooms or repaint the complete interior of your house or condo, our team guarantees you an impeccable result.',
+          fr: 'Que vous souhaitiez rafraîchir quelques pièces ou repeindre l’intérieur complet de votre maison ou condo, notre équipe vous garantit un résultat impeccable.',
+          en: 'Whether you want to refresh a few rooms or repaint the complete interior of your house or condo, our team guarantees you an impeccable result.',
         },
         whyUsTitle: {
           fr: 'Une finition propre, durable et adaptée au style des maisons de Brossard',
@@ -310,8 +310,8 @@ export const peintureInterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que ce soit pour moderniser une pièce, rafraîchir un logement ou transformer entièrement un intérieur, notre équipe peut intervenir rapidement partout à Laval.',
-          en: '👉 Whether to modernize a room, refresh housing or completely transform an interior, our team can work quickly throughout Laval.',
+          fr: 'Que ce soit pour moderniser une pièce, rafraîchir un logement ou transformer entièrement un intérieur, notre équipe peut intervenir rapidement partout à Laval.',
+          en: 'Whether to modernize a room, refresh housing or completely transform an interior, our team can work quickly throughout Laval.',
         },
         whyUsTitle: {
           fr: 'Un service professionnel adapté aux intérieurs lavallois',
@@ -587,8 +587,8 @@ export const peintureInterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous souhaitiez rafraîchir quelques pièces ou rénover l’intérieur complet de votre maison ou condo, notre équipe vous accompagne de A à Z.',
-          en: '👉 Whether you want to refresh a few rooms or renovate the complete interior of your house or condo, our team accompanies you from A to Z.',
+          fr: 'Que vous souhaitiez rafraîchir quelques pièces ou rénover l’intérieur complet de votre maison ou condo, notre équipe vous accompagne de A à Z.',
+          en: 'Whether you want to refresh a few rooms or renovate the complete interior of your house or condo, our team accompanies you from A to Z.',
         },
         whyUsTitle: {
           fr: 'Une expertise adaptée aux intérieurs de la Rive-Sud',
@@ -853,8 +853,8 @@ export const peintureInterieureData = {
           ],
         },
         introFingerText: {
-          fr: '👉 Que vous souhaitiez rafraîchir une pièce, moderniser un espace complet ou effectuer une transformation intérieure, notre équipe livre une finition impeccable et durable.',
-          en: '👉 Whether you want to refresh a room, modernize a complete space or perform an interior transformation, our team delivers an impeccable and durable finish.',
+          fr: 'Que vous souhaitiez rafraîchir une pièce, moderniser un espace complet ou effectuer une transformation intérieure, notre équipe livre une finition impeccable et durable.',
+          en: 'Whether you want to refresh a room, modernize a complete space or perform an interior transformation, our team delivers an impeccable and durable finish.',
         },
         whyUsTitle: {
           fr: 'Une expertise adaptée au style unique des intérieurs montréalais',

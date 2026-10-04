@@ -25,8 +25,8 @@ export const peintureCommercialeExterieureData = {
     ],
   },
   introFingerText: {
-    fr: '👉 Pour une façade commerciale moderne, robuste et attrayante, notre service de peinture extérieure commerciale garantit un résultat durable et impeccable.',
-    en: '👉 For a modern, robust and attractive commercial facade, our commercial exterior painting service guarantees a durable and impeccable result.',
+    fr: 'Pour une façade commerciale moderne, robuste et attrayante, notre service de peinture extérieure commerciale garantit un résultat durable et impeccable.',
+    en: 'For a modern, robust and attractive commercial facade, our commercial exterior painting service guarantees a durable and impeccable result.',
   },
   whyUsTitle: {
     fr: 'Une façade commerciale qui attire et inspire confiance',

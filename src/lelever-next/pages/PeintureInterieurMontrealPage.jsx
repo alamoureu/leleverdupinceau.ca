@@ -34,6 +34,7 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import SubmissionModal from '../home-page/SubmissionModal';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
@@ -342,15 +343,6 @@ export default function PeintureInterieurMontrealPage() {
                   Des projets propres, rapides et impeccables dans les condos, plex et maisons du Grand Montréal.
                 </Text>
 
-                <Text
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="white"
-                  maxW={{ base: '100%', md: '640px', lg: '720px' }}
-                  lineHeight="1.6"
-                >
-                  Une équipe de peintres de métier pour vos travaux de peinture intérieure à Montréal : condos centre-ville, triplex, maisons unifamiliales et espaces occupés.
-                </Text>
-
                 <Stack
                   direction={{ base: 'column', sm: 'row' }}
                   spacing={4}
@@ -358,10 +350,8 @@ export default function PeintureInterieurMontrealPage() {
                   align={{ base: 'flex-start', sm: 'center' }}
                 >
                   <Button
+                    variant="cta"
                     size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
                     rightIcon={<ArrowForwardIcon />}
                     onClick={onOpen}
                     borderRadius="full"
@@ -386,6 +376,9 @@ export default function PeintureInterieurMontrealPage() {
           </Container>
         </Box>
         <TrustBanner />
+        <PageIntro>
+          Une équipe de peintres de métier pour vos travaux de peinture intérieure à Montréal : condos centre-ville, triplex, maisons unifamiliales et espaces occupés.
+        </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS HYPERLOCAUX ===== */}
         <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">

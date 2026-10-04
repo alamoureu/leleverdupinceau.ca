@@ -12,6 +12,7 @@ import {
   useToast,
   Heading,
 } from '@chakra-ui/react';
+import { CheckIcon } from '@chakra-ui/icons';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n';
 import CtaButton from './CtaButton';
@@ -217,13 +218,7 @@ export default function SubmissionForm({
                 borderRadius="full"
                 boxShadow="0 4px 15px rgba(1, 76, 196, 0.3)"
               >
-                <Text
-                  fontSize={{ base: '2xl', md: '3xl' }}
-                  color="white"
-                  fontWeight="bold"
-                >
-                  ✓
-                </Text>
+                <CheckIcon boxSize={{ base: 6, md: 8 }} color="white" />
               </Box>
             </motion.div>
 

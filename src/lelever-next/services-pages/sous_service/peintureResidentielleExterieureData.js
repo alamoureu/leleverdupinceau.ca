@@ -29,8 +29,8 @@ export const peintureResidentielleExterieureData = {
     ],
   },
   introFingerText: {
-    fr: '👉 Que vous souhaitiez rafraîchir votre façade ou moderniser votre revêtement, notre service de peinture résidentielle extérieure offre des résultats durables et esthétiques.',
-    en: '👉 Whether you want to refresh your facade or modernize your cladding, our residential exterior painting service offers durable and aesthetic results.',
+    fr: 'Que vous souhaitiez rafraîchir votre façade ou moderniser votre revêtement, notre service de peinture résidentielle extérieure offre des résultats durables et esthétiques.',
+    en: 'Whether you want to refresh your facade or modernize your cladding, our residential exterior painting service offers durable and aesthetic results.',
   },
   whyUsTitle: {
     fr: 'Protection durable et finition impeccable',

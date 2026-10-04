@@ -32,8 +32,8 @@ export const peintureResidentielleInterieureData = {
     ],
   },
   introFingerText: {
-    fr: '👉 Pour rafraîchir une pièce, rénover un étage complet ou moderniser votre espace, notre service de peinture résidentielle intérieure est la solution idéale.',
-    en: '👉 To refresh a room, renovate an entire floor or modernize your space, our residential interior painting service is the ideal solution.',
+    fr: 'Pour rafraîchir une pièce, rénover un étage complet ou moderniser votre espace, notre service de peinture résidentielle intérieure est la solution idéale.',
+    en: 'To refresh a room, renovate an entire floor or modernize your space, our residential interior painting service is the ideal solution.',
   },
   whyUsTitle: {
     fr: 'Une finition intérieure impeccable',

@@ -111,15 +111,12 @@ function MainHubCard({
         )}
         <Box pt={1} mt="auto">
           <Button
+            variant="ctaOutline"
             as={RouterLink}
             to={buttonHref}
-            variant="outline"
-            borderColor="brand.500"
-            color="brand.500"
             borderRadius="full"
             size="md"
             rightIcon={<ArrowForwardIcon />}
-            _hover={{ bg: 'brand.500', color: 'white' }}
           >
             {buttonLabel}
           </Button>
@@ -484,15 +481,13 @@ export default function ServicesPage() {
                     : 'Describe your project and our team will point you to the right solution. Free quote, response in under 24 hours.'}
                 </Text>
                 <Button
+                  variant="cta"
                   as={RouterLink}
                   to="/contact"
                   rightIcon={<ArrowForwardIcon />}
-                  bg="brand.500"
-                  color="white"
                   borderRadius="full"
                   size="lg"
                   px={10}
-                  _hover={{ bg: 'brand.600' }}
                 >
                   {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                 </Button>

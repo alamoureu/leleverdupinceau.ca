@@ -29,8 +29,8 @@ export const peintureCommercialeInterieureData = {
     ],
   },
   introFingerText: {
-    fr: '👉 Si vous voulez rafraîchir vos bureaux, moderniser votre commerce ou rénover vos espaces intérieurs, cette page est pour vous.',
-    en: '👉 If you want to refresh your offices, modernize your business or renovate your interior spaces, this page is for you.',
+    fr: 'Si vous voulez rafraîchir vos bureaux, moderniser votre commerce ou rénover vos espaces intérieurs, cette page est pour vous.',
+    en: 'If you want to refresh your offices, modernize your business or renovate your interior spaces, this page is for you.',
   },
   whyUsTitle: {
     fr: 'Une approche pensée pour les entreprises',

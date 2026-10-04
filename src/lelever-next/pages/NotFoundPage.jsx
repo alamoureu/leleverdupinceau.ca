@@ -93,8 +93,7 @@ export default function NotFoundPage() {
               <Button
                 as={RouterLink}
                 to='/'
-                bg='brand.500'
-                color='white'
+                variant='cta'
                 size={{ base: 'md', sm: 'lg' }}
                 w={{ base: '100%', sm: 'auto' }}
                 minW={{ base: '100%', sm: '200px' }}
@@ -103,12 +102,6 @@ export default function NotFoundPage() {
                 fontWeight='600'
                 h={{ base: '44px', sm: '48px' }}
                 borderRadius='md'
-                _hover={{
-                  bg: 'brand.600',
-                  transform: 'translateY(-2px)',
-                  boxShadow: 'lg',
-                }}
-                transition='all 0.2s'
               >
                 {isFr ? "Retour à l'accueil" : 'Back to Home'}
               </Button>

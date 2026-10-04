@@ -134,8 +134,8 @@ export const GOOGLE_REVIEWS = [
     name: 'Robbie',
     time: MONTHS_AGO(1),
     content: {
-      fr: "J'adore cette équipe\u00A0! Ils sont compétents, super gentils et professionnels. Alex et Philippe sont les meilleurs\u00A0! Ils ont fait ma terrasse arrière et je suis ravi du résultat\u00A0! Merci 🙏",
-      en: 'I love these guys! They are competent and super sweet and professional. Alex and Philippe are the best!! They did my back deck and I am thrilled with the result!!!! Thank you 🙏',
+      fr: "J'adore cette équipe\u00A0! Ils sont compétents, super gentils et professionnels. Alex et Philippe sont les meilleurs\u00A0! Ils ont fait ma terrasse arrière et je suis ravi du résultat\u00A0! Merci",
+      en: 'I love these guys! They are competent and super sweet and professional. Alex and Philippe are the best!! They did my back deck and I am thrilled with the result!!!! Thank you',
     },
   },
 ];

@@ -18,6 +18,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
@@ -379,7 +380,6 @@ function ProjectCard({ project, isFr }) {
           py={10}
           px={4}
         >
-          <Text fontSize="2xl" color="gray.300" lineHeight="1">📷</Text>
           <Text fontSize="sm" color="gray.400" fontWeight="medium" textAlign="center">
             {isFr ? 'Photos à venir' : 'Photos coming soon'}
           </Text>
@@ -727,32 +727,19 @@ export default function RealisationsPage() {
                     ? 'Des projets réels, des transformations visibles et un aperçu concret de notre niveau de finition.'
                     : 'Real projects, visible transformations and a concrete overview of our finish quality.'}
                 </Text>
-                <Text
-                  color="whiteAlpha.900"
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  lineHeight="1.6"
-                  maxW={{ base: '560px', md: '640px', lg: '720px' }}
-                >
-                  {isFr
-                    ? 'Condos, maisons, plex, commerces et projets spécialisés: explorez des chantiers réalisés par notre équipe et voyez comment nous travaillons sur le terrain.'
-                    : 'Condos, homes, plex, businesses and specialized projects: explore job sites completed by our team and see how we work in the field.'}
-                </Text>
                 <HStack
                   spacing={{ base: 3, md: 4 }}
                   pt={{ base: 2, sm: 3, md: 4 }}
                   flexWrap="wrap"
                 >
                   <Button
+                    variant="cta"
                     onClick={onOpen}
-                    bg="brand.500"
-                    color="white"
                     borderRadius="full"
                     px={{ base: 7, md: 9, lg: 12 }}
                     py={{ base: 3, md: 4, lg: 6 }}
                     minH={{ base: '48px', md: '56px', lg: '64px' }}
                     h="auto"
-                    boxShadow="lg"
-                    _hover={{ bg: 'brand.600' }}
                     whiteSpace="normal"
                     lineHeight="1.15"
                     fontWeight="semibold"
@@ -764,17 +751,14 @@ export default function RealisationsPage() {
                     <ArrowForwardIcon ml={2} />
                   </Button>
                   <Button
+                    variant="ctaOutlineLight"
                     as={RouterLink}
                     to="/services"
-                    variant="outline"
-                    borderColor="whiteAlpha.800"
-                    color="white"
                     borderRadius="full"
                     px={{ base: 6, md: 8, lg: 10 }}
                     py={{ base: 3, md: 4, lg: 6 }}
                     minH={{ base: '48px', md: '56px', lg: '64px' }}
                     h="auto"
-                    _hover={{ bg: 'whiteAlpha.200', borderColor: 'white' }}
                     whiteSpace="normal"
                     lineHeight="1.15"
                     fontWeight="medium"
@@ -793,6 +777,11 @@ export default function RealisationsPage() {
 
         {/* ── Section 2 - Barre de confiance ───────────────────────────────── */}
         <TrustBanner />
+        <PageIntro>
+          {isFr
+            ? 'Condos, maisons, plex, commerces et projets spécialisés: explorez des chantiers réalisés par notre équipe et voyez comment nous travaillons sur le terrain.'
+            : 'Condos, homes, plex, businesses and specialized projects: explore job sites completed by our team and see how we work in the field.'}
+        </PageIntro>
 
         {/* ── Section 3 - Projets vedettes avant / après ────────────────────── */}
         <BeforeAfterCarouselSection

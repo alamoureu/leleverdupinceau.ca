@@ -582,7 +582,7 @@ export default function TimeSheet() {
                       {photo && !isCameraActive && (
                         <VStack spacing={4}>
                           <Badge colorScheme='green' p={2}>
-                            Photo prête ✓
+                            Photo prête
                           </Badge>
                           {photoPreview && (
                             <Box

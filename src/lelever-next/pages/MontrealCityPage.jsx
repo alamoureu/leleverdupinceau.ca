@@ -582,14 +582,11 @@ export default function MontrealCityPage() {
                       </Text>
                       <Link as={RouterLink} to={card.to} _hover={{ textDecoration: 'none' }}>
                         <Button
+                          variant="ctaOutline"
                           rightIcon={<ArrowForwardIcon />}
-                          variant="outline"
-                          borderColor="brand.500"
-                          color="brand.500"
                           borderRadius="full"
                           size="sm"
                           px={5}
-                          _hover={{ bg: 'brand.500', color: 'white' }}
                         >
                           {isFr ? 'En savoir plus' : 'Learn more'}
                         </Button>

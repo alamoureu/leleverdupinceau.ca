@@ -325,13 +325,11 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
             item.includes('number of coats')
         );
 
-        // Check if this is a warning list (with ❌)
-        const isWarningList = items.some((item) => item.includes('❌'));
+        const isWarningList = item.variant === 'warning';
 
-        // Check if this is a pricing list (with ✔ or $)
         const isPricingList = items.some(
           (item) =>
-            (item.includes('✔') || item.includes('$')) &&
+            item.includes('$') &&
             !item.includes('Exemple') &&
             !item.includes('Example')
         );
@@ -543,7 +541,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           );
         }
 
-        // Warning list styling (with ❌)
+        // Warning list styling
         if (isWarningList) {
           return (
             <Box key={index} mb={{ base: 6, md: 8 }}>
@@ -573,7 +571,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
           );
         }
 
-        // Pricing list styling (with ✔)
+        // Pricing list styling
         if (isPricingList) {
           return (
             <Box key={index} mb={{ base: 6, md: 8 }}>

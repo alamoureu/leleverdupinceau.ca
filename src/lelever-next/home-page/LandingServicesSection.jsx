@@ -9,7 +9,6 @@ import {
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import ServiceCard from './ServiceCard';
-import CtaButton from './CtaButton';
 import peintureInterieureImg from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 import peintureExterieureImg from '../images/1-page-principale/service hub/Peinture extérieure/IMG_6767.PNG';
 
@@ -26,16 +25,14 @@ const translations = {
   fr: {
     heading: 'Besoin d\u2019un Peintre\u00A0?',
     subtitle: 'Des solutions pour chaque type de projet',
-    cta: 'Soumission Gratuite en 24h',
   },
   en: {
     heading: 'Need a Painter?',
     subtitle: 'Solutions for every type of project',
-    cta: 'Free Quote in 24h',
   },
 };
 
-export default function LandingServicesSection({ onSubmissionOpen, sectionPy }) {
+export default function LandingServicesSection({ sectionPy }) {
   const { t, currentLang } = useTranslation();
   const py = sectionPy ?? DEFAULT_SECTION_PY;
   const copy = translations[currentLang] || translations.fr;
@@ -100,8 +97,6 @@ export default function LandingServicesSection({ onSubmissionOpen, sectionPy }) 
               </Box>
             ))}
           </Flex>
-
-          <CtaButton onClick={onSubmissionOpen}>{copy.cta}</CtaButton>
         </Stack>
       </Container>
     </Box>

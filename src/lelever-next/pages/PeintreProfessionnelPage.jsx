@@ -439,9 +439,8 @@ export default function PeintreProfessionnelPage() {
 
                 <Box pt={{ base: 2, sm: 3, md: 4 }}>
                   <Button
+                    variant="cta"
                     onClick={onOpen}
-                    bg="brand.500"
-                    color="white"
                     px={{ base: 8, sm: 10, md: 12, lg: 14 }}
                     py={{ base: 3, sm: 4, md: 5, lg: 6 }}
                     minH={{ base: '48px', sm: '52px', md: '56px', lg: '64px' }}
@@ -449,8 +448,6 @@ export default function PeintreProfessionnelPage() {
                 w="100%"
                     maxW={{ base: '280px', sm: '320px', md: '360px' }}
                     borderRadius="full"
-                  boxShadow="lg"
-                    _hover={{ bg: 'brand.600' }}
                     whiteSpace="normal"
                     lineHeight="1.15"
                     rightIcon={<ArrowForwardIcon />}
@@ -734,13 +731,11 @@ export default function PeintreProfessionnelPage() {
                   Le Lever du Pinceau coche toutes ces cases. Vérifiez par vous-même.
                     </Text>
                 <Button
+                  variant="cta"
                   onClick={onOpen}
-                  bg="brand.500"
-                  color="white"
                   borderRadius="full"
                   px={{ base: 8, md: 10 }}
                   py={{ base: 3, md: 4 }}
-                  _hover={{ bg: 'brand.600' }}
                   rightIcon={<ArrowForwardIcon />}
                   size="lg"
                   w={{ base: '100%', sm: 'auto' }}
@@ -879,13 +874,10 @@ export default function PeintreProfessionnelPage() {
                   display="inline-block"
                 >
                   <Button
-                    variant="outline"
-                    borderColor="brand.500"
-                    color="brand.500"
+                    variant="ctaOutline"
                     borderRadius="full"
                     px={{ base: 6, md: 8 }}
                     rightIcon={<ArrowForwardIcon />}
-                    _hover={{ bg: 'brand.500', color: 'white' }}
                   >
                     Nos réalisations
                   </Button>

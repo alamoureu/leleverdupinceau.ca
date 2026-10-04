@@ -59,15 +59,12 @@ export default function ServiceQuartierAboutSection({
             w={{ base: '100%', md: 'auto' }}
           >
             <Button
+              variant='ctaOutline'
               rightIcon={<ArrowForwardIcon />}
-              variant='outline'
-              borderColor='brand.500'
-              color='brand.500'
               borderRadius='full'
               fontSize={{ base: 'sm', md: 'md' }}
               px={{ base: 5, md: 7 }}
               py={{ base: 3, md: 4 }}
-              _hover={{ bg: 'brand.500', color: 'white' }}
               whiteSpace='normal'
               textAlign='center'
               lineHeight='1.4'

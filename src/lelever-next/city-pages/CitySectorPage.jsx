@@ -18,6 +18,7 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import CityWhyUsSection from './CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
@@ -201,35 +202,27 @@ export default function CitySectorPage({ config }) {
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
                   {t(heroLead)}
                 </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {t(heroBody)}
-                </Text>
                 <HStack spacing={4} pt={2} flexWrap="wrap">
                   <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                     <Button
+                      variant="cta"
                       rightIcon={<ArrowForwardIcon />}
-                      bg="brand.500"
-                      color="white"
                       borderRadius="full"
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 6, md: 8 }}
                       size="lg"
-                      _hover={{ bg: 'brand.600' }}
                     >
                       {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                     </Button>
                   </Link>
                   <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
                     <Button
+                      variant="ctaOutline"
                       rightIcon={<ArrowForwardIcon />}
-                      variant="outline"
-                      borderColor="brand.500"
-                      color="brand.500"
                       borderRadius="full"
                       fontSize={{ base: 'sm', md: 'md' }}
                       px={{ base: 6, md: 8 }}
                       size="lg"
-                      _hover={{ bg: 'brand.500', color: 'white' }}
                     >
                       {isFr ? 'Voir nos réalisations' : 'View our projects'}
                     </Button>
@@ -262,6 +255,7 @@ export default function CitySectorPage({ config }) {
         </Container>
 
         <TrustBanner />
+        <PageIntro>{t(heroBody)}</PageIntro>
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
           <Stack spacing={0}>

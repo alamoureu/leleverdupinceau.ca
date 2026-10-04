@@ -194,17 +194,14 @@ export const MobileDrawer = () => {
               <Button
                 type='button'
                 size='md'
-                variant='tertiary'
+                variant='cta'
                 justifyContent='start'
                 leftIcon={<FontAwesomeIcon icon={faPhoneAlt} />}
                 onClick={() => handleNav('/contact')}
                 py={{ base: 3, sm: 4 }}
                 textStyle='drawer'
                 fontWeight='medium'
-                bg='brand.500'
-                color='white'
                 borderRadius='full'
-                _hover={{ bg: 'brand.600' }}
                 cursor='pointer'
               >
                 {currentLang === 'fr' ? 'Contact' : 'Contact'}

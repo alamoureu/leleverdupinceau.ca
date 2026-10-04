@@ -361,15 +361,12 @@ export default function ContactPage() {
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Button
+                        variant='ctaOutline'
                         rightIcon={<ArrowForwardIcon />}
-                        variant='outline'
-                        borderColor='brand.500'
-                        color='brand.500'
                         borderRadius='full'
                         textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: 'brand.500', color: 'white' }}
                       >
                         {isFr ? 'Voir les avis' : 'View reviews'}
                       </Button>
@@ -424,15 +421,12 @@ export default function ContactPage() {
                       _hover={{ textDecoration: 'none' }}
                     >
                       <Button
+                        variant='ctaOutline'
                         rightIcon={<ArrowForwardIcon />}
-                        variant='outline'
-                        borderColor='brand.500'
-                        color='brand.500'
                         borderRadius='full'
                         textStyle='nav'
                         px={{ base: 5, md: 7 }}
                         py={{ base: 3, md: 4 }}
-                        _hover={{ bg: 'brand.500', color: 'white' }}
                       >
                         {isFr
                           ? 'Découvrez nos peintres professionnels'

@@ -6,7 +6,6 @@ import {
   Heading,
   Text,
   Stack,
-  Button,
   Flex,
   Link,
   Icon,
@@ -37,11 +36,27 @@ import {
   FaStar,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
+import ContactFormSection from '../home-page/ContactFormSection';
+import ReviewsSection from '../home-page/ReviewsSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
+import { RBQ_LICENSE } from '../constants/company';
 
-import heroImg from '../images/neighborhood_placeholder.jpg';
+import heroImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
+import condoImg from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
+import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
+import appartementImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
+import bureauImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
+
+const BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Secteurs', to: '/secteurs' },
+  { label: 'Montréal', to: '/secteurs/montreal' },
+];
 
 const CHECKMARKS = [
   {
@@ -79,26 +94,37 @@ const CHECKMARKS = [
 const CONTEXTES = [
   {
     icon: FaBuilding,
+    image: condoImg,
     title: 'Condo dans une tour ou un immeuble en copropriété',
     text: 'Accès, ascenseur, stationnement, circulation du matériel et voisinage imposent une organisation plus stricte. Tout est anticipé avant le début des travaux.',
+    to: '/services/peinture-residentielle/condo',
+    linkLabel: 'Voir la peinture de condo',
   },
   {
     icon: FaKey,
+    image: emmenagementImg,
     title: 'Unité avant emménagement ou prise de possession',
     text: 'Fenêtre de temps limitée, chantier accéléré et objectif simple : remettre un espace propre, net et prêt à être habité dans les délais prévus.',
   },
   {
     icon: FaExchangeAlt,
+    image: appartementImg,
     title: 'Appartement ou logement entre deux occupations',
     text: 'Remise à niveau rapide, protections efficaces, plan de match clair pour réduire le temps vacant et remettre l\'espace en marché rapidement.',
+    to: '/services/peinture-residentielle/appartement',
+    linkLabel: 'Voir la peinture d\'appartement',
   },
   {
     icon: FaBriefcase,
+    image: bureauImg,
     title: 'Bureau léger ou espace professionnel au centre-ville',
     text: 'Intervention propre, bien séquencée, avec horaires adaptés et impact minimal sur les opérations en cours ou les voisins de l\'immeuble.',
+    to: '/services/peinture-commerciale',
+    linkLabel: 'Voir la peinture commerciale',
   },
   {
     icon: FaTag,
+    image: miseEnVenteImg,
     title: 'Projet avant vente ou mise en marché',
     text: 'Rafraîchir l\'espace pour le rendre plus lumineux, plus cohérent et plus facile à projeter dès les premières visites ou photos de mise en marché.',
   },
@@ -253,7 +279,7 @@ export default function VilleMariePage() {
       { '@type': 'City', name: 'Ville-Marie' },
       { '@type': 'City', name: 'Montréal' },
     ],
-    hasCredential: 'RBQ #5864-1481-01',
+    hasCredential: `RBQ #${RBQ_LICENSE}`,
   };
 
   const faqSchema = {
@@ -280,154 +306,30 @@ export default function VilleMariePage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext="Ville-Marie"
+          imageBackground={heroImg}
+          title="Peintre à Ville-Marie"
+          subtitle="Des peintres de métier pour vos projets résidentiels et commerciaux légers au coeur de Montréal."
+          buttonText="Obtenir ma soumission gratuite"
         >
-          <Image
-            src={heroImg}
-            alt="Peintre à Ville-Marie - condo centre-ville Montréal"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Secteurs
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs/montreal"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Montréal
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Ville-Marie
-                  </Text>
-                </HStack>
-
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' }}
-                  fontWeight="700"
-                  color="white"
-                  lineHeight="1.05"
-                  minW={0}
-                >
-                  Peintre à Ville-Marie
-                </Heading>
-
-                <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
-                  color="white"
-                  fontWeight="300"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                  lineHeight="1.5"
-                >
-                  Des peintres de métier pour vos projets résidentiels et commerciaux légers au coeur de Montréal.
-                </Text>
-
-                <Text
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="whiteAlpha.900"
-                  maxW={{ base: '100%', md: '620px', lg: '720px' }}
-                  lineHeight="1.7"
-                >
-                  Condos centre-ville, tours résidentielles, unités locatives, bureaux légers et projets avant emménagement : nous réalisons des chantiers propres, rapides et bien coordonnés dans Ville-Marie.
-                </Text>
-
-                <Flex gap={3} wrap="wrap" pt={{ base: 2, md: 3 }}>
-                  <Button
-                    size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                  <Button
-                    as={RouterLink}
-                    to="/realisations"
-                    size={{ base: 'md', md: 'lg' }}
-                    variant="outline"
-                    color="white"
-                    borderColor="white"
-                    _hover={{ bg: 'whiteAlpha.200' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Voir nos réalisations
-                  </Button>
-                </Flex>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
+          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
+            {BREADCRUMB.map((crumb) => (
+              <Fragment key={crumb.to}>
+                <Link as={RouterLink} to={crumb.to} _hover={{ textDecoration: 'underline', color: 'white' }}>
+                  {crumb.label}
+                </Link>
+                <Text>›</Text>
+              </Fragment>
+            ))}
+            <Text color="white" fontWeight="medium">Ville-Marie</Text>
+          </HStack>
+        </HeroSection>
         <TrustBanner />
+        <PageIntro>
+          Condos centre-ville, tours résidentielles, unités locatives, bureaux légers et projets avant emménagement : nous réalisons des chantiers propres, rapides et bien coordonnés dans Ville-Marie.
+        </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS VILLE-MARIE ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -514,85 +416,72 @@ export default function VilleMariePage() {
                 </Text>
               </Stack>
 
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-                {CONTEXTES.slice(0, 3).map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
-                    boxShadow="sm"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                  >
-                    <Stack spacing={4}>
-                      <Flex
-                        w="48px"
-                        h="48px"
-                        borderRadius="xl"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading
-                        as="h3"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        fontWeight="700"
-                        color="gray.800"
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                        {item.text}
-                      </Text>
-                    </Stack>
-                  </Box>
-                ))}
-              </SimpleGrid>
-
               <Flex wrap="wrap" justify="center" gap={6}>
-                {CONTEXTES.slice(3).map((item, i) => (
+                {CONTEXTES.map((item) => (
                   <Box
-                    key={i}
+                    key={item.title}
                     bg="white"
                     border="1px solid"
                     borderColor="gray.200"
                     borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
+                    overflow="hidden"
                     boxShadow="sm"
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
                     w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
-                    maxW={{ lg: '420px' }}
+                    display="flex"
+                    flexDirection="column"
                   >
-                    <Stack spacing={4}>
-                      <Flex
-                        w="48px"
-                        h="48px"
-                        borderRadius="xl"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading
-                        as="h3"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        fontWeight="700"
-                        color="gray.800"
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} à Ville-Marie`}
+                      w="100%"
+                      h={{ base: '180px', md: '200px' }}
+                      objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <Stack spacing={4} p={{ base: 6, md: 7 }} flex={1}>
+                      <HStack spacing={3} align="center">
+                        <Flex
+                          w="40px"
+                          h="40px"
+                          borderRadius="lg"
+                          bg="brand.50"
+                          align="center"
+                          justify="center"
+                          flexShrink={0}
+                        >
+                          <Icon as={item.icon} color="brand.500" boxSize={4} />
+                        </Flex>
+                        <Heading
+                          as="h3"
+                          fontSize={{ base: 'md', md: 'lg' }}
+                          fontWeight="700"
+                          color="gray.800"
+                          lineHeight="1.3"
+                        >
+                          {item.title}
+                        </Heading>
+                      </HStack>
+                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7" flex={1}>
                         {item.text}
                       </Text>
+                      {item.to && (
+                        <Link
+                          as={RouterLink}
+                          to={item.to}
+                          color="brand.500"
+                          fontSize="sm"
+                          fontWeight="600"
+                          display="inline-flex"
+                          alignItems="center"
+                          gap={1}
+                        >
+                          {item.linkLabel}
+                          <ArrowForwardIcon boxSize={3} />
+                        </Link>
+                      )}
                     </Stack>
                   </Box>
                 ))}
@@ -600,6 +489,8 @@ export default function VilleMariePage() {
             </Stack>
           </Container>
         </Box>
+
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
 
         {/* ===== SECTION 5 - SERVICES LES PLUS DEMANDÉS À VILLE-MARIE ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -733,6 +624,8 @@ export default function VilleMariePage() {
             </Stack>
           </Container>
         </Box>
+
+        <ReviewsSection />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">

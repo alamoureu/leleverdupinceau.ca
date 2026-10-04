@@ -113,15 +113,12 @@ export default function WhyUsSection({ onSubmissionOpen }) {
 
           <Box pt={4} textAlign='center'>
             <Button
+              variant='cta'
               onClick={onSubmissionOpen}
-              bg='brand.500'
-              color='white'
               textStyle='nav'
               px={{ base: 8, md: 10 }}
               h={{ base: '45px', md: '55px' }}
               borderRadius='full'
-              boxShadow='lg'
-              _hover={{ bg: 'brand.600' }}
               w={{ base: '100%', md: 'auto' }}
             >
               {t.freeSubmission}

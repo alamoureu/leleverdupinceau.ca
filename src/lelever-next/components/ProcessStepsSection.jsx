@@ -158,18 +158,14 @@ export default function ProcessStepsSection({
           {buttonText && onButtonClick && (
             <Flex pt={6} justify="center">
               <Button
+                variant="cta"
                 onClick={onButtonClick}
-                bg="brand.500"
-                color="white"
                 fontSize={{ base: 'md', md: 'lg' }}
                 fontWeight="semibold"
                 px={{ base: 6, md: 8 }}
                 py={{ base: 6, md: 7 }}
                 h="auto"
                 borderRadius="full"
-                boxShadow="md"
-                _hover={{ bg: 'brand.600', boxShadow: 'lg', transform: 'translateY(-2px)' }}
-                transition="all 0.2s"
               >
                 {buttonText}
               </Button>

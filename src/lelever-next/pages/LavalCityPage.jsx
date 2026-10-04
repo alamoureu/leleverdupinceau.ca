@@ -9,19 +9,19 @@ import {
   Stack,
   Link,
   HStack,
-  Image,
-  Grid,
   SimpleGrid,
   Flex,
-  Button,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
+import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
+import SubmissionModal from '../home-page/SubmissionModal';
 
 import headerLaval from '../images/3-ville/laval/header.jpg';
 // Avant/après Laval - paires identifiées
@@ -33,9 +33,18 @@ import lavImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.jpg';
 import lavImg7994 from '../images/3-ville/laval/avant-apres/IMG_7994 5.jpg';
 import lavImg6031 from '../images/3-ville/laval/avant-apres/IMG_6031 3.jpg';
 import lavImg8108 from '../images/3-ville/laval/avant-apres/IMG_8108 3.jpg';
+import lavImg0838 from '../images/3-ville/laval/avant-apres/IMG_0838.jpg';
+import lavImg0839 from '../images/3-ville/laval/avant-apres/IMG_0839.jpg';
+import escalierBalconAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg';
+import escalierBalconApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg';
+import cadrageFenetreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
+import cadrageFenetreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
+import hallEntreeAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
+import hallEntreeApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
 
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const isFr = currentLang === 'fr';
 
   // ─── Schema markup ──────────────────────────────────────────────────────────
@@ -92,11 +101,15 @@ export default function LavalCityPage() {
       number: '01',
       title: 'Maison unifamiliale occupée',
       description: 'Projet à planifier pièce par pièce, avec protections, rythme de chantier clair et souci du quotidien familial.',
+      to: '/services/peinture-residentielle/maison',
+      linkLabel: 'Peinture de maison unifamiliale',
     },
     {
       number: '02',
       title: 'Condo récent ou unité en copropriété',
       description: 'Accès, ascenseur, espaces communs, circulation et propreté prennent plus d\'importance dans les immeubles récents.',
+      to: '/services/peinture-residentielle/condo',
+      linkLabel: 'Peinture de condo',
     },
     {
       number: '03',
@@ -118,11 +131,15 @@ export default function LavalCityPage() {
       number: '01',
       title: 'Occupied single-family home',
       description: 'Project to plan room by room, with protections, clear site rhythm and attention to daily family life.',
+      to: '/services/peinture-residentielle/maison',
+      linkLabel: 'Single-family house painting',
     },
     {
       number: '02',
       title: 'Recent condo or co-ownership unit',
       description: 'Access, elevator, common areas, circulation and cleanliness take on more importance in recent buildings.',
+      to: '/services/peinture-residentielle/condo',
+      linkLabel: 'Condo painting',
     },
     {
       number: '03',
@@ -152,7 +169,7 @@ export default function LavalCityPage() {
     {
       before: lavImg5975,
       after: lavImg5976,
-      description: isFr ? 'Rafraîchissement complet - Condo à Laval-des-Rapides' : 'Full refresh - Condo in Laval-des-Rapides',
+      description: isFr ? 'Peinture d\'armoires de cuisine - Maison à Laval-des-Rapides' : 'Kitchen cabinet painting - House in Laval-des-Rapides',
     },
     {
       before: lavImg7992,
@@ -162,7 +179,27 @@ export default function LavalCityPage() {
     {
       before: lavImg6031,
       after: lavImg8108,
-      description: isFr ? 'Mise à niveau avant vente - Propriété à Duvernay' : 'Pre-sale update - Property in Duvernay',
+      description: isFr ? 'Mise à niveau avant vente - Condo à Duvernay' : 'Pre-sale update - Condo in Duvernay',
+    },
+    {
+      before: escalierBalconAvant,
+      after: escalierBalconApres,
+      description: isFr ? 'Peinture extérieure - Escalier de balcon à Laval' : 'Exterior painting - Balcony staircase in Laval',
+    },
+    {
+      before: cadrageFenetreAvant,
+      after: cadrageFenetreApres,
+      description: isFr ? 'Peinture intérieure - Cadrage de fenêtre à Laval' : 'Interior painting - Window frame in Laval',
+    },
+    {
+      before: lavImg0838,
+      after: lavImg0839,
+      description: isFr ? 'Teinture de patio - Maison à Laval' : 'Deck staining - House in Laval',
+    },
+    {
+      before: hallEntreeAvant,
+      after: hallEntreeApres,
+      description: isFr ? 'Peinture intérieure - Hall d\'entrée à Laval' : 'Interior painting - Entrance hall in Laval',
     },
   ];
 
@@ -267,7 +304,6 @@ export default function LavalCityPage() {
     { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
     { label: 'Peinture extérieure', to: '/services/peinture-exterieure' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
-    { label: 'Obtenir une soumission', to: '/contact' },
     { label: 'Pourquoi choisir un peintre professionnel', to: '/peintre-professionnel' },
     { label: 'Voir nos réalisations', to: '/realisations' },
   ] : [
@@ -275,7 +311,6 @@ export default function LavalCityPage() {
     { label: 'Interior painting', to: '/services/peinture-interieure' },
     { label: 'Exterior painting', to: '/services/peinture-exterieure' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
-    { label: 'Get a quote', to: '/contact' },
     { label: 'Why choose a professional painter', to: '/peintre-professionnel' },
     { label: 'View our projects', to: '/realisations' },
   ];
@@ -307,132 +342,31 @@ export default function LavalCityPage() {
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
 
         {/* ── SECTION 1 - Hero Banner ──────────────────────────────────────── */}
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 12, md: 16, lg: 20 }}>
-          <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
-            gap={{ base: 6, md: 8, lg: 10 }}
-            mb={{ base: 16, md: 20 }}
-            alignItems={{ md: 'flex-start' }}
-          >
-            <Stack spacing={0} minW={0}>
-              {/* Breadcrumb */}
-              <HStack
-                spacing={3}
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.600"
-                mb={{ base: 4, md: 6 }}
-                flexWrap="wrap"
-              >
-                <Link
-                  as={RouterLink}
-                  to="/"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Accueil' : 'Home'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Link
-                  as={RouterLink}
-                  to="/secteurs"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Secteurs desservis' : 'Service areas'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Text color="gray.800" fontWeight="medium" fontSize={{ base: 'md', md: 'lg' }}>Laval</Text>
-              </HStack>
-
-              <Stack spacing={5} textAlign="left">
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  {isFr ? 'Peintre à Laval' : 'Painter in Laval'}
-                </Heading>
-
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {isFr
-                    ? 'Des peintres de métier pour vos projets résidentiels et commerciaux partout à Laval.'
-                    : 'Professional painters for your residential and commercial projects throughout Laval.'}
-                </Text>
-
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {isFr
-                    ? 'Maisons unifamiliales, condos récents, espaces locatifs et commerces de quartier: nous réalisons des projets propres, rapides et bien coordonnés à Laval.'
-                    : 'Single-family homes, recent condos, rental units and neighborhood businesses: we deliver clean, fast and well-coordinated projects throughout Laval.'}
-                </Text>
-
-                <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      rightIcon={<ArrowForwardIcon />}
-                      bg="brand.500"
-                      color="white"
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                      _hover={{ bg: 'brand.600' }}
-                    >
-                      {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-                    </Button>
-                  </Link>
-                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      rightIcon={<ArrowForwardIcon />}
-                      variant="outline"
-                      borderColor="brand.500"
-                      color="brand.500"
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                      _hover={{ bg: 'brand.500', color: 'white' }}
-                    >
-                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
-                    </Button>
-                  </Link>
-                </HStack>
-              </Stack>
-            </Stack>
-
-            <Box
-              w="100%"
-              aspectRatio={{ base: '1', md: '4/3' }}
-              borderRadius="xl"
-              overflow="hidden"
-              bg="gray.100"
-            >
-              <Image
-                src={headerLaval}
-                alt={
-                  isFr
-                    ? 'Peintre professionnel à Laval - Le Lever du Pinceau'
-                    : 'Professional painter in Laval - Le Lever du Pinceau'
-                }
-                title={
-                  isFr
-                    ? 'Peintre professionnel Laval, Le Lever du Pinceau, projet de peinture résidentielle complété'
-                    : 'Professional painter Laval, Le Lever du Pinceau, residential painting project completed'
-                }
-                w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="center"
-                loading="lazy"
-                decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-              />
-            </Box>
-          </Grid>
-        </Container>
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext="Laval"
+          imageBackground={headerLaval}
+          overlayBg="rgba(2, 42, 104, 0.55)"
+          title={isFr ? 'Peintre à Laval' : 'Painter in Laval'}
+          subtitle={
+            isFr
+              ? 'Des peintres de métier pour vos projets résidentiels et commerciaux partout à Laval.'
+              : 'Professional painters for your residential and commercial projects throughout Laval.'
+          }
+          buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
+        >
+          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
+            <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline', color: 'white' }}>
+              {isFr ? 'Accueil' : 'Home'}
+            </Link>
+            <Text opacity={0.9}>›</Text>
+            <Link as={RouterLink} to="/secteurs" _hover={{ textDecoration: 'underline', color: 'white' }}>
+              {isFr ? 'Secteurs desservis' : 'Service areas'}
+            </Link>
+            <Text opacity={0.9}>›</Text>
+            <Text color="white" fontWeight="medium">Laval</Text>
+          </HStack>
+        </HeroSection>
 
         {/* ── SECTION 2 - Barre de confiance ──────────────────────────────── */}
         <TrustBanner />
@@ -517,6 +451,17 @@ export default function LavalCityPage() {
                         <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.6">
                           {ctx.description}
                         </Text>
+                        {ctx.to && (
+                          <Link
+                            as={RouterLink}
+                            to={ctx.to}
+                            color="brand.500"
+                            fontWeight="semibold"
+                            fontSize={{ base: 'sm', md: 'md' }}
+                          >
+                            {ctx.linkLabel} <ArrowForwardIcon boxSize={3} />
+                          </Link>
+                        )}
                       </Stack>
                     </Box>
                   ))}
@@ -763,6 +708,7 @@ export default function LavalCityPage() {
 
         {/* ── SECTION 9 - CTA final ────────────────────────────────────────── */}
         <FinalCTASection
+          onSubmissionOpen={onOpen}
           title={isFr ? 'Obtenez votre soumission pour un projet de peinture à Laval' : 'Get your quote for a painting project in Laval'}
           subtitle={
             isFr
@@ -772,6 +718,8 @@ export default function LavalCityPage() {
         />
 
       </Box>
+
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

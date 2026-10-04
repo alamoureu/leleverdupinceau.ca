@@ -37,8 +37,8 @@ export default function PromoBanner() {
 
   const text =
     currentLang === 'en'
-      ? `🏷️\u00A010\u00A0% off - fill out the form before ${tomorrow}`
-      : `🏷️\u00A010\u00A0% de rabais - remplissez le formulaire avant le ${tomorrow}`;
+      ? `10\u00A0% off - fill out the form before ${tomorrow}`
+      : `10\u00A0% de rabais - remplissez le formulaire avant le ${tomorrow}`;
 
   return (
     <Box

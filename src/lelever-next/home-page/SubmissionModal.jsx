@@ -15,9 +15,6 @@ import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
 
 const SUBMISSION_FORM_ID = 'submission-form-modal';
-const BRAND_BLUE = '#2355CA';
-const BRAND_BLUE_HOVER = '#1E4BB5';
-
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();
   const [isSuccess, setIsSuccess] = useState(false);
@@ -90,8 +87,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
             <Button
               form={SUBMISSION_FORM_ID}
               type="submit"
-              bg={BRAND_BLUE}
-              color="white"
+              variant="cta"
               size="lg"
               w="100%"
               borderRadius="full"
@@ -99,7 +95,6 @@ export default function SubmissionModal({ isOpen, onClose }) {
               loadingText={t.formSubmitting}
               spinnerPlacement="start"
               disabled={isSubmitting}
-              _hover={{ bg: BRAND_BLUE_HOVER }}
             >
               {t.formSubmit}
             </Button>

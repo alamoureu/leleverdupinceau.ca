@@ -544,14 +544,11 @@ export default function SecteursDesservisPage() {
               </Text>
               <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                 <Button
+                  variant="cta"
                   rightIcon={<ArrowForwardIcon />}
-                  bg="brand.500"
-                  color="white"
                   borderRadius="full"
                   size="lg"
                   px={{ base: 8, md: 10 }}
-                  _hover={{ bg: 'brand.600', transform: 'translateY(-2px)' }}
-                  transition="all 0.2s"
                   w={{ base: '100%', sm: 'auto' }}
                   maxW={{ base: '100%', sm: '420px' }}
                   whiteSpace="normal"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 
-/** Respiration lente et continue (sinusoïdale) pour attirer l'oeil sans effet de glow. */
+/** Respiration lente et continue (sinusoïdale) pour attirer l'oeil. */
 export default function ShakeButton({ children, style }) {
   const reduceMotion = useReducedMotion();
 

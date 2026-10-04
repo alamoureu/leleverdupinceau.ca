@@ -37,6 +37,7 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -339,21 +340,10 @@ export default function TeintureExterieurePage() {
                   Protégez et ravivez vos surfaces en bois avec une finition adaptée au climat québécois et à l&apos;exposition réelle de votre propriété.
                 </Text>
 
-                <Text
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="whiteAlpha.900"
-                  maxW={{ base: '100%', md: '620px', lg: '720px' }}
-                  lineHeight="1.6"
-                >
-                  Teinture semi-transparente, opaque ou protectrice pour patios, clôtures, revêtements et autres surfaces extérieures en bois.
-                </Text>
-
                 <Box pt={{ base: 2, md: 3 }}>
                   <Button
+                    variant="cta"
                     size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
                     rightIcon={<ArrowForwardIcon />}
                     onClick={onOpen}
                     borderRadius="full"
@@ -368,6 +358,9 @@ export default function TeintureExterieurePage() {
           </Container>
         </Box>
         <TrustBanner />
+        <PageIntro>
+          Teinture semi-transparente, opaque ou protectrice pour patios, clôtures, revêtements et autres surfaces extérieures en bois.
+        </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS ===== */}
         <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">

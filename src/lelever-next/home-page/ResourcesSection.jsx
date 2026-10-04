@@ -108,17 +108,14 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [], t
           {!hideButton && (
             <Stack align='center' pt={{ base: 4, md: 6 }}>
               <Button
+                variant='ctaOutline'
                 as={RouterLink}
                 to='/blog'
-                variant='outline'
-                borderColor='brand.500'
-                color='brand.500'
                 borderRadius='full'
                 textStyle='nav'
                 px={{ base: 5, md: 7 }}
                 py={{ base: 3, md: 4 }}
                 rightIcon={<ArrowForwardIcon />}
-                _hover={{ bg: 'brand.500', color: 'white' }}
               >
                 {t.viewAllArticles}
               </Button>

@@ -71,8 +71,8 @@ export default function NewHomePage() {
     ? 'Peintre Montréal | Peinture résidentielle & commerciale | Le Lever du Pinceau'
     : 'Painter Montreal | Residential & Commercial Painting | Le Lever du Pinceau';
   const description = isFr
-    ? `Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. ${GOOGLE_REVIEWS_LABEL.fr} 5★. Licence RBQ. Soumission gratuite en 24h.`
-    : `Le Lever du Pinceau, professional painter in Montreal. Turnkey service for interior, exterior, residential and commercial painting. ${GOOGLE_REVIEW_COUNT}+ 5★ reviews. RBQ license. Free quote in 24h.`;
+    ? `Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. ${GOOGLE_REVIEWS_LABEL.fr} 5 étoiles. Licence RBQ. Soumission gratuite en 24h.`
+    : `Le Lever du Pinceau, professional painter in Montreal. Turnkey service for interior, exterior, residential and commercial painting. ${GOOGLE_REVIEW_COUNT}+ 5-star reviews. RBQ license. Free quote in 24h.`;
 
   const faqTitle = isFr
     ? 'Questions fréquentes sur nos services de peinture'

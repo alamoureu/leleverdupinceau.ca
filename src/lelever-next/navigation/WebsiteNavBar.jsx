@@ -31,10 +31,16 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const { t } = useTranslation();
 
   const isHomePage = location.pathname === '/';
-  const isServicePage =
+  const showsReviewBadge =
     location.pathname.startsWith('/services') ||
-    location.pathname === '/peinture-interieure-montreal' ||
-    location.pathname === '/peinture-exterieure-montreal';
+    location.pathname.startsWith('/secteurs') ||
+    [
+      '/peinture-interieure-montreal',
+      '/peinture-exterieure-montreal',
+      '/peintre-professionnel',
+      '/a-propos',
+      '/blog',
+    ].includes(location.pathname.replace(/\/$/, ''));
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
@@ -271,12 +277,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   h="auto"
                   px={{ base: 6, xl: 8 }}
                   py={{ base: 3, xl: 3.5 }}
-                  bg="brand.500"
-                  color="white"
+                  variant="cta"
                   borderRadius="full"
                   fontWeight="bold"
-                  _hover={{ bg: 'brand.600' }}
-                  transition="background-color 0.2s ease"
                 >
                   Contact
                 </Button>
@@ -299,7 +302,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
           </HStack>
         </Box>
 
-        {(isHomePage || isServicePage || isNewLanding) && (
+        {(isHomePage || showsReviewBadge || isNewLanding) && (
           <Box
             position="absolute"
             bottom={0}

@@ -6,7 +6,6 @@ import {
   Heading,
   Text,
   Stack,
-  Button,
   Flex,
   Link,
   Icon,
@@ -37,11 +36,52 @@ import {
   FaLayerGroup,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
+import ReviewsSection from '../home-page/ReviewsSection';
+import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
+import { RBQ_LICENSE } from '../constants/company';
 
-import heroImg from '../images/neighborhood_placeholder.jpg';
+import heroImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
+import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
+import appartementImg from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg';
+import reventeImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
+import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
+import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import chambreAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_0832.jpg';
+import chambreApres from '../images/L3 Quartiers/Avant apres plateau/IMG_0833.jpg';
+import poutreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
+import poutreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
+import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
+import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
+import cuisineAvant from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
+import cuisineApres from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';
+import escalierAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_7975 3.jpg';
+import escalierApres from '../images/L3 Quartiers/Avant apres plateau/IMG_7974 3.jpg';
+
+const CAROUSEL_IMAGES = [
+  { before: porteAvant, after: porteApres, description: 'Porte d\'entrée - décapage et peinture' },
+  { before: chambreAvant, after: chambreApres, description: 'Chambre - murs repeints dans un gris doux' },
+  { before: poutreAvant, after: poutreApres, description: 'Poutre d\'acier - rouille traitée et peinture' },
+  { before: moulureAvant, after: moulureApres, description: 'Peinture de boiseries - Plinthe' },
+  { before: clotureAvant, after: clotureApres, description: 'Teinture extérieure - Clôture en bois' },
+  { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - murs repeints sous les moulures d\'origine' },
+  { before: escalierAvant, after: escalierApres, description: 'Escalier en colimaçon - décapage et peinture' },
+];
+
+const BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Secteurs', to: '/secteurs' },
+  { label: 'Montréal', to: '/secteurs/montreal' },
+];
 
 const CHECKMARKS = [
   {
@@ -79,26 +119,35 @@ const CHECKMARKS = [
 const CONTEXTES = [
   {
     icon: FaCouch,
+    image: condoImg,
     title: 'Condo occupé au quotidien',
     text: 'Le chantier reste propre, bien séquencé et compatible avec une routine normale dans un espace où chaque pièce compte et où les finitions sont très visibles.',
+    to: '/services/peinture-residentielle/condo',
+    linkLabel: 'Voir la peinture de condo',
   },
   {
     icon: FaDoorOpen,
+    image: appartementImg,
     title: 'Plex ou appartement avec accès restreint',
     text: 'Escaliers, portes étroites, voisinage proche et circulation du matériel demandent une logistique simple et maîtrisée pour éviter les frictions et les délais.',
+    to: '/services/peinture-residentielle/appartement',
+    linkLabel: 'Voir la peinture d\'appartement',
   },
   {
     icon: FaTag,
+    image: reventeImg,
     title: 'Rafraîchissement avant remise en location ou revente',
     text: 'Le Plateau a beaucoup d\'unités où le délai est sensible. L\'objectif est un résultat net dans un échéancier clair, sans improvisation de dernière minute.',
   },
   {
     icon: FaKey,
+    image: emmenagementImg,
     title: 'Projet avant emménagement',
     text: 'Quand l\'espace est vide mais que la date d\'installation approche, il faut avancer vite, proprement et sans imprévu pour remettre un logement prêt à habiter.',
   },
   {
     icon: FaPaintBrush,
+    image: commercialImg,
     title: 'Bureau créatif ou commerce léger de quartier',
     text: 'Certaines interventions demandent un chantier discret, bien planifié et compatible avec l\'image du lieu - sans perturber l\'ambiance du quartier.',
   },
@@ -253,7 +302,7 @@ export default function PlateauMontRoyalPage() {
       { '@type': 'City', name: 'Plateau Mont-Royal' },
       { '@type': 'City', name: 'Montréal' },
     ],
-    hasCredential: 'RBQ #5864-1481-01',
+    hasCredential: `RBQ #${RBQ_LICENSE}`,
   };
 
   const faqSchema = {
@@ -280,154 +329,41 @@ export default function PlateauMontRoyalPage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext="Plateau Mont-Royal"
+          imageBackground={heroImg}
+          title="Peintre dans le Plateau Mont-Royal"
+          subtitle="Des peintres de métier pour les condos, plex et appartements du Plateau."
+          buttonText="Obtenir ma soumission gratuite"
         >
-          <Image
-            src={heroImg}
-            alt="Peintre dans le Plateau Mont-Royal - condo et plex montréalais"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Secteurs
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs/montreal"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Montréal
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Plateau Mont-Royal
-                  </Text>
-                </HStack>
-
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' }}
-                  fontWeight="700"
-                  color="white"
-                  lineHeight="1.05"
-                  minW={0}
-                >
-                  Peintre dans le Plateau Mont-Royal
-                </Heading>
-
-                <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
-                  color="white"
-                  fontWeight="300"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                  lineHeight="1.5"
-                >
-                  Une équipe de peintres de métier pour vos projets dans les condos, plex et appartements du Plateau Mont-Royal.
-                </Text>
-
-                <Text
-                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                  color="whiteAlpha.900"
-                  maxW={{ base: '100%', md: '620px', lg: '720px' }}
-                  lineHeight="1.7"
-                >
-                  Espaces occupés, cages d&apos;escalier, accès serrés, stationnement limité, échéanciers avant emménagement ou remise en location : nous réalisons des projets propres, bien coordonnés et impeccables dans le Plateau.
-                </Text>
-
-                <Flex gap={3} wrap="wrap" pt={{ base: 2, md: 3 }}>
-                  <Button
-                    size={{ base: 'md', md: 'lg' }}
-                    bg="brand.500"
-                    color="white"
-                    _hover={{ bg: 'brand.600' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                  <Button
-                    as={RouterLink}
-                    to="/realisations"
-                    size={{ base: 'md', md: 'lg' }}
-                    variant="outline"
-                    color="white"
-                    borderColor="white"
-                    _hover={{ bg: 'whiteAlpha.200' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Voir nos réalisations
-                  </Button>
-                </Flex>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
+          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
+            {BREADCRUMB.map((crumb) => (
+              <Fragment key={crumb.to}>
+                <Link as={RouterLink} to={crumb.to} _hover={{ textDecoration: 'underline', color: 'white' }}>
+                  {crumb.label}
+                </Link>
+                <Text>›</Text>
+              </Fragment>
+            ))}
+            <Text color="white" fontWeight="medium">Plateau Mont-Royal</Text>
+          </HStack>
+        </HeroSection>
         <TrustBanner />
+        <PageIntro>
+          Espaces occupés, cages d&apos;escalier, accès serrés, stationnement limité, échéanciers avant emménagement ou remise en location : nous réalisons des projets propres, bien coordonnés et impeccables dans le Plateau.
+        </PageIntro>
+
+        <ReviewsSection sectionBg="white" />
+
+        <BeforeAfterCarouselSection
+          isFr
+          title="Nos réalisations dans le Plateau et ailleurs à Montréal"
+          subtitle="Des projets réels, avant et après, dans des condos, plex et appartements montréalais."
+          images={CAROUSEL_IMAGES}
+          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
+          sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
+        />
 
         {/* ===== SECTION 3 - CHECKMARKS PLATEAU ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -514,59 +450,58 @@ export default function PlateauMontRoyalPage() {
                 </Text>
               </Stack>
 
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-                {CONTEXTES.slice(0, 3).map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
-                    boxShadow="sm"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                  >
-                    <Stack spacing={4}>
-                      <Flex w="48px" h="48px" borderRadius="xl" bg="brand.50" align="center" justify="center">
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading as="h3" fontSize={{ base: 'md', md: 'lg' }} fontWeight="700" color="gray.800" lineHeight="1.3">
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                        {item.text}
-                      </Text>
-                    </Stack>
-                  </Box>
-                ))}
-              </SimpleGrid>
-
               <Flex wrap="wrap" justify="center" gap={6}>
-                {CONTEXTES.slice(3).map((item, i) => (
+                {CONTEXTES.map((item) => (
                   <Box
-                    key={i}
+                    key={item.title}
                     bg="white"
                     border="1px solid"
                     borderColor="gray.200"
                     borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
+                    overflow="hidden"
                     boxShadow="sm"
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
                     w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
-                    maxW={{ lg: '420px' }}
+                    display="flex"
+                    flexDirection="column"
                   >
-                    <Stack spacing={4}>
-                      <Flex w="48px" h="48px" borderRadius="xl" bg="brand.50" align="center" justify="center">
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading as="h3" fontSize={{ base: 'md', md: 'lg' }} fontWeight="700" color="gray.800" lineHeight="1.3">
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} dans le Plateau Mont-Royal`}
+                      w="100%"
+                      h={{ base: '180px', md: '200px' }}
+                      objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <Stack spacing={4} p={{ base: 6, md: 7 }} flex={1}>
+                      <HStack spacing={3} align="center">
+                        <Flex w="40px" h="40px" borderRadius="lg" bg="brand.50" align="center" justify="center" flexShrink={0}>
+                          <Icon as={item.icon} color="brand.500" boxSize={4} />
+                        </Flex>
+                        <Heading as="h3" fontSize={{ base: 'md', md: 'lg' }} fontWeight="700" color="gray.800" lineHeight="1.3">
+                          {item.title}
+                        </Heading>
+                      </HStack>
+                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7" flex={1}>
                         {item.text}
                       </Text>
+                      {item.to && (
+                        <Link
+                          as={RouterLink}
+                          to={item.to}
+                          color="brand.500"
+                          fontSize="sm"
+                          fontWeight="600"
+                          display="inline-flex"
+                          alignItems="center"
+                          gap={1}
+                        >
+                          {item.linkLabel}
+                          <ArrowForwardIcon boxSize={3} />
+                        </Link>
+                      )}
                     </Stack>
                   </Box>
                 ))}
@@ -574,6 +509,8 @@ export default function PlateauMontRoyalPage() {
             </Stack>
           </Container>
         </Box>
+
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
 
         {/* ===== SECTION 5 - SERVICES LES PLUS DEMANDÉS ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
