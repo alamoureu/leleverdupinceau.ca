@@ -39,6 +39,7 @@ import lavalImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.jpg';
 import lavalImg7994 from '../images/3-ville/laval/avant-apres/IMG_7994 5.jpg';
 import riveSudImg7975 from '../images/3-ville/rive-sud/avant-apres/IMG_7975 4.jpg';
 import riveSudImg7974 from '../images/3-ville/rive-sud/avant-apres/IMG_7974 4.jpg';
+import { HAPPY_CLIENTS_COUNT } from '../constants/company';
 
 // ─── Data ───────────────────────────────────────────────────────────────────
 
@@ -189,31 +190,6 @@ function getProjects(isFr) {
         : 'After - Residential painting house Greenfield Park Longueuil',
       tags: ['Intérieur', 'Résidentiel', 'Longueuil', 'Maison'],
     },
-    {
-      id: 6,
-      title: isFr
-        ? 'Peinture extérieure - Maison à Gatineau'
-        : 'Exterior painting - House in Gatineau',
-      district: 'Gatineau',
-      serviceType: isFr ? 'Extérieur' : 'Exterior',
-      projectType: isFr ? 'Résidentiel' : 'Residential',
-      propertyType: isFr ? 'Maison' : 'House',
-      context: isFr
-        ? "Maison unifamiliale avec surfaces extérieures variées. Préparation rigoureuse et application en deux couches pour une durabilité maximale face aux hivers de l'Outaouais."
-        : 'Single-family home with varied exterior surfaces. Rigorous preparation and two-coat application for maximum durability against Outaouais winters.',
-      result: isFr
-        ? "Façade transformée, couleurs choisies avec le propriétaire, finition résistante aux conditions climatiques de la région."
-        : 'Transformed facade, colors chosen with the owner, finish resistant to regional climate conditions.',
-      serviceLink: '/services/peinture-exterieure',
-      serviceLinkLabel: isFr ? 'Peinture extérieure' : 'Exterior painting',
-      sectorLink: '/secteurs/gatineau',
-      sectorLinkLabel: isFr ? 'Nos services à Gatineau' : 'Our services in Gatineau',
-      beforeImg: null,
-      afterImg: null,
-      beforeAlt: null,
-      afterAlt: null,
-      tags: ['Extérieur', 'Résidentiel', 'Gatineau', 'Maison'],
-    },
   ];
 }
 
@@ -253,8 +229,8 @@ function getRealisationsFaqs(isFr) {
     },
     {
       question: isFr
-        ? 'Réalisez-vous des projets à Montréal, Laval, Longueuil et Gatineau?'
-        : 'Do you carry out projects in Montreal, Laval, Longueuil and Gatineau?',
+        ? 'Réalisez-vous des projets à Montréal, Laval, Longueuil et sur la Rive-Sud?'
+        : 'Do you carry out projects in Montreal, Laval, Longueuil and the South Shore?',
       answer: isFr
         ? "Oui. Nous intervenons dans l'ensemble de ces territoires. Chaque région a ses particularités: type de bâtiment, accès, conditions climatiques et contraintes logistiques. Notre équipe est habituée à travailler dans ces différents contextes urbains et périurbains."
         : 'Yes. We work throughout all these territories. Each region has its particularities: building type, access, climate conditions and logistical constraints. Our team is accustomed to working in these different urban and suburban contexts.',
@@ -315,7 +291,6 @@ const FILTER_TAGS = [
   { key: 'Montréal', fr: 'Montréal', en: 'Montreal' },
   { key: 'Laval', fr: 'Laval', en: 'Laval' },
   { key: 'Longueuil', fr: 'Longueuil', en: 'Longueuil' },
-  { key: 'Gatineau', fr: 'Gatineau', en: 'Gatineau' },
 ];
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
@@ -633,15 +608,15 @@ export default function RealisationsPage() {
       label: isFr ? 'Nos secteurs desservis' : 'Our service areas',
       to: '/secteurs',
       description: isFr
-        ? 'Montréal, Laval, Longueuil, Gatineau et la Rive-Sud.'
-        : 'Montreal, Laval, Longueuil, Gatineau and the South Shore.',
+        ? 'Montréal, Laval, Longueuil et la Rive-Sud.'
+        : 'Montreal, Laval, Longueuil and the South Shore.',
     },
     {
       label: isFr ? 'Avis clients' : 'Client reviews',
       to: '/avis-clients',
       description: isFr
-        ? 'Plus de 850\u00A0clients satisfaits - lisez leurs témoignages.'
-        : 'More than 850 satisfied clients - read their testimonials.',
+        ? `Plus de ${HAPPY_CLIENTS_COUNT}\u00A0clients satisfaits - lisez leurs témoignages.`
+        : `More than ${HAPPY_CLIENTS_COUNT} satisfied clients - read their testimonials.`,
     },
     {
       label: isFr ? 'Obtenir une soumission gratuite' : 'Get a free quote',
@@ -657,13 +632,13 @@ export default function RealisationsPage() {
       <SEOHead
         title={
           isFr
-            ? 'Réalisations peinture à Montréal et Gatineau | Le Lever du Pinceau'
-            : 'Painting projects in Montreal and Gatineau | Le Lever du Pinceau'
+            ? 'Réalisations peinture à Montréal et sur la Rive-Sud | Le Lever du Pinceau'
+            : 'Painting projects in Montreal and the South Shore | Le Lever du Pinceau'
         }
         description={
           isFr
-            ? 'Découvrez nos réalisations en peinture résidentielle et commerciale à Montréal, Laval, Longueuil et Gatineau. Projets réels, avant/après et finitions professionnelles.'
-            : 'Discover our residential and commercial painting projects in Montreal, Laval, Longueuil and Gatineau. Real projects, before/after and professional finishes.'
+            ? 'Découvrez nos réalisations en peinture résidentielle et commerciale à Montréal, Laval, Longueuil et sur la Rive-Sud. Projets réels, avant/après et finitions professionnelles.'
+            : 'Discover our residential and commercial painting projects in Montreal, Laval, Longueuil and the South Shore. Real projects, before/after and professional finishes.'
         }
         canonicalPath="/realisations"
         schemaArray={[breadcrumbSchema]}
@@ -738,8 +713,8 @@ export default function RealisationsPage() {
                   minW={0}
                 >
                   {isFr
-                    ? 'Nos réalisations en peinture à Montréal, Laval, Longueuil et Gatineau'
-                    : 'Our painting projects in Montreal, Laval, Longueuil and Gatineau'}
+                    ? 'Nos réalisations en peinture à Montréal, Laval, Longueuil et sur la Rive-Sud'
+                    : 'Our painting projects in Montreal, Laval, Longueuil and the South Shore'}
                 </Heading>
                 <Text
                   fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
@@ -817,15 +792,7 @@ export default function RealisationsPage() {
         </Box>
 
         {/* ── Section 2 - Barre de confiance ───────────────────────────────── */}
-        <Box
-          bg="gray.50"
-          borderTop="1px solid"
-          borderTopColor="gray.200"
-          borderBottom="1px solid"
-          borderBottomColor="gray.200"
-        >
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ── Section 3 - Projets vedettes avant / après ────────────────────── */}
         <BeforeAfterCarouselSection

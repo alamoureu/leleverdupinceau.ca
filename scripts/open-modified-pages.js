@@ -38,7 +38,6 @@ const MODIFIED_PAGES = [
   ['/secteurs/montreal', 'Montréal – Photo header + guides blog'],
   ['/secteurs/laval', 'Laval – Photo header'],
   ['/secteurs/longueuil', 'Longueuil – Photo header'],
-  ['/secteurs/rive-sud', 'Rive-Sud – Photo header'],
 ];
 
 function openInBrowser(urlOrPath, browser = null) {

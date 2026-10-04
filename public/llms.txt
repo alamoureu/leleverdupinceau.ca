@@ -1,6 +1,6 @@
 # Le Lever du Pinceau
 
-> Entreprise de peinture résidentielle et commerciale à Montréal, Laval, Longueuil, Rive-Sud et Gatineau. Licence RBQ 5864-1481-01. Devis gratuit en ligne.
+> Entreprise de peinture résidentielle et commerciale à Montréal, Laval, Longueuil et la Rive-Sud. Licence RBQ 5864-1481-01. Devis gratuit en ligne.
 
 Site web public en français. Contenu marketing et informationnel sur les services de peinture, les secteurs desservis et les guides pratiques. Ne pas indexer les zones admin, timesheet ni les pages publicitaires payantes listées dans robots.txt.
 
@@ -34,8 +34,9 @@ Site web public en français. Contenu marketing et informationnel sur les servic
 - [Montréal](https://www.leleverdupinceau.ca/secteurs/montreal): Peinture à Montréal et arrondissements
 - [Laval](https://www.leleverdupinceau.ca/secteurs/laval): Peinture à Laval
 - [Longueuil](https://www.leleverdupinceau.ca/secteurs/longueuil): Peinture à Longueuil
-- [Rive-Sud](https://www.leleverdupinceau.ca/secteurs/rive-sud): Peinture sur la Rive-Sud
-- [Gatineau](https://www.leleverdupinceau.ca/secteurs/gatineau): Peinture à Gatineau
+- [Brossard](https://www.leleverdupinceau.ca/secteurs/brossard): Peinture à Brossard
+- [Saint-Lambert](https://www.leleverdupinceau.ca/secteurs/st-lambert): Peinture à Saint-Lambert
+- [La Prairie](https://www.leleverdupinceau.ca/secteurs/laprairie): Peinture à La Prairie
 
 ## Blog
 

@@ -20,8 +20,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import { FaStar } from 'react-icons/fa';
-import BeforeAfter from '../components/BeforeAfter';
+import { GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from '../constants/googleReviews';
+import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
+import ReviewsSection from '../home-page/ReviewsSection';
+import GoogleReviewBadge from '../home-page/GoogleReviewBadge';
+import BeforeAfterCarouselSection, { buildDefaultImages } from '../home-page/BeforeAfterCarouselSection';
+import FinalCTASection from '../home-page/FinalCTASection';
 import avisPhotoHeader from '../images/Moses&Dany_Wraping.jpeg';
 import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
@@ -29,220 +33,39 @@ import imgResidentielle from '../images/1-page-principale/service hub/Peinture r
 import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import imgPeintresPro from '../images/5-landing-page/Photo/spray man 3000.jpeg';
 
+const AVIS_PHOTOS = import.meta.glob('../images/1-page-principale/avis/avant-apres/*.jpg', {
+  eager: true,
+  import: 'default',
+});
+const avisPhoto = (n) => AVIS_PHOTOS[`../images/1-page-principale/avis/avant-apres/IMG_${n}.jpg`];
+
+/** [avant, après, fr, en] */
+const AVIS_PAIRS = [
+  ['0828', '0829', "Porte d'entrée - décapage et peinture bleu marine", 'Front door - stripping and navy blue paint'],
+  ['0855', '0856', "Hall d'entrée - murs et boiseries rafraîchis", 'Entrance hall - walls and trim refreshed'],
+  ['0848', '0849', 'Maison - revêtement extérieur repeint', 'House - exterior siding repainted'],
+  ['0842', '0843', 'Chambre - papier peint retiré et murs repeints', 'Bedroom - wallpaper removed and walls repainted'],
+  ['0826', '0827', 'Salle à manger - murs bleus repeints gris foncé', 'Dining room - blue walls repainted dark grey'],
+  ['0834', '0835', "Poutre d'acier - rouille traitée et peinture noire", 'Steel beam - rust treated and black paint'],
+  ['0807', '0808', 'Salle de bain - murs repeints gris', 'Bathroom - walls repainted grey'],
+  ['0830', '0831', 'Revêtement extérieur - grattage et peinture', 'Exterior siding - scraping and painting'],
+  ['0844', '0845', 'Chambre - papier peint retiré, murs verts', 'Bedroom - wallpaper removed, green walls'],
+  ['0838', '0839', 'Terrasse en bois - teinture', 'Wood deck - stain'],
+  ['0852', '0853', 'Chambre - papier peint fleuri remplacé par la peinture', 'Bedroom - floral wallpaper replaced with paint'],
+  ['0822', '0823', 'Escalier extérieur - teinture du bois', 'Outdoor stairs - wood stain'],
+  ['0832', '0833', 'Chambre - murs repeints gris pâle', 'Bedroom - walls repainted light grey'],
+  ['1405', '1406', 'Clôture en bois - teinture', 'Wood fence - stain'],
+  ['0846', '0847', 'Chambre - murs repeints en blanc', 'Bedroom - walls repainted white'],
+  ['0836', '0837', 'Cadrage de fenêtre - plâtre et peinture', 'Window frame - plaster and paint'],
+  ['0859', '0860', 'Fenêtre - peinture écaillée réparée', 'Window - peeling paint repaired'],
+  ['0818', '0819', 'Corridor - coin de mur réparé et repeint', 'Hallway - wall corner repaired and repainted'],
+  ['0861', '0862', 'Plinthe - réparation et peinture', 'Baseboard - repair and paint'],
+  ['0863', '0864', "Plafond - tache d'eau réparée", 'Ceiling - water stain repaired'],
+];
+
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
-
-  const allReviews = [
-    {
-      name: 'Chantal Baril',
-      time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
-      content:
-        currentLang === 'fr'
-          ? "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
-          : 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
-    },
-    {
-      name: 'Zoé Boudreau',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? 'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
-          : 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
-    },
-    {
-      name: 'Michiel Schrey',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? 'Efficaces, sympathiques, très bonnes communications, prix intéressants… Hautement recommandé!'
-          : 'Efficient, friendly, very good communications, great prices… Highly recommended!',
-    },
-    {
-      name: 'Marie Lambert',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "Nous sommes très heureux de notre expérience avec Le Lever Du Pinceau. Leur travail minutieux et leur grande courtoisie en font une référence pour quiconque recherche une main-d'œuvre fiable et efficace."
-          : 'We are very happy with our experience with Le Lever Du Pinceau. Their meticulous work and great courtesy make them a reference for anyone looking for reliable and efficient labor.',
-    },
-    {
-      name: 'Frédéric Choinière',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "J'ai fait appel à Le Lever Du Pinceau pour repeindre des sections de toit en métal, dont plusieurs étaient difficiles d'accès. Non seulement Louis et Philippe ont effectué le travail avec soin et sécurité, mais ils ont également écouté nos préoccupations."
-          : 'I retained the services of Le Lever Du Pinceau to have sections of metal roof repainted, many of which were difficult to access. Not only did Louis and Philippe do the work with great care and safety, but they listened to our concerns at all times.',
-    },
-    {
-      name: 'Maureen Beech',
-      time: currentLang === 'fr' ? 'Il y a 6 jours' : '6 days ago',
-      content:
-        currentLang === 'fr'
-          ? "Le Lever Du Pinceau a réalisé plusieurs projets de peinture pour moi. J'ai été très ravie des résultats et je les recommande vivement. Ils ont été professionnels et agréables. Ils ont démarré et terminé le projet dans les délais demandés. À la fin du projet, le site était toujours propre et ordonné. Je n'hésiterais pas à faire appel à eux pour d'autres projets."
-          : 'Le Lever Du Pinceau has done multiple painting projects for me. I was very delighted with the results and would highly recommend them. They were professional and pleasant to work with. They started and completed the project within the timeframe requested. On completion of the project the site was always left orderly and clean. I would not hesitate to engage them again for other projects.',
-    },
-    {
-      name: 'A Mayer',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "Merci à l'équipe de Lever du Pinceau! Je les ai engagés pour peindre ma chambre et ils ont dépassé mes attentes. Travailleurs polis, attention aux détails et service client exceptionnel! Je recommande vivement!"
-          : 'Thanks to the Lever du Pinceau team! I hired them to paint my bedroom and they exceeded my expectations. Polite workers, attention to detail and outstanding customer service! I highly recommend!',
-    },
-    {
-      name: 'V Gagnon',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "Travail impeccable ! Louis est professionnel, sympathique et créatif ! Travail soigné et rapide. Je recommande vivement et j'utiliserai leurs services pour des travaux futurs !"
-          : 'Impeccable work! Louis is professional, friendly and creative! Neat and fast work. I highly recommend and will use their services for future work!',
-    },
-    {
-      name: 'Coralie Beauchamp',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? 'Excellente expérience avec le levé du pinceau! Professionnels, respectueux des lieux, honnêtes et travail parfait. Je recommande vivement cette équipe!'
-          : 'Great experience with brush lifting! Professional, respectful of the place, honest and perfect work. I highly recommend this team!',
-    },
-    {
-      name: 'Sophie Tremblay',
-      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Service exceptionnel! L'équipe a peint toute ma maison intérieure avec une précision remarquable. Tout était propre et bien protégé. Je recommande sans hésitation!"
-          : 'Exceptional service! The team painted my entire house interior with remarkable precision. Everything was clean and well protected. I recommend without hesitation!',
-    },
-    {
-      name: 'Marc Dubois',
-      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Travail rapide et de qualité. L'équipe est venue peindre mon commerce et a respecté mes horaires d'ouverture. Résultat impeccable!"
-          : 'Fast and quality work. The team came to paint my business and respected my opening hours. Impeccable result!',
-    },
-    {
-      name: 'Isabelle Roy',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "Excellent service de peinture extérieure. Ma maison a l'air neuve! L'équipe était professionnelle et le travail a été fait rapidement."
-          : 'Excellent exterior painting service. My house looks brand new! The team was professional and the work was done quickly.',
-    },
-    {
-      name: 'Jean-Pierre Martin',
-      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Très ravi du travail effectué. L'équipe a été ponctuelle, propre et le résultat est parfait. Je les recommande vivement!"
-          : 'Very delighted with the work done. The team was punctual, clean and the result is perfect. I highly recommend them!',
-    },
-    {
-      name: 'Caroline Gagnon',
-      time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
-      content:
-        currentLang === 'fr'
-          ? "Peinture de mon condo réalisée avec soin. L'équipe a protégé tous mes meubles et a nettoyé parfaitement après les travaux. Service impeccable!"
-          : 'Painting of my condo done with care. The team protected all my furniture and cleaned perfectly after the work. Impeccable service!',
-    },
-    {
-      name: 'David Lavoie',
-      time: currentLang === 'fr' ? 'Il y a 1 semaine' : '1 week ago',
-      content:
-        currentLang === 'fr'
-          ? "Travail professionnel et rapide. L'équipe a peint mon bureau commercial en une journée. Tout était parfaitement organisé."
-          : 'Professional and fast work. The team painted my commercial office in one day. Everything was perfectly organized.',
-    },
-    {
-      name: 'Nathalie Fortin',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "Service de peinture résidentielle exceptionnel. L'équipe était courtoise, propre et le résultat dépasse mes attentes. Je recommande!"
-          : 'Exceptional residential painting service. The team was courteous, clean and the result exceeds my expectations. I recommend!',
-    },
-    {
-      name: 'Robert Bouchard',
-      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Peinture extérieure de ma maison réalisée avec professionnalisme. L'équipe a bien préparé les surfaces et le résultat est durable."
-          : 'Exterior painting of my house done with professionalism. The team prepared the surfaces well and the result is durable.',
-    },
-    {
-      name: 'Marie-Claire Desjardins',
-      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Très ravie! L'équipe a peint mon appartement rapidement et avec beaucoup de soin. Tout était propre à la fin."
-          : 'Very delighted! The team painted my apartment quickly and with great care. Everything was clean at the end.',
-    },
-    {
-      name: 'Pierre Bergeron',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "Excellent travail de peinture commerciale. L'équipe a respecté mes contraintes horaires et le résultat est impeccable."
-          : 'Excellent commercial painting work. The team respected my time constraints and the result is impeccable.',
-    },
-    {
-      name: 'Julie Morin',
-      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Service impeccable du début à la fin. L'équipe est venue peindre ma maison et a fait un travail remarquable. Je recommande!"
-          : 'Impeccable service from start to finish. The team came to paint my house and did a remarkable job. I recommend!',
-    },
-    {
-      name: 'François Pelletier',
-      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Peinture intérieure réalisée avec précision. L'équipe a été professionnelle et le résultat est parfait. Merci!"
-          : 'Interior painting done with precision. The team was professional and the result is perfect. Thank you!',
-    },
-    {
-      name: 'Sylvie Côté',
-      time: currentLang === 'fr' ? 'Il y a 1 semaine' : '1 week ago',
-      content:
-        currentLang === 'fr'
-          ? "Travail rapide et de qualité. L'équipe a peint mon commerce avec soin et a respecté mes horaires. Excellent service!"
-          : 'Fast and quality work. The team painted my business with care and respected my hours. Excellent service!',
-    },
-    {
-      name: 'Michel Leblanc',
-      time: currentLang === 'fr' ? 'Il y a 2 mois' : '2 months ago',
-      content:
-        currentLang === 'fr'
-          ? "Service de peinture professionnel. L'équipe a fait un excellent travail sur ma résidence. Tout était propre et bien fait."
-          : 'Professional painting service. The team did an excellent job on my residence. Everything was clean and well done.',
-    },
-    {
-      name: 'Annie Girard',
-      time: currentLang === 'fr' ? 'Il y a 1 mois' : 'a month ago',
-      content:
-        currentLang === 'fr'
-          ? "Très ravie du service! L'équipe a peint mon condo avec beaucoup de soin. Le résultat est impeccable et tout était propre."
-          : 'Very delighted with the service! The team painted my condo with great care. The result is impeccable and everything was clean.',
-    },
-    {
-      name: 'Patrick Simard',
-      time: currentLang === 'fr' ? 'Il y a 3 semaines' : '3 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Peinture extérieure de qualité. L'équipe a bien préparé les surfaces et le résultat est durable. Je recommande!"
-          : 'Quality exterior painting. The team prepared the surfaces well and the result is durable. I recommend!',
-    },
-    {
-      name: 'Louise Thibault',
-      time: currentLang === 'fr' ? 'Il y a 2 semaines' : '2 weeks ago',
-      content:
-        currentLang === 'fr'
-          ? "Service exceptionnel! L'équipe a peint ma maison rapidement et avec précision. Tout était parfaitement organisé et propre."
-          : 'Exceptional service! The team painted my house quickly and with precision. Everything was perfectly organized and clean.',
-    },
-  ];
 
   const whyRecommend = [
     isFr ? 'Finition très soignée' : 'Very careful finish',
@@ -310,55 +133,27 @@ export default function AvisPage() {
 
   const reviewSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: 'Le Lever du Pinceau',
-    url: 'https://leleverdupinceau.ca',
-    telephone: '+14388680772',
-    email: 'leleverdupinceau@gmail.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: '2175 Rue Saint-Patrick',
-      addressLocality: 'Montréal',
-      addressRegion: 'QC',
-      postalCode: 'H3K 1B4',
-      addressCountry: 'CA',
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.9',
-      reviewCount: '150',
-    },
-    review: [
-      {
-        '@type': 'Review',
-        author: {
-          '@type': 'Person',
-          name: 'Chantal Baril',
-        },
-        reviewBody: isFr
-          ? "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes; le souci du détail est apparent!"
-          : 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-        },
-      },
-      {
-        '@type': 'Review',
-        author: {
-          '@type': 'Person',
-          name: 'Zoé Boudreau',
-        },
-        reviewBody: isFr
-          ? 'Je suis très ravie du service reçu! Équipe compétente, rapide et courtoise. Je recommande chaleureusement!'
-          : 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
-        reviewRating: {
-          '@type': 'Rating',
-          ratingValue: '5',
-        },
-      },
-    ],
+    '@type': LOCAL_BUSINESS_SCHEMA['@type'],
+    '@id': LOCAL_BUSINESS_SCHEMA['@id'],
+    name: LOCAL_BUSINESS_SCHEMA.name,
+    url: LOCAL_BUSINESS_SCHEMA.url,
+    aggregateRating: LOCAL_BUSINESS_SCHEMA.aggregateRating,
+    review: GOOGLE_REVIEWS.slice(0, 5).map(({ name, content }) => ({
+      '@type': 'Review',
+      author: { '@type': 'Person', name },
+      reviewBody: content[currentLang],
+      reviewRating: { '@type': 'Rating', ratingValue: '5' },
+    })),
   };
+
+  const beforeAfterPairs = [
+    ...buildDefaultImages(isFr),
+    ...AVIS_PAIRS.map(([before, after, fr, en]) => ({
+      before: avisPhoto(before),
+      after: avisPhoto(after),
+      description: isFr ? fr : en,
+    })),
+  ];
 
   return (
     <Fragment>
@@ -428,15 +223,33 @@ export default function AvisPage() {
                     ? '👉 Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
                     : '👉 Discover their testimonials, before/after photos and complete evaluations.'}
                 </Text>
+                <Box>
+                  <Link href={GOOGLE_REVIEWS_URL} rel="nofollow" target="_blank" _hover={{ textDecoration: 'none' }}>
+                    <Button
+                      rightIcon={<ArrowForwardIcon />}
+                      bg="brand.500"
+                      color="white"
+                      borderRadius="full"
+                      textStyle="nav"
+                      px={{ base: 5, md: 7 }}
+                      py={{ base: 3, md: 4 }}
+                      _hover={{ bg: 'brand.600' }}
+                    >
+                      {isFr ? 'Laisser un avis Google' : 'Leave a Google review'}
+                    </Button>
+                  </Link>
+                </Box>
               </Stack>
             </Stack>
             <Box
+              position="relative"
               w="100%"
               aspectRatio={{ base: '1', md: '4/3' }}
               borderRadius="xl"
               overflow="hidden"
               bg="gray.100"
             >
+              <GoogleReviewBadge top={{ base: 3, md: 4 }} right={{ base: 3, md: 4 }} />
               <Image
                 src={avisPhotoHeader}
                 alt={isFr ? 'Avis clients – Le Lever du Pinceau' : 'Client reviews – Le Lever du Pinceau'}
@@ -452,105 +265,7 @@ export default function AvisPage() {
             </Box>
           </Grid>
           <Stack spacing={0}>
-            <Box
-              py={{ base: 12, md: 16, lg: 20 }}
-              bg="gray.50"
-              borderRadius="xl"
-            >
-              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-                <Stack spacing={{ base: 4, md: 6 }} align="center">
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
-                    <Heading as="h2" size="section" color="gray.800">
-                      {isFr
-                        ? 'Ce que nos clients disent de nous'
-                        : 'What our clients say about us'}
-                    </Heading>
-                  </Stack>
-
-                  <Box textAlign="center" pb={{ base: 3, md: 6 }}>
-                    <Link
-                      href="https://www.google.com/search?sca_esv=04ccc06d6a14a3bd&cs=0&output=search&kgmid=/g/11ldw9sdvg&q=Le+Lever+Du+Pinceau&shndl=30&shem=uaasic&source=sh/x/loc/uni/m1/1&kgs=a53523f1a2b1d98f#lrd=0x68f987b7d3c06763:0xde27a613b1baf982,3,,,,"
-                      rel="nofollow"
-                      target="_blank"
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Button
-                        rightIcon={<ArrowForwardIcon />}
-                        bg="brand.500"
-                        color="white"
-                        borderRadius="full"
-                        textStyle="nav"
-                        px={{ base: 5, md: 7 }}
-                        py={{ base: 3, md: 4 }}
-                        _hover={{ bg: 'brand.600' }}
-                      >
-                        {isFr
-                          ? 'Laisser un avis Google'
-                          : 'Leave a Google review'}
-                      </Button>
-                    </Link>
-                  </Box>
-
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 3, md: 6 }}
-                    w="100%"
-                  >
-                    {allReviews.map((review, index) => (
-                      <Box
-                        key={index}
-                        bg="white"
-                        p={{ base: 3, md: 6 }}
-                        borderRadius="xl"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        h="100%"
-                        display="flex"
-                        flexDirection="column"
-                        _hover={{
-                          borderColor: 'brand.500',
-                          boxShadow: 'md',
-                        }}
-                        transition="all 0.2s"
-                      >
-                        <Stack spacing={{ base: 2, md: 3 }} flex={1}>
-                          <Box>
-                            <Text
-                              fontWeight="bold"
-                              textStyle="bodyLarge"
-                              color="gray.800"
-                            >
-                              {review.name}
-                            </Text>
-                            <Text textStyle="caption" color="gray.500" mt={0.5}>
-                              {review.time}
-                            </Text>
-                          </Box>
-                          <Box display="flex" alignItems="center" gap={0.5}>
-                            {[...Array(5)].map((_, i) => (
-                              <Icon
-                                key={i}
-                                as={FaStar}
-                                color="#EAA82E"
-                                boxSize={4}
-                              />
-                            ))}
-                          </Box>
-                          <Text
-                            textStyle="body"
-                            color="gray.700"
-                            lineHeight="1.6"
-                            flex={1}
-                          >
-                            {review.content}
-                          </Text>
-                        </Stack>
-                      </Box>
-                    ))}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
+            <ReviewsSection hideButton />
 
             <Box
               py={{ base: 12, md: 16, lg: 20 }}
@@ -602,34 +317,18 @@ export default function AvisPage() {
               </Container>
             </Box>
 
-            <Box
-              py={{ base: 12, md: 16, lg: 20 }}
-              bg="white"
-              borderRadius="xl"
-              mb={{ base: 8, md: 12 }}
-            >
-              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-                <Stack spacing={{ base: 4, md: 6 }}>
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign="left">
-                    <Heading as="h2" size="section" color="gray.800">
-                      {isFr
-                        ? 'Des transformations impressionnantes'
-                        : 'Impressive transformations'}
-                    </Heading>
-                    <Text
-                      textStyle="bodyLarge"
-                      color="gray.600"
-                      lineHeight="1.7"
-                    >
-                      {isFr
-                        ? 'Avant/après peinture intérieure, cuisine, salon & plafond, escalier, condo & loft, rénovations résidentielles.'
-                        : 'Before/after interior painting, kitchen, living room & ceiling, stairs, condo & loft, residential renovations.'}
-                    </Text>
-                  </Stack>
-                  <BeforeAfter isFr={isFr} />
-                </Stack>
-              </Container>
-            </Box>
+            <BeforeAfterCarouselSection
+              isFr={isFr}
+              title={isFr ? 'Des transformations impressionnantes' : 'Impressive transformations'}
+              subtitle={
+                isFr
+                  ? 'Avant/après de projets réalisés pour nos clients : intérieur, extérieur, plâtre, teinture et rénovations résidentielles.'
+                  : 'Before/after of projects completed for our clients: interior, exterior, plaster, stain and residential renovations.'
+              }
+              images={beforeAfterPairs}
+              sectionPaddingTop={{ base: 12, md: 16, lg: 20 }}
+              sectionPaddingBottom={{ base: 12, md: 16, lg: 20 }}
+            />
 
             <Box
               py={{ base: 12, md: 16, lg: 20 }}
@@ -722,56 +421,14 @@ export default function AvisPage() {
           </Stack>
         </Container>
 
-        <Box
-          w="100%"
-          py={{ base: 12, md: 16, lg: 20 }}
-          bg="app.ctaBg"
-          mt={{ base: 8, md: 12 }}
-        >
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 4, md: 6 }} textAlign="center">
-              <Stack spacing={{ base: 2, md: 3 }}>
-                <Heading as="h2" size="section" color="white">
-                  {isFr
-                    ? 'Une équipe de peintres professionnels recommandée partout dans le Grand Montréal'
-                    : 'A team of professional painters recommended throughout Greater Montreal'}
-                </Heading>
-                <Text
-                  textStyle="bodyLarge"
-                  color="whiteAlpha.900"
-                  maxW="800px"
-                  mx="auto"
-                >
-                  {isFr
-                    ? 'Des centaines de clients nous ont fait confiance. Obtenez votre propre transformation.'
-                    : 'Hundreds of clients have trusted us. Get your own transformation.'}
-                </Text>
-              </Stack>
-
-              <Box>
-                <Link
-                  as={RouterLink}
-                  to="/contact"
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    rightIcon={<ArrowForwardIcon />}
-                    bg="white"
-                    color="brand.500"
-                    borderRadius="full"
-                    textStyle="nav"
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                    _hover={{ bg: 'gray.100' }}
-                    size="lg"
-                  >
-                    {isFr ? 'Soumission gratuite' : 'Free quote'}
-                  </Button>
-                </Link>
-              </Box>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={isFr
+            ? 'Une équipe de peintres professionnels recommandée partout dans le Grand Montréal'
+            : 'A team of professional painters recommended throughout Greater Montreal'}
+          subtitle={isFr
+            ? 'Des centaines de clients nous ont fait confiance. Obtenez votre propre transformation.'
+            : 'Hundreds of clients have trusted us. Get your own transformation.'}
+        />
       </Box>
     </Fragment>
   );

@@ -17,11 +17,12 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
+import { useTranslation } from '../i18n';
 import TrustBanner from '../home-page/TrustBanner';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
-import CityCTASection from '../city-pages/CityCTASection';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 import headerLongueuil from '../images/3-ville/longueuil/header.JPEG';
 // Avant/apres Longueuil - paires identifiees
@@ -33,9 +34,22 @@ import lonImg7990 from '../images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg';
 import lonImg7988 from '../images/3-ville/longueuil/avant-apres/IMG_7988 4.jpg';
 import lonImg6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg';
 import lonImg8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg';
+import lonImg0830 from '../images/3-ville/longueuil/avant-apres/IMG_0830.jpg';
+import lonImg0831 from '../images/3-ville/longueuil/avant-apres/IMG_0831.jpg';
+import lonImg0838 from '../images/3-ville/longueuil/avant-apres/IMG_0838.jpg';
+import lonImg0839 from '../images/3-ville/longueuil/avant-apres/IMG_0839.jpg';
+import balconyStairsBefore from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg";
+import balconyStairsAfter from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg";
+import windowFrameBefore from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
+import windowFrameAfter from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
+import bedroomBefore from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
+import bedroomAfter from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
+import greenBedroomBefore from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
+import greenBedroomAfter from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
 
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
+  const { t } = useTranslation();
   const isFr = currentLang === 'fr';
 
   // Schema markup
@@ -161,47 +175,57 @@ export default function LongueuilCityPage() {
       after: lonImg8108,
       description: isFr ? 'Mise à niveau avant vente - Propriété à Longueuil' : 'Pre-sale update - Property in Longueuil',
     },
+    {
+      before: lonImg0830,
+      after: lonImg0831,
+      description: isFr ? 'Peinture extérieure - Revêtement de maison à Longueuil' : 'Exterior painting - House siding in Longueuil',
+    },
+    {
+      before: balconyStairsBefore,
+      after: balconyStairsAfter,
+      description: isFr ? 'Peinture extérieure - Escalier de balcon à Longueuil' : 'Exterior painting - Balcony stairs in Longueuil',
+    },
+    {
+      before: lonImg0838,
+      after: lonImg0839,
+      description: isFr ? 'Teinture de terrasse - Maison à Longueuil' : 'Deck staining - House in Longueuil',
+    },
+    {
+      before: windowFrameBefore,
+      after: windowFrameAfter,
+      description: isFr ? 'Peinture intérieure - Cadrage de fenêtre à Longueuil' : 'Interior painting - Window frame in Longueuil',
+    },
+    {
+      before: bedroomBefore,
+      after: bedroomAfter,
+      description: isFr ? 'Peinture résidentielle - Chambre à Longueuil' : 'Residential painting - Bedroom in Longueuil',
+    },
+    {
+      before: greenBedroomBefore,
+      after: greenBedroomAfter,
+      description: isFr ? 'Peinture intérieure - Chambre aux murs verts à Longueuil' : 'Interior painting - Green-walled bedroom in Longueuil',
+    },
   ];
 
   // Section 6 - Pourquoi nous choisir
 
-  const whyUsCards = isFr ? [
-    {
-      number: '01',
-      title: 'Organisation claire',
-      description: 'Soumission détaillée, plan de match, échéancier précis et séquence des travaux communiquée avant le début du chantier.',
-    },
-    {
-      number: '02',
-      title: 'Chantier propre',
-      description: 'Protections en place, respect des lieux, nettoyage quotidien du chantier. Votre espace reste habitable pendant les travaux.',
-    },
-    {
-      number: '03',
-      title: 'Résultat durable',
-      description: 'Préparation sérieuse des surfaces, produits adaptés à chaque contexte, finition nette et uniforme de la première à la dernière couche.',
-    },
-  ] : [
-    {
-      number: '01',
-      title: 'Clear organization',
-      description: 'Detailed quote, game plan, precise schedule and work sequence communicated before the start of the job.',
-    },
-    {
-      number: '02',
-      title: 'Clean job site',
-      description: 'Protections in place, respect for the space, daily site cleanup. Your home stays livable during the work.',
-    },
-    {
-      number: '03',
-      title: 'Lasting result',
-      description: 'Thorough surface preparation, products adapted to each context, clean and uniform finish from first to last coat.',
-    },
-  ];
+  const whyUsCards = [1, 2, 3].map((n) => ({
+    number: `0${n}`,
+    title: t[`controlCard${n}Title`],
+    description: t[`controlCard${n}Desc`],
+  }));
 
   // Section 7 - FAQ Longueuil
 
   const longueuilFaqs = [
+    {
+      question: isFr
+        ? 'Il y a des taches blanches poudreuses sur ma brique, est-ce un problème avant de peindre?'
+        : 'There are powdery white stains on my brick, is that a problem before painting?',
+      answer: isFr
+        ? "Ces dépôts, appelés efflorescence, sont fréquents près du fleuve à Longueuil en raison du taux d'humidité ambiant. Il faut les nettoyer à sec (jamais à l'eau, qui les fait revenir) et vérifier la source d'humidité avant d'appliquer un revêtement, sans quoi la peinture décolle rapidement."
+        : 'These deposits, called efflorescence, are common near the river in Longueuil due to ambient humidity. They must be cleaned dry (never with water, which brings them back) and the source of moisture checked before applying a coating, otherwise the paint peels quickly.',
+    },
     {
       question: isFr ? 'Est-ce que vous vous déplacez partout à Longueuil?' : 'Do you travel throughout Longueuil?',
       answer: isFr
@@ -256,16 +280,14 @@ export default function LongueuilCityPage() {
     { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
     { label: 'Peinture extérieure', to: '/services/peinture-exterieure' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
-    { label: 'Obtenir une soumission', to: '/contact' },
-    { label: 'Peintre Rive-Sud', to: '/secteurs/rive-sud' },
+    { label: 'Peintre à Brossard', to: '/secteurs/brossard' },
     { label: 'Voir nos réalisations', to: '/realisations' },
   ] : [
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Interior painting', to: '/services/peinture-interieure' },
     { label: 'Exterior painting', to: '/services/peinture-exterieure' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
-    { label: 'Get a quote', to: '/contact' },
-    { label: 'Painter on the South Shore', to: '/secteurs/rive-sud' },
+    { label: 'Painter in Brossard', to: '/secteurs/brossard' },
     { label: 'View our projects', to: '/realisations' },
   ];
 
@@ -351,12 +373,6 @@ export default function LongueuilCityPage() {
                     : 'Professional painters for your residential and commercial projects throughout Longueuil.'}
                 </Text>
 
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {isFr
-                    ? 'Maisons familiales, condos, appartements et espaces commerciaux : nous réalisons des projets propres, rapides et bien coordonnés à Longueuil.'
-                    : 'Family homes, condos, apartments and commercial spaces: we deliver clean, fast and well-coordinated projects throughout Longueuil.'}
-                </Text>
-
                 <HStack spacing={4} pt={2} flexWrap="wrap">
                   <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                     <Button
@@ -424,9 +440,7 @@ export default function LongueuilCityPage() {
         </Container>
 
         {/* SECTION 2 - Barre de confiance */}
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
           <Stack spacing={0}>
@@ -438,6 +452,11 @@ export default function LongueuilCityPage() {
                 isFr
                   ? 'Une équipe habituée aux réalités des projets à Longueuil'
                   : 'A team familiar with the realities of projects in Longueuil'
+              }
+              localInsight={
+                isFr
+                  ? "Longueuil combine deux réalités bien distinctes : les tours à logements des années 1960-1970 près du métro, et les maisons de pierre et de brique du Vieux-Longueuil, tout près du fleuve. Cette proximité avec le Saint-Laurent maintient un taux d'humidité plus élevé dans l'air, ce qui favorise l'efflorescence, ces dépôts blanchâtres de sels minéraux qui remontent à la surface de la brique et de la maçonnerie. Peindre par-dessus sans traiter l'efflorescence piège l'humidité et fait éclater la nouvelle couche."
+                  : 'Longueuil combines two very different realities: 1960s-1970s apartment towers near the metro, and the stone and brick houses of Old Longueuil, close to the river. This proximity to the St. Lawrence keeps air humidity higher, which promotes efflorescence, the whitish mineral salt deposits that rise to the surface of brick and masonry. Painting over it without treating the efflorescence traps moisture and makes the new coat burst.'
               }
               whyUsIntroText={
                 isFr
@@ -737,7 +756,14 @@ export default function LongueuilCityPage() {
         </Box>
 
         {/* SECTION 9 - CTA final */}
-        <CityCTASection cityName="Longueuil" />
+        <FinalCTASection
+          title={isFr ? 'Obtenez une soumission pour un projet de peinture à Longueuil' : 'Get a quote for a painting project in Longueuil'}
+          subtitle={
+            isFr
+              ? "Que ce soit pour l'intérieur, l'extérieur, un commerce ou un bâtiment industriel, notre équipe se déplace rapidement partout à Longueuil."
+              : "Whether it's for interior, exterior, commercial or industrial building work, our team quickly travels throughout Longueuil."
+          }
+        />
 
       </Box>
     </Fragment>

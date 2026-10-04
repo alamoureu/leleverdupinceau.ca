@@ -12,9 +12,7 @@ import {
   Icon,
   HStack,
   Flex,
-  Grid,
   useDisclosure,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -27,10 +25,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import SubmissionForm from '../home-page/SubmissionForm';
+import HeroSection from '../home-page/HeroSection';
+import TrustBanner from '../home-page/TrustBanner';
+import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import SectorsSection from '../home-page/SectorsSection';
-import contactPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
+import FinalCTASection from '../home-page/FinalCTASection';
+import contactPhotoHeader from '../images/hero/contact-hero.webp';
 
 export default function ContactPage() {
   const { currentLang } = useContext(appContext);
@@ -158,140 +159,35 @@ export default function ContactPage() {
       />
 
       <Box w='100%' minW={0} maxW='100%' bg='white' overflowX='hidden'>
-        <Container
-          maxW='1440px'
-          px={{ base: 4, md: 6 }}
-          pt={{ base: 12, md: 16, lg: 20 }}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext={isFr ? 'Page Contact' : 'Contact Page'}
+          title={isFr ? 'Contactez Le Lever du Pinceau' : 'Contact Le Lever du Pinceau'}
+          subtitle={isFr ? 'Soumission gratuite en moins de 24 h.' : 'Free quote in less than 24 h.'}
+          buttonText={isFr ? 'Disponible pour projets urgents sur demande' : 'Available for urgent projects on demand'}
+          imageBackground={contactPhotoHeader}
+          overlayBg='linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.7) 45%, rgba(18, 38, 74, 0.5) 100%)'
         >
-          <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
-            gap={{ base: 6, md: 8, lg: 10 }}
-            mb={{ base: 12, md: 16 }}
-            alignItems={{ md: 'flex-start' }}
+          <HStack
+            spacing={3}
+            textStyle='bodyLarge'
+            color='whiteAlpha.900'
+            mb={{ base: 2, md: 4 }}
+            flexWrap='wrap'
           >
-            <Stack spacing={0} minW={0}>
-              <HStack
-                spacing={3}
-                textStyle='bodyLarge'
-                color='gray.600'
-                mb={{ base: 4, md: 6 }}
-              >
-                <Link
-                  href='/'
-                  _hover={{ textDecoration: 'underline' }}
-                  color='gray.600'
-                  textStyle='bodyLarge'
-                >
-                  {isFr ? 'Accueil' : 'Home'}
-                </Link>
-                <Text textStyle='bodyLarge'>›</Text>
-                <Text color='gray.800' fontWeight='medium' textStyle='bodyLarge'>
-                  Contact
-                </Text>
-              </HStack>
-              <Stack spacing={{ base: 4, md: 6 }} textAlign='left'>
-                <Heading as='h1' size='page' color='gray.800'>
-                  {isFr
-                    ? 'Contactez Le Lever du Pinceau'
-                    : 'Contact Le Lever du Pinceau'}
-                </Heading>
-                <Text
-                  textStyle='bodyLarge'
-                  color='gray.600'
-                  lineHeight='1.7'
-                  maxW='800px'
-                >
-                  {isFr
-                    ? 'Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ou obtenir une soumission rapide pour votre projet de peinture ? Notre équipe de peintres professionnels est disponible partout dans le Grand Montréal, Montréal, Laval, Longueuil, Brossard et tous les quartiers environnants. Nous répondons rapidement, offrons des soumissions claires et précises, et garantissons un service professionnel du début à la fin.'
-                    : 'Would you like to refresh your interior, modernize your spaces, or get a quick quote for your painting project? Our team of professional painters is available throughout Greater Montreal, Montreal, Laval, Longueuil, Brossard and all surrounding neighborhoods. We respond quickly, offer clear and accurate quotes, and guarantee professional service from start to finish.'}
-                </Text>
-                <Text
-                  textStyle='bodyLarge'
-                  color='gray.600'
-                  lineHeight='1.7'
-                  maxW='800px'
-                  mt={2}
-                  fontWeight='medium'
-                >
-                  {isFr
-                    ? '👉 Remplissez le formulaire ci-dessous ou contactez-nous directement, nous serons ravis de vous aider.'
-                    : '👉 Fill out the form below or contact us directly, we will be happy to help you.'}
-                </Text>
-                <Box mt={6}>
-                  <Button
-                    onClick={onOpen}
-                    colorScheme="brand"
-                    color="white"
-                    textStyle="nav"
-                    px={{ base: 5, md: 6 }}
-                    py={{ base: 4, md: 6 }}
-                    h="auto"
-                    borderRadius="full"
-                    boxShadow="md"
-                    leftIcon={
-                      <Icon
-                        as={FontAwesomeIcon}
-                        icon={faClock}
-                        boxSize={4}
-                      />
-                    }
-                    _hover={{ boxShadow: 'lg', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                  >
-                    {isFr
-                      ? 'Disponible pour projets urgents sur demande'
-                      : 'Available for urgent projects on demand'}
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-            <Box
-              w='100%'
-              aspectRatio={{ base: '1', md: '4/3' }}
-              borderRadius='xl'
-              overflow='hidden'
-              bg='gray.100'
-            >
-              <Image
-                src={contactPhotoHeader}
-                alt={isFr ? 'Contact – Le Lever du Pinceau' : 'Contact – Le Lever du Pinceau'}
-                w='100%'
-                h='100%'
-                objectFit='cover'
-                objectPosition='center'
-                htmlWidth={1600}
-                htmlHeight={1067}
-                loading="lazy"
-                decoding="async"
-              />
-            </Box>
-          </Grid>
-          <Stack spacing={0}>
-            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
-                    <Heading as='h2' size='section' color='gray.800'>
-                      {isFr
-                        ? 'Obtenez votre soumission gratuite'
-                        : 'Get your free quote'}
-                    </Heading>
-                  </Stack>
+            <Link as={RouterLink} to='/' _hover={{ textDecoration: 'underline', color: 'white' }}>
+              {isFr ? 'Accueil' : 'Home'}
+            </Link>
+            <Text color='white' opacity={0.9}>›</Text>
+            <Text color='white' fontWeight='medium'>Contact</Text>
+          </HStack>
+        </HeroSection>
 
-                  <Box
-                    bg='white'
-                    p={{ base: 6, md: 8 }}
-                    borderRadius='xl'
-                    border='1px solid'
-                    borderColor='gray.200'
-                    w={{ base: '100%', md: '600px' }}
-                    mx='auto'
-                  >
-                    <SubmissionForm />
-                  </Box>
-                </Stack>
-              </Container>
-            </Box>
+        <TrustBanner />
+
+        <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+          <Stack spacing={0}>
+            <ContactFormSection />
 
             <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -550,62 +446,14 @@ export default function ContactPage() {
           </Stack>
         </Container>
 
-        {/* Section 6 — CTA Final */}
-        <Box
-          w='100%'
-          py={{ base: 12, md: 16, lg: 20 }}
-          bg='app.ctaBg'
-          mt={{ base: 8, md: 12 }}
-        >
-          <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-            <Stack spacing={8} textAlign='center'>
-              <Stack spacing={{ base: 2, md: 3 }}>
-                <Heading as='h2' size='section' color='white'>
-                  {isFr
-                    ? 'Prêt à commencer votre projet de peinture ?'
-                    : 'Ready to start your painting project?'}
-                </Heading>
-                <Text
-                  textStyle='bodyLarge'
-                  color='whiteAlpha.900'
-                  maxW='800px'
-                  mx='auto'
-                >
-                  {isFr
-                    ? 'Nous répondons rapidement, évaluons votre projet et vous envoyons une soumission claire et détaillée.'
-                    : 'We respond quickly, assess your project and send you a clear and detailed quote.'}
-                </Text>
-              </Stack>
-
-              <Box>
-                <Link
-                  href='#submission-form' // Assuming the form has this ID or similar, or just scrolling up. Using link to form if possible or just a general CTA behavior.
-                  _hover={{ textDecoration: 'none' }}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                  }}
-                >
-                  <Button
-                    rightIcon={<ArrowForwardIcon />}
-                    bg='white'
-                    color='brand.500'
-                    borderRadius='full'
-                    textStyle='nav'
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                    _hover={{ bg: 'gray.100' }}
-                    size='lg'
-                  >
-                    {isFr ? 'Obtenir ma soumission' : 'Get my quote'}
-                  </Button>
-                </Link>
-              </Box>
-              {/* Placeholder for GHL integration */}
-              {/* <div id="ghl-form-placeholder"></div> */}
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={isFr ? 'Prêt à commencer votre projet de peinture ?' : 'Ready to start your painting project?'}
+          subtitle={isFr
+            ? 'Nous répondons rapidement, évaluons votre projet et vous envoyons une soumission claire et détaillée.'
+            : 'We respond quickly, assess your project and send you a clear and detailed quote.'}
+          buttonText={isFr ? 'Obtenir ma soumission' : 'Get my quote'}
+          onSubmissionOpen={onOpen}
+        />
       </Box>
 
       <SubmissionModal isOpen={isOpen} onClose={onClose} />

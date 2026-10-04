@@ -39,6 +39,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 import heroImg from '../images/neighborhood_placeholder.jpg';
 
@@ -149,6 +150,10 @@ const CREDIBILITE = [
 ];
 
 const FAQS = [
+  {
+    question: 'Mon syndicat de copropriété doit approuver les travaux, est-ce que vous vous en occupez\u00A0?',
+    answer: 'Nous préparons la documentation nécessaire (description des travaux, assurances, horaires) pour faciliter l\'approbation par votre conseil d\'administration, et nous coordonnons directement avec la gestion de l\'immeuble pour la réservation de l\'ascenseur de service et le respect du règlement de l\'immeuble.',
+  },
   {
     question: 'Est-ce que vous intervenez dans les condos et tours résidentielles de Ville-Marie\u00A0?',
     answer: 'Oui. Nous intervenons dans les condos, tours résidentielles et autres types d\'unités à Ville-Marie. Ce type de projet demande souvent une bonne coordination avec l\'immeuble, un chantier propre et une attention particulière aux accès et aux espaces communs. Notre approche s\'adapte à ces contraintes pour que les travaux se déroulent de façon simple, efficace et bien encadrée.',
@@ -280,8 +285,7 @@ export default function VilleMariePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -423,9 +427,7 @@ export default function VilleMariePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS VILLE-MARIE ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -442,6 +444,9 @@ export default function VilleMariePage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
                   À Ville-Marie, la réussite du projet dépend autant de la logistique et de la coordination que de la finition.
+                </Text>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
+                  {"Ville-Marie regroupe la plus forte densité de tours à condos de la région, ce qui change la nature du travail : réserver l'ascenseur de service à l'avance, obtenir l'accord du conseil d'administration de la copropriété pour les travaux touchant les parties communes, respecter les plages horaires imposées par le règlement de l'immeuble et les heures de travail permises au centre-ville. Le défi n'est pas la façade ou la fondation, mais la coordination : on planifie ces étapes administratives avant même de fixer une date de chantier."}
                 </Text>
               </Stack>
 
@@ -852,43 +857,12 @@ export default function VilleMariePage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box
-          py={{ base: 16, md: 20, lg: 24 }}
-          bg="app.ctaBg"
-        >
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à confier votre projet à une équipe habituée au centre-ville&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez votre soumission gratuite en moins de 24h.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={'Prêt à confier votre projet à une équipe habituée au centre-ville\u00A0?'}
+          subtitle="Obtenez votre soumission gratuite en moins de 24h."
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

@@ -3,13 +3,13 @@ import {
   Box,
   Container,
   Stack,
-  Button,
   Text,
   Image,
   Heading,
   Flex,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
+import CtaButton from './CtaButton';
 import satisfactionBadgeFr from '../images/satisfaction_fr.webp';
 import satisfactionBadgeEn from '../images/satisfaction_en.webp';
 
@@ -79,22 +79,7 @@ export default function GuaranteeSection({
         <Stack spacing={{ base: 2, sm: 3, md: 5 }} align="center">
           {!hideCta && (
             <Stack spacing={1} align="center" w="100%">
-              <Button
-                onClick={onSubmissionOpen}
-                bg="brand.500"
-                color="white"
-                fontSize={{ base: 'lg', sm: 'xl', md: 'xl' }}
-                fontWeight="semibold"
-                px={{ base: 5, sm: 6, md: 8 }}
-                py={{ base: 4, sm: 4, md: 5 }}
-                h="auto"
-                minH={{ base: '52px', sm: '56px', md: '62px' }}
-                borderRadius="full"
-                boxShadow="md"
-                _hover={{ bg: 'brand.600', boxShadow: 'lg' }}
-              >
-                {ctaText}
-              </Button>
+              <CtaButton onClick={onSubmissionOpen}>{ctaText}</CtaButton>
               <Text
                 fontSize={{ base: 'sm', md: 'lg' }}
                 color="gray.600"

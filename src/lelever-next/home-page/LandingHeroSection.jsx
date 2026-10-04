@@ -4,17 +4,25 @@ import {
   Container,
   Heading,
   Text,
-  Button,
   Stack,
   Image,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.webp';
 import { LANDING_MAIN_CONTENT_PT } from '../landing/constants';
-import ShakeButton from './ShakeButton';
+import CtaButton from './CtaButton';
+import { CARD_HEIGHT as TRUST_CARD_HEIGHT } from './TrustBanner';
 
-/** Même V qu’MainHero / ancienne v1 (bas du hero). */
-const CLIP_POLYGON = 'polygon(0 0, 100% 0, 100% 80%, 50% 90%, 0 80%)';
+/** V en bas du hero : la pointe s'arrête juste au-dessus de la carte TrustBanner (à cheval sur le bas de la section). */
+const V_DEPTH = 'clamp(40px, 9vw, 120px)';
+const V_TIP_GAP = 'clamp(10px, 2.5vw, 24px)';
+const CLIP_POLYGON = Object.fromEntries(
+  Object.entries(TRUST_CARD_HEIGHT).map(([bp, h]) => {
+    const tip = `calc(100% - ${h} / 2 - ${V_TIP_GAP})`;
+    const side = `calc(100% - ${h} / 2 - ${V_TIP_GAP} - ${V_DEPTH})`;
+    return [bp, `polygon(0 0, 100% 0, 100% ${side}, 50% ${tip}, 0 ${side})`];
+  })
+);
 
 /**
  * Hero landing : clip en V en bas. Nav fixe → `pt` + `pb` symétriques.
@@ -53,9 +61,46 @@ export default function LandingHeroSection({
       position="relative"
       w="100%"
       minW={0}
-      bg="white"
+      bg="gray.50"
       overflow="hidden"
     >
+      {/* Couvre aussi le pb ajouté par TrustBanner, pour que la pointe du V descende jusqu'à la carte */}
+      <Box
+        position="absolute"
+        top={0}
+        left={0}
+        right={0}
+        bottom={0}
+        zIndex={0}
+        clipPath={CLIP_POLYGON}
+        overflow="hidden"
+        aria-hidden
+      >
+        <Image
+          src={imageBackground || heroImage}
+          alt={`${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`}
+          position="absolute"
+          top={0}
+          left={0}
+          w="100%"
+          h="100%"
+          objectFit="cover"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+          htmlWidth={1600}
+          htmlHeight={1067}
+        />
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bg="rgba(0, 0, 0, 0.4)"
+        />
+      </Box>
+
       <Box
         position="relative"
         display="flex"
@@ -78,42 +123,6 @@ export default function LandingHeroSection({
         }}
         w="100%"
       >
-        <Box
-          position="absolute"
-          top={0}
-          left={0}
-          right={0}
-          bottom={0}
-          zIndex={0}
-          style={{ clipPath: CLIP_POLYGON }}
-          overflow="hidden"
-          aria-hidden
-        >
-          <Image
-            src={imageBackground || heroImage}
-            alt={`${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`}
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.4)"
-          />
-        </Box>
-
         <Container
           maxW="1440px"
           position="relative"
@@ -211,53 +220,8 @@ export default function LandingHeroSection({
                 {heroSubtitle}
               </Text>
 
-              <Box
-                pt={{ base: 2, sm: 3, md: 2, lg: 2, xl: 3 }}
-                w="100%"
-                maxW={{
-                  base: 'min(100%, 320px)',
-                  sm: '340px',
-                  md: '380px',
-                  lg: '400px',
-                }}
-                display="flex"
-                justifyContent="flex-start"
-              >
-                <ShakeButton>
-                  <Button
-                    onClick={onSubmissionOpen}
-                    bgGradient="linear(to-r, brand.500, brand.600)"
-                    color="white"
-                    textStyle="nav"
-                    fontWeight="bold"
-                    letterSpacing="0.01em"
-                    px={{ base: 8, sm: 10, md: 12, lg: 14, xl: 16 }}
-                    py={{ base: 3, sm: 4, md: 5, lg: 6 }}
-                    minH={{
-                      base: '48px',
-                      sm: '52px',
-                      md: '56px',
-                      lg: '64px',
-                      xl: '72px',
-                      '2xl': '76px',
-                    }}
-                    h="auto"
-                    w="100%"
-                    borderRadius="full"
-                    boxShadow="0 8px 28px rgba(35, 85, 202, 0.5)"
-                    _hover={{
-                      bgGradient: 'linear(to-r, brand.600, brand.700)',
-                      transform: 'translateY(-2px)',
-                      boxShadow: '0 12px 36px rgba(35, 85, 202, 0.6)',
-                    }}
-                    _active={{ transform: 'translateY(0)' }}
-                    transition="all 0.22s cubic-bezier(0.4, 0, 0.2, 1)"
-                    whiteSpace="normal"
-                    lineHeight="1.15"
-                  >
-                    {heroButton}
-                  </Button>
-                </ShakeButton>
+              <Box pt={{ base: 2, sm: 3, md: 2, lg: 2, xl: 3 }} w="100%">
+                <CtaButton onClick={onSubmissionOpen}>{heroButton}</CtaButton>
               </Box>
             </Stack>
           </Box>

@@ -37,6 +37,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 import heroImg from '../images/neighborhood_placeholder.jpg';
 
@@ -147,6 +148,10 @@ const CREDIBILITE = [
 ];
 
 const FAQS = [
+  {
+    question: 'Ma maison est soumise au patrimoine à Westmount, est-ce que je peux changer la couleur extérieure\u00A0?',
+    answer: 'Certains changements de couleur ou de revêtement peuvent devoir être approuvés par la Ville selon le statut patrimonial de votre propriété. Nous pouvons vous aider à préparer votre projet, mais la vérification auprès de la Ville de Westmount reste une étape à faire de votre côté avant de procéder.',
+  },
   {
     question: 'Est-ce que vous intervenez dans les maisons et condos à Westmount\u00A0?',
     answer: 'Oui. Nous intervenons autant dans les maisons que dans les condos à Westmount. Chaque type de propriété a ses particularités, que ce soit l\'accès, la protection des lieux, la coordination avec la copropriété ou le respect d\'un échéancier précis. Notre approche s\'adapte au bâtiment pour offrir un chantier propre, bien encadré et simple à gérer pour le client.',
@@ -278,8 +283,7 @@ export default function WestmountPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -421,9 +425,7 @@ export default function WestmountPage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS WESTMOUNT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -440,6 +442,9 @@ export default function WestmountPage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
                   À Westmount, la qualité perçue du service repose autant sur l&apos;exécution que sur la manière d&apos;entrer et de travailler dans les lieux.
+                </Text>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
+                  {"Westmount s'étend à flanc du mont Royal et compte de nombreuses résidences centenaires en pierre grise (greystone), avec toitures d'ardoise et solins de cuivre. Une bonne partie du secteur est aussi soumise à des règles municipales de conservation du patrimoine qui peuvent encadrer les changements de couleur extérieure, à vérifier auprès de la Ville avant certains projets de façade. Nos équipes travaillent avec le soin supplémentaire que demandent ces matériaux (pierre, cuivre, boiseries d'époque) plutôt qu'avec les méthodes d'une construction standard."}
                 </Text>
               </Stack>
 
@@ -850,43 +855,12 @@ export default function WestmountPage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box
-          py={{ base: 16, md: 20, lg: 24 }}
-          bg="app.ctaBg"
-        >
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à confier votre projet à une équipe habituée aux chantiers soignés&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez votre soumission gratuite en moins de 24h.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={'Prêt à confier votre projet à une équipe habituée aux chantiers soignés\u00A0?'}
+          subtitle="Obtenez votre soumission gratuite en moins de 24h."
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

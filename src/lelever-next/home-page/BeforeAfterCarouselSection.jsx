@@ -69,7 +69,7 @@ const DEFAULT_DESCRIPTIONS = [
   { fr: 'Espace industriel – préparation et peinture', en: 'Industrial space – prep and painting' },
 ];
 
-function buildDefaultImages(isFr) {
+export function buildDefaultImages(isFr) {
   return DEFAULT_PAIRS.map(([before, after], i) => ({
     before,
     after,

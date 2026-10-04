@@ -25,7 +25,6 @@ import {
   FaSprayCan,
   FaBolt,
   FaLayerGroup,
-  FaShieldAlt,
   FaSlidersH,
   FaDoorOpen,
   FaUtensils,
@@ -37,11 +36,13 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import pistoletHeroImg from '../images/L2 Services specialise/Photo page -pistolet/header-spray man.JPEG';
 import pistoletAvant1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.jpg';
 import pistoletApres1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const PLACEHOLDER_PAIR = { before: null, after: null };
 
@@ -263,8 +264,7 @@ export default function PeintureAuPistoletPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -373,9 +373,7 @@ export default function PeintureAuPistoletPage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS MÉTHODE D'APPLICATION ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -532,54 +530,12 @@ export default function PeintureAuPistoletPage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Une méthode rapide ne veut pas dire un chantier bâclé
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                Le pistolet donne d&apos;excellents résultats seulement quand la préparation, le masquage et la séquence d&apos;application sont bien exécutés. Nous ne quittons pas le chantier tant que le résultat n&apos;est pas propre, uniforme et conforme aux attentes.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-              <Text fontSize="sm" color="gray.500">
-                Réponse en moins de 24h
-              </Text>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          title="Une méthode rapide ne veut pas dire un chantier bâclé"
+          body="Le pistolet donne d'excellents résultats seulement quand la préparation, le masquage et la séquence d'application sont bien exécutés. Nous ne quittons pas le chantier tant que le résultat n'est pas propre, uniforme et conforme aux attentes."
+          onCtaClick={onOpen}
+          note="Réponse en moins de 24h"
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -703,41 +659,12 @@ export default function PeintureAuPistoletPage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Un projet qui se prête bien à la peinture au pistolet&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez une soumission gratuite et voyons si cette méthode est la meilleure pour votre chantier
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Un projet qui se prête bien à la peinture au pistolet\u00A0?'}
+          subtitle={'Obtenez une soumission gratuite et voyons si cette méthode est la meilleure pour votre chantier'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

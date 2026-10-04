@@ -3,6 +3,8 @@
  * Goal: dominate "peinture Montréal", "painting Montreal", "peintre professionnel Montréal"
  */
 
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from '../constants/googleReviews';
+
 export const SITE_URL = 'https://www.leleverdupinceau.ca';
 
 export const DEFAULT_OG_IMAGE = 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg';
@@ -87,7 +89,8 @@ export const LOCAL_BUSINESS_SCHEMA = {
     { '@type': 'City', name: 'Laval' },
     { '@type': 'City', name: 'Longueuil' },
     { '@type': 'City', name: 'Brossard' },
-    { '@type': 'City', name: 'Gatineau' },
+    { '@type': 'City', name: 'Saint-Lambert' },
+    { '@type': 'City', name: 'La Prairie' },
     { '@type': 'AdministrativeArea', name: 'Rive-Sud' },
     { '@type': 'AdministrativeArea', name: 'Grand Montréal' },
   ],
@@ -100,10 +103,10 @@ export const LOCAL_BUSINESS_SCHEMA = {
   },
   aggregateRating: {
     '@type': 'AggregateRating',
-    ratingValue: '4.9',
+    ratingValue: String(GOOGLE_RATING),
     bestRating: '5',
     worstRating: '1',
-    ratingCount: '150',
+    ratingCount: String(GOOGLE_REVIEW_COUNT),
   },
   image: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
   sameAs: [

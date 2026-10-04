@@ -7,9 +7,9 @@ import {
   Stack,
   Flex,
   Image,
-  Button,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
+import CtaButton from './CtaButton';
 import method1 from '../images/new-landing/method-1.webp';
 import method2 from '../images/new-landing/method-2.webp';
 import method3 from '../images/new-landing/method-3.PNG';
@@ -246,23 +246,7 @@ export default function MethodSection({
               pb={{ base: 2, md: 4 }}
               w="100%"
             >
-              <Button
-                onClick={onSubmissionOpen}
-                bg="brand.500"
-                color="white"
-                fontSize={{ base: 'lg', sm: 'xl', md: 'xl', lg: '2xl' }}
-                fontWeight="semibold"
-                px={{ base: 8, sm: 10, md: 12, lg: 14 }}
-                py={{ base: 4, sm: 4, md: 5, lg: 6 }}
-                h="auto"
-                minH={{ base: '52px', sm: '56px', md: '62px', lg: '68px' }}
-                w="fit-content"
-                borderRadius="full"
-                boxShadow="md"
-                _hover={{ bg: 'brand.600', boxShadow: 'lg' }}
-              >
-                {t.freeSubmission}
-              </Button>
+              <CtaButton onClick={onSubmissionOpen}>{t.freeSubmission}</CtaButton>
               <Text
                 fontSize={{ base: 'sm', md: 'lg', lg: 'xl' }}
                 color="gray.600"

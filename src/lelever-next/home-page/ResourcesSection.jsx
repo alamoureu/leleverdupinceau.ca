@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -8,6 +9,7 @@ import {
   SimpleGrid,
   Link,
   Image,
+  Button,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
@@ -15,7 +17,7 @@ import commentChoisirPeintre from '../images/5-landing-page/Photo/louis_Consulta
 import prixProjetPeinture from '../images/1-page-principale/blog hub/prix-projet-montreal.png';
 import erreursEviterImage from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
 
-export default function ResourcesSection({ title, subtitle, excludeSlugs = [], thirdArticleOverride }) {
+export default function ResourcesSection({ title, subtitle, excludeSlugs = [], thirdArticleOverride, hideButton = false }) {
   const { t } = useTranslation();
 
   const defaultThird = {
@@ -56,7 +58,8 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [], t
             {articles.map((article, index) => (
               <Link
                 key={index}
-                href={article.href}
+                as={RouterLink}
+                to={article.href}
                 _hover={{ textDecoration: 'none' }}
               >
                 <Box
@@ -101,6 +104,26 @@ export default function ResourcesSection({ title, subtitle, excludeSlugs = [], t
               </Link>
             ))}
           </SimpleGrid>
+
+          {!hideButton && (
+            <Stack align='center' pt={{ base: 4, md: 6 }}>
+              <Button
+                as={RouterLink}
+                to='/blog'
+                variant='outline'
+                borderColor='brand.500'
+                color='brand.500'
+                borderRadius='full'
+                textStyle='nav'
+                px={{ base: 5, md: 7 }}
+                py={{ base: 3, md: 4 }}
+                rightIcon={<ArrowForwardIcon />}
+                _hover={{ bg: 'brand.500', color: 'white' }}
+              >
+                {t.viewAllArticles}
+              </Button>
+            </Stack>
+          )}
         </Stack>
       </Container>
     </Box>

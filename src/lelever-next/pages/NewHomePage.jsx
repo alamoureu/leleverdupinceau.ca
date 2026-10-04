@@ -9,6 +9,7 @@ import React, {
 import { Box, useDisclosure } from '@chakra-ui/react';
 import MicrosoftClarity from '../analytics/MicrosoftClarity';
 import HeroSection from '../home-page/HeroSection';
+import TrustBanner from '../home-page/TrustBanner';
 import { useTranslation } from '../i18n';
 import ControlSection from '../home-page/ControlSection';
 import GuaranteeSection from '../home-page/GuaranteeSection';
@@ -24,6 +25,7 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import { KEYWORDS, LOCAL_BUSINESS_SCHEMA } from '../seo/config';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL } from '../constants/googleReviews';
 
 const ContactFormSection = React.lazy(() =>
   import('../home-page/ContactFormSection'),
@@ -69,8 +71,8 @@ export default function NewHomePage() {
     ? 'Peintre Montréal | Peinture résidentielle & commerciale | Le Lever du Pinceau'
     : 'Painter Montreal | Residential & Commercial Painting | Le Lever du Pinceau';
   const description = isFr
-    ? 'Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. 100+ avis 5★. Licence RBQ. Soumission gratuite en 24h.'
-    : 'Le Lever du Pinceau, professional painter in Montreal. Turnkey service for interior, exterior, residential and commercial painting. 100+ 5★ reviews. RBQ license. Free quote in 24h.';
+    ? `Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. ${GOOGLE_REVIEWS_LABEL.fr} 5★. Licence RBQ. Soumission gratuite en 24h.`
+    : `Le Lever du Pinceau, professional painter in Montreal. Turnkey service for interior, exterior, residential and commercial painting. ${GOOGLE_REVIEW_COUNT}+ 5★ reviews. RBQ license. Free quote in 24h.`;
 
   const faqTitle = isFr
     ? 'Questions fréquentes sur nos services de peinture'
@@ -93,12 +95,22 @@ export default function NewHomePage() {
           pageContext={pageContext}
           description={t.heroDescription}
         />
+        <TrustBanner />
 
         <ControlSection onSubmissionOpen={onOpen} />
 
         <GuaranteeSection onSubmissionOpen={onOpen} />
 
-        <MethodSection onSubmissionOpen={onOpen} />
+        <MethodSection onSubmissionOpen={onOpen} hideCta />
+
+        <Box ref={formSentinelRef} minH="1px" aria-hidden />
+        {loadForm ? (
+          <Suspense fallback={<Box minH={{ base: '320px', md: '280px' }} />}>
+            <ContactFormSection />
+          </Suspense>
+        ) : (
+          <Box minH={{ base: '320px', md: '280px' }} />
+        )}
 
         <ServicesSection />
 
@@ -113,15 +125,6 @@ export default function NewHomePage() {
         <FAQSection title={faqTitle} />
 
         <ResourcesSection />
-
-        <Box ref={formSentinelRef} minH="1px" aria-hidden />
-        {loadForm ? (
-          <Suspense fallback={<Box minH={{ base: '320px', md: '280px' }} />}>
-            <ContactFormSection phoneFirst />
-          </Suspense>
-        ) : (
-          <Box minH={{ base: '320px', md: '280px' }} />
-        )}
 
         <FinalCTASection onSubmissionOpen={onOpen} />
       </Box>

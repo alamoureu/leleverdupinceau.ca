@@ -1,0 +1,43 @@
+---
+description: Objectif qualité - code lean, réutilisable, sans duplication
+alwaysApply: true
+---
+
+# Qualité du code - leleverdupinceau.ca
+
+Objectif de chaque changement : laisser le code **plus propre et plus lean** qu'avant.
+
+## Une seule source de vérité
+
+Tout chiffre ou fait d'entreprise affiché à plusieurs endroits (nb d'avis, note Google, RBQ, téléphone, adresse) vit dans `src/lelever-next/constants/` ou `seo/config.js`. Les pages, traductions, meta descriptions et JSON-LD l'importent.
+
+```jsx
+// ❌ INTERDIT : chiffre recopié dans une page
+subtitle={lang === 'fr' ? 'Plus de 100 avis 5 étoiles' : 'Over 100 5-star reviews'}
+ratingCount: '150',
+
+// ✅ CORRECT
+import { GOOGLE_REVIEW_COUNT } from '../constants/googleReviews';
+ratingCount: String(GOOGLE_REVIEW_COUNT),
+```
+
+Avant d'ajouter une valeur en dur, chercher (`rg`) si elle existe déjà ailleurs. Si oui, centraliser.
+
+## Réutiliser avant de créer
+
+- Chercher un composant existant dans `home-page/`, `components/`, `city-pages/` avant d'en créer un.
+- Étendre un composant par props plutôt que le copier-coller.
+- Ne pas passer une prop égale à la valeur par défaut du composant (ex. `title={t.reviewsTitle}` sur `ReviewsSection`).
+- Texte bilingue partagé : dans `i18n/translations.js`, pas en ternaire `lang === 'fr'` répété dans chaque page.
+
+## Lean
+
+- Supprimer le code mort, imports et variables inutilisés touchés par le changement.
+- Pas de breakpoints Chakra redondants : `{ base: 2, sm: 2, md: 3 }` devient `{ base: 2, md: 3 }`.
+- Pas de commentaires qui répètent le code ; commenter seulement une contrainte non évidente.
+- Pas de nouveaux fichiers one-off quand un fichier existant peut accueillir le changement.
+
+## Vérifier
+
+- `vite build` doit passer après un changement.
+- Garder les changements ciblés ; ne pas refactorer hors sujet sans le signaler.

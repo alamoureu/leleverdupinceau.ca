@@ -46,6 +46,8 @@ import westmountAvant from '../images/L3 Services X Villes/Photo page -peinture-
 import westmountApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg';
 import ndgAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.jpg';
 import ndgApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 const CHECKMARKS = [
   {
@@ -259,8 +261,7 @@ export default function PeintureInterieurMontrealPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -384,9 +385,7 @@ export default function PeintureInterieurMontrealPage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS HYPERLOCAUX ===== */}
         <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -568,56 +567,12 @@ export default function PeintureInterieurMontrealPage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Un résultat impeccable, sans mauvaise surprise
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                À Montréal comme ailleurs, un bon chantier intérieur ne se juge pas seulement à la couleur finale, mais à la propreté, au respect du délai et à la qualité de finition.
-              </Text>
-              <Box
-                bg="white"
-                border="2px solid"
-                borderColor="brand.500"
-                borderRadius="xl"
-                px={{ base: 6, md: 10 }}
-                py={{ base: 4, md: 5 }}
-              >
-                <Text fontWeight="700" color="brand.500" fontSize={{ base: 'md', md: 'lg' }}>
-                  Satisfaction 100% garantie
-                </Text>
-              </Box>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-              <Text fontSize="sm" color="gray.500">
-                Réponse généralement en moins de 24h
-              </Text>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          title="Un résultat impeccable, sans mauvaise surprise"
+          body="À Montréal comme ailleurs, un bon chantier intérieur ne se juge pas seulement à la couleur finale, mais à la propreté, au respect du délai et à la qualité de finition."
+          onCtaClick={onOpen}
+          note="Réponse généralement en moins de 24h"
+        />
 
         {/* ===== SECTION 7 - FAQ LOCALE ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -742,40 +697,12 @@ export default function PeintureInterieurMontrealPage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à rafraîchir votre intérieur à Montréal&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez une soumission gratuite pour votre projet de peinture intérieure à Montréal
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={'Prêt à rafraîchir votre intérieur à Montréal\u00A0?'}
+          subtitle="Obtenez une soumission gratuite pour votre projet de peinture intérieure à Montréal"
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

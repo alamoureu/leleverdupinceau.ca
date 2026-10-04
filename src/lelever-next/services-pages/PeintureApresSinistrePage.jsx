@@ -37,6 +37,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import sinistreHeroImg from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
@@ -45,6 +46,7 @@ import sinistreAvant1 from '../images/L2 Services specialise/Photo page -après-
 import sinistreApres1 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7990.jpg';
 import sinistreAvant2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7992.jpg';
 import sinistreApres2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7994.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const CHECKMARKS = [
   {
@@ -270,8 +272,7 @@ export default function PeintureApresSinistrePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -380,9 +381,7 @@ export default function PeintureApresSinistrePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS REMISE EN ÉTAT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -522,51 +521,10 @@ export default function PeintureApresSinistrePage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Satisfaction 100% garantie
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                Chaque projet de remise en état est suivi jusqu&apos;à ce que le résultat soit propre, uniforme et conforme aux attentes. On ne quitte pas le chantier tant que l&apos;espace n&apos;est pas prêt.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          body="Chaque projet de remise en état est suivi jusqu'à ce que le résultat soit propre, uniforme et conforme aux attentes. On ne quitte pas le chantier tant que l'espace n'est pas prêt."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -690,41 +648,12 @@ export default function PeintureApresSinistrePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Besoin de remettre un espace en état après un dommage&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez votre soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Besoin de remettre un espace en état après un dommage\u00A0?'}
+          subtitle={'Obtenez votre soumission gratuite en moins de 24h'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

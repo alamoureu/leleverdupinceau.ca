@@ -140,6 +140,7 @@ function SpecializedRow({ icon, title, description, href, isFr }) {
       bg="white"
       p={{ base: 4, md: 5 }}
       display="block"
+      h="100%"
       transition="border-color 0.2s, box-shadow 0.2s"
       _hover={{
         textDecoration: 'none',
@@ -203,11 +204,11 @@ export default function ServicesPage() {
   };
 
   const seoTitle = isFr
-    ? 'Services de peinture à Montréal et Gatineau | Le Lever du Pinceau'
-    : 'Painting services in Montreal and Gatineau | Le Lever du Pinceau';
+    ? 'Services de peinture à Montréal | Le Lever du Pinceau'
+    : 'Painting services in Montreal | Le Lever du Pinceau';
   const seoDescription = isFr
-    ? 'Découvrez nos services de peinture résidentielle, commerciale, industrielle, intérieure et extérieure à Montréal et Gatineau. Peintres professionnels licenciés RBQ. Soumission gratuite.'
-    : 'Explore residential, commercial, industrial, interior and exterior painting in Montreal and Gatineau. RBQ-licensed professional painters. Free quote.';
+    ? 'Découvrez nos services de peinture résidentielle, commerciale, industrielle, intérieure et extérieure à Montréal, Laval, Longueuil et sur la Rive-Sud. Peintres professionnels licenciés RBQ. Soumission gratuite.'
+    : 'Explore residential, commercial, industrial, interior and exterior painting in Montreal, Laval, Longueuil and the South Shore. RBQ-licensed professional painters. Free quote.';
 
   const rowOne = [
     {
@@ -378,8 +379,8 @@ export default function ServicesPage() {
       ];
 
   const heroTitle = isFr
-    ? 'Nos services de peinture à Montréal et Gatineau'
-    : 'Our painting services in Montreal and Gatineau';
+    ? 'Nos services de peinture dans le Grand Montréal'
+    : 'Our painting services in Greater Montreal';
   const heroSubtitle = isFr
     ? 'Peinture résidentielle, commerciale et industrielle. Intérieure et extérieure. Choisissez votre service ci-dessous.'
     : 'Residential, commercial and industrial painting. Interior and exterior. Choose your service below.';
@@ -420,15 +421,7 @@ export default function ServicesPage() {
           </HStack>
         </HeroSection>
 
-        <Box
-          bg="gray.50"
-          borderTop="1px solid"
-          borderTopColor="gray.200"
-          borderBottom="1px solid"
-          borderBottomColor="gray.200"
-        >
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} py={{ base: 12, md: 16, lg: 20 }}>
           <Stack spacing={{ base: 10, md: 14 }}>
@@ -468,11 +461,16 @@ export default function ServicesPage() {
                     : 'Complementary solutions for a complete result'}
                 </Text>
               </Stack>
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={4}>
+              <Flex wrap="wrap" justify="center" gap={4}>
                 {specialized.map((item) => (
-                  <SpecializedRow key={item.href} {...item} isFr={isFr} />
+                  <Box
+                    key={item.href}
+                    w={{ base: '100%', md: 'calc((100% - 1rem) / 2)', lg: 'calc((100% - 2rem) / 3)' }}
+                  >
+                    <SpecializedRow {...item} isFr={isFr} />
+                  </Box>
                 ))}
-              </SimpleGrid>
+              </Flex>
             </Stack>
 
             <Box bg="gray.50" borderRadius="xl" py={{ base: 10, md: 14 }} px={{ base: 6, md: 10 }}>

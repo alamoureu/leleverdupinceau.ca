@@ -22,6 +22,7 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
+import ShakeButton from '../home-page/ShakeButton';
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();
@@ -30,14 +31,16 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const { t } = useTranslation();
 
   const isHomePage = location.pathname === '/';
+  const isServicePage =
+    location.pathname.startsWith('/services') ||
+    location.pathname === '/peinture-interieure-montreal' ||
+    location.pathname === '/peinture-exterieure-montreal';
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
       : location.pathname === '/fr/peintre-montreal' ||
         location.pathname === '/en/peintre-montreal' ||
-        location.pathname === '/en/painter-montreal' ||
-        location.pathname === '/fr/peintre-gatineau' ||
-        location.pathname === '/en/painter-gatineau';
+        location.pathname === '/en/painter-montreal';
 
   return (
     <Box
@@ -261,20 +264,23 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               >
                 {currentLang === 'fr' ? 'Blog' : 'Blog'}
               </Button>
-              <Button
-                onClick={() => navigate('/contact')}
-                textStyle="nav"
-                px={{ base: 4, lg: 5, xl: 6 }}
-                py={{ base: 2, lg: 2.5, xl: 3 }}
-                bg="brand.500"
-                color="white"
-                borderRadius="full"
-                fontWeight="semibold"
-                _hover={{ bg: 'brand.600' }}
-                transition="all 0.2s"
-              >
-                {currentLang === 'fr' ? 'Contact' : 'Contact'}
-              </Button>
+              <ShakeButton style={{ width: 'auto' }}>
+                <Button
+                  onClick={() => navigate('/contact')}
+                  textStyle="nav"
+                  h="auto"
+                  px={{ base: 6, xl: 8 }}
+                  py={{ base: 3, xl: 3.5 }}
+                  bg="brand.500"
+                  color="white"
+                  borderRadius="full"
+                  fontWeight="bold"
+                  _hover={{ bg: 'brand.600' }}
+                  transition="background-color 0.2s ease"
+                >
+                  Contact
+                </Button>
+              </ShakeButton>
             </ButtonGroup>
 
             <Box
@@ -293,7 +299,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
           </HStack>
         </Box>
 
-        {(isHomePage || isNewLanding) && (
+        {(isHomePage || isServicePage || isNewLanding) && (
           <Box
             position="absolute"
             bottom={0}

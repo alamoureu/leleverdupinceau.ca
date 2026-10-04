@@ -5,32 +5,47 @@ import {
   FormLabel,
   Input,
   Textarea,
-  Button,
   ChakraProvider,
   extendTheme,
   Text,
-  Radio,
-  RadioGroup,
   Box,
   useToast,
   Heading,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n';
-import ShakeButton from './ShakeButton';
+import CtaButton from './CtaButton';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { sendWebsiteLeadToErp } from '../../utils/erpWebsiteWebhook';
 import { trackFormCompletion } from '../../config/analytics';
-import { fontFamily } from '../../theme';
+import { colors, fontFamily } from '../../theme';
 
 const activeLabelStyles = {
   transform: 'scale(0.8) translateY(-27px)',
 };
 
 const BRAND_BLUE = '#2355CA';
-const BRAND_BLUE_HOVER = '#1E4BB5';
+
+const EMPTY_FORM = {
+  name: '',
+  phone: '',
+  email: '',
+  projectDetails: '',
+};
+
+const REQUIRED_FIELDS = [
+  { name: 'name', labelKey: 'formName' },
+  { name: 'phone', labelKey: 'formPhone', type: 'tel' },
+  { name: 'email', labelKey: 'formEmail', type: 'email' },
+];
+
+const inputFocusStyle = {
+  borderColor: 'brand.500',
+  boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
+};
 
 const theme = extendTheme({
+  colors,
   fonts: {
     heading: fontFamily,
     body: fontFamily,
@@ -42,7 +57,7 @@ const theme = extendTheme({
         floating: {
           container: {
             _focusWithin: { label: { ...activeLabelStyles } },
-            'input:not(:placeholder-shown) + label, .chakra-select__wrapper + label, textarea:not(:placeholder-shown) ~ label':
+            'input:not(:placeholder-shown) + label, textarea:not(:placeholder-shown) ~ label':
               { ...activeLabelStyles },
             label: {
               top: 0,
@@ -63,74 +78,6 @@ const theme = extendTheme({
         },
       },
     },
-    Radio: {
-      baseStyle: {
-        control: {
-          w: 6,
-          h: 6,
-          border: '2px solid',
-          borderColor: 'gray.300',
-          borderRadius: 'full',
-          bg: 'white',
-          transition: 'border-color 0.2s, background 0.2s, box-shadow 0.2s',
-          _hover: { borderColor: 'gray.400', bg: 'gray.50' },
-          _checked: {
-            bg: BRAND_BLUE,
-            borderColor: BRAND_BLUE,
-            borderWidth: '2px',
-            color: 'white',
-            _before: {
-              content: '""',
-              display: 'block',
-              w: 2,
-              h: 2,
-              borderRadius: 'full',
-              bg: 'white',
-              transform: 'scale(1)',
-            },
-            _hover: { bg: BRAND_BLUE_HOVER, borderColor: BRAND_BLUE_HOVER },
-          },
-          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}` },
-        },
-        label: {
-          ml: 3,
-          fontWeight: 'medium',
-          color: 'gray.800',
-          cursor: 'pointer',
-          fontSize: 'sm',
-        },
-      },
-      sizes: {
-        md: { control: { w: 6, h: 6 } },
-        lg: { control: { w: 6, h: 6 } },
-      },
-    },
-    Checkbox: {
-      baseStyle: {
-        control: {
-          w: 6,
-          h: 6,
-          minW: 6,
-          minH: 6,
-          borderRadius: 'md',
-          border: '2px solid',
-          borderColor: 'gray.300',
-          transition: 'border-color 0.2s, background 0.2s',
-          _hover: { borderColor: 'gray.400' },
-          _checked: {
-            bg: BRAND_BLUE,
-            borderColor: BRAND_BLUE,
-            color: 'white',
-            _hover: { bg: BRAND_BLUE_HOVER, borderColor: BRAND_BLUE_HOVER },
-          },
-          _focusVisible: { boxShadow: `0 0 0 3px ${BRAND_BLUE}` },
-        },
-      },
-      sizes: {
-        md: { control: { w: 6, h: 6, minW: 6, minH: 6 } },
-        lg: { control: { w: 6, h: 6, minW: 6, minH: 6 } },
-      },
-    },
   },
 });
 
@@ -141,61 +88,21 @@ export default function SubmissionForm({
   isModal = false,
   formId,
   initialFocusRef,
-  fields,
-  phoneFirst = false,
-  projectDetailsLabel,
 }) {
   const { t, currentLang } = useTranslation();
   const toast = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    address: '',
-    projectDetails: '',
-    paintingType: '',
-    consentAccepted: true,
-  });
-
+  const [formData, setFormData] = useState(EMPTY_FORM);
   const [isProjectDetailsFocused, setIsProjectDetailsFocused] = useState(false);
 
-  const effectiveFields = {
-    name: true,
-    email: true,
-    phone: true,
-    address: true,
-    projectDetails: true,
-    paintingType: true,
-    consentAccepted: true,
-    ...fields,
-  };
-
-  const resolvedProjectDetailsLabelBase =
-    projectDetailsLabel ?? t.formProjectDetails;
-
   const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData({
-      ...formData,
-      [name]: type === 'checkbox' ? checked : value,
-    });
-  };
-
-  const handleRadioChange = (value) => {
-    setFormData({
-      ...formData,
-      paintingType: value,
-    });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
 
   useEffect(() => {
-    if (isSubmitted && onSubmissionStateChange) {
-      onSubmissionStateChange(true);
-    } else if (!isSubmitted && onSubmissionStateChange) {
-      onSubmissionStateChange(false);
-    }
+    onSubmissionStateChange?.(isSubmitted);
   }, [isSubmitted, onSubmissionStateChange]);
 
   useEffect(() => {
@@ -204,35 +111,13 @@ export default function SubmissionForm({
     }
   }, [isModal, isSubmitting, onSubmittingChange]);
 
-  const getErrors = () => {
-    const suffix = t.formRequiredSuffix ?? ' required';
-    const err = {};
-    if (effectiveFields.name && !formData.name?.trim())
-      err.name = (t.formName ?? '') + suffix;
-    if (effectiveFields.email && !formData.email?.trim())
-      err.email = (t.formEmail ?? '') + suffix;
-    if (effectiveFields.phone && !formData.phone?.trim())
-      err.phone = (t.formPhone ?? '') + suffix;
-    if (effectiveFields.address && !formData.address?.trim())
-      err.address = (t.formAddress ?? '') + suffix;
-    if (
-      effectiveFields.projectDetails === true &&
-      !formData.projectDetails?.trim()
-    ) {
-      err.projectDetails = (t.formProjectDetails ?? '') + suffix;
-    }
-    if (effectiveFields.paintingType && !formData.paintingType)
-      err.paintingType = (t.formPaintingType ?? '') + suffix;
-    if (effectiveFields.consentAccepted && !formData.consentAccepted)
-      err.consentAccepted = t.formConsentRequired ?? '';
-    return err;
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const errors = getErrors();
+    const hasMissingField = REQUIRED_FIELDS.some(
+      ({ name }) => !formData[name]?.trim(),
+    );
 
-    if (Object.keys(errors).length > 0) {
+    if (hasMissingField) {
       toast({
         title: t.formErrorTitle ?? 'Error',
         description:
@@ -253,18 +138,11 @@ export default function SubmissionForm({
         import('firebase/firestore'),
       ]);
 
-      const firebaseData = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        address: formData.address,
-        projectDetails: formData.projectDetails,
-        paintingType: formData.paintingType,
+      await addDoc(collection(db, 'Soumission'), {
+        ...formData,
         date: Timestamp.now(),
         source: 'Website Form',
-      };
-
-      await addDoc(collection(db, 'Soumission'), firebaseData);
+      });
 
       const termsText = [
         t.formConsentText,
@@ -276,23 +154,15 @@ export default function SubmissionForm({
         .filter(Boolean)
         .join(' ');
 
-      const ghlData = {
-        ...formData,
-        address: effectiveFields.address ? formData.address : '',
-        projectDetails: effectiveFields.projectDetails
-          ? formData.projectDetails
-          : '',
-        paintingType: effectiveFields.paintingType ? formData.paintingType : '',
-        terms_and_conditions: termsText,
-      };
+      const leadData = { ...formData, terms_and_conditions: termsText };
       try {
-        await sendToGoHighLevel(ghlData, { language: currentLang });
+        await sendToGoHighLevel(leadData, { language: currentLang });
       } catch (webhookError) {
         if (import.meta.env?.DEV)
           console.error('GoHighLevel webhook error:', webhookError);
       }
       try {
-        await sendWebsiteLeadToErp(ghlData, { language: currentLang });
+        await sendWebsiteLeadToErp(leadData, { language: currentLang });
       } catch (erpError) {
         if (import.meta.env?.DEV)
           console.error('ERP website lead error:', erpError);
@@ -305,17 +175,7 @@ export default function SubmissionForm({
 
       if (onSubmit) onSubmit(formData);
       setIsSubmitted(true);
-      if (onSubmissionStateChange) onSubmissionStateChange(true);
-
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        address: '',
-        projectDetails: '',
-        paintingType: '',
-        consentAccepted: true,
-      });
+      setFormData(EMPTY_FORM);
     } catch (error) {
       if (import.meta.env?.DEV) console.error('Submission error:', error);
       toast({
@@ -402,12 +262,7 @@ export default function SubmissionForm({
             </Text>
 
             {t.formSuccessClosing && (
-              <Text
-                fontSize={{ base: 'sm', md: 'sm' }}
-                color="gray.500"
-                fontStyle="italic"
-                pt={2}
-              >
+              <Text fontSize="sm" color="gray.500" fontStyle="italic" pt={2}>
                 {t.formSuccessClosing}
               </Text>
             )}
@@ -436,7 +291,7 @@ export default function SubmissionForm({
           overflowY={isModal ? 'auto' : 'visible'}
           overscrollBehavior="contain"
           w="100%"
-          pt={{ base: 3, md: 3 }}
+          pt={3}
           px={isModal ? 5 : 0}
         >
           <Stack
@@ -445,281 +300,63 @@ export default function SubmissionForm({
             w="100%"
             pb={isModal ? { base: 2, md: 3 } : { base: 4, md: 6 }}
           >
-            {effectiveFields.name && (
-              <FormControl variant="floating" isRequired>
+            {REQUIRED_FIELDS.map(({ name, labelKey, type }, index) => (
+              <FormControl key={name} variant="floating" isRequired>
                 <Input
-                  ref={initialFocusRef}
-                  name="name"
-                  value={formData.name}
+                  ref={index === 0 ? initialFocusRef : undefined}
+                  name={name}
+                  type={type}
+                  value={formData[name]}
                   onChange={handleChange}
                   placeholder=" "
                   size="md"
                   fontSize="16px"
                   borderColor="gray.300"
-                  _focus={{
-                    borderColor: 'brand.500',
-                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                  }}
+                  _focus={inputFocusStyle}
                 />
-                <FormLabel
-                  fontSize="sm"
-                  color="gray.700"
-                  requiredIndicator={null}
-                >
-                  {t.formName}
+                <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                  {t[labelKey]}
                 </FormLabel>
               </FormControl>
-            )}
+            ))}
 
-            {phoneFirst ? (
-              <>
-                {effectiveFields.phone && (
-                  <FormControl variant="floating" isRequired>
-                    <Input
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder=" "
-                      size="md"
-                      fontSize="16px"
-                      borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                    />
-                    <FormLabel
-                      fontSize="sm"
-                      color="gray.700"
-                      requiredIndicator={null}
-                    >
-                      {t.formPhone}
-                    </FormLabel>
-                  </FormControl>
-                )}
-
-                {effectiveFields.email && (
-                  <FormControl variant="floating" isRequired>
-                    <Input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder=" "
-                      size="md"
-                      fontSize="16px"
-                      borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                    />
-                    <FormLabel
-                      fontSize="sm"
-                      color="gray.700"
-                      requiredIndicator={null}
-                    >
-                      {t.formEmail}
-                    </FormLabel>
-                  </FormControl>
-                )}
-              </>
-            ) : (
-              <>
-                {effectiveFields.email && (
-                  <FormControl variant="floating" isRequired>
-                    <Input
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder=" "
-                      size="md"
-                      fontSize="16px"
-                      borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                    />
-                    <FormLabel
-                      fontSize="sm"
-                      color="gray.700"
-                      requiredIndicator={null}
-                    >
-                      {t.formEmail}
-                    </FormLabel>
-                  </FormControl>
-                )}
-
-                {effectiveFields.phone && (
-                  <FormControl variant="floating" isRequired>
-                    <Input
-                      name="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      placeholder=" "
-                      size="md"
-                      fontSize="16px"
-                      borderColor="gray.300"
-                      _focus={{
-                        borderColor: 'brand.500',
-                        boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                      }}
-                    />
-                    <FormLabel
-                      fontSize="sm"
-                      color="gray.700"
-                      requiredIndicator={null}
-                    >
-                      {t.formPhone}
-                    </FormLabel>
-                  </FormControl>
-                )}
-              </>
-            )}
-
-            {effectiveFields.address && (
-              <FormControl variant="floating" isRequired>
-                <Input
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                  placeholder=" "
-                  size="md"
-                  fontSize="16px"
-                  borderColor="gray.300"
-                  _focus={{
-                    borderColor: 'brand.500',
-                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                  }}
-                />
-                <FormLabel
-                  fontSize="sm"
-                  color="gray.700"
-                  requiredIndicator={null}
-                >
-                  {t.formAddress}
-                </FormLabel>
-              </FormControl>
-            )}
-
-            {effectiveFields.projectDetails !== false && (
-              <FormControl
-                variant="floating"
-                isRequired={effectiveFields.projectDetails === true}
-              >
-                <Textarea
-                  name="projectDetails"
-                  value={formData.projectDetails}
-                  onChange={handleChange}
-                  placeholder=" "
-                  onFocus={() => setIsProjectDetailsFocused(true)}
-                  onBlur={() => setIsProjectDetailsFocused(false)}
-                  rows={2}
-                  size="md"
-                  fontSize="16px"
-                  borderColor="gray.300"
-                  resize="vertical"
-                  _placeholder={{
-                    fontSize: 'md',
-                    color: 'gray.400',
-                  }}
-                  _focus={{
-                    borderColor: 'brand.500',
-                    boxShadow: '0 0 0 1px var(--chakra-colors-brand-500)',
-                  }}
-                />
-                <FormLabel
-                  fontSize="sm"
-                  color="gray.700"
-                  requiredIndicator={null}
-                >
-                  {effectiveFields.projectDetails === 'optional' &&
-                  !isProjectDetailsFocused &&
-                  !formData.projectDetails
-                    ? `${resolvedProjectDetailsLabelBase} ${
-                        currentLang === 'fr' ? '(optionnel)' : '(optional)'
-                      }`
-                    : resolvedProjectDetailsLabelBase}
-                </FormLabel>
-              </FormControl>
-            )}
-
-            {effectiveFields.paintingType && (
-              <FormControl isRequired w="100%">
-                <FormLabel
-                  fontSize="sm"
-                  color="gray.700"
-                  mb={1}
-                  requiredIndicator={null}
-                >
-                  {t.formPaintingType}
-                </FormLabel>
-                <RadioGroup
-                  value={formData.paintingType}
-                  onChange={handleRadioChange}
-                >
-                  <Stack direction="column" spacing={1.5} w="100%">
-                    <Radio value="interior" colorScheme="brand" size="md">
-                      {t.formInteriorPainting ?? t.serviceInterior}
-                    </Radio>
-                    <Radio value="exterior" colorScheme="brand" size="md">
-                      {t.formExteriorPainting ?? t.serviceExterior}
-                    </Radio>
-                  </Stack>
-                </RadioGroup>
-              </FormControl>
-            )}
-
-            {/* Consent moved under the button */}
+            <FormControl variant="floating">
+              <Textarea
+                name="projectDetails"
+                value={formData.projectDetails}
+                onChange={handleChange}
+                placeholder=" "
+                onFocus={() => setIsProjectDetailsFocused(true)}
+                onBlur={() => setIsProjectDetailsFocused(false)}
+                rows={2}
+                size="md"
+                fontSize="16px"
+                borderColor="gray.300"
+                resize="vertical"
+                _focus={inputFocusStyle}
+              />
+              <FormLabel fontSize="sm" color="gray.700" requiredIndicator={null}>
+                {!isProjectDetailsFocused && !formData.projectDetails
+                  ? `${t.formProjectDetails} ${
+                      currentLang === 'fr' ? '(optionnel)' : '(optional)'
+                    }`
+                  : t.formProjectDetails}
+              </FormLabel>
+            </FormControl>
           </Stack>
 
           {!isModal && (
-            <Box
-              flexShrink={0}
-              w="100%"
-              pt={{ base: 4, md: 6 }}
-              pb={0}
-              borderTopWidth={0}
-              borderColor="gray.200"
-              mt="auto"
-              bg="white"
-            >
-              <ShakeButton>
-                <Button
-                  type="submit"
-                  bgGradient={`linear(to-r, ${BRAND_BLUE}, ${BRAND_BLUE_HOVER})`}
-                  color="white"
-                  w="100%"
-                  fontSize={{ base: 'md', md: 'md' }}
-                  py={{ base: 3, md: 4 }}
-                  fontWeight="bold"
-                  letterSpacing="0.01em"
-                  borderRadius="full"
-                  boxShadow="0 8px 28px rgba(35, 85, 202, 0.45)"
-                  _hover={{
-                    bgGradient: `linear(to-r, ${BRAND_BLUE_HOVER}, #183D9A)`,
-                    transform: 'translateY(-2px)',
-                    boxShadow: '0 12px 36px rgba(35, 85, 202, 0.55)',
-                  }}
-                  _active={{ transform: 'translateY(0)' }}
-                  _loading={{
-                    opacity: 0.8,
-                    cursor: 'not-allowed',
-                  }}
-                  transition="all 0.22s cubic-bezier(0.4, 0, 0.2, 1)"
-                  isLoading={isSubmitting}
-                  loadingText={t.formSubmitting}
-                  spinnerPlacement="start"
-                  disabled={isSubmitting}
-                >
-                  {t.formSubmit}
-                </Button>
-              </ShakeButton>
-
+            <Box flexShrink={0} w="100%" pt={{ base: 4, md: 6 }} mt="auto" bg="white">
+              <CtaButton
+                fullWidth
+                type="submit"
+                _loading={{ opacity: 0.8, cursor: 'not-allowed' }}
+                isLoading={isSubmitting}
+                loadingText={t.formSubmitting}
+                spinnerPlacement="start"
+              >
+                {t.formSubmit}
+              </CtaButton>
             </Box>
           )}
         </Box>

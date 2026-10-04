@@ -1,3 +1,10 @@
+import {
+  GOOGLE_REVIEW_COUNT,
+  GOOGLE_REVIEWS_LABEL,
+  GOOGLE_RATING_LABEL,
+} from '../constants/googleReviews';
+import { HAPPY_CLIENTS_COUNT } from '../constants/company';
+
 export const translations = {
   fr: {
     heroTitle: 'Peintre professionnel à Montréal',
@@ -47,8 +54,8 @@ export const translations = {
     learnMorePainters: 'Rencontrez notre équipe →',
 
     reviewsTitle: 'Ce que nos clients disent de nous',
-    reviewsSubtitle:
-      'Plus de 150 avis 5 étoiles sur Google',
+    reviewsSubtitle: `Plus de ${GOOGLE_REVIEW_COUNT} avis 5 étoiles sur Google`,
+    googleReviewsBadge: `${GOOGLE_REVIEWS_LABEL.fr} Google`,
     reviewTime2Months: 'Il y a 2 mois',
     reviewTime6Days: 'Il y a 6 jours',
     reviewTime1Month: 'Il y a 1 mois',
@@ -138,8 +145,8 @@ export const translations = {
     previousImage: 'Image précédente',
     nextImage: 'Image suivante',
 
-    sectorsTitle: 'Nos services de peinture dans le Grand Montréal et à Gatineau',
-    sectorsSubtitle: 'Nous réalisons des projets de peinture à Montréal, Gatineau, Laval, Longueuil et partout sur la Rive-Sud.',
+    sectorsTitle: 'Nos services de peinture dans le Grand Montréal',
+    sectorsSubtitle: 'Nous réalisons des projets de peinture à Montréal, Laval, Longueuil et partout sur la Rive-Sud.',
     viewAllSectors: 'Voir tous les secteurs desservis',
 
     resourcesTitle: 'Conseils de nos experts en peinture',
@@ -148,6 +155,7 @@ export const translations = {
     article2Title: "Prix d'un projet de peinture à Montréal",
     article3Title: 'Erreurs à éviter avant de peindre',
     readArticle: "Lire l'article",
+    viewAllArticles: 'Voir tous nos conseils peinture',
 
     methodTopText: 'en moins de 24h',
     methodTitle: 'NOTRE MÉTHODE EN 4 ÉTAPES',
@@ -171,8 +179,8 @@ export const translations = {
     ctaTitle: 'Prêt à commencer ?',
     ctaButton: 'Soumission gratuite',
 
-    googleReviews: '150 + avis',
-    googleRating: '4,9',
+    googleReviews: GOOGLE_REVIEWS_LABEL.fr,
+    googleRating: GOOGLE_RATING_LABEL.fr,
 
     trustBannerRbqAlt: 'Régie du bâtiment du Québec',
     trustBannerRbqText: '5864-1481-01',
@@ -193,8 +201,8 @@ export const translations = {
     // Espaces insécables dans le nom : évite « … choisir Le » / « Lever du … » au retour à la ligne
     whyUsChooseTitle: 'Pourquoi choisir Le\u00A0Lever\u00A0du\u00A0Pinceau\u00A0?',
     whyUsChooseSub: "Gagnez du temps, profitez d'un résultat parfait",
-    whyUsClients: 'Plus de 850 clients ravis',
-    whyUsRated: 'Noté 4.9 étoiles sur',
+    whyUsClients: `Plus de ${HAPPY_CLIENTS_COUNT} clients ravis`,
+    whyUsRated: `Noté ${GOOGLE_RATING_LABEL.fr} étoiles sur`,
     whyUsSatisfaction: '100% satisfaction garantie',
     whyUsCtaButton: 'Soumission gratuite en 24h',
     whyUsWantToKnow: 'Vous voulez savoir combien coûte votre projet rapidement ?',
@@ -286,8 +294,8 @@ export const translations = {
     learnMorePainters: 'Meet our team →',
 
     reviewsTitle: 'What our clients say about us',
-    reviewsSubtitle:
-      'Over 150 5-star reviews on Google',
+    reviewsSubtitle: `Over ${GOOGLE_REVIEW_COUNT} 5-star reviews on Google`,
+    googleReviewsBadge: `${GOOGLE_REVIEW_COUNT}+ Google reviews`,
     reviewTime2Months: '2 months ago',
     reviewTime6Days: '6 days ago',
     reviewTime1Month: '1 month ago',
@@ -376,8 +384,8 @@ export const translations = {
     previousImage: 'Previous image',
     nextImage: 'Next image',
 
-    sectorsTitle: 'Our painting services in Greater Montreal and Gatineau',
-    sectorsSubtitle: 'We carry out painting projects in Montreal, Gatineau, Laval, Longueuil and everywhere on the South Shore.',
+    sectorsTitle: 'Our painting services in Greater Montreal',
+    sectorsSubtitle: 'We carry out painting projects in Montreal, Laval, Longueuil and everywhere on the South Shore.',
     viewAllSectors: 'View all service areas',
 
     resourcesTitle: 'Tips from our painting experts',
@@ -386,6 +394,7 @@ export const translations = {
     article2Title: 'Price of a painting project in Montreal',
     article3Title: 'Errors to avoid before painting',
     readArticle: 'Read article',
+    viewAllArticles: 'See all our painting tips',
 
     methodTopText: 'in less than 24h',
     methodTitle: 'OUR 4-STEP METHOD',
@@ -409,8 +418,8 @@ export const translations = {
     ctaTitle: 'Ready to get started?',
     ctaButton: 'Free quote',
 
-    googleReviews: '150 + reviews',
-    googleRating: '4.9',
+    googleReviews: GOOGLE_REVIEWS_LABEL.en,
+    googleRating: GOOGLE_RATING_LABEL.en,
 
     trustBannerRbqAlt: 'Quebec Building Authority',
     trustBannerRbqText: '5864-1481-01',
@@ -430,8 +439,8 @@ export const translations = {
     whyUsAddValueSub: 'Effortlessly',
     whyUsChooseTitle: 'Why Choose Le\u00A0Lever\u00A0du\u00A0Pinceau?',
     whyUsChooseSub: 'Save time, enjoy perfect results',
-    whyUsClients: 'Over 850 delighted clients',
-    whyUsRated: 'Rated 4.9 stars on',
+    whyUsClients: `Over ${HAPPY_CLIENTS_COUNT} delighted clients`,
+    whyUsRated: `Rated ${GOOGLE_RATING_LABEL.en} stars on`,
     whyUsSatisfaction: '100% satisfaction guaranteed',
     whyUsCtaButton: 'Free quote in 24h',
     whyUsWantToKnow: 'Want to know how much your project will cost quickly?',

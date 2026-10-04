@@ -21,7 +21,7 @@ import TrustBanner from '../home-page/TrustBanner';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
-import CityCTASection from '../city-pages/CityCTASection';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 import headerLaval from '../images/3-ville/laval/header.jpg';
 // Avant/après Laval - paires identifiées
@@ -205,6 +205,14 @@ export default function LavalCityPage() {
   // ─── Section 7 - FAQ Laval ───────────────────────────────────────────────────
 
   const lavalFaqs = [
+    {
+      question: isFr
+        ? "Mon revêtement d'aluminium a l'air pâle et poudreux, peut-on le repeindre?"
+        : 'My aluminum siding looks faded and powdery, can it be repainted?',
+      answer: isFr
+        ? "Oui, mais il faut d'abord traiter le crétage (l'oxydation qui laisse une poudre blanche au toucher) avec un nettoyage en profondeur et un apprêt adhérent conçu pour l'aluminium. Sans cette étape, la peinture s'écaille rapidement, peu importe la qualité du produit utilisé."
+        : 'Yes, but the chalking (oxidation that leaves a white powder to the touch) must first be treated with deep cleaning and an adhesion primer designed for aluminum. Without this step, the paint flakes quickly, regardless of the quality of the product used.',
+    },
     {
       question: isFr ? 'Est-ce que vous vous déplacez partout à Laval?' : 'Do you travel throughout Laval?',
       answer: isFr
@@ -427,9 +435,7 @@ export default function LavalCityPage() {
         </Container>
 
         {/* ── SECTION 2 - Barre de confiance ──────────────────────────────── */}
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
           <Stack spacing={0}>
@@ -441,6 +447,11 @@ export default function LavalCityPage() {
                 isFr
                   ? 'Une équipe habituée aux réalités des projets à Laval'
                   : 'A team familiar with the realities of projects in Laval'
+              }
+              localInsight={
+                isFr
+                  ? "Laval s'est surtout bâtie entre les années 1960 et 1990 : bungalows et split-level revêtus d'aluminium ou de vinyle plutôt que de bois ou de brique pleine. Le revêtement d'aluminium peint de cette époque s'oxyde et craie avec les années d'exposition au soleil : une fine poudre blanchâtre se dépose à la surface. Repeindre par-dessus sans traiter ce crétage avec un nettoyage et un apprêt liant fait décoller la nouvelle couche en une saison. C'est une étape qu'on vérifie systématiquement sur les revêtements lavallois avant de soumissionner."
+                  : "Laval was mostly built between the 1960s and 1990s: bungalows and split-levels clad in aluminum or vinyl rather than wood or solid brick. Painted aluminum siding from that era oxidizes and chalks after years of sun exposure: a fine whitish powder forms on the surface. Repainting over it without treating this chalking with cleaning and a bonding primer makes the new coat peel within a season. It's a step we systematically check on Laval siding before quoting."
               }
               whyUsIntroText={
                 isFr
@@ -751,7 +762,14 @@ export default function LavalCityPage() {
         </Box>
 
         {/* ── SECTION 9 - CTA final ────────────────────────────────────────── */}
-        <CityCTASection cityName="Laval" />
+        <FinalCTASection
+          title={isFr ? 'Obtenez votre soumission pour un projet de peinture à Laval' : 'Get your quote for a painting project in Laval'}
+          subtitle={
+            isFr
+              ? 'Nous pouvons intervenir rapidement pour vos projets résidentiels, commerciaux ou industriels.'
+              : 'We can quickly intervene for your residential, commercial or industrial projects.'
+          }
+        />
 
       </Box>
     </Fragment>

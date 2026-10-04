@@ -31,8 +31,6 @@ const PAGES = [
   ['/secteurs/montreal', 'Secteurs – Montréal'],
   ['/secteurs/laval', 'Secteurs – Laval'],
   ['/secteurs/longueuil', 'Secteurs – Longueuil'],
-  ['/secteurs/gatineau', 'Secteurs – Gatineau'],
-  ['/secteurs/rive-sud', 'Secteurs – Rive-Sud'],
   ['/services', 'Services'],
   ['/services/peinture-commerciale', 'Service – Peinture commerciale'],
   ['/services/peinture-residentielle', 'Service – Peinture résidentielle'],

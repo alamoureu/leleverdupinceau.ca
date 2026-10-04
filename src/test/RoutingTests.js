@@ -22,8 +22,6 @@ const cityRoutes = [
   '/secteurs/montreal',
   '/secteurs/laval',
   '/secteurs/longueuil',
-  '/secteurs/gatineau',
-  '/secteurs/rive-sud',
 ];
 
 const mainServiceRoutes = [

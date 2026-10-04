@@ -38,14 +38,28 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
 
 import avantApresRes1a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg';
 import avantApresRes1b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg';
-import avantApresRes3a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint ce condo divise dans le quartier de Griffintown à Montréal.jpg';
-import avantApresRes3b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg';
+import chambreAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
+import chambreApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
+import pieceDoubleAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double avant.jpg';
+import pieceDoubleApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
+import salonLoftAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé ce condo divise dans Griffintown à Montréal.jpg';
+import salonLoftApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint ce condo divise dans le quartier de Griffintown à Montréal.jpg';
+import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre à Montréal, Le Lever du Pinceau a frindé et peinturé cette cage d_escalier en fer forgé dans le sud ouest de Montréal.jpg';
+import escalierApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a meulé et peint cette cage d_escalier en fer forgé dans le quartier de Verdun à Montréal.jpg';
+import cuisineAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a réparé et peint se plafond de cette cuisine à Montréal.jpg';
+import cuisineApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre et plâtre à Montréal, Le Lever du Pinceau a peint se plafond de cette maison unifamilliale à Montréal.jpg';
+import mouluresAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint l_ensemble de ce duplex à Montréal.jpg';
+import mouluresApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg';
+import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.jpg';
+import corridorApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries après.jpg';
 
 const CHECKMARKS = [
   {
@@ -86,6 +100,7 @@ const SPECIALITES = [
     title: 'Maison unifamiliale',
     text: 'Intérieur complet, pièces sélectionnées ou rafraîchissement ciblé. Nous nous adaptons à vos besoins et à votre occupation du lieu.',
     link: null,
+    popular: true,
   },
   {
     icon: FaBuilding,
@@ -221,11 +236,13 @@ export default function PeintureResidentiellePage() {
       after: avantApresRes1b,
       description: 'Peinture résidentielle - maison complète Montréal',
     },
-    {
-      before: avantApresRes3a,
-      after: avantApresRes3b,
-      description: 'Peinture condo - Griffintown, Montréal',
-    },
+    { before: chambreAvant, after: chambreApres, description: 'Chambre - murs repeints en vert' },
+    { before: pieceDoubleAvant, after: pieceDoubleApres, description: 'Pièce double - murs et boiseries en blanc' },
+    { before: salonLoftAvant, after: salonLoftApres, description: 'Salon de condo - mur d\'accent noir' },
+    { before: escalierAvant, after: escalierApres, description: 'Escalier extérieur en fer forgé - décapage et peinture' },
+    { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - réparation et peinture du plafond' },
+    { before: mouluresAvant, after: mouluresApres, description: 'Murs et moulures décoratives - finition blanche' },
+    { before: corridorAvant, after: corridorApres, description: 'Corridor - murs et boiseries repeints' },
   ];
 
   return (
@@ -244,8 +261,7 @@ export default function PeintureResidentiellePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -322,7 +338,17 @@ export default function PeintureResidentiellePage() {
                   lineHeight="1.05"
                   minW={0}
                 >
-                  Peinture résidentielle à Montréal - Maison, condo, appartement
+                  Peinture résidentielle à Montréal
+                  <Box
+                    as="span"
+                    display="block"
+                    mt={{ base: 2, md: 3 }}
+                    fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl' }}
+                    fontWeight="500"
+                    lineHeight="1.2"
+                  >
+                    Maison, condo, appartement
+                  </Box>
                 </Heading>
 
                 <Text
@@ -354,9 +380,7 @@ export default function PeintureResidentiellePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS EXPÉRIENCE CLIENT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -530,51 +554,10 @@ export default function PeintureResidentiellePage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Garantie satisfaction 100%
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                Votre maison est votre espace. Nous la traitons avec soin, nous respectons votre vie quotidienne et nous livrons un résultat dont vous êtes pleinement satisfait. C&apos;est notre engagement sur chaque projet résidentiel.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          body="Votre maison est votre espace. Nous la traitons avec soin, nous respectons votre vie quotidienne et nous livrons un résultat dont vous êtes pleinement satisfait. C'est notre engagement sur chaque projet résidentiel."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -698,41 +681,12 @@ export default function PeintureResidentiellePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à rafraîchir votre espace résidentiel&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Prêt à rafraîchir votre espace résidentiel\u00A0?'}
+          subtitle={'Soumission gratuite en moins de 24h'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

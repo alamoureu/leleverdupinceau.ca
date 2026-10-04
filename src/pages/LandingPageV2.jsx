@@ -23,17 +23,8 @@ import MethodSection from '../lelever-next/home-page/MethodSection';
 import GuaranteeSection from '../lelever-next/home-page/GuaranteeSection';
 import FAQSection from '../lelever-next/home-page/FAQSection';
 import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
-import SubmissionModal from '../components/SubmissionModal';
+import SubmissionModal from '../lelever-next/home-page/SubmissionModal';
 import MicrosoftClarity from '../lelever-next/analytics/MicrosoftClarity';
-
-const LANDING_FORM_FIELDS = {
-  name: true,
-  phone: true,
-  email: true,
-  address: false,
-  paintingType: false,
-  projectDetails: 'optional',
-};
 
 /**
  * The hero content pt must clear: fixed promo banner + fixed navbar.
@@ -166,10 +157,8 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           contentPt={HERO_CONTENT_PT}
         />
 
-        {/* 2. Trust bar — full-width grey strip (bénéfices) */}
-        <Box bg="gray.50" w="100%">
-          <TrustBanner />
-        </Box>
+        {/* 2. Barre de confiance */}
+        <TrustBanner />
 
         {/* 3. Services (2 cartes : intérieure + extérieure) */}
         <LandingServicesSection
@@ -193,9 +182,6 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
 
         {/* 6. Formulaire de contact — fond bleu */}
         <ContactFormSection
-          fields={LANDING_FORM_FIELDS}
-          phoneFirst
-          projectDetailsLabel={t.formProjectDetails}
           sectionPy={LANDING_SECTION_PY}
           sectionBg="app.ctaBg"
         />
@@ -203,9 +189,6 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {/* 7. Avis clients */}
         <ReviewsSection
           hideButton
-          desktopColumns={3}
-          title={t.reviewsTitle}
-          subtitle={lang === 'fr' ? 'Plus de 100 avis 5 étoiles sur Google' : 'Over 100 5-star reviews on Google'}
           sectionBg="white"
           sectionPaddingTop={LANDING_SECTION_PY}
           sectionPaddingBottom={LANDING_SECTION_PY}

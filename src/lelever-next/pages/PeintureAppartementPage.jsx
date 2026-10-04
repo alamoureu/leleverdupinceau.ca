@@ -37,11 +37,13 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import appartHeroImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
 import appartImg6759 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.jpg';
 import appartImg7983 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const PLACEHOLDER_PAIR = { before: null, after: null };
 
@@ -157,7 +159,7 @@ const INTERNAL_LINKS = [
   },
   {
     title: 'Nos secteurs desservis',
-    description: 'Montréal, Laval, Longueuil, Rive-Sud et Gatineau.',
+    description: 'Montréal, Laval, Longueuil et la Rive-Sud.',
     to: '/secteurs',
   },
   {
@@ -258,8 +260,7 @@ export default function PeintureAppartementPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -377,9 +378,7 @@ export default function PeintureAppartementPage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS LOGEMENT LOCATIF ===== */}
         <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -562,41 +561,11 @@ export default function PeintureAppartementPage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Un appartement bien repeint se loue et se présente beaucoup mieux
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                Dans un appartement, la perception visuelle change très vite avec une peinture propre et uniforme. Que l&apos;objectif soit de remettre un logement en état, de le relouer plus facilement, de le vendre ou simplement de l&apos;habiter dans de meilleures conditions, le chantier doit être rapide, propre et bien organisé. Notre approche vise justement à créer ce résultat sans ajouter de friction inutile.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          title="Un appartement bien repeint se loue et se présente beaucoup mieux"
+          body="Dans un appartement, la perception visuelle change très vite avec une peinture propre et uniforme. Que l'objectif soit de remettre un logement en état, de le relouer plus facilement, de le vendre ou simplement de l'habiter dans de meilleures conditions, le chantier doit être rapide, propre et bien organisé. Notre approche vise justement à créer ce résultat sans ajouter de friction inutile."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -721,43 +690,12 @@ export default function PeintureAppartementPage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box
-          py={{ base: 16, md: 20, lg: 24 }}
-          bg="app.ctaBg"
-        >
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Besoin de remettre un appartement au propre rapidement&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez votre soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={'Besoin de remettre un appartement au propre rapidement\u00A0?'}
+          subtitle="Obtenez votre soumission gratuite en moins de 24h"
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

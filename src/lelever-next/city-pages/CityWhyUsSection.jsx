@@ -20,6 +20,7 @@ export default function CityWhyUsSection({
   whyUsContent,
   whyUsIntroText,
   customTitle,
+  localInsight,
 }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
@@ -63,6 +64,17 @@ export default function CityWhyUsSection({
                 {customTitle || defaultTitle}
               </Heading>
             </Stack>
+
+            {localInsight && (
+              <Text
+                fontSize={{ base: 'md', md: 'lg' }}
+                color='gray.600'
+                lineHeight='1.7'
+                textAlign='left'
+              >
+                {localInsight}
+              </Text>
+            )}
 
             {whyUsContent ? (
               typeof whyUsContent === 'string' ? (

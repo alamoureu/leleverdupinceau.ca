@@ -1,0 +1,40 @@
+---
+description: Workflow pour intégrer les photos du dossier "Photos à ajouter-last-modifs" dans les pages du site
+globs: src/lelever-next/images/**
+alwaysApply: true
+---
+
+# Photos à ajouter - leleverdupinceau.ca
+
+La plupart des modifications futures partent du dossier `src/lelever-next/images/Photos à ajouter-last-modifs/`.
+
+## Structure
+
+Un sous-dossier par page (ex. `Montréal`, `Laval`, `Résidentiel`, `Home page`, `Réparations de plâtre et de gypse`), avec des sous-dossiers par section :
+
+- `Avant-après` : paires avant/après pour `BeforeAfterCarouselSection` (deux fichiers consécutifs = une paire, avant puis après).
+- `header` : image de héros de la page.
+- `photos quartier` : photos de la galerie/section quartier.
+
+## Règle principale : ajouts seulement
+
+- Les photos dans ces dossiers sont **des ajouts**, jamais des remplacements.
+- Ne **jamais** retirer ni remplacer une image existante d'une page parce qu'une nouvelle photo existe dans le dossier.
+- Ajouter les nouvelles photos **à la suite** des images déjà présentes (carrousel, galerie, etc.).
+- Les remplacements ou retraits seront **mentionnés explicitement** par l'utilisateur dans sa demande. Sans mention explicite, on ajoute.
+
+## Avant d'intégrer
+
+- Les fichiers d'une paire ne sont pas toujours dans l'ordre avant/après : regarder chaque photo pour identifier l'avant et l'après.
+- Vérifier (md5) si la photo existe déjà dans le dossier d'images de la page ; réutiliser le fichier existant plutôt que de créer un doublon.
+
+## Validation obligatoire dans le navigateur
+
+Après chaque modification d'images, ouvrir la page sur le serveur dev (`npm start`, port affiché par `lsof -iTCP -sTCP:LISTEN | rg node`) et :
+
+1. Faire défiler tout le carrousel / la galerie et prendre une capture de chaque paire.
+2. Confirmer que chaque image charge (statut 200, `naturalWidth > 0`).
+3. Confirmer que l'avant et l'après montrent la même pièce, dans le bon ordre, avec la bonne description.
+4. Montrer les captures à l'utilisateur dans le résumé.
+
+Exception : un dossier `header` remplace forcément le héros (une seule image possible). Confirmer avec l'utilisateur avant de remplacer un header si la demande ne le précise pas.

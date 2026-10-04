@@ -23,7 +23,7 @@ import ServiceSubServicesSection from '../components/ServiceSubServicesSection';
 import ServiceQuartierGuidesSection from '../service_ville/components/ServiceQuartierGuidesSection';
 import ServiceQuartierAboutSection from '../service_ville/components/ServiceQuartierAboutSection';
 import ServiceQuartierSectorsSection from '../service_ville/components/ServiceQuartierSectorsSection';
-import ServiceCTASection from '../components/ServiceCTASection';
+import FinalCTASection from '../../home-page/FinalCTASection';
 import SectorsSection, {
   montrealSecteur,
   lavalSecteur,
@@ -258,7 +258,7 @@ export default function SousServicePage() {
             </Stack>
           </Container>
 
-          {/* Section 1 — Pourquoi choisir notre service */}
+          {/* Section 1 - Pourquoi choisir notre service */}
           <ServiceWhyUsSection
             title={city.whyUsTitle[isFr ? 'fr' : 'en']}
             content={city.whyUsContent[isFr ? 'fr' : 'en']}
@@ -271,7 +271,7 @@ export default function SousServicePage() {
 
           <Container maxW='1440px' px={{ base: 4, md: 6 }}>
             <Stack spacing={0}>
-              {/* Section 2 — Sous-services (only if subServices exist) */}
+              {/* Section 2 - Sous-services (only if subServices exist) */}
               {subServices.length > 0 && (
                 <ServiceSubServicesSection
                   title={city.subServicesTitle[isFr ? 'fr' : 'en']}
@@ -279,19 +279,19 @@ export default function SousServicePage() {
                 />
               )}
 
-              {/* Section 3 — Guides utiles */}
+              {/* Section 3 - Guides utiles */}
               <ServiceQuartierGuidesSection
                 title={city.guidesTitle[isFr ? 'fr' : 'en']}
                 guides={guides}
               />
 
-              {/* Section 5 — À propos de nos peintres */}
+              {/* Section 5 - À propos de nos peintres */}
               <ServiceQuartierAboutSection
                 title={city.aboutTitle[isFr ? 'fr' : 'en']}
                 description={city.aboutDescription[isFr ? 'fr' : 'en']}
               />
 
-              {/* Section 6 — Secteurs desservis (only if sectors exist) */}
+              {/* Section 6 - Secteurs desservis (only if sectors exist) */}
               {city.sectors && city.sectors.length > 0 && (
                 <ServiceQuartierSectorsSection
                   title={
@@ -307,10 +307,10 @@ export default function SousServicePage() {
             </Stack>
           </Container>
 
-          {/* Section 7 — CTA final */}
-          <ServiceCTASection
+          {/* Section 7 - CTA final */}
+          <FinalCTASection
             title={city.ctaTitle[isFr ? 'fr' : 'en']}
-            description={city.ctaDescription[isFr ? 'fr' : 'en']}
+            subtitle={city.ctaDescription[isFr ? 'fr' : 'en']}
           />
         </Box>
       </Fragment>
@@ -525,7 +525,7 @@ export default function SousServicePage() {
               )}
             </Stack>
 
-            {/* Section 1 — Pourquoi choisir notre service */}
+            {/* Section 1 - Pourquoi choisir notre service */}
             <ServiceWhyUsSection
               title={pageData.whyUsTitle[isFr ? 'fr' : 'en']}
               introText={
@@ -541,7 +541,7 @@ export default function SousServicePage() {
               }
             />
 
-            {/* Section 2 — Sous-service parent + services reliés */}
+            {/* Section 2 - Sous-service parent + services reliés */}
             {pageData.complementaryServices && (
               <Box py={{ base: 12, md: 16, lg: 20 }}>
                 <Container maxW='1440px' px={{ base: 4, md: 6 }}>
@@ -622,7 +622,7 @@ export default function SousServicePage() {
               </Box>
             )}
 
-            {/* Section 3 — Types de surfaces (for Commercial Interior only) */}
+            {/* Section 3 - Types de surfaces (for Commercial Interior only) */}
             {pageData.surfacesTitle &&
               pageData.surfaces &&
               serviceSlug === 'peinture-commerciale' &&
@@ -669,7 +669,7 @@ export default function SousServicePage() {
                 </Box>
               )}
 
-            {/* Section 4 — Processus (for Commercial Interior only) */}
+            {/* Section 4 - Processus (for Commercial Interior only) */}
             {pageData.processTitle &&
               pageData.processSteps &&
               serviceSlug === 'peinture-commerciale' &&
@@ -724,7 +724,7 @@ export default function SousServicePage() {
                 </Box>
               )}
 
-            {/* Section 3/5 — Par ville (Section 3 for others, Section 5 for Commercial Interior) */}
+            {/* Section 3/5 - Par ville (Section 3 for others, Section 5 for Commercial Interior) */}
             {pageData.cities && (
               <SectorsSection
                 title={pageData.citiesTitle[isFr ? 'fr' : 'en']}
@@ -762,7 +762,7 @@ export default function SousServicePage() {
               />
             )}
 
-            {/* Section 4 — Guides & ressources */}
+            {/* Section 4 - Guides & ressources */}
             {guides.length > 0 && (
               <ServiceQuartierGuidesSection
                 title={pageData.guidesTitle[isFr ? 'fr' : 'en']}
@@ -770,7 +770,7 @@ export default function SousServicePage() {
               />
             )}
 
-            {/* Section 6 — À propos de nos peintres professionnels */}
+            {/* Section 6 - À propos de nos peintres professionnels */}
             <ServiceQuartierAboutSection
               title={pageData.aboutTitle[isFr ? 'fr' : 'en']}
               description={pageData.aboutDescription[isFr ? 'fr' : 'en']}
@@ -781,9 +781,9 @@ export default function SousServicePage() {
         </Container>
 
         {/* CTA Section - Full Width */}
-        <ServiceCTASection
+        <FinalCTASection
           title={pageData.ctaTitle[isFr ? 'fr' : 'en']}
-          description={pageData.ctaDescription[isFr ? 'fr' : 'en']}
+          subtitle={pageData.ctaDescription[isFr ? 'fr' : 'en']}
         />
       </Box>
     </Fragment>

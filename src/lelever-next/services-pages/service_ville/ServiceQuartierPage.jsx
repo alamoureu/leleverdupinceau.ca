@@ -19,7 +19,7 @@ import ServiceQuartierGuidesSection from './components/ServiceQuartierGuidesSect
 import ServiceQuartierAboutSection from './components/ServiceQuartierAboutSection';
 import ServiceQuartierSectorsSection from './components/ServiceQuartierSectorsSection';
 import ServiceFAQSection from '../components/ServiceFAQSection';
-import ServiceCTASection from '../components/ServiceCTASection';
+import FinalCTASection from '../../home-page/FinalCTASection';
 import { getServiceQuartierData } from './index';
 
 export default function ServiceQuartierPage() {
@@ -278,7 +278,7 @@ export default function ServiceQuartierPage() {
                 )}
             </Stack>
 
-            {/* Images Section (hidden for peinture industrielle — no project photos) */}
+            {/* Images Section (hidden for peinture industrielle - no project photos) */}
             {serviceSlug !== 'peinture-industrielle' && city.images && city.images.length > 0 && (
               <Box mb={{ base: 12, md: 16 }}>
                 <SimpleGrid
@@ -307,7 +307,7 @@ export default function ServiceQuartierPage() {
           </Stack>
         </Container>
 
-        {/* Section 1 — Pourquoi choisir notre service */}
+        {/* Section 1 - Pourquoi choisir notre service */}
         <ServiceWhyUsSection
           title={city.whyUsTitle[isFr ? 'fr' : 'en']}
           content={city.whyUsContent[isFr ? 'fr' : 'en']}
@@ -320,7 +320,7 @@ export default function ServiceQuartierPage() {
 
         <Container maxW='1440px' px={{ base: 4, md: 6 }}>
           <Stack spacing={0}>
-            {/* Section 2 — Sous-services (only if subServices exist) */}
+            {/* Section 2 - Sous-services (only if subServices exist) */}
             {subServices.length > 0 && (
               <ServiceSubServicesSection
                 title={city.subServicesTitle[isFr ? 'fr' : 'en']}
@@ -328,19 +328,19 @@ export default function ServiceQuartierPage() {
               />
             )}
 
-            {/* Section 3 — Guides utiles */}
+            {/* Section 3 - Guides utiles */}
             <ServiceQuartierGuidesSection
               title={city.guidesTitle[isFr ? 'fr' : 'en']}
               guides={guides}
             />
 
-            {/* Section 4 — À propos de nos peintres */}
+            {/* Section 4 - À propos de nos peintres */}
             <ServiceQuartierAboutSection
               title={city.aboutTitle[isFr ? 'fr' : 'en']}
               description={city.aboutDescription[isFr ? 'fr' : 'en']}
             />
 
-            {/* Section 5 — Secteurs desservis (only if sectors exist) */}
+            {/* Section 5 - Secteurs desservis (only if sectors exist) */}
             {city.sectors && city.sectors.length > 0 && (
               <ServiceQuartierSectorsSection
                 title={
@@ -356,7 +356,7 @@ export default function ServiceQuartierPage() {
           </Stack>
         </Container>
 
-        {/* Section 6 — FAQ (only if faqs exist) */}
+        {/* Section 6 - FAQ (only if faqs exist) */}
         {city.faqs && city.faqs[isFr ? 'fr' : 'en'] && (
           <ServiceFAQSection
             title={city.faqTitle ? city.faqTitle[isFr ? 'fr' : 'en'] : null}
@@ -365,10 +365,10 @@ export default function ServiceQuartierPage() {
           />
         )}
 
-        {/* Section 7 — CTA final */}
-        <ServiceCTASection
+        {/* Section 7 - CTA final */}
+        <FinalCTASection
           title={city.ctaTitle[isFr ? 'fr' : 'en']}
-          description={city.ctaDescription[isFr ? 'fr' : 'en']}
+          subtitle={city.ctaDescription[isFr ? 'fr' : 'en']}
         />
       </Box>
     </Fragment>

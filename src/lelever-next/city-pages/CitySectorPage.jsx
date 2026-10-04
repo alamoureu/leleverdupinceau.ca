@@ -21,11 +21,11 @@ import TrustBanner from '../home-page/TrustBanner';
 import CityWhyUsSection from './CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
-import CityCTASection from './CityCTASection';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 /**
  * Template partagé pour les pages de ville / secteur (Site LP).
- * Réutilise TrustBanner, CityWhyUsSection, BeforeAfterCarouselSection, FAQSection, CityCTASection.
+ * Réutilise TrustBanner, CityWhyUsSection, BeforeAfterCarouselSection, FAQSection, FinalCTASection.
  */
 export default function CitySectorPage({ config }) {
   const { currentLang } = useContext(appContext);
@@ -40,6 +40,7 @@ export default function CitySectorPage({ config }) {
     heroTitle,
     heroLead,
     heroBody,
+    localInsight,
     checkmarksTitle,
     checkmarksIntro,
     checkmarks,
@@ -260,21 +261,14 @@ export default function CitySectorPage({ config }) {
           </Grid>
         </Container>
 
-        <Box
-          bg="gray.50"
-          borderTop="1px solid"
-          borderTopColor="gray.200"
-          borderBottom="1px solid"
-          borderBottomColor="gray.200"
-        >
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
           <Stack spacing={0}>
             <CityWhyUsSection
               cityName={cityName}
               customTitle={t(checkmarksTitle)}
+              localInsight={t(localInsight)}
               whyUsIntroText={t(checkmarksIntro)}
               whyUsContent={checkmarks.map(t)}
             />
@@ -506,7 +500,14 @@ export default function CitySectorPage({ config }) {
           </Container>
         </Box>
 
-        <CityCTASection cityName={cityName} />
+        <FinalCTASection
+          title={isFr ? `Obtenez votre soumission pour un projet de peinture à ${cityName}` : `Get your quote for a painting project in ${cityName}`}
+          subtitle={
+            isFr
+              ? 'Nous offrons des services rapides, fiables et professionnels pour tous vos travaux de peinture résidentiels, commerciaux ou industriels.'
+              : 'We offer fast, reliable and professional services for all your residential, commercial or industrial painting work.'
+          }
+        />
       </Box>
     </Fragment>
   );

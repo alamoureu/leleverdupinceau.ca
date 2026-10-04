@@ -37,16 +37,20 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 
-import commercialImg1 from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre commercial dans le grand Montréal, Le Lever du Pinceau a peint ce bureau commerciale au centre ville de Montréal.jpg';
-import commercialImg2 from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal professionnel, Le Lever du Pinceau a peinturé ce local commercial dans le quartier Notre-dame-de-grâce, Mtl.jpg';
-import commercialImg3 from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier à Outremont, Montréal.jpg';
-import commercialImg4 from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier dans le quartier Outremont.jpg';
-import commercialImg5 from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal de profession, Le Lever du Pinceau a peinturé ce local commercial dans NDG, Montréal.jpg';
-import commercialImg6 from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a complété ce bureau commerciale au centre ville.jpg';
+import bureauAvant from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre commercial dans le grand Montréal, Le Lever du Pinceau a peint ce bureau commerciale au centre ville de Montréal.jpg';
+import bureauApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a complété ce bureau commerciale au centre ville.jpg';
+import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier à Outremont, Montréal.jpg';
+import escalierApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier dans le quartier Outremont.jpg';
+import localNdgAvant from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal de profession, Le Lever du Pinceau a peinturé ce local commercial dans NDG, Montréal.jpg';
+import localNdgApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal professionnel, Le Lever du Pinceau a peinturé ce local commercial dans le quartier Notre-dame-de-grâce, Mtl.jpg';
+import plafondAvant from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
+import plafondApres from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
 
 const CHECKMARKS = [
   {
@@ -214,21 +218,10 @@ export default function PeintureCommercialePage() {
   };
 
   const carouselImages = [
-    {
-      before: commercialImg1,
-      after: commercialImg2,
-      description: 'Peinture bureau commercial - centre-ville Montréal',
-    },
-    {
-      before: commercialImg3,
-      after: commercialImg4,
-      description: 'Peinture cage d\'escalier commerciale - Outremont, Montréal',
-    },
-    {
-      before: commercialImg5,
-      after: commercialImg6,
-      description: 'Peinture local commercial - NDG, Montréal',
-    },
+    { before: bureauAvant, after: bureauApres, description: 'Peinture bureau commercial - centre-ville Montréal' },
+    { before: escalierAvant, after: escalierApres, description: 'Peinture cage d\'escalier commerciale - Outremont, Montréal' },
+    { before: localNdgAvant, after: localNdgApres, description: 'Peinture local commercial - NDG, Montréal' },
+    { before: plafondAvant, after: plafondApres, description: 'Plafond steel deck - structure métallique repeinte en blanc' },
   ];
 
   return (
@@ -247,8 +240,7 @@ export default function PeintureCommercialePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -325,7 +317,17 @@ export default function PeintureCommercialePage() {
                   lineHeight="1.05"
                   minW={0}
                 >
-                  Peinture commerciale à Montréal - Bureau, restaurant, commerce
+                  Peinture commerciale à Montréal
+                  <Box
+                    as="span"
+                    display="block"
+                    mt={{ base: 2, md: 3 }}
+                    fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl' }}
+                    fontWeight="500"
+                    lineHeight="1.2"
+                  >
+                    Bureau, restaurant, commerce
+                  </Box>
                 </Heading>
 
                 <Text
@@ -357,9 +359,7 @@ export default function PeintureCommercialePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -501,51 +501,10 @@ export default function PeintureCommercialePage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Garantie satisfaction 100%
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                En commercial, un chantier raté coûte plus qu&apos;une deuxième couche de peinture. Nous assumons la qualité de notre travail et nous revenons corriger sans frais si le résultat n&apos;est pas à la hauteur.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          body="En commercial, un chantier raté coûte plus qu'une deuxième couche de peinture. Nous assumons la qualité de notre travail et nous revenons corriger sans frais si le résultat n'est pas à la hauteur."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -669,41 +628,12 @@ export default function PeintureCommercialePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à planifier votre projet commercial&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Prêt à planifier votre projet commercial\u00A0?'}
+          subtitle={'Soumission gratuite en moins de 24h'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

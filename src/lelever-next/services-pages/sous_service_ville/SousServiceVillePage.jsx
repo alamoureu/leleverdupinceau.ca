@@ -17,7 +17,7 @@ import ServiceWhyUsSection from '../components/ServiceWhyUsSection';
 import ServiceQuartierGuidesSection from '../service_ville/components/ServiceQuartierGuidesSection';
 import ServiceQuartierAboutSection from '../service_ville/components/ServiceQuartierAboutSection';
 import ServiceFAQSection from '../components/ServiceFAQSection';
-import ServiceCTASection from '../components/ServiceCTASection';
+import FinalCTASection from '../../home-page/FinalCTASection';
 import { getSousServiceVilleData } from './index';
 
 export default function SousServiceVillePage() {
@@ -272,7 +272,7 @@ export default function SousServiceVillePage() {
               </Box>
             )}
 
-            {/* Section 1 — Pourquoi choisir notre service */}
+            {/* Section 1 - Pourquoi choisir notre service */}
             <ServiceWhyUsSection
               title={city.whyUsTitle[isFr ? 'fr' : 'en']}
               content={city.whyUsContent[isFr ? 'fr' : 'en']}
@@ -282,7 +282,7 @@ export default function SousServiceVillePage() {
               }
             />
 
-            {/* Section 2 — Services complémentaires */}
+            {/* Section 2 - Services complémentaires */}
             {city.complementaryServices &&
               city.complementaryServices.length > 0 && (
                 <Box py={{ base: 12, md: 16, lg: 20 }}>
@@ -315,7 +315,7 @@ export default function SousServiceVillePage() {
                 </Box>
               )}
 
-            {/* Section 4 — Processus */}
+            {/* Section 4 - Processus */}
             {city.processSteps && city.processSteps[isFr ? 'fr' : 'en'] && (
               <Box py={{ base: 12, md: 16, lg: 20 }}>
                 <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -363,7 +363,7 @@ export default function SousServiceVillePage() {
               </Box>
             )}
 
-            {/* Section 5 — Guides utiles */}
+            {/* Section 5 - Guides utiles */}
             {guides.length > 0 && (
               <ServiceQuartierGuidesSection
                 title={city.guidesTitle[isFr ? 'fr' : 'en']}
@@ -371,7 +371,7 @@ export default function SousServiceVillePage() {
               />
             )}
 
-            {/* Section 6 — À propos de nos peintres */}
+            {/* Section 6 - À propos de nos peintres */}
             <ServiceQuartierAboutSection
               title={city.aboutTitle[isFr ? 'fr' : 'en']}
               description={city.aboutDescription[isFr ? 'fr' : 'en']}
@@ -381,7 +381,7 @@ export default function SousServiceVillePage() {
           </Stack>
         </Container>
 
-        {/* Section 6.5 — FAQ (only if faqs exist) */}
+        {/* Section 6.5 - FAQ (only if faqs exist) */}
         {city.faqs && city.faqs[isFr ? 'fr' : 'en'] && (
           <ServiceFAQSection
             title={city.faqTitle ? city.faqTitle[isFr ? 'fr' : 'en'] : null}
@@ -390,10 +390,10 @@ export default function SousServiceVillePage() {
           />
         )}
 
-        {/* Section 7 — CTA final */}
-        <ServiceCTASection
+        {/* Section 7 - CTA final */}
+        <FinalCTASection
           title={city.ctaTitle[isFr ? 'fr' : 'en']}
-          description={city.ctaDescription[isFr ? 'fr' : 'en']}
+          subtitle={city.ctaDescription[isFr ? 'fr' : 'en']}
         />
       </Box>
     </Fragment>

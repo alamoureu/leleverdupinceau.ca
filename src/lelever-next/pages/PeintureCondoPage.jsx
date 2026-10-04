@@ -37,6 +37,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import condoHeroImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
@@ -46,6 +47,7 @@ import condoImg7999 from '../images/L3 Sous services/Photo page -peinture condo/
 import condoImg7997 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.jpg';
 import condoImg8108 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
 import condoImg6031 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const CHECKMARKS = [
   {
@@ -149,7 +151,7 @@ const INTERNAL_LINKS = [
   },
   {
     title: 'Nos secteurs desservis',
-    description: 'Montréal, Laval, Longueuil, Rive-Sud et Gatineau.',
+    description: 'Montréal, Laval, Longueuil et la Rive-Sud.',
     to: '/secteurs',
   },
   {
@@ -250,8 +252,7 @@ export default function PeintureCondoPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -369,9 +370,7 @@ export default function PeintureCondoPage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS COPROPRIÉTÉ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -554,41 +553,11 @@ export default function PeintureCondoPage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Un projet de condo bien géré évite beaucoup de friction
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                En copropriété, la qualité d&apos;un chantier ne se mesure pas seulement à la finition finale. Elle se mesure aussi à la propreté, à la coordination, au respect des consignes de l&apos;immeuble et à la simplicité de l&apos;expérience pour vous. Notre approche vise justement à rendre le projet fluide, propre et prévisible du début à la fin.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          title="Un projet de condo bien géré évite beaucoup de friction"
+          body="En copropriété, la qualité d'un chantier ne se mesure pas seulement à la finition finale. Elle se mesure aussi à la propreté, à la coordination, au respect des consignes de l'immeuble et à la simplicité de l'expérience pour vous. Notre approche vise justement à rendre le projet fluide, propre et prévisible du début à la fin."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -713,43 +682,12 @@ export default function PeintureCondoPage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box
-          py={{ base: 16, md: 20, lg: 24 }}
-          bg="app.ctaBg"
-        >
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Besoin d&apos;un chantier propre et bien coordonné dans votre condo&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez votre soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={"Besoin d'un chantier propre et bien coordonné dans votre condo\u00A0?"}
+          subtitle="Obtenez votre soumission gratuite en moins de 24h"
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

@@ -3,6 +3,7 @@ import { Helmet } from 'react-helmet';
 import { Box, Container, Heading, Text, Stack, Link } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import BlogPostContent from './components/BlogPostContent';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 export default function BlogPostPage({ blogData }) {
   const { currentLang } = useContext(appContext);
@@ -195,56 +196,10 @@ export default function BlogPostPage({ blogData }) {
           </Stack>
         </Container>
 
-        <Box
-          w="100%"
-          py={{ base: 12, md: 16, lg: 20 }}
-          bg="brand.500"
-          mt={{ base: 8, md: 10 }}
-        >
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={6} textAlign="center">
-              <Stack spacing={3}>
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="white"
-                >
-                  {isFr
-                    ? 'Prêt à discuter de votre projet ?'
-                    : 'Ready to discuss your project?'}
-                </Heading>
-                <Text
-                  fontSize={{ base: 'md', md: 'lg' }}
-                  color="whiteAlpha.900"
-                  maxW="800px"
-                  mx="auto"
-                >
-                  {isFr
-                    ? 'Demandez votre soumission gratuite dès maintenant.'
-                    : 'Request your free quote now.'}
-                </Text>
-              </Stack>
-              <Box>
-                <Link href="/contact" _hover={{ textDecoration: 'none' }}>
-                  <Box
-                    as="button"
-                    bg="white"
-                    color="brand.500"
-                    borderRadius="full"
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                    _hover={{ bg: 'gray.100' }}
-                    fontWeight="semibold"
-                  >
-                    {isFr ? 'Soumission gratuite' : 'Free quote'}
-                  </Box>
-                </Link>
-              </Box>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={isFr ? 'Prêt à discuter de votre projet ?' : 'Ready to discuss your project?'}
+          subtitle={isFr ? 'Demandez votre soumission gratuite dès maintenant.' : 'Request your free quote now.'}
+        />
       </Box>
     </Fragment>
   );

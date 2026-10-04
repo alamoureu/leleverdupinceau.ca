@@ -33,6 +33,27 @@ Toujours utiliser les accents corrects dans tout le contenu français :
 - û, ù → jamais u sans accent
 - ç → jamais c sans accent
 
+## Header (héros) : texte minimal
+
+Le héros contient **seulement** : fil d'Ariane, titre H1, **une** phrase courte (15 mots max), bouton CTA.
+
+- Jamais de paragraphe, jamais de deuxième bloc de texte (`description`) dans le héros.
+- Un texte d'intro plus long va dans la première section **sous** le héros (ou est retiré), jamais par-dessus la photo.
+- Avant de livrer une page, vérifier le héros dans le navigateur : si le texte dépasse ~2 lignes sur desktop, c'est trop.
+
+```jsx
+// ❌ INTERDIT
+<HeroSection title="Contactez-nous" description="Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ... (80 mots)" />
+
+// ✅ CORRECT
+<HeroSection title="Contactez Le Lever du Pinceau" subtitle="Soumission gratuite en moins de 24 h." />
+```
+
 ## Pages de ville – template
 
-Réutiliser les composants `TrustBanner`, `CityWhyUsSection`, `BeforeAfterCarouselSection`, `FAQSection`, `CityCTASection` pour toutes les pages de ville. Ne pas créer de composants one-off.
+Réutiliser les composants `TrustBanner`, `CityWhyUsSection`, `BeforeAfterCarouselSection`, `FAQSection`, `FinalCTASection` pour toutes les pages de ville. Ne pas créer de composants one-off.
+
+## Composants site-wide
+
+- Avis : toujours `ReviewsSection` (avec `reviewsOverride` au besoin), jamais une grille d'avis maison.
+- Fin de page : chaque page se termine par `FinalCTASection`. Ne jamais recopier un bloc CTA `bg="app.ctaBg"` à la main.

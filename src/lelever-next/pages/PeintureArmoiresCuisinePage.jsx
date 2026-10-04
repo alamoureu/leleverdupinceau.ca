@@ -37,6 +37,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import armoiresHeroImg from '../images/L3 Sous services/Photo page armoires de cuisine/header.jpeg';
@@ -44,6 +45,7 @@ import armoiresImg5975 from '../images/L3 Sous services/Photo page armoires de c
 import armoiresImg5976 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG';
 import armoiresImg8114 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';
 import armoiresImg8120 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const CHECKMARKS = [
   {
@@ -238,8 +240,7 @@ export default function PeintureArmoiresCuisinePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -357,9 +358,7 @@ export default function PeintureArmoiresCuisinePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS TRANSFORMATION D'ARMOIRES ===== */}
         <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -542,41 +541,11 @@ export default function PeintureArmoiresCuisinePage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Un projet minutieux du démontage au remontage
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                La peinture d&apos;armoires de cuisine est un projet qui demande de la précision à chaque étape. Une préparation soignée, un système de peinture adapté aux surfaces sollicitées, une protection rigoureuse du reste de la cuisine et un remontage propre : c&apos;est cette séquence complète qui garantit un résultat durable et visuellement transformateur.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          title="Un projet minutieux du démontage au remontage"
+          body="La peinture d'armoires de cuisine est un projet qui demande de la précision à chaque étape. Une préparation soignée, un système de peinture adapté aux surfaces sollicitées, une protection rigoureuse du reste de la cuisine et un remontage propre : c'est cette séquence complète qui garantit un résultat durable et visuellement transformateur."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -701,43 +670,12 @@ export default function PeintureArmoiresCuisinePage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box
-          py={{ base: 16, md: 20, lg: 24 }}
-          bg="app.ctaBg"
-        >
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Parlez-nous de vos armoires
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez une soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title="Parlez-nous de vos armoires"
+          subtitle="Obtenez une soumission gratuite en moins de 24h"
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

@@ -36,6 +36,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import industrielleImg1 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peint ce plafond en steel deck en mur à Montréal est.jpg';
@@ -44,6 +45,7 @@ import industrielleImg3 from '../images/L2 Services principaux/Photo page -peint
 import industrielleImg4 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle dans le grand Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine à Laval.jpg';
 import industrielleImg5 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
 import industrielleImg6 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel sur l_île de Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck en mur à Montréal.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const CHECKMARKS = [
   {
@@ -203,8 +205,8 @@ export default function PeintureIndustriellePage() {
   const carouselImages = [
     {
       before: industrielleImg1,
-      after: industrielleImg2,
-      description: 'Peinture plafond steel deck - entrepôt Montréal Est',
+      after: industrielleImg6,
+      description: 'Peinture murs et plancher - entrepôt Montréal Est',
     },
     {
       before: industrielleImg3,
@@ -212,9 +214,9 @@ export default function PeintureIndustriellePage() {
       description: 'Peinture extérieure usine au pistolet - Rive-Nord de Montréal',
     },
     {
-      before: industrielleImg5,
-      after: industrielleImg6,
-      description: 'Peinture steel deck airless - Montréal',
+      before: industrielleImg2,
+      after: industrielleImg5,
+      description: 'Peinture plafond steel deck airless - Montréal',
     },
   ];
 
@@ -234,8 +236,7 @@ export default function PeintureIndustriellePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -312,7 +313,17 @@ export default function PeintureIndustriellePage() {
                   lineHeight="1.05"
                   minW={0}
                 >
-                  Peinture industrielle à Montréal - Entrepôt, usine, stationnement
+                  Peinture industrielle à Montréal
+                  <Box
+                    as="span"
+                    display="block"
+                    mt={{ base: 2, md: 3 }}
+                    fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl' }}
+                    fontWeight="500"
+                    lineHeight="1.2"
+                  >
+                    Entrepôt, usine, stationnement
+                  </Box>
                 </Heading>
 
                 <Text
@@ -344,9 +355,7 @@ export default function PeintureIndustriellePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -488,51 +497,10 @@ export default function PeintureIndustriellePage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Garantie satisfaction 100%
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                En industriel, un revêtement qui écaille ou un plancher qui s&apos;use prématurément coûte cher à refaire. Nous utilisons les bons produits, au bon endroit, avec la bonne préparation pour que le résultat dure.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          body="En industriel, un revêtement qui écaille ou un plancher qui s'use prématurément coûte cher à refaire. Nous utilisons les bons produits, au bon endroit, avec la bonne préparation pour que le résultat dure."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -656,41 +624,12 @@ export default function PeintureIndustriellePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à planifier votre projet industriel&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Prêt à planifier votre projet industriel\u00A0?'}
+          subtitle={'Soumission gratuite en moins de 24h'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

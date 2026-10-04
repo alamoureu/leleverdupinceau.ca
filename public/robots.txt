@@ -10,10 +10,8 @@ Disallow: /timesheet
 
 # Paid landing pages (noindex / ads only)
 Disallow: /fr/peintre-montreal
-Disallow: /fr/peintre-gatineau
 Disallow: /en/peintre-montreal
 Disallow: /en/painter-montreal
-Disallow: /en/painter-gatineau
 
 Sitemap: https://www.leleverdupinceau.ca/sitemap.xml
 # LLM / agent guidance: https://www.leleverdupinceau.ca/llms.txt

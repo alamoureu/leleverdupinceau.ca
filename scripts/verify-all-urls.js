@@ -19,8 +19,6 @@ const EXPECTED_URLS = [
   '/secteurs/montreal',
   '/secteurs/laval',
   '/secteurs/longueuil',
-  '/secteurs/gatineau',
-  '/secteurs/rive-sud',
   '/avis-clients',
   '/realisations',
   '/services',

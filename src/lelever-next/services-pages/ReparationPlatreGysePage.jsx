@@ -28,7 +28,6 @@ import {
   FaRulerCombined,
   FaWrench,
   FaCheckCircle,
-  FaShieldAlt,
   FaAngleDoubleRight,
   FaCircle,
   FaBorderAll,
@@ -38,6 +37,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import platreHeroImg from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG';
@@ -46,6 +46,7 @@ import platreAvant1 from '../images/L2 Services specialise/Photo page -plâtre/A
 import platreApres1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6031.PNG';
 import platreAvant2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.PNG';
 import platreApres2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.PNG';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const CHECKMARKS = [
   {
@@ -244,8 +245,7 @@ export default function ReparationPlatreGysePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -354,9 +354,7 @@ export default function ReparationPlatreGysePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS CORRECTION DU SUPPORT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -498,51 +496,11 @@ export default function ReparationPlatreGysePage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Une réparation bien faite change tout le résultat final
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                Quand les défauts sont mal corrigés, ils reviennent vite sous la peinture ou restent visibles à la lumière. Notre objectif est de remettre la surface au bon niveau avant la finition, pour éviter les reprises inutiles et livrer un résultat plus propre dès la première fois.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          title="Une réparation bien faite change tout le résultat final"
+          body="Quand les défauts sont mal corrigés, ils reviennent vite sous la peinture ou restent visibles à la lumière. Notre objectif est de remettre la surface au bon niveau avant la finition, pour éviter les reprises inutiles et livrer un résultat plus propre dès la première fois."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -666,41 +624,12 @@ export default function ReparationPlatreGysePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Besoin de corriger vos murs ou plafonds avant de peindre&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Obtenez une soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Besoin de corriger vos murs ou plafonds avant de peindre\u00A0?'}
+          subtitle={'Obtenez une soumission gratuite en moins de 24h'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

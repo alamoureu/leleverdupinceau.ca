@@ -10,23 +10,48 @@ import {
   Link,
   HStack,
   Image,
-  Grid,
   SimpleGrid,
   Flex,
   Button,
   Wrap,
   WrapItem,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
+import HeroSection from '../home-page/HeroSection';
+import SubmissionModal from '../home-page/SubmissionModal';
 import TrustBanner from '../home-page/TrustBanner';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
-import CityCTASection from '../city-pages/CityCTASection';
+import FinalCTASection from '../home-page/FinalCTASection';
 
-import headerMontreal from '../images/3-ville/Montréal/header (1).jpg';
-// Avant/apres Montreal - paires identifiees
+import headerMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
+import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
+import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
+import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import quartierPlateau from '../images/pillar-pages/secteur-hub/IMG_7900.jpg';
+import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.jpg';
+import quartierOutremont from '../images/pillar-pages/secteur-hub/IMG_7898.jpg';
+import quartierWestmount from '../images/pillar-pages/secteur-hub/IMG_7896.jpg';
+import monImg0818 from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
+import monImg0819 from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+import monImg1405 from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import monImg1406 from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
+import monImg5984 from '../images/3-ville/Montréal/avant-apres/IMG_5984 6.jpg';
+import monImg5982 from '../images/3-ville/Montréal/avant-apres/IMG_5982 5.jpg';
+import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import poutreAcierAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
+import poutreAcierApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+import chambrePapierPeintAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint avant.jpg';
+import chambrePapierPeintApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint après.jpg';
+import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
+import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
+import verdunAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
+import verdunApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
 import monImg7924 from '../images/3-ville/Montréal/avant-apres/IMG_7924 4.jpg';
 import monImg7922 from '../images/3-ville/Montréal/avant-apres/IMG_7922 3.jpg';
 import monImg7999 from '../images/3-ville/Montréal/avant-apres/IMG_7999 9.jpg';
@@ -39,6 +64,7 @@ import monImg6755 from '../images/3-ville/Montréal/avant-apres/IMG_6755 3.jpg';
 export default function MontrealCityPage() {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   // Schema markup
 
@@ -142,7 +168,21 @@ export default function MontrealCityPage() {
     },
   ];
 
+  const contextLinks = {
+    '01': '/services/peinture-residentielle/condo',
+    '02': '/services/peinture-residentielle/appartement',
+    '03': '/services/peinture-residentielle',
+    '05': '/services/peinture-commerciale',
+  };
+
   // Section 5 - Services les plus demandes
+
+  const serviceCardImages = {
+    '/services/peinture-interieure': interieureHeroImg,
+    '/services/peinture-exterieure': exterieureHeroImg,
+    '/services/peinture-residentielle': residentielleHeroImg,
+    '/services/peinture-commerciale': commercialeHeroImg,
+  };
 
   const serviceCards = isFr ? [
     {
@@ -209,13 +249,61 @@ export default function MontrealCityPage() {
     {
       before: monImg7971,
       after: monImg6755,
-      description: isFr ? 'Projet extérieur - Résidence à Outremont' : 'Exterior project - Residence in Outremont',
+      description: isFr ? 'Projet extérieur - Maison à Ville Mont-Royal' : 'Exterior project - House in Town of Mount Royal',
+    },
+    {
+      before: monImg5984,
+      after: monImg5982,
+      description: isFr ? 'Peinture intérieure - Pièce double à Westmount' : 'Interior painting - Double room in Westmount',
+    },
+    {
+      before: chambrePapierPeintAvant,
+      after: chambrePapierPeintApres,
+      description: isFr ? 'Retrait de papier peint et peinture - Chambre' : 'Wallpaper removal and painting - Bedroom',
+    },
+    {
+      before: porteAvant,
+      after: porteApres,
+      description: isFr ? "Peinture extérieure - Porte d'entrée" : 'Exterior painting - Front door',
+    },
+    {
+      before: verdunAvant,
+      after: verdunApres,
+      description: isFr ? 'Escalier en fer forgé - Verdun' : 'Wrought iron staircase - Verdun',
+    },
+    {
+      before: monImg1405,
+      after: monImg1406,
+      description: isFr ? 'Teinture extérieure - Clôture en bois' : 'Exterior staining - Wood fence',
+    },
+    {
+      before: poutreAcierAvant,
+      after: poutreAcierApres,
+      description: isFr ? "Peinture intérieure - Poutre d'acier rouillée" : 'Interior painting - Rusted steel beam',
+    },
+    {
+      before: monImg0818,
+      after: monImg0819,
+      description: isFr ? 'Réparation de plâtre - Coin de mur endommagé' : 'Plaster repair - Damaged wall corner',
+    },
+    {
+      before: moulureAvant,
+      after: moulureApres,
+      description: isFr ? 'Peinture de boiseries - Moulure' : 'Trim painting - Molding',
     },
   ];
 
   // Section 7 - FAQ Montreal
 
   const montrealFaqs = [
+    {
+      question: isFr
+        ? 'Mes murs sont en plâtre, pas en gypse, est-ce que ça change votre approche?'
+        : 'My walls are plaster, not drywall, does that change your approach?',
+      answer: isFr
+        ? "Oui. Le plâtre sur lattis, très répandu dans les plex montréalais d'avant-guerre, réagit différemment au rebouchage et à l'apprêt qu'une cloison de gypse. Nous évaluons et ajustons la préparation en conséquence pour éviter que les réparations ne ressortent sous la peinture."
+        : "Yes. Plaster on lath, very common in pre-war Montreal plexes, reacts differently to patching and primer than a drywall partition. We assess and adjust the preparation accordingly so repairs don't show through the paint.",
+    },
     {
       question: isFr ? 'Dans quels quartiers de Montréal intervenez-vous?' : 'Which Montreal neighborhoods do you serve?',
       answer: isFr
@@ -282,12 +370,11 @@ export default function MontrealCityPage() {
     { label: 'Get a quote', to: '/contact' },
   ];
 
-  /** Quartiers mis en avant - même destination (page Montréal) pour éviter les URLs service×quartier sans contenu. */
   const montrealQuartierHighlights = [
-    { label: 'Plateau Mont-Royal', to: '/secteurs/montreal' },
-    { label: 'Ville-Marie', to: '/secteurs/montreal' },
-    { label: 'Outremont', to: '/secteurs/montreal' },
-    { label: 'Westmount', to: '/secteurs/montreal' },
+    { label: 'Plateau Mont-Royal', to: '/secteurs/montreal/plateau-mont-royal', image: quartierPlateau },
+    { label: 'Ville-Marie', to: '/secteurs/montreal/ville-marie', image: quartierVilleMarie },
+    { label: 'Outremont', to: '/secteurs/montreal/outremont', image: quartierOutremont },
+    { label: 'Westmount', to: '/secteurs/montreal/westmount', image: quartierWestmount },
   ];
 
   // Render
@@ -317,137 +404,32 @@ export default function MontrealCityPage() {
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
 
         {/* SECTION 1 - Hero Banner */}
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 12, md: 16, lg: 20 }}>
-          <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
-            gap={{ base: 6, md: 8, lg: 10 }}
-            mb={{ base: 16, md: 20 }}
-            alignItems={{ md: 'flex-start' }}
-          >
-            <Stack spacing={0} minW={0}>
-              {/* Breadcrumb */}
-              <HStack
-                spacing={3}
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.600"
-                mb={{ base: 4, md: 6 }}
-                flexWrap="wrap"
-              >
-                <Link
-                  as={RouterLink}
-                  to="/"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Accueil' : 'Home'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Link
-                  as={RouterLink}
-                  to="/secteurs"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Secteurs desservis' : 'Service areas'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Text color="gray.800" fontWeight="medium" fontSize={{ base: 'md', md: 'lg' }}>Montréal</Text>
-              </HStack>
-
-              <Stack spacing={5} textAlign="left">
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  {isFr ? 'Peintre à Montréal' : 'Painter in Montreal'}
-                </Heading>
-
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {isFr
-                    ? 'Une équipe de peintres de métier pour vos projets résidentiels et commerciaux dans les quartiers de Montréal.'
-                    : 'A team of professional painters for your residential and commercial projects in Montreal neighborhoods.'}
-                </Text>
-
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {isFr
-                    ? 'Condos centre-ville, plex, maisons unifamiliales, commerces de quartier: nous réalisons des projets propres, rapides et bien coordonnés partout à Montréal.'
-                    : 'Downtown condos, plex, single-family homes, neighborhood businesses: we deliver clean, fast and well-coordinated projects throughout Montreal.'}
-                </Text>
-
-                <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      rightIcon={<ArrowForwardIcon />}
-                      bg="brand.500"
-                      color="white"
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                      _hover={{ bg: 'brand.600' }}
-                    >
-                      {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-                    </Button>
-                  </Link>
-                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      rightIcon={<ArrowForwardIcon />}
-                      variant="outline"
-                      borderColor="brand.500"
-                      color="brand.500"
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                      _hover={{ bg: 'brand.500', color: 'white' }}
-                    >
-                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
-                    </Button>
-                  </Link>
-                </HStack>
-              </Stack>
-            </Stack>
-
-            <Box
-              w="100%"
-              aspectRatio={{ base: '1', md: '4/3' }}
-              borderRadius="xl"
-              overflow="hidden"
-              bg="gray.100"
-            >
-              <Image
-                src={headerMontreal}
-                alt={
-                  isFr
-                    ? 'Peintre professionnel à Montréal - Le Lever du Pinceau'
-                    : 'Professional painter in Montreal - Le Lever du Pinceau'
-                }
-                title={
-                  isFr
-                    ? 'Peintre professionnel Montréal, Le Lever du Pinceau, projet de peinture résidentielle complété'
-                    : 'Professional painter Montreal, Le Lever du Pinceau, residential painting project completed'
-                }
-                w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="center"
-                loading="lazy"
-                decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-              />
-            </Box>
-          </Grid>
-        </Container>
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext="Montréal"
+          title={isFr ? 'Peintre à Montréal' : 'Painter in Montreal'}
+          subtitle={
+            isFr
+              ? 'Peintres de métier pour vos projets résidentiels et commerciaux partout à Montréal.'
+              : 'Professional painters for your residential and commercial projects across Montreal.'
+          }
+          imageBackground={headerMontreal}
+        >
+          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
+            <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline', color: 'white' }}>
+              {isFr ? 'Accueil' : 'Home'}
+            </Link>
+            <Text>›</Text>
+            <Link as={RouterLink} to="/secteurs" _hover={{ textDecoration: 'underline', color: 'white' }}>
+              {isFr ? 'Secteurs desservis' : 'Service areas'}
+            </Link>
+            <Text>›</Text>
+            <Text color="white" fontWeight="medium">Montréal</Text>
+          </HStack>
+        </HeroSection>
 
         {/* SECTION 2 - Barre de confiance */}
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
           <Stack spacing={0}>
@@ -459,6 +441,11 @@ export default function MontrealCityPage() {
                 isFr
                   ? 'Une équipe habituée à la réalité des chantiers à Montréal'
                   : 'A team familiar with the reality of job sites in Montreal'
+              }
+              localInsight={
+                isFr
+                  ? "Une bonne partie du bâti montréalais, surtout dans les arrondissements centraux (Plateau, Rosemont, Villeray, Sud-Ouest), date d'avant 1950. Ces plex ont souvent des murs en plâtre appliqué sur lattis de bois plutôt qu'en gypse moderne : le plâtre ancien se fissure et se détache différemment, et demande une préparation plus fine (sondage, rebouchage adapté, parfois une toile à plâtre) avant la mise en peinture. Nos équipes distinguent ce type de mur d'une cloison de gypse standard dès l'évaluation, pour proposer la bonne préparation plutôt qu'un traitement générique."
+                  : "A large share of Montreal's buildings, especially in the central boroughs (Plateau, Rosemont, Villeray, Sud-Ouest), predate 1950. These plexes often have plaster-on-wood-lath walls rather than modern drywall: old plaster cracks and detaches differently, and requires finer preparation (probing, suitable patching, sometimes plaster mesh) before painting. Our teams tell this type of wall apart from a standard drywall partition at the assessment stage, to propose the right preparation rather than a generic treatment."
               }
               whyUsIntroText={
                 isFr
@@ -499,6 +486,8 @@ export default function MontrealCityPage() {
                   {contexts.map((ctx) => (
                     <Box
                       key={ctx.number}
+                      as={contextLinks[ctx.number] ? RouterLink : undefined}
+                      to={contextLinks[ctx.number]}
                       w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
                       bg="white"
                       p={{ base: 5, md: 6 }}
@@ -519,6 +508,12 @@ export default function MontrealCityPage() {
                         <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.6">
                           {ctx.description}
                         </Text>
+                        {contextLinks[ctx.number] && (
+                          <HStack spacing={1} color="brand.500" fontWeight="semibold" fontSize="sm">
+                            <Text>{isFr ? 'En savoir plus' : 'Learn more'}</Text>
+                            <ArrowForwardIcon />
+                          </HStack>
+                        )}
                       </Stack>
                     </Box>
                   ))}
@@ -561,15 +556,24 @@ export default function MontrealCityPage() {
                   <Box
                     key={card.to}
                     bg="white"
-                    p={{ base: 5, md: 6 }}
                     borderRadius="xl"
+                    overflow="hidden"
                     border="1px solid"
                     borderColor="gray.200"
                     boxShadow="sm"
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
                   >
-                    <Stack spacing={4}>
+                    <Image
+                      src={serviceCardImages[card.to]}
+                      alt={card.title}
+                      w="100%"
+                      aspectRatio="16/10"
+                      objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <Stack spacing={4} p={{ base: 5, md: 6 }}>
                       <Text fontWeight="bold" color="gray.800" fontSize={{ base: 'md', md: 'lg' }}>
                         {card.title}
                       </Text>
@@ -638,40 +642,39 @@ export default function MontrealCityPage() {
                 </Text>
               </Stack>
 
-              <Wrap spacing={{ base: 3, md: 4 }} justify="center" maxW="900px" mx="auto">
-                {montrealQuartierHighlights.map(({ label, to }) => (
-                  <WrapItem key={label}>
-                    <Link as={RouterLink} to={to} _hover={{ textDecoration: 'none' }}>
-                      <Box
-                        bg="white"
-                        border="1px solid"
-                        borderColor="gray.200"
-                        borderRadius="xl"
-                        px={{ base: 4, md: 5 }}
-                        py={{ base: 4, md: 5 }}
-                        minW={{ base: '140px', md: '160px' }}
-                        textAlign="center"
-                        boxShadow="sm"
-                        minH={{ base: '60px', md: '70px' }}
-                        display="flex"
-                        alignItems="center"
-                        justifyContent="center"
-                        _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                        transition="all 0.2s"
-                      >
-                        <Text
-                          fontWeight="bold"
-                          color="gray.800"
-                          fontSize={{ base: 'xs', sm: 'sm', md: 'md' }}
-                          textAlign="center"
-                        >
-                          {label}
-                        </Text>
-                      </Box>
-                    </Link>
-                  </WrapItem>
+              <SimpleGrid columns={{ base: 2, md: 4 }} spacing={{ base: 3, md: 4 }} w="100%" maxW="1100px" mx="auto">
+                {montrealQuartierHighlights.map(({ label, to, image }) => (
+                  <Box
+                    key={label}
+                    as={RouterLink}
+                    to={to}
+                    bg="white"
+                    border="1px solid"
+                    borderColor="gray.200"
+                    borderRadius="xl"
+                    overflow="hidden"
+                    boxShadow="sm"
+                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
+                    transition="all 0.2s"
+                  >
+                    <Image
+                      src={image}
+                      alt={isFr ? `Peintre ${label}, Montréal` : `Painter ${label}, Montreal`}
+                      w="100%"
+                      aspectRatio="4/3"
+                      objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <HStack justify="center" spacing={2} px={3} py={{ base: 3, md: 4 }}>
+                      <Text fontWeight="bold" color="gray.800" fontSize={{ base: 'sm', md: 'md' }} textAlign="center">
+                        {label}
+                      </Text>
+                      <ArrowForwardIcon color="brand.500" boxSize={3} />
+                    </HStack>
+                  </Box>
                 ))}
-              </Wrap>
+              </SimpleGrid>
 
               <Text
                 fontSize={{ base: 'sm', md: 'md' }}
@@ -763,9 +766,18 @@ export default function MontrealCityPage() {
         </Box>
 
         {/* SECTION 9 - CTA final */}
-        <CityCTASection cityName="Montréal" />
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={isFr ? 'Obtenez votre soumission pour un projet de peinture à Montréal' : 'Get your quote for a painting project in Montreal'}
+          subtitle={
+            isFr
+              ? 'Vous avez un projet de peinture résidentielle, commerciale ou industrielle à Montréal ? Nos peintres se déplacent rapidement dans votre secteur.'
+              : 'Do you have a residential, commercial or industrial painting project in Montreal? Our painters quickly travel to your area.'
+          }
+        />
 
       </Box>
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

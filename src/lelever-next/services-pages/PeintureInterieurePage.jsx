@@ -39,16 +39,38 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
 
 import avantApresCondo1 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres professionnels à Montréal, Le Lever du Pinceau a installé la protection et peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg';
 import avantApresCondo2 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg';
-import avantApresArmoires1 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg';
-import avantApresArmoires2 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg';
+import armoiresMileEndAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint les portes d_armoires de cette cuisine dans le quartier du Mile-end, Montréal.jpg';
+import armoiresMileEndApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg';
+import armoiresBlanchesAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_ensemble des armoires de cuisines de cette maison pour une transformation incroyable à Montréal.jpg';
+import armoiresBlanchesApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg';
 import avantApresWestmount1 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé et ont faites les réparations de plâtre sur les plafonds et les murs de cette maison à Westmount, Montréal.jpg';
 import avantApresWestmount2 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint  l_ensemble de cette maison victorienne à Westmount, Montréal.jpg';
+import salonPlateauAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg';
+import salonPlateauApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
+import couloirPlateauAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a travaillé au plâtre et à peinturé les murs du couloir de cette appartement au Plateau, Montréal.jpg';
+import couloirPlateauApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/peintre-plateau-montreal-appartement.jpg';
+import chambrePapierPeintAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint avant.jpg';
+import chambrePapierPeintApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint après.jpg';
+import chambreVerteAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
+import chambreVerteApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
+import chambreFleurieAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri avant.jpg';
+import chambreFleurieApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri après.jpg';
+import hallEntreeAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
+import hallEntreeApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
+import cadrageFenetreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
+import cadrageFenetreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
+import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
+import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
+import poutreAcierAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
+import poutreAcierApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const CHECKMARKS = [
   {
@@ -241,14 +263,64 @@ export default function PeintureInterieurePage() {
       description: 'Peinture intérieure salon - Condo Griffintown, Montréal',
     },
     {
-      before: avantApresArmoires1,
-      after: avantApresArmoires2,
-      description: 'Transformation armoires de cuisine - avant / après Montréal',
+      before: armoiresMileEndAvant,
+      after: armoiresMileEndApres,
+      description: 'Peinture d\'armoires de cuisine - Mile-End, Montréal',
     },
     {
       before: avantApresWestmount1,
       after: avantApresWestmount2,
       description: 'Peinture intérieure murs et plafonds - Westmount, Montréal',
+    },
+    {
+      before: armoiresBlanchesAvant,
+      after: armoiresBlanchesApres,
+      description: 'Armoires de cuisine en bois peintes en blanc - Montréal',
+    },
+    {
+      before: salonPlateauAvant,
+      after: salonPlateauApres,
+      description: 'Peinture intérieure salon et salle à manger - Plateau, Montréal',
+    },
+    {
+      before: couloirPlateauAvant,
+      after: couloirPlateauApres,
+      description: 'Réparation de plâtre et peinture du couloir - Plateau, Montréal',
+    },
+    {
+      before: chambrePapierPeintAvant,
+      after: chambrePapierPeintApres,
+      description: 'Chambre - retrait du papier peint et peinture des murs, Montréal',
+    },
+    {
+      before: chambreVerteAvant,
+      after: chambreVerteApres,
+      description: 'Chambre - murs verts repeints en blanc, Montréal',
+    },
+    {
+      before: chambreFleurieAvant,
+      after: chambreFleurieApres,
+      description: 'Chambre - papier peint fleuri remplacé par une peinture neuve, Montréal',
+    },
+    {
+      before: hallEntreeAvant,
+      after: hallEntreeApres,
+      description: 'Hall d\'entrée - murs, plafond et portes, Montréal',
+    },
+    {
+      before: cadrageFenetreAvant,
+      after: cadrageFenetreApres,
+      description: 'Cadrage de fenêtre - réparation de plâtre et peinture, Montréal',
+    },
+    {
+      before: moulureAvant,
+      after: moulureApres,
+      description: 'Moulure - retouches et peinture de finition, Montréal',
+    },
+    {
+      before: poutreAcierAvant,
+      after: poutreAcierApres,
+      description: 'Poutre d\'acier rouillée - préparation et peinture, Montréal',
     },
   ];
 
@@ -268,8 +340,7 @@ export default function PeintureInterieurePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -346,7 +417,17 @@ export default function PeintureInterieurePage() {
                   lineHeight="1.05"
                   minW={0}
                 >
-                  Peinture intérieure à Montréal pour murs, plafonds, boiseries et armoires
+                  Peinture intérieure à Montréal
+                  <Box
+                    as="span"
+                    display="block"
+                    mt={{ base: 2, md: 3 }}
+                    fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl' }}
+                    fontWeight="500"
+                    lineHeight="1.2"
+                  >
+                    Murs, plafonds, baies vitrées, armoires
+                  </Box>
                 </Heading>
 
                 <Text
@@ -378,9 +459,7 @@ export default function PeintureInterieurePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -554,51 +633,10 @@ export default function PeintureInterieurePage() {
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Garantie satisfaction 100%
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                Chaque projet est réalisé avec les bons produits, les bonnes techniques et le niveau de soin que vous méritez. Si le résultat ne vous convient pas, nous revenons corriger sans frais supplémentaires.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          body="Chaque projet est réalisé avec les bons produits, les bonnes techniques et le niveau de soin que vous méritez. Si le résultat ne vous convient pas, nous revenons corriger sans frais supplémentaires."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -722,41 +760,12 @@ export default function PeintureInterieurePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à transformer votre intérieur&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Prêt à transformer votre intérieur\u00A0?'}
+          subtitle={'Soumission gratuite en moins de 24h'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

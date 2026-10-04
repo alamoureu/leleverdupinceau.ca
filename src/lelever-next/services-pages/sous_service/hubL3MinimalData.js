@@ -49,8 +49,8 @@ const aboutBlock = {
     en: 'Professional painters for your project',
   },
   aboutDescription: {
-    fr: 'Équipes RBQ, chantiers propres et soumission rapide dans le Grand Montréal et Gatineau.',
-    en: 'RBQ-licensed teams, clean job sites and fast quotes in Greater Montreal and Gatineau.',
+    fr: 'Équipes RBQ, chantiers propres et soumission rapide dans le Grand Montréal.',
+    en: 'RBQ-licensed teams, clean job sites and fast quotes in Greater Montreal.',
   },
   aboutButtonText: {
     fr: 'Pourquoi un peintre professionnel',

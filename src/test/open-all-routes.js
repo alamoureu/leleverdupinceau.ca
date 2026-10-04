@@ -29,8 +29,6 @@ const allRoutes = {
     '/secteurs/montreal',
     '/secteurs/laval',
     '/secteurs/longueuil',
-    '/secteurs/gatineau',
-    '/secteurs/rive-sud',
   ],
   'Main Service Routes': [
     '/services/peinture-commerciale',

@@ -39,16 +39,24 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 
-import avantApresTerrasse1 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
-import avantApresTerrasse2 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
+import avantApresTerrasseApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
+import avantApresTerrasseAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
 import avantApresEscalier1 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest à Montréal.jpg';
 import avantApresEscalier2 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest àMontréal.jpg';
 import avantApresCorniche1 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg';
 import avantApresCorniche2 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg';
+import avantApresEscalierBalconAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg';
+import avantApresEscalierBalconApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg';
+import avantApresPorteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import avantApresPorteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import avantApresRevetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg';
+import avantApresRevetementApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.jpg';
+import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const CHECKMARKS = [
   {
@@ -229,8 +237,8 @@ export default function PeintureExterieurePage() {
 
   const carouselImages = [
     {
-      before: avantApresTerrasse1,
-      after: avantApresTerrasse2,
+      before: avantApresTerrasseAvant,
+      after: avantApresTerrasseApres,
       description: 'Teinture terrasse bois - Rive-Sud de Montréal',
     },
     {
@@ -242,6 +250,21 @@ export default function PeintureExterieurePage() {
       before: avantApresCorniche1,
       after: avantApresCorniche2,
       description: 'Peinture corniche - Ville Mont-Royal, Montréal',
+    },
+    {
+      before: avantApresEscalierBalconAvant,
+      after: avantApresEscalierBalconApres,
+      description: 'Peinture escalier de balcon - marches et rampes',
+    },
+    {
+      before: avantApresPorteAvant,
+      after: avantApresPorteApres,
+      description: "Peinture porte d'entrée - décapage et fini lustré",
+    },
+    {
+      before: avantApresRevetementAvant,
+      after: avantApresRevetementApres,
+      description: 'Peinture revêtement extérieur - maison complète',
     },
   ];
 
@@ -261,8 +284,7 @@ export default function PeintureExterieurePage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -339,7 +361,17 @@ export default function PeintureExterieurePage() {
                   lineHeight="1.05"
                   minW={0}
                 >
-                  Peinture extérieure à Montréal - Revêtement, balcon, clôture
+                  Peinture extérieure à Montréal
+                  <Box
+                    as="span"
+                    display="block"
+                    mt={{ base: 2, md: 3 }}
+                    fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl' }}
+                    fontWeight="500"
+                    lineHeight="1.2"
+                  >
+                    Revêtement, balcon, clôture, corniche
+                  </Box>
                 </Heading>
 
                 <Text
@@ -371,9 +403,7 @@ export default function PeintureExterieurePage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -508,58 +538,17 @@ export default function PeintureExterieurePage() {
         <BeforeAfterCarouselSection
           isFr={true}
           title="Résultats de nos projets de peinture extérieure"
-          subtitle="Terrasses, escaliers, corniches et surfaces extérieures - avant et après nos interventions."
+          subtitle="Terrasses, escaliers, corniches, portes et revêtements - avant et après nos interventions."
           images={carouselImages}
           sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
           sectionPaddingBottom={{ base: 6, md: 8 }}
         />
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="orange.50">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Flex
-                w="64px"
-                h="64px"
-                borderRadius="full"
-                bg="brand.500"
-                align="center"
-                justify="center"
-              >
-                <Icon as={FaShieldAlt} color="white" boxSize={7} />
-              </Flex>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-              >
-                Garantie satisfaction 100%
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.700"
-                lineHeight="1.8"
-                maxW="720px"
-              >
-                Un projet extérieur bien réalisé, c&apos;est une protection durable pour votre propriété. Nous travaillons avec les bons produits, aux bonnes conditions, et nous assumons le résultat.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="brand.500"
-                color="white"
-                _hover={{ bg: 'brand.600' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="600"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <ServiceGuaranteeSection
+          body="Un projet extérieur bien réalisé, c'est une protection durable pour votre propriété. Nous travaillons avec les bons produits, aux bonnes conditions, et nous assumons le résultat."
+          onCtaClick={onOpen}
+        />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -683,41 +672,12 @@ export default function PeintureExterieurePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à redonner de l&apos;éclat à votre extérieur&#xA0;?
-              </Heading>
-              <Text
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="whiteAlpha.900"
-                lineHeight="1.7"
-              >
-                Soumission gratuite en moins de 24h
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={'Prêt à redonner de l\'éclat à votre extérieur\u00A0?'}
+          subtitle={'Soumission gratuite en moins de 24h'}
+          buttonText={'Obtenir ma soumission gratuite'}
+        />
 
       </Box>
 

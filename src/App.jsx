@@ -27,7 +27,6 @@ function lazyRoute(importFn, displayName) {
 }
 
 const LandingPageV2 = lazyRoute(() => import('./pages/LandingPageV2'), 'LandingPageV2');
-const LandingPageGatineau = lazyRoute(() => import('./pages/LandingPageGatineau'), 'LandingPageGatineau');
 const NewHomePage = lazyRoute(() => import('./lelever-next/pages/NewHomePage'), 'NewHomePage');
 const ContactPage = lazyRoute(() => import('./lelever-next/pages/ContactPage'), 'ContactPage');
 const AvisPage = lazyRoute(() => import('./lelever-next/pages/AvisPage'), 'AvisPage');
@@ -37,8 +36,6 @@ const SecteursDesservisPage = lazyRoute(() => import('./lelever-next/pages/Secte
 const MontrealCityPage = lazyRoute(() => import('./lelever-next/pages/MontrealCityPage'), 'MontrealCityPage');
 const LavalCityPage = lazyRoute(() => import('./lelever-next/pages/LavalCityPage'), 'LavalCityPage');
 const LongueuilCityPage = lazyRoute(() => import('./lelever-next/pages/LongueuilCityPage'), 'LongueuilCityPage');
-const GatineauCityPage = lazyRoute(() => import('./lelever-next/pages/GatineauCityPage'), 'GatineauCityPage');
-const RiveSudCityPage = lazyRoute(() => import('./lelever-next/pages/RiveSudCityPage'), 'RiveSudCityPage');
 const BrossardCityPage = lazyRoute(() => import('./lelever-next/pages/BrossardCityPage'), 'BrossardCityPage');
 const StLambertCityPage = lazyRoute(() => import('./lelever-next/pages/StLambertCityPage'), 'StLambertCityPage');
 const LaprairieCityPage = lazyRoute(() => import('./lelever-next/pages/LaprairieCityPage'), 'LaprairieCityPage');
@@ -175,8 +172,6 @@ export default function App() {
             <Route path="brossard" element={<Suspense fallback={<PageSkeleton />}><BrossardCityPage /></Suspense>} />
             <Route path="st-lambert" element={<Suspense fallback={<PageSkeleton />}><StLambertCityPage /></Suspense>} />
             <Route path="laprairie" element={<Suspense fallback={<PageSkeleton />}><LaprairieCityPage /></Suspense>} />
-            <Route path="gatineau" element={<Suspense fallback={<PageSkeleton />}><GatineauCityPage /></Suspense>} />
-            <Route path="rive-sud" element={<Suspense fallback={<PageSkeleton />}><RiveSudCityPage /></Suspense>} />
           </Route>
           <Route path="/services" element={<NewWebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><ServicesPage /></Suspense>} />
@@ -300,10 +295,6 @@ export default function App() {
               path="peintre-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
             />
-            <Route
-              path="peintre-gatineau"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="fr" indexable={false} /></Suspense>}
-            />
           </Route>
           <Route path="/en" element={<NewWebsiteLayout />}>
             <Route
@@ -313,10 +304,6 @@ export default function App() {
             <Route
               path="painter-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
-            />
-            <Route
-              path="painter-gatineau"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageGatineau lang="en" indexable={false} /></Suspense>}
             />
           </Route>
 

@@ -3,22 +3,10 @@ import { Box, Stack, Text } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import SubmissionForm from './SubmissionForm';
 
-const DEFAULT_FIELDS = {
-  name: true,
-  phone: true,
-  email: true,
-  address: false,
-  paintingType: false,
-  projectDetails: 'optional',
-};
-
 const DEFAULT_SECTION_PT = { base: 4, sm: 6, md: 8, lg: 10 };
 const DEFAULT_SECTION_PB = { base: 8, sm: 10, md: 12, lg: 14 };
 
 export default function ContactFormSection({
-  fields = DEFAULT_FIELDS,
-  phoneFirst = false,
-  projectDetailsLabel,
   onSubmissionStateChange,
   sectionPy,
   sectionPaddingTop,
@@ -97,12 +85,7 @@ export default function ContactFormSection({
         pt={isBlue ? { base: 2, md: 4 } : 0}
         pb={isBlue ? { base: 2, md: 4 } : 0}
       >
-        <SubmissionForm
-          onSubmissionStateChange={handleStateChange}
-          fields={fields}
-          phoneFirst={phoneFirst}
-          projectDetailsLabel={projectDetailsLabel ?? t.formProjectDetails}
-        />
+        <SubmissionForm onSubmissionStateChange={handleStateChange} />
       </Box>
     </Stack>
   );

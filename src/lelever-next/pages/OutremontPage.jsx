@@ -37,6 +37,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 
 import heroImg from '../images/neighborhood_placeholder.jpg';
@@ -171,6 +172,10 @@ const INTERNAL_LINKS = [
 
 const FAQS = [
   {
+    question: 'Ma maison a des moulures et des corniches décoratives, travaillez-vous au pistolet ou au pinceau\u00A0?',
+    answer: 'Sur les détails ouvragés comme les corniches et moulures, courants dans les grandes résidences d\'Outremont, nous privilégions le pinceau et le rouleau pour bien remplir les creux et préserver le relief, même si c\'est plus long que l\'application au pistolet.',
+  },
+  {
     question: 'Est-ce que vous intervenez dans les maisons et condos à Outremont\u00A0?',
     answer: 'Oui. Nous intervenons autant dans les maisons que dans les condos à Outremont. Chaque propriété a ses particularités, que ce soit l\'accès, la protection des lieux, la présence d\'occupants ou le niveau de finition attendu. Notre approche s\'adapte au type de bâtiment pour assurer un chantier propre, bien encadré et simple à vivre du début à la fin.',
   },
@@ -286,8 +291,7 @@ export default function OutremontPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -429,9 +433,7 @@ export default function OutremontPage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS OUTREMONT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -448,6 +450,9 @@ export default function OutremontPage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
                   Dans un quartier où l&apos;on remarque les détails, la qualité du chantier compte autant que le résultat final.
+                </Text>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
+                  {"Outremont partage avec Westmount sa position à flanc du mont Royal, mais son caractère architectural est différent : de grandes résidences du début du 20e siècle en stuc ou en brique, avec des corniches et des moulures ouvragées plutôt que la pierre grise typique de Westmount. Ces détails décoratifs demandent un travail au pinceau minutieux dans les creux et les reliefs, là où le pistolet uniformise trop et efface le détail. C'est une des raisons pour lesquelles on garde une bonne partie de ce type de travail en finition manuelle."}
                 </Text>
               </Stack>
 
@@ -740,36 +745,12 @@ export default function OutremontPage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Un projet de peinture à Outremont&#xA0;?
-              </Heading>
-              <Text fontSize={{ base: 'md', md: 'lg' }} color="whiteAlpha.900" lineHeight="1.7">
-                Obtenez votre soumission gratuite en moins de 24h.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={'Un projet de peinture à Outremont\u00A0?'}
+          subtitle="Obtenez votre soumission gratuite en moins de 24h."
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

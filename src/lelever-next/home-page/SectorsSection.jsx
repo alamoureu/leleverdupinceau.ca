@@ -20,10 +20,10 @@ import montrealSecteur from '../images/mtl.webp';
 import lavalSecteur from '../images/laval.webp';
 import longueuilSecteur from '../images/longueuil.webp';
 import brossardSecteur from '../images/brossard.webp';
-import riveSudSecteur from '../images/brossard_secteur.webp';
-import gatineauSecteur from '../images/pillar-pages/IMG_2585.webp';
+import stLambertSecteur from '../images/st-lambert.webp';
+import laprairieSecteur from '../images/laprairie.webp';
 // Export images for reuse
-export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur, gatineauSecteur };
+export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
 
 /** Cadrage des tuiles secteurs (object-fit cover + scale, comme Montréal). */
 function sectorTileImageProps(sectorName) {
@@ -31,20 +31,6 @@ function sectorTileImageProps(sectorName) {
     return {
       top: '-20px',
       transform: 'scale(1.25)',
-      transformOrigin: 'center center',
-    };
-  }
-  if (sectorName === 'Rive-Sud') {
-    return {
-      top: 0,
-      transform: 'scale(1.34)',
-      transformOrigin: 'center center',
-    };
-  }
-  if (sectorName === 'Gatineau') {
-    return {
-      top: 0,
-      transform: 'scale(1.12)',
       transformOrigin: 'center center',
     };
   }
@@ -73,24 +59,14 @@ const defaultSectors = [
     image: brossardSecteur,
   },
   {
-    name: 'St-Lambert',
+    name: 'Saint-Lambert',
     link: '/secteurs/st-lambert',
-    image: riveSudSecteur,
+    image: stLambertSecteur,
   },
   {
-    name: 'Laprairie',
+    name: 'La Prairie',
     link: '/secteurs/laprairie',
-    image: riveSudSecteur,
-  },
-  {
-    name: 'Rive-Sud',
-    link: '/secteurs/rive-sud',
-    image: riveSudSecteur,
-  },
-  {
-    name: 'Gatineau',
-    link: '/secteurs/gatineau',
-    image: gatineauSecteur,
+    image: laprairieSecteur,
   },
 ];
 
@@ -133,7 +109,7 @@ export default function SectorsSection({
           </Stack>
 
           <SimpleGrid
-            columns={{ base: 2, sm: 2, md: 3 }}
+            columns={{ base: 2, md: 3 }}
             spacing={5}
             w="100%"
             maxW={{ base: '600px', md: '900px' }}

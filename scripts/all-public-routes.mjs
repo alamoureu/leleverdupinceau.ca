@@ -32,8 +32,6 @@ export const CONTENT_ROUTES = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
 export const SPA_ONLY_ROUTES = [
   '/politique-de-confidentialite',
   '/mentions-legales',
-  '/secteurs/gatineau',
-  '/secteurs/rive-sud',
   '/services/peinture-residentielle/interieure',
   '/services/peinture-residentielle/exterieure',
   '/services/peinture-commerciale/interieure',
@@ -46,10 +44,8 @@ export const SPA_ONLY_ROUTES = [
   '/blog/peinture-armoires-cuisine-guide',
   '/blog/betonel-vs-benjamin-moore',
   '/fr/peintre-montreal',
-  '/fr/peintre-gatineau',
   '/en/peintre-montreal',
   '/en/painter-montreal',
-  '/en/painter-gatineau',
 ];
 
 /** Redirects explicites (App.jsx <Navigate>). */

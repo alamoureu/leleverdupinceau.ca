@@ -4,13 +4,12 @@ import {
   Container,
   Heading,
   Text,
-  Button,
   Stack,
   Image,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.webp';
-import TrustBanner from './TrustBanner';
+import CtaButton from './CtaButton';
 
 export default function HeroSection({
   onSubmissionOpen,
@@ -28,7 +27,6 @@ export default function HeroSection({
   /** Overlay on background image (CSS background value). Default: dark translucent. */
   overlayBg = 'rgba(0, 0, 0, 0.4)',
   children,
-  showHeroTrustBanner = true,
 }) {
   const { t } = useTranslation();
   const heroTitle = title ?? t.heroTitle;
@@ -42,7 +40,6 @@ export default function HeroSection({
   const heroContentPr = contentPr ?? undefined;
 
   return (
-    <>
     <Box
       position="relative"
       w="100%"
@@ -50,18 +47,10 @@ export default function HeroSection({
       minH={{
         base: '320px',
         sm: '350px',
-        md: '440px',
-        lg: '480px',
-        xl: '680px',
-        '2xl': '750px',
-      }}
-      h={{
-        base: 'auto',
-        sm: 'auto',
-        md: '52vh',
-        lg: '55vh',
-        xl: '85vh',
-        '2xl': '85vh',
+        md: 'max(440px, 52vh)',
+        lg: 'max(480px, 55vh)',
+        xl: 'max(680px, 85vh)',
+        '2xl': 'max(750px, 85vh)',
       }}
       pb={{
         base: 10,
@@ -114,12 +103,10 @@ export default function HeroSection({
           h="100%"
           minW={0}
           pt={{
-            base: '62px',
-            sm: '62px',
-            md: '120px',
-            lg: '120px',
-            xl: '140px',
-            '2xl': '160px',
+            base: '48px',
+            md: '100px',
+            xl: '116px',
+            '2xl': '136px',
           }}
         >
           <Stack
@@ -179,17 +166,19 @@ export default function HeroSection({
               )}
             </Heading>
 
-            <Text
-              textStyle="bodyLarge"
-              fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
-              color="white"
-              fontWeight="thin"
-              minW={0}
-              overflowWrap="break-word"
-              wordBreak="break-word"
-            >
-              {heroSubtitle}
-            </Text>
+            {heroSubtitle && (
+              <Text
+                textStyle="bodyLarge"
+                fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                color="white"
+                fontWeight="thin"
+                minW={0}
+                overflowWrap="break-word"
+                wordBreak="break-word"
+              >
+                {heroSubtitle}
+              </Text>
+            )}
 
             {heroDescription && (
               <Text
@@ -203,48 +192,11 @@ export default function HeroSection({
             )}
 
             <Box pt={{ base: 2, sm: 3, md: 4 }}>
-              <Button
-                onClick={onSubmissionOpen}
-                bg="brand.500"
-                color="white"
-                textStyle="nav"
-                px={{ base: 8, sm: 10, md: 12, lg: 14, xl: 16 }}
-                py={{ base: 3, sm: 4, md: 5, lg: 6 }}
-                minH={{
-                  base: '48px',
-                  sm: '52px',
-                  md: '56px',
-                  lg: '64px',
-                  xl: '72px',
-                  '2xl': '76px',
-                }}
-                h="auto"
-                w="100%"
-                maxW={{ base: '280px', sm: '320px', md: '360px', lg: '380px' }}
-                borderRadius="full"
-                boxShadow="lg"
-                _hover={{ bg: 'brand.600' }}
-                whiteSpace="normal"
-                lineHeight="1.15"
-              >
-                {heroButton}
-              </Button>
+              <CtaButton onClick={onSubmissionOpen}>{heroButton}</CtaButton>
             </Box>
           </Stack>
         </Stack>
       </Container>
     </Box>
-    {showHeroTrustBanner && (
-      <Box
-        bg="gray.50"
-        borderTop="1px solid"
-        borderTopColor="gray.200"
-        borderBottom="1px solid"
-        borderBottomColor="gray.200"
-      >
-        <TrustBanner />
-      </Box>
-    )}
-    </>
   );
 }

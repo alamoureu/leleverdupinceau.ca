@@ -33,7 +33,9 @@ import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.jpg'
 import montrealSecteur from '../images/mtl.webp';
 import lavalSecteur from '../images/laval.webp';
 import longueuilSecteur from '../images/longueuil.webp';
-import riveSudSecteur from '../images/brossard.webp';
+import brossardSecteur from '../images/brossard.webp';
+import stLambertSecteur from '../images/st-lambert.webp';
+import laprairieSecteur from '../images/laprairie.webp';
 
 export default function SecteursDesservisPage() {
   const { currentLang } = useContext(appContext);
@@ -72,8 +74,8 @@ export default function SecteursDesservisPage() {
       { '@type': 'City', name: 'Laval' },
       { '@type': 'City', name: 'Longueuil' },
       { '@type': 'City', name: 'Brossard' },
-      { '@type': 'City', name: 'St-Lambert' },
-      { '@type': 'City', name: 'Laprairie' },
+      { '@type': 'City', name: 'Saint-Lambert' },
+      { '@type': 'City', name: 'La Prairie' },
     ],
   };
 
@@ -119,28 +121,28 @@ export default function SecteursDesservisPage() {
         ? 'Maisons, condos et commerces dans tous les secteurs de Brossard.'
         : 'Homes, condos and businesses across all Brossard sectors.',
       link: '/secteurs/brossard',
-      image: riveSudSecteur,
+      image: brossardSecteur,
       imgScale: 1,
       imgTop: '0',
     },
     {
-      name: 'St-Lambert',
+      name: 'Saint-Lambert',
       description: isFr
         ? 'Peinture soignée pour maisons de caractère et propriétés familiales.'
         : 'Careful painting for character homes and family properties.',
       link: '/secteurs/st-lambert',
-      image: riveSudSecteur,
-      imgScale: 1.34,
+      image: stLambertSecteur,
+      imgScale: 1,
       imgTop: '0',
     },
     {
-      name: 'Laprairie',
+      name: 'La Prairie',
       description: isFr
         ? 'Peinture résidentielle et commerciale à La Prairie et environs.'
         : 'Residential and commercial painting in La Prairie and nearby.',
       link: '/secteurs/laprairie',
-      image: riveSudSecteur,
-      imgScale: 1.34,
+      image: laprairieSecteur,
+      imgScale: 1,
       imgTop: '0',
     },
   ];
@@ -316,13 +318,13 @@ export default function SecteursDesservisPage() {
       <SEOHead
         title={
           isFr
-            ? 'Secteurs desservis | Peintre Grand Montréal et Gatineau | Le Lever du Pinceau'
-            : 'Service areas | Painter Greater Montreal and Gatineau | Le Lever du Pinceau'
+            ? 'Secteurs desservis | Peintre Grand Montréal et Rive-Sud | Le Lever du Pinceau'
+            : 'Service areas | Painter Greater Montreal and South Shore | Le Lever du Pinceau'
         }
         description={
           isFr
-            ? 'Le Lever du Pinceau dessert Montréal, Gatineau, Laval, Longueuil et la Rive-Sud. Peintres professionnels licenciés RBQ pour vos projets résidentiels et commerciaux. Soumission gratuite en 24h.'
-            : 'Le Lever du Pinceau serves Montreal, Gatineau, Laval, Longueuil and the South Shore. Licensed RBQ professional painters for your residential and commercial projects. Free quote within 24h.'
+            ? 'Le Lever du Pinceau dessert Montréal, Laval, Longueuil, Brossard, Saint-Lambert et La Prairie. Peintres professionnels licenciés RBQ pour vos projets résidentiels et commerciaux. Soumission gratuite en 24h.'
+            : 'Le Lever du Pinceau serves Montreal, Laval, Longueuil, Brossard, Saint-Lambert and La Prairie. Licensed RBQ professional painters for your residential and commercial projects. Free quote within 24h.'
         }
         canonicalPath="/secteurs"
         schemaArray={[breadcrumbSchema, areaServedSchema]}
@@ -337,30 +339,21 @@ export default function SecteursDesservisPage() {
           overlayBg="rgba(2, 42, 104, 0.55)"
           title={
             isFr
-              ? 'Services de peinture dans le Grand Montréal et à Gatineau'
-              : 'Painting services in Greater Montreal and Gatineau'
+              ? 'Services de peinture dans le Grand Montréal et sur la Rive-Sud'
+              : 'Painting services in Greater Montreal and on the South Shore'
           }
           subtitle={
             isFr
-              ? 'Nos équipes interviennent rapidement à Montréal, Gatineau, Laval, Longueuil et sur la Rive-Sud.'
-              : 'Our teams respond quickly in Montreal, Gatineau, Laval, Longueuil and on the South Shore.'
+              ? 'Nos équipes interviennent rapidement à Montréal, Laval, Longueuil et sur la Rive-Sud.'
+              : 'Our teams respond quickly in Montreal, Laval, Longueuil and on the South Shore.'
           }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-          showHeroTrustBanner={false}
         >
           {heroBreadcrumb}
         </HeroSection>
 
         {/* SECTION 2 - Barre de confiance */}
-        <Box
-          bg="gray.50"
-          borderTop="1px solid"
-          borderTopColor="gray.200"
-          borderBottom="1px solid"
-          borderBottomColor="gray.200"
-        >
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* SECTION 3 - Nos villes desservies (5 cartes) */}
         <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
@@ -372,7 +365,7 @@ export default function SecteursDesservisPage() {
                 </Heading>
               </Stack>
 
-              {/* Rangée 1 : Montréal, Gatineau, Rive-Sud */}
+              {/* Rangée 1 : Montréal, Laval, Longueuil */}
               <SimpleGrid
                 columns={{ base: 1, md: 3 }}
                 spacing={{ base: 5, md: 6 }}
@@ -382,7 +375,7 @@ export default function SecteursDesservisPage() {
                 ))}
               </SimpleGrid>
 
-              {/* Rangée 2 : Laval, Longueuil (centrée) */}
+              {/* Rangée 2 : Brossard, Saint-Lambert, La Prairie */}
               <Flex
                 justify="center"
                 gap={{ base: 5, md: 6 }}
@@ -546,8 +539,8 @@ export default function SecteursDesservisPage() {
               </Heading>
               <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7" maxW="600px">
                 {isFr
-                  ? 'Nous couvrons l\'ensemble du Grand Montréal et la région de Gatineau. Décrivez votre projet et nous confirmerons notre disponibilité dans votre quartier.'
-                  : 'We cover all of Greater Montreal and the Gatineau region. Describe your project and we will confirm our availability in your neighborhood.'}
+                  ? 'Nous couvrons l\'ensemble du Grand Montréal et la Rive-Sud. Décrivez votre projet et nous confirmerons notre disponibilité dans votre quartier.'
+                  : 'We cover all of Greater Montreal and the South Shore. Describe your project and we will confirm our availability in your neighborhood.'}
               </Text>
               <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
                 <Button

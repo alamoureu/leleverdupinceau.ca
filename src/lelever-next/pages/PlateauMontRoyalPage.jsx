@@ -39,6 +39,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
 
 import heroImg from '../images/neighborhood_placeholder.jpg';
 
@@ -149,6 +150,10 @@ const CREDIBILITE = [
 ];
 
 const FAQS = [
+  {
+    question: 'Mes murs ont des fissures qui reviennent d\'une année à l\'autre, est-ce grave\u00A0?',
+    answer: 'Dans le Plateau, ces fissures sont souvent liées au mouvement normal des sols argileux avec le gel et le dégel. Ce n\'est généralement pas dangereux pour la structure, mais ça demande un rebouchage adapté (toile à fissures) plutôt qu\'un simple mastic, pour limiter leur retour d\'une saison à l\'autre.',
+  },
   {
     question: 'Est-ce que vous intervenez dans les condos, plex et appartements du Plateau\u00A0?',
     answer: 'Oui. Nous intervenons régulièrement dans les condos, plex et appartements du Plateau-Mont-Royal. Ce type de propriété demande souvent une bonne planification, un chantier propre et une attention particulière à l\'accès, aux voisins et à la protection des lieux. Notre approche s\'adapte au bâtiment pour que le projet se déroule de façon fluide, propre et bien encadrée.',
@@ -280,8 +285,7 @@ export default function PlateauMontRoyalPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '320px', sm: '350px', md: '440px', lg: '480px', xl: '580px' }}
-          h={{ base: 'auto', sm: 'auto', md: '52vh', lg: '55vh', xl: '75vh' }}
+          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
           pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
           bgColor="gray.700"
           overflow="visible"
@@ -423,9 +427,7 @@ export default function PlateauMontRoyalPage() {
             </Stack>
           </Container>
         </Box>
-        <Box bg="gray.50" borderTop="1px solid" borderTopColor="gray.200" borderBottom="1px solid" borderBottomColor="gray.200">
-          <TrustBanner />
-        </Box>
+        <TrustBanner />
 
         {/* ===== SECTION 3 - CHECKMARKS PLATEAU ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
@@ -442,6 +444,9 @@ export default function PlateauMontRoyalPage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
                   Dans le Plateau Mont-Royal, la qualité perçue du service dépend autant du résultat final que de la façon dont le chantier s&apos;intègre à un espace habité, compact et souvent très visible.
+                </Text>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
+                  {"Le Plateau est connu pour ses sols argileux, qui bougent avec le cycle de gel et de dégel chaque hiver. Ce mouvement, répété année après année, finit par causer des craquelures et des fissures dans les fondations et les murs. Ce n'est pas dangereux pour la maison de garder ces fissures visibles, mais faire appel à une équipe comme Le Lever du Pinceau pour reboucher et repeindre vos murs abîmés reste une excellente idée pour retrouver une finition nette."}
                 </Text>
               </Stack>
 
@@ -773,36 +778,12 @@ export default function PlateauMontRoyalPage() {
         </Box>
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="app.ctaBg">
-          <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
-            <Stack spacing={6} align="center">
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="white"
-              >
-                Prêt à confier votre projet à une équipe habituée aux réalités du Plateau&#xA0;?
-              </Heading>
-              <Text fontSize={{ base: 'md', md: 'lg' }} color="whiteAlpha.900" lineHeight="1.7">
-                Obtenez votre soumission gratuite en moins de 24h.
-              </Text>
-              <Button
-                size={{ base: 'md', md: 'lg' }}
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: 'gray.100' }}
-                rightIcon={<ArrowForwardIcon />}
-                onClick={onOpen}
-                borderRadius="full"
-                px={{ base: 6, md: 8 }}
-                fontWeight="700"
-              >
-                Obtenir ma soumission gratuite
-              </Button>
-            </Stack>
-          </Container>
-        </Box>
+        <FinalCTASection
+          title={'Prêt à confier votre projet à une équipe habituée aux réalités du Plateau\u00A0?'}
+          subtitle="Obtenez votre soumission gratuite en moins de 24h."
+          buttonText="Obtenir ma soumission gratuite"
+          onSubmissionOpen={onOpen}
+        />
 
       </Box>
 

@@ -6,7 +6,7 @@ const CITY_TO_SECTEUR = {
   montreal: '/secteurs/montreal',
   laval: '/secteurs/laval',
   longueuil: '/secteurs/longueuil',
-  brossard: '/secteurs/rive-sud',
+  brossard: '/secteurs/brossard',
 };
 
 export default function LegacyTripleSegmentRedirect() {

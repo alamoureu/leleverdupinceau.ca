@@ -17,13 +17,14 @@ import ServiceQuartierSecteurRoomsSection from './components/ServiceQuartierSect
 import ServiceQuartierSecteurProcessSection from './components/ServiceQuartierSecteurProcessSection';
 import ServiceQuartierGuidesSection from '../service_ville/components/ServiceQuartierGuidesSection';
 import ServiceQuartierAboutSection from '../service_ville/components/ServiceQuartierAboutSection';
-import ServiceCTASection from '../components/ServiceCTASection';
+import FinalCTASection from '../../home-page/FinalCTASection';
 import { getServiceQuartierSecteurData } from './index';
 
 export default function ServiceQuartierSecteurPage() {
   const params = useParams();
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+  const localizeCta = (value) => (typeof value === 'string' ? value : value?.[isFr ? 'fr' : 'en']);
 
   // Support both param naming conventions:
   // - Direct: citySlug, neighborhoodSlug
@@ -398,31 +399,11 @@ export default function ServiceQuartierSecteurPage() {
           />
         )}
 
-        {/* Section 7 - CTA */}
-        {neighborhood.cta && (
-          <ServiceCTASection
-            title={
-              typeof neighborhood.cta.title === 'string'
-                ? neighborhood.cta.title
-                : neighborhood.cta.title?.[isFr ? 'fr' : 'en'] ||
-                neighborhood.cta.title
-            }
-            description={
-              neighborhood.cta.description
-                ? typeof neighborhood.cta.description === 'string'
-                  ? neighborhood.cta.description
-                  : neighborhood.cta.description[isFr ? 'fr' : 'en']
-                : null
-            }
-            buttonText={
-              neighborhood.cta.buttonText
-                ? typeof neighborhood.cta.buttonText === 'string'
-                  ? neighborhood.cta.buttonText
-                  : neighborhood.cta.buttonText[isFr ? 'fr' : 'en']
-                : null
-            }
-          />
-        )}
+        <FinalCTASection
+          title={localizeCta(neighborhood.cta?.title)}
+          subtitle={localizeCta(neighborhood.cta?.description)}
+          buttonText={localizeCta(neighborhood.cta?.buttonText)}
+        />
       </Box>
     </Fragment>
   );

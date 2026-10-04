@@ -13,7 +13,6 @@ import {
 } from '@chakra-ui/react';
 import SubmissionForm from './SubmissionForm';
 import { useTranslation } from '../i18n';
-import appContext from '../../AppProvider';
 
 const SUBMISSION_FORM_ID = 'submission-form-modal';
 const BRAND_BLUE = '#2355CA';
@@ -21,7 +20,6 @@ const BRAND_BLUE_HOVER = '#1E4BB5';
 
 export default function SubmissionModal({ isOpen, onClose }) {
   const { t } = useTranslation();
-  const { currentLang } = React.useContext(appContext);
   const [isSuccess, setIsSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -85,16 +83,6 @@ export default function SubmissionModal({ isOpen, onClose }) {
             formId={SUBMISSION_FORM_ID}
             onSubmissionStateChange={setIsSuccess}
             onSubmittingChange={setIsSubmitting}
-            fields={{
-              name: true,
-              phone: true,
-              email: true,
-              address: false,
-              paintingType: false,
-              projectDetails: 'optional',
-            }}
-            phoneFirst
-            projectDetailsLabel={currentLang === 'fr' ? 'Description du projet' : 'Project description'}
           />
         </ModalBody>
         {!isSuccess && (

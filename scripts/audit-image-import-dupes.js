@@ -46,7 +46,7 @@ function main() {
   );
   lines.push('');
   lines.push(
-    "**Limites de cet audit :** imports `import ... from '...'` statiques seulement (pas les URLs d'images construites en JavaScript dans le JSX, pas les URLs externes). Les iframes (ex. carte Gatineau) ne sont pas des fichiers image locaux.",
+    "**Limites de cet audit :** imports `import ... from '...'` statiques seulement (pas les URLs d'images construites en JavaScript dans le JSX, pas les URLs externes). Les iframes (ex. cartes Google Maps) ne sont pas des fichiers image locaux.",
   );
   lines.push('');
   lines.push(`**Généré par :** \`node scripts/audit-image-import-dupes.js\` le **${new Date().toISOString().slice(0, 10)}**.`);
