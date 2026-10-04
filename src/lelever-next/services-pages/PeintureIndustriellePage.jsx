@@ -281,7 +281,7 @@ export default function PeintureIndustriellePage() {
               pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
             >
               <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap">
+                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
                   <Link
                     as={RouterLink}
                     to="/"
@@ -305,33 +305,24 @@ export default function PeintureIndustriellePage() {
                   </Text>
                 </HStack>
 
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' }}
-                  fontWeight="700"
-                  color="white"
-                  lineHeight="1.05"
-                  minW={0}
-                >
-                  Peinture industrielle à Montréal
-                  <Box
-                    as="span"
-                    display="block"
+                <Box as="hgroup" minW={0}>
+                  <Heading as="h1" size="hero" color="white" minW={0}>
+                    Peinture industrielle à Montréal
+                  </Heading>
+                  <Heading
+                    as="h2"
                     mt={{ base: 2, md: 3 }}
-                    fontSize={{ base: 'lg', sm: 'xl', md: '2xl', lg: '3xl' }}
-                    fontWeight="500"
-                    lineHeight="1.2"
+                    size="heroSubtitle"
+                    color="white"
                   >
                     Entrepôt, usine, stationnement
-                  </Box>
-                </Heading>
+                  </Heading>
+                </Box>
 
                 <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
-                  color="white"
-                  fontWeight="300"
+                  variant="heroDescription"
+                  color="whiteAlpha.900"
                   maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                  lineHeight="1.5"
                 >
                   Revêtements spécialisés, application au pistolet et produits conçus pour les exigences industrielles.
                 </Text>

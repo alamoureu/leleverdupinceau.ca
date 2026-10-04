@@ -19,7 +19,7 @@ import CtaButton from './CtaButton';
 import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { sendWebsiteLeadToErp } from '../../utils/erpWebsiteWebhook';
 import { trackFormCompletion } from '../../config/analytics';
-import { colors, fontFamily } from '../../theme';
+import { theme as appTheme } from '../../theme';
 
 const activeLabelStyles = {
   transform: 'scale(0.8) translateY(-27px)',
@@ -46,12 +46,6 @@ const inputFocusStyle = {
 };
 
 const theme = extendTheme({
-  colors,
-  fonts: {
-    heading: fontFamily,
-    body: fontFamily,
-    mono: `"SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace`,
-  },
   components: {
     Form: {
       variants: {
@@ -80,7 +74,7 @@ const theme = extendTheme({
       },
     },
   },
-});
+}, appTheme);
 
 export default function SubmissionForm({
   onSubmit,

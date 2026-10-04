@@ -25,6 +25,7 @@ import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import PageIntro from '../components/PageIntro';
 import ReviewsSection from '../home-page/ReviewsSection';
 import GoogleReviewBadge from '../home-page/GoogleReviewBadge';
+import TrustBanner from '../home-page/TrustBanner';
 import BeforeAfterCarouselSection, { buildDefaultImages } from '../home-page/BeforeAfterCarouselSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import avisPhotoHeader from '../images/Moses&Dany_Wraping.jpeg';
@@ -174,7 +175,6 @@ export default function AvisPage() {
           <Grid
             templateColumns={{ base: '1fr', md: '6fr 4fr' }}
             gap={{ base: 6, md: 8, lg: 10 }}
-            mb={{ base: 12, md: 16 }}
             alignItems={{ md: 'flex-start' }}
           >
             <Stack spacing={0} minW={0}>
@@ -252,6 +252,9 @@ export default function AvisPage() {
               />
             </Box>
           </Grid>
+        </Container>
+        <TrustBanner />
+        <Container maxW="1440px" px={{ base: 4, md: 6 }}>
           <Stack spacing={0}>
             <PageIntro>
               {isFr

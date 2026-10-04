@@ -704,24 +704,15 @@ export default function RealisationsPage() {
               pb={{ base: 10, sm: 12, md: '5vh' }}
             >
               <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
-                <Heading
-                  as="h1"
-                  fontWeight="700"
-                  fontSize={{ base: 'xl', sm: '2xl', md: '3xl', lg: '4xl', xl: '5xl', '2xl': '6xl' }}
-                  color="white"
-                  lineHeight="1.1"
-                  minW={0}
-                >
+                <Heading as="h1" size="hero" color="white" minW={0}>
                   {isFr
                     ? 'Nos réalisations en peinture à Montréal, Laval, Longueuil et sur la Rive-Sud'
                     : 'Our painting projects in Montreal, Laval, Longueuil and the South Shore'}
                 </Heading>
                 <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                  variant="heroSubtitle"
                   color="white"
-                  fontWeight="thin"
                   minW={0}
-                  lineHeight="1.5"
                 >
                   {isFr
                     ? 'Des projets réels, des transformations visibles et un aperçu concret de notre niveau de finition.'

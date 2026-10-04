@@ -406,8 +406,6 @@ export default function OutremontPage() {
           </Container>
         </Box>
 
-        <ContactFormSection sectionBg="gray.50" />
-
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS À OUTREMONT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -502,6 +500,8 @@ export default function OutremontPage() {
             </Stack>
           </Container>
         </Box>
+
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
 
         {/* ===== SECTION 5 - SERVICES LES PLUS PERTINENTS POUR OUTREMONT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">

@@ -40,7 +40,6 @@ import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
 import PageIntro from '../components/PageIntro';
 import ContactFormSection from '../home-page/ContactFormSection';
-import ReviewsSection from '../home-page/ReviewsSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import { RBQ_LICENSE } from '../constants/company';
@@ -624,8 +623,6 @@ export default function VilleMariePage() {
             </Stack>
           </Container>
         </Box>
-
-        <ReviewsSection />
 
         {/* ===== SECTION 7 - FAQ ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">

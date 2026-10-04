@@ -39,7 +39,6 @@ import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
 import PageIntro from '../components/PageIntro';
-import ReviewsSection from '../home-page/ReviewsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -353,8 +352,6 @@ export default function PlateauMontRoyalPage() {
         <PageIntro>
           Espaces occupés, cages d&apos;escalier, accès serrés, stationnement limité, échéanciers avant emménagement ou remise en location : nous réalisons des projets propres, bien coordonnés et impeccables dans le Plateau.
         </PageIntro>
-
-        <ReviewsSection sectionBg="white" />
 
         <BeforeAfterCarouselSection
           isFr

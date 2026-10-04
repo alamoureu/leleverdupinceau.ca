@@ -46,6 +46,16 @@ const space = {
 const fontFamily =
   "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
+/** Libère la zone du badge avis Google accroché sous la nav (coin supérieur droit du héros). */
+const clearReviewBadge = { pr: { base: '92px', sm: '116px', md: '104px', lg: '92px' } };
+
+/** Héros photo : 3 niveaux (titre h1, sous-titre style h2, description). */
+const heroSubtitle = {
+  fontSize: { base: 'lg', md: 'xl', lg: '2xl', xl: '3xl' },
+  fontWeight: '600',
+  lineHeight: '1.25',
+};
+
 const theme = extendTheme({
   breakpoints,
   colors,
@@ -119,6 +129,13 @@ const theme = extendTheme({
           fontSize: { base: 'md', md: 'lg', lg: 'xl' },
           lineHeight: '1.4',
         },
+        hero: {
+          fontSize: { base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' },
+          fontWeight: '700',
+          lineHeight: '1.05',
+          ...clearReviewBadge,
+        },
+        heroSubtitle,
       },
     },
     Text: {
@@ -138,6 +155,12 @@ const theme = extendTheme({
         caption: {
           fontSize: { base: 'sm', md: 'md' },
           lineHeight: '1.5',
+        },
+        heroSubtitle,
+        heroDescription: {
+          fontSize: { base: 'sm', md: 'md' },
+          fontWeight: '400',
+          lineHeight: '1.6',
         },
       },
     },
@@ -285,6 +308,7 @@ const theme = extendTheme({
       },
     },
   },
+  layerStyles: { clearReviewBadge },
   textStyles: {
     h1: { fontSize: { base: '2xl', md: '3xl', lg: '4xl', xl: '5xl' }, lineHeight: '1.2', fontWeight: 'bold' },
     h2: { fontSize: { base: 'xl', md: '2xl', lg: '3xl' }, lineHeight: '1.3', fontWeight: 'bold' },

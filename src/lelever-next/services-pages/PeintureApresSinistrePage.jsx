@@ -317,7 +317,7 @@ export default function PeintureApresSinistrePage() {
               pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
             >
               <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap">
+                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
                   <Link
                     as={RouterLink}
                     to="/"
@@ -341,23 +341,14 @@ export default function PeintureApresSinistrePage() {
                   </Text>
                 </HStack>
 
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' }}
-                  fontWeight="700"
-                  color="white"
-                  lineHeight="1.05"
-                  minW={0}
-                >
+                <Heading as="h1" size="hero" color="white" minW={0}>
                   Peinture après-sinistre à Montréal - Dégât d&apos;eau, fumée et remise en état
                 </Heading>
 
                 <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                  variant="heroSubtitle"
                   color="white"
-                  fontWeight="300"
                   maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                  lineHeight="1.5"
                 >
                   Un service structuré pour remettre vos surfaces en état après un dommage, une infiltration ou une reprise de travaux.
                 </Text>

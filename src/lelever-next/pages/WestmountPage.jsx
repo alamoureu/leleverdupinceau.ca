@@ -52,16 +52,16 @@ import salleEauAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG
 import salleEauApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0808.jpg';
 import salleMangerAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0826.jpg';
 import salleMangerApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0827.jpg';
-import porteAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0828.jpg';
-import porteApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0829.jpg';
-import chambreAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0846.jpg';
-import chambreApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0847.jpg';
-import hallAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0855.jpg';
-import hallApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0856.jpg';
-import plintheAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0861.jpg';
-import plintheApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0862.jpg';
-import salonAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_5984.jpg';
-import salonApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_5982.jpg';
+import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import chambreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
+import chambreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
+import hallAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
+import hallApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
+import plintheAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
+import plintheApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
+import salonAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double avant.jpg';
+import salonApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
 
 const BEFORE_AFTER = [
   { before: salleEauAvant, after: salleEauApres, description: 'Salle d\'eau - murs repeints, moulures rafraîchies' },
@@ -368,7 +368,7 @@ export default function WestmountPage() {
               pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
             >
               <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap">
+                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
                   <Link
                     as={RouterLink}
                     to="/"
@@ -401,23 +401,14 @@ export default function WestmountPage() {
                   </Text>
                 </HStack>
 
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' }}
-                  fontWeight="700"
-                  color="white"
-                  lineHeight="1.05"
-                  minW={0}
-                >
+                <Heading as="h1" size="hero" color="white" minW={0}>
                   Peintre à Westmount
                 </Heading>
 
                 <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                  variant="heroSubtitle"
                   color="white"
-                  fontWeight="300"
                   maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                  lineHeight="1.5"
                 >
                   Une équipe de peintres de métier pour vos projets résidentiels et commerciaux légers à Westmount.
                 </Text>

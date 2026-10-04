@@ -158,18 +158,8 @@ export default function LandingHeroSection({
               {children}
               <Heading
                 as="h1"
-                size="page"
-                fontWeight="800"
-                fontSize={{
-                  base: '2xl',
-                  sm: '3xl',
-                  md: '4xl',
-                  lg: '5xl',
-                  xl: '6xl',
-                  '2xl': '7xl',
-                }}
+                size="hero"
                 color="white"
-                lineHeight={{ base: '1.08', md: '1.1', lg: '1.12' }}
                 minW={0}
                 textAlign="left"
                 textShadow="0 2px 24px rgba(0,0,0,0.35)"
@@ -207,13 +197,10 @@ export default function LandingHeroSection({
               </Heading>
 
               <Text
-                textStyle="bodyLarge"
-                fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                variant="heroSubtitle"
                 color="white"
-                fontWeight="thin"
                 minW={0}
                 overflowWrap="break-word"
-                wordBreak="break-word"
                 textAlign="left"
                 textShadow="0 1px 12px rgba(0,0,0,0.35)"
               >

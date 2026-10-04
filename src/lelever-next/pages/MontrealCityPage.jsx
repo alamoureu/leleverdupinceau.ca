@@ -171,7 +171,7 @@ export default function MontrealCityPage() {
   const contextLinks = {
     '01': '/services/peinture-residentielle/condo',
     '02': '/services/peinture-residentielle/appartement',
-    '03': '/services/peinture-residentielle',
+    '03': '/services/peinture-residentielle/maison',
     '05': '/services/peinture-commerciale',
   };
 

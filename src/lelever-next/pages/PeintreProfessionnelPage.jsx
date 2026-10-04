@@ -394,6 +394,7 @@ export default function PeintreProfessionnelPage() {
                   spacing={2}
                   fontSize={{ base: 'sm', md: 'md' }}
                   flexWrap="wrap"
+                  layerStyle="clearReviewBadge"
                 >
                   <Link
                     as={RouterLink}
@@ -409,30 +410,15 @@ export default function PeintreProfessionnelPage() {
                   </Text>
                 </HStack>
 
-                  <Heading
-                    as="h1"
-                    fontSize={{
-                      base: '2xl',
-                    sm: '3xl',
-                    md: '4xl',
-                    lg: '5xl',
-                    xl: '6xl',
-                  }}
-                  fontWeight="700"
-                  color="white"
-                  lineHeight="1.05"
-                  minW={0}
-                >
+                  <Heading as="h1" size="hero" color="white" minW={0}>
                   Pourquoi faire appel à un peintre professionnel à Montréal&#xA0;?
                   </Heading>
 
                   <Text
-                  fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                  variant="heroSubtitle"
                   color="white"
-                  fontWeight="300"
                   minW={0}
                   overflowWrap="break-word"
-                  wordBreak="break-word"
                 >
                   Les avantages concrets d'engager un vrai professionnel pour vos travaux de peinture.
                   </Text>

@@ -19,10 +19,6 @@ export default function HeroSection({
   subtitle,
   description,
   buttonText,
-  titleFontWeight,
-  titleFontSize,
-  contentMaxW,
-  contentPr,
   imageBackground,
   /** Overlay on background image (CSS background value). Default: dark translucent. */
   overlayBg = 'rgba(0, 0, 0, 0.4)',
@@ -34,10 +30,6 @@ export default function HeroSection({
   const heroSubtitle = subtitle ?? t.heroSubtitle;
   const heroDescription = description ?? null;
   const heroButton = buttonText ?? t.heroButton;
-  const heroTitleFontWeight = titleFontWeight ?? '700';
-  const heroTitleFontSize = titleFontSize ?? undefined;
-  const heroContentMaxW = contentMaxW ?? undefined;
-  const heroContentPr = contentPr ?? undefined;
 
   return (
     <Box
@@ -109,29 +101,12 @@ export default function HeroSection({
             '2xl': '136px',
           }}
         >
-          <Stack
-            spacing={{ base: 3, sm: 4, md: 5, lg: 6 }}
-            minW={0}
-            maxW={heroContentMaxW}
-            pr={heroContentPr}
-          >
-            {children}
+          <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
+            {children && <Box layerStyle="clearReviewBadge">{children}</Box>}
             <Heading
               as="h1"
-              size="page"
-              fontWeight={heroTitleFontWeight}
-              fontSize={
-                heroTitleFontSize ?? {
-                  base: '2xl',
-                  sm: '3xl',
-                  md: '4xl',
-                  lg: '5xl',
-                  xl: '6xl',
-                  '2xl': '7xl',
-                }
-              }
+              size="hero"
               color="white"
-              lineHeight="1.05"
               minW={0}
             >
               {typeof heroTitle === 'string'
@@ -168,13 +143,10 @@ export default function HeroSection({
 
             {heroSubtitle && (
               <Text
-                textStyle="bodyLarge"
-                fontSize={{ base: 'sm', md: 'lg', lg: 'xl', xl: '2xl' }}
+                variant="heroSubtitle"
                 color="white"
-                fontWeight="thin"
                 minW={0}
                 overflowWrap="break-word"
-                wordBreak="break-word"
               >
                 {heroSubtitle}
               </Text>
@@ -182,10 +154,9 @@ export default function HeroSection({
 
             {heroDescription && (
               <Text
-                color="white"
-                fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                lineHeight="1.6"
-                maxW={{ base: '560px', md: '640px', lg: '720px' }}
+                variant="heroDescription"
+                color="whiteAlpha.900"
+                maxW={{ base: '560px', md: '640px' }}
               >
                 {heroDescription}
               </Text>

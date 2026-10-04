@@ -333,6 +333,7 @@ export default function LongueuilCityPage() {
                 color="gray.600"
                 mb={{ base: 4, md: 6 }}
                 flexWrap="wrap"
+                layerStyle="clearReviewBadge"
               >
                 <Link
                   as={RouterLink}
