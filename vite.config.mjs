@@ -45,8 +45,9 @@ function imageAuditPreviewSupport() {
     name: 'image-audit-preview-support',
     configureServer(server) {
       server.middlewares.use((req, res, next) => {
-        const raw = req.url?.split('?')[0] ?? '';
-        if (!raw.startsWith('/src/lelever-next/images/')) {
+        const [raw = '', query] = req.url?.split('?') ?? [];
+        // Les imports JS (?import, ?url, etc.) doivent passer par la transformation de Vite.
+        if (query !== undefined || !raw.startsWith('/src/lelever-next/images/')) {
           next();
           return;
         }

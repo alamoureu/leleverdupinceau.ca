@@ -169,7 +169,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             >
               <Image
                 loading="eager"
-                fetchPriority="low"
+                fetchpriority="low"
                 decoding="async"
                 src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
                 alt="Logo Le Lever du Pinceau"

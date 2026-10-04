@@ -87,7 +87,7 @@ export default function HeroSection({
           objectFit="cover"
           zIndex={0}
           loading="eager"
-          fetchPriority="high"
+          fetchpriority="high"
           decoding="async"
           htmlWidth={1920}
           htmlHeight={1266}

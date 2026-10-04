@@ -151,7 +151,7 @@ export default function TrustBanner({ showSatisfactionGuarantee = false }) {
                     display="block"
                     loading="eager"
                     decoding="async"
-                    fetchPriority="low"
+                    fetchpriority="low"
                   />
                 </Box>
               )}
