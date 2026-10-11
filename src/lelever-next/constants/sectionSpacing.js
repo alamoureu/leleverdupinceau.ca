@@ -22,14 +22,15 @@ export const PAGE_SECTION_PY = { base: 16, md: 20, lg: 24 };
  * Hero photo partagé (HeroSection + landings internes).
  * md+ : remplit le viewport sous la nav fixe (~7rem) pour que la TrustBanner
  * reste aérée sous le CTA - surtout iPad landscape où un floor px seul est trop bas.
+ * svh (pas dvh) : hauteur stable au scroll, sinon le fond object-fit:cover zoom.
  */
 export const PAGE_HERO_MIN_H = {
-  base: 'max(360px, 50dvh)',
-  sm: 'max(380px, 48dvh)',
-  md: 'max(560px, calc(100dvh - 11rem))',
-  lg: 'max(600px, calc(100dvh - 11rem))',
-  xl: 'max(680px, calc(100dvh - 10.5rem))',
-  '2xl': 'max(740px, calc(100dvh - 10.5rem))',
+  base: 'max(360px, 50svh)',
+  sm: 'max(380px, 48svh)',
+  md: 'max(560px, calc(100svh - 11rem))',
+  lg: 'max(600px, calc(100svh - 11rem))',
+  xl: 'max(680px, calc(100svh - 10.5rem))',
+  '2xl': 'max(740px, calc(100svh - 10.5rem))',
 };
 
 /** Padding-top du contenu dans le hero photo (sous le header / badge avis). */
