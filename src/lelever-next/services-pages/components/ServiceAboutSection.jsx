@@ -29,11 +29,7 @@ export default function ServiceAboutSection({
     : 'Learn more';
 
   return (
-    <Box
-      py={{ base: 12, md: 16, lg: 20 }}
-      bg='gray.50'
-      borderRadius='xl'
-    >
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' w='100%'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={6} textAlign='left'>
           <Heading
@@ -56,7 +52,8 @@ export default function ServiceAboutSection({
           <Link
             href={buttonLink || '/peintre-professionnel'}
             _hover={{ textDecoration: 'none' }}
-            w={{ base: '100%', md: 'auto' }}
+            w="auto"
+            display="inline-block"
           >
             <Button
               variant='ctaOutline'

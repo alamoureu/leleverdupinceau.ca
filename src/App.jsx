@@ -46,6 +46,7 @@ const PeintureResidentiellePage = lazyRoute(() => import('./lelever-next/service
 const PeintureInterieurePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureInterieurePage'), 'PeintureInterieurePage');
 const PeintureIndustriellePage = lazyRoute(() => import('./lelever-next/services-pages/PeintureIndustriellePage'), 'PeintureIndustriellePage');
 const PeintureCondoPage = lazyRoute(() => import('./lelever-next/pages/PeintureCondoPage'), 'PeintureCondoPage');
+const PeintureMaisonPage = lazyRoute(() => import('./lelever-next/pages/PeintureMaisonPage'), 'PeintureMaisonPage');
 const PeintureAppartementPage = lazyRoute(() => import('./lelever-next/pages/PeintureAppartementPage'), 'PeintureAppartementPage');
 const PeintureArmoiresCuisinePage = lazyRoute(() => import('./lelever-next/pages/PeintureArmoiresCuisinePage'), 'PeintureArmoiresCuisinePage');
 const SousServicePage = lazyRoute(() => import('./lelever-next/services-pages/sous_service/SousServicePage'), 'SousServicePage');
@@ -244,6 +245,10 @@ export default function App() {
             <Route
               path="peinture-residentielle/condo"
               element={<Suspense fallback={<PageSkeleton />}><PeintureCondoPage /></Suspense>}
+            />
+            <Route
+              path="peinture-residentielle/maison"
+              element={<Suspense fallback={<PageSkeleton />}><PeintureMaisonPage /></Suspense>}
             />
             <Route
               path="peinture-residentielle/appartement"

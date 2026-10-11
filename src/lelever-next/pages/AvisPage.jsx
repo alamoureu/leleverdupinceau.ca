@@ -1,31 +1,29 @@
 import React, { Fragment, useContext } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
   Heading,
   Text,
   Stack,
-  SimpleGrid,
   Link,
-  Button,
-  Icon,
   HStack,
   Flex,
-  Grid,
   Image,
+  Icon,
+  SimpleGrid,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import { GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from '../constants/googleReviews';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from '../constants/googleReviews';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import SubmissionModal from '../home-page/SubmissionModal';
 import ReviewsSection from '../home-page/ReviewsSection';
-import GoogleReviewBadge from '../home-page/GoogleReviewBadge';
-import TrustBanner from '../home-page/TrustBanner';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import BeforeAfterCarouselSection, { buildDefaultImages } from '../home-page/BeforeAfterCarouselSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import avisPhotoHeader from '../images/Moses&Dany_Wraping.jpeg';
@@ -67,6 +65,7 @@ const AVIS_PAIRS = [
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const isFr = currentLang === 'fr';
 
   const whyRecommend = [
@@ -77,8 +76,8 @@ export default function AvisPage() {
       ? 'Protection minutieuse des surfaces'
       : 'Meticulous surface protection',
     isFr
-      ? 'Politesse & communication claire'
-      : 'Politeness & clear communication',
+      ? 'Politesse et communication claire'
+      : 'Politeness and clear communication',
     isFr
       ? 'Produits de qualité professionnelle'
       : 'Professional quality products',
@@ -160,264 +159,179 @@ export default function AvisPage() {
   return (
     <Fragment>
       <SEOHead
-        title={isFr ? 'Avis clients peinture Montréal | Témoignages – Le Lever du Pinceau' : 'Painting reviews Montreal | Client testimonials – Le Lever du Pinceau'}
-        description={isFr ? 'Avis et témoignages de clients à Montréal, Laval, Longueuil. Peinture résidentielle et commerciale. Photos avant/après, évaluations 5 étoiles. Peintre recommandé Montréal.' : 'Reviews and testimonials in Montreal, Laval, Longueuil. Residential and commercial painting. Before/after photos, 5-star ratings. Recommended painter Montreal.'}
+        title={isFr ? 'Avis clients | Témoignages et notes Google | Le Lever du Pinceau' : 'Client reviews | Testimonials and Google ratings | Le Lever du Pinceau'}
+        description={isFr ? `Avis vérifiés et témoignages clients. Photos avant/après et ${GOOGLE_REVIEW_COUNT}+ évaluations 5 étoiles sur Google. Lisez ce que nos clients disent avant de nous contacter.` : `Verified reviews and client testimonials. Before/after photos and ${GOOGLE_REVIEW_COUNT}+ 5-star Google ratings. Read what clients say before you contact us.`}
         canonicalPath="/avis-clients"
         schemaArray={[breadcrumbSchema, reviewSchema]}
       />
 
       <Box w="100%" bg="white" overflowX="hidden">
-        <Container
-          maxW="1440px"
-          px={{ base: 4, md: 6 }}
-          pt={{ base: 12, md: 16, lg: 20 }}
-        >
-          <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
-            gap={{ base: 6, md: 8, lg: 10 }}
-            alignItems={{ md: 'flex-start' }}
-          >
-            <Stack spacing={0} minW={0}>
-              <HStack
-                spacing={3}
-                textStyle="bodyLarge"
-                color="gray.600"
-                mb={{ base: 3, md: 6 }}
-              >
-                <Link
-                  as={RouterLink}
-                  to="/"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                  textStyle="bodyLarge"
-                >
-                  {isFr ? 'Accueil' : 'Home'}
-                </Link>
-                <Text textStyle="bodyLarge">›</Text>
-                <Text color="gray.800" fontWeight="medium" textStyle="bodyLarge">
-                  {isFr ? 'Avis' : 'Reviews'}
-                </Text>
-              </HStack>
-              <Stack spacing={{ base: 4, md: 6 }} textAlign="left">
-                <Heading as="h1" size="page" color="gray.800">
-                  {isFr ? 'Avis de nos clients' : 'Client Reviews'}
-                </Heading>
-                <Text
-                  textStyle="bodyLarge"
-                  color="gray.600"
-                  lineHeight="1.7"
-                  maxW="800px"
-                  fontWeight="medium"
-                >
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext={isFr ? 'Avis clients' : 'Client reviews'}
+          title={isFr ? 'Avis de nos clients' : 'Client Reviews'}
+          subtitle={
+            isFr
+              ? 'Témoignages, photos avant/après et évaluations complètes.'
+              : 'Testimonials, before/after photos and complete evaluations.'
+          }
+          description={
+            isFr
+              ? 'Retours authentiques à Montréal, Laval, Longueuil et Rive-Sud.'
+              : 'Authentic feedback in Montreal, Laval, Longueuil and South Shore.'
+          }
+          buttonText={isFr ? 'Soumission gratuite' : 'Free quote'}
+          imageBackground={avisPhotoHeader}
+          imageAlt={isFr ? 'Avis clients - Le Lever du Pinceau' : 'Client reviews - Le Lever du Pinceau'}
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: isFr ? 'Avis' : 'Reviews' },
+          ]}
+          secondaryCta={{
+            label: isFr ? 'Laisser un avis Google' : 'Leave a Google review',
+            to: GOOGLE_REVIEWS_URL,
+          }}
+        />
+        <ReviewsSection hideButton sectionPaddingTop={TRUST_BANNER_BELOW_PT} />
+
+        <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50" w="100%">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={{ base: 4, md: 6 }}>
+              <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
+                <Heading as="h2" size="section" color="gray.800">
                   {isFr
-                    ? 'Découvrez leurs témoignages, leurs photos avant/après et leurs évaluations complètes.'
-                    : 'Discover their testimonials, before/after photos and complete evaluations.'}
+                    ? 'Qualité, précision et service irréprochable'
+                    : 'Quality, precision and impeccable service'}
+                </Heading>
+                <Text textStyle="bodyLarge" color="gray.600">
+                  {isFr
+                    ? 'Nos clients mentionnent le plus souvent'
+                    : 'Our clients most often mention'}
                 </Text>
-                <Box>
-                  <Link href={GOOGLE_REVIEWS_URL} rel="nofollow" target="_blank" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      variant="cta"
-                      rightIcon={<ArrowForwardIcon />}
-                      borderRadius="full"
-                      textStyle="nav"
-                      px={{ base: 5, md: 7 }}
-                      py={{ base: 3, md: 4 }}
-                    >
-                      {isFr ? 'Laisser un avis Google' : 'Leave a Google review'}
-                    </Button>
-                  </Link>
-                </Box>
               </Stack>
-            </Stack>
-            <Box
-              position="relative"
-              w="100%"
-              aspectRatio={{ base: '1', md: '4/3' }}
-              borderRadius="xl"
-              overflow="hidden"
-              bg="gray.100"
-            >
-              <GoogleReviewBadge top={{ base: 3, md: 4 }} right={{ base: 3, md: 4 }} />
-              <Image
-                src={avisPhotoHeader}
-                alt={isFr ? 'Avis clients – Le Lever du Pinceau' : 'Client reviews – Le Lever du Pinceau'}
-                w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="center"
-                loading="lazy"
-                decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-              />
-            </Box>
-          </Grid>
-        </Container>
-        <TrustBanner />
-        <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-          <Stack spacing={0}>
-            <PageIntro>
-              {isFr
-                ? 'Chez Le Lever du Pinceau, la satisfaction de nos clients est au cœur de tout ce que nous faisons. Résidentiel, commercial, intérieur ou extérieur - toutes nos interventions sont réalisées avec précision, propreté et un souci du détail irréprochable. Cette page rassemble les avis authentiques laissés par nos clients de Montréal, Laval, Longueuil, Brossard et tous les quartiers que nous desservons.'
-                : 'At Le Lever du Pinceau, customer satisfaction is at the heart of everything we do. Residential, commercial, interior or exterior - all our work is carried out with precision, cleanliness and impeccable attention to detail. This page brings together authentic reviews from our clients in Montreal, Laval, Longueuil, Brossard and all the neighborhoods we serve.'}
-            </PageIntro>
-            <ReviewsSection hideButton />
 
-            <Box
-              py={{ base: 12, md: 16, lg: 20 }}
-              bg="gray.50"
-              borderRadius="xl"
-            >
-              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-                <Stack spacing={{ base: 4, md: 6 }}>
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
-                    <Heading as="h2" size="section" color="gray.800">
-                      {isFr
-                        ? 'Qualité, précision et service irréprochable'
-                        : 'Quality, precision and impeccable service'}
-                    </Heading>
-                    <Text textStyle="bodyLarge" color="gray.600">
-                      {isFr
-                        ? 'Nos clients mentionnent le plus souvent'
-                        : 'Our clients most often mention'}
+              <SimpleGrid
+                columns={{ base: 1, md: 2, lg: 3 }}
+                spacing={{ base: 3, md: 6 }}
+                maxW="1000px"
+                mx="auto"
+              >
+                {whyRecommend.map((item, index) => (
+                  <Flex key={index} align="start" gap={3}>
+                    <Icon
+                      as={FontAwesomeIcon}
+                      icon={faCheckCircle}
+                      color="brand.500"
+                      boxSize={5}
+                      mt={1}
+                      flexShrink={0}
+                    />
+                    <Text color="gray.700" textStyle="body" lineHeight="1.6">
+                      {item}
                     </Text>
-                  </Stack>
-
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 3, md: 6 }}
-                    maxW="1000px"
-                    mx="auto"
-                  >
-                    {whyRecommend.map((item, index) => (
-                      <Flex key={index} align="start" gap={3}>
-                        <Icon
-                          as={FontAwesomeIcon}
-                          icon={faCheckCircle}
-                          color="brand.500"
-                          boxSize={5}
-                          mt={1}
-                          flexShrink={0}
-                        />
-                        <Text
-                          color="gray.700"
-                          textStyle="body"
-                          lineHeight="1.6"
-                        >
-                          {item}
-                        </Text>
-                      </Flex>
-                    ))}
-                  </SimpleGrid>
-                </Stack>
-              </Container>
-            </Box>
-
-            <BeforeAfterCarouselSection
-              isFr={isFr}
-              title={isFr ? 'Des transformations impressionnantes' : 'Impressive transformations'}
-              subtitle={
-                isFr
-                  ? 'Avant/après de projets réalisés pour nos clients : intérieur, extérieur, plâtre, teinture et rénovations résidentielles.'
-                  : 'Before/after of projects completed for our clients: interior, exterior, plaster, stain and residential renovations.'
-              }
-              images={beforeAfterPairs}
-              sectionPaddingTop={{ base: 12, md: 16, lg: 20 }}
-              sectionPaddingBottom={{ base: 12, md: 16, lg: 20 }}
-            />
-
-            <Box
-              py={{ base: 12, md: 16, lg: 20 }}
-              bg="gray.50"
-              borderRadius="xl"
-            >
-              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-                <Stack spacing={{ base: 4, md: 6 }}>
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
-                    <Heading as="h2" size="section" color="gray.800">
-                      {isFr
-                        ? 'Services les plus appréciés'
-                        : 'Most appreciated services'}
-                    </Heading>
-                  </Stack>
-
-                  <Flex
-                    maxW="1000px"
-                    mx="auto"
-                    wrap="wrap"
-                    justify="center"
-                    gap={{ base: 3, md: 6 }}
-                  >
-                    {services.map((service, index) => (
-                      <Link
-                        key={index}
-                        href={service.link}
-                        _hover={{ textDecoration: 'none' }}
-                        w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
-                        maxW={{ lg: '320px' }}
-                      >
-                        <Box
-                          h="100%"
-                          bg="white"
-                          borderRadius="xl"
-                          border="1px solid"
-                          borderColor="gray.200"
-                          overflow="hidden"
-                          textAlign="center"
-                          _hover={{
-                            borderColor: 'brand.500',
-                            transform: 'translateY(-2px)',
-                            boxShadow: 'md',
-                          }}
-                          transition="all 0.2s"
-                        >
-                          {service.image && (
-                            <Box
-                              w="100%"
-                              h={{ base: '140px', md: '160px' }}
-                              overflow="hidden"
-                              bg="gray.100"
-                            >
-                              <Image
-                                src={service.image}
-                                alt={service.title}
-                                w="100%"
-                                h="100%"
-                                objectFit="cover"
-                                objectPosition="center"
-                                loading="lazy"
-                                decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-                              />
-                            </Box>
-                          )}
-                          <Stack spacing={2} align="center" p={{ base: 3, md: 6 }}>
-                            <Text
-                              fontWeight="bold"
-                              color="gray.800"
-                              textStyle="bodyLarge"
-                            >
-                              {service.title}
-                            </Text>
-                            <HStack spacing={2} color="brand.500">
-                              <Text textStyle="body" fontWeight="medium">
-                                {isFr ? 'Voir' : 'View'}
-                              </Text>
-                              <ArrowForwardIcon boxSize={4} />
-                            </HStack>
-                          </Stack>
-                        </Box>
-                      </Link>
-                    ))}
                   </Flex>
-                </Stack>
-              </Container>
-            </Box>
-          </Stack>
-        </Container>
+                ))}
+              </SimpleGrid>
+            </Stack>
+          </Container>
+        </Box>
+
+        <BeforeAfterCarouselSection
+          isFr={isFr}
+          title={isFr ? 'Des transformations impressionnantes' : 'Impressive transformations'}
+          subtitle={
+            isFr
+              ? 'Avant/après de projets réalisés pour nos clients : intérieur, extérieur, plâtre, teinture et rénovations résidentielles.'
+              : 'Before/after of projects completed for our clients: interior, exterior, plaster, stain and residential renovations.'
+          }
+          images={beforeAfterPairs}
+          sectionPaddingTop={{ base: 12, md: 16, lg: 20 }}
+          sectionPaddingBottom={{ base: 12, md: 16, lg: 20 }}
+        />
+
+        <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50" w="100%">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={{ base: 4, md: 6 }}>
+              <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
+                <Heading as="h2" size="section" color="gray.800">
+                  {isFr
+                    ? 'Services les plus appréciés'
+                    : 'Most appreciated services'}
+                </Heading>
+              </Stack>
+
+              <Flex
+                maxW="1000px"
+                mx="auto"
+                wrap="wrap"
+                justify="center"
+                gap={{ base: 3, md: 6 }}
+              >
+                {services.map((service, index) => (
+                  <Link
+                    key={index}
+                    href={service.link}
+                    _hover={{ textDecoration: 'none' }}
+                    w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
+                    maxW={{ lg: '320px' }}
+                  >
+                    <Box
+                      h="100%"
+                      bg="white"
+                      borderRadius="xl"
+                      border="1px solid"
+                      borderColor="gray.200"
+                      overflow="hidden"
+                      textAlign="center"
+                      _hover={{
+                        borderColor: 'brand.500',
+                        transform: 'translateY(-2px)',
+                        boxShadow: 'md',
+                      }}
+                      transition="all 0.2s"
+                    >
+                      {service.image && (
+                        <Box
+                          w="100%"
+                          h={{ base: '140px', md: '160px' }}
+                          overflow="hidden"
+                          bg="gray.100"
+                        >
+                          <Image
+                            src={service.image}
+                            alt={service.title}
+                            w="100%"
+                            h="100%"
+                            objectFit="cover"
+                            objectPosition="center"
+                            loading="lazy"
+                            decoding="async"
+                            htmlWidth={1600}
+                            htmlHeight={1067}
+                          />
+                        </Box>
+                      )}
+                      <Stack spacing={2} align="center" p={{ base: 3, md: 6 }}>
+                        <Text fontWeight="bold" color="gray.800" textStyle="bodyLarge">
+                          {service.title}
+                        </Text>
+                        <HStack spacing={2} color="brand.500">
+                          <Text textStyle="body" fontWeight="medium">
+                            {isFr ? 'Voir' : 'View'}
+                          </Text>
+                          <ArrowForwardIcon boxSize={4} />
+                        </HStack>
+                      </Stack>
+                    </Box>
+                  </Link>
+                ))}
+              </Flex>
+            </Stack>
+          </Container>
+        </Box>
 
         <FinalCTASection
+          onSubmissionOpen={onOpen}
           title={isFr
             ? 'Une équipe de peintres professionnels recommandée partout dans le Grand Montréal'
             : 'A team of professional painters recommended throughout Greater Montreal'}
@@ -426,6 +340,7 @@ export default function AvisPage() {
             : 'Hundreds of clients have trusted us. Get your own transformation.'}
         />
       </Box>
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

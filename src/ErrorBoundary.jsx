@@ -29,7 +29,7 @@ export default class ErrorBoundary extends React.Component {
   }
 
   handleRetry = () => {
-    this.setState({ hasError: true, error: null });
+    this.setState({ hasError: false, error: null });
   };
 
   render() {
@@ -97,7 +97,7 @@ export default class ErrorBoundary extends React.Component {
                   textStyle="nav"
                   fontWeight="600"
                   h={{ base: '44px', sm: '48px' }}
-                  borderRadius="md"
+                  borderRadius="full"
                   onClick={() => window.location.assign('/')}
                 >
                   Retour à l&apos;accueil
@@ -111,7 +111,7 @@ export default class ErrorBoundary extends React.Component {
                   textStyle="nav"
                   fontWeight="600"
                   h={{ base: '44px', sm: '48px' }}
-                  borderRadius="md"
+                  borderRadius="full"
                   onClick={this.handleRetry}
                 >
                   Réessayer

@@ -1,8 +1,9 @@
 import React, { Fragment, useContext } from 'react';
 import { Helmet } from 'react-helmet';
-import { Box, Container, Heading, Text, Stack, Link } from '@chakra-ui/react';
+import { Box, Container, Heading, Text, Stack } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import BlogPostContent from './components/BlogPostContent';
+import HeroBreadcrumb from '../components/HeroBreadcrumb';
 import FinalCTASection from '../home-page/FinalCTASection';
 
 export default function BlogPostPage({ blogData }) {
@@ -98,51 +99,16 @@ export default function BlogPostPage({ blogData }) {
           pt={{ base: 12, md: 16, lg: 20 }}
         >
           <Stack spacing={0}>
-            <Box mb={{ base: 4, md: 6 }}>
-              <Box
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.600"
-                display="flex"
-                flexWrap="wrap"
-                alignItems="center"
-                gap={2}
-              >
-                {blogData.breadcrumb[isFr ? 'fr' : 'en'].map((item, index) => (
-                  <Fragment key={index}>
-                    {index > 0 && (
-                      <Text
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        whiteSpace="nowrap"
-                        mx={1}
-                      >
-                        ›
-                      </Text>
-                    )}
-                    {index <
-                    blogData.breadcrumb[isFr ? 'fr' : 'en'].length - 1 ? (
-                      <Link
-                        href={index === 0 ? '/' : index === 1 ? '/blog' : '#'}
-                        _hover={{ textDecoration: 'underline' }}
-                        color="gray.600"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        whiteSpace="nowrap"
-                      >
-                        {item}
-                      </Link>
-                    ) : (
-                      <Text
-                        color="gray.800"
-                        fontWeight="medium"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        whiteSpace="nowrap"
-                      >
-                        {item}
-                      </Text>
-                    )}
-                  </Fragment>
-                ))}
-              </Box>
-            </Box>
+            <HeroBreadcrumb
+              variant="page"
+              mb={{ base: 4, md: 6 }}
+              items={blogData.breadcrumb[isFr ? 'fr' : 'en'].map((item, index, arr) => ({
+                label: item,
+                ...(index < arr.length - 1
+                  ? { href: index === 0 ? '/' : index === 1 ? '/blog' : '#' }
+                  : {}),
+              }))}
+            />
 
             <Box mb={{ base: 8, md: 10 }} maxW={{ base: '100%', md: '880px', lg: '960px' }}>
               <Heading

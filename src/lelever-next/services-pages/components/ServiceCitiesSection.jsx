@@ -65,11 +65,8 @@ export default function ServiceCitiesSection({
             columns={{ base: 1, sm: 2, lg: 4 }}
             spacing={{ base: 4, md: 6, lg: 8 }}
             w='100%'
-            templateColumns={{
-              base: '1fr',
-              sm: 'repeat(2, 1fr)',
-              lg: 'repeat(4, 1fr)',
-            }}
+            pt={2}
+            pb={5}
           >
             {cities.map((city, index) => (
               <Link

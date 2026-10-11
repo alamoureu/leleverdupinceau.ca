@@ -17,8 +17,8 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import TrustBanner, { TRUST_BANNER_ABOVE_PB, TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import { PAGE_HERO_CONTENT_PT, PAGE_HERO_STACK_SPACING } from '../constants/sectionSpacing';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
@@ -837,13 +837,6 @@ export default function RealisationsPage() {
         ? `Plus de ${HAPPY_CLIENTS_COUNT}\u00A0clients satisfaits - lisez leurs témoignages.`
         : `More than ${HAPPY_CLIENTS_COUNT} satisfied clients - read their testimonials.`,
     },
-    {
-      label: isFr ? 'Obtenir une soumission gratuite' : 'Get a free quote',
-      to: '/contact',
-      description: isFr
-        ? 'Décrivez votre projet et recevez une réponse en moins de 24h.'
-        : 'Describe your project and receive a response in less than 24h.',
-    },
   ];
 
   return (
@@ -851,13 +844,13 @@ export default function RealisationsPage() {
       <SEOHead
         title={
           isFr
-            ? 'Réalisations peinture à Montréal et sur la Rive-Sud | Le Lever du Pinceau'
-            : 'Painting projects in Montreal and the South Shore | Le Lever du Pinceau'
+            ? 'Réalisations | Photos avant/après de nos projets | Le Lever du Pinceau'
+            : 'Portfolio | Before/after photos of our projects | Le Lever du Pinceau'
         }
         description={
           isFr
-            ? 'Découvrez nos réalisations en peinture résidentielle et commerciale à Montréal, Laval, Longueuil et sur la Rive-Sud. Projets réels, avant/après et finitions professionnelles.'
-            : 'Discover our residential and commercial painting projects in Montreal, Laval, Longueuil and the South Shore. Real projects, before/after and professional finishes.'
+            ? 'Galerie de projets réels: avant/après en peinture résidentielle et commerciale. Jugez la finition avant de demander votre soumission.'
+            : 'Real project gallery: before/after residential and commercial painting. Judge the finish before requesting your quote.'
         }
         canonicalPath="/realisations"
         schemaArray={[breadcrumbSchema]}
@@ -876,7 +869,8 @@ export default function RealisationsPage() {
           h={{ base: 'auto', sm: 'auto', md: '60vh', lg: '65vh', xl: '78vh', '2xl': '82vh' }}
           bgColor="gray.600"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
-          overflow="hidden"
+          pb={TRUST_BANNER_ABOVE_PB}
+          overflow="visible"
         >
           <Image
             src={heroImage}
@@ -918,11 +912,11 @@ export default function RealisationsPage() {
             <Stack
               h="100%"
               minW={0}
-              justify="center"
-              pt={{ base: '64px', sm: '70px', md: '70px' }}
-              pb={{ base: 10, sm: 12, md: '5vh' }}
+              justify="flex-start"
+              pt={PAGE_HERO_CONTENT_PT}
+              pb={0}
             >
-              <Stack spacing={{ base: 2, md: 3 }} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
+              <Stack spacing={PAGE_HERO_STACK_SPACING} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
                 <Heading as="h1" size="hero" color="white" minW={0}>
                   {isFr ? 'Nos réalisations' : 'Our projects'}
                 </Heading>
@@ -935,6 +929,16 @@ export default function RealisationsPage() {
                     ? 'Projets réels et transformations visibles dans le Grand Montréal.'
                     : 'Real projects and visible transformations across Greater Montreal.'}
                 </Text>
+                <Text
+                  variant="heroDescription"
+                  color="whiteAlpha.900"
+                  maxW={{ base: '560px', md: '640px' }}
+                >
+                  {isFr
+                    ? 'Condos, maisons, plex et commerces - pour voir comment nous travaillons.'
+                    : 'Condos, homes, plex and businesses - see how we work.'}
+                </Text>
+
                 <HStack
                   spacing={{ base: 3, md: 4 }}
                   pt={{ base: 1, md: 2 }}
@@ -952,8 +956,8 @@ export default function RealisationsPage() {
                     lineHeight="1.15"
                     fontWeight="semibold"
                     fontSize={{ base: 'sm', md: 'md' }}
-                    w={{ base: '100%', sm: 'auto' }}
-                    maxW={{ base: '100%', sm: '400px' }}
+                    w="auto"
+                    maxW="20rem"
                   >
                     {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
                     <ArrowForwardIcon ml={2} />
@@ -971,8 +975,8 @@ export default function RealisationsPage() {
                     lineHeight="1.15"
                     fontWeight="medium"
                     fontSize={{ base: 'sm', md: 'md' }}
-                    w={{ base: '100%', sm: 'auto' }}
-                    maxW={{ base: '100%', sm: '320px' }}
+                    w="auto"
+                    maxW="20rem"
                   >
                     {isFr ? 'Voir nos services' : 'View our services'}
                     <ArrowForwardIcon ml={2} />
@@ -985,11 +989,6 @@ export default function RealisationsPage() {
 
         {/* ── Section 2 - Barre de confiance ───────────────────────────────── */}
         <TrustBanner />
-        <PageIntro>
-          {isFr
-            ? 'Condos, maisons, plex, commerces et projets spécialisés: explorez des chantiers réalisés par notre équipe et voyez comment nous travaillons sur le terrain.'
-            : 'Condos, homes, plex, businesses and specialized projects: explore job sites completed by our team and see how we work in the field.'}
-        </PageIntro>
 
         {/* ── Section 3 - Projets vedettes avant / après ────────────────────── */}
         <BeforeAfterCarouselSection
@@ -1001,7 +1000,7 @@ export default function RealisationsPage() {
               : 'A selection of recent job sites showing the level of finish, variety of projects and quality of work delivered.'
           }
           images={carouselImages}
-          sectionPaddingTop={{ base: 12, md: 16, lg: 20 }}
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           sectionPaddingBottom={{ base: 4, md: 6 }}
         />
 

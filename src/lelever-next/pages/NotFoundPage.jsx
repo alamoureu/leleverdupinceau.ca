@@ -95,8 +95,9 @@ export default function NotFoundPage() {
                 to='/'
                 variant='cta'
                 size={{ base: 'md', sm: 'lg' }}
-                w={{ base: '100%', sm: 'auto' }}
-                minW={{ base: '100%', sm: '200px' }}
+                w="auto"
+                maxW="20rem"
+                minW={{ base: 0, sm: '200px' }}
                 px={{ base: 8, sm: 10 }}
                 textStyle='nav'
                 fontWeight='600'
@@ -110,8 +111,9 @@ export default function NotFoundPage() {
                 leftIcon={<ArrowBackIcon />}
                 variant='outline'
                 size={{ base: 'md', sm: 'lg' }}
-                w={{ base: '100%', sm: 'auto' }}
-                minW={{ base: '100%', sm: '180px' }}
+                w="auto"
+                maxW="20rem"
+                minW={{ base: 0, sm: '180px' }}
                 px={{ base: 8, sm: 10 }}
                 textStyle='nav'
                 fontWeight='600'

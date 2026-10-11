@@ -8,10 +8,13 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
+import { MOBILE_CENTERED_CARD_SX } from '../constants/responsiveGrid';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import ServiceCard from './ServiceCard';
 import control1 from '../images/IMG_7844.PNG';
 import control2 from '../images/control-2-min.webp';
 import control3 from '../images/new-landing/control-3.jpeg';
+import { TRUST_BANNER_BELOW_PT } from './TrustBanner';
 
 const cardImages = [control1, control2, control3];
 
@@ -42,25 +45,16 @@ export default function ControlSection({ onSubmissionOpen }) {
   ];
 
   return (
-    <Box
-      pt={{ base: 24, sm: 28, md: 32, lg: 32, xl: 40, '2xl': 40 }}
-      mt={0}
-      pb={{ base: 12, md: 16, lg: 20 }}
-      bg="white"
-    >
+    <Box pt={TRUST_BANNER_BELOW_PT} mt={0} pb={SECTION_PY} bg="white">
       <Container
         maxW="1440px"
         px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
       >
         <Stack
-          spacing={{ base: 3, sm: 4, md: 7, lg: 9, xl: 14, '2xl': 16 }}
+          spacing={TRUST_BANNER_AIR_SPACE}
           align="center"
           w="100%"
-          maxW={{
-            base: '280px',
-            sm: '300px',
-            md: '100%',
-          }}
+          maxW="100%"
           mx="auto"
         >
           <Stack
@@ -68,7 +62,6 @@ export default function ControlSection({ onSubmissionOpen }) {
             textAlign="center"
             maxW={{ base: '100%', md: '900px', lg: '1100px', xl: '1200px' }}
             mx="auto"
-            mb={{ base: 2, md: 3 }}
             w="100%"
           >
             <Heading
@@ -100,23 +93,25 @@ export default function ControlSection({ onSubmissionOpen }) {
             spacing={{ base: 3, sm: 5, md: 6, lg: 8, xl: 12, '2xl': 14 }}
             w="100%"
             maxW={{
-              base: '280px',
-              sm: '300px',
+              base: '100%',
               md: '1100px',
               lg: '1200px',
               xl: '1280px',
               '2xl': '1320px',
             }}
+            sx={MOBILE_CENTERED_CARD_SX}
           >
             {cards.map((card, index) => (
-              <ServiceCard
-                key={index}
-                image={card.image}
-                title={card.title}
-                subtitle={card.subtitle}
-                stripText={card.description}
-                noHoverBorder
-              />
+              <Box key={index} h="100%">
+                <ServiceCard
+                  image={card.image}
+                  title={card.title}
+                  subtitle={card.subtitle}
+                  stripText={card.description}
+                  fluid
+                  noHoverBorder
+                />
+              </Box>
             ))}
           </SimpleGrid>
 

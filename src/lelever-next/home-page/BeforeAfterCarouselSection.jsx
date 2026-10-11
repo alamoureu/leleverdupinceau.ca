@@ -1,10 +1,26 @@
-import React, { useMemo, useRef } from 'react';
+import React, { useMemo } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Box, Button, Container, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  Link,
+  SimpleGrid,
+  Stack,
+  Text,
+} from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
-import { SECTION_TITLE_MAX_W } from '../constants/sectionSpacing';
-import useAutoScroll from './useAutoScroll';
+import { SECTION_TITLE_MAX_W, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
+import {
+  DESKTOP_THREE_PLUS_TWO_SX,
+  GRID_HOVER_PAD,
+  MOBILE_CENTERED_CARD_SX,
+  columnsForCount,
+} from '../constants/responsiveGrid';
+import FadedScroller from '../components/FadedScroller';
 import CardCaptionStrip from './CardCaptionStrip';
 
 import img7922 from '../images/Avant après landing Page/Copie de IMG_7922.jpg';
@@ -111,42 +127,148 @@ export function buildLandingPagePairs(isFr) {
 
 const DEFAULT_SECTION_PY = { base: 8, md: 12, lg: 16 };
 
+function BeforeAfterPairCard({ pair, isFr, t }) {
+  const hasPair = Boolean(pair?.before && pair?.after);
+  const placeholderBody = isFr
+    ? 'Visuels avant/après à dédier à cette page uniquement, sans réutiliser une photo déjà affichée sur un autre service.'
+    : 'Before/after visuals to add for this page only, without reusing a photo already shown on another service.';
+  const caption = splitCaption(pair.description);
+
+  return (
+    <Box
+      width="100%"
+      h="100%"
+      borderRadius="xl"
+      border="1px solid"
+      borderColor="gray.200"
+      boxShadow="0 2px 12px rgba(0,0,0,0.06)"
+      _hover={{
+        boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+        transform: 'translateY(-2px)',
+      }}
+      transition="box-shadow 0.2s ease, transform 0.2s ease"
+      bg="white"
+    >
+      {hasPair ? (
+        <Box overflow="hidden" borderTopRadius="xl">
+          <Stack spacing={0}>
+            <Box position="relative" w="100%">
+              <img
+                src={pair.before}
+                alt={t.beforeAfterAltBefore}
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
+              />
+              <Box
+                position="absolute"
+                top={{ base: 2, md: 3 }}
+                left={{ base: 2, md: 3 }}
+                bg="gray.900"
+                color="white"
+                px={{ base: 2, md: 3 }}
+                py={{ base: 0.5, md: 1 }}
+                borderRadius={{ base: 'sm', md: 'md' }}
+                fontSize={{ base: 'xs', md: 'sm' }}
+                fontWeight="bold"
+                boxShadow="sm"
+              >
+                {t.beforeAfterLabelBefore}
+              </Box>
+            </Box>
+            <Box
+              position="relative"
+              w="100%"
+              borderTop="2px solid white"
+            >
+              <img
+                src={pair.after}
+                alt={t.beforeAfterAltAfter}
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+                style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
+              />
+              <Box
+                position="absolute"
+                top={{ base: 2, md: 3 }}
+                left={{ base: 2, md: 3 }}
+                bg="gray.900"
+                color="white"
+                px={{ base: 2, md: 3 }}
+                py={{ base: 0.5, md: 1 }}
+                borderRadius={{ base: 'sm', md: 'md' }}
+                fontSize={{ base: 'xs', md: 'sm' }}
+                fontWeight="bold"
+                boxShadow="sm"
+              >
+                {t.beforeAfterLabelAfter}
+              </Box>
+            </Box>
+          </Stack>
+        </Box>
+      ) : (
+        <Flex
+          direction="column"
+          align="center"
+          justify="center"
+          minH={{ base: '280px', md: '300px' }}
+          px={4}
+          py={8}
+          bg="gray.50"
+          borderWidth="2px"
+          borderStyle="dashed"
+          borderColor="gray.300"
+          borderTopRadius="xl"
+          overflow="hidden"
+        >
+          <Text
+            fontSize="sm"
+            color="gray.600"
+            textAlign="center"
+            lineHeight="1.6"
+            maxW="280px"
+          >
+            {placeholderBody}
+          </Text>
+        </Flex>
+      )}
+      {(caption.title || caption.subtitle) && (
+        <CardCaptionStrip
+          title={caption.title}
+          subtitle={caption.subtitle}
+          compact
+        />
+      )}
+    </Box>
+  );
+}
+
 export default function BeforeAfterCarouselSection({
   isFr: isFrProp,
   title: titleProp,
   subtitle: subtitleProp,
   images,
-  kitchenPairOverride,
   sectionPy,
   sectionPaddingTop,
   sectionPaddingBottom,
   sectionBg = 'white',
+  layout = 'carousel',
+  hideCta = false,
 }) {
   const { t, currentLang } = useTranslation();
   const isFr = isFrProp ?? currentLang === 'fr';
   const title = titleProp ?? t.beforeAfterTitle;
-  const subtitle = subtitleProp ?? t.beforeAfterSubtitle;
-  const scrollerRef = useRef(null);
-  useAutoScroll(scrollerRef, { speed: 0.35 });
+  const subtitle = subtitleProp === undefined ? t.beforeAfterSubtitle : subtitleProp;
+  const isGrid = layout === 'grid';
 
-  const items = useMemo(() => {
-    const base =
-      images && images.length > 0 ? images : buildDefaultImages(isFr);
-    if (
-      kitchenPairOverride?.before &&
-      kitchenPairOverride?.after &&
-      base.length >= 2
-    ) {
-      const next = [...base];
-      next[1] = {
-        ...next[1],
-        before: kitchenPairOverride.before,
-        after: kitchenPairOverride.after,
-      };
-      return next;
-    }
-    return base;
-  }, [images, isFr, kitchenPairOverride]);
+  const items = useMemo(
+    () => (images && images.length > 0 ? images : buildDefaultImages(isFr)),
+    [images, isFr]
+  );
 
   const loopItems = useMemo(
     () => [
@@ -156,199 +278,131 @@ export default function BeforeAfterCarouselSection({
     [items],
   );
 
-  const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
+  const fallbackPy = sectionPy ?? (isGrid ? { base: 4, md: 6 } : DEFAULT_SECTION_PY);
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
   const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
 
+  const gridColumns = columnsForCount(items.length);
+  const gridSx = {
+    ...GRID_HOVER_PAD,
+    ...MOBILE_CENTERED_CARD_SX,
+    ...(items.length === 5 ? DESKTOP_THREE_PLUS_TWO_SX : {}),
+  };
+
   return (
     <Box pt={pt} pb={pb} bg={sectionBg} overflowX="hidden">
-      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>
-        <Stack spacing={{ base: 3, md: 4 }} align="center">
-          <Stack
-            spacing={{ base: 2, md: 3 }}
-            textAlign="center"
-            maxW={SECTION_TITLE_MAX_W}
-            w="100%"
-          >
-            <Heading
-              as="h2"
-              size="section"
-              fontWeight="bold"
-              color="gray.800"
-              lineHeight="1.25"
-              scrollMarginTop="6rem"
-              whiteSpace={{ base: 'normal', lg: 'nowrap' }}
+      <Container
+        maxW={isGrid ? '100%' : '1440px'}
+        px={isGrid ? 0 : { base: 4, sm: 5, md: 6, lg: 8 }}
+      >
+        <Stack spacing={TRUST_BANNER_AIR_SPACE} align="center">
+          {(title || subtitle) && (
+            <Stack
+              spacing={{ base: 2, md: 3 }}
+              textAlign="center"
+              maxW={SECTION_TITLE_MAX_W}
+              w="100%"
             >
-              {title}
-            </Heading>
-            <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
-              {subtitle}
-            </Text>
-          </Stack>
-
-          <Box
-            ref={scrollerRef}
-            w="100%"
-            maxW="100%"
-            minW={0}
-            overflowX="auto"
-            overflowY="hidden"
-            pt={2}
-            pb={10}
-            px={{ base: 4, md: 1 }}
-            mx={{ base: -4, md: 0 }}
-            sx={{
-              scrollBehavior: 'auto',
-              msOverflowStyle: 'auto',
-            }}
-          >
-            <Flex
-              direction="row"
-              gap={4}
-              w="max-content"
-              minW="100%"
-              align="stretch"
-            >
-              {loopItems.map((pair) => {
-                const hasPair = Boolean(pair?.before && pair?.after);
-                const placeholderBody = isFr
-                  ? 'Visuels avant/après à dédier à cette page uniquement, sans réutiliser une photo déjà affichée sur un autre service.'
-                  : 'Before/after visuals to add for this page only, without reusing a photo already shown on another service.';
-                const caption = splitCaption(pair.description);
-
-                return (
-                <Box
-                  key={pair.key}
-                  minW={{
-                    base: '260px',
-                    md: '320px',
-                    lg: '360px',
-                  }}
-                  w={{ base: '260px', md: '320px', lg: '360px' }}
+              {title && (
+                <Heading
+                  as="h2"
+                  size="section"
+                  fontWeight="bold"
+                  color="gray.800"
+                  lineHeight="1.25"
+                  scrollMarginTop="6rem"
+                  whiteSpace={{ base: 'normal', lg: 'nowrap' }}
                 >
-                  <Box
-                    width="100%"
-                    borderRadius="xl"
-                    overflow="hidden"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    boxShadow="0 2px 12px rgba(0,0,0,0.06)"
-                    _hover={{ boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
-                    transition="box-shadow 0.2s"
-                    bg="white"
-                  >
-                    {hasPair ? (
-                    <Stack spacing={0}>
-                      <Box position="relative" w="100%">
-                        <img
-                          src={pair.before}
-                          alt={t.beforeAfterAltBefore}
-                          width={1200}
-                          height={800}
-                          loading="lazy"
-                          decoding="async"
-                          style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
-                        />
-                        <Box
-                          position="absolute"
-                          top={{ base: 2, md: 3 }}
-                          left={{ base: 2, md: 3 }}
-                          bg="gray.900"
-                          color="white"
-                          px={{ base: 2, md: 3 }}
-                          py={{ base: 0.5, md: 1 }}
-                          borderRadius={{ base: 'sm', md: 'md' }}
-                          fontSize={{ base: 'xs', md: 'sm' }}
-                          fontWeight="bold"
-                          boxShadow="sm"
-                        >
-                          {t.beforeAfterLabelBefore}
-                        </Box>
-                      </Box>
-                      <Box
-                        position="relative"
-                        w="100%"
-                        borderTop="2px solid white"
-                      >
-                        <img
-                          src={pair.after}
-                          alt={t.beforeAfterAltAfter}
-                          width={1200}
-                          height={800}
-                          loading="lazy"
-                          decoding="async"
-                          style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
-                        />
-                        <Box
-                          position="absolute"
-                          top={{ base: 2, md: 3 }}
-                          left={{ base: 2, md: 3 }}
-                          bg="gray.900"
-                          color="white"
-                          px={{ base: 2, md: 3 }}
-                          py={{ base: 0.5, md: 1 }}
-                          borderRadius={{ base: 'sm', md: 'md' }}
-                          fontSize={{ base: 'xs', md: 'sm' }}
-                          fontWeight="bold"
-                          boxShadow="sm"
-                        >
-                          {t.beforeAfterLabelAfter}
-                        </Box>
-                      </Box>
-                    </Stack>
-                    ) : (
-                      <Flex
-                        direction="column"
-                        align="center"
-                        justify="center"
-                        minH={{ base: '280px', md: '300px' }}
-                        px={4}
-                        py={8}
-                        bg="gray.50"
-                        borderWidth="2px"
-                        borderStyle="dashed"
-                        borderColor="gray.300"
-                      >
-                        <Text
-                          fontSize="sm"
-                          color="gray.600"
-                          textAlign="center"
-                          lineHeight="1.6"
-                          maxW="280px"
-                        >
-                          {placeholderBody}
-                        </Text>
-                      </Flex>
-                    )}
-                    {(caption.title || caption.subtitle) && (
-                      <CardCaptionStrip
-                        title={caption.title}
-                        subtitle={caption.subtitle}
-                        compact
-                      />
-                    )}
-                  </Box>
-                </Box>
-                );
-              })}
-            </Flex>
-          </Box>
-          <Link
-            as={RouterLink}
-            to="/realisations"
-            _hover={{ textDecoration: 'none' }}
-          >
-            <Button
-              variant="ctaOutline"
-              rightIcon={<ArrowForwardIcon />}
-              borderRadius="full"
-              textStyle="nav"
-              px={{ base: 5, md: 7 }}
-              py={{ base: 3, md: 4 }}
+                  {title}
+                </Heading>
+              )}
+              {subtitle ? (
+                <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
+                  {subtitle}
+                </Text>
+              ) : null}
+            </Stack>
+          )}
+
+          {isGrid ? (
+            <SimpleGrid
+              columns={gridColumns}
+              spacing={{ base: 4, md: 5, lg: 6 }}
+              w="100%"
+              sx={gridSx}
             >
-              {isFr ? 'Voir toutes nos réalisations' : 'View all our projects'}
-            </Button>
-          </Link>
+              {items.map((pair, i) => (
+                <BeforeAfterPairCard
+                  key={`grid-${i}`}
+                  pair={pair}
+                  isFr={isFr}
+                  t={t}
+                />
+              ))}
+            </SimpleGrid>
+          ) : (
+            <FadedScroller
+              axis="horizontal"
+              autoScroll
+              speed={0.35}
+              fadeFrom={sectionBg}
+              w="100%"
+              maxW="100%"
+              mx={{ base: -4, md: -2 }}
+              scrollerProps={{
+                pt: 4,
+                pb: 8,
+                px: { base: 4, md: 2 },
+              }}
+            >
+              <Flex
+                direction="row"
+                gap={{ base: 3, md: 4 }}
+                w="max-content"
+                minW="100%"
+                align="stretch"
+              >
+                {loopItems.map((pair) => (
+                  <Box
+                    key={pair.key}
+                    minW={{
+                      base: 'min(80vw, 300px)',
+                      md: '320px',
+                      lg: '360px',
+                    }}
+                    w={{
+                      base: 'min(80vw, 300px)',
+                      md: '320px',
+                      lg: '360px',
+                    }}
+                    flexShrink={0}
+                  >
+                    <BeforeAfterPairCard pair={pair} isFr={isFr} t={t} />
+                  </Box>
+                ))}
+              </Flex>
+            </FadedScroller>
+          )}
+
+          {!hideCta && (
+            <Link
+              as={RouterLink}
+              to="/realisations"
+              _hover={{ textDecoration: 'none' }}
+            >
+              <Button
+                variant="ctaOutline"
+                rightIcon={<ArrowForwardIcon />}
+                borderRadius="full"
+                textStyle="nav"
+                px={{ base: 5, md: 7 }}
+                py={{ base: 3, md: 4 }}
+                minW={{ base: '269px', md: '285px' }}
+              >
+                {isFr ? 'Voir toutes nos réalisations' : 'View all our projects'}
+              </Button>
+            </Link>
+          )}
         </Stack>
       </Container>
     </Box>

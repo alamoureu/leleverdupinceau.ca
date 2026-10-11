@@ -4,8 +4,8 @@ export const betonelVsBenjaminMooreData = {
   url: 'https://leleverdupinceau.ca/blog/betonel-vs-benjamin-moore',
   seo: {
     title: {
-      fr: 'Bétonel vs Benjamin Moore : quelle peinture choisir pour votre maison ? | Le Lever du Pinceau',
-      en: 'Bétonel vs Benjamin Moore: which paint to choose for your home? | Le Lever du Pinceau',
+      fr: 'Bétonel vs Benjamin Moore : quelle peinture choisir pour votre maison ?',
+      en: 'Bétonel vs Benjamin Moore: which paint to choose for your home?',
     },
     metaDescription: {
       fr: "Comparatif complet entre Bétonel et Benjamin Moore : prix, produits similaires, palette de couleurs, qualité et avis de peintres professionnels à Montréal. Guide 2026.",

@@ -9,8 +9,6 @@ import React, {
 import { Box, useDisclosure } from '@chakra-ui/react';
 import MicrosoftClarity from '../analytics/MicrosoftClarity';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
 import { useTranslation } from '../i18n';
 import ControlSection from '../home-page/ControlSection';
 import GuaranteeSection from '../home-page/GuaranteeSection';
@@ -70,11 +68,11 @@ export default function NewHomePage() {
   }, [isOpen]);
 
   const title = isFr
-    ? 'Peintre Montréal | Peinture résidentielle & commerciale | Le Lever du Pinceau'
-    : 'Painter Montreal | Residential & Commercial Painting | Le Lever du Pinceau';
+    ? 'Peinture à Montréal | Résidentielle et commerciale | Le Lever du Pinceau'
+    : 'Painting in Montreal | Residential and commercial | Le Lever du Pinceau';
   const description = isFr
-    ? `Le Lever du Pinceau, peintre professionnel à Montréal. Service clé en main pour peinture intérieure, extérieure, résidentielle et commerciale. ${GOOGLE_REVIEWS_LABEL.fr} 5 étoiles. Licence RBQ. Soumission gratuite en 24h.`
-    : `Le Lever du Pinceau, professional painter in Montreal. Turnkey service for interior, exterior, residential and commercial painting. ${GOOGLE_REVIEW_COUNT}+ 5-star reviews. RBQ license. Free quote in 24h.`;
+    ? `Entreprise de peinture à Montréal. Service clé en main: intérieur, extérieur, résidentiel et commercial. ${GOOGLE_REVIEWS_LABEL.fr} 5 étoiles. Licence RBQ. Soumission gratuite en 24h.`
+    : `Painting company in Montreal. Turnkey interior, exterior, residential and commercial service. ${GOOGLE_REVIEW_COUNT}+ 5-star reviews. RBQ license. Free quote in 24h.`;
 
   const faqTitle = isFr
     ? 'Questions fréquentes sur nos services de peinture'
@@ -95,9 +93,8 @@ export default function NewHomePage() {
         <HeroSection
           onSubmissionOpen={onOpen}
           pageContext={pageContext}
+          description={t.heroDescription}
         />
-        <TrustBanner />
-        <PageIntro>{t.heroDescription}</PageIntro>
 
         <ControlSection onSubmissionOpen={onOpen} />
 
@@ -117,7 +114,7 @@ export default function NewHomePage() {
         <Box bg="gray.50">
           <ServicesSection sectionBg="transparent" sectionPy={SECTION_PY} />
           <BeforeAfterCarouselSection
-            sectionBg="transparent"
+            sectionBg="gray.50"
             sectionPaddingTop={{ base: 2, md: 4 }}
             sectionPaddingBottom={{ base: 8, md: 10, lg: 12 }}
           />

@@ -22,7 +22,8 @@ import { SITE_URL, LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import { HAPPY_CLIENTS_COUNT, RBQ_LICENSE } from '../constants/company';
 import { GOOGLE_RATING_LABEL, GOOGLE_REVIEW_COUNT } from '../constants/googleReviews';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import ReviewsSection from '../home-page/ReviewsSection';
 import SectorsSection from '../home-page/SectorsSection';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -43,8 +44,7 @@ const content = {
     breadcrumb: 'À propos',
     title: 'À propos de Le Lever du Pinceau',
     tagline: 'Peinture résidentielle et commerciale dans le Grand Montréal.',
-    description:
-      'Le Lever du Pinceau est une entreprise de peinture résidentielle et commerciale basée à Montréal. Nos peintres professionnels transforment maisons, condos, commerces et bureaux partout dans le Grand Montréal, avec une préparation minutieuse, un chantier propre et une finition durable.',
+    description: 'Préparation minutieuse, chantier propre et finition durable.',
     pills: ['Respect des délais', 'Soumission en 24 h', 'Chantier propre', 'Communication claire'],
     pillsText:
       "Chaque projet suit un échéancier clair, établi avec vous dès la soumission. Notre équipe arrive à l'heure, avance selon le plan et vous tient informé à chaque étape, jusqu'à la remise de vos lieux propres, à la date convenue.",
@@ -130,8 +130,7 @@ const content = {
     breadcrumb: 'About',
     title: 'About Le Lever du Pinceau',
     tagline: 'Residential and commercial painting in Greater Montreal.',
-    description:
-      'Le Lever du Pinceau is a residential and commercial painting company based in Montreal. Our professional painters transform houses, condos, stores and offices throughout Greater Montreal, with meticulous preparation, a clean worksite and a durable finish.',
+    description: 'Meticulous prep, clean worksite and durable finish.',
     pills: ['On-time delivery', 'Quote within 24 h', 'Clean worksite', 'Clear communication'],
     pillsText:
       'Every project follows a clear schedule, set with you from the quote. Our team arrives on time, works according to plan and keeps you informed at every step, until your space is handed back clean, on the agreed date.',
@@ -243,8 +242,8 @@ export default function AboutPage() {
   return (
     <Fragment>
       <SEOHead
-        title={isFr ? 'À propos | Équipe peinture Montréal – Le Lever du Pinceau' : 'About | Montreal painting team – Le Lever du Pinceau'}
-        description={isFr ? 'Équipe de peintres professionnels à Montréal, Laval, Longueuil. Mission, valeurs, engagement qualité. Peinture résidentielle et commerciale dans le Grand Montréal.' : 'Professional painting team in Montreal, Laval, Longueuil. Mission, values, quality commitment. Residential and commercial painting in Greater Montreal.'}
+        title={isFr ? 'À propos | Notre équipe de peintres | Le Lever du Pinceau' : 'About | Our painting team | Le Lever du Pinceau'}
+        description={isFr ? 'Mission, valeurs et engagement qualité de Le Lever du Pinceau. Découvrez l\'équipe derrière vos projets dans le Grand Montréal.' : 'Mission, values and quality commitment of Le Lever du Pinceau. Meet the team behind your projects in Greater Montreal.'}
         canonicalPath="/a-propos"
         schemaArray={[breadcrumbSchema, aboutPageSchema]}
       />
@@ -255,31 +254,17 @@ export default function AboutPage() {
           pageContext={c.pageContext}
           title={c.title}
           subtitle={c.tagline}
+          description={c.description}
           imageBackground={aProposPhotoHeader}
           overlayBg='linear-gradient(155deg, rgba(18, 38, 74, 0.94) 0%, rgba(18, 38, 74, 0.78) 45%, rgba(18, 38, 74, 0.6) 100%)'
-        >
-          <HStack
-            spacing={3}
-            textStyle='bodyLarge'
-            color='whiteAlpha.900'
-            mb={{ base: 2, md: 4 }}
-            flexWrap='wrap'
-          >
-            <Link as={RouterLink} to='/' _hover={{ textDecoration: 'underline', color: 'white' }}>
-              {c.home}
-            </Link>
-            <Text color='white' opacity={0.9}>›</Text>
-            <Text color='white' fontWeight='medium'>{c.breadcrumb}</Text>
-          </HStack>
-        </HeroSection>
+          breadcrumb={[
+            { label: c.home, to: '/' },
+            { label: c.breadcrumb },
+          ]}
+        />
 
-        <TrustBanner />
-
-        <Container maxW='1440px' px={{ base: 4, md: 6 }} pb={{ base: 4, md: 6 }}>
-          <Stack spacing={{ base: 4, md: 5 }} align='center' textAlign='center'>
-            <Text textStyle='bodyLarge' color='gray.700' lineHeight='1.7' maxW='800px'>
-              {c.description}
-            </Text>
+        <Container maxW='1440px' px={{ base: 4, md: 6 }} pb={{ base: 4, md: 6 }} pt={TRUST_BANNER_BELOW_PT}>
+          <Stack spacing={TRUST_BANNER_AIR_SPACE} align='center' textAlign='center'>
             <Flex wrap='wrap' justify='center' gap={{ base: 2, md: 3 }}>
               {c.pills.map((pill, index) => (
                 <HStack
@@ -334,9 +319,7 @@ export default function AboutPage() {
           </Stack>
         </Container>
 
-        <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-          <SectorsSection title={c.sectorsTitle} subtitle={c.sectorsSubtitle} pageContext={c.pageContext} />
-        </Container>
+        <SectorsSection title={c.sectorsTitle} subtitle={c.sectorsSubtitle} pageContext={c.pageContext} />
 
         <ReviewsSection sectionBg='white' />
 

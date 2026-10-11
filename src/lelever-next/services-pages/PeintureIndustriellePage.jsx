@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -11,7 +10,6 @@ import {
   Link,
   Icon,
   HStack,
-  SimpleGrid,
   Image,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -29,8 +27,8 @@ import {
   FaSprayCan,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -45,6 +43,12 @@ import industrielleImg4 from '../images/L2 Services principaux/Photo page -peint
 import industrielleImg5 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
 import industrielleImg6 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel sur l_île de Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck en mur à Montréal.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Peinture industrielle' },
+];
 
 const CHECKMARKS = [
   {
@@ -83,37 +87,37 @@ const SPECIALITES = [
   {
     icon: FaWarehouse,
     title: 'Entrepôt et usine',
-    text: 'Murs, plafonds steel deck et colonnes. Application au pistolet pour couvrir rapidement de grandes surfaces avec un fini uniforme.',
+    text: 'Murs, plafonds steel deck et colonnes. Application au pistolet pour couvrir rapidement de grandes surfaces avec un fini uniforme, en planifiant l\'accès et la sécurité du site.',
     link: null,
   },
   {
     icon: FaLayerGroup,
     title: 'Plancher époxy',
-    text: 'Revêtement époxy pour planchers industriels - résistance aux impacts, aux produits chimiques et à l\'usure du trafic lourd.',
+    text: 'Revêtement époxy pour planchers industriels - résistance aux impacts, aux produits chimiques et à l\'usure du trafic lourd, avec délais de remise en service intégrés au calendrier.',
     link: null,
   },
   {
     icon: FaWrench,
     title: 'Structures métalliques',
-    text: 'Poutrelles, charpentes, équipements et surfaces métalliques. Traitement antirouille, apprêt et finition adaptés.',
+    text: 'Poutrelles, charpentes, équipements et surfaces métalliques. Traitement antirouille, apprêt et finition adaptés pour une adhérence durable en milieu exigeant.',
     link: null,
   },
   {
     icon: FaMapMarkedAlt,
     title: 'Marquage au sol',
-    text: 'Lignes de circulation, zones de sécurité, allées de chariot élévateur. Peinture ou époxy selon les exigences du site.',
+    text: 'Lignes de circulation, zones de sécurité, allées de chariot élévateur. Peinture ou époxy selon les exigences du site et le type de trafic prévu.',
     link: null,
   },
   {
     icon: FaSprayCan,
     title: 'Extérieur d\'usine et de bâtiment industriel',
-    text: 'Revêtements extérieurs résistants aux intempéries et aux conditions climatiques du Québec pour les bâtiments industriels.',
+    text: 'Revêtements extérieurs résistants aux intempéries et aux cycles gel-dégel du Québec pour les bâtiments industriels et les façades exposées.',
     link: null,
   },
   {
     icon: FaIndustry,
     title: 'Stationnement et garage',
-    text: 'Plancher en béton, murs et colonnes de stationnement. Revêtements résistants à l\'usure et aux produits pétroliers.',
+    text: 'Plancher en béton, murs et colonnes de stationnement. Revêtements résistants à l\'usure, aux sels et aux produits pétroliers, avec phasage pour limiter la fermeture.',
     link: null,
   },
 ];
@@ -230,111 +234,21 @@ export default function PeintureIndustriellePage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={industrielleImg2}
-            alt="Peinture industrielle à Montréal - plafond steel deck au pistolet airless"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.60)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Services
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Peinture industrielle
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Peinture industrielle à Montréal
-                </Heading>
-                <Text variant="heroSubtitle" color="white" minW={0}>
-                  Entrepôt, usine, stationnement.
-                </Text>
-
-                <Box pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-        <PageIntro>
-          Revêtements spécialisés, application au pistolet et produits conçus pour les exigences industrielles.
-        </PageIntro>
-
-        {/* ===== SECTION 3 - CHECKMARKS ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Peinture industrielle'
+          imageBackground={industrielleImg2}
+          imageAlt='Peinture industrielle à Montréal - plafond steel deck au pistolet airless'
+          overlayBg='rgba(0, 0, 0, 0.60)'
+          title='Peinture industrielle à Montréal'
+          subtitle='Entrepôt, usine, stationnement.'
+          description='Revêtements spécialisés et application au pistolet airless.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - CHECKMARKS ===== */}
         <FeatureCardsSection
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           title="Ce qui distingue notre approche industrielle"
           subtitle="La peinture industrielle n'est pas de la peinture résidentielle appliquée dans une usine - c'est une spécialité à part entière"
           items={CHECKMARKS}
@@ -352,11 +266,6 @@ export default function PeintureIndustriellePage() {
           columns={{ base: 1, sm: 2, md: 3 }}
         />
 
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
 
         {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
         <BeforeAfterCarouselSection
@@ -380,6 +289,7 @@ export default function PeintureIndustriellePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection

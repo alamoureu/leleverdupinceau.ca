@@ -1,126 +1,47 @@
-import React, { useContext } from 'react';
-import {
-  Box,
-  Container,
-  Heading,
-  Stack,
-  SimpleGrid,
-  Link,
-  Text,
-} from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
+import React, { useContext, useMemo } from 'react';
 import appContext from '../../../AppProvider';
+import ResourcesSection from '../../home-page/ResourcesSection';
 import commentChoisirPeintre from '../../images/5-landing-page/Photo/louis_Consultation.jpeg';
 import prixProjetPeinture from '../../images/1-page-principale/blog hub/prix-projet-montreal.png';
 import erreurEviterProjet from '../../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
 
 const getBlogImage = (href) => {
-  if (href.includes('comment-choisir')) {
-    return commentChoisirPeintre;
-  }
-  if (href.includes('prix')) {
-    return prixProjetPeinture;
-  }
-  if (href.includes('erreur')) {
-    return erreurEviterProjet;
-  }
+  if (href.includes('comment-choisir')) return commentChoisirPeintre;
+  if (href.includes('prix')) return prixProjetPeinture;
+  if (href.includes('erreur')) return erreurEviterProjet;
   return null;
 };
 
-export default function ServiceGuidesSection({ title, guides }) {
+/** Thin wrapper: service guides reuse ResourcesSection with custom articles. */
+export default function ServiceGuidesSection({ title, guides = [] }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
-  const defaultTitle = isFr
-    ? 'Guides utiles pour les entreprises'
-    : 'Useful guides for businesses';
+  const articles = useMemo(
+    () =>
+      guides.map((guide) => ({
+        title:
+          typeof guide.title === 'object'
+            ? guide.title[isFr ? 'fr' : 'en']
+            : guide.title,
+        href: guide.href,
+        image: guide.image || getBlogImage(guide.href),
+      })),
+    [guides, isFr]
+  );
+
+  if (!articles.length) return null;
 
   return (
-    <Box py={{ base: 12, md: 16, lg: 20 }}>
-      <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-        <Stack spacing={8}>
-          <Stack spacing={3} textAlign='left'>
-            <Heading
-              as='h2'
-              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-              fontWeight='bold'
-              color='gray.800'
-            >
-              {title || defaultTitle}
-            </Heading>
-          </Stack>
-
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 4, md: 6 }}>
-            {guides.map((guide, index) => {
-              const guideImage = guide.image || getBlogImage(guide.href);
-              const guideTitle =
-                typeof guide.title === 'object'
-                  ? guide.title[isFr ? 'fr' : 'en']
-                  : guide.title;
-
-              return (
-                <Link
-                  key={index}
-                  href={guide.href}
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Box
-                    bg='white'
-                    borderRadius='xl'
-                    overflow='hidden'
-                    border='1px solid'
-                    borderColor='gray.200'
-                    h='100%'
-                    display='flex'
-                    flexDirection='column'
-                    _hover={{
-                      borderColor: 'brand.500',
-                      transform: 'translateY(-2px)',
-                      boxShadow: 'md',
-                    }}
-                    transition='all 0.2s'
-                  >
-                    {guideImage && (
-                      <Box
-                        position='relative'
-                        overflow='hidden'
-                        h='200px'
-                        bg='gray.100'
-                        bgImage={`url(${guideImage})`}
-                        bgSize='cover'
-                        bgPosition='center'
-                      />
-                    )}
-                    <Stack p={6} spacing={4} flex={1}>
-                      <Text
-                        fontWeight='bold'
-                        color='gray.800'
-                        fontSize='lg'
-                        lineHeight='1.4'
-                      >
-                        {guideTitle}
-                      </Text>
-                      <Box
-                        display='flex'
-                        alignItems='center'
-                        color='brand.500'
-                        fontWeight='semibold'
-                        fontSize='sm'
-                        mt='auto'
-                      >
-                        <Text mr={2}>
-                          {isFr ? "Lire l'article" : 'Read article'}
-                        </Text>
-                        <ArrowForwardIcon boxSize={4} />
-                      </Box>
-                    </Stack>
-                  </Box>
-                </Link>
-              );
-            })}
-          </SimpleGrid>
-        </Stack>
-      </Container>
-    </Box>
+    <ResourcesSection
+      title={
+        title ||
+        (isFr ? 'Guides utiles pour les entreprises' : 'Useful guides for businesses')
+      }
+      articles={articles}
+      hideButton
+      hideSubtitle
+      titleAlign="left"
+    />
   );
 }

@@ -1,0 +1,27 @@
+---
+description: Interdit total des tirets em/en (— –) dans tout le projet
+alwaysApply: true
+---
+
+# Interdit : tiret em (—) et tiret en (–)
+
+**JAMAIS** utiliser `—` (em dash, U+2014) ni `–` (en dash, U+2013) dans ce projet.
+
+Toujours écrire un tiret simple ASCII `-` (U+002D), ou une virgule / deux-points selon le sens.
+
+```jsx
+// ❌ INTERDIT
+'Soumission gratuite — Sans engagement'
+'Soumission gratuite – Sans engagement'
+'Peinture à Montréal – Le Lever du Pinceau'
+'5h30 – 23h30'
+
+// ✅ CORRECT
+'Soumission gratuite - Sans engagement'
+'Peinture à Montréal - Le Lever du Pinceau'
+'5h30 - 23h30'
+```
+
+S'applique à **tout** fichier et contenu : JSX, JS, i18n, SEO, JSON-LD, meta, alt, docs, commentaires visibles, données de pages.
+
+Exception unique : noms propres officiels qui contiennent déjà un tiret en (ex. `Rosemont–La Petite-Patrie`) - garder la forme officielle.

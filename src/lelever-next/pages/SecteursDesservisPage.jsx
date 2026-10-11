@@ -11,7 +11,6 @@ import {
   Button,
   Icon,
   HStack,
-  Flex,
   Image,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -23,8 +22,8 @@ import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
-import TrustBanner from '../home-page/TrustBanner';
-
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import heroSecteurHub from '../images/pillar-pages/secteur-hub/IMG_7894.jpg';
 import quartierWestmount from '../images/pillar-pages/secteur-hub/IMG_7896.jpg';
 import quartierOutremont from '../images/pillar-pages/secteur-hub/IMG_7898.jpg';
@@ -81,12 +80,12 @@ export default function SecteursDesservisPage() {
 
   // ─── Section 3 - City cards ──────────────────────────────────────────────────
 
-  const citiesRow1 = [
+  const cities = [
     {
       name: 'Montréal',
       description: isFr
-        ? 'Peinture résidentielle, commerciale et industrielle sur toute l\'île.'
-        : 'Residential, commercial and industrial painting across the entire island.',
+        ? 'Plex d\'avant-guerre, plâtre sur lattis, condos et quartiers centraux.'
+        : 'Pre-war plexes, plaster on lath, condos and central neighborhoods.',
       link: '/secteurs/montreal',
       image: montrealSecteur,
       imgScale: 1.25,
@@ -95,8 +94,8 @@ export default function SecteursDesservisPage() {
     {
       name: 'Laval',
       description: isFr
-        ? 'Services pour maisons, condos, commerces et entrepôts.'
-        : 'Services for homes, condos, businesses and warehouses.',
+        ? 'Bungalows 1960-1990, aluminium qui craie et quartiers pavillonnaires.'
+        : '1960s-1990s bungalows, chalking aluminum and suburban neighborhoods.',
       link: '/secteurs/laval',
       image: lavalSecteur,
       imgScale: 1,
@@ -105,21 +104,18 @@ export default function SecteursDesservisPage() {
     {
       name: 'Longueuil',
       description: isFr
-        ? 'Peinture intérieure, extérieure, résidentielle et commerciale.'
-        : 'Interior, exterior, residential and commercial painting.',
+        ? 'Vieux-Longueuil près du fleuve, tours près du métro, Saint-Hubert.'
+        : 'Old Longueuil by the river, towers near the metro, Saint-Hubert.',
       link: '/secteurs/longueuil',
       image: longueuilSecteur,
       imgScale: 1,
       imgTop: '0',
     },
-  ];
-
-  const citiesRow2 = [
     {
       name: 'Brossard',
       description: isFr
-        ? 'Maisons, condos et commerces dans tous les secteurs de Brossard.'
-        : 'Homes, condos and businesses across all Brossard sectors.',
+        ? 'Constructions récentes près du REM, fissures de tassement et DIX30.'
+        : 'Recent builds near the REM, settlement cracks and DIX30.',
       link: '/secteurs/brossard',
       image: brossardSecteur,
       imgScale: 1,
@@ -128,8 +124,8 @@ export default function SecteursDesservisPage() {
     {
       name: 'Saint-Lambert',
       description: isFr
-        ? 'Peinture soignée pour maisons de caractère et propriétés familiales.'
-        : 'Careful painting for character homes and family properties.',
+        ? 'Maisons de caractère, boiseries anciennes et préparation sécuritaire.'
+        : 'Character homes, old woodwork and safe preparation.',
       link: '/secteurs/st-lambert',
       image: stLambertSecteur,
       imgScale: 1,
@@ -138,8 +134,8 @@ export default function SecteursDesservisPage() {
     {
       name: 'La Prairie',
       description: isFr
-        ? 'Peinture résidentielle et commerciale à La Prairie et environs.'
-        : 'Residential and commercial painting in La Prairie and nearby.',
+        ? 'Vieux-La Prairie en pierre et quartiers résidentiels plus récents.'
+        : 'Stone Old La Prairie and newer residential neighborhoods.',
       link: '/secteurs/laprairie',
       image: laprairieSecteur,
       imgScale: 1,
@@ -161,8 +157,8 @@ export default function SecteursDesservisPage() {
     {
       name: 'Outremont',
       description: isFr
-        ? 'Peinture résidentielle de qualité pour propriétés de prestige.'
-        : 'Quality residential painting for prestigious properties.',
+        ? 'Grandes résidences, corniches et moulures travaillées au pinceau.'
+        : 'Large residences, cornices and mouldings finished by brush.',
       link: '/secteurs/montreal/outremont',
       image: quartierOutremont,
     },
@@ -289,42 +285,23 @@ export default function SecteursDesservisPage() {
 
   // ─── Breadcrumb (rendered as hero children) ──────────────────────────────────
 
-  const heroBreadcrumb = (
-    <HStack
-      spacing={2}
-      fontSize={{ base: 'sm', md: 'md' }}
-      color="whiteAlpha.800"
-      flexWrap="wrap"
-      mb={1}
-    >
-      <Link
-        as={RouterLink}
-        to="/"
-        color="whiteAlpha.800"
-        _hover={{ color: 'white', textDecoration: 'underline' }}
-        fontSize={{ base: 'sm', md: 'md' }}
-      >
-        {isFr ? 'Accueil' : 'Home'}
-      </Link>
-      <Text color="whiteAlpha.600" fontSize={{ base: 'sm', md: 'md' }}>›</Text>
-      <Text color="white" fontWeight="medium" fontSize={{ base: 'sm', md: 'md' }}>
-        {isFr ? 'Secteurs desservis' : 'Service areas'}
-      </Text>
-    </HStack>
-  );
+  const heroBreadcrumb = [
+    { label: isFr ? 'Accueil' : 'Home', to: '/' },
+        { label: isFr ? 'Secteurs desservis' : 'Service areas' },
+      ];
 
   return (
     <Fragment>
       <SEOHead
         title={
           isFr
-            ? 'Secteurs desservis | Peintre Grand Montréal et Rive-Sud | Le Lever du Pinceau'
-            : 'Service areas | Painter Greater Montreal and South Shore | Le Lever du Pinceau'
+            ? 'Secteurs desservis | Montréal, Laval, Longueuil et Rive-Sud | Le Lever du Pinceau'
+            : 'Service areas | Montreal, Laval, Longueuil and South Shore | Le Lever du Pinceau'
         }
         description={
           isFr
-            ? 'Le Lever du Pinceau dessert Montréal, Laval, Longueuil, Brossard, Saint-Lambert et La Prairie. Peintres professionnels licenciés RBQ pour vos projets résidentiels et commerciaux. Soumission gratuite en 24h.'
-            : 'Le Lever du Pinceau serves Montreal, Laval, Longueuil, Brossard, Saint-Lambert and La Prairie. Licensed RBQ professional painters for your residential and commercial projects. Free quote within 24h.'
+            ? 'Trouvez votre ville ou quartier desservi: Montréal, Laval, Longueuil, Brossard, Saint-Lambert et La Prairie. Accédez à la page locale de votre secteur.'
+            : 'Find your city or neighborhood we serve: Montreal, Laval, Longueuil, Brossard, Saint-Lambert and La Prairie. Open the local page for your area.'
         }
         canonicalPath="/secteurs"
         schemaArray={[breadcrumbSchema, areaServedSchema]}
@@ -343,50 +320,38 @@ export default function SecteursDesservisPage() {
               ? 'Montréal, Laval, Longueuil et la Rive-Sud.'
               : 'Montreal, Laval, Longueuil and the South Shore.'
           }
+          description={
+            isFr
+              ? 'Chaque ville et quartier a sa page locale : réalités du bâti, projets typiques et soumission gratuite.'
+              : 'Each city and neighborhood has a local page: building realities, typical projects and a free quote.'
+          }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-        >
-          {heroBreadcrumb}
-        </HeroSection>
-
-        {/* SECTION 2 - Barre de confiance */}
-        <TrustBanner />
+          breadcrumb={heroBreadcrumb}
+        />
 
         {/* SECTION 3 - Nos villes desservies (5 cartes) */}
-        <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
+        <Box pt={TRUST_BANNER_BELOW_PT} pb={SECTION_PY} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={10}>
-              <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
+            <Stack spacing={TRUST_BANNER_AIR_SPACE}>
+              <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="720px" mx="auto">
                 <Heading as="h2" size="section" color="gray.800">
                   {isFr ? 'Choisissez votre ville' : 'Choose your city'}
                 </Heading>
+                <Text color="gray.600" textStyle="bodyLarge" lineHeight="1.6">
+                  {isFr
+                    ? 'Ouvrez la page de votre ville pour voir les types de projets locaux, les quartiers desservis et des exemples avant / après près de chez vous.'
+                    : 'Open your city page to see local project types, neighborhoods served and before / after examples near you.'}
+                </Text>
               </Stack>
 
-              {/* Rangée 1 : Montréal, Laval, Longueuil */}
               <SimpleGrid
                 columns={{ base: 1, md: 3 }}
                 spacing={{ base: 5, md: 6 }}
               >
-                {citiesRow1.map((city) => (
+                {cities.map((city) => (
                   <CityCard key={city.name} city={city} />
                 ))}
               </SimpleGrid>
-
-              {/* Rangée 2 : Brossard, Saint-Lambert, La Prairie */}
-              <Flex
-                justify="center"
-                gap={{ base: 5, md: 6 }}
-                flexWrap={{ base: 'wrap', md: 'nowrap' }}
-              >
-                {citiesRow2.map((city) => (
-                  <Box
-                    key={city.name}
-                    w={{ base: '100%', md: 'calc(33.333% - 8px)' }}
-                    maxW={{ md: '420px' }}
-                  >
-                    <CityCard city={city} />
-                  </Box>
-                ))}
-              </Flex>
             </Stack>
           </Container>
         </Box>
@@ -545,8 +510,8 @@ export default function SecteursDesservisPage() {
                   borderRadius="full"
                   size="lg"
                   px={{ base: 8, md: 10 }}
-                  w={{ base: '100%', sm: 'auto' }}
-                  maxW={{ base: '100%', sm: '420px' }}
+                  w="auto"
+                  maxW="20rem"
                   whiteSpace="normal"
                   lineHeight="1.2"
                   h="auto"

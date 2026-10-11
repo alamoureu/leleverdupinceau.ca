@@ -60,7 +60,7 @@ export default function NewWebsiteLayout() {
             minW={0}
             tabIndex={-1}
             flex="1"
-            pt={isLocaleLanding ? 0 : { base: '94px', sm: '98px', md: '112px' }}
+            pt={isLocaleLanding ? 0 : { base: '120px', sm: '122px', md: '112px' }}
             mt={0}
           >
             <Outlet />

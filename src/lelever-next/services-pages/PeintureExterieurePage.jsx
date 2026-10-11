@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -11,7 +10,6 @@ import {
   Link,
   Icon,
   HStack,
-  SimpleGrid,
   Image,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -32,8 +30,8 @@ import {
   FaTh,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -56,6 +54,12 @@ import avantApresPorteApres from "../images/L2 Services principaux/Photo page -p
 import avantApresRevetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg';
 import avantApresRevetementApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Peinture extérieure' },
+];
 
 const CHECKMARKS = [
   {
@@ -161,6 +165,11 @@ const FAQS = [
 ];
 
 const INTERNAL_LINKS = [
+  {
+    title: 'Peinture extérieure à Montréal',
+    description: 'Page locale - façades, balcons et escaliers dans la métropole.',
+    to: '/peinture-exterieure-montreal',
+  },
   {
     title: 'Peinture intérieure',
     description: 'Murs, plafonds, boiseries et armoires - techniques et produits.',
@@ -270,119 +279,29 @@ export default function PeintureExterieurePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peinture extérieure à Montréal | Revêtement, balcon, clôture | Le Lever du Pinceau"
-        description="Service de peinture extérieure professionnelle à Montréal. Revêtement, balcon, clôture, porte de garage, fondation. Produits adaptés au climat québécois. Licence RBQ. Soumission gratuite."
+        title="Peinture extérieure | Revêtement, balcon et clôture | Le Lever du Pinceau"
+        description="Service de peinture extérieure: revêtement, balcon, clôture, porte de garage, fondation. Produits adaptés au climat québécois. Licence RBQ. Soumission gratuite."
         canonicalPath="/services/peinture-exterieure"
         schemaArray={[breadcrumbSchema, faqSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={exterieureHeroImg}
-            alt="Peinture extérieure à Montréal - revêtement, balcon et clôture"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.50)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Services
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Peinture extérieure
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Peinture extérieure à Montréal
-                </Heading>
-                <Text variant="heroSubtitle" color="white" minW={0}>
-                  Revêtement, balcon, clôture, corniche.
-                </Text>
-
-                <Box pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-        <PageIntro>
-          Protéger et embellir l&apos;extérieur de votre propriété avec les bons produits et les bonnes techniques.
-        </PageIntro>
-
-        {/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Peinture extérieure'
+          imageBackground={exterieureHeroImg}
+          imageAlt='Peinture extérieure - revêtement, balcon et clôture'
+          overlayBg='rgba(0, 0, 0, 0.50)'
+          title='Peinture extérieure'
+          subtitle='Revêtement, balcon, clôture, corniche.'
+          description='Produits adaptés au climat et techniques pour chaque surface.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
         <FeatureCardsSection
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           title="Ce qui distingue notre peinture extérieure"
           subtitle="La durabilité d'une peinture extérieure dépend autant de la préparation que du produit appliqué"
           items={CHECKMARKS}
@@ -400,11 +319,6 @@ export default function PeintureExterieurePage() {
           columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
         />
 
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
 
         {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
         <BeforeAfterCarouselSection
@@ -428,6 +342,7 @@ export default function PeintureExterieurePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection

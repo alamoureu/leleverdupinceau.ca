@@ -2,8 +2,11 @@ import React, { useContext } from 'react';
 import { Button, Link } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
+import { SECTION_PY } from '../constants/sectionSpacing';
 import ServiceWhyUsSection from '../services-pages/components/ServiceWhyUsSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 
+/** Toujours juste après TrustBanner : pt = air sous la carte (évite le double padding d'un Container parent). */
 export default function CityWhyUsSection({
   cityName,
   whyUsContent,
@@ -44,11 +47,14 @@ export default function CityWhyUsSection({
       subtitle={localInsight}
       content={whyUsContent || fallbackContent}
       introText={whyUsIntroText}
+      centered
+      pt={TRUST_BANNER_BELOW_PT}
+      pb={SECTION_PY}
     >
       <Link
         href="/peintre-professionnel"
         _hover={{ textDecoration: 'none' }}
-        w={{ base: '100%', md: 'auto' }}
+        w="auto"
         mt={4}
         display="inline-block"
       >

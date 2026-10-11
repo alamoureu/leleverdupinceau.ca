@@ -18,7 +18,7 @@ export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();
   return (
     <Box py={{ base: 12, md: 16, lg: 20 }} bg='white'>
-      <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+      <Container maxW='1440px' px={6}>
         <SimpleGrid
           columns={{ base: 1, md: 2 }}
           spacing={{ base: 8, md: 12, lg: 16 }}
@@ -61,19 +61,15 @@ export default function TeamSection({ pageContext = '' }) {
             <Link
               href='/peintre-professionnel'
               _hover={{ textDecoration: 'none' }}
-              w={{ base: '100%', md: 'auto' }}
             >
               <Button
                 variant='ctaOutline'
                 rightIcon={<ArrowForwardIcon />}
                 borderRadius='full'
                 textStyle='nav'
-                px={{ base: 4, sm: 5, md: 7 }}
+                px={{ base: 5, md: 7 }}
                 py={{ base: 3, md: 4 }}
-                w={{ base: '100%', sm: 'auto' }}
-                maxW={{ base: '100%', sm: '100%', md: 'none' }}
-                whiteSpace='normal'
-                wordBreak='break-word'
+                minW={{ base: '269px', md: '285px' }}
               >
                 {t.learnMorePainters}
               </Button>

@@ -5,23 +5,24 @@ alwaysApply: true
 
 # Content Standards – leleverdupinceau.ca
 
-## Caractère interdit : tiret em (—)
+## Caractère interdit : tiret em (—) et tiret en (–)
 
-**JAMAIS utiliser le tiret em (—) dans aucun fichier de ce projet.**
+Voir aussi la règle dédiée `no-em-dash.mdc`.
 
-Utiliser uniquement le tiret simple `-` ou une virgule selon le contexte.
+**JAMAIS** utiliser `—` (em) ni `–` (en). Uniquement le tiret simple `-`, ou une virgule / deux-points.
 
 ```jsx
 // ❌ INTERDIT
+'Soumission gratuite — Sans engagement'
+'Soumission gratuite – Sans engagement'
 'Résidentiel, commercial, intérieur ou extérieur — toutes nos interventions'
-'Montréal, Laval, Longueuil — tous les quartiers desservis'
 
 // ✅ CORRECT
+'Soumission gratuite - Sans engagement'
 'Résidentiel, commercial, intérieur ou extérieur - toutes nos interventions'
-'Montréal, Laval, Longueuil - tous les quartiers desservis'
 ```
 
-Cette règle s'applique à **tout** : strings JSX, commentaires visibles, JSON-LD, meta descriptions, alt text, title attributes, données de composants (arrays, objets), et contenu bilingue (français et anglais).
+S'applique à **tout** : strings JSX, commentaires visibles, JSON-LD, meta, alt, titles, données, FR et EN.
 
 ## Aucun emoji
 
@@ -37,20 +38,29 @@ Toujours utiliser les accents corrects dans tout le contenu français :
 - û, ù → jamais u sans accent
 - ç → jamais c sans accent
 
-## Header (héros) : texte minimal
+## Header (héros) : 3 niveaux de titre
 
-Le héros contient **seulement** : fil d'Ariane, titre H1, **une** phrase courte (15 mots max), bouton CTA.
+Le héros photo contient **toujours** 3 niveaux (voir `theme.js` : `hero` / `heroSubtitle` / `heroDescription`) :
 
-- Jamais de paragraphe, jamais de deuxième bloc de texte (`description`) dans le héros.
-- Un texte d'intro plus long va dans `<PageIntro>` (`components/PageIntro.jsx`), placé juste après `<TrustBanner />`, jamais par-dessus la photo.
-- Avant de livrer une page, vérifier le héros dans le navigateur : si le texte dépasse ~2 lignes sur desktop, c'est trop.
+1. **Titre** (H1, `size="hero"`)
+2. **Sous-titre** (style h2, `variant="heroSubtitle"`) - une phrase courte, ~15 mots max
+3. **Description** (`variant="heroDescription"` ou prop `description` sur `HeroSection`) - une phrase de soutien, pas un paragraphe long
+
+Puis : bouton CTA. Fil d'Ariane optionnel au-dessus.
+
+- Ne pas laisser le 3e niveau uniquement dans `<PageIntro>` sous la photo : il appartient au héros.
+- Avant de livrer une page, vérifier le héros : si le bloc texte dépasse ~4 lignes sur desktop, raccourcir la description.
 
 ```jsx
-// ❌ INTERDIT
-<HeroSection title="Contactez-nous" description="Vous souhaitez rafraîchir votre intérieur, moderniser vos espaces ... (80 mots)" />
-
-// ✅ CORRECT
+// ❌ INTERDIT - seulement 2 niveaux
 <HeroSection title="Contactez Le Lever du Pinceau" subtitle="Soumission gratuite en moins de 24 h." />
+
+// ✅ CORRECT - 3 niveaux
+<HeroSection
+  title="Contactez Le Lever du Pinceau"
+  subtitle="Soumission gratuite en moins de 24 h."
+  description="Peinture résidentielle et commerciale dans le Grand Montréal."
+/>
 ```
 
 ## Pages de ville – template
@@ -60,4 +70,5 @@ Réutiliser les composants `TrustBanner`, `CityWhyUsSection`, `BeforeAfterCarous
 ## Composants site-wide
 
 - Avis : toujours `ReviewsSection` (avec `reviewsOverride` au besoin), jamais une grille d'avis maison.
+- FAQ : toujours `FAQSection` (`src/lelever-next/home-page/FAQSection.jsx`, avec `faqsOverride` / `faqs` au besoin). Jamais d'accordion, cartes ou liste FAQ maison. Pas de wrapper one-off autour de `FAQSection`.
 - Fin de page : chaque page se termine par `FinalCTASection`. Ne jamais recopier un bloc CTA `bg="app.ctaBg"` à la main.

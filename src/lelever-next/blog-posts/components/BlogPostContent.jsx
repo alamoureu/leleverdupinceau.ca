@@ -1,13 +1,9 @@
 import React from 'react';
 import { Box, Heading, Text, Link, Stack, SimpleGrid } from '@chakra-ui/react';
-import BeforeAfter from '../../components/BeforeAfter';
-
-// Helper function to prevent orphaned punctuation
-function preventOrphanedPunctuation(text) {
-  if (typeof text !== 'string') return text;
-  // Replace space before punctuation with non-breaking space
-  return text.replace(/\s+([?!.,:;])/g, '\u00A0$1');
-}
+import BeforeAfterCarouselSection, {
+  buildLandingPagePairs,
+} from '../../home-page/BeforeAfterCarouselSection';
+import { preventOrphanedPunctuation } from '../../utils/preventOrphanedPunctuation';
 
 export default function BlogPostContent({ content, isFr, blogSlug }) {
   // Helper to get previous item type for context-aware styling
@@ -1066,10 +1062,17 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
       case 'beforeAfter':
         return (
           <Box key={index} mt={{ base: 8, md: 10 }} mb={{ base: 6, md: 8 }}>
-            <BeforeAfter
-              images={item.images || []}
-              title={item.title?.[isFr ? 'fr' : 'en']}
+            <BeforeAfterCarouselSection
+              layout="grid"
+              hideCta
               isFr={isFr}
+              title={item.title?.[isFr ? 'fr' : 'en']}
+              subtitle=""
+              images={
+                item.images?.length
+                  ? item.images
+                  : buildLandingPagePairs(isFr)
+              }
             />
           </Box>
         );

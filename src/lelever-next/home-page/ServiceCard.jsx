@@ -36,14 +36,16 @@ export default function ServiceCard({
   const showCaptionStrip = titleInStrip && (title || bottomText);
   const imageHeights = compact
     ? { base: '180px', sm: '200px', md: '220px', lg: '240px' }
-    : {
-        base: '260px',
-        sm: '280px',
-        md: '300px',
-        lg: '320px',
-        xl: '340px',
-        '2xl': '360px',
-      };
+    : titleInStrip
+      ? { base: '220px', sm: '240px', md: '260px', lg: '280px' }
+      : {
+          base: '260px',
+          sm: '280px',
+          md: '300px',
+          lg: '320px',
+          xl: '340px',
+          '2xl': '360px',
+        };
   /** Min height for the strip (fits ~2 lines); grows to fit content when needed */
   const stripMinHeight = compact
     ? { base: '56px', md: '60px' }
@@ -57,31 +59,30 @@ export default function ServiceCard({
       border="1px solid"
       borderColor="gray.200"
       boxShadow="0 2px 12px rgba(0,0,0,0.06)"
-      transition={noHoverBorder ? undefined : 'box-shadow 0.2s ease, border-color 0.2s ease'}
-      _hover={
-        noHoverBorder
-          ? undefined
-          : {
-              boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
-              borderColor: 'brand.500',
-            }
-      }
+      transition="box-shadow 0.2s ease, border-color 0.2s ease, transform 0.2s ease"
+      _hover={{
+        boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
+        transform: 'translateY(-2px)',
+        ...(noHoverBorder ? {} : { borderColor: 'brand.500' }),
+      }}
       w="100%"
       h="100%"
       display="flex"
       flexDirection="column"
       overflow="hidden"
       minH={
-        compact
-          ? { base: '248px', sm: '272px', md: '296px', lg: '316px' }
-          : {
-              base: '340px',
-              sm: '360px',
-              md: '380px',
-              lg: '400px',
-              xl: '420px',
-              '2xl': '440px',
-            }
+        titleInStrip
+          ? undefined
+          : compact
+            ? { base: '248px', sm: '272px', md: '296px', lg: '316px' }
+            : {
+                base: '340px',
+                sm: '360px',
+                md: '380px',
+                lg: '400px',
+                xl: '420px',
+                '2xl': '440px',
+              }
       }
       {...(fluid
         ? { maxW: '100%', mx: 0 }
@@ -97,7 +98,8 @@ export default function ServiceCard({
             mx: { base: 0, md: 'auto' },
           })}
       {...(fillHeight &&
-        !compact && {
+        !compact &&
+        !titleInStrip && {
           minH: { base: '340px', sm: '360px', md: '380px', lg: '400px' },
         })}
     >
@@ -122,67 +124,70 @@ export default function ServiceCard({
           decoding="async"
           htmlWidth={800}
           htmlHeight={600}
+          sx={
+            titleInStrip
+              ? {
+                  // Long soft mask into white card bg - avoid hard color-stop edges.
+                  WebkitMaskImage:
+                    'linear-gradient(to bottom, #000 18%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 68%, rgba(0,0,0,0.08) 88%, transparent 100%)',
+                  maskImage:
+                    'linear-gradient(to bottom, #000 18%, rgba(0,0,0,0.85) 45%, rgba(0,0,0,0.4) 68%, rgba(0,0,0,0.08) 88%, transparent 100%)',
+                }
+              : undefined
+          }
         />
         {!titleInStrip && (
-          <Box
-            position="absolute"
-            inset={0}
-            zIndex={2}
-            bgGradient="linear(to-br, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 35%, transparent 70%)"
-            display="flex"
-            flexDirection="column"
-            alignItems="flex-start"
-            justifyContent="flex-start"
-            p={{ base: 4, sm: 5, md: 5, lg: 6, xl: 6 }}
-            pointerEvents="none"
-          >
-            <Heading as="h3" size="card" color="white" lineHeight="1.2">
-              {title}
-            </Heading>
-            {subtitle && (
-              <Text
-                mt={1}
-                color="white"
-                fontWeight="normal"
-                fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
-                lineHeight="1.4"
-              >
-                {subtitle}
-              </Text>
-            )}
+          <>
+            <Box
+              position="absolute"
+              inset={0}
+              zIndex={2}
+              bgGradient="linear(to-br, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 35%, transparent 70%)"
+              display="flex"
+              flexDirection="column"
+              alignItems="flex-start"
+              justifyContent="flex-start"
+              p={{ base: 4, sm: 5, md: 5, lg: 6, xl: 6 }}
+              pointerEvents="none"
+            >
+              <Heading as="h3" size="card" color="white" lineHeight="1.2">
+                {title}
+              </Heading>
+              {subtitle && (
+                <Text
+                  mt={1}
+                  color="white"
+                  fontWeight="normal"
+                  fontSize={{ base: 'sm', md: 'md', lg: 'lg' }}
+                  lineHeight="1.4"
+                >
+                  {subtitle}
+                </Text>
+              )}
+            </Box>
+            {/*
+              Use rgba(255,255,255,0) not `transparent` - CSS transparent is
+              rgba(0,0,0,0) and white→transparent interpolates through gray.
+            */}
+            <Box
+              position="absolute"
+              inset={0}
+              pointerEvents="none"
+              zIndex={2}
+              bgGradient="linear(to-t, #fff 0%, rgba(255,255,255,0.92) 10%, rgba(255,255,255,0.45) 26%, rgba(255,255,255,0) 42%)"
+            />
+          </>
+        )}
+        {showCaptionStrip && (
+          <Box position="absolute" left={0} right={0} bottom={0} zIndex={3}>
+            <CardCaptionStrip
+              title={title}
+              subtitle={bottomText || subtitle}
+              compact={compact}
+            />
           </Box>
         )}
-        {/*
-          White fade: use rgba(255,255,255,0) not `transparent`.
-          CSS `transparent` is rgba(0,0,0,0), so white→transparent interpolates
-          through gray and the band looks like it shifts on scroll/repaint.
-        */}
-        <Box
-          position="absolute"
-          left={0}
-          right={0}
-          bottom={0}
-          h={titleInStrip ? '58%' : '42%'}
-          pointerEvents="none"
-          zIndex={2}
-          bgGradient={
-            titleInStrip
-              ? 'linear(to-t, #fff 0%, rgba(255,255,255,0.97) 12%, rgba(255,255,255,0.7) 38%, rgba(255,255,255,0.28) 62%, rgba(255,255,255,0) 100%)'
-              : 'linear(to-t, #fff 0%, rgba(255,255,255,0.92) 22%, rgba(255,255,255,0.45) 55%, rgba(255,255,255,0) 100%)'
-          }
-          style={{ transform: 'translateZ(0)', backfaceVisibility: 'hidden' }}
-        />
       </Box>
-
-      {showCaptionStrip && (
-        <Box mt={titleInStrip ? { base: -4, md: -5 } : 0} position="relative" zIndex={3}>
-          <CardCaptionStrip
-            title={title}
-            subtitle={bottomText || subtitle}
-            compact={compact}
-          />
-        </Box>
-      )}
 
       {showLegacyStrip && (
         <Box
@@ -227,7 +232,7 @@ export default function ServiceCard({
           )}
           {children}
         </Box>
-      ) : fillHeight ? (
+      ) : fillHeight && !titleInStrip ? (
         <Box flex="1 1 0" minH="0" aria-hidden />
       ) : null}
     </Box>

@@ -32,8 +32,8 @@ import {
   FaWarehouse,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -70,6 +70,12 @@ import moulureApres from '../images/L2 Services principaux/peinture interieure/+
 import poutreAcierAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
 import poutreAcierApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Peinture intérieure' },
+];
 
 const CHECKMARKS = [
   {
@@ -326,119 +332,29 @@ export default function PeintureInterieurePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peinture intérieure à Montréal | Murs, plafonds, armoires | Le Lever du Pinceau"
-        description="Service de peinture intérieure professionnelle à Montréal. Murs, plafonds, boiseries, armoires de cuisine. Préparation soignée, finitions impeccables. Licence RBQ. Soumission gratuite."
+        title="Peinture intérieure | Murs, plafonds et boiseries | Le Lever du Pinceau"
+        description="Service de peinture intérieure: murs, plafonds, boiseries et finitions. Préparation soignée, chantier propre, licence RBQ. Grand Montréal. Soumission gratuite."
         canonicalPath="/services/peinture-interieure"
         schemaArray={[breadcrumbSchema, faqSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={interieureHeroImg}
-            alt="Peinture intérieure à Montréal - peintre professionnel au travail"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.50)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Services
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Peinture intérieure
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Peinture intérieure à Montréal
-                </Heading>
-                <Text variant="heroSubtitle" color="white" minW={0}>
-                  Murs, plafonds, baies vitrées, armoires.
-                </Text>
-
-                <Box pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-        <PageIntro>
-          Des finitions impeccables pour chaque pièce de votre intérieur.
-        </PageIntro>
-
-        {/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Peinture intérieure'
+          imageBackground={interieureHeroImg}
+          imageAlt='Peinture intérieure - peintre professionnel au travail'
+          overlayBg='rgba(0, 0, 0, 0.50)'
+          title='Peinture intérieure'
+          subtitle='Murs, plafonds, baies vitrées, boiseries.'
+          description='Techniques et finitions impeccables pour chaque pièce.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
         <FeatureCardsSection
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           title="Ce qui distingue notre peinture intérieure"
           subtitle="Des techniques maîtrisées pour chaque surface de votre intérieur"
           items={CHECKMARKS}
@@ -565,6 +481,7 @@ export default function PeintureInterieurePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection

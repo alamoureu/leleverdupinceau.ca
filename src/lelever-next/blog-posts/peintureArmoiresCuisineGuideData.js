@@ -4,12 +4,12 @@ export const peintureArmoiresCuisineGuideData = {
   url: 'https://leleverdupinceau.ca/blog/peinture-armoires-cuisine-guide',
   seo: {
     title: {
-      fr: 'Peindre ses armoires de cuisine - Guide complet 2026 | Le Lever du Pinceau',
-      en: 'Painting kitchen cabinets - Complete guide 2026 | Le Lever du Pinceau',
+      fr: 'Peindre ses armoires de cuisine - Guide complet 2026',
+      en: 'Painting kitchen cabinets - Complete guide 2026',
     },
     metaDescription: {
-      fr: "Tout ce qu'il faut savoir avant de peindre vos armoires de cuisine à Montréal. Étapes, coût, erreurs à éviter, DIY vs professionnel. Guide complet par Le Lever du Pinceau.",
-      en: 'Everything you need to know before painting your kitchen cabinets in Montreal. Steps, cost, mistakes to avoid, DIY vs professional. Complete guide by Le Lever du Pinceau.',
+      fr: "Guide DIY et préparation: étapes, coûts, erreurs à éviter et quand faire appel à un pro pour peindre vos armoires. Conseils pratiques 2026.",
+      en: 'DIY and prep guide: steps, costs, mistakes to avoid and when to hire a pro to paint your cabinets. Practical tips for 2026.',
     },
   },
   breadcrumb: {

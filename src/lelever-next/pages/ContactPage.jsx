@@ -10,7 +10,6 @@ import {
   Link,
   Button,
   Icon,
-  HStack,
   Flex,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -21,17 +20,90 @@ import {
   faPhone,
   faMapMarkerAlt,
   faClock,
-  faCheckCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
 import ContactFormSection from '../home-page/ContactFormSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import SectorsSection from '../home-page/SectorsSection';
+import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
+import FullWidthSection from '../components/FullWidthSection';
+import { SECTION_PY, SECTION_TITLE_MAX_W, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
+import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import contactPhotoHeader from '../images/hero/contact-hero.webp';
+
+const BUSINESS_EMAIL = LOCAL_BUSINESS_SCHEMA.email;
+const BUSINESS_PHONE_DISPLAY = '(438) 868-0772';
+const BUSINESS_PHONE_TEL = LOCAL_BUSINESS_SCHEMA.telephone;
+const BUSINESS_ADDRESS = `${LOCAL_BUSINESS_SCHEMA.address.streetAddress}, ${LOCAL_BUSINESS_SCHEMA.address.addressLocality}, ${LOCAL_BUSINESS_SCHEMA.address.addressRegion} ${LOCAL_BUSINESS_SCHEMA.address.postalCode}`;
+
+function ContactDetailCard({ icon, label, value, href }) {
+  const content = (
+    <Stack spacing={3} align="center" h="100%">
+      <Flex
+        w="52px"
+        h="52px"
+        borderRadius="xl"
+        bg="brand.50"
+        align="center"
+        justify="center"
+      >
+        <Icon as={FontAwesomeIcon} icon={icon} boxSize={5} color="brand.500" />
+      </Flex>
+      <Text textStyle="caption" color="gray.500" fontWeight="600" letterSpacing="0.04em" textTransform="uppercase">
+        {label}
+      </Text>
+      <Text
+        color="gray.800"
+        textStyle="body"
+        fontWeight="semibold"
+        lineHeight="1.45"
+        wordBreak="break-word"
+      >
+        {value}
+      </Text>
+    </Stack>
+  );
+
+  const sharedProps = {
+    p: { base: 5, md: 6 },
+    bg: 'white',
+    borderRadius: 'xl',
+    border: '1px solid',
+    borderColor: 'gray.200',
+    boxShadow: '0 2px 12px rgba(0,0,0,0.05)',
+    textAlign: 'center',
+    h: '100%',
+    transition: 'all 0.2s',
+  };
+
+  if (href) {
+    return (
+      <Link
+        href={href}
+        _hover={{ textDecoration: 'none' }}
+        h="100%"
+        display="block"
+      >
+        <Box
+          {...sharedProps}
+          _hover={{
+            borderColor: 'brand.500',
+            boxShadow: 'md',
+            transform: 'translateY(-2px)',
+          }}
+        >
+          {content}
+        </Box>
+      </Link>
+    );
+  }
+
+  return <Box {...sharedProps}>{content}</Box>;
+}
 
 export default function ContactPage() {
   const { currentLang } = useContext(appContext);
@@ -43,35 +115,21 @@ export default function ContactPage() {
     {
       icon: faEnvelope,
       label: isFr ? 'Courriel' : 'Email',
-      value: 'leleverdupinceau@gmail.com',
-      href: 'mailto:leleverdupinceau@gmail.com',
+      value: BUSINESS_EMAIL,
+      href: `mailto:${BUSINESS_EMAIL}`,
     },
     {
       icon: faPhone,
       label: isFr ? 'Téléphone' : 'Phone',
-      value: '(438) 868-0772',
-      href: 'tel:4388680772',
+      value: BUSINESS_PHONE_DISPLAY,
+      href: `tel:${BUSINESS_PHONE_TEL}`,
     },
     {
       icon: faMapMarkerAlt,
       label: isFr ? 'Lieu' : 'Location',
-      value: '2175 Rue Saint-Patrick, Montréal, QC H3K 1B4',
+      value: BUSINESS_ADDRESS,
       href: null,
     },
-  ];
-
-  const benefits = [
-    isFr ? 'Soumission rapide et précise' : 'Fast and accurate quote',
-    isFr
-      ? 'Communication simple & transparente'
-      : 'Simple & transparent communication',
-    isFr ? 'Respect des délais' : 'Respect of deadlines',
-    isFr ? 'Finition impeccable' : 'Impeccable finish',
-    isFr ? 'Protection totale des surfaces' : 'Total surface protection',
-    isFr ? 'Produits premium et durables' : 'Premium and durable products',
-    isFr
-      ? 'Service professionnel du début à la fin'
-      : 'Professional service from start to finish',
   ];
 
   const faqs = [
@@ -135,25 +193,18 @@ export default function ContactPage() {
     url: 'https://leleverdupinceau.ca/contact',
     mainEntity: {
       '@type': 'LocalBusiness',
-      name: 'Le Lever du Pinceau',
-      telephone: '+14388680772',
-      email: 'leleverdupinceau@gmail.com',
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: '2175 Rue Saint-Patrick',
-        addressLocality: 'Montréal',
-        addressRegion: 'QC',
-        postalCode: 'H3K 1B4',
-        addressCountry: 'CA',
-      },
+      name: LOCAL_BUSINESS_SCHEMA.name,
+      telephone: BUSINESS_PHONE_TEL,
+      email: BUSINESS_EMAIL,
+      address: LOCAL_BUSINESS_SCHEMA.address,
     },
   };
 
   return (
     <Fragment>
       <SEOHead
-        title={isFr ? 'Devis peinture gratuit Montréal | Contact – Le Lever du Pinceau' : 'Free painting quote Montreal | Contact – Le Lever du Pinceau'}
-        description={isFr ? 'Obtenez votre soumission gratuite à Montréal, Laval, Longueuil. Peintres professionnels pour peinture résidentielle et commerciale. Réponse rapide au (438) 868-0772.' : 'Get your free quote in Montreal, Laval, Longueuil. Professional painters for residential and commercial painting. Fast response (438) 868-0772.'}
+        title={isFr ? 'Soumission gratuite | Contactez-nous | Le Lever du Pinceau' : 'Free quote | Contact us | Le Lever du Pinceau'}
+        description={isFr ? 'Demandez votre soumission gratuite en moins de 24 h. Réponse rapide au (438) 868-0772. Grand Montréal: Montréal, Laval, Longueuil et Rive-Sud.' : 'Request your free quote within 24 h. Fast response at (438) 868-0772. Greater Montreal: Montreal, Laval, Longueuil and South Shore.'}
         canonicalPath="/contact"
         schemaArray={[breadcrumbSchema, contactPageSchema]}
       />
@@ -164,138 +215,132 @@ export default function ContactPage() {
           pageContext={isFr ? 'Page Contact' : 'Contact Page'}
           title={isFr ? 'Contactez Le Lever du Pinceau' : 'Contact Le Lever du Pinceau'}
           subtitle={isFr ? 'Soumission gratuite en moins de 24 h.' : 'Free quote in less than 24 h.'}
+          description={
+            isFr
+              ? 'Résidentiel et commercial à Montréal, Laval et Longueuil.'
+              : 'Residential and commercial in Montreal, Laval and Longueuil.'
+          }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
           imageBackground={contactPhotoHeader}
           overlayBg='linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.7) 45%, rgba(18, 38, 74, 0.5) 100%)'
-        >
-          <HStack
-            spacing={3}
-            textStyle='bodyLarge'
-            color='whiteAlpha.900'
-            mb={{ base: 2, md: 4 }}
-            flexWrap='wrap'
-          >
-            <Link as={RouterLink} to='/' _hover={{ textDecoration: 'underline', color: 'white' }}>
-              {isFr ? 'Accueil' : 'Home'}
-            </Link>
-            <Text color='white' opacity={0.9}>›</Text>
-            <Text color='white' fontWeight='medium'>Contact</Text>
-          </HStack>
-        </HeroSection>
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: 'Contact' },
+          ]}
+        />
 
-        <TrustBanner />
+        <ContactFormSection sectionPaddingTop={TRUST_BANNER_BELOW_PT} />
 
-        <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-          <Stack spacing={0}>
-            <ContactFormSection />
+        <FullWidthSection bg="gray.50" py={SECTION_PY}>
+          <Stack spacing={TRUST_BANNER_AIR_SPACE}>
+            <Stack
+              spacing={{ base: 2, md: 3 }}
+              textAlign="center"
+              maxW={SECTION_TITLE_MAX_W}
+              mx="auto"
+            >
+              <Heading as="h2" size="section" color="gray.800">
+                {isFr ? 'Nos coordonnées' : 'Our contact information'}
+              </Heading>
+              <Text color="gray.600" textStyle="body" maxW="640px" mx="auto">
+                {isFr
+                  ? 'Écrivez-nous, appelez-nous ou passez nous voir. Réponse rapide garantie.'
+                  : 'Email us, call us, or stop by. Fast response guaranteed.'}
+              </Text>
+            </Stack>
 
-            <Box py={{ base: 12, md: 16, lg: 20 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
-                    <Heading as='h2' size='section' color='gray.800'>
-                      {isFr ? 'Nos coordonnées' : 'Our contact information'}
-                    </Heading>
-                  </Stack>
+            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5}>
+              {contactInfo.map((info) => (
+                <ContactDetailCard
+                  key={info.label}
+                  icon={info.icon}
+                  label={info.label}
+                  value={info.value}
+                  href={info.href}
+                />
+              ))}
+            </SimpleGrid>
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 3 }}
-                    spacing={{ base: 6, md: 8 }}
+            <Box
+              bg="white"
+              borderRadius="xl"
+              border="1px solid"
+              borderColor="gray.200"
+              boxShadow="0 2px 12px rgba(0,0,0,0.05)"
+              overflow="hidden"
+            >
+              <Flex
+                direction={{ base: 'column', md: 'row' }}
+                align={{ base: 'stretch', md: 'center' }}
+                gap={{ base: 5, md: 8 }}
+                p={{ base: 5, md: 7 }}
+              >
+                <Flex align="center" gap={4} minW={{ md: '220px' }}>
+                  <Flex
+                    w="52px"
+                    h="52px"
+                    borderRadius="xl"
+                    bg="brand.50"
+                    align="center"
+                    justify="center"
+                    flexShrink={0}
                   >
-                    {contactInfo.map((info, index) => (
-                      <Box
-                        key={index}
-                        p={{ base: 6, md: 8 }}
-                        bg='white'
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                        textAlign='center'
-                      >
-                        <Stack spacing={3} align='center'>
-                          <Icon
-                            as={FontAwesomeIcon}
-                            icon={info.icon}
-                            boxSize={6}
-                            color='brand.500'
-                          />
-                          <Text textStyle='caption' color='gray.600' fontWeight='medium'>
-                            {info.label}
-                          </Text>
-                          {info.href ? (
-                            <Link
-                              href={info.href}
-                              color='gray.800'
-                              textStyle='body'
-                              fontWeight='medium'
-                              _hover={{
-                                textDecoration: 'underline',
-                                color: 'brand.500',
-                              }}
-                            >
-                              {info.value}
-                            </Link>
-                          ) : (
-                            <Text color='gray.800' textStyle='body' fontWeight='medium'>
-                              {info.value}
-                            </Text>
-                          )}
-                        </Stack>
-                      </Box>
-                    ))}
-                  </SimpleGrid>
+                    <Icon
+                      as={FontAwesomeIcon}
+                      icon={faClock}
+                      boxSize={5}
+                      color="brand.500"
+                    />
+                  </Flex>
+                  <Text fontWeight="bold" color="gray.800" textStyle="bodyLarge">
+                    {isFr ? "Heures d'ouverture" : 'Opening hours'}
+                  </Text>
+                </Flex>
 
-                  <Box
-                    bg='gray.50'
-                    p={{ base: 6, md: 8 }}
-                    borderRadius='xl'
-                    textAlign='center'
-                    maxW='600px'
-                    mx='auto'
-                    border='1px solid'
-                    borderColor='gray.200'
-                  >
-                    <Stack spacing={3} align='center'>
-                      <Icon
-                        as={FontAwesomeIcon}
-                        icon={faClock}
-                        boxSize={6}
-                        color='brand.500'
-                      />
-                      <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge'>
-                        {isFr ? "Heures d'ouverture" : 'Opening hours'}
-                      </Text>
-                      <Stack spacing={1}>
-                        <Text color='gray.700' textStyle='body'>
-                          {isFr
-                            ? 'Lundi au vendredi 5h30 – 23h30'
-                            : 'Monday to Friday: 5:30 AM – 11:30 PM'}
-                        </Text>
-                        <Text color='gray.700' textStyle='body'>
-                          {isFr
-                            ? 'Samedi et Dimanche 5h30 – 23h30'
-                            : 'Saturday and Sunday: 5:30 AM – 11:30 PM'}
-                        </Text>
-                      </Stack>
-                      <Box
-                        mt={4}
-                        p={3}
-                        bg='brand.500'
-                        borderRadius='md'
-                        border='1px solid'
-                        borderColor='brand.500'
-                      >
-                        <Text color='white' textStyle='body' fontWeight='bold' textAlign='center'>
-                          {isFr
-                            ? 'Disponible pour projets urgents sur demande'
-                            : 'Available for urgent projects upon request'}
-                        </Text>
-                      </Box>
-                    </Stack>
+                <SimpleGrid
+                  columns={{ base: 1, sm: 2 }}
+                  spacing={{ base: 3, sm: 6 }}
+                  flex="1"
+                >
+                  <Box>
+                    <Text textStyle="caption" color="gray.500" fontWeight="600" mb={1}>
+                      {isFr ? 'Lundi au vendredi' : 'Monday to Friday'}
+                    </Text>
+                    <Text color="gray.800" textStyle="body" fontWeight="semibold">
+                      {isFr ? '5h30 - 23h30' : '5:30 AM - 11:30 PM'}
+                    </Text>
                   </Box>
-                </Stack>
-              </Container>
+                  <Box>
+                    <Text textStyle="caption" color="gray.500" fontWeight="600" mb={1}>
+                      {isFr ? 'Samedi et dimanche' : 'Saturday and Sunday'}
+                    </Text>
+                    <Text color="gray.800" textStyle="body" fontWeight="semibold">
+                      {isFr ? '5h30 - 23h30' : '5:30 AM - 11:30 PM'}
+                    </Text>
+                  </Box>
+                </SimpleGrid>
+
+                <Box
+                  px={4}
+                  py={2.5}
+                  bg="brand.50"
+                  borderRadius="full"
+                  border="1px solid"
+                  borderColor="brand.100"
+                  flexShrink={0}
+                  alignSelf={{ base: 'stretch', md: 'center' }}
+                  textAlign="center"
+                >
+                  <Text color="brand.700" textStyle="caption" fontWeight="bold">
+                    {isFr
+                      ? 'Projets urgents sur demande'
+                      : 'Urgent projects on request'}
+                  </Text>
+                </Box>
+              </Flex>
             </Box>
+          </Stack>
+        </FullWidthSection>
 
             <SectorsSection
               title={
@@ -315,130 +360,42 @@ export default function ContactPage() {
               buttonText={isFr ? 'Voir les secteurs' : 'View service areas'}
             />
 
-            <Box py={{ base: 12, md: 16, lg: 20 }}>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
-                    <Heading as='h2' size='section' color='gray.800'>
-                      {isFr
-                        ? 'Un service rapide, professionnel et fiable'
-                        : 'A fast, professional and reliable service'}
-                    </Heading>
-                    <Text textStyle='bodyLarge' color='gray.600'>
-                      {isFr
-                        ? 'Nos clients apprécient'
-                        : 'Our clients appreciate'}
-                    </Text>
-                  </Stack>
+            <FAQSection
+              faqsOverride={faqs}
+              title={
+                isFr
+                  ? 'Questions fréquentes avant de nous contacter'
+                  : 'Frequently asked questions before contacting us'
+              }
+            />
 
-                  <SimpleGrid
-                    columns={{ base: 1, md: 2, lg: 3 }}
-                    spacing={{ base: 4, md: 6 }}
-                    maxW='1000px'
-                    mx='auto'
+            <Box py={{ base: 8, md: 10 }} textAlign='center'>
+              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
+                <Text color='gray.600' textStyle='body' mb={4}>
+                  {isFr
+                    ? 'Vous souhaitez en savoir plus sur notre équipe?'
+                    : 'Would you like to know more about our team?'}
+                </Text>
+                <Link
+                  as={RouterLink}
+                  to='/peintre-professionnel'
+                  _hover={{ textDecoration: 'none' }}
+                >
+                  <Button
+                    variant='ctaOutline'
+                    rightIcon={<ArrowForwardIcon />}
+                    borderRadius='full'
+                    textStyle='nav'
+                    px={{ base: 5, md: 7 }}
+                    py={{ base: 3, md: 4 }}
                   >
-                    {benefits.map((benefit, index) => (
-                      <Flex key={index} align='start' gap={3}>
-                        <Icon
-                          as={FontAwesomeIcon}
-                          icon={faCheckCircle}
-                          color='brand.500'
-                          boxSize={5}
-                          mt={1}
-                          flexShrink={0}
-                        />
-                        <Text color='gray.700' textStyle='body' lineHeight='1.6'>
-                          {benefit}
-                        </Text>
-                      </Flex>
-                    ))}
-                  </SimpleGrid>
-
-                  <Box textAlign='center' pt={4}>
-                    <Link
-                      as={RouterLink}
-                      to='/avis-clients'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Button
-                        variant='ctaOutline'
-                        rightIcon={<ArrowForwardIcon />}
-                        borderRadius='full'
-                        textStyle='nav'
-                        px={{ base: 5, md: 7 }}
-                        py={{ base: 3, md: 4 }}
-                      >
-                        {isFr ? 'Voir les avis' : 'View reviews'}
-                      </Button>
-                    </Link>
-                  </Box>
-                </Stack>
+                    {isFr
+                      ? 'Découvrez nos peintres professionnels'
+                      : 'Discover our professional painters'}
+                  </Button>
+                </Link>
               </Container>
             </Box>
-
-            <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' borderRadius='xl'>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
-                    <Heading as='h2' size='section' color='gray.800'>
-                      {isFr
-                        ? 'Questions fréquentes avant de nous contacter'
-                        : 'Frequently asked questions before contacting us'}
-                    </Heading>
-                  </Stack>
-
-                  <Stack spacing={4} maxW='800px' mx='auto'>
-                    {faqs.map((faq, index) => (
-                      <Box
-                        key={index}
-                        bg='white'
-                        p={{ base: 6, md: 8 }}
-                        borderRadius='xl'
-                        border='1px solid'
-                        borderColor='gray.200'
-                      >
-                        <Stack spacing={2}>
-                          <Text fontWeight='bold' color='gray.800' textStyle='bodyLarge'>
-                            {faq.question}
-                          </Text>
-                          <Text color='gray.600' textStyle='body' lineHeight='1.6'>
-                            {faq.answer}
-                          </Text>
-                        </Stack>
-                      </Box>
-                    ))}
-                  </Stack>
-
-                  <Box textAlign='center' pt={4}>
-                    <Text color='gray.600' textStyle='body' mb={4}>
-                      {isFr
-                        ? 'Vous souhaitez en savoir plus sur notre équipe?'
-                        : 'Would you like to know more about our team?'}
-                    </Text>
-                    <Link
-                      as={RouterLink}
-                      to='/peintre-professionnel'
-                      _hover={{ textDecoration: 'none' }}
-                    >
-                      <Button
-                        variant='ctaOutline'
-                        rightIcon={<ArrowForwardIcon />}
-                        borderRadius='full'
-                        textStyle='nav'
-                        px={{ base: 5, md: 7 }}
-                        py={{ base: 3, md: 4 }}
-                      >
-                        {isFr
-                          ? 'Découvrez nos peintres professionnels'
-                          : 'Discover our professional painters'}
-                      </Button>
-                    </Link>
-                  </Box>
-                </Stack>
-              </Container>
-            </Box>
-          </Stack>
-        </Container>
 
         <FinalCTASection
           title={isFr ? 'Prêt à commencer votre projet de peinture ?' : 'Ready to start your painting project?'}

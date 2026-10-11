@@ -201,7 +201,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                             </Text>
                           </Box>
                         ) : (
-                          <AnimatePresence initial={false} mode="wait">
+                          <AnimatePresence initial={false}>
                             <motion.div
                               key={currentIndex}
                               variants={fadeVariants}
@@ -209,7 +209,7 @@ export default function RecentProjectsSection({ pageContext = '' }) {
                               animate="center"
                               exit="exit"
                               transition={{
-                                opacity: { duration: 0.4, ease: 'easeInOut' },
+                                opacity: { duration: 0.55, ease: 'easeInOut' },
                               }}
                               style={{
                                 position: 'absolute',

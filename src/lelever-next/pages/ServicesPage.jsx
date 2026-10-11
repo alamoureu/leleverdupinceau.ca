@@ -20,9 +20,11 @@ import { FaPaintBrush, FaBroom, FaSprayCan, FaToolbox, FaHouseDamage } from 'rea
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import FinalCTASection from '../home-page/FinalCTASection';
+import CtaButton from '../home-page/CtaButton';
 import SubmissionModal from '../home-page/SubmissionModal';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import serviceHubPhotoHeader from '../images/5-landing-page/Photo/spray man 3000.jpeg';
 import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
 import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
@@ -111,11 +113,19 @@ function MainHubCard({
         )}
         <Box pt={1} mt="auto">
           <Button
-            variant="ctaOutline"
             as={RouterLink}
             to={buttonHref}
+            variant="ghost"
             borderRadius="full"
             size="md"
+            border="1.5px solid"
+            borderColor="brand.500"
+            color="brand.500"
+            bg="transparent"
+            boxShadow="none"
+            fontWeight="semibold"
+            _hover={{ bg: 'brand.50', boxShadow: 'none' }}
+            _active={{ bg: 'brand.100' }}
             rightIcon={<ArrowForwardIcon />}
           >
             {buttonLabel}
@@ -201,11 +211,11 @@ export default function ServicesPage() {
   };
 
   const seoTitle = isFr
-    ? 'Services de peinture à Montréal | Le Lever du Pinceau'
-    : 'Painting services in Montreal | Le Lever du Pinceau';
+    ? 'Nos services de peinture | Résidentiel, commercial, industriel | Le Lever du Pinceau'
+    : 'Our painting services | Residential, commercial, industrial | Le Lever du Pinceau';
   const seoDescription = isFr
-    ? 'Découvrez nos services de peinture résidentielle, commerciale, industrielle, intérieure et extérieure à Montréal, Laval, Longueuil et sur la Rive-Sud. Peintres professionnels licenciés RBQ. Soumission gratuite.'
-    : 'Explore residential, commercial, industrial, interior and exterior painting in Montreal, Laval, Longueuil and the South Shore. RBQ-licensed professional painters. Free quote.';
+    ? 'Catalogue de nos services: peinture résidentielle, commerciale, industrielle, intérieure et extérieure. Grand Montréal et Rive-Sud. Peintres licenciés RBQ. Soumission gratuite.'
+    : 'Our service catalog: residential, commercial, industrial, interior and exterior painting. Greater Montreal and South Shore. RBQ-licensed painters. Free quote.';
 
   const rowOne = [
     {
@@ -379,6 +389,9 @@ export default function ServicesPage() {
   const heroSubtitle = isFr
     ? 'Résidentiel, commercial et industriel dans le Grand Montréal.'
     : 'Residential, commercial and industrial across Greater Montreal.';
+  const heroDescription = isFr
+    ? 'Intérieur, extérieur, préparation ou spécialisé - chaque page détaille la méthode adaptée à votre type de projet.'
+    : 'Interior, exterior, prep or specialized - each page details the method suited to your type of project.';
 
   return (
     <Fragment>
@@ -395,31 +408,23 @@ export default function ServicesPage() {
           pageContext={pageContext}
           title={heroTitle}
           subtitle={heroSubtitle}
+          description={heroDescription}
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
           imageBackground={serviceHubPhotoHeader}
           overlayBg="linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.62) 42%, rgba(18, 38, 74, 0.38) 100%)"
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: isFr ? 'Services' : 'Services' },
+          ]}
+        />
+
+        <Container
+          maxW="1440px"
+          px={{ base: 4, md: 6 }}
+          pt={TRUST_BANNER_BELOW_PT}
+          pb={SECTION_PY}
         >
-          <HStack
-            spacing={3}
-            textStyle="bodyLarge"
-            color="whiteAlpha.900"
-            mb={{ base: 2, md: 4 }}
-            flexWrap="wrap"
-          >
-            <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline', color: 'white' }}>
-              {isFr ? 'Accueil' : 'Home'}
-            </Link>
-            <Text color="white" opacity={0.9}>›</Text>
-            <Text color="white" fontWeight="medium">
-              {isFr ? 'Services' : 'Services'}
-            </Text>
-          </HStack>
-        </HeroSection>
-
-        <TrustBanner />
-
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} py={{ base: 12, md: 16, lg: 20 }}>
-          <Stack spacing={{ base: 10, md: 14 }}>
+          <Stack spacing={TRUST_BANNER_AIR_SPACE}>
             <Stack spacing={3} textAlign="center" maxW="1100px" mx="auto">
               <Heading as="h2" size="section" color="gray.800">
                 {isFr
@@ -467,51 +472,54 @@ export default function ServicesPage() {
                 ))}
               </Flex>
             </Stack>
+          </Stack>
+        </Container>
 
-            <Box bg="gray.50" borderRadius="xl" py={{ base: 10, md: 14 }} px={{ base: 6, md: 10 }}>
-              <Stack spacing={5} align="center" textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
-                <Heading as="h2" size="section" color="gray.800">
-                  {isFr ? 'Pas certain quel service choisir?' : 'Not sure which service you need?'}
-                </Heading>
-                <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
-                  {isFr
-                    ? 'Décrivez-nous votre projet et nos experts vous orienteront vers la meilleure solution. Soumission gratuite, réponse en moins de 24h.'
-                    : 'Describe your project and our team will point you to the right solution. Free quote, response in under 24 hours.'}
-                </Text>
-                <Button
-                  variant="cta"
-                  as={RouterLink}
-                  to="/contact"
-                  rightIcon={<ArrowForwardIcon />}
-                  borderRadius="full"
-                  size="lg"
-                  px={10}
-                >
-                  {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-                </Button>
-              </Stack>
-            </Box>
-
-            <Stack spacing={5}>
+        <Box bg="gray.50" py={{ base: 10, md: 14 }} w="100%">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack
+              spacing={5}
+              align="center"
+              textAlign="center"
+              maxW={{ base: '100%', md: '960px', lg: '1100px' }}
+              mx="auto"
+              w="100%"
+            >
               <Heading as="h2" size="section" color="gray.800">
-                {isFr ? 'En savoir plus' : 'Learn more'}
+                {isFr ? 'Pas certain quel service choisir?' : 'Not sure which service you need?'}
               </Heading>
-              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={3}>
-                {internalMore.map((item) => (
-                  <Link
-                    key={item.href}
-                    as={RouterLink}
-                    to={item.href}
-                    fontWeight="medium"
-                    color="brand.500"
-                    fontSize="md"
-                    _hover={{ textDecoration: 'underline', color: 'brand.600' }}
-                  >
-                    {item.label}
-                  </Link>
-                ))}
-              </SimpleGrid>
+              <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
+                {isFr
+                  ? 'Décrivez-nous votre projet et nos experts vous orienteront vers la meilleure solution. Soumission gratuite, réponse en moins de 24h.'
+                  : 'Describe your project and our team will point you to the right solution. Free quote, response in under 24 hours.'}
+              </Text>
+              <CtaButton as={RouterLink} to="/contact" rightIcon={<ArrowForwardIcon />}>
+                {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
+              </CtaButton>
             </Stack>
+          </Container>
+        </Box>
+
+        <Container maxW="1440px" px={{ base: 4, md: 6 }} py={SECTION_PY}>
+          <Stack spacing={5}>
+            <Heading as="h2" size="section" color="gray.800">
+              {isFr ? 'En savoir plus' : 'Learn more'}
+            </Heading>
+            <SimpleGrid columns={{ base: 1, md: 2 }} spacing={3}>
+              {internalMore.map((item) => (
+                <Link
+                  key={item.href}
+                  as={RouterLink}
+                  to={item.href}
+                  fontWeight="medium"
+                  color="brand.500"
+                  fontSize="md"
+                  _hover={{ textDecoration: 'underline', color: 'brand.600' }}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </SimpleGrid>
           </Stack>
         </Container>
 

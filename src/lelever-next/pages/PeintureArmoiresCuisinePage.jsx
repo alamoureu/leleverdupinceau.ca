@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -30,7 +29,8 @@ import {
   FaKey,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -44,6 +44,13 @@ import armoiresImg5976 from '../images/L3 Sous services/Photo page armoires de c
 import armoiresImg8114 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';
 import armoiresImg8120 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
+  { label: 'Armoires de cuisine' },
+];
 
 const CHECKMARKS = [
   {
@@ -155,11 +162,6 @@ const INTERNAL_LINKS = [
     description: 'Avant / après de projets réels pour juger la qualité de finition.',
     to: '/realisations',
   },
-  {
-    title: 'Obtenir une soumission',
-    description: 'Réponse en moins de 24h, sans engagement.',
-    to: '/contact',
-  },
 ];
 
 export default function PeintureArmoiresCuisinePage() {
@@ -225,130 +227,29 @@ export default function PeintureArmoiresCuisinePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peinture d'armoires de cuisine à Montréal | Le Lever du Pinceau"
-        description="Transformez vos armoires de cuisine sans les remplacer. Service spécialisé à Montréal pour portes, façades et caissons visibles. Soumission gratuite."
+        title="Peinture d'armoires de cuisine à Montréal | Service pro | Le Lever du Pinceau"
+        description="Service professionnel de peinture d'armoires à Montréal: portes, façades et caissons visibles. Fini uniforme, chantier protégé. Soumission gratuite."
         canonicalPath="/services/peinture-interieure/armoires-de-cuisine"
         schemaArray={[breadcrumbSchema, faqSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={armoiresHeroImg}
-            alt="Peinture armoires cuisine Montréal - transformation fini net et uniforme"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Services
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services/peinture-interieure"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Peinture intérieure
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Armoires de cuisine
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Peinture d&apos;armoires de cuisine à Montréal
-                </Heading>
-
-                <Text
-                  variant="heroSubtitle"
-                  color="white"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                >
-                  Transformez vos armoires sans les remplacer, fini net et durable.
-                </Text>
-
-                <Box pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-
-        {/* ===== SECTION 3 - CHECKMARKS TRANSFORMATION D'ARMOIRES ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Armoires de cuisine'
+          imageBackground={armoiresHeroImg}
+          imageAlt='Peinture armoires cuisine Montréal - transformation fini net et uniforme'
+          overlayBg='rgba(0, 0, 0, 0.45)'
+          title="Peinture d'armoires de cuisine à Montréal"
+          subtitle='Transformez-les sans les remplacer - fini net et durable.'
+          description='Portes, façades et caissons visibles - rendu uniforme.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - CHECKMARKS TRANSFORMATION D'ARMOIRES ===== */}
         <FeatureCardsSection
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           title="Des armoires transformées, sans compromis sur le fini"
           subtitle="Le vrai défi n'est pas de couvrir la surface, mais d'obtenir un rendu uniforme, durable et propre."
           items={CHECKMARKS}
@@ -390,6 +291,7 @@ export default function PeintureArmoiresCuisinePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection

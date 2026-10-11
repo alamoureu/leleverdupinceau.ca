@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -31,8 +30,8 @@ import {
   FaCouch,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -43,9 +42,17 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
 import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG';
 import teintureImg5974 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.PNG';
+import teintureEscalierAvant from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
+import teintureEscalierApres from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
+import teintureClotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import teintureClotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
-const PLACEHOLDER_PAIR = { before: null, after: null };
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Teinture extérieure' },
+];
 
 const CHECKMARKS = [
   {
@@ -171,11 +178,6 @@ const INTERNAL_LINKS = [
     description: 'Montréal, Laval, Longueuil et la Rive-Sud.',
     to: '/secteurs',
   },
-  {
-    title: 'Obtenir une soumission',
-    description: 'Réponse en moins de 24 h, sans engagement.',
-    to: '/contact',
-  },
 ];
 
 export default function TeintureExterieurePage() {
@@ -223,12 +225,17 @@ export default function TeintureExterieurePage() {
     {
       before: teintureImg5973,
       after: teintureImg5974,
-      description: 'Teinture extérieure bois Montréal - avant / après',
+      description: 'Terrasse en bois - teinture et protection',
     },
     {
-      ...PLACEHOLDER_PAIR,
-      description:
-        'Deuxième exemple : à remplir avec une paire teinture bois (la même que la page peinture extérieure Montréal a été retirée ici).',
+      before: teintureEscalierAvant,
+      after: teintureEscalierApres,
+      description: 'Escalier extérieur - teinture et peinture',
+    },
+    {
+      before: teintureClotureAvant,
+      after: teintureClotureApres,
+      description: 'Teinture extérieure - Clôture en bois',
     },
   ];
 
@@ -243,116 +250,21 @@ export default function TeintureExterieurePage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={teintureHeroImg}
-            alt="Teinture extérieure bois à Montréal - patio, clôture et revêtement"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Services
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Teinture extérieure
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Teinture extérieure à Montréal
-                </Heading>
-
-                <Text
-                  variant="heroSubtitle"
-                  color="white"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                >
-                  Patio, clôture et revêtement bois protégés pour le climat québécois.
-                </Text>
-
-                <Box pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-        <PageIntro>
-          Teinture semi-transparente, opaque ou protectrice pour patios, clôtures, revêtements et autres surfaces extérieures en bois.
-        </PageIntro>
-
-        {/* ===== SECTION 3 - CHECKMARKS ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Teinture extérieure'
+          imageBackground={teintureHeroImg}
+          imageAlt='Teinture extérieure bois à Montréal - patio, clôture et revêtement'
+          overlayBg='rgba(0, 0, 0, 0.45)'
+          title='Teinture extérieure à Montréal'
+          subtitle='Patio, clôture et revêtement bois protégés pour le climat québécois.'
+          description='Semi-transparente, opaque ou protectrice selon le type de bois.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - CHECKMARKS ===== */}
         <FeatureCardsSection
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           title="Pourquoi confier votre teinture extérieure à des professionnels?"
           subtitle="Un bon produit ne suffit pas : le résultat dépend surtout de la préparation, du choix de finition et des conditions d'application."
           items={CHECKMARKS}
@@ -395,12 +307,13 @@ export default function TeintureExterieurePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection
           title="En savoir plus sur nos services connexes"
           links={INTERNAL_LINKS}
-          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
         />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}

@@ -1,13 +1,18 @@
 import { useEffect } from 'react';
 
 /**
- * Continuous horizontal auto-scroll with seamless loop.
- * Content should be rendered twice; loop resets at scrollWidth / 2.
+ * Continuous auto-scroll with seamless loop (horizontal or vertical).
+ * Content should be rendered twice; loop resets at scrollSize / 2.
  * Pauses on hover/touch/manual scroll and when off-screen. Respects reduced motion.
  */
 export default function useAutoScroll(
   scrollerRef,
-  { speed = 0.45, enabled = true, resumeDelay = 1400 } = {},
+  {
+    speed = 0.45,
+    enabled = true,
+    resumeDelay = 1400,
+    axis = 'horizontal',
+  } = {},
 ) {
   useEffect(() => {
     if (!enabled) return undefined;
@@ -20,6 +25,7 @@ export default function useAutoScroll(
       return undefined;
     }
 
+    const isVertical = axis === 'vertical';
     let rafId = 0;
     let resumeTimer = 0;
     let userPaused = false;
@@ -48,11 +54,21 @@ export default function useAutoScroll(
     };
 
     const step = () => {
-      if (inView && !userPaused && el.scrollWidth > el.clientWidth + 4) {
-        el.scrollLeft += speed;
-        const loopAt = el.scrollWidth / 2;
-        if (loopAt > 0 && el.scrollLeft >= loopAt) {
-          el.scrollLeft -= loopAt;
+      if (inView && !userPaused) {
+        if (isVertical) {
+          if (el.scrollHeight > el.clientHeight + 4) {
+            el.scrollTop += speed;
+            const loopAt = el.scrollHeight / 2;
+            if (loopAt > 0 && el.scrollTop >= loopAt) {
+              el.scrollTop -= loopAt;
+            }
+          }
+        } else if (el.scrollWidth > el.clientWidth + 4) {
+          el.scrollLeft += speed;
+          const loopAt = el.scrollWidth / 2;
+          if (loopAt > 0 && el.scrollLeft >= loopAt) {
+            el.scrollLeft -= loopAt;
+          }
         }
       }
       rafId = window.requestAnimationFrame(step);
@@ -88,5 +104,5 @@ export default function useAutoScroll(
       el.removeEventListener('focusin', pause);
       el.removeEventListener('focusout', scheduleResume);
     };
-  }, [scrollerRef, speed, enabled, resumeDelay]);
+  }, [scrollerRef, speed, enabled, resumeDelay, axis]);
 }

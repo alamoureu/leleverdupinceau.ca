@@ -11,7 +11,8 @@ export default function ShakeButton({ children, style }) {
       transition={{ duration: 3, ease: 'easeInOut', repeat: Infinity }}
       style={{
         display: 'inline-block',
-        width: '100%',
+        width: 'fit-content',
+        maxWidth: '100%',
         willChange: 'transform',
         ...style,
       }}

@@ -47,7 +47,7 @@ const fontFamily =
   "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
 /** Libère la zone du badge avis Google accroché sous la nav (coin supérieur droit du héros). */
-const clearReviewBadge = { pr: { base: '92px', sm: '116px', md: '104px', lg: '92px' } };
+const clearReviewBadge = { pr: { base: '96px', sm: '128px', md: '132px', lg: '132px' } };
 
 /** Héros photo : 3 niveaux (titre h1, sous-titre style h2, description). */
 const heroSubtitle = {
@@ -85,6 +85,13 @@ const theme = extendTheme({
         WebkitFontSmoothing: 'antialiased',
         MozOsxFontSmoothing: 'grayscale',
       },
+      // Even out wrapped lines on narrow screens (headings + body)
+      'h1, h2, h3, h4, h5, h6, .chakra-heading': {
+        textWrap: 'balance',
+      },
+      'p, .chakra-text': {
+        textWrap: 'pretty',
+      },
       'div:focus, span:focus, p:focus, h1:focus, h2:focus, h3:focus, h4:focus, h5:focus, h6:focus': {
         outline: 'none !important',
         boxShadow: 'none !important',
@@ -112,6 +119,9 @@ const theme = extendTheme({
       },
     },
     Heading: {
+      baseStyle: {
+        textWrap: 'balance',
+      },
       sizes: {
         page: {
           fontSize: { base: '2xl', md: '3xl', lg: '4xl', xl: '5xl' },
@@ -133,7 +143,6 @@ const theme = extendTheme({
           fontSize: { base: '2xl', sm: '3xl', md: '4xl', lg: '5xl', xl: '6xl' },
           fontWeight: '700',
           lineHeight: '1.05',
-          ...clearReviewBadge,
         },
         heroSubtitle,
       },
@@ -142,6 +151,7 @@ const theme = extendTheme({
       baseStyle: {
         fontSize: { base: 'md', md: 'md', lg: 'lg' },
         lineHeight: '1.6',
+        textWrap: 'pretty',
       },
       variants: {
         body: {
@@ -206,6 +216,7 @@ const theme = extendTheme({
           bg: 'brand.500',
           color: 'white',
           boxShadow: 'ctaGlow',
+          maxW: '22rem',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'brand.600', boxShadow: 'ctaGlowHover', _disabled: { bg: 'brand.500' } },
           _active: { bg: 'brand.700' },
@@ -214,6 +225,7 @@ const theme = extendTheme({
           bg: 'white',
           color: 'brand.500',
           boxShadow: 'ctaGlowLight',
+          maxW: '22rem',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'gray.50', boxShadow: 'ctaGlowLightHover' },
           _active: { bg: 'gray.100' },
@@ -223,6 +235,7 @@ const theme = extendTheme({
           bg: 'brand.500',
           color: 'white',
           boxShadow: 'ctaGlow',
+          maxW: '22rem',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'brand.600', boxShadow: 'ctaGlowHover', _disabled: { bg: 'brand.500' } },
           _active: { bg: 'brand.700' },
@@ -232,6 +245,7 @@ const theme = extendTheme({
           bg: 'white',
           color: 'brand.500',
           boxShadow: 'ctaGlowLight',
+          maxW: '22rem',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'gray.50', boxShadow: 'ctaGlowLightHover' },
           _active: { bg: 'gray.100' },

@@ -10,8 +10,14 @@ import {
   Icon,
   SimpleGrid,
 } from '@chakra-ui/react';
+import {
+  CENTER_LAST_ODD_MD_SX,
+  DESKTOP_THREE_PLUS_TWO_SX,
+  GRID_HOVER_PAD,
+} from '../constants/responsiveGrid';
+import { PAGE_SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 
-const DEFAULT_SECTION_PY = { base: 16, md: 20, lg: 24 };
+const DEFAULT_SECTION_PY = PAGE_SECTION_PY;
 
 /**
  * Reusable icon-card grid (checkmarks, situations, specialties).
@@ -25,12 +31,24 @@ export default function FeatureCardsSection({
   variant = 'inline',
   sectionBg = 'white',
   sectionPy,
+  sectionPaddingTop,
+  sectionPaddingBottom,
   columns,
   cardBg = 'white',
 }) {
   if (!items.length) return null;
 
+  const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
+  const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
+  const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
+
   const isInline = variant === 'inline';
+  const colObj =
+    typeof columns === 'number'
+      ? { base: 1, md: columns }
+      : columns || null;
+  const mdColCount = colObj?.md ?? colObj?.sm ?? 2;
+  const useFiveCardLayout = Boolean(colObj) && items.length === 5;
 
   const renderCard = (item, i) => {
     const iconBox = (
@@ -59,8 +77,8 @@ export default function FeatureCardsSection({
           boxShadow="0 2px 12px rgba(0,0,0,0.05)"
           _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
           transition="all 0.2s"
-          w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
-          maxW={{ lg: '420px' }}
+          w={columns ? undefined : { base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
+          maxW={columns ? undefined : { lg: '420px' }}
         >
           <HStack spacing={4} mb={3} align="center">
             {iconBox}
@@ -115,12 +133,12 @@ export default function FeatureCardsSection({
   };
 
   return (
-    <Box py={sectionPy ?? DEFAULT_SECTION_PY} bg={sectionBg}>
+    <Box pt={pt} pb={pb} bg={sectionBg}>
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-        <Stack spacing={{ base: 10, md: 14 }}>
+        <Stack spacing={TRUST_BANNER_AIR_SPACE}>
           {(title || subtitle) && (
             <Stack
-              spacing={4}
+              spacing={{ base: 2, md: 3 }}
               textAlign="center"
               maxW={{ base: '100%', md: '960px', lg: '1100px' }}
               mx="auto"
@@ -143,12 +161,36 @@ export default function FeatureCardsSection({
             </Stack>
           )}
 
-          {columns ? (
-            <SimpleGrid columns={columns} spacing={5}>
+          {colObj ? (
+            <SimpleGrid
+              columns={
+                useFiveCardLayout
+                  ? {
+                      base: colObj.base ?? 1,
+                      ...(colObj.sm != null ? { sm: colObj.sm } : {}),
+                      md: 2,
+                      lg: 6,
+                    }
+                  : colObj
+              }
+              spacing={5}
+              {...GRID_HOVER_PAD}
+              sx={{
+                ...(mdColCount === 2 || useFiveCardLayout
+                  ? CENTER_LAST_ODD_MD_SX
+                  : {}),
+                ...(useFiveCardLayout ? DESKTOP_THREE_PLUS_TWO_SX : {}),
+              }}
+            >
               {items.map(renderCard)}
             </SimpleGrid>
           ) : (
-            <Flex wrap="wrap" justify="center" gap={isInline ? 5 : 6}>
+            <Flex
+              wrap="wrap"
+              justify="center"
+              gap={isInline ? 5 : 6}
+              {...GRID_HOVER_PAD}
+            >
               {items.map(renderCard)}
             </Flex>
           )}

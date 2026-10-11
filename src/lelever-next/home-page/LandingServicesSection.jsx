@@ -8,11 +8,13 @@ import {
   Flex,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
+import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
+import { TRUST_BANNER_BELOW_PT } from './TrustBanner';
 import ServiceCard from './ServiceCard';
 import peintureInterieureImg from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 import peintureExterieureImg from '../images/1-page-principale/service hub/Peinture extérieure/IMG_6767.PNG';
 
-const DEFAULT_SECTION_PY = {
+const DEFAULT_SECTION_PB = {
   base: 10,
   sm: 10,
   md: 16,
@@ -32,9 +34,10 @@ const translations = {
   },
 };
 
-export default function LandingServicesSection({ sectionPy }) {
+export default function LandingServicesSection({ sectionPy, sectionPaddingTop }) {
   const { t, currentLang } = useTranslation();
-  const py = sectionPy ?? DEFAULT_SECTION_PY;
+  const pb = sectionPy ?? DEFAULT_SECTION_PB;
+  const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : TRUST_BANNER_BELOW_PT;
   const copy = translations[currentLang] || translations.fr;
 
   const services = [
@@ -53,10 +56,10 @@ export default function LandingServicesSection({ sectionPy }) {
   ];
 
   return (
-    <Box bg="gray.50" py={py} w="100%">
+    <Box bg="gray.50" pt={pt} pb={pb} w="100%">
       <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>
-        <Stack spacing={{ base: 6, md: 10 }} align="center">
-          <Stack spacing={{ base: 1, md: 3 }} textAlign="center">
+        <Stack spacing={TRUST_BANNER_AIR_SPACE} align="center">
+          <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
             <Heading
               as="h2"
               size="section"

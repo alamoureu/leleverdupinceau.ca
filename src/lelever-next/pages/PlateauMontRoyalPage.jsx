@@ -32,8 +32,8 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
@@ -78,6 +78,7 @@ const BREADCRUMB = [
   { label: 'Accueil', to: '/' },
   { label: 'Secteurs', to: '/secteurs' },
   { label: 'Montréal', to: '/secteurs/montreal' },
+  { label: 'Plateau Mont-Royal' },
 ];
 
 const CHECKMARKS = [
@@ -202,23 +203,15 @@ const FAQS = [
   },
   {
     question: 'Est-ce que vous intervenez dans les condos, plex et appartements du Plateau\u00A0?',
-    answer: 'Oui. Nous intervenons régulièrement dans les condos, plex et appartements du Plateau-Mont-Royal. Ce type de propriété demande souvent une bonne planification, un chantier propre et une attention particulière à l\'accès, aux voisins et à la protection des lieux. Notre approche s\'adapte au bâtiment pour que le projet se déroule de façon fluide, propre et bien encadrée.',
+    answer: 'Oui. Nous intervenons régulièrement dans les condos, plex et appartements du Plateau-Mont-Royal. Ce type de propriété demande souvent une bonne planification, un chantier propre et une attention particulière à l\'accès, aux voisins et à la protection des lieux.',
   },
   {
     question: 'Comment gérez-vous un chantier avec escaliers, accès serrés ou stationnement limité\u00A0?',
-    answer: 'Ce genre de contrainte fait partie de la réalité de plusieurs projets dans le Plateau. Nous planifions l\'intervention en fonction de l\'accès, du transport du matériel, du stationnement et de la circulation dans l\'immeuble ou l\'unité. L\'objectif est de garder le chantier organisé dès le départ afin de limiter les imprévus et de travailler efficacement, même dans un contexte urbain plus serré.',
-  },
-  {
-    question: 'Est-ce que vous protégez les planchers, moulures et meubles dans un espace occupé\u00A0?',
-    answer: 'Oui, systématiquement. La protection des surfaces fait partie intégrante de notre façon de travailler. Nous protégeons les planchers, moulures, meubles et éléments fixes avant de commencer afin d\'éviter les éclaboussures, traces ou dommages. Cette étape est essentielle pour maintenir un chantier propre et rendre le projet plus simple à vivre dans un espace encore occupé.',
+    answer: 'Ce genre de contrainte fait partie de la réalité de plusieurs projets dans le Plateau. Nous planifions l\'intervention en fonction de l\'accès, du transport du matériel, du stationnement et de la circulation dans l\'immeuble ou l\'unité pour limiter les imprévus dès le départ.',
   },
   {
     question: 'Pouvez-vous intervenir avant un emménagement, une revente ou entre deux locataires\u00A0?',
-    answer: 'Oui. Nous réalisons régulièrement des projets avant un emménagement, une mise en vente ou entre deux occupations. Dans ce contexte, le respect des délais est particulièrement important. Nous planifions donc le chantier avec un échéancier clair pour que les travaux soient complétés au bon moment et que l\'espace soit prêt à être utilisé, présenté ou reloué rapidement.',
-  },
-  {
-    question: 'Combien de temps faut-il pour obtenir une soumission dans le Plateau Mont-Royal\u00A0?',
-    answer: 'Dans la majorité des cas, nous répondons en moins de 24 heures. Le délai exact dépend du type de projet, des informations fournies et de la période de l\'année. Plus votre demande est claire dès le départ, plus nous pouvons vous transmettre rapidement une soumission précise, adaptée à votre propriété et aux contraintes propres au Plateau-Mont-Royal.',
+    answer: 'Oui. Entre deux locataires ou avant une mise en marché, le délai est souvent serré. Nous planifions le chantier pour que l\'unité soit propre et prête à être relouée, présentée ou occupée au bon moment.',
   },
 ];
 
@@ -242,11 +235,6 @@ const INTERNAL_LINKS = [
     title: 'Nos réalisations',
     description: 'Avant / après de projets réels pour juger la qualité.',
     to: '/realisations',
-  },
-  {
-    title: 'Demander une soumission',
-    description: 'Réponse en moins de 24h, sans engagement.',
-    to: '/contact',
   },
   {
     title: 'Nos autres secteurs à Montréal',
@@ -331,26 +319,11 @@ export default function PlateauMontRoyalPage() {
           pageContext="Plateau Mont-Royal"
           imageBackground={heroImg}
           title="Peintre dans le Plateau Mont-Royal"
-          subtitle="Peintres de métier pour condos, plex et appartements du Plateau."
+          subtitle="Peintres de métier pour condos, plex et appartements."
+          description="Espaces occupés, accès étroits et échéanciers serrés."
           buttonText="Obtenir ma soumission gratuite"
-        >
-          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
-            {BREADCRUMB.map((crumb) => (
-              <Fragment key={crumb.to}>
-                <Link as={RouterLink} to={crumb.to} _hover={{ textDecoration: 'underline', color: 'white' }}>
-                  {crumb.label}
-                </Link>
-                <Text>›</Text>
-              </Fragment>
-            ))}
-            <Text color="white" fontWeight="medium">Plateau Mont-Royal</Text>
-          </HStack>
-        </HeroSection>
-        <TrustBanner />
-        <PageIntro>
-          Espaces occupés, cages d&apos;escalier, accès serrés, stationnement limité, échéanciers avant emménagement ou remise en location : nous réalisons des projets propres, bien coordonnés et impeccables dans le Plateau.
-        </PageIntro>
-
+          breadcrumb={BREADCRUMB}
+        />
         <BeforeAfterCarouselSection
           isFr
           title="Nos réalisations dans le Plateau et ailleurs à Montréal"
@@ -361,7 +334,7 @@ export default function PlateauMontRoyalPage() {
         />
 
         {/* ===== SECTION 3 - CHECKMARKS PLATEAU ===== */}
-        <Box pt={{ base: 16, md: 20, lg: 24 }} pb={0} bg="white">
+        <Box pt={TRUST_BANNER_BELOW_PT} pb={0} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
               <Heading
@@ -381,7 +354,8 @@ export default function PlateauMontRoyalPage() {
           items={CHECKMARKS}
           variant="inline"
           sectionBg="white"
-          sectionPy={{ base: 10, md: 12, lg: 14 }}
+          sectionPaddingTop={TRUST_BANNER_AIR_SPACE}
+          sectionPaddingBottom={SECTION_PY}
         />
 
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS DANS LE PLATEAU ===== */}
@@ -574,7 +548,7 @@ export default function PlateauMontRoyalPage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
-        />
+         emitSchema={false} />
 
         <InternalLinksSection
           title="Explorer les pages les plus utiles pour votre projet"

@@ -21,7 +21,6 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import HeroSection from '../home-page/HeroSection';
 import SubmissionModal from '../home-page/SubmissionModal';
-import TrustBanner from '../home-page/TrustBanner';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
@@ -118,53 +117,53 @@ export default function MontrealCityPage() {
     {
       number: '01',
       title: 'Condo centre-ville ou tour résidentielle',
-      description: 'Accès, ascenseur, stationnement, espace restreint et immeuble occupé: chaque détail logistique compte dans un projet en hauteur.',
+      description: 'Accès, ascenseur, stationnement, espace restreint et immeuble occupé : chaque détail logistique compte. En tour, la coordination avec le syndicat et la protection des corridors font autant partie du chantier que la peinture.',
     },
     {
       number: '02',
-      title: 'Plex, triplex et immeubles montréalais',
-      description: 'Escaliers, circulation verticale, pièces plus morcelées, murs plus anciens et voisinage rapproché demandent une approche structurée.',
+      title: 'Plex, triplex et plâtre ancien',
+      description: 'Sur le Plateau, à Rosemont ou à Villeray, beaucoup de murs sont en plâtre sur lattis plutôt qu\'en gypse. Escalier, voisinage rapproché et préparation fine des fissures demandent une approche structurée.',
     },
     {
       number: '03',
       title: 'Maison unifamiliale en quartier résidentiel',
-      description: 'Projet plus fluide, mais avec attentes élevées de protection, d\'échéancier et de finition dans les quartiers recherchés.',
+      description: 'À Westmount, Outremont ou ailleurs sur l\'île, le projet est souvent plus fluide, mais les attentes de protection, d\'échéancier et de finition restent élevées sur les boiseries et les détails.',
     },
     {
       number: '04',
       title: 'Projet avant vente ou prise de possession',
-      description: 'Rafraîchir rapidement l\'espace pour le rendre plus lumineux, plus propre et plus facile à projeter pour un acheteur.',
+      description: 'Rafraîchir rapidement l\'espace pour le rendre plus lumineux et plus facile à projeter. Scope cadré, finition neutre et livraison propre avant les visites ou l\'emménagement.',
     },
     {
       number: '05',
       title: 'Commerce de quartier ou bureau',
-      description: 'Travaux à planifier sans perturber l\'activité, avec horaires clairs et exécution disciplinée.',
+      description: 'Travaux à planifier sans perturber l\'activité : horaires hors pointe, protection du stock et exécution disciplinée pour rouvrir à temps.',
     },
   ] : [
     {
       number: '01',
       title: 'Downtown condo or residential tower',
-      description: 'Access, elevator, parking, tight space and occupied building: every logistical detail matters in a high-rise project.',
+      description: 'Access, elevator, parking, tight space and occupied building: every logistical detail matters. In towers, syndicate coordination and corridor protection are as much part of the job as the paint.',
     },
     {
       number: '02',
-      title: 'Plex, triplex and Montreal buildings',
-      description: 'Stairs, vertical circulation, more fragmented rooms, older walls and close neighbors require a structured approach.',
+      title: 'Plex, triplex and old plaster',
+      description: 'On the Plateau, in Rosemont or Villeray, many walls are plaster on lath rather than drywall. Stairs, close neighbors and fine crack prep require a structured approach.',
     },
     {
       number: '03',
       title: 'Single-family home in a residential neighborhood',
-      description: 'A smoother project, but with high expectations for protection, scheduling and finish in sought-after neighborhoods.',
+      description: 'In Westmount, Outremont or elsewhere on the island, the project is often smoother, but expectations for protection, scheduling and finish stay high on trim and details.',
     },
     {
       number: '04',
       title: 'Project before sale or possession',
-      description: 'Quickly refreshing the space to make it brighter, cleaner and easier for a buyer to envision.',
+      description: 'Quickly refresh the space to make it brighter and easier to envision. Defined scope, neutral finish and clean delivery before showings or move-in.',
     },
     {
       number: '05',
       title: 'Neighborhood business or office',
-      description: 'Work to plan without disrupting activity, with clear schedules and disciplined execution.',
+      description: 'Work planned without disrupting activity: off-peak hours, stock protection and disciplined execution to reopen on time.',
     },
   ];
 
@@ -178,8 +177,8 @@ export default function MontrealCityPage() {
   // Section 5 - Services les plus demandes
 
   const serviceCardImages = {
-    '/services/peinture-interieure': interieureHeroImg,
-    '/services/peinture-exterieure': exterieureHeroImg,
+    '/peinture-interieure-montreal': interieureHeroImg,
+    '/peinture-exterieure-montreal': exterieureHeroImg,
     '/services/peinture-residentielle': residentielleHeroImg,
     '/services/peinture-commerciale': commercialeHeroImg,
   };
@@ -188,12 +187,12 @@ export default function MontrealCityPage() {
     {
       title: 'Peinture intérieure à Montréal',
       description: 'Condos, plex, maisons et appartements: préparation sérieuse, finition nette et chantier propre du début à la fin.',
-      to: '/services/peinture-interieure',
+      to: '/peinture-interieure-montreal',
     },
     {
       title: 'Peinture extérieure à Montréal',
       description: 'Façades, balcons, escaliers et revêtements extérieurs adaptés au climat montréalais et aux surfaces locales.',
-      to: '/services/peinture-exterieure',
+      to: '/peinture-exterieure-montreal',
     },
     {
       title: 'Peinture résidentielle',
@@ -209,12 +208,12 @@ export default function MontrealCityPage() {
     {
       title: 'Interior painting in Montreal',
       description: 'Condos, plex, homes and apartments: serious preparation, clean finish and tidy job site from start to finish.',
-      to: '/services/peinture-interieure',
+      to: '/peinture-interieure-montreal',
     },
     {
       title: 'Exterior painting in Montreal',
       description: 'Facades, balconies, staircases and exterior cladding adapted to Montreal\'s climate and local surfaces.',
-      to: '/services/peinture-exterieure',
+      to: '/peinture-exterieure-montreal',
     },
     {
       title: 'Residential painting',
@@ -325,14 +324,8 @@ export default function MontrealCityPage() {
     {
       question: isFr ? 'Offrez-vous aussi des services commerciaux à Montréal?' : 'Do you also offer commercial services in Montreal?',
       answer: isFr
-        ? 'Oui. Nous réalisons des projets commerciaux à Montréal, avec une organisation adaptée aux bureaux, commerces et espaces occupés. Les horaires de travail sont planifiés pour minimiser l\'impact sur les opérations.'
+        ? "Oui. Nous réalisons des projets commerciaux à Montréal, avec une organisation adaptée aux bureaux, commerces et espaces occupés. Les horaires de travail sont planifiés pour minimiser l'impact sur les opérations."
         : 'Yes. We carry out commercial projects in Montreal, with organization adapted to offices, businesses and occupied spaces. Work schedules are planned to minimize impact on operations.',
-    },
-    {
-      question: isFr ? 'Quelle page consulter si je cherche un service précis à Montréal?' : 'Which page should I visit for a specific service in Montreal?',
-      answer: isFr
-        ? 'Si votre projet concerne l\'intérieur ou l\'extérieur, nos pages de services (/services/peinture-interieure et /services/peinture-exterieure) donnent plus de détails spécifiques. Pour les projets résidentiels ou commerciaux, les pages services correspondantes vous guideront selon le contexte.'
-        : 'If your project involves interior or exterior work, our service pages (/services/peinture-interieure and /services/peinture-exterieure) provide more specific details. For residential or commercial projects, the corresponding service pages will guide you based on context.',
     },
   ];
 
@@ -354,20 +347,19 @@ export default function MontrealCityPage() {
   // Section 8 - Liens internes
 
   const serviceLinks = isFr ? [
-    { label: 'Peinture intérieure à Montréal', to: '/services/peinture-interieure' },
-    { label: 'Peinture extérieure à Montréal', to: '/services/peinture-exterieure' },
+    { label: 'Peinture intérieure à Montréal', to: '/peinture-interieure-montreal' },
+    { label: 'Peinture extérieure à Montréal', to: '/peinture-exterieure-montreal' },
     { label: 'Peinture résidentielle', to: '/services/peinture-residentielle' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
     { label: 'Avis clients', to: '/avis-clients' },
     { label: 'Voir nos réalisations', to: '/realisations' },
-    { label: 'Obtenir une soumission', to: '/contact' },
   ] : [
-    { label: 'Interior painting in Montreal', to: '/services/peinture-interieure' },
-    { label: 'Exterior painting in Montreal', to: '/services/peinture-exterieure' },
+    { label: 'Interior painting in Montreal', to: '/peinture-interieure-montreal' },
+    { label: 'Exterior painting in Montreal', to: '/peinture-exterieure-montreal' },
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
     { label: 'Client reviews', to: '/avis-clients' },
-    { label: 'Get a quote', to: '/contact' },
+    { label: 'View our projects', to: '/realisations' },
   ];
 
   const montrealQuartierHighlights = [
@@ -384,15 +376,15 @@ export default function MontrealCityPage() {
       <Helmet>
         <title>
           {isFr
-            ? 'Peintre à Montréal | Résidentiel et commercial | Le Lever du Pinceau'
-            : 'Painter in Montreal | Residential and commercial | Le Lever du Pinceau'}
+            ? 'Peintre à Montréal par quartier | Condos, plex et maisons | Le Lever du Pinceau'
+            : 'Painter in Montreal by neighborhood | Condos, plex and homes | Le Lever du Pinceau'}
         </title>
         <meta
           name="description"
           content={
             isFr
-              ? 'Le Lever du Pinceau réalise vos projets de peinture à Montréal: condos, plex, maisons et commerces. Peintres professionnels licenciés RBQ. Soumission gratuite.'
-              : 'Le Lever du Pinceau delivers your painting projects in Montreal: condos, plex, homes and businesses. Licensed RBQ professional painters. Free quote.'
+              ? 'Peintre local à Montréal pour chaque quartier: Plateau, Ville-Marie, Westmount, Outremont et plus. Condos, plex, maisons et commerces. Licence RBQ. Soumission gratuite.'
+              : 'Local painter in Montreal for every neighborhood: Plateau, Ville-Marie, Westmount, Outremont and more. Condos, plex, homes and businesses. RBQ license. Free quote.'
           }
         />
         <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/montreal" />
@@ -407,121 +399,112 @@ export default function MontrealCityPage() {
         <HeroSection
           onSubmissionOpen={onOpen}
           pageContext="Montréal"
-          title={isFr ? 'Peintre à Montréal' : 'Painter in Montreal'}
+          title={isFr ? 'Peintre à Montréal par quartier' : 'Painter in Montreal by neighborhood'}
           subtitle={
             isFr
-              ? 'Peintres de métier pour vos projets partout à Montréal.'
-              : 'Trade painters for your projects across Montreal.'
+              ? 'Une équipe locale pour vos projets dans chaque secteur.'
+              : 'A local team for your projects in every area.'
+          }
+          description={
+            isFr
+              ? 'Condos, plex, maisons et commerces - du Plateau à la Rive-Sud.'
+              : 'Condos, plex, homes and businesses - from the Plateau to the South Shore.'
           }
           imageBackground={headerMontreal}
-        >
-          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
-            <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline', color: 'white' }}>
-              {isFr ? 'Accueil' : 'Home'}
-            </Link>
-            <Text>›</Text>
-            <Link as={RouterLink} to="/secteurs" _hover={{ textDecoration: 'underline', color: 'white' }}>
-              {isFr ? 'Secteurs desservis' : 'Service areas'}
-            </Link>
-            <Text>›</Text>
-            <Text color="white" fontWeight="medium">Montréal</Text>
-          </HStack>
-        </HeroSection>
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },
+            { label: 'Montréal' },
+          ]}
+        />
 
-        {/* SECTION 2 - Barre de confiance */}
-        <TrustBanner />
+        {/* SECTION 3 - Checkmarks Montreal (full-width gray bg) */}
+        <CityWhyUsSection
+          cityName="Montréal"
+          customTitle={
+            isFr
+              ? 'Une équipe habituée à la réalité des chantiers à Montréal'
+              : 'A team familiar with the reality of job sites in Montreal'
+          }
+          localInsight={
+            isFr
+              ? "Une bonne partie du bâti montréalais, surtout dans les arrondissements centraux (Plateau, Rosemont, Villeray, Sud-Ouest), date d'avant 1950. Ces plex ont souvent des murs en plâtre appliqué sur lattis de bois plutôt qu'en gypse moderne : le plâtre ancien se fissure et se détache différemment, et demande une préparation plus fine (sondage, rebouchage adapté, parfois une toile à plâtre) avant la mise en peinture. Nos équipes distinguent ce type de mur d'une cloison de gypse standard dès l'évaluation, pour proposer la bonne préparation plutôt qu'un traitement générique."
+              : "A large share of Montreal's buildings, especially in the central boroughs (Plateau, Rosemont, Villeray, Sud-Ouest), predate 1950. These plexes often have plaster-on-wood-lath walls rather than modern drywall: old plaster cracks and detaches differently, and requires finer preparation (probing, suitable patching, sometimes plaster mesh) before painting. Our teams tell this type of wall apart from a standard drywall partition at the assessment stage, to propose the right preparation rather than a generic treatment."
+          }
+          whyUsIntroText={
+            isFr
+              ? 'À Montréal, la qualité d\'un projet dépend autant de la logistique que de la finition.'
+              : 'In Montreal, the quality of a project depends as much on logistics as on the finish.'
+          }
+          whyUsContent={checkmarks}
+        />
 
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
-          <Stack spacing={0}>
-
-            {/* SECTION 3 - Checkmarks Montreal */}
-            <CityWhyUsSection
-              cityName="Montréal"
-              customTitle={
-                isFr
-                  ? 'Une équipe habituée à la réalité des chantiers à Montréal'
-                  : 'A team familiar with the reality of job sites in Montreal'
-              }
-              localInsight={
-                isFr
-                  ? "Une bonne partie du bâti montréalais, surtout dans les arrondissements centraux (Plateau, Rosemont, Villeray, Sud-Ouest), date d'avant 1950. Ces plex ont souvent des murs en plâtre appliqué sur lattis de bois plutôt qu'en gypse moderne : le plâtre ancien se fissure et se détache différemment, et demande une préparation plus fine (sondage, rebouchage adapté, parfois une toile à plâtre) avant la mise en peinture. Nos équipes distinguent ce type de mur d'une cloison de gypse standard dès l'évaluation, pour proposer la bonne préparation plutôt qu'un traitement générique."
-                  : "A large share of Montreal's buildings, especially in the central boroughs (Plateau, Rosemont, Villeray, Sud-Ouest), predate 1950. These plexes often have plaster-on-wood-lath walls rather than modern drywall: old plaster cracks and detaches differently, and requires finer preparation (probing, suitable patching, sometimes plaster mesh) before painting. Our teams tell this type of wall apart from a standard drywall partition at the assessment stage, to propose the right preparation rather than a generic treatment."
-              }
-              whyUsIntroText={
-                isFr
-                  ? 'À Montréal, la qualité d\'un projet dépend autant de la logistique que de la finition.'
-                  : 'In Montreal, the quality of a project depends as much on logistics as on the finish.'
-              }
-              whyUsContent={checkmarks}
-            />
-
-            {/* SECTION 4 - Contextes montrealais */}
-            <Box py={{ base: 12, md: 16, lg: 20 }}>
-              <Stack spacing={8}>
-                <Stack spacing={3} textAlign="center">
-                  <Heading
-                    as="h2"
-                    fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                    fontWeight="bold"
-                    color="gray.800"
-                  >
-                    {isFr
-                      ? 'Des besoins différents selon le type de projet à Montréal'
-                      : 'Different needs depending on the type of project in Montreal'}
-                  </Heading>
-                  <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="680px" mx="auto">
-                    {isFr
-                      ? 'Un condo centre-ville, un plex à Rosemont ou une maison à Westmount ne se gèrent pas de la même manière.'
-                      : 'A downtown condo, a plex in Rosemont or a house in Westmount are not managed the same way.'}
-                  </Text>
-                </Stack>
-
-                <Flex
-                  flexWrap="wrap"
-                  gap={{ base: 4, md: 6 }}
-                  justify="center"
-                  maxW="1000px"
-                  mx="auto"
+        {/* SECTION 4 - Contextes montrealais */}
+        <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+          <Box py={{ base: 12, md: 16, lg: 20 }}>
+            <Stack spacing={8}>
+              <Stack spacing={3} textAlign="center">
+                <Heading
+                  as="h2"
+                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                  fontWeight="bold"
+                  color="gray.800"
                 >
-                  {contexts.map((ctx) => (
-                    <Box
-                      key={ctx.number}
-                      as={contextLinks[ctx.number] ? RouterLink : undefined}
-                      to={contextLinks[ctx.number]}
-                      w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
-                      bg="white"
-                      p={{ base: 5, md: 6 }}
-                      borderRadius="xl"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      boxShadow="sm"
-                      _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                      transition="all 0.2s"
-                    >
-                      <Stack spacing={3}>
-                        <Text fontSize="2xl" fontWeight="bold" color="brand.100" lineHeight="1">
-                          {ctx.number}
-                        </Text>
-                        <Text fontWeight="bold" color="gray.800" fontSize={{ base: 'md', md: 'lg' }}>
-                          {ctx.title}
-                        </Text>
-                        <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.6">
-                          {ctx.description}
-                        </Text>
-                        {contextLinks[ctx.number] && (
-                          <HStack spacing={1} color="brand.500" fontWeight="semibold" fontSize="sm">
-                            <Text>{isFr ? 'En savoir plus' : 'Learn more'}</Text>
-                            <ArrowForwardIcon />
-                          </HStack>
-                        )}
-                      </Stack>
-                    </Box>
-                  ))}
-                </Flex>
+                  {isFr
+                    ? 'Des besoins différents selon le type de projet à Montréal'
+                    : 'Different needs depending on the type of project in Montreal'}
+                </Heading>
+                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="680px" mx="auto">
+                  {isFr
+                    ? 'Un condo centre-ville, un plex à Rosemont ou une maison à Westmount ne se gèrent pas de la même manière.'
+                    : 'A downtown condo, a plex in Rosemont or a house in Westmount are not managed the same way.'}
+                </Text>
               </Stack>
-            </Box>
 
-          </Stack>
+              <Flex
+                flexWrap="wrap"
+                gap={{ base: 4, md: 6 }}
+                justify="center"
+                maxW="1000px"
+                mx="auto"
+              >
+                {contexts.map((ctx) => (
+                  <Box
+                    key={ctx.number}
+                    as={contextLinks[ctx.number] ? RouterLink : undefined}
+                    to={contextLinks[ctx.number]}
+                    w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
+                    bg="white"
+                    p={{ base: 5, md: 6 }}
+                    borderRadius="xl"
+                    border="1px solid"
+                    borderColor="gray.200"
+                    boxShadow="sm"
+                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
+                    transition="all 0.2s"
+                  >
+                    <Stack spacing={3}>
+                      <Text fontSize="2xl" fontWeight="bold" color="brand.100" lineHeight="1">
+                        {ctx.number}
+                      </Text>
+                      <Text fontWeight="bold" color="gray.800" fontSize={{ base: 'md', md: 'lg' }}>
+                        {ctx.title}
+                      </Text>
+                      <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.6">
+                        {ctx.description}
+                      </Text>
+                      {contextLinks[ctx.number] && (
+                        <HStack spacing={1} color="brand.500" fontWeight="semibold" fontSize="sm">
+                          <Text>{isFr ? 'En savoir plus' : 'Learn more'}</Text>
+                          <ArrowForwardIcon />
+                        </HStack>
+                      )}
+                    </Stack>
+                  </Box>
+                ))}
+              </Flex>
+            </Stack>
+          </Box>
         </Container>
 
         {/* SECTION 5 - Services les plus demandés à Montréal */}
@@ -541,8 +524,8 @@ export default function MontrealCityPage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="680px" mx="auto">
                   {isFr
-                    ? 'Cette page oriente vers le bon service selon le type de projet.'
-                    : 'This page guides you to the right service based on your type of project.'}
+                    ? 'Condo, plex, maison ou commerce : le service adapté au bâti montréalais.'
+                    : 'Condo, plex, home or business: the service suited to Montreal building stock.'}
                 </Text>
               </Stack>
 
@@ -696,6 +679,7 @@ export default function MontrealCityPage() {
               ? 'Questions fréquentes sur nos services de peinture à Montréal'
               : 'Frequently asked questions about our painting services in Montreal'
           }
+          emitSchema={false}
         />
 
         {/* SECTION 8 - Liens internes critiques */}
@@ -715,12 +699,12 @@ export default function MontrealCityPage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="580px" mx="auto">
                   {isFr
-                    ? "Cette page est conçue pour vous orienter vers l'information la plus utile pour votre projet à Montréal."
-                    : 'This page is designed to guide you to the most useful information for your Montreal project.'}
+                    ? 'Quartier, service intérieur/extérieur ou réalisations : le prochain clic utile pour Montréal.'
+                    : 'Neighborhood, interior/exterior service or projects: the next useful click for Montreal.'}
                 </Text>
               </Stack>
 
-              {/* Services + conversion (Wrap pour centrer proprement FR 7 / EN 6 cartes) */}
+              {/* Services (Wrap pour centrer les cartes) */}
               <Wrap spacing={{ base: 3, md: 4 }} justify="center" maxW="960px" mx="auto">
                 {serviceLinks.map((link) => (
                   <WrapItem key={`${link.label}-${link.to}`}>

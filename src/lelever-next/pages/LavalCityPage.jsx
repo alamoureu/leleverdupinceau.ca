@@ -16,7 +16,6 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
@@ -79,19 +78,17 @@ export default function LavalCityPage() {
   // ─── Section 3 - Checkmarks ─────────────────────────────────────────────────
 
   const checkmarks = isFr ? [
-    'Habitués aux maisons, condos et projets familiaux - À Laval, beaucoup de projets concernent des maisons occupées, des condos récents ou des espaces à rafraîchir avant vente ou emménagement.',
-    'Logistique simple et bien planifiée - Stationnement, accès, circulation du matériel et séquence des pièces sont organisés pour garder le chantier fluide et propre.',
-    'Échéancier clair pour les moments sensibles - Avant mise en marché, avant déménagement, entre deux occupations ou pendant un horaire familial serré.',
-    'Protection complète des espaces habités - Dans une maison ou un condo occupé, les protections et le nettoyage quotidien comptent autant que le résultat visuel.',
-    'Communication simple du début à la fin - Le client sait quoi attendre, quand les travaux commencent, ce qui est inclus et comment le chantier va se dérouler.',
-    'Connaissance des quartiers et types de propriétés de Laval - Chomedey, Sainte-Dorothée, Laval-des-Rapides, Vimont, Fabreville ou Duvernay: les contextes changent, l\'approche s\'adapte.',
+    'Habitués aux bungalows et split-levels 1960-1990 - À Laval, une grande part du bâti porte encore de l\'aluminium peint ou du vinyle plutôt que du bois ou de la brique pleine.',
+    'Traitement du crétage avant de repeindre - Sur aluminium oxydé, nettoyage en profondeur et apprêt liant avant toute nouvelle couche, sinon la peinture s\'écaille vite.',
+    'Vinyle et aluminium ne se traitent pas pareil - On évalue le support et le système de produit selon le revêtement, pas avec une méthode unique.',
+    'Logistique simple en secteur pavillonnaire - Stationnement, accès et séquence des pièces organisés pour un chantier fluide dans les rues résidentielles.',
+    'Connaissance des quartiers lavallois - Chomedey, Sainte-Dorothée, Laval-des-Rapides, Vimont, Fabreville ou Duvernay : le type de propriété change, l\'approche aussi.',
   ] : [
-    'Experienced with houses, condos and family projects - In Laval, many projects involve occupied homes, recent condos or spaces to refresh before sale or move-in.',
-    'Simple and well-planned logistics - Parking, access, material flow and room sequencing are organized to keep the job site smooth and clean.',
-    'Clear schedule for sensitive moments - Before listing, before moving, between occupations or during a tight family schedule.',
-    'Full protection of occupied spaces - In an occupied home or condo, protections and daily cleaning matter as much as the visual result.',
-    'Simple communication from start to finish - The client knows what to expect, when work starts, what is included and how the job site will run.',
-    'Knowledge of Laval neighborhoods and property types - Chomedey, Sainte-Dorothée, Laval-des-Rapides, Vimont, Fabreville or Duvernay: contexts change, the approach adapts.',
+    'Experienced with 1960s-1990s bungalows and split-levels - In Laval, much of the stock still has painted aluminum or vinyl rather than wood or solid brick.',
+    'Chalking treated before repainting - On oxidized aluminum, deep cleaning and a bonding primer before any new coat, or the paint flakes quickly.',
+    'Vinyl and aluminum are not treated the same - We assess the substrate and product system by cladding type, not with one method.',
+    'Simple logistics in suburban streets - Parking, access and room sequencing organized for a smooth job in residential areas.',
+    'Knowledge of Laval neighborhoods - Chomedey, Sainte-Dorothée, Laval-des-Rapides, Vimont, Fabreville or Duvernay: property types change, so does the approach.',
   ];
 
   // ─── Section 4 - Contextes lavallois ────────────────────────────────────────
@@ -99,62 +96,70 @@ export default function LavalCityPage() {
   const contexts = isFr ? [
     {
       number: '01',
-      title: 'Maison unifamiliale occupée',
-      description: 'Projet à planifier pièce par pièce, avec protections, rythme de chantier clair et souci du quotidien familial.',
+      title: 'Bungalow ou split-level en aluminium',
+      description: 'À Chomedey, Fabreville ou Vimont, un revêtement pâle et poudreux signale souvent du crétage. On le traite avant de peindre, avec nettoyage en profondeur et apprêt adhérent conçu pour l\'aluminium, sinon la nouvelle couche s\'écaille vite.',
+      to: '/services/peinture-exterieure',
+      linkLabel: 'Peinture extérieure',
+    },
+    {
+      number: '02',
+      title: 'Maison en vinyle à rafraîchir',
+      description: 'Le vinyle demande un autre jugement que l\'aluminium des années 1960-1990 : état du panneau, flexibilité du revêtement et produit adapté. On évalue le support avant de proposer une méthode.',
+      to: '/services/peinture-exterieure',
+      linkLabel: 'Peinture extérieure',
+    },
+    {
+      number: '03',
+      title: 'Intérieur de maison familiale occupée',
+      description: 'Beaucoup de projets lavallois se font pendant que la famille reste sur place, à Sainte-Dorothée comme à Duvernay : protections, rythme pièce par pièce et chantier propre au quotidien.',
       to: '/services/peinture-residentielle/maison',
       linkLabel: 'Peinture de maison unifamiliale',
     },
     {
-      number: '02',
-      title: 'Condo récent ou unité en copropriété',
-      description: 'Accès, ascenseur, espaces communs, circulation et propreté prennent plus d\'importance dans les immeubles récents.',
+      number: '04',
+      title: 'Condo ou copropriété à Laval',
+      description: 'Accès, ascenseur et espaces communs planifiés pour un immeuble récent ou une tour, sans perdre la qualité de finition d\'un projet résidentiel bien cadré.',
       to: '/services/peinture-residentielle/condo',
       linkLabel: 'Peinture de condo',
     },
     {
-      number: '03',
-      title: 'Rafraîchissement avant vente',
-      description: 'Une peinture propre et neutre aide à présenter une propriété plus lumineuse, plus soignée et plus facile à projeter pour un acheteur.',
-    },
-    {
-      number: '04',
-      title: 'Projet avant emménagement',
-      description: 'Le meilleur moment pour peindre vite et efficacement, sans contourner le mobilier ni compliquer la logistique.',
-    },
-    {
       number: '05',
-      title: 'Remise à niveau entre deux occupants',
-      description: 'Appartement, logement ou unité en transition: il faut aller vite, proprement et avec un scope bien cadré.',
+      title: 'Mise à niveau avant vente',
+      description: 'Couleurs neutres, scope cadré et échéancier serré pour présenter une propriété plus lumineuse à Chomedey, Duvernay ou ailleurs à Laval, sans prolonger la mise en marché.',
     },
   ] : [
     {
       number: '01',
-      title: 'Occupied single-family home',
-      description: 'Project to plan room by room, with protections, clear site rhythm and attention to daily family life.',
+      title: 'Aluminum bungalow or split-level',
+      description: 'In Chomedey, Fabreville or Vimont, pale powdery siding often means chalking. We treat it before painting, with deep cleaning and an adhesion primer made for aluminum, or the new coat flakes quickly.',
+      to: '/services/peinture-exterieure',
+      linkLabel: 'Exterior painting',
+    },
+    {
+      number: '02',
+      title: 'Vinyl home to refresh',
+      description: 'Vinyl needs a different call than 1960s-1990s aluminum: panel condition, siding flexibility and a suitable product. We assess the substrate before proposing a method.',
+      to: '/services/peinture-exterieure',
+      linkLabel: 'Exterior painting',
+    },
+    {
+      number: '03',
+      title: 'Occupied family-home interior',
+      description: 'Many Laval jobs happen while the family stays home, in Sainte-Dorothée as in Duvernay: protections, room-by-room pace and a clean site day to day.',
       to: '/services/peinture-residentielle/maison',
       linkLabel: 'Single-family house painting',
     },
     {
-      number: '02',
-      title: 'Recent condo or co-ownership unit',
-      description: 'Access, elevator, common areas, circulation and cleanliness take on more importance in recent buildings.',
+      number: '04',
+      title: 'Condo or co-ownership in Laval',
+      description: 'Access, elevator and common areas planned for a recent building or tower, without losing the finish quality of a well-scoped residential project.',
       to: '/services/peinture-residentielle/condo',
       linkLabel: 'Condo painting',
     },
     {
-      number: '03',
-      title: 'Pre-sale refresh',
-      description: 'Clean, neutral paint helps present a brighter, more polished property that buyers can more easily envision.',
-    },
-    {
-      number: '04',
-      title: 'Pre-move-in project',
-      description: 'The best time to paint quickly and efficiently, without working around furniture or complicating logistics.',
-    },
-    {
       number: '05',
-      title: 'Turnover between occupants',
-      description: 'Apartment, unit or rental in transition: we move fast, cleanly and with a well-defined scope.',
+      title: 'Pre-sale update',
+      description: 'Neutral colors, defined scope and a tight schedule to present a brighter property in Chomedey, Duvernay or elsewhere in Laval, without prolonging the listing.',
     },
   ];
 
@@ -208,34 +213,34 @@ export default function LavalCityPage() {
   const whyUsCards = isFr ? [
     {
       number: '01',
-      title: 'Organisation claire',
-      description: 'Soumission détaillée, plan de match, échéancier précis et séquence des travaux communiquée avant le début du chantier.',
+      title: 'Crétage traité avant de peindre',
+      description: 'Sur aluminium lavallois oxydé, nettoyage et apprêt liant d\'abord. Sans ça, la nouvelle couche décolle vite, peu importe la marque.',
     },
     {
       number: '02',
-      title: 'Chantier propre',
-      description: 'Protections en place, respect des lieux, nettoyage quotidien du chantier. Votre espace reste habitable pendant les travaux.',
+      title: 'Méthode selon le revêtement',
+      description: 'Aluminium craie, vinyle flexible ou intérieur de bungalow : on choisit le système selon le support, pas un processus unique.',
     },
     {
       number: '03',
-      title: 'Résultat durable',
-      description: 'Préparation sérieuse des surfaces, produits adaptés à chaque contexte, finition nette et uniforme de la première à la dernière couche.',
+      title: 'Chantier pensé pour Laval',
+      description: 'Secteurs pavillonnaires, maisons occupées et échéanciers familiaux : logistique claire pour que le projet avance sans friction.',
     },
   ] : [
     {
       number: '01',
-      title: 'Clear organization',
-      description: 'Detailed quote, game plan, precise schedule and work sequence communicated before the start of the job.',
+      title: 'Chalking treated before painting',
+      description: 'On oxidized Laval aluminum, cleaning and a bonding primer first. Without that, the new coat peels quickly, brand aside.',
     },
     {
       number: '02',
-      title: 'Clean job site',
-      description: 'Protections in place, respect for the space, daily site cleanup. Your home stays livable during the work.',
+      title: 'Method by cladding type',
+      description: 'Chalking aluminum, flexible vinyl or bungalow interior: we choose the system by substrate, not one process.',
     },
     {
       number: '03',
-      title: 'Lasting result',
-      description: 'Thorough surface preparation, products adapted to each context, clean and uniform finish from first to last coat.',
+      title: 'Job planned for Laval',
+      description: 'Suburban sectors, occupied homes and family schedules: clear logistics so the project moves without friction.',
     },
   ];
 
@@ -251,34 +256,26 @@ export default function LavalCityPage() {
         : 'Yes, but the chalking (oxidation that leaves a white powder to the touch) must first be treated with deep cleaning and an adhesion primer designed for aluminum. Without this step, the paint flakes quickly, regardless of the quality of the product used.',
     },
     {
+      question: isFr
+        ? 'Pourquoi le crétage est-il si fréquent sur les bungalows et split-levels à Laval?'
+        : 'Why is chalking so common on bungalows and split-levels in Laval?',
+      answer: isFr
+        ? "Laval s'est surtout bâtie entre les années 1960 et 1990 avec de l'aluminium peint plutôt que du bois ou de la brique pleine. Après des décennies de soleil, ce revêtement s'oxyde et laisse une fine poudre blanchâtre. C'est une étape qu'on vérifie systématiquement avant de soumissionner sur ces maisons."
+        : 'Laval was mostly built between the 1960s and 1990s with painted aluminum rather than wood or solid brick. After decades of sun, that siding oxidizes and leaves a fine whitish powder. It is a step we systematically check before quoting on these homes.',
+    },
+    {
       question: isFr ? 'Est-ce que vous vous déplacez partout à Laval?' : 'Do you travel throughout Laval?',
       answer: isFr
         ? "Oui. Nous desservons Laval et ses principaux quartiers, dont Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville, Vimont et Duvernay. Lors de la soumission, nous confirmons rapidement la disponibilité et l'échéancier selon votre secteur."
-        : "Yes. We serve Laval and its main neighborhoods, including Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville, Vimont and Duvernay. When quoting, we quickly confirm availability and scheduling based on your area.",
+        : 'Yes. We serve Laval and its main neighborhoods, including Chomedey, Sainte-Dorothée, Laval-des-Rapides, Fabreville, Vimont and Duvernay. When quoting, we quickly confirm availability and scheduling based on your area.',
     },
     {
-      question: isFr ? 'Faites-vous des projets dans des maisons occupées?' : 'Do you work in occupied homes?',
+      question: isFr
+        ? 'Peignez-vous aussi le vinyle, ou seulement l\'aluminium oxydé des bungalows?'
+        : 'Do you also paint vinyl, or only oxidized aluminum on bungalows?',
       answer: isFr
-        ? "Oui. Une grande partie de nos projets à Laval se font dans des maisons ou condos habités. Nous planifions les protections, la séquence des pièces et le nettoyage pour limiter les impacts au quotidien et garder le chantier le plus discret possible."
-        : "Yes. A large portion of our Laval projects take place in occupied homes or condos. We plan protections, room sequencing and cleanup to minimize daily disruptions and keep the job site as unobtrusive as possible.",
-    },
-    {
-      question: isFr ? 'Combien de temps faut-il pour peindre une propriété à Laval?' : 'How long does it take to paint a property in Laval?',
-      answer: isFr
-        ? "Cela dépend de la taille du projet, de l'état des surfaces et du niveau de préparation requis. Une soumission détaillée permet d'établir un échéancier clair et réaliste avant le début des travaux, pour que vous sachiez exactement à quoi vous attendre."
-        : "It depends on the size of the project, the condition of the surfaces and the level of preparation required. A detailed quote allows us to establish a clear and realistic schedule before work begins, so you know exactly what to expect.",
-    },
-    {
-      question: isFr ? 'Faites-vous aussi les condos et copropriétés à Laval?' : 'Do you also work on condos and co-ownerships in Laval?',
-      answer: isFr
-        ? "Oui. Nous adaptons le chantier aux règles de l'immeuble, aux accès, aux ascenseurs et à la circulation du matériel pour garder le projet simple, propre et respectueux des espaces communs et des voisins."
-        : "Yes. We adapt our operations to building rules, access points, elevators and material flow to keep the project simple, clean and respectful of common areas and neighbors.",
-    },
-    {
-      question: isFr ? 'Peut-on obtenir une soumission rapidement?' : 'Can we get a quote quickly?',
-      answer: isFr
-        ? "Oui. Nous répondons rapidement et pouvons vous guider vers la bonne page service ou vous proposer une estimation adaptée à votre projet à Laval. Dans la majorité des cas, nous répondons en moins de 24 heures."
-        : "Yes. We respond quickly and can guide you to the right service page or provide an estimate tailored to your Laval project. In most cases, we respond within 24 hours.",
+        ? "Les deux cas se présentent à Laval. Sur l'aluminium qui craie, le nettoyage et l'apprêt liant sont indispensables. Sur le vinyle, on évalue l'état, la flexibilité du revêtement et le type de produit : ce n'est pas le même système que sur l'aluminium des années 1960-1990."
+        : 'Both come up in Laval. On chalking aluminum, cleaning and a bonding primer are essential. On vinyl, we assess condition, siding flexibility and product type: it is not the same system as on 1960s-1990s aluminum.',
     },
   ];
 
@@ -329,8 +326,8 @@ export default function LavalCityPage() {
           name="description"
           content={
             isFr
-              ? 'Le Lever du Pinceau offre des services de peinture à Laval pour maisons, condos et commerces. Peintres professionnels licenciés RBQ. Soumission gratuite.'
-              : 'Le Lever du Pinceau offers painting services in Laval for homes, condos and businesses. Licensed RBQ professional painters. Free quote.'
+              ? 'Peintre à Laval pour bungalows et split-levels : aluminium qui craie, vinyle, intérieur familial. Licence RBQ. Soumission gratuite.'
+              : 'Painter in Laval for bungalows and split-levels: chalking aluminum, vinyl, family interiors. RBQ license. Free quote.'
           }
         />
         <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/laval" />
@@ -350,50 +347,45 @@ export default function LavalCityPage() {
           title={isFr ? 'Peintre à Laval' : 'Painter in Laval'}
           subtitle={
             isFr
-              ? 'Peintres de métier pour vos projets partout à Laval.'
-              : 'Trade painters for your projects throughout Laval.'
+              ? 'Bungalows, aluminium oxydé et quartiers pavillonnaires.'
+              : 'Bungalows, oxidized aluminum and suburban neighborhoods.'
+          }
+          description={
+            isFr
+              ? 'Crétage traité avant de peindre, chantiers propres à Chomedey comme à Duvernay.'
+              : 'Chalking treated before painting, clean jobs from Chomedey to Duvernay.'
           }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-        >
-          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
-            <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline', color: 'white' }}>
-              {isFr ? 'Accueil' : 'Home'}
-            </Link>
-            <Text opacity={0.9}>›</Text>
-            <Link as={RouterLink} to="/secteurs" _hover={{ textDecoration: 'underline', color: 'white' }}>
-              {isFr ? 'Secteurs desservis' : 'Service areas'}
-            </Link>
-            <Text opacity={0.9}>›</Text>
-            <Text color="white" fontWeight="medium">Laval</Text>
-          </HStack>
-        </HeroSection>
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },
+            { label: 'Laval' },
+          ]}
+        />
 
-        {/* ── SECTION 2 - Barre de confiance ──────────────────────────────── */}
-        <TrustBanner />
+        {/* ── SECTION 3 - Checkmarks Laval ─────────────────────────────── */}
+        <CityWhyUsSection
+          cityName="Laval"
+          customTitle={
+            isFr
+              ? 'Une équipe habituée aux réalités des projets à Laval'
+              : 'A team familiar with the realities of projects in Laval'
+          }
+          localInsight={
+            isFr
+              ? "Laval s'est surtout bâtie entre les années 1960 et 1990 : bungalows et split-level revêtus d'aluminium ou de vinyle plutôt que de bois ou de brique pleine. Le revêtement d'aluminium peint de cette époque s'oxyde et craie avec les années d'exposition au soleil : une fine poudre blanchâtre se dépose à la surface. Repeindre par-dessus sans traiter ce crétage avec un nettoyage et un apprêt liant fait décoller la nouvelle couche en une saison. C'est une étape qu'on vérifie systématiquement sur les revêtements lavallois avant de soumissionner."
+              : "Laval was mostly built between the 1960s and 1990s: bungalows and split-levels clad in aluminum or vinyl rather than wood or solid brick. Painted aluminum siding from that era oxidizes and chalks after years of sun exposure: a fine whitish powder forms on the surface. Repainting over it without treating this chalking with cleaning and a bonding primer makes the new coat peel within a season. It's a step we systematically check on Laval siding before quoting."
+          }
+          whyUsIntroText={
+            isFr
+              ? 'À Laval, la qualité d\'un chantier dépend autant de l\'organisation que de la finition.'
+              : 'In Laval, the quality of a job depends as much on organization as on the finish.'
+          }
+          whyUsContent={checkmarks}
+        />
 
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
+        <Container maxW="1440px" px={{ base: 4, md: 6 }}>
           <Stack spacing={0}>
-
-            {/* ── SECTION 3 - Checkmarks Laval ─────────────────────────────── */}
-            <CityWhyUsSection
-              cityName="Laval"
-              customTitle={
-                isFr
-                  ? 'Une équipe habituée aux réalités des projets à Laval'
-                  : 'A team familiar with the realities of projects in Laval'
-              }
-              localInsight={
-                isFr
-                  ? "Laval s'est surtout bâtie entre les années 1960 et 1990 : bungalows et split-level revêtus d'aluminium ou de vinyle plutôt que de bois ou de brique pleine. Le revêtement d'aluminium peint de cette époque s'oxyde et craie avec les années d'exposition au soleil : une fine poudre blanchâtre se dépose à la surface. Repeindre par-dessus sans traiter ce crétage avec un nettoyage et un apprêt liant fait décoller la nouvelle couche en une saison. C'est une étape qu'on vérifie systématiquement sur les revêtements lavallois avant de soumissionner."
-                  : "Laval was mostly built between the 1960s and 1990s: bungalows and split-levels clad in aluminum or vinyl rather than wood or solid brick. Painted aluminum siding from that era oxidizes and chalks after years of sun exposure: a fine whitish powder forms on the surface. Repainting over it without treating this chalking with cleaning and a bonding primer makes the new coat peel within a season. It's a step we systematically check on Laval siding before quoting."
-              }
-              whyUsIntroText={
-                isFr
-                  ? 'À Laval, la qualité d\'un chantier dépend autant de l\'organisation que de la finition.'
-                  : 'In Laval, the quality of a job depends as much on organization as on the finish.'
-              }
-              whyUsContent={checkmarks}
-            />
 
             {/* ── SECTION 4 - Contextes lavallois ──────────────────────────── */}
             <Box py={{ base: 12, md: 16, lg: 20 }}>
@@ -634,6 +626,7 @@ export default function LavalCityPage() {
               ? 'Questions fréquentes sur nos services de peinture à Laval'
               : 'Frequently asked questions about our painting services in Laval'
           }
+          emitSchema={false}
         />
 
         {/* ── SECTION 8 - Liens internes critiques ────────────────────────── */}
@@ -653,8 +646,8 @@ export default function LavalCityPage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="580px" mx="auto">
                   {isFr
-                    ? "Cette page est conçue pour vous orienter vers l'information la plus utile pour votre projet."
-                    : 'This page is designed to guide you to the most useful information for your project.'}
+                    ? 'Aluminium, intérieur résidentiel ou page service : allez au détail utile pour un projet à Laval.'
+                    : 'Aluminum, residential interior or a service page: go to the useful detail for a Laval project.'}
                 </Text>
               </Stack>
 
@@ -712,8 +705,8 @@ export default function LavalCityPage() {
           title={isFr ? 'Obtenez votre soumission pour un projet de peinture à Laval' : 'Get your quote for a painting project in Laval'}
           subtitle={
             isFr
-              ? 'Nous pouvons intervenir rapidement pour vos projets résidentiels, commerciaux ou industriels.'
-              : 'We can quickly intervene for your residential, commercial or industrial projects.'
+              ? 'Bungalow en aluminium, vinyle ou intérieur familial à Laval : décrivez le projet et on confirme la bonne préparation.'
+              : 'Aluminum bungalow, vinyl or family interior in Laval: describe the project and we confirm the right prep.'
           }
         />
 

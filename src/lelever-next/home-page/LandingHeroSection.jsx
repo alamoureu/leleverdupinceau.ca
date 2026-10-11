@@ -208,7 +208,9 @@ export default function LandingHeroSection({
               </Text>
 
               <Box pt={{ base: 2, sm: 3, md: 2, lg: 2, xl: 3 }} w="100%">
-                <CtaButton onClick={onSubmissionOpen}>{heroButton}</CtaButton>
+                <CtaButton align="start" onClick={onSubmissionOpen}>
+                  {heroButton}
+                </CtaButton>
               </Box>
             </Stack>
           </Box>

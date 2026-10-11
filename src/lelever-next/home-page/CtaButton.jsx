@@ -2,14 +2,15 @@ import React from 'react';
 import { Button } from '@chakra-ui/react';
 import ShakeButton from './ShakeButton';
 
-const WRAPPER_STYLE = { maxWidth: '420px' };
+/** Plafond largeur CTA site-wide (hors boutons formulaire). Assez large pour le libellé FR + icône. */
+export const CTA_MAX_W = '22rem'; // 352px
 
 const SIZES = {
   default: {
-    minH: { base: '56px', md: '64px', lg: '72px' },
-    px: { base: 8, md: 12 },
-    py: { base: 4, md: 5 },
-    fontSize: { base: 'lg', md: 'xl' },
+    minH: { base: '44px', md: '48px' },
+    px: { base: 5, md: 6 },
+    py: 2,
+    fontSize: { base: 'sm', md: 'md' },
     borderRadius: 'full',
   },
   // Aligné sur les champs Input size="md" (~40px), pill comme les autres CTA
@@ -27,26 +28,31 @@ const SIZES = {
 
 /**
  * Bouton call-to-action unique du site : respiration lente.
- * `fullWidth` remplit le parent (ex. formulaire) au lieu du max 420px.
- * `size="form"` pour coller à la hauteur des inputs (sans animation).
+ * Largeur au contenu, plafonnée à CTA_MAX_W (sauf `size="form"`).
+ * `align`: "center" (défaut, sections centrées) ou "start" (héros aligné à gauche).
  */
 export default function CtaButton({
   variant = 'primary',
   fullWidth = false,
   size = 'default',
+  align = 'center',
   children,
   ...props
 }) {
   const sizeStyles = SIZES[size] || SIZES.default;
+  const isForm = size === 'form';
   const button = (
     <Button
       variant={variant === 'light' ? 'ctaLight' : 'cta'}
-      w="100%"
+      w={isForm || fullWidth ? '100%' : 'auto'}
+      maxW={isForm || fullWidth ? '100%' : CTA_MAX_W}
       h="auto"
-      fontWeight="bold"
+      fontWeight="600"
       letterSpacing="0.01em"
-      whiteSpace="normal"
-      lineHeight="1.15"
+      whiteSpace={isForm ? 'nowrap' : 'normal'}
+      lineHeight="1.25"
+      textAlign="center"
+      overflow="hidden"
       {...sizeStyles}
       {...props}
     >
@@ -54,9 +60,14 @@ export default function CtaButton({
     </Button>
   );
 
-  if (size === 'form') return button;
+  if (isForm) return button;
 
-  return (
-    <ShakeButton style={fullWidth ? undefined : WRAPPER_STYLE}>{button}</ShakeButton>
-  );
+  const wrapperStyle = {
+    maxWidth: `min(100%, ${CTA_MAX_W})`,
+    width: fullWidth ? '100%' : 'fit-content',
+    marginLeft: align === 'start' ? 0 : 'auto',
+    marginRight: align === 'start' ? 0 : 'auto',
+  };
+
+  return <ShakeButton style={wrapperStyle}>{button}</ShakeButton>;
 }

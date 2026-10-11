@@ -48,7 +48,11 @@ export default function FinalCTASection({
             )}
           </Stack>
 
-          <CtaButton variant='light' rightIcon={<ArrowForwardIcon />} onClick={onSubmissionOpen || onOpen}>
+          <CtaButton
+            variant="light"
+            rightIcon={<ArrowForwardIcon />}
+            onClick={onSubmissionOpen || onOpen}
+          >
             {buttonText || t.ctaButton}
           </CtaButton>
         </Stack>

@@ -10,26 +10,29 @@ import {
   Link,
   HStack,
   Image,
-  Grid,
   SimpleGrid,
   Flex,
   Button,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import SubmissionModal from '../home-page/SubmissionModal';
 import CityWhyUsSection from './CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import ReviewsSection from '../home-page/ReviewsSection';
+import ContactFormSection from '../home-page/ContactFormSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 
 /**
  * Template partagé pour les pages de ville / secteur (Site LP).
- * Réutilise TrustBanner, CityWhyUsSection, BeforeAfterCarouselSection, FAQSection, FinalCTASection.
+ * Réutilise HeroSection, CityWhyUsSection, BeforeAfterCarouselSection, FAQSection, FinalCTASection.
  */
 export default function CitySectorPage({ config }) {
   const { currentLang } = useContext(appContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const isFr = currentLang === 'fr';
   const t = (value) => (typeof value === 'string' ? value : value?.[isFr ? 'fr' : 'en']);
 
@@ -47,24 +50,28 @@ export default function CitySectorPage({ config }) {
     checkmarks,
     contextsTitle,
     contextsSubtitle,
-    contexts,
+    contexts = [],
+    serviceCardsTitle,
+    serviceCardsSubtitle,
+    serviceCards = [],
     beforeAfterTitle,
     beforeAfterSubtitle,
-    beforeAfterPairs,
+    beforeAfterPairs = [],
     whyUsTitle,
     whyUsSubtitle,
-    whyUsCards,
+    whyUsCards = [],
     sectorsTitle,
     sectorsSubtitle,
     sectors,
     sectorsNote,
-    faqs,
+    faqs = [],
     faqTitle,
     internalLinksTitle,
     internalLinksSubtitle,
-    internalLinks,
+    internalLinks = [],
     seoTitle,
     seoDescription,
+    finalCtaSubtitle,
     areaServed = [],
   } = config;
 
@@ -145,6 +152,13 @@ export default function CitySectorPage({ config }) {
     description: t(pair.description),
   }));
 
+  const localizedServiceCards = serviceCards.map((card) => ({
+    title: t(card.title),
+    description: t(card.description),
+    to: card.to,
+    image: card.image,
+  }));
+
   return (
     <Fragment>
       <Helmet>
@@ -157,116 +171,35 @@ export default function CitySectorPage({ config }) {
       </Helmet>
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 12, md: 16, lg: 20 }}>
-          <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
-            gap={{ base: 6, md: 8, lg: 10 }}
-            mb={{ base: 16, md: 20 }}
-            alignItems={{ md: 'flex-start' }}
-          >
-            <Stack spacing={0} minW={0}>
-              <HStack
-                spacing={3}
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.600"
-                mb={{ base: 4, md: 6 }}
-                flexWrap="wrap"
-              >
-                <Link as={RouterLink} to="/" _hover={{ textDecoration: 'underline' }} color="gray.600">
-                  {isFr ? 'Accueil' : 'Home'}
-                </Link>
-                <Text>›</Text>
-                <Link
-                  as={RouterLink}
-                  to="/secteurs"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                >
-                  {isFr ? 'Secteurs desservis' : 'Service areas'}
-                </Link>
-                <Text>›</Text>
-                <Text color="gray.800" fontWeight="medium">
-                  {cityName}
-                </Text>
-              </HStack>
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext={cityName}
+          title={t(heroTitle)}
+          subtitle={t(heroLead)}
+          description={heroBody ? t(heroBody) : undefined}
+          imageBackground={headerImage}
+          imageAlt={t(headerAlt)}
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },
+            { label: cityName },
+          ]}
+          secondaryCta={{
+            label: isFr ? 'Nos réalisations' : 'Our projects',
+            to: '/realisations',
+          }}
+        />
 
-              <Stack spacing={5} textAlign="left">
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  {t(heroTitle)}
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {t(heroLead)}
-                </Text>
-                <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      variant="cta"
-                      rightIcon={<ArrowForwardIcon />}
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                    >
-                      {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-                    </Button>
-                  </Link>
-                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      variant="ctaOutline"
-                      rightIcon={<ArrowForwardIcon />}
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                    >
-                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
-                    </Button>
-                  </Link>
-                </HStack>
-              </Stack>
-            </Stack>
+        <CityWhyUsSection
+          cityName={cityName}
+          customTitle={t(checkmarksTitle)}
+          localInsight={t(localInsight)}
+          whyUsIntroText={t(checkmarksIntro)}
+          whyUsContent={checkmarks.map(t)}
+        />
 
-            <Box
-              w="100%"
-              aspectRatio={{ base: '1', md: '4/3' }}
-              borderRadius="xl"
-              overflow="hidden"
-              bg="gray.100"
-            >
-              <Image
-                src={headerImage}
-                alt={t(headerAlt)}
-                w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="center"
-                loading="lazy"
-                decoding="async"
-                htmlWidth={1600}
-                htmlHeight={1067}
-              />
-            </Box>
-          </Grid>
-        </Container>
-
-        <TrustBanner />
-        <PageIntro>{t(heroBody)}</PageIntro>
-
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
+        <Container maxW="1440px" px={{ base: 4, md: 6 }}>
           <Stack spacing={0}>
-            <CityWhyUsSection
-              cityName={cityName}
-              customTitle={t(checkmarksTitle)}
-              localInsight={t(localInsight)}
-              whyUsIntroText={t(checkmarksIntro)}
-              whyUsContent={checkmarks.map(t)}
-            />
-
             <Box py={{ base: 12, md: 16, lg: 20 }}>
               <Stack spacing={8}>
                 <Stack spacing={3} textAlign="center">
@@ -318,6 +251,81 @@ export default function CitySectorPage({ config }) {
             </Box>
           </Stack>
         </Container>
+
+        {localizedServiceCards.length > 0 && (
+          <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
+            <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+              <Stack spacing={8}>
+                <Stack spacing={3} textAlign="center">
+                  <Heading
+                    as="h2"
+                    fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                    fontWeight="bold"
+                    color="gray.800"
+                  >
+                    {t(serviceCardsTitle)}
+                  </Heading>
+                  {serviceCardsSubtitle && (
+                    <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="680px" mx="auto">
+                      {t(serviceCardsSubtitle)}
+                    </Text>
+                  )}
+                </Stack>
+                <SimpleGrid
+                  columns={{ base: 1, sm: 2 }}
+                  spacing={{ base: 4, md: 6 }}
+                  maxW="900px"
+                  mx="auto"
+                >
+                  {localizedServiceCards.map((card) => (
+                    <Box
+                      key={card.to}
+                      bg="white"
+                      borderRadius="xl"
+                      overflow="hidden"
+                      border="1px solid"
+                      borderColor="gray.200"
+                      boxShadow="sm"
+                      _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
+                      transition="all 0.2s"
+                    >
+                      {card.image && (
+                        <Image
+                          src={card.image}
+                          alt={card.title}
+                          w="100%"
+                          aspectRatio="16/10"
+                          objectFit="cover"
+                          loading="lazy"
+                          decoding="async"
+                        />
+                      )}
+                      <Stack spacing={4} p={{ base: 5, md: 6 }}>
+                        <Text fontWeight="bold" color="gray.800" fontSize={{ base: 'md', md: 'lg' }}>
+                          {card.title}
+                        </Text>
+                        <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.6">
+                          {card.description}
+                        </Text>
+                        <Link as={RouterLink} to={card.to} _hover={{ textDecoration: 'none' }}>
+                          <Button
+                            variant="ctaOutline"
+                            rightIcon={<ArrowForwardIcon />}
+                            borderRadius="full"
+                            size="sm"
+                            px={5}
+                          >
+                            {isFr ? 'En savoir plus' : 'Learn more'}
+                          </Button>
+                        </Link>
+                      </Stack>
+                    </Box>
+                  ))}
+                </SimpleGrid>
+              </Stack>
+            </Container>
+          </Box>
+        )}
 
         <BeforeAfterCarouselSection
           isFr={isFr}
@@ -372,6 +380,21 @@ export default function CitySectorPage({ config }) {
             </Stack>
           </Container>
         </Box>
+
+        <ReviewsSection
+          hideButton
+          title={
+            isFr
+              ? `Ce que disent nos clients près de ${cityName}`
+              : `What clients near ${cityName} say`
+          }
+          subtitle={
+            isFr
+              ? 'Avis Google vérifiés - les mêmes standards de chantier partout sur la Rive-Sud.'
+              : 'Verified Google reviews - the same job-site standards across the South Shore.'
+          }
+          sectionBg="white"
+        />
 
         {sectors?.length > 0 && (
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -433,7 +456,17 @@ export default function CitySectorPage({ config }) {
           </Container>
         )}
 
-        <FAQSection faqsOverride={localizedFaqs} title={t(faqTitle)} />
+        <ContactFormSection
+          sectionPaddingTop={{ base: 12, md: 16 }}
+          sectionPaddingBottom={{ base: 12, md: 16 }}
+          sectionBg="gray.50"
+        />
+
+        <FAQSection
+          faqsOverride={localizedFaqs}
+          title={t(faqTitle)}
+          emitSchema={false}
+        />
 
         <Box py={{ base: 12, md: 16, lg: 20 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
@@ -495,14 +528,18 @@ export default function CitySectorPage({ config }) {
         </Box>
 
         <FinalCTASection
+          onSubmissionOpen={onOpen}
           title={isFr ? `Obtenez votre soumission pour un projet de peinture à ${cityName}` : `Get your quote for a painting project in ${cityName}`}
           subtitle={
-            isFr
-              ? 'Nous offrons des services rapides, fiables et professionnels pour tous vos travaux de peinture résidentiels, commerciaux ou industriels.'
-              : 'We offer fast, reliable and professional services for all your residential, commercial or industrial painting work.'
+            finalCtaSubtitle
+              ? t(finalCtaSubtitle)
+              : isFr
+                ? 'Nous offrons des services rapides, fiables et professionnels pour tous vos travaux de peinture résidentiels, commerciaux ou industriels.'
+                : 'We offer fast, reliable and professional services for all your residential, commercial or industrial painting work.'
           }
         />
       </Box>
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

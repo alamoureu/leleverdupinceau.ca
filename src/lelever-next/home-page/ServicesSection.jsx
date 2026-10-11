@@ -7,11 +7,14 @@ import {
   Text,
   Stack,
   Button,
-  SimpleGrid,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import { SECTION_PY, SECTION_TITLE_MAX_W } from '../constants/sectionSpacing';
+import {
+  DESKTOP_THREE_PLUS_TWO_SX,
+  MOBILE_CENTERED_CARD_SX,
+} from '../constants/responsiveGrid';
 import ServiceCard from './ServiceCard';
 import peintureResidentielleImg from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
 import peintureCommercialeImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
@@ -51,7 +54,6 @@ function ServiceLinkCard({ service }) {
         title={service.title}
         subtitle={service.subtitle}
         titleInStrip
-        fillHeight
         fluid
         noHoverBorder
       />
@@ -98,9 +100,6 @@ export default function ServicesSection({
     },
   ];
 
-  const primary = services.slice(0, 3);
-  const secondary = services.slice(3);
-
   return (
     <Box bg={sectionBg} py={sectionPy}>
       <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>
@@ -127,34 +126,34 @@ export default function ServicesSection({
             </Text>
           </Stack>
 
-          <Stack
-            spacing={{ base: 5, md: 6, lg: 7 }}
+          <Box
             w="100%"
             maxW="1280px"
-            pt={1}
-            pb={3}
+            pt={2}
+            pb={{ base: 3, md: 4 }}
+            display="grid"
+            gridTemplateColumns={{
+              base: '1fr',
+              md: 'repeat(2, minmax(0, 1fr))',
+            }}
+            gap={{ base: 4, md: 5, lg: 7 }}
+            sx={{
+              ...MOBILE_CENTERED_CARD_SX,
+              '@media screen and (min-width: 48em) and (max-width: 61.99em)': {
+                '& > *:last-child:nth-child(odd)': {
+                  gridColumn: '1 / -1',
+                  width: '100%',
+                  maxWidth: 'calc(50% - 0.625rem)',
+                  mx: 'auto',
+                },
+              },
+              ...DESKTOP_THREE_PLUS_TWO_SX,
+            }}
           >
-            <SimpleGrid
-              columns={{ base: 1, md: 2, lg: 3 }}
-              spacing={{ base: 5, md: 6, lg: 7 }}
-              w="100%"
-            >
-              {primary.map((service) => (
-                <ServiceLinkCard key={service.link} service={service} />
-              ))}
-            </SimpleGrid>
-            <SimpleGrid
-              columns={{ base: 1, md: 2 }}
-              spacing={{ base: 5, md: 6, lg: 7 }}
-              w="100%"
-              maxW={{ md: '840px', lg: '860px' }}
-              mx="auto"
-            >
-              {secondary.map((service) => (
-                <ServiceLinkCard key={service.link} service={service} />
-              ))}
-            </SimpleGrid>
-          </Stack>
+            {services.map((service) => (
+              <ServiceLinkCard key={service.link} service={service} />
+            ))}
+          </Box>
 
           <Stack spacing={2} align="center" w="100%">
             <Button
@@ -169,25 +168,8 @@ export default function ServicesSection({
             >
               {t.viewAllServices}
             </Button>
-            <Text
-              as="span"
-              display="inline-flex"
-              alignItems="center"
-              gap={2}
-              fontSize="sm"
-              color="gray.500"
-            >
-              {t.servicesTrustFree}
-              <Box
-                as="span"
-                w="3px"
-                h="3px"
-                borderRadius="full"
-                bg="currentColor"
-                flexShrink={0}
-                aria-hidden
-              />
-              {t.servicesTrustNoCommitment}
+            <Text fontSize="sm" color="gray.500">
+              {t.servicesTrustFree} - {t.servicesTrustNoCommitment}
             </Text>
           </Stack>
         </Stack>

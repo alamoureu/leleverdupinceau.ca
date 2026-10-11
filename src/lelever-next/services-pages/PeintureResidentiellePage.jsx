@@ -20,19 +20,17 @@ import {
   FaCalendarAlt,
   FaShieldAlt,
   FaBroom,
-  FaClock,
-  FaComments,
-  FaStar,
   FaHome,
   FaBuilding,
   FaDoorOpen,
   FaKey,
   FaUsers,
   FaHammer,
+  FaLayerGroup,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -60,36 +58,42 @@ import mouluresApres from '../images/L2 Services principaux/Photo page -peinture
 import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.jpg';
 import corridorApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries après.jpg';
 
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Peinture résidentielle' },
+];
+
 const CHECKMARKS = [
   {
+    icon: FaHome,
+    title: 'Maison, condo ou appartement : le plan change',
+    text: 'Accès, voisinage, règles d\'immeuble et occupation du lieu ne sont pas les mêmes d\'un logement à l\'autre. On adapte la séquence et la logistique au type de propriété.',
+  },
+  {
     icon: FaCalendarAlt,
-    title: 'Horaires flexibles adaptés à votre réalité',
-    text: 'Que vous habitiez sur place ou que la propriété soit vide, nous planifions les travaux selon votre situation et votre niveau de tolérance aux perturbations.',
+    title: 'Travaux pendant que vous vivez sur place',
+    text: 'Pièce par pièce, zones de vie préservées et créneaux réalistes. L\'objectif est de peindre sans bloquer cuisine, chambres ou passages plus longtemps que nécessaire.',
   },
   {
     icon: FaShieldAlt,
-    title: 'Protection complète des meubles et effets personnels',
-    text: 'Toiles de protection, déplacement des meubles si nécessaire, ruban de masquage professionnel. Votre espace est traité avec le même soin que si c\'était le nôtre.',
+    title: 'Protection des meubles, planchers et passages',
+    text: 'Dans un logement habité, chaque surface exposée compte. Toiles, masquage et déplacement soigné du mobilier pour protéger ce qui reste en place.',
+  },
+  {
+    icon: FaLayerGroup,
+    title: 'Préparation selon le bâti résidentiel',
+    text: 'Gypse récent, plâtre ancien, boiseries usées ou petites réparations avant peinture : la préparation suit l\'état réel des murs, pas une méthode unique.',
   },
   {
     icon: FaBroom,
-    title: 'Chantier propre du début à la fin',
-    text: 'Nettoyage quotidien du chantier, sortie des déchets et remise en état des lieux à la fin des travaux. Vous retrouvez votre maison propre.',
+    title: 'Chantier propre dans un espace de vie',
+    text: 'Nettoyage quotidien, sortie des déchets et rangement du matériel. Vous retrouvez un logement utilisable chaque soir, pas un chantier abandonné.',
   },
   {
-    icon: FaClock,
-    title: 'Respect des délais annoncés',
-    text: 'Un projet résidentiel bien planifié a un début et une fin clairs. Nous ne laissons pas traîner un chantier et nous vous informons de l\'avancement.',
-  },
-  {
-    icon: FaComments,
-    title: 'Communication claire à chaque étape',
-    text: 'Soumission détaillée, confirmation avant chaque étape et disponibilité pour vos questions. Pas de surprises, pas de malentendus.',
-  },
-  {
-    icon: FaStar,
-    title: 'Garantie sur les travaux effectués',
-    text: 'Si quelque chose ne vous satisfait pas, nous revenons corriger. Notre réputation repose sur des clients satisfaits qui nous recommandent.',
+    icon: FaKey,
+    title: 'Avant vente, emménagement ou rafraîchissement',
+    text: 'Logement vide avant les meubles, mise en marché ou simple renouvellement des murs : on cadre le scope pour livrer un résultat net au bon moment.',
   },
 ];
 
@@ -247,121 +251,31 @@ export default function PeintureResidentiellePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peinture résidentielle à Montréal | Maison, condo, appartement | Le Lever du Pinceau"
-        description="Service de peinture résidentielle à Montréal. Maison, condo, appartement, logement locatif. Horaires flexibles, protection des meubles, chantier propre. Licence RBQ. Soumission gratuite."
+        title="Peinture résidentielle à Montréal | Pour votre domicile | Le Lever du Pinceau"
+        description="Peinture résidentielle clé en main à Montréal: protection des meubles, horaires flexibles, chantier propre. Hub maisons et logements. Licence RBQ. Soumission gratuite."
         canonicalPath="/services/peinture-residentielle"
         schemaArray={[breadcrumbSchema, faqSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={residentielleHeroImg}
-            alt="Peinture résidentielle à Montréal - peintre professionnel en action"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.50)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Services
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Peinture résidentielle
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Peinture résidentielle à Montréal
-                </Heading>
-                <Text variant="heroSubtitle" color="white" minW={0}>
-                  Maison, condo, appartement.
-                </Text>
-
-                <Box pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-        <PageIntro>
-          Un chantier propre, bien coordonné et respectueux de votre espace de vie.
-        </PageIntro>
-
-        {/* ===== SECTION 3 - CHECKMARKS EXPÉRIENCE CLIENT ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Peinture résidentielle'
+          imageBackground={residentielleHeroImg}
+          imageAlt='Peinture résidentielle à Montréal - peintre professionnel en action'
+          overlayBg='rgba(0, 0, 0, 0.50)'
+          title='Peinture résidentielle à Montréal'
+          subtitle='Pour votre domicile, du devis à la livraison.'
+          description='Chantier propre, bien coordonné et respectueux de votre espace.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - CHECKMARKS EXPÉRIENCE CLIENT ===== */}
         <FeatureCardsSection
-          title="Une expérience sans friction, de la soumission à la remise des clés"
-          subtitle="Chez vous, chaque détail compte - la finition, mais aussi l'expérience du chantier"
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
+          title="Peinture chez vous, sans improviser la logistique"
+          subtitle="Maison, condo ou appartement : occupation, accès et préparation dictent le plan de chantier"
           items={CHECKMARKS}
           variant="inline"
           sectionBg="white"
@@ -486,12 +400,13 @@ export default function PeintureResidentiellePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection
           title="Services connexes"
           links={INTERNAL_LINKS}
-          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
         />
 
         <FinalCTASection

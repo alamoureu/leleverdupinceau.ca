@@ -14,11 +14,6 @@ import {
   SimpleGrid,
   useDisclosure,
   Image,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
@@ -38,8 +33,11 @@ import {
   FaClipboardList,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import ReviewsSection from '../home-page/ReviewsSection';
+import FAQSection from '../home-page/FAQSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import ServiceCard from '../home-page/ServiceCard';
@@ -275,6 +273,11 @@ const INTERNAL_LINKS = [
   },
 ];
 
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Peintre professionnel' },
+];
+
 export default function PeintreProfessionnelPage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -332,130 +335,35 @@ export default function PeintreProfessionnelPage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peintre professionnel à Montréal | Pourquoi engager un pro | Le Lever du Pinceau"
-        description="Pourquoi engager un peintre professionnel licencié RBQ? Découvrez les avantages, les risques d'engager au noir, et comment vérifier un peintre avant de signer. Guide complet par Le Lever du Pinceau."
+        title="Pourquoi engager un peintre professionnel | Licence RBQ et garanties | Le Lever du Pinceau"
+        description="Avantages d'un peintre licencié RBQ, risques du travail au noir, et critères pour vérifier un peintre avant de signer. Page informative par Le Lever du Pinceau."
         canonicalPath="/peintre-professionnel"
         schemaArray={[breadcrumbSchema, faqSchema, articleSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Peintre professionnel'
+          imageBackground={peintreProPhotoHeader}
+          imageAlt='Peintre professionnel en action - Le Lever du Pinceau'
+          overlayBg='rgba(0, 0, 0, 0.45)'
+          title='Pourquoi un peintre professionnel ?'
+          subtitle="Licence RBQ, assurance et garanties."
+          description='Un chantier géré de A à Z.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - POURQUOI UN PEINTRE PROFESSIONNEL ===== */}
         <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={peintreProPhotoHeader}
-            alt="Peintre professionnel en action - Le Lever du Pinceau"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack
-                  spacing={2}
-                  fontSize={{ base: 'sm', md: 'md' }}
-                  flexWrap="wrap"
-                  layerStyle="clearReviewBadge"
-                >
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Peintre professionnel
-                  </Text>
-                </HStack>
-
-                  <Heading as="h1" size="hero" color="white" minW={0}>
-                  Pourquoi engager un peintre professionnel&#xA0;?
-                  </Heading>
-
-                  <Text
-                  variant="heroSubtitle"
-                  color="white"
-                  minW={0}
-                  overflowWrap="break-word"
-                >
-                  Les avantages concrets d&apos;engager un peintre licencié RBQ.
-                  </Text>
-
-                <Box pt={{ base: 2, sm: 3, md: 4 }}>
-                  <Button
-                    variant="cta"
-                    onClick={onOpen}
-                    px={{ base: 8, sm: 10, md: 12, lg: 14 }}
-                    py={{ base: 3, sm: 4, md: 5, lg: 6 }}
-                    minH={{ base: '48px', sm: '52px', md: '56px', lg: '64px' }}
-                    h="auto"
-                w="100%"
-                    maxW={{ base: '280px', sm: '320px', md: '360px' }}
-                    borderRadius="full"
-                    whiteSpace="normal"
-                    lineHeight="1.15"
-                    rightIcon={<ArrowForwardIcon />}
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-
-        {/* ===== SECTION 3 - POURQUOI UN PEINTRE PROFESSIONNEL ===== */}
-        <Box
-          pt={{ base: 10, md: 12, lg: 14 }}
+          pt={TRUST_BANNER_BELOW_PT}
           pb={{ base: 14, md: 18, lg: 20 }}
           bg="white"
         >
               <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={10}>
-              <Stack spacing={4} maxW="900px">
+            <Stack spacing={TRUST_BANNER_AIR_SPACE}>
+              <Stack spacing={{ base: 2, md: 3 }} maxW="900px">
                     <Heading
                       as="h2"
                       size="section"
@@ -469,20 +377,18 @@ export default function PeintreProfessionnelPage() {
                     </Text>
                   </Stack>
 
-              <Flex wrap="wrap" justify="center" gap={5}>
+              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={5}>
                 {WHY_PROFESSIONAL.map((item, i) => (
                   <Box
                     key={i}
-                        bg="white"
-                        border="1px solid"
-                        borderColor="gray.200"
+                    bg="white"
+                    border="1px solid"
+                    borderColor="gray.200"
                     borderRadius="xl"
                     p={{ base: 5, md: 6 }}
                     boxShadow="0 2px 12px rgba(0,0,0,0.05)"
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
                     transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
-                    maxW={{ lg: '420px' }}
                   >
                     <HStack spacing={4} mb={3} align="center">
                       <Flex
@@ -492,25 +398,25 @@ export default function PeintreProfessionnelPage() {
                         bg="brand.50"
                         align="center"
                         justify="center"
-                          flexShrink={0}
+                        flexShrink={0}
                       >
                         <Icon as={item.icon} color="brand.500" boxSize={5} />
                       </Flex>
-                  <Text
+                      <Text
                         fontWeight="bold"
                         color="gray.800"
                         fontSize={{ base: 'sm', md: 'md' }}
                         lineHeight="1.3"
                       >
                         {item.title}
-                  </Text>
+                      </Text>
                     </HStack>
                     <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
                       {item.text}
                     </Text>
                   </Box>
                 ))}
-              </Flex>
+              </SimpleGrid>
                 </Stack>
               </Container>
             </Box>
@@ -724,8 +630,8 @@ export default function PeintreProfessionnelPage() {
                   py={{ base: 3, md: 4 }}
                   rightIcon={<ArrowForwardIcon />}
                   size="lg"
-                  w={{ base: '100%', sm: 'auto' }}
-                  maxW={{ base: '100%', sm: '420px' }}
+                  w="auto"
+                  maxW="20rem"
                   whiteSpace="normal"
                   lineHeight="1.2"
                   h="auto"
@@ -746,67 +652,11 @@ export default function PeintreProfessionnelPage() {
           sectionBg="white"
         />
 
-        {/* ===== SECTION 8 - FAQ ===== */}
-        <Box py={{ base: 14, md: 18, lg: 20 }} bg="gray.50">
-              <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-                <Stack spacing={8}>
-                  <Stack spacing={3} textAlign="center">
-                    <Heading
-                      as="h2"
-                      size="section"
-                      fontWeight="bold"
-                      color="gray.800"
-                    >
-                  Questions fréquentes sur les peintres professionnels
-                    </Heading>
-                  </Stack>
-
-                  <Accordion
-                    allowToggle
-                    allowMultiple
-                    w="100%"
-                    maxW="800px"
-                    mx="auto"
-                  >
-                {FAQS.map((faq, index) => (
-                      <AccordionItem
-                        key={index}
-                        bg="white"
-                        mb={4}
-                        border="1px solid"
-                        borderColor="gray.200"
-                        borderRadius="xl"
-                        overflow="hidden"
-                        _hover={{ borderColor: 'brand.500', boxShadow: 'sm' }}
-                        transition="all 0.2s"
-                        boxShadow="sm"
-                        _last={{ mb: 0 }}
-                      >
-                    <h3>
-                      <AccordionButton py={6} px={8} _hover={{ bg: 'gray.50' }}>
-                            <Box
-                              flex="1"
-                              textAlign="left"
-                              fontWeight="bold"
-                              color="gray.800"
-                              textStyle="bodyLarge"
-                            >
-                              {faq.question}
-                            </Box>
-                            <AccordionIcon color="brand.500" />
-                          </AccordionButton>
-                    </h3>
-                        <AccordionPanel pb={6} px={8} pt={0}>
-                          <Text color="gray.600" lineHeight="1.7">
-                            {faq.answer}
-                          </Text>
-                        </AccordionPanel>
-                      </AccordionItem>
-                    ))}
-                  </Accordion>
-                </Stack>
-              </Container>
-            </Box>
+        <FAQSection
+          title="Questions fréquentes sur les peintres professionnels"
+          faqsOverride={FAQS}
+          emitSchema={false}
+        />
 
         {/* ===== LIENS INTERNES ===== */}
         <Box py={{ base: 14, md: 18, lg: 20 }} bg="white">

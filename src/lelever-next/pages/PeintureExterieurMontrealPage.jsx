@@ -29,8 +29,8 @@ import {
   FaCouch,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -44,6 +44,11 @@ import plateauApres from '../images/L3 Services X Villes/Photo page -peinture-ex
 import verdunAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
 import verdunApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Peinture extérieure Montréal' },
+];
 
 const CHECKMARKS = [
   {
@@ -160,11 +165,6 @@ const INTERNAL_LINKS = [
     description: 'Avant / après de projets réels pour juger la finition extérieure.',
     to: '/realisations',
   },
-  {
-    title: 'Obtenir une soumission',
-    description: 'Réponse en moins de 24h, sans engagement.',
-    to: '/contact',
-  },
 ];
 
 export default function PeintureExterieurMontrealPage() {
@@ -235,129 +235,29 @@ export default function PeintureExterieurMontrealPage() {
     <Fragment>
       <SEOHead
         title="Peinture extérieure à Montréal | Façades, balcons et escaliers | Le Lever du Pinceau"
-        description="Service de peinture extérieure à Montréal pour façades, balcons, escaliers et revêtements. Équipe RBQ, chantier propre et soumission gratuite."
+        description="Peinture extérieure pour le climat montréalais: façades, balcons, escaliers métalliques et revêtements. Saison courte, accès serrés. Licence RBQ. Soumission gratuite."
         canonicalPath="/peinture-exterieure-montreal"
         schemaArray={[breadcrumbSchema, faqSchema, serviceSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={heroImg}
-            alt="Peinture extérieure à Montréal - façade, escalier et balcon bien repeints"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.48)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Peinture extérieure Montréal
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Peinture extérieure à Montréal
-                </Heading>
-
-                <Text
-                  variant="heroSubtitle"
-                  color="white"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                >
-                  Façades, balcons et revêtements protégés pour le climat montréalais.
-                </Text>
-
-                <Stack
-                  direction={{ base: 'column', sm: 'row' }}
-                  spacing={4}
-                  pt={{ base: 2, md: 3 }}
-                  align={{ base: 'flex-start', sm: 'center' }}
-                >
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                  <Link
-                    as={RouterLink}
-                    to="/realisations"
-                    color="whiteAlpha.900"
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    fontWeight="500"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Voir nos réalisations à Montréal →
-                  </Link>
-                </Stack>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-        <PageIntro>
-          Un service de peinture extérieure pensé pour les bâtiments montréalais : saison courte, surfaces exposées, accès serrés, hauteurs, escaliers métalliques, briques et revêtements visibles.
-        </PageIntro>
-
-        {/* ===== SECTION 3 - CHECKMARKS EXTÉRIEUR MONTRÉAL ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Peinture extérieure Montréal'
+          imageBackground={heroImg}
+          imageAlt='Peinture extérieure à Montréal - façade, escalier et balcon bien repeints'
+          overlayBg='rgba(0, 0, 0, 0.48)'
+          title='Peinture extérieure à Montréal'
+          subtitle='Façades, balcons et revêtements protégés pour le climat montréalais.'
+          description='Saison courte, accès serrés et surfaces très exposées.'
+          buttonText='Soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+          secondaryCta={{ label: 'Nos réalisations', to: '/realisations' }}
+        />
+{/* ===== SECTION 3 - CHECKMARKS EXTÉRIEUR MONTRÉAL ===== */}
         <FeatureCardsSection
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           title="Une exécution pensée pour l'extérieur à Montréal"
           subtitle="Le climat, les matériaux et les contraintes urbaines changent complètement la manière de planifier un chantier extérieur."
           items={CHECKMARKS}
@@ -400,12 +300,13 @@ export default function PeintureExterieurMontrealPage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection
           title="Explorer les pages liées à votre projet"
           links={INTERNAL_LINKS}
-          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
         />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}

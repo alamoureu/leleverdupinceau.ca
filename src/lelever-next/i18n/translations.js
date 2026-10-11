@@ -7,10 +7,10 @@ import { HAPPY_CLIENTS_COUNT } from '../constants/company';
 
 export const translations = {
   fr: {
-    heroTitle: 'Peintre professionnel à Montréal',
+    heroTitle: 'Peinture à Montréal',
     heroTitleSecondLine: '',
     heroSubtitle: 'Un résultat impeccable, rien de moins.',
-    heroDescription: 'Service de peinture intérieure et extérieure, résidentielle et commerciale, clé en main, exécuté par des peintres de métier.',
+    heroDescription: 'Intérieur, extérieur, résidentiel et commercial - service clé en main.',
     heroButton: 'Obtenir ma soumission gratuite',
     heroImageAlt: 'Services de peinture résidentielle et commerciale',
 
@@ -52,7 +52,7 @@ export const translations = {
     teamTitle: 'Une équipe de peintres dédiés à votre projet',
     teamDescription:
       'Nos peintres ont chacun plus de 10 ans d’expérience et sont formés pour livrer un travail impeccable.',
-    learnMorePainters: 'Rencontrez notre équipe →',
+    learnMorePainters: 'Rencontrez notre équipe',
 
     reviewsTitle: 'Ce que nos clients disent de nous',
     reviewsSubtitle: `Plus de ${GOOGLE_REVIEW_COUNT} avis 5 étoiles sur Google`,
@@ -249,10 +249,10 @@ export const translations = {
       "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget.",
   },
   en: {
-    heroTitle: 'Professional Painter in Montreal',
+    heroTitle: 'Painting in Montreal',
     heroTitleSecondLine: '',
     heroSubtitle: 'An impeccable result, nothing less.',
-    heroDescription: 'Interior and exterior painting, residential and commercial, turnkey service, performed by professional painters.',
+    heroDescription: 'Interior, exterior, residential and commercial - turnkey service.',
     heroButton: 'Get my free quote',
     heroImageAlt: 'Residential and commercial painting services',
 
@@ -293,7 +293,7 @@ export const translations = {
     teamTitle: 'A team of painters dedicated to your project',
     teamDescription:
       'Our painters each have over 10 years of experience and are trained to deliver impeccable work.',
-    learnMorePainters: 'Meet our team →',
+    learnMorePainters: 'Meet our team',
 
     reviewsTitle: 'What our clients say about us',
     reviewsSubtitle: `Over ${GOOGLE_REVIEW_COUNT} 5-star reviews on Google`,

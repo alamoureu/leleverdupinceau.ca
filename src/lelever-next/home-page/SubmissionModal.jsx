@@ -89,6 +89,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
               type="submit"
               variant="cta"
               w="100%"
+              maxW="100%"
               h="40px"
               minH="40px"
               fontSize="md"

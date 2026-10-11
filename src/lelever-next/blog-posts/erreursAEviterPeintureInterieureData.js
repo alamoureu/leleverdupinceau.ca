@@ -4,12 +4,12 @@ export const erreursAEviterPeintureInterieureData = {
   url: 'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure',
   seo: {
     title: {
-      fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide peinture intérieure 2026)',
-      en: 'Mistakes to avoid before repainting your interior (Interior painting guide 2026)',
+      fr: 'Erreurs à éviter avant de repeindre votre intérieur (Guide 2026)',
+      en: 'Mistakes to avoid before repainting your interior (2026 guide)',
     },
     metaDescription: {
-      fr: 'Avant de repeindre votre intérieur, évitez ces erreurs fréquentes : mauvaise préparation, choix de peinture, protection, conditions, temps, DIY mal planifié. Guide complet pour un résultat impeccable à Montréal.',
-      en: 'Before repainting your interior, avoid these common mistakes: poor preparation, paint choice, protection, conditions, time, poorly planned DIY. Complete guide for an impeccable result in Montreal.',
+      fr: 'Avant de repeindre, évitez ces erreurs fréquentes: mauvaise préparation, mauvais choix de peinture, protection insuffisante et DIY mal planifié. Guide pratique pour un résultat durable.',
+      en: 'Before repainting, avoid these common mistakes: poor preparation, wrong paint choice, insufficient protection and poorly planned DIY. Practical guide for a lasting result.',
     },
   },
   breadcrumb: {

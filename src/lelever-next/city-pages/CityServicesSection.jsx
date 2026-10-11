@@ -61,11 +61,7 @@ export default function CityServicesSection({ cityName, citySlug, serviceDescrip
   ];
 
   return (
-    <Box
-      py={{ base: 12, md: 16, lg: 20 }}
-      bg='gray.50'
-      borderRadius='xl'
-    >
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='gray.50' w='100%'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={3} textAlign='center'>

@@ -1,14 +1,12 @@
 import {
-  residentielleMaisonData,
   residentielleCondoData,
   residentielleAppartementData,
   interieureArmoiresData,
 } from './hubL3MinimalData';
 
-/** L3 encore servis par SousServicePage (maison) ou fallback data. */
+/** Fallback data pour L3 encore servis par SousServicePage (pages dédiées ont priorité dans App.jsx). */
 export const allSousServiceData = {
   'peinture-residentielle': {
-    maison: residentielleMaisonData,
     condo: residentielleCondoData,
     appartement: residentielleAppartementData,
   },

@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
 import {
   Box,
   Container,
@@ -11,7 +10,6 @@ import {
   Link,
   Icon,
   HStack,
-  SimpleGrid,
   Image,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -30,7 +28,8 @@ import {
   FaWater,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -45,6 +44,12 @@ import platreApres1 from '../images/L2 Services specialise/Photo page -plâtre/A
 import platreAvant2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.PNG';
 import platreApres2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.PNG';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Services', to: '/services' },
+  { label: 'Réparation de plâtre et gypse' },
+];
 
 const CHECKMARKS = [
   {
@@ -166,11 +171,6 @@ const INTERNAL_LINKS = [
     description: 'Montréal, Laval, Longueuil et la Rive-Sud.',
     to: '/secteurs',
   },
-  {
-    title: 'Obtenir une soumission',
-    description: 'Réponse en moins de 24h, sans engagement.',
-    to: '/contact',
-  },
 ];
 
 export default function ReparationPlatreGysePage() {
@@ -238,113 +238,21 @@ export default function ReparationPlatreGysePage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={platreHeroImg}
-            alt="Réparation de plâtre et gypse à Montréal - correction de fissures et trous avant peinture"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.55)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/services"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Services
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Réparation de plâtre et gypse
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Réparation de plâtre et gypse à Montréal
-                </Heading>
-
-                <Text
-                  variant="heroSubtitle"
-                  color="white"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                >
-                  Surfaces corrigées pour un fini lisse, droit et prêt à peindre.
-                </Text>
-
-                <Box pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                </Box>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-
-        {/* ===== SECTION 3 - CHECKMARKS CORRECTION DU SUPPORT ===== */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Réparation de plâtre et gypse'
+          imageBackground={platreHeroImg}
+          imageAlt='Réparation de plâtre et gypse à Montréal - correction de fissures et trous avant peinture'
+          overlayBg='rgba(0, 0, 0, 0.55)'
+          title='Réparation de plâtre et gypse à Montréal'
+          subtitle='Surfaces corrigées pour un fini lisse, droit et prêt à peindre.'
+          description='Fissures, trous et joints visibles corrigés avant peinture.'
+          buttonText='Obtenir ma soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+        />
+{/* ===== SECTION 3 - CHECKMARKS CORRECTION DU SUPPORT ===== */}
         <FeatureCardsSection
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
           title="Corriger les défauts avant qu'ils réapparaissent"
           subtitle="Une belle finition commence par une surface réparée, droite et stable"
           items={CHECKMARKS}
@@ -385,6 +293,7 @@ export default function ReparationPlatreGysePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection

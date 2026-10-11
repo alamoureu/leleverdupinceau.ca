@@ -10,8 +10,8 @@ import {
   AccordionItem,
   AccordionButton,
   AccordionPanel,
-  AccordionIcon,
 } from '@chakra-ui/react';
+import { ChevronDownIcon } from '@chakra-ui/icons';
 import { Link as RouterLink } from 'react-router-dom';
 import { useTranslation } from '../i18n';
 
@@ -89,14 +89,18 @@ const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
 
 export default function FAQSection({
   faqsOverride,
+  faqs: faqsProp,
   title,
   sectionPy,
   sectionBg = 'gray.50',
   maxW = '800px',
+  /** When false, skip JSON-LD (page already emits FAQPage via SEOHead). */
+  emitSchema = true,
 }) {
   const { t, currentLang } = useTranslation();
   const isFr = currentLang === 'fr';
-  const faqs = Array.isArray(faqsOverride) && faqsOverride.length > 0 ? faqsOverride : getFaqs(isFr);
+  const override = faqsOverride ?? faqsProp;
+  const faqs = Array.isArray(override) && override.length > 0 ? override : getFaqs(isFr);
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -114,62 +118,107 @@ export default function FAQSection({
   return (
     <Box w="100%" py={sectionPy ?? DEFAULT_SECTION_PY} bg={sectionBg}>
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-        <Stack spacing={8}>
-          <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
+        <Stack spacing={{ base: 6, md: 8 }}>
+          <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="720px" mx="auto">
             <Heading as="h2" size="section" color="gray.800">
               {title ?? t.faqDefaultTitle}
             </Heading>
           </Stack>
 
-          <Accordion allowMultiple w="100%" maxW={maxW} mx="auto">
-            {faqs.map((faq) => (
-              <AccordionItem
-                key={faq.question}
-                bg="white"
-                mb={4}
-                border="1px solid"
-                borderColor="gray.200"
-                borderRadius="xl"
-                overflow="hidden"
-                _hover={{ borderColor: 'brand.500', boxShadow: 'sm' }}
-                transition="all 0.2s"
-                boxShadow="sm"
-                _last={{ mb: 0 }}
-              >
-                <h2>
-                  <AccordionButton py={6} px={8} _hover={{ bg: 'gray.50' }}>
-                    <Box flex="1" textAlign="left" fontWeight="bold" color="gray.800" textStyle="bodyLarge">
-                      {faq.question}
-                    </Box>
-                    <AccordionIcon color="brand.500" />
-                  </AccordionButton>
-                </h2>
-                <AccordionPanel pb={6} px={8} pt={0}>
-                  <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.7">
-                    {faq.answer}
-                    {faq.link && (
-                      <Link
-                        as={RouterLink}
-                        to="/blog/prix-peinture-montreal"
-                        color="brand.500"
-                        ml={1}
-                        fontWeight="medium"
-                        _hover={{ textDecoration: 'underline' }}
+          <Box
+            w="100%"
+            maxW={maxW}
+            mx="auto"
+            bg="white"
+            borderRadius="2xl"
+            border="1px solid"
+            borderColor="gray.200"
+            boxShadow="sm"
+            overflow="hidden"
+          >
+            <Accordion allowToggle>
+              {faqs.map((faq, index) => (
+                <AccordionItem
+                  key={faq.question}
+                  border="none"
+                  borderTopWidth={index === 0 ? 0 : '1px'}
+                  borderColor="gray.200"
+                >
+                  <h3>
+                    <AccordionButton
+                      py={{ base: 4, md: 5 }}
+                      px={{ base: 5, md: 7 }}
+                      gap={3}
+                      alignItems="center"
+                      transition="background-color 0.2s ease"
+                      _hover={{ bg: 'gray.50' }}
+                      _expanded={{ bg: 'brand.50' }}
+                      sx={{
+                        '&[aria-expanded=true] .faq-toggle': {
+                          transform: 'rotate(-180deg)',
+                          color: 'var(--chakra-colors-brand-500)',
+                        },
+                      }}
+                    >
+                      <Box
+                        flex="1"
+                        textAlign="left"
+                        fontWeight="600"
+                        color="gray.800"
+                        fontSize={{ base: 'md', md: 'lg' }}
+                        lineHeight="1.4"
+                        pr={2}
                       >
-                        {t.faqPricingLink}
-                      </Link>
-                    )}
-                  </Text>
-                </AccordionPanel>
-              </AccordionItem>
-            ))}
-          </Accordion>
+                        {faq.question}
+                      </Box>
+                      <ChevronDownIcon
+                        className="faq-toggle"
+                        boxSize={4}
+                        flexShrink={0}
+                        color="gray.400"
+                        transition="transform 0.2s ease, color 0.2s ease"
+                      />
+                    </AccordionButton>
+                  </h3>
+                  <AccordionPanel
+                    pt={0}
+                    pb={{ base: 5, md: 6 }}
+                    px={{ base: 5, md: 7 }}
+                    bg="brand.50"
+                  >
+                    <Text
+                      fontSize={{ base: 'sm', md: 'md' }}
+                      color="gray.600"
+                      lineHeight="1.75"
+                      maxW="65ch"
+                    >
+                      {faq.answer}
+                      {faq.link && (
+                        <Link
+                          as={RouterLink}
+                          to="/blog/prix-peinture-montreal"
+                          color="brand.500"
+                          ml={1}
+                          fontWeight="medium"
+                          _hover={{ textDecoration: 'underline' }}
+                        >
+                          {t.faqPricingLink}
+                        </Link>
+                      )}
+                    </Text>
+                  </AccordionPanel>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </Box>
         </Stack>
       </Container>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      {emitSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
     </Box>
   );
 }

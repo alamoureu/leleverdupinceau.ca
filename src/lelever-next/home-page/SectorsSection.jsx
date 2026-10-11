@@ -16,6 +16,7 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { useTranslation } from '../i18n';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import montrealSecteur from '../images/mtl.webp';
 import lavalSecteur from '../images/laval.webp';
 import longueuilSecteur from '../images/longueuil.webp';
@@ -105,9 +106,9 @@ export default function SectorsSection({
   const isFr = currentLang === 'fr';
 
   return (
-    <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50" borderRadius="xl">
+    <Box py={SECTION_PY} bg="gray.50" w="100%">
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-        <Stack spacing={8} align="center">
+        <Stack spacing={TRUST_BANNER_AIR_SPACE} align="center">
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
             <Heading
               as="h2"

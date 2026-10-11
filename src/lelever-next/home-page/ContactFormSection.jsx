@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Stack, Text } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
+import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import SubmissionForm from './SubmissionForm';
 
 const DEFAULT_SECTION_PT = { base: 4, sm: 6, md: 8, lg: 10 };
@@ -35,7 +36,7 @@ export default function ContactFormSection({
       align="center"
       px={{ base: 3, sm: 4, md: 6, lg: 8 }}
       bg={sectionBg}
-      spacing={isBlue ? { base: 4, md: 6 } : 0}
+      spacing={isBlue ? { base: 4, md: 6 } : TRUST_BANNER_AIR_SPACE}
     >
       {/* Title + subtitle above the card */}
       {!isFormSuccess && (

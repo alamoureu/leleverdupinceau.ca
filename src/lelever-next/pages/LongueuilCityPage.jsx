@@ -9,16 +9,14 @@ import {
   Stack,
   Link,
   HStack,
-  Image,
-  Grid,
   SimpleGrid,
   Flex,
-  Button,
+  useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
-import { useTranslation } from '../i18n';
-import TrustBanner from '../home-page/TrustBanner';
+import HeroSection from '../home-page/HeroSection';
+import SubmissionModal from '../home-page/SubmissionModal';
 import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
@@ -46,10 +44,9 @@ import bedroomBefore from '../images/L2 Services principaux/Photo page -peinture
 import bedroomAfter from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
 import greenBedroomBefore from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
 import greenBedroomAfter from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
-
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
-  const { t } = useTranslation();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const isFr = currentLang === 'fr';
 
   // Schema markup
@@ -81,19 +78,17 @@ export default function LongueuilCityPage() {
   // Section 3 - Checkmarks
 
   const checkmarks = isFr ? [
-    'Habitués aux maisons, condos et projets de transition - À Longueuil, beaucoup de projets concernent des propriétés occupées, des condos, des rafraîchissements avant vente ou des espaces à remettre au propre avant une nouvelle étape.',
-    'Logistique simple et bien planifiée - Stationnement, accès, circulation du matériel et séquence des pièces sont organisés pour garder le chantier fluide, surtout dans des propriétés habitées.',
-    "Échéancier clair pour les moments sensibles - Avant mise en marché, avant déménagement, entre deux occupations ou pendant un horaire familial serré.",
-    'Protection complète des espaces habités - Dans une maison ou un condo occupé, les protections et le nettoyage quotidien comptent autant que le résultat visuel.',
-    'Communication simple du début à la fin - Le client sait quoi attendre, quand les travaux commencent, ce qui est inclus et comment le chantier va se dérouler.',
-    "Connaissance des secteurs de Longueuil - Vieux-Longueuil, Saint-Hubert, Greenfield Park et les zones résidentielles plus familiales n'impliquent pas les mêmes contextes; l'approche s'adapte.",
+    'Deux réalités sur le même territoire - Tours des années 1960-1970 près du métro et maisons de pierre ou de brique du Vieux-Longueuil, près du fleuve.',
+    'Efflorescence traitée avant de peindre - Dépôts blancs sur brique nettoyés à sec et source d\'humidité vérifiée, sinon le revêtement décolle vite.',
+    'Logistique d\'immeuble en tour - Accès, ascenseurs, corridors et règles de voisins planifiés avant d\'ouvrir les pots.',
+    'Préparation adaptée à la maçonnerie du Vieux - Humidité du Saint-Laurent et sels minéraux pris en compte avant toute peinture de façade.',
+    'Connaissance des secteurs de Longueuil - Vieux-Longueuil, Saint-Hubert et Greenfield Park n\'impliquent pas la même méthode; l\'approche s\'adapte.',
   ] : [
-    'Experienced with homes, condos and transition projects - In Longueuil, many projects involve occupied properties, condos, pre-sale refreshes or spaces to clean up before a new chapter.',
-    'Simple and well-planned logistics - Parking, access, material flow and room sequencing are organized to keep the site running smoothly, especially in occupied properties.',
-    'Clear schedule for sensitive moments - Before listing, before moving, between occupations or during a tight family schedule.',
-    'Full protection of occupied spaces - In an occupied home or condo, protections and daily cleanup matter as much as the visual result.',
-    'Simple communication from start to finish - The client knows what to expect, when work starts, what is included and how the site will run.',
-    "Knowledge of Longueuil's sectors - Vieux-Longueuil, Saint-Hubert, Greenfield Park and the more residential family zones don't all involve the same context; the approach adapts.",
+    'Two realities on the same territory - 1960s-1970s towers near the metro and stone or brick homes in Old Longueuil, near the river.',
+    'Efflorescence treated before painting - White deposits on brick cleaned dry and moisture source checked, or the coating peels quickly.',
+    'Tower building logistics - Access, elevators, corridors and neighbor rules planned before opening the cans.',
+    'Prep suited to Old Town masonry - St. Lawrence humidity and mineral salts accounted for before any facade paint.',
+    'Knowledge of Longueuil sectors - Old Longueuil, Saint-Hubert and Greenfield Park do not all need the same method; the approach adapts.',
   ];
 
   // Section 4 - Contextes longueuillois
@@ -101,54 +96,54 @@ export default function LongueuilCityPage() {
   const contexts = isFr ? [
     {
       number: '01',
-      title: 'Maison unifamiliale occupée',
-      description: 'Projet à planifier pièce par pièce, avec protections, rythme de chantier clair et souci du quotidien familial.',
+      title: 'Maison de brique près du fleuve',
+      description: 'Près du Saint-Laurent, l\'efflorescence est fréquente sur la brique. On nettoie les dépôts à sec, on vérifie la source d\'humidité, puis seulement on applique un revêtement adapté, sinon la peinture décolle.',
     },
     {
       number: '02',
-      title: 'Condo ou unité en copropriété',
-      description: "Accès, circulation, espaces communs et propreté prennent plus d'importance dans les immeubles récents ou les copropriétés.",
+      title: 'Tour à logements près du métro',
+      description: 'Immeubles des années 1960-1970 : coordination des accès, protection des corridors, ascenseurs et horaires respectueux des voisins. Ce n\'est pas la même planification qu\'une maison individuelle.',
     },
     {
       number: '03',
-      title: 'Rafraîchissement avant vente',
-      description: 'Une peinture propre et neutre aide à présenter une propriété plus lumineuse, plus soignée et plus facile à projeter pour un acheteur.',
+      title: 'Maison ou plex du Vieux-Longueuil',
+      description: 'Pierre, brique et proximité du fleuve : la préparation de façade compte autant que la couleur finale. On adapte produits et méthode au support, pas à une recette unique.',
     },
     {
       number: '04',
-      title: 'Projet avant emménagement',
-      description: 'Le meilleur moment pour peindre vite et efficacement, sans contourner le mobilier ni compliquer la logistique.',
+      title: 'Maison familiale à Saint-Hubert ou Greenfield Park',
+      description: 'Chantier en secteur résidentiel : protections, séquence des pièces et rythme adapté à une maison occupée, pour limiter l\'impact sur le quotidien familial.',
     },
     {
       number: '05',
-      title: 'Remise à niveau entre deux occupants',
-      description: 'Appartement, logement ou unité en transition : il faut aller vite, proprement et avec un scope bien cadré.',
+      title: 'Rafraîchissement avant vente à Longueuil',
+      description: 'Scope cadré et échéancier serré pour présenter une propriété plus claire, que ce soit en tour près du métro ou en maison de quartier à Saint-Hubert.',
     },
   ] : [
     {
       number: '01',
-      title: 'Occupied single-family home',
-      description: 'Project to plan room by room, with protections, clear site rhythm and attention to daily family life.',
+      title: 'Brick home near the river',
+      description: 'Near the St. Lawrence, efflorescence is common on brick. We dry-clean deposits, check the moisture source, then only apply a suitable coating, or the paint peels.',
     },
     {
       number: '02',
-      title: 'Condo or co-ownership unit',
-      description: 'Access, circulation, common areas and cleanliness take on more importance in recent buildings or co-ownerships.',
+      title: 'Apartment tower near the metro',
+      description: '1960s-1970s buildings: access coordination, corridor protection, elevators and schedules that respect neighbors. It is not the same planning as a single-family home.',
     },
     {
       number: '03',
-      title: 'Pre-sale refresh',
-      description: 'Clean, neutral paint helps present a brighter, more polished property that buyers can more easily envision.',
+      title: 'Old Longueuil house or plex',
+      description: 'Stone, brick and proximity to the river: facade prep matters as much as the final color. We adapt products and method to the substrate, not a single recipe.',
     },
     {
       number: '04',
-      title: 'Pre-move-in project',
-      description: 'The best time to paint quickly and efficiently, without working around furniture or complicating logistics.',
+      title: 'Family home in Saint-Hubert or Greenfield Park',
+      description: 'Job in a residential sector: protections, room sequencing and a pace suited to an occupied home, to limit impact on daily family life.',
     },
     {
       number: '05',
-      title: 'Turnover between occupants',
-      description: 'Apartment, unit or rental in transition: we move fast, cleanly and with a well-defined scope.',
+      title: 'Pre-sale refresh in Longueuil',
+      description: 'Defined scope and a tight schedule to present a clearer property, whether in a tower near the metro or a neighborhood home in Saint-Hubert.',
     },
   ];
 
@@ -209,11 +204,39 @@ export default function LongueuilCityPage() {
 
   // Section 6 - Pourquoi nous choisir
 
-  const whyUsCards = [1, 2, 3].map((n) => ({
-    number: `0${n}`,
-    title: t[`controlCard${n}Title`],
-    description: t[`controlCard${n}Desc`],
-  }));
+  const whyUsCards = isFr ? [
+    {
+      number: '01',
+      title: 'Efflorescence gérée avant la peinture',
+      description: 'Près du fleuve, les sels minéraux sur la brique se nettoient à sec. Peindre par-dessus sans traiter la source d\'humidité fait éclater la nouvelle couche.',
+    },
+    {
+      number: '02',
+      title: 'Méthode tour vs Vieux-Longueuil',
+      description: 'En tour, la logistique d\'immeuble domine. Dans le Vieux, c\'est la maçonnerie et l\'humidité qui dictent la préparation.',
+    },
+    {
+      number: '03',
+      title: 'Chantier adapté au secteur',
+      description: 'Vieux-Longueuil, Saint-Hubert ou Greenfield Park : accès, voisinage et type de bâti planifiés dès la soumission.',
+    },
+  ] : [
+    {
+      number: '01',
+      title: 'Efflorescence handled before paint',
+      description: 'Near the river, mineral salts on brick are cleaned dry. Painting over them without treating the moisture source makes the new coat burst.',
+    },
+    {
+      number: '02',
+      title: 'Tower vs Old Longueuil method',
+      description: 'In towers, building logistics dominate. In Old Town, masonry and humidity drive the prep.',
+    },
+    {
+      number: '03',
+      title: 'Job adapted to the sector',
+      description: 'Old Longueuil, Saint-Hubert or Greenfield Park: access, neighbors and building type planned from the quote.',
+    },
+  ];
 
   // Section 7 - FAQ Longueuil
 
@@ -227,34 +250,26 @@ export default function LongueuilCityPage() {
         : 'These deposits, called efflorescence, are common near the river in Longueuil due to ambient humidity. They must be cleaned dry (never with water, which brings them back) and the source of moisture checked before applying a coating, otherwise the paint peels quickly.',
     },
     {
+      question: isFr
+        ? 'Approchez-vous de la même façon une tour près du métro et une maison du Vieux-Longueuil?'
+        : 'Do you approach a tower near the metro the same way as a home in Old Longueuil?',
+      answer: isFr
+        ? "Non. Longueuil combine des tours à logements des années 1960-1970 et des maisons de pierre ou de brique près du fleuve. En tour, la logistique d'immeuble domine; dans le Vieux-Longueuil, c'est surtout l'humidité, l'efflorescence et la préparation de la maçonnerie qui dictent la méthode."
+        : 'No. Longueuil combines 1960s-1970s apartment towers and stone or brick homes near the river. In towers, building logistics dominate; in Old Longueuil, humidity, efflorescence and masonry prep drive the method.',
+    },
+    {
       question: isFr ? 'Est-ce que vous vous déplacez partout à Longueuil?' : 'Do you travel throughout Longueuil?',
       answer: isFr
         ? "Oui. Nous desservons Longueuil et ses principaux secteurs, dont Vieux-Longueuil, Saint-Hubert et Greenfield Park, selon le type de projet. Lors de la soumission, nous confirmons rapidement la disponibilité et l'échéancier selon votre secteur."
         : 'Yes. We serve Longueuil and its main sectors, including Vieux-Longueuil, Saint-Hubert and Greenfield Park, depending on the type of project. When quoting, we quickly confirm availability and scheduling based on your area.',
     },
     {
-      question: isFr ? 'Faites-vous des projets dans des maisons occupées?' : 'Do you work in occupied homes?',
+      question: isFr
+        ? 'Intervenez-vous dans les tours à logements près du métro à Longueuil?'
+        : 'Do you work in apartment towers near the metro in Longueuil?',
       answer: isFr
-        ? 'Oui. Une grande partie de nos projets à Longueuil se font dans des maisons ou condos habités. Nous planifions les protections, la séquence des pièces et le nettoyage pour limiter les impacts au quotidien et garder le chantier le plus discret possible.'
-        : 'Yes. A large portion of our Longueuil projects take place in occupied homes or condos. We plan protections, room sequencing and cleanup to minimize daily disruptions and keep the job site as unobtrusive as possible.',
-    },
-    {
-      question: isFr ? 'Combien de temps faut-il pour peindre une propriété à Longueuil?' : 'How long does it take to paint a property in Longueuil?',
-      answer: isFr
-        ? "Cela dépend de la taille, de l'état des surfaces et du niveau de préparation. Une soumission détaillée permet d'établir un échéancier clair et réaliste avant le début des travaux, pour que vous sachiez exactement à quoi vous attendre."
-        : 'It depends on the size of the project, the condition of the surfaces and the level of preparation required. A detailed quote allows us to establish a clear and realistic schedule before work begins, so you know exactly what to expect.',
-    },
-    {
-      question: isFr ? 'Faites-vous aussi les condos et copropriétés à Longueuil?' : 'Do you also work on condos and co-ownerships in Longueuil?',
-      answer: isFr
-        ? "Oui. Nous adaptons le chantier aux règles de l'immeuble, aux accès et à la circulation du matériel pour garder le projet simple, propre et respectueux des espaces communs et des voisins."
-        : 'Yes. We adapt our operations to building rules, access points and material flow to keep the project simple, clean and respectful of common areas and neighbors.',
-    },
-    {
-      question: isFr ? 'Peut-on obtenir une soumission rapidement?' : 'Can we get a quote quickly?',
-      answer: isFr
-        ? 'Oui. Nous répondons rapidement et pouvons vous guider vers la bonne page service ou vous proposer une estimation adaptée à votre projet à Longueuil. Dans la majorité des cas, nous répondons en moins de 24 heures.'
-        : 'Yes. We respond quickly and can guide you to the right service page or provide an estimate tailored to your Longueuil project. In most cases, we respond within 24 hours.',
+        ? "Oui. Ces immeubles des années 1960-1970 demandent surtout une bonne coordination : accès, ascenseurs, protection des corridors et respect des voisins. Ce n'est pas la même planification qu'une maison de pierre du Vieux-Longueuil."
+        : 'Yes. Those 1960s-1970s buildings mainly need solid coordination: access, elevators, corridor protection and consideration for neighbors. It is not the same planning as a stone house in Old Longueuil.',
     },
   ];
 
@@ -305,8 +320,8 @@ export default function LongueuilCityPage() {
           name="description"
           content={
             isFr
-              ? 'Le Lever du Pinceau offre des services de peinture à Longueuil pour maisons, condos et commerces. Soumission gratuite, chantier propre, peintres de métier.'
-              : 'Le Lever du Pinceau offers painting services in Longueuil for homes, condos and businesses. Free quote, clean job site, professional painters.'
+              ? 'Peintre à Longueuil : Vieux près du fleuve, tours près du métro, Saint-Hubert et Greenfield Park. Efflorescence, intérieur et extérieur. Soumission gratuite.'
+              : 'Painter in Longueuil: Old Town by the river, towers near the metro, Saint-Hubert and Greenfield Park. Efflorescence, interior and exterior. Free quote.'
           }
         />
         <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/longueuil" />
@@ -316,151 +331,60 @@ export default function LongueuilCityPage() {
       </Helmet>
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext="Longueuil"
+          title={isFr ? 'Peintre à Longueuil' : 'Painter in Longueuil'}
+          subtitle={
+            isFr
+              ? 'Tours près du métro, Vieux-Longueuil et maisons de quartier.'
+              : 'Towers near the metro, Old Longueuil and neighborhood homes.'
+          }
+          description={
+            isFr
+              ? 'Efflorescence, maçonnerie du Vieux et logistique de tours près du métro.'
+              : 'Efflorescence, Old Town masonry and tower logistics near the metro.'
+          }
+          imageBackground={headerLongueuil}
+          imageAlt={
+            isFr
+              ? 'Peintre professionnel à Longueuil - Le Lever du Pinceau'
+              : 'Professional painter in Longueuil - Le Lever du Pinceau'
+          }
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },
+            { label: 'Longueuil' },
+          ]}
+          secondaryCta={{
+            label: isFr ? 'Nos réalisations' : 'Our projects',
+            to: '/realisations',
+          }}
+        />
 
-        {/* SECTION 1 - Hero Banner */}
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 12, md: 16, lg: 20 }}>
-          <Grid
-            templateColumns={{ base: '1fr', md: '6fr 4fr' }}
-            gap={{ base: 6, md: 8, lg: 10 }}
-            mb={{ base: 16, md: 20 }}
-            alignItems={{ md: 'flex-start' }}
-          >
-            <Stack spacing={0} minW={0}>
-              {/* Breadcrumb */}
-              <HStack
-                spacing={3}
-                fontSize={{ base: 'md', md: 'lg' }}
-                color="gray.600"
-                mb={{ base: 4, md: 6 }}
-                flexWrap="wrap"
-                layerStyle="clearReviewBadge"
-              >
-                <Link
-                  as={RouterLink}
-                  to="/"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Accueil' : 'Home'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Link
-                  as={RouterLink}
-                  to="/secteurs"
-                  _hover={{ textDecoration: 'underline' }}
-                  color="gray.600"
-                  fontSize={{ base: 'md', md: 'lg' }}
-                >
-                  {isFr ? 'Secteurs desservis' : 'Service areas'}
-                </Link>
-                <Text fontSize={{ base: 'md', md: 'lg' }}>›</Text>
-                <Text color="gray.800" fontWeight="medium" fontSize={{ base: 'md', md: 'lg' }}>Longueuil</Text>
-              </HStack>
+        {/* SECTION 3 - Checkmarks Longueuil */}
+        <CityWhyUsSection
+          cityName="Longueuil"
+          customTitle={
+            isFr
+              ? 'Une équipe habituée aux réalités des projets à Longueuil'
+              : 'A team familiar with the realities of projects in Longueuil'
+          }
+          localInsight={
+            isFr
+              ? "Longueuil combine deux réalités bien distinctes : les tours à logements des années 1960-1970 près du métro, et les maisons de pierre et de brique du Vieux-Longueuil, tout près du fleuve. Cette proximité avec le Saint-Laurent maintient un taux d'humidité plus élevé dans l'air, ce qui favorise l'efflorescence, ces dépôts blanchâtres de sels minéraux qui remontent à la surface de la brique et de la maçonnerie. Peindre par-dessus sans traiter l'efflorescence piège l'humidité et fait éclater la nouvelle couche."
+              : 'Longueuil combines two very different realities: 1960s-1970s apartment towers near the metro, and the stone and brick houses of Old Longueuil, close to the river. This proximity to the St. Lawrence keeps air humidity higher, which promotes efflorescence, the whitish mineral salt deposits that rise to the surface of brick and masonry. Painting over it without treating the efflorescence traps moisture and makes the new coat burst.'
+          }
+          whyUsIntroText={
+            isFr
+              ? "À Longueuil, la réussite d'un chantier dépend autant de la planification que de la finition."
+              : 'In Longueuil, the success of a job depends as much on planning as on the finish.'
+          }
+          whyUsContent={checkmarks}
+        />
 
-              <Stack spacing={5} textAlign="left">
-                <Heading
-                  as="h1"
-                  fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  {isFr ? 'Peintre à Longueuil' : 'Painter in Longueuil'}
-                </Heading>
-
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
-                  {isFr
-                    ? 'Peintres de métier pour vos projets partout à Longueuil.'
-                    : 'Trade painters for your projects throughout Longueuil.'}
-                </Text>
-
-                <HStack spacing={4} pt={2} flexWrap="wrap">
-                  <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      variant="cta"
-                      rightIcon={<ArrowForwardIcon />}
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                    >
-                      {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-                    </Button>
-                  </Link>
-                  <Link as={RouterLink} to="/realisations" _hover={{ textDecoration: 'none' }}>
-                    <Button
-                      variant="ctaOutline"
-                      rightIcon={<ArrowForwardIcon />}
-                      borderRadius="full"
-                      fontSize={{ base: 'sm', md: 'md' }}
-                      px={{ base: 6, md: 8 }}
-                      size="lg"
-                    >
-                      {isFr ? 'Voir nos réalisations' : 'View our projects'}
-                    </Button>
-                  </Link>
-                </HStack>
-              </Stack>
-            </Stack>
-
-            <Box
-              w="100%"
-              aspectRatio={{ base: '1', md: '4/3' }}
-              borderRadius="xl"
-              overflow="hidden"
-              bg="gray.100"
-            >
-              <Image
-                src={headerLongueuil}
-                alt={
-                  isFr
-                    ? 'Peintre professionnel à Longueuil - Le Lever du Pinceau'
-                    : 'Professional painter in Longueuil - Le Lever du Pinceau'
-                }
-                title={
-                  isFr
-                    ? 'Peintre professionnel Longueuil, Le Lever du Pinceau, projet de peinture résidentielle complété'
-                    : 'Professional painter Longueuil, Le Lever du Pinceau, residential painting project completed'
-                }
-                w="100%"
-                h="100%"
-                objectFit="cover"
-                objectPosition="center"
-                loading="lazy"
-                decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-              />
-            </Box>
-          </Grid>
-        </Container>
-
-        {/* SECTION 2 - Barre de confiance */}
-        <TrustBanner />
-
-        <Container maxW="1440px" px={{ base: 4, md: 6 }} pt={{ base: 10, md: 14, lg: 16 }}>
+        <Container maxW="1440px" px={{ base: 4, md: 6 }}>
           <Stack spacing={0}>
-
-            {/* SECTION 3 - Checkmarks Longueuil */}
-            <CityWhyUsSection
-              cityName="Longueuil"
-              customTitle={
-                isFr
-                  ? 'Une équipe habituée aux réalités des projets à Longueuil'
-                  : 'A team familiar with the realities of projects in Longueuil'
-              }
-              localInsight={
-                isFr
-                  ? "Longueuil combine deux réalités bien distinctes : les tours à logements des années 1960-1970 près du métro, et les maisons de pierre et de brique du Vieux-Longueuil, tout près du fleuve. Cette proximité avec le Saint-Laurent maintient un taux d'humidité plus élevé dans l'air, ce qui favorise l'efflorescence, ces dépôts blanchâtres de sels minéraux qui remontent à la surface de la brique et de la maçonnerie. Peindre par-dessus sans traiter l'efflorescence piège l'humidité et fait éclater la nouvelle couche."
-                  : 'Longueuil combines two very different realities: 1960s-1970s apartment towers near the metro, and the stone and brick houses of Old Longueuil, close to the river. This proximity to the St. Lawrence keeps air humidity higher, which promotes efflorescence, the whitish mineral salt deposits that rise to the surface of brick and masonry. Painting over it without treating the efflorescence traps moisture and makes the new coat burst.'
-              }
-              whyUsIntroText={
-                isFr
-                  ? "À Longueuil, la réussite d'un chantier dépend autant de la planification que de la finition."
-                  : 'In Longueuil, the success of a job depends as much on planning as on the finish.'
-              }
-              whyUsContent={checkmarks}
-            />
 
             {/* SECTION 4 - Contextes longueuillois */}
             <Box py={{ base: 12, md: 16, lg: 20 }}>
@@ -679,6 +603,7 @@ export default function LongueuilCityPage() {
               ? 'Questions fréquentes sur nos services de peinture à Longueuil'
               : 'Frequently asked questions about our painting services in Longueuil'
           }
+          emitSchema={false}
         />
 
         {/* SECTION 8 - Liens internes critiques */}
@@ -698,8 +623,8 @@ export default function LongueuilCityPage() {
                 </Heading>
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" maxW="580px" mx="auto">
                   {isFr
-                    ? "Cette page est conçue pour vous orienter vers l'information la plus utile pour votre projet."
-                    : 'This page is designed to guide you to the most useful information for your project.'}
+                    ? 'Efflorescence, tour près du métro ou page service : allez au détail utile pour Longueuil.'
+                    : 'Efflorescence, tower near the metro or a service page: go to the useful detail for Longueuil.'}
                 </Text>
               </Stack>
 
@@ -751,17 +676,18 @@ export default function LongueuilCityPage() {
           </Container>
         </Box>
 
-        {/* SECTION 9 - CTA final */}
         <FinalCTASection
+          onSubmissionOpen={onOpen}
           title={isFr ? 'Obtenez une soumission pour un projet de peinture à Longueuil' : 'Get a quote for a painting project in Longueuil'}
           subtitle={
             isFr
-              ? "Que ce soit pour l'intérieur, l'extérieur, un commerce ou un bâtiment industriel, notre équipe se déplace rapidement partout à Longueuil."
-              : "Whether it's for interior, exterior, commercial or industrial building work, our team quickly travels throughout Longueuil."
+              ? 'Brique près du fleuve, tour près du métro ou maison à Saint-Hubert : décrivez le projet et on confirme la bonne méthode.'
+              : 'Brick near the river, tower near the metro or home in Saint-Hubert: describe the project and we confirm the right method.'
           }
         />
 
       </Box>
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
     </Fragment>
   );
 }

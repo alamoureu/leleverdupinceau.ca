@@ -32,11 +32,11 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
-import PageIntro from '../components/PageIntro';
 import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
@@ -53,6 +53,7 @@ const BREADCRUMB = [
   { label: 'Accueil', to: '/' },
   { label: 'Secteurs', to: '/secteurs' },
   { label: 'Montréal', to: '/secteurs/montreal' },
+  { label: 'Ville-Marie' },
 ];
 
 const CHECKMARKS = [
@@ -179,23 +180,15 @@ const FAQS = [
   },
   {
     question: 'Est-ce que vous intervenez dans les condos et tours résidentielles de Ville-Marie\u00A0?',
-    answer: 'Oui. Nous intervenons dans les condos, tours résidentielles et autres types d\'unités à Ville-Marie. Ce type de projet demande souvent une bonne coordination avec l\'immeuble, un chantier propre et une attention particulière aux accès et aux espaces communs. Notre approche s\'adapte à ces contraintes pour que les travaux se déroulent de façon simple, efficace et bien encadrée.',
+    answer: 'Oui. En tour ou en condo au centre-ville, la coordination avec l\'immeuble, la protection des espaces communs et le respect des accès font partie du projet autant que la peinture elle-même.',
   },
   {
     question: 'Comment gérez-vous les accès, ascenseurs et horaires d\'immeuble au centre-ville\u00A0?',
-    answer: 'Les projets au centre-ville demandent souvent une planification plus précise. Nous tenons compte des accès, des ascenseurs, des plages horaires permises, du stationnement et des règles de l\'immeuble avant de commencer les travaux. L\'objectif est de garder le chantier organisé dès le départ afin de limiter les imprévus et de travailler efficacement dans un environnement plus encadré.',
-  },
-  {
-    question: 'Pouvez-vous travailler avant un emménagement, une relocation ou une mise en vente\u00A0?',
-    answer: 'Oui. Nous réalisons régulièrement des projets avant un emménagement, une relocation ou une mise en vente. Dans ce contexte, le respect des délais est particulièrement important. Nous planifions donc le chantier avec un échéancier clair afin que les travaux soient complétés au bon moment et que l\'espace soit prêt à être occupé, reloué ou présenté dans les meilleures conditions.',
+    answer: 'On planifie avant le premier coup de pinceau : réservation d\'ascenseur de service, plages horaires permises, stationnement et circulation du matériel. L\'objectif est d\'éviter les imprévus dans un environnement plus encadré qu\'une maison de quartier.',
   },
   {
     question: 'Travaillez-vous aussi dans des bureaux ou espaces commerciaux légers à Ville-Marie\u00A0?',
-    answer: 'Oui. Nous pouvons intervenir dans certains bureaux, locaux professionnels et espaces commerciaux légers à Ville-Marie, selon le type de projet. Ce genre d\'intervention demande souvent de la flexibilité, une bonne coordination et un chantier propre afin de limiter les impacts sur les activités en place. Chaque projet est évalué selon ses contraintes et son échéancier.',
-  },
-  {
-    question: 'Combien de temps faut-il pour obtenir une soumission à Ville-Marie\u00A0?',
-    answer: 'Nous répondons en moins de 24 heures. Le délai exact dépend du type de projet, des informations fournies et de la période de l\'année. Plus votre demande est claire dès le départ, plus nous pouvons vous transmettre rapidement une soumission précise, adaptée à votre propriété et aux contraintes propres à Ville-Marie.',
+    answer: 'Oui, selon le type de local. Au centre-ville, on privilégie souvent des horaires hors heures ou une séquence par zones pour limiter l\'impact sur les opérations en place.',
   },
 ];
 
@@ -219,11 +212,6 @@ const INTERNAL_LINKS = [
     title: 'Nos réalisations',
     description: 'Avant / après de projets réels pour juger la qualité.',
     to: '/realisations',
-  },
-  {
-    title: 'Demander une soumission',
-    description: 'Réponse en moins de 24h, sans engagement.',
-    to: '/contact',
   },
   {
     title: 'Nos autres secteurs à Montréal',
@@ -309,27 +297,12 @@ export default function VilleMariePage() {
           imageBackground={heroImg}
           title="Peintre à Ville-Marie"
           subtitle="Peintres de métier pour vos projets au centre-ville."
+          description="Condos, tours et projets avant emménagement."
           buttonText="Obtenir ma soumission gratuite"
-        >
-          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
-            {BREADCRUMB.map((crumb) => (
-              <Fragment key={crumb.to}>
-                <Link as={RouterLink} to={crumb.to} _hover={{ textDecoration: 'underline', color: 'white' }}>
-                  {crumb.label}
-                </Link>
-                <Text>›</Text>
-              </Fragment>
-            ))}
-            <Text color="white" fontWeight="medium">Ville-Marie</Text>
-          </HStack>
-        </HeroSection>
-        <TrustBanner />
-        <PageIntro>
-          Condos centre-ville, tours résidentielles, unités locatives, bureaux légers et projets avant emménagement : nous réalisons des chantiers propres, rapides et bien coordonnés dans Ville-Marie.
-        </PageIntro>
-
+          breadcrumb={BREADCRUMB}
+        />
         {/* ===== SECTION 3 - CHECKMARKS VILLE-MARIE ===== */}
-        <Box pt={{ base: 16, md: 20, lg: 24 }} pb={0} bg="white">
+        <Box pt={TRUST_BANNER_BELOW_PT} pb={0} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
               <Heading
@@ -349,7 +322,8 @@ export default function VilleMariePage() {
           items={CHECKMARKS}
           variant="inline"
           sectionBg="white"
-          sectionPy={{ base: 10, md: 12, lg: 14 }}
+          sectionPaddingTop={TRUST_BANNER_AIR_SPACE}
+          sectionPaddingBottom={SECTION_PY}
         />
 
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS À VILLE-MARIE ===== */}
@@ -585,7 +559,7 @@ export default function VilleMariePage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
-        />
+         emitSchema={false} />
 
         <InternalLinksSection
           title="Explorer les pages les plus utiles pour votre projet"

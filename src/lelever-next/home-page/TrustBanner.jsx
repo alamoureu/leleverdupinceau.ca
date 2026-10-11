@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Box, Flex, Text, Image, Divider } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import { HAPPY_CLIENTS_COUNT, RBQ_LICENSE } from '../constants/company';
+import { TRUST_BANNER_AIR } from '../constants/sectionSpacing';
 import quebecLogo from '../images/rbqlogo.png';
 import intactAssuranceFr from '../images/assurance-intact/Intact_Assurance_fr.svg';
 import intactInsuranceEn from '../images/assurance-intact/Intact_Insurance_idn-HFcHKw_1.svg';
@@ -26,17 +27,29 @@ const translations = {
 };
 
 /** Explicit height so the negative margins center the card exactly on the seam between two sections. */
-export const CARD_HEIGHT = { base: 'clamp(160px, 46vw, 184px)', md: '120px', lg: '136px' };
-const halfCard = (extra) =>
-  Object.fromEntries(Object.entries(CARD_HEIGHT).map(([bp, h]) => [bp, `calc(${h} / 2 ${extra})`]));
-const CARD_OVERLAP = halfCard('* -1');
-const SECTION_CLEARANCE = halfCard('+ clamp(24px, 6vw, 48px)');
+export const CARD_HEIGHT = { base: 'clamp(96px, 27vw, 108px)', md: '120px', lg: '136px' };
+/** md+ uses the md air token (CARD_HEIGHT also has lg; do not fall back to base). */
+const airFor = (bp) => (bp === 'base' ? TRUST_BANNER_AIR.base : TRUST_BANNER_AIR.md);
+const halfCard = (extraFn) =>
+  Object.fromEntries(
+    Object.entries(CARD_HEIGHT).map(([bp, h]) => [bp, `calc(${h} / 2 ${extraFn(bp)})`])
+  );
+/** Half card height - optically center hero content above the overlapping TrustBanner. */
+export const CARD_HALF_HEIGHT = Object.fromEntries(
+  Object.entries(CARD_HEIGHT).map(([bp, h]) => [bp, `calc(${h} / 2)`])
+);
+const CARD_OVERLAP = halfCard(() => '* -1');
+/** Air between hero CTA and the card top - set as pb on the section above TrustBanner. */
+export const TRUST_BANNER_ABOVE_PB = halfCard((bp) => `+ ${airFor(bp)}`);
+/** Air between the card bottom and the next section title (same as above + title→content). */
+export const TRUST_BANNER_BELOW_PT = halfCard((bp) => `+ ${airFor(bp)}`);
 
-const ICON_H = { base: 'clamp(24px, 8vw, 34px)', md: '36px', lg: '40px' };
+const ICON_H = { base: 'clamp(18px, 5vw, 24px)', md: '36px', lg: '40px' };
 
 /**
- * Barre de confiance unique site-wide : carte blanche qui flotte à cheval entre deux sections.
- * La placer directement entre deux sections ; leurs paddings s'ajustent automatiquement.
+ * Barre de confiance unique site-wide : carte blanche à cheval entre deux sections.
+ * Section au-dessus : pb={TRUST_BANNER_ABOVE_PB} (HeroSection le fait par défaut).
+ * Section en dessous : pt={TRUST_BANNER_BELOW_PT} (pas de CSS auto - évite le double padding).
  */
 export default function TrustBanner() {
   const { currentLang } = useContext(appContext);
@@ -50,25 +63,17 @@ export default function TrustBanner() {
   ];
 
   return (
-    <Box
-      position="relative"
-      zIndex={2}
-      px="clamp(12px, 4vw, 24px)"
-      mt={CARD_OVERLAP}
-      mb={CARD_OVERLAP}
-      sx={{
-        'body *:has(+ &)': { pb: SECTION_CLEARANCE },
-        'body & + *': { pt: SECTION_CLEARANCE },
-      }}
-    >
+    <Box position="relative" zIndex={2} px="clamp(12px, 4vw, 24px)" mt={CARD_OVERLAP} mb={CARD_OVERLAP}>
       <Flex
         maxW="960px"
         h={CARD_HEIGHT}
         mx="auto"
-        px={{ base: 2, md: 6 }}
+        px={{ base: 1, md: 6 }}
+        py={{ base: 1, md: 0 }}
         wrap={{ base: 'wrap', md: 'nowrap' }}
         align="center"
-        alignContent="space-evenly"
+        alignContent="center"
+        rowGap={{ base: 0.5, md: 0 }}
         bg="white"
         borderRadius="2xl"
         border="1px solid"
@@ -85,13 +90,13 @@ export default function TrustBanner() {
                 display={{ base: 'none', md: 'block' }}
               />
             )}
-            <Flex flex={{ base: '1 1 50%', md: '1 1 0' }} direction="column" align="center" gap={1}>
+            <Flex flex={{ base: '1 1 50%', md: '1 1 0' }} direction="column" align="center" gap={{ base: 0.5, md: 1 }}>
               {item.value ? (
                 <Text
                   h={ICON_H}
                   display="flex"
                   alignItems="center"
-                  fontSize={{ base: 'clamp(1.25rem, 6vw, 1.75rem)', md: '3xl' }}
+                  fontSize={{ base: 'clamp(1rem, 4.5vw, 1.25rem)', md: '3xl' }}
                   fontWeight="bold"
                   color="gray.800"
                 >
@@ -108,7 +113,7 @@ export default function TrustBanner() {
                 />
               )}
               <Text
-                fontSize={{ base: 'clamp(0.6875rem, 3.2vw, 0.875rem)', md: 'sm', lg: 'md' }}
+                fontSize={{ base: 'clamp(0.5625rem, 2.5vw, 0.75rem)', md: 'sm', lg: 'md' }}
                 color="gray.600"
                 fontWeight="medium"
                 whiteSpace="nowrap"

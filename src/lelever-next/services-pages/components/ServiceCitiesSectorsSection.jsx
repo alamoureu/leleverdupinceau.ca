@@ -44,11 +44,7 @@ export default function ServiceCitiesSectorsSection({
   });
 
   return (
-    <Box
-      py={{ base: 12, md: 16, lg: 20 }}
-      bg='app.ctaBg'
-      borderRadius='xl'
-    >
+    <Box py={{ base: 12, md: 16, lg: 20 }} bg='app.ctaBg' w='100%'>
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
         <Stack spacing={8} align='center'>
           <Stack spacing={{ base: 3, md: 4 }} textAlign='center'>

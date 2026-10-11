@@ -30,8 +30,9 @@ import {
   FaCheckCircle,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -69,6 +70,13 @@ const BEFORE_AFTER = [
   { before: hallAvant, after: hallApres, description: 'Hall d\'entrée - murs, lambris et boiseries' },
   { before: plintheAvant, after: plintheApres, description: 'Plinthes - réparation et finition nette' },
   { before: salonAvant, after: salonApres, description: 'Salon en baie - murs, moulures et fenêtres' },
+];
+
+const HERO_BREADCRUMB = [
+  { label: 'Accueil', to: '/' },
+  { label: 'Secteurs', to: '/secteurs' },
+  { label: 'Montréal', to: '/secteurs/montreal' },
+  { label: 'Westmount' },
 ];
 
 const CHECKMARKS = [
@@ -196,24 +204,16 @@ const FAQS = [
     answer: 'Certains changements de couleur ou de revêtement peuvent devoir être approuvés par la Ville selon le statut patrimonial de votre propriété. Nous pouvons vous aider à préparer votre projet, mais la vérification auprès de la Ville de Westmount reste une étape à faire de votre côté avant de procéder.',
   },
   {
-    question: 'Est-ce que vous intervenez dans les maisons et condos à Westmount\u00A0?',
-    answer: 'Oui. Nous intervenons autant dans les maisons que dans les condos à Westmount. Chaque type de propriété a ses particularités, que ce soit l\'accès, la protection des lieux, la coordination avec la copropriété ou le respect d\'un échéancier précis. Notre approche s\'adapte au bâtiment pour offrir un chantier propre, bien encadré et simple à gérer pour le client.',
+    question: 'Travaillez-vous sur les grandes maisons de caractère et leurs finitions intérieures\u00A0?',
+    answer: 'Oui. À Westmount, plusieurs projets concernent des maisons de caractère avec boiseries, moulures et planchers qu\'il faut protéger autant que peindre. La préparation, le masquage et le choix des finis sont adaptés à ce niveau de détail pour un résultat net sans abîmer ce qui est déjà en place.',
   },
   {
-    question: 'Comment se déroule un chantier dans un espace encore occupé\u00A0?',
-    answer: 'Un chantier dans un espace occupé demande surtout de la méthode, de la discrétion et une bonne coordination. Nous planifions les travaux de façon à limiter les impacts sur votre quotidien, en avançant par zones lorsque nécessaire et en gardant les lieux propres tout au long du projet. L\'objectif est que le chantier reste organisé, prévisible et le moins dérangeant possible.',
+    question: 'Pouvez-vous peindre avant une mise en marché ou une séance photo immobilière\u00A0?',
+    answer: 'Oui. C\'est un contexte fréquent à Westmount. Nous planifions le chantier avec un échéancier serré pour que les espaces soient propres, uniformes et prêts pour les photos ou les visites, sans laisser un chantier à moitié terminé le jour J.',
   },
   {
-    question: 'Est-ce que vous protégez les planchers, moulures et mobilier avant de peindre\u00A0?',
-    answer: 'Oui, systématiquement. La protection des surfaces fait partie intégrante de notre façon de travailler. Nous protégeons les planchers, les moulures, les meubles et les éléments fixes avant de commencer, afin d\'éviter les éclaboussures, traces ou dommages. Cette étape est essentielle pour assurer un chantier propre et un résultat à la hauteur des attentes.',
-  },
-  {
-    question: 'Pouvez-vous travailler avant un emménagement ou une mise en vente\u00A0?',
-    answer: 'Oui. Nous réalisons régulièrement des projets avant un emménagement, une mise en marché ou une prise de photos pour la vente. Dans ce contexte, le respect des délais est particulièrement important. Nous planifions donc le projet avec un échéancier clair afin que les travaux soient terminés au bon moment et que l\'espace soit prêt à être utilisé ou présenté.',
-  },
-  {
-    question: 'Combien de temps faut-il pour obtenir une soumission à Westmount\u00A0?',
-    answer: 'Dans la majorité des cas, nous répondons en moins de 24 heures. Le délai exact dépend du type de projet, des informations reçues et de la période de l\'année. Plus votre demande est précise dès le départ, plus nous pouvons vous donner une soumission claire, rapide et adaptée à votre propriété à Westmount.',
+    question: 'Intervenez-vous aussi dans les condos à Westmount\u00A0?',
+    answer: 'Oui. En condo, on coordonne accès, protection des parties communes et règles de l\'immeuble. L\'approche reste la même sur la qualité de finition, avec une logistique plus encadrée que dans une maison unifamiliale.',
   },
 ];
 
@@ -316,137 +316,21 @@ export default function WestmountPage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ===== SECTION 1 - HERO ===== */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={{ base: '320px', sm: '350px', md: 'max(440px, 52vh)', lg: 'max(480px, 55vh)', xl: 'max(580px, 75vh)' }}
-          pb={{ base: 10, sm: 12, md: 14, lg: 16 }}
-          bgColor="gray.700"
-          overflow="visible"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10 }}
-        >
-          <Image
-            src={heroImg}
-            alt="Peintre à Westmount - intérieur résidentiel haut de gamme"
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            h="100%"
-            position="relative"
-            zIndex={2}
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            minW={0}
-          >
-            <Stack
-              h="100%"
-              minW={0}
-              pt={{ base: '62px', sm: '62px', md: '120px', lg: '120px', xl: '140px' }}
-            >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} minW={0}>
-                <HStack spacing={2} fontSize={{ base: 'sm', md: 'md' }} flexWrap="wrap" layerStyle="clearReviewBadge">
-                  <Link
-                    as={RouterLink}
-                    to="/"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Accueil
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Secteurs
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Link
-                    as={RouterLink}
-                    to="/secteurs/montreal"
-                    color="whiteAlpha.800"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    Montréal
-                  </Link>
-                  <Text color="whiteAlpha.600">›</Text>
-                  <Text color="white" fontWeight="medium">
-                    Westmount
-                  </Text>
-                </HStack>
-
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  Peintre à Westmount
-                </Heading>
-
-                <Text
-                  variant="heroSubtitle"
-                  color="white"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                >
-                  Peintres de métier pour vos projets à Westmount.
-                </Text>
-
-                <Flex gap={3} wrap="wrap" pt={{ base: 2, md: 3 }}>
-                  <Button
-                    variant="cta"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Obtenir ma soumission gratuite
-                  </Button>
-                  <Button
-                    variant="ctaOutlineLight"
-                    as={RouterLink}
-                    to="/realisations"
-                    size={{ base: 'md', md: 'lg' }}
-                    rightIcon={<ArrowForwardIcon />}
-                    borderRadius="full"
-                    px={{ base: 6, md: 8 }}
-                    fontWeight="600"
-                  >
-                    Voir nos réalisations
-                  </Button>
-                </Flex>
-              </Stack>
-            </Stack>
-          </Container>
-        </Box>
-        <TrustBanner />
-        <PageIntro>
-          Maisons haut de gamme, condos occupés, espaces raffinés : nous réalisons des projets propres, discrets et bien coordonnés dans le secteur de Westmount.
-        </PageIntro>
-
-        {/* ===== SECTION 3 - CHECKMARKS WESTMOUNT ===== */}
-        <Box pt={{ base: 16, md: 20, lg: 24 }} pb={0} bg="white">
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext='Westmount'
+          imageBackground={heroImg}
+          imageAlt='Peintre à Westmount - intérieur résidentiel haut de gamme'
+          overlayBg='rgba(0, 0, 0, 0.45)'
+          title='Peintre à Westmount'
+          subtitle='Peintres de métier pour projets soignés et exigeants.'
+          description='Maisons, condos et espaces raffinés - chantiers discrets.'
+          buttonText='Soumission gratuite'
+          breadcrumb={HERO_BREADCRUMB}
+          secondaryCta={{ label: 'Nos réalisations', to: '/realisations' }}
+        />
+{/* ===== SECTION 3 - CHECKMARKS WESTMOUNT ===== */}
+        <Box pt={TRUST_BANNER_BELOW_PT} pb={0} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
               <Heading
@@ -466,7 +350,8 @@ export default function WestmountPage() {
           items={CHECKMARKS}
           variant="inline"
           sectionBg="white"
-          sectionPy={{ base: 10, md: 12, lg: 14 }}
+          sectionPaddingTop={TRUST_BANNER_AIR_SPACE}
+          sectionPaddingBottom={SECTION_PY}
         />
 
         <BeforeAfterCarouselSection
@@ -711,6 +596,7 @@ export default function WestmountPage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
+          emitSchema={false}
         />
 
         <InternalLinksSection

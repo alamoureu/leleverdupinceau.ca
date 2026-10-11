@@ -30,8 +30,8 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
-import TrustBanner from '../home-page/TrustBanner';
-import PageIntro from '../components/PageIntro';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
@@ -76,6 +76,7 @@ const BREADCRUMB = [
   { label: 'Accueil', to: '/' },
   { label: 'Secteurs', to: '/secteurs' },
   { label: 'Montréal', to: '/secteurs/montreal' },
+  { label: 'Outremont' },
 ];
 
 const CHECKMARKS = [
@@ -211,24 +212,16 @@ const FAQS = [
     answer: 'Sur les détails ouvragés comme les corniches et moulures, courants dans les grandes résidences d\'Outremont, nous privilégions le pinceau et le rouleau pour bien remplir les creux et préserver le relief, même si c\'est plus long que l\'application au pistolet.',
   },
   {
-    question: 'Est-ce que vous intervenez dans les maisons et condos à Outremont\u00A0?',
-    answer: 'Oui. Nous intervenons autant dans les maisons que dans les condos à Outremont. Chaque propriété a ses particularités, que ce soit l\'accès, la protection des lieux, la présence d\'occupants ou le niveau de finition attendu. Notre approche s\'adapte au type de bâtiment pour assurer un chantier propre, bien encadré et simple à vivre du début à la fin.',
+    question: 'Comment protégez-vous les boiseries et planchers pendant un chantier dans une grande résidence\u00A0?',
+    answer: 'Dans les maisons d\'Outremont, la protection vise autant les moulures et corniches que les planchers et le mobilier. On masque les détails décoratifs avant de peindre les murs, on couvre les surfaces sensibles et on avance par zones pour éviter les éclaboussures sur des éléments difficiles à remplacer.',
   },
   {
-    question: 'Comment se déroule un chantier dans un espace encore occupé\u00A0?',
-    answer: 'Un chantier dans un espace occupé demande surtout de la méthode, de la discrétion et une bonne coordination. Nous planifions les travaux pour limiter les impacts sur votre quotidien, en avançant par zones lorsque nécessaire et en gardant les lieux propres tout au long du projet. L\'objectif est de rendre le chantier aussi organisé, prévisible et peu dérangeant que possible.',
+    question: 'Faites-vous aussi les duplex et triplex à Outremont\u00A0?',
+    answer: 'Oui. Beaucoup de projets hors des grandes résidences unifamiliales concernent des plex. On adapte l\'accès, la circulation du matériel dans les escaliers et la protection des espaces partagés pour garder un chantier propre entre les unités.',
   },
   {
-    question: 'Est-ce que vous protégez les planchers, moulures et mobilier avant de peindre\u00A0?',
-    answer: 'Oui, systématiquement. La protection des surfaces fait partie intégrante de notre façon de travailler. Nous protégeons les planchers, les moulures, le mobilier et les éléments fixes avant de commencer afin d\'éviter les éclaboussures, traces ou dommages. Cette étape est essentielle pour assurer un chantier propre et un résultat à la hauteur des attentes.',
-  },
-  {
-    question: 'Pouvez-vous travailler avant un emménagement ou une mise en vente\u00A0?',
-    answer: 'Oui. Nous réalisons régulièrement des projets avant un emménagement, une mise en marché ou une séance photo pour la vente. Dans ce contexte, le respect des délais est particulièrement important. Nous planifions donc le projet avec un échéancier clair afin que les travaux soient terminés au bon moment et que l\'espace soit prêt à être utilisé ou présenté.',
-  },
-  {
-    question: 'Combien de temps faut-il pour obtenir une soumission à Outremont\u00A0?',
-    answer: 'Dans la majorité des cas, nous répondons en moins de 24 heures. Le délai exact dépend du type de projet, des informations fournies et de la période de l\'année. Plus votre demande est claire dès le départ, plus nous pouvons vous transmettre rapidement une soumission précise, adaptée à votre propriété et à vos besoins à Outremont.',
+    question: 'Peut-on peindre seulement les boiseries et laisser les murs tels quels\u00A0?',
+    answer: 'Oui, si c\'est ce que le projet demande. Sur les résidences d\'Outremont, on intervient souvent sur les moulures, portes et cadrages seuls, avec une préparation plus fine que sur un mur plat, pour un fini durable qui respecte le relief existant.',
   },
 ];
 
@@ -308,22 +301,11 @@ export default function OutremontPage() {
           pageContext="Outremont"
           imageBackground={heroImg}
           title="Peintre à Outremont"
-          subtitle="Peintres de métier pour maisons et condos à Outremont."
+          subtitle="Peintres de métier pour maisons et condos soignés."
+          description="Chantier propre, communication claire et échéancier respecté."
           buttonText="Obtenir ma soumission gratuite"
-        >
-          <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
-            {BREADCRUMB.map((crumb) => (
-              <Fragment key={crumb.to}>
-                <Link as={RouterLink} to={crumb.to} _hover={{ textDecoration: 'underline', color: 'white' }}>
-                  {crumb.label}
-                </Link>
-                <Text>›</Text>
-              </Fragment>
-            ))}
-            <Text color="white" fontWeight="medium">Outremont</Text>
-          </HStack>
-        </HeroSection>
-        <TrustBanner />
+          breadcrumb={BREADCRUMB}
+        />
 
         <BeforeAfterCarouselSection
           isFr={true}
@@ -333,12 +315,8 @@ export default function OutremontPage() {
           sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
           sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
         />
-        <PageIntro>
-          Travaux propres, communication claire, échéancier respecté et finitions nettes pour les propriétés d&apos;Outremont.
-        </PageIntro>
-
         {/* ===== SECTION 3 - CHECKMARKS OUTREMONT ===== */}
-        <Box pt={{ base: 16, md: 20, lg: 24 }} pb={0} bg="white">
+        <Box pt={TRUST_BANNER_BELOW_PT} pb={0} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
               <Heading
@@ -358,7 +336,8 @@ export default function OutremontPage() {
           items={CHECKMARKS}
           variant="inline"
           sectionBg="white"
-          sectionPy={{ base: 10, md: 12, lg: 14 }}
+          sectionPaddingTop={TRUST_BANNER_AIR_SPACE}
+          sectionPaddingBottom={SECTION_PY}
         />
 
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS À OUTREMONT ===== */}
@@ -519,12 +498,12 @@ export default function OutremontPage() {
           sectionBg="white"
           sectionPy={{ base: 16, md: 20, lg: 24 }}
           maxW="900px"
-        />
+         emitSchema={false} />
 
         <InternalLinksSection
           title="Explorer les bons services selon votre projet"
           links={INTERNAL_LINKS}
-          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
         />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}

@@ -76,12 +76,12 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
           <Box
             maxW="1440px"
             mx="auto"
-            py={{ base: 0.5, sm: 1 }}
+            py={{ base: 1.5, sm: 1.5, md: 1 }}
             px={{ base: 4, sm: 6, lg: 8, xl: 8, '2xl': 0 }}
           >
             <HStack justify="space-between" spacing={4}>
               <HStack spacing={4}>
-                <HStack spacing={2} h="18px" alignItems="center">
+                <HStack spacing={2} h={{ base: '22px', md: '18px' }} alignItems="center">
                   <Text
                     fontSize={{ base: 'xs', sm: 'sm' }}
                     color="white"
@@ -141,7 +141,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
       <Box
         w="100%"
         bg={isNewLanding ? 'white' : 'brand.700'}
-        py={{ base: 2.5, sm: 2, md: 3, lg: 4 }}
+        py={{ base: 3.5, sm: 3, md: 3, lg: 4 }}
         px={{ base: 4, sm: 6, lg: 8 }}
         shadow="md"
         position="relative"
@@ -171,9 +171,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               aria-label={currentLang === 'fr' ? 'Accueil' : 'Home'}
               display="flex"
               alignItems="center"
-              h={{ base: '52px', sm: '56px', md: '64px', lg: '68px' }}
+              h={{ base: '58px', sm: '60px', md: '64px', lg: '68px' }}
               // Explicit width from 1409×873 so the logo never expands on decode (CLS)
-              w={{ base: '84px', sm: '90px', md: '103px', lg: '110px' }}
+              w={{ base: '94px', sm: '97px', md: '103px', lg: '110px' }}
               maxW={{ base: '160px', sm: '180px', md: 'none' }}
             >
               <Image

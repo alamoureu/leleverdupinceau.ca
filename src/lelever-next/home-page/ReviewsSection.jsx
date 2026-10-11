@@ -23,6 +23,7 @@ import {
 import { FaStar } from 'react-icons/fa';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from '../i18n';
+import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import { GOOGLE_RATING_LABEL, GOOGLE_REVIEWS } from '../constants/googleReviews';
 
 const GOOGLE_G_SRC = 'https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png';
@@ -169,11 +170,11 @@ export default function ReviewsSection({
       pt={sectionPt}
       pb={sectionPb}
       bg={sectionBg}
-      borderRadius={sectionBg === 'white' ? 'none' : 'xl'}
+      w='100%'
       overflow='hidden'
     >
       <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-        <Stack spacing={{ base: 6, md: 8 }} align='center'>
+        <Stack spacing={TRUST_BANNER_AIR_SPACE} align='center'>
           {!hideTitle && (
             <Stack spacing={{ base: 2, md: 3 }} textAlign='center'>
               <Heading as='h2' size='section' fontWeight='bold' color='gray.800' lineHeight='1.3'>

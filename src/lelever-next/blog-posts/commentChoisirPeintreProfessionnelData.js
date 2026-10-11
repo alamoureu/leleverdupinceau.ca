@@ -3,12 +3,12 @@ export const commentChoisirPeintreProfessionnelData = {
   url: 'https://leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel',
   seo: {
     title: {
-      fr: 'Comment choisir un peintre professionnel à Montréal (Guide complet 2026)',
-      en: 'How to choose a professional painter in Montreal (Complete guide 2026)',
+      fr: 'Comment choisir un peintre professionnel (Guide 2026)',
+      en: 'How to choose a professional painter (2026 guide)',
     },
     metaDescription: {
-      fr: "Découvrez comment choisir un peintre professionnel fiable : expérience, avis, garanties, prix, photos de projets et questions à poser avant d'engager. Guide Montréal 2026.",
-      en: 'Discover how to choose a reliable professional painter: experience, reviews, guarantees, prices, project photos and questions to ask before hiring. Montreal guide 2026.',
+      fr: "Critères pour choisir un peintre fiable: expérience, avis, garanties, prix, photos de projets et questions à poser avant d'engager. Guide pratique 2026.",
+      en: 'Criteria to choose a reliable painter: experience, reviews, guarantees, prices, project photos and questions to ask before hiring. Practical 2026 guide.',
     },
   },
   breadcrumb: {
@@ -240,7 +240,7 @@ export const commentChoisirPeintreProfessionnelData = {
         fr: 'Exemples de nos réalisations',
         en: 'Examples of our work',
       },
-      // No custom images: BeforeAfter uses its default before/after pairs from before_after folder (same as Avis + Peintre pro pages)
+      // No custom images: uses BeforeAfterCarouselSection grid defaults (landing page pairs)
     },
     {
       type: 'heading',
