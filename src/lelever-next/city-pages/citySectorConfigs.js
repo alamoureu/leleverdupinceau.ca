@@ -1,11 +1,5 @@
 import headerBrossard from '../images/3-ville/brossard/+Header/IMG_1414.jpg';
 import headerRiveSud from '../images/3-ville/rive-sud/header (1).JPEG';
-import rsImg5973 from '../images/3-ville/rive-sud/avant-apres/IMG_5973 6.jpg';
-import rsImg5974 from '../images/3-ville/rive-sud/avant-apres/IMG_5974 6.jpg';
-import rsImg7974 from '../images/3-ville/rive-sud/avant-apres/IMG_7974 4.jpg';
-import rsImg7975 from '../images/3-ville/rive-sud/avant-apres/IMG_7975 4.jpg';
-import rsImg7988 from '../images/3-ville/rive-sud/avant-apres/IMG_7988 5.jpg';
-import rsImg7990 from '../images/3-ville/rive-sud/avant-apres/IMG_7990 5.jpg';
 
 import brossard0822 from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
 import brossard0823 from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
@@ -16,6 +10,8 @@ import brossard0833 from '../images/3-ville/brossard/avant-apres/IMG_0833.jpg';
 import brossard0838 from '../images/3-ville/brossard/avant-apres/IMG_0838.jpg';
 import brossard0839 from '../images/3-ville/brossard/avant-apres/IMG_0839.jpg';
 
+import stLambert0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
+import stLambert0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
 import stLambert0842 from '../images/3-ville/st-lambert/avant-apres/IMG_0842.jpg';
 import stLambert0843 from '../images/3-ville/st-lambert/avant-apres/IMG_0843.jpg';
 import stLambert0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
@@ -30,33 +26,7 @@ import interieureHeroImg from '../images/2-services/Page peinture intérieure/Ph
 import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-
-const riveSudExtraPairs = [
-  {
-    before: rsImg5973,
-    after: rsImg5974,
-    description: {
-      fr: 'Peinture intérieure - Maison sur la Rive-Sud',
-      en: 'Interior painting - Home on the South Shore',
-    },
-  },
-  {
-    before: rsImg7990,
-    after: rsImg7988,
-    description: {
-      fr: 'Peinture résidentielle - Propriété familiale',
-      en: 'Residential painting - Family property',
-    },
-  },
-  {
-    before: rsImg7975,
-    after: rsImg7974,
-    description: {
-      fr: 'Mise à niveau avant vente - Rive-Sud',
-      en: 'Pre-sale update - South Shore',
-    },
-  },
-];
+import platreHeroImg from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG';
 
 function baseInternalLinks(cityLabelFr, cityLabelEn, siblingLinks = []) {
   return [
@@ -94,6 +64,7 @@ const sharedServiceImages = {
   exterior: exterieureHeroImg,
   residential: residentielleHeroImg,
   commercial: commercialeHeroImg,
+  plaster: platreHeroImg,
 };
 
 export const brossardCityConfig = {
@@ -284,7 +255,6 @@ export const brossardCityConfig = {
         en: 'Deck staining - Home in Brossard',
       },
     },
-    ...riveSudExtraPairs,
   ],
   whyUsTitle: {
     fr: 'Ce qui fait la différence sur un chantier à Brossard',
@@ -539,7 +509,7 @@ export const stLambertCityConfig = {
         en: 'Cracks, peeling and surface updates before painting, common in older building stock.',
       },
       to: '/services/reparation-de-platre-et-gypse',
-      image: sharedServiceImages.residential,
+      image: sharedServiceImages.plaster,
     },
     {
       title: { fr: 'Peinture résidentielle', en: 'Residential painting' },
@@ -576,7 +546,14 @@ export const stLambertCityConfig = {
         en: 'Repair and painting around a window',
       },
     },
-    ...riveSudExtraPairs,
+    {
+      before: stLambert0836,
+      after: stLambert0837,
+      description: {
+        fr: 'Cadrage de fenêtre - plâtre et peinture',
+        en: 'Window frame - plaster and paint',
+      },
+    },
   ],
   whyUsTitle: {
     fr: 'Ce qui fait la différence sur un chantier à Saint-Lambert',
@@ -868,7 +845,6 @@ export const laprairieCityConfig = {
         en: 'Baseboard refresh - Residential interior',
       },
     },
-    ...riveSudExtraPairs,
   ],
   whyUsTitle: {
     fr: 'Ce qui fait la différence sur un chantier à La Prairie',

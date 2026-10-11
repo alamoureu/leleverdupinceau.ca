@@ -41,14 +41,6 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import appartHeroImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
 import appartImg6759 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.jpg';
 import appartImg7983 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg';
-import chambreAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
-import chambreApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
-import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.jpg';
-import corridorApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries après.jpg';
-import pieceDoubleAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double avant.jpg';
-import pieceDoubleApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
-import mouluresAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint l_ensemble de ce duplex à Montréal.jpg';
-import mouluresApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -233,32 +225,13 @@ export default function PeintureAppartementPage() {
   };
 
   const carouselImages = [
-    {
-      before: chambreAvant,
-      after: chambreApres,
-      description: 'Chambre - Remise au propre, Montréal',
-    },
+    
     {
       before: appartImg7983,
       after: appartImg6759,
       description: 'Cage d\'escalier - Remise en état, Montréal',
     },
-    {
-      before: corridorAvant,
-      after: corridorApres,
-      description: 'Corridor et boiseries - Appartement, Montréal',
-    },
-    {
-      before: pieceDoubleAvant,
-      after: pieceDoubleApres,
-      description: 'Pièce double - Rafraîchissement, Montréal',
-    },
-    {
-      before: mouluresAvant,
-      after: mouluresApres,
-      description: 'Moulures et murs - Appartement, Montréal',
-    },
-  ];
+];
 
   return (
     <Fragment>

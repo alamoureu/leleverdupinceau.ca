@@ -40,12 +40,8 @@ import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1
 
 import bureauAvant from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre commercial dans le grand Montréal, Le Lever du Pinceau a peint ce bureau commerciale au centre ville de Montréal.jpg';
 import bureauApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a complété ce bureau commerciale au centre ville.jpg';
-import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier à Outremont, Montréal.jpg';
-import escalierApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé cette cage d_escalier dans le quartier Outremont.jpg';
 import localNdgAvant from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal de profession, Le Lever du Pinceau a peinturé ce local commercial dans NDG, Montréal.jpg';
 import localNdgApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal professionnel, Le Lever du Pinceau a peinturé ce local commercial dans le quartier Notre-dame-de-grâce, Mtl.jpg';
-import plafondAvant from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
-import plafondApres from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -220,10 +216,9 @@ export default function PeintureCommercialePage() {
 
   const carouselImages = [
     { before: bureauAvant, after: bureauApres, description: 'Peinture bureau commercial - centre-ville Montréal' },
-    { before: escalierAvant, after: escalierApres, description: 'Peinture cage d\'escalier commerciale - Outremont, Montréal' },
+    
     { before: localNdgAvant, after: localNdgApres, description: 'Peinture local commercial - NDG, Montréal' },
-    { before: plafondAvant, after: plafondApres, description: 'Plafond steel deck - structure métallique repeinte en blanc' },
-  ];
+];
 
   return (
     <Fragment>

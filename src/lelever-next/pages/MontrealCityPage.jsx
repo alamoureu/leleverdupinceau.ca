@@ -35,22 +35,13 @@ import quartierPlateau from '../images/pillar-pages/secteur-hub/IMG_7900.jpg';
 import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.jpg';
 import quartierOutremont from '../images/pillar-pages/secteur-hub/IMG_7898.jpg';
 import quartierWestmount from '../images/pillar-pages/secteur-hub/IMG_7896.jpg';
-import monImg0818 from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
-import monImg0819 from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+
 import monImg1405 from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
 import monImg1406 from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
 import monImg5984 from '../images/3-ville/Montréal/avant-apres/IMG_5984 6.jpg';
 import monImg5982 from '../images/3-ville/Montréal/avant-apres/IMG_5982 5.jpg';
-import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
 import poutreAcierAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
 import poutreAcierApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
-import chambrePapierPeintAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint avant.jpg';
-import chambrePapierPeintApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint après.jpg';
-import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
-import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
-import verdunAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
-import verdunApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
 import monImg7924 from '../images/3-ville/Montréal/avant-apres/IMG_7924 4.jpg';
 import monImg7922 from '../images/3-ville/Montréal/avant-apres/IMG_7922 3.jpg';
 import monImg7999 from '../images/3-ville/Montréal/avant-apres/IMG_7999 9.jpg';
@@ -255,21 +246,7 @@ export default function MontrealCityPage() {
       after: monImg5982,
       description: isFr ? 'Peinture intérieure - Pièce double à Westmount' : 'Interior painting - Double room in Westmount',
     },
-    {
-      before: chambrePapierPeintAvant,
-      after: chambrePapierPeintApres,
-      description: isFr ? 'Retrait de papier peint et peinture - Chambre' : 'Wallpaper removal and painting - Bedroom',
-    },
-    {
-      before: porteAvant,
-      after: porteApres,
-      description: isFr ? "Peinture extérieure - Porte d'entrée" : 'Exterior painting - Front door',
-    },
-    {
-      before: verdunAvant,
-      after: verdunApres,
-      description: isFr ? 'Escalier en fer forgé - Verdun' : 'Wrought iron staircase - Verdun',
-    },
+    
     {
       before: monImg1405,
       after: monImg1406,
@@ -280,17 +257,7 @@ export default function MontrealCityPage() {
       after: poutreAcierApres,
       description: isFr ? "Peinture intérieure - Poutre d'acier rouillée" : 'Interior painting - Rusted steel beam',
     },
-    {
-      before: monImg0818,
-      after: monImg0819,
-      description: isFr ? 'Réparation de plâtre - Coin de mur endommagé' : 'Plaster repair - Damaged wall corner',
-    },
-    {
-      before: moulureAvant,
-      after: moulureApres,
-      description: isFr ? 'Peinture de boiseries - Moulure' : 'Trim painting - Molding',
-    },
-  ];
+];
 
   // Section 7 - FAQ Montreal
 

@@ -39,8 +39,7 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
 import armoiresHeroImg from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.jpg';
-import armoiresImg5975 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.PNG';
-import armoiresImg5976 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG';
+
 import armoiresImg8114 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';
 import armoiresImg8120 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
@@ -212,17 +211,13 @@ export default function PeintureArmoiresCuisinePage() {
   };
 
   const carouselImages = [
-    {
-      before: armoiresImg5975,
-      after: armoiresImg5976,
-      description: 'Peinture armoires cuisine Montréal avant / après',
-    },
+    
     {
       before: armoiresImg8114,
       after: armoiresImg8120,
       description: 'Transformation armoires cuisine - avant / après Montréal',
     },
-  ];
+];
 
   return (
     <Fragment>

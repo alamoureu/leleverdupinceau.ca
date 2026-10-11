@@ -3,10 +3,23 @@ import { Box } from '@chakra-ui/react';
 import useAutoScroll from './useAutoScroll';
 
 /**
- * Soft edge fades: opaque at the outer edge (hides the clip cut), then a short
- * gentle dissolve so cards stay readable. Keep desktop short / not intense.
+ * Soft edge fades via CSS mask so cards AND their box-shadows dissolve together.
+ * Overlay fades can't do this: overflow hard-clips the shadow, then a white
+ * gradient sits on top and the hard cut shows through the translucent part.
  */
 const DEFAULT_FADE_SIZE = { base: '24px', md: '40px', lg: '48px' };
+
+function buildEdgeMask(isVertical, showStart, showEnd) {
+  if (!showStart && !showEnd) return 'none';
+  const direction = isVertical ? 'to bottom' : 'to right';
+  const start = showStart
+    ? 'transparent 0%, black var(--fade-size)'
+    : 'black 0%';
+  const end = showEnd
+    ? 'black calc(100% - var(--fade-size)), transparent 100%'
+    : 'black 100%';
+  return `linear-gradient(${direction}, ${start}, ${end})`;
+}
 
 /**
  * Reusable scrollable list with soft edge fades and optional auto-scroll.
@@ -15,8 +28,8 @@ const DEFAULT_FADE_SIZE = { base: '24px', md: '40px', lg: '48px' };
  * Edge fades only appear when content is clipped under that edge, so on
  * mobile the first card stays crisp until it actually scrolls under the fade.
  *
- * For seamless looping with autoScroll, render the item list twice;
- * the loop resets at half the scroll size.
+ * loopMode 'duplicate' needs the item list rendered twice for a seamless loop.
+ * Default loopMode 'restart' jumps back to the start (no duplicated cards).
  *
  * @example
  * <FadedScroller axis="horizontal" autoScroll speed={0.35} fadeFrom="white">
@@ -29,8 +42,10 @@ export default function FadedScroller({
   autoScroll = false,
   speed = 0.45,
   resumeDelay = 1400,
+  loopMode = 'restart',
   fadeSize = DEFAULT_FADE_SIZE,
-  fadeFrom = 'white',
+  // Kept for call-site compat; masks use alpha, not a surface color.
+  fadeFrom: _fadeFrom = 'white',
   hideScrollbar = true,
   scrollerProps,
   ...wrapperProps
@@ -46,6 +61,7 @@ export default function FadedScroller({
     speed,
     resumeDelay,
     axis,
+    loopMode,
   });
 
   useEffect(() => {
@@ -88,28 +104,12 @@ export default function FadedScroller({
       }
     : undefined;
 
-  // Ignore transparent: edge fades need a real surface color to hide the cut.
-  const fadeColor = !fadeFrom || fadeFrom === 'transparent' ? 'white' : fadeFrom;
+  const maskImage = buildEdgeMask(isVertical, showStartFade, showEndFade);
 
-  // Opaque at the clip edge, then a short soft falloff (not a heavy veil).
-  const startGradient = isVertical
-    ? `linear-gradient(to bottom, ${fadeColor} 0%, ${fadeColor} 40%, transparent 100%)`
-    : `linear-gradient(to right, ${fadeColor} 0%, ${fadeColor} 40%, transparent 100%)`;
-  const endGradient = isVertical
-    ? `linear-gradient(to top, ${fadeColor} 0%, ${fadeColor} 40%, transparent 100%)`
-    : `linear-gradient(to left, ${fadeColor} 0%, ${fadeColor} 40%, transparent 100%)`;
-
-  const startFade = isVertical
-    ? { top: 0, left: 0, right: 0, h: fadeSize, backgroundImage: startGradient }
-    : { top: 0, bottom: 0, left: 0, w: fadeSize, backgroundImage: startGradient };
-
-  const endFade = isVertical
-    ? { bottom: 0, left: 0, right: 0, h: fadeSize, backgroundImage: endGradient }
-    : { top: 0, bottom: 0, right: 0, w: fadeSize, backgroundImage: endGradient };
-
+  // Room for card hover lift + box-shadow inside the overflow clip.
   const defaultHoverPad = isVertical
     ? undefined
-    : { pt: 3, pb: 6, px: { base: 1, md: 2 } };
+    : { pt: 4, pb: 10, px: 7 };
 
   return (
     <Box position="relative" minW={0} {...wrapperProps}>
@@ -122,6 +122,13 @@ export default function FadedScroller({
         {...defaultHoverPad}
         sx={{
           scrollBehavior: 'auto',
+          '--fade-size': fadeSize,
+          WebkitMaskImage: maskImage,
+          maskImage,
+          WebkitMaskSize: '100% 100%',
+          maskSize: '100% 100%',
+          WebkitMaskRepeat: 'no-repeat',
+          maskRepeat: 'no-repeat',
           ...scrollbarSx,
           ...scrollerSx,
         }}
@@ -129,24 +136,6 @@ export default function FadedScroller({
       >
         {children}
       </Box>
-      <Box
-        aria-hidden
-        pointerEvents="none"
-        position="absolute"
-        zIndex={2}
-        opacity={showStartFade ? 1 : 0}
-        transition="opacity 0.3s ease"
-        {...startFade}
-      />
-      <Box
-        aria-hidden
-        pointerEvents="none"
-        position="absolute"
-        zIndex={2}
-        opacity={showEndFade ? 1 : 0}
-        transition="opacity 0.3s ease"
-        {...endFade}
-      />
     </Box>
   );
 }

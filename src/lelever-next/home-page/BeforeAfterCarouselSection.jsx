@@ -138,6 +138,7 @@ function BeforeAfterPairCard({ pair, isFr, t }) {
     <Box
       width="100%"
       h="100%"
+      position="relative"
       borderRadius="xl"
       border="1px solid"
       borderColor="gray.200"
@@ -145,6 +146,7 @@ function BeforeAfterPairCard({ pair, isFr, t }) {
       _hover={{
         boxShadow: '0 8px 24px rgba(0,0,0,0.1)',
         transform: 'translateY(-2px)',
+        zIndex: 1,
       }}
       transition="box-shadow 0.2s ease, transform 0.2s ease"
       bg="white"
@@ -265,18 +267,17 @@ export default function BeforeAfterCarouselSection({
   const subtitle = subtitleProp === undefined ? t.beforeAfterSubtitle : subtitleProp;
   const isGrid = layout === 'grid';
 
-  const items = useMemo(
-    () => (images && images.length > 0 ? images : buildDefaultImages(isFr)),
-    [images, isFr]
-  );
-
-  const loopItems = useMemo(
-    () => [
-      ...items.map((pair, i) => ({ ...pair, key: `a-${i}` })),
-      ...items.map((pair, i) => ({ ...pair, key: `b-${i}` })),
-    ],
-    [items],
-  );
+  const items = useMemo(() => {
+    const raw = images && images.length > 0 ? images : buildDefaultImages(isFr);
+    const seen = new Set();
+    return raw.filter((pair) => {
+      if (!pair?.before || !pair?.after) return false;
+      const key = `${pair.before}::${pair.after}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    });
+  }, [images, isFr]);
 
   const fallbackPy = sectionPy ?? (isGrid ? { base: 4, md: 6 } : DEFAULT_SECTION_PY);
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
@@ -350,9 +351,9 @@ export default function BeforeAfterCarouselSection({
               maxW="100%"
               mx={{ base: -4, md: -2 }}
               scrollerProps={{
-                pt: 4,
-                pb: 8,
-                px: { base: 4, md: 2 },
+                pt: 5,
+                pb: 10,
+                px: 7,
               }}
             >
               <Flex
@@ -362,9 +363,9 @@ export default function BeforeAfterCarouselSection({
                 minW="100%"
                 align="stretch"
               >
-                {loopItems.map((pair) => (
+                {items.map((pair, i) => (
                   <Box
-                    key={pair.key}
+                    key={`ba-${i}-${pair.before}-${pair.after}`}
                     minW={{
                       base: 'min(80vw, 300px)',
                       md: '320px',

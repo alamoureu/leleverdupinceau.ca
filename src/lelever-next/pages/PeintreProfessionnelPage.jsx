@@ -42,22 +42,6 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import ServiceCard from '../home-page/ServiceCard';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
-import armoiresBlanchesAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_ensemble des armoires de cuisines de cette maison pour une transformation incroyable à Montréal.jpg';
-import armoiresBlanchesApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg';
-import revetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg';
-import revetementApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.jpg';
-import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
-import condoGriffintownAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres professionnels à Montréal, Le Lever du Pinceau a installé la protection et peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg';
-import condoGriffintownApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg';
-import chambreFleurieAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri avant.jpg';
-import chambreFleurieApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri après.jpg';
-import armoiresMileEndAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint les portes d_armoires de cette cuisine dans le quartier du Mile-end, Montréal.jpg';
-import armoiresMileEndApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg';
-import terrasseAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
-import terrasseApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
-import pieceDoubleAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double avant.jpg';
-import pieceDoubleApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
 import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 import peintreProResidentielle from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
 import peintreProCommerciale from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG';
@@ -96,17 +80,6 @@ const WHY_PROFESSIONAL = [
     title: 'Gestion des travaux',
     text: 'Un peintre professionnel arrive avec une équipe et un gestionnaire de projet qui s\'occupe de vos travaux de A à Z. Vous savez où en est le chantier à chaque étape, grâce à une communication claire du début à la fin.',
   },
-];
-
-const BEFORE_AFTER_PAIRS = [
-  { before: armoiresBlanchesAvant, after: armoiresBlanchesApres, description: 'Armoires de cuisine en bois peintes en blanc - Montréal' },
-  { before: revetementAvant, after: revetementApres, description: 'Revêtement extérieur - maison complète repeinte' },
-  { before: porteAvant, after: porteApres, description: 'Porte d\'entrée - décapage et fini lustré' },
-  { before: condoGriffintownAvant, after: condoGriffintownApres, description: 'Salon de condo - mur d\'accent noir, Griffintown' },
-  { before: chambreFleurieAvant, after: chambreFleurieApres, description: 'Chambre - papier peint fleuri remplacé par une peinture neuve' },
-  { before: armoiresMileEndAvant, after: armoiresMileEndApres, description: 'Armoires de cuisine - Mile-End, Montréal' },
-  { before: terrasseAvant, after: terrasseApres, description: 'Terrasse en bois - teinture et protection, Rive-Sud' },
-  { before: pieceDoubleAvant, after: pieceDoubleApres, description: 'Pièce double - murs et boiseries en blanc' },
 ];
 
 const RISKS = [
@@ -508,7 +481,6 @@ export default function PeintreProfessionnelPage() {
           isFr={true}
           title="Avant / après de nos peintres professionnels"
           subtitle="Voici des exemples de ce que nos peintres professionnels ont réalisé à Montréal et dans les environs."
-          images={BEFORE_AFTER_PAIRS}
         />
 
         {/* ===== SECTION 5 - NOS CERTIFICATIONS ===== */}

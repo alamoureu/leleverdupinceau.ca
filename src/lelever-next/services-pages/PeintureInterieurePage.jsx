@@ -43,32 +43,12 @@ import InternalLinksSection from '../components/InternalLinksSection';
 
 import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
 
-import avantApresCondo1 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres professionnels à Montréal, Le Lever du Pinceau a installé la protection et peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg';
-import avantApresCondo2 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de ce condo a Griffintown, Montréal.jpg';
-import armoiresMileEndAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint les portes d_armoires de cette cuisine dans le quartier du Mile-end, Montréal.jpg';
-import armoiresMileEndApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg';
-import armoiresBlanchesAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_ensemble des armoires de cuisines de cette maison pour une transformation incroyable à Montréal.jpg';
-import armoiresBlanchesApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg';
-import avantApresWestmount1 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé et ont faites les réparations de plâtre sur les plafonds et les murs de cette maison à Westmount, Montréal.jpg';
-import avantApresWestmount2 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint  l_ensemble de cette maison victorienne à Westmount, Montréal.jpg';
-import salonPlateauAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg';
-import salonPlateauApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
-import couloirPlateauAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a travaillé au plâtre et à peinturé les murs du couloir de cette appartement au Plateau, Montréal.jpg';
-import couloirPlateauApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/peintre-plateau-montreal-appartement.jpg';
-import chambrePapierPeintAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint avant.jpg';
-import chambrePapierPeintApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint après.jpg';
 import chambreVerteAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
 import chambreVerteApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
-import chambreFleurieAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri avant.jpg';
-import chambreFleurieApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri après.jpg';
+
 import hallEntreeAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
 import hallEntreeApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
-import cadrageFenetreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
-import cadrageFenetreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
-import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
-import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
-import poutreAcierAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
-import poutreAcierApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -263,71 +243,16 @@ export default function PeintureInterieurePage() {
 
   const carouselImages = [
     {
-      before: avantApresCondo1,
-      after: avantApresCondo2,
-      description: 'Peinture intérieure salon - Condo Griffintown, Montréal',
-    },
-    {
-      before: armoiresMileEndAvant,
-      after: armoiresMileEndApres,
-      description: 'Peinture d\'armoires de cuisine - Mile-End, Montréal',
-    },
-    {
-      before: avantApresWestmount1,
-      after: avantApresWestmount2,
-      description: 'Peinture intérieure murs et plafonds - Westmount, Montréal',
-    },
-    {
-      before: armoiresBlanchesAvant,
-      after: armoiresBlanchesApres,
-      description: 'Armoires de cuisine en bois peintes en blanc - Montréal',
-    },
-    {
-      before: salonPlateauAvant,
-      after: salonPlateauApres,
-      description: 'Peinture intérieure salon et salle à manger - Plateau, Montréal',
-    },
-    {
-      before: couloirPlateauAvant,
-      after: couloirPlateauApres,
-      description: 'Réparation de plâtre et peinture du couloir - Plateau, Montréal',
-    },
-    {
-      before: chambrePapierPeintAvant,
-      after: chambrePapierPeintApres,
-      description: 'Chambre - retrait du papier peint et peinture des murs, Montréal',
-    },
-    {
       before: chambreVerteAvant,
       after: chambreVerteApres,
       description: 'Chambre - murs verts repeints en blanc, Montréal',
-    },
-    {
-      before: chambreFleurieAvant,
-      after: chambreFleurieApres,
-      description: 'Chambre - papier peint fleuri remplacé par une peinture neuve, Montréal',
     },
     {
       before: hallEntreeAvant,
       after: hallEntreeApres,
       description: 'Hall d\'entrée - murs, plafond et portes, Montréal',
     },
-    {
-      before: cadrageFenetreAvant,
-      after: cadrageFenetreApres,
-      description: 'Cadrage de fenêtre - réparation de plâtre et peinture, Montréal',
-    },
-    {
-      before: moulureAvant,
-      after: moulureApres,
-      description: 'Moulure - retouches et peinture de finition, Montréal',
-    },
-    {
-      before: poutreAcierAvant,
-      after: poutreAcierApres,
-      description: 'Poutre d\'acier rouillée - préparation et peinture, Montréal',
-    },
-  ];
+];
 
   return (
     <Fragment>

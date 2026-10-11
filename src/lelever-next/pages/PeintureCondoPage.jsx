@@ -34,18 +34,10 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
 import condoHeroImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
-import condoImg7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg';
-import condoImg7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg';
-import condoImg7999 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7999 4.jpg';
-import condoImg7997 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.jpg';
+
 import condoImg8108 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
 import condoImg6031 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.jpg';
-import chambreGriseAvant from '../images/3-ville/brossard/avant-apres/IMG_0832.jpg';
-import chambreGriseApres from '../images/3-ville/brossard/avant-apres/IMG_0833.jpg';
-import fenetreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
-import fenetreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
-import plintheAvant from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
-import plintheApres from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -220,37 +212,13 @@ export default function PeintureCondoPage() {
   };
 
   const carouselImages = [
-    {
-      before: condoImg7924,
-      after: condoImg7922,
-      description: 'Salon - Condo Griffintown, Montréal',
-    },
-    {
-      before: condoImg7999,
-      after: condoImg7997,
-      description: 'Rafraîchissement intérieur - Condo Montréal',
-    },
+
     {
       before: condoImg8108,
       after: condoImg6031,
       description: 'Rénovation avant vente - Condo',
     },
-    {
-      before: chambreGriseAvant,
-      after: chambreGriseApres,
-      description: 'Chambre - murs repeints gris pâle',
-    },
-    {
-      before: fenetreAvant,
-      after: fenetreApres,
-      description: 'Cadrage de fenêtre - plâtre et peinture',
-    },
-    {
-      before: plintheAvant,
-      after: plintheApres,
-      description: 'Plinthe - réparation et peinture',
-    },
-  ];
+];
 
   return (
     <Fragment>

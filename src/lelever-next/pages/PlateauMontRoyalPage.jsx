@@ -49,28 +49,10 @@ import appartementImg from '../images/L3 Sous services/Photo page appartement/Av
 import reventeImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
 import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
 import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
-import chambreAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_0832.jpg';
-import chambreApres from '../images/L3 Quartiers/Avant apres plateau/IMG_0833.jpg';
-import poutreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
-import poutreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
-import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
-import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
-import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
-import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
-import cuisineAvant from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
-import cuisineApres from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';
 import escalierAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_7975 3.jpg';
 import escalierApres from '../images/L3 Quartiers/Avant apres plateau/IMG_7974 3.jpg';
 
 const CAROUSEL_IMAGES = [
-  { before: porteAvant, after: porteApres, description: 'Porte d\'entrée - décapage et peinture' },
-  { before: chambreAvant, after: chambreApres, description: 'Chambre - murs repeints dans un gris doux' },
-  { before: poutreAvant, after: poutreApres, description: 'Poutre d\'acier - rouille traitée et peinture' },
-  { before: moulureAvant, after: moulureApres, description: 'Peinture de boiseries - Plinthe' },
-  { before: clotureAvant, after: clotureApres, description: 'Teinture extérieure - Clôture en bois' },
-  { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - murs repeints sous les moulures d\'origine' },
   { before: escalierAvant, after: escalierApres, description: 'Escalier en colimaçon - décapage et peinture' },
 ];
 

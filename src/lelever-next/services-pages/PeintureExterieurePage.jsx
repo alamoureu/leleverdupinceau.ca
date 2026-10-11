@@ -41,14 +41,6 @@ import InternalLinksSection from '../components/InternalLinksSection';
 
 import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 
-import avantApresTerrasseApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
-import avantApresTerrasseAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
-import avantApresEscalier1 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest à Montréal.jpg';
-import avantApresEscalier2 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette escalier en fer forgé dans le sud ouest àMontréal.jpg';
-import avantApresCorniche1 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg';
-import avantApresCorniche2 from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg';
-import avantApresEscalierBalconAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg';
-import avantApresEscalierBalconApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg';
 import avantApresPorteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
 import avantApresPorteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
 import avantApresRevetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg';
@@ -245,26 +237,6 @@ export default function PeintureExterieurePage() {
 
   const carouselImages = [
     {
-      before: avantApresTerrasseAvant,
-      after: avantApresTerrasseApres,
-      description: 'Teinture terrasse bois - Rive-Sud de Montréal',
-    },
-    {
-      before: avantApresEscalier1,
-      after: avantApresEscalier2,
-      description: 'Peinture escalier fer forgé - Sud-Ouest, Montréal',
-    },
-    {
-      before: avantApresCorniche1,
-      after: avantApresCorniche2,
-      description: 'Peinture corniche - Ville Mont-Royal, Montréal',
-    },
-    {
-      before: avantApresEscalierBalconAvant,
-      after: avantApresEscalierBalconApres,
-      description: 'Peinture escalier de balcon - marches et rampes',
-    },
-    {
       before: avantApresPorteAvant,
       after: avantApresPorteApres,
       description: "Peinture porte d'entrée - décapage et fini lustré",
@@ -318,7 +290,6 @@ export default function PeintureExterieurePage() {
           sectionBg="gray.50"
           columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
         />
-
 
         {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
         <BeforeAfterCarouselSection

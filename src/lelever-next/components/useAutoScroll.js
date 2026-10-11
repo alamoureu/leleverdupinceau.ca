@@ -1,8 +1,10 @@
 import { useEffect } from 'react';
 
 /**
- * Continuous auto-scroll with seamless loop (horizontal or vertical).
- * Content should be rendered twice; loop resets at scrollSize / 2.
+ * Continuous auto-scroll (horizontal or vertical).
+ * loopMode:
+ * - 'restart' (default): when reaching the end, jumps back to the start
+ * - 'duplicate': seamless loop; content must be rendered twice, resets at scrollSize / 2
  * Pauses on hover/focus/touch/wheel and when off-screen.
  * Resumes after the gesture settles (debounced), unless still hovered/focused.
  * Respects reduced motion.
@@ -14,6 +16,7 @@ export default function useAutoScroll(
     enabled = true,
     resumeDelay = 1400,
     axis = 'horizontal',
+    loopMode = 'restart',
   } = {},
 ) {
   useEffect(() => {
@@ -61,15 +64,29 @@ export default function useAutoScroll(
     };
 
     const wrapLoop = () => {
+      if (loopMode === 'duplicate') {
+        if (isVertical) {
+          const loopAt = el.scrollHeight / 2;
+          if (loopAt > 0 && el.scrollTop >= loopAt) {
+            el.scrollTop -= loopAt;
+          }
+        } else {
+          const loopAt = el.scrollWidth / 2;
+          if (loopAt > 0 && el.scrollLeft >= loopAt) {
+            el.scrollLeft -= loopAt;
+          }
+        }
+        return;
+      }
       if (isVertical) {
-        const loopAt = el.scrollHeight / 2;
-        if (loopAt > 0 && el.scrollTop >= loopAt) {
-          el.scrollTop -= loopAt;
+        const max = el.scrollHeight - el.clientHeight;
+        if (max > 4 && el.scrollTop >= max - 1) {
+          el.scrollTop = 0;
         }
       } else {
-        const loopAt = el.scrollWidth / 2;
-        if (loopAt > 0 && el.scrollLeft >= loopAt) {
-          el.scrollLeft -= loopAt;
+        const max = el.scrollWidth - el.clientWidth;
+        if (max > 4 && el.scrollLeft >= max - 1) {
+          el.scrollLeft = 0;
         }
       }
     };
@@ -157,5 +174,5 @@ export default function useAutoScroll(
       el.removeEventListener('focusin', onFocusIn);
       el.removeEventListener('focusout', onFocusOut);
     };
-  }, [scrollerRef, speed, enabled, resumeDelay, axis]);
+  }, [scrollerRef, speed, enabled, resumeDelay, axis, loopMode]);
 }

@@ -41,8 +41,6 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import heroImg from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/header extérieure.jpg';
 import plateauAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau avant.jpg';
 import plateauApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau après.jpg';
-import verdunAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
-import verdunApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -224,12 +222,7 @@ export default function PeintureExterieurMontrealPage() {
       after: plateauApres,
       description: 'Façade extérieure - Plateau Mont-Royal',
     },
-    {
-      before: verdunAvant,
-      after: verdunApres,
-      description: 'Peinture extérieure - Verdun',
-    },
-  ];
+];
 
   return (
     <Fragment>

@@ -49,27 +49,8 @@ import emmenagementImg from '../images/L3 Sous services/Photo page appartement/h
 import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import salleEauAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0807.jpg';
 import salleEauApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0808.jpg';
-import salleMangerAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0826.jpg';
-import salleMangerApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0827.jpg';
-import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
-import chambreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
-import chambreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
-import hallAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
-import hallApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
-import plintheAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
-import plintheApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
-import salonAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double avant.jpg';
-import salonApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
-
 const BEFORE_AFTER = [
   { before: salleEauAvant, after: salleEauApres, description: 'Salle d\'eau - murs repeints, moulures rafraîchies' },
-  { before: salleMangerAvant, after: salleMangerApres, description: 'Salle à manger - murs, lambris et plafond à caissons' },
-  { before: porteAvant, after: porteApres, description: 'Porte d\'entrée - décapage et laque lustrée' },
-  { before: chambreAvant, after: chambreApres, description: 'Chambre - murs et plinthes repeints en blanc' },
-  { before: hallAvant, after: hallApres, description: 'Hall d\'entrée - murs, lambris et boiseries' },
-  { before: plintheAvant, after: plintheApres, description: 'Plinthes - réparation et finition nette' },
-  { before: salonAvant, after: salonApres, description: 'Salon en baie - murs, moulures et fenêtres' },
 ];
 
 const HERO_BREADCRUMB = [

@@ -718,88 +718,11 @@ export default function RealisationsPage() {
 
   const carouselImages = [
     {
-      before: monImg7924,
-      after: monImg7922,
-      description: isFr
-        ? 'Peinture intérieure - Condo Griffintown, Montréal'
-        : 'Interior painting - Griffintown condo, Montreal',
-    },
-    {
-      before: monImg7999,
-      after: monImg7997,
-      description: isFr
-        ? 'Rafraîchissement intérieur - Plateau Mont-Royal, Montréal'
-        : 'Interior refresh - Plateau Mont-Royal, Montreal',
-    },
-    {
-      before: monImg7678,
-      after: monImg5873,
-      description: isFr
-        ? "Réparation et peinture - Cage d'escalier à Westmount"
-        : 'Repair and painting - Staircase in Westmount',
-    },
-    {
-      before: longImg7990,
-      after: longImg7988,
-      description: isFr
-        ? 'Peinture résidentielle - Maison à Greenfield Park, Longueuil'
-        : 'Residential painting - House in Greenfield Park, Longueuil',
-    },
-    {
       before: monImg7971,
       after: monImg6755,
       description: isFr
         ? 'Projet extérieur - Résidence, Montréal'
         : 'Exterior project - Residence, Montreal',
-    },
-    {
-      before: lavalImg7992,
-      after: lavalImg7994,
-      description: isFr
-        ? 'Peinture intérieure - Maison à Chomedey, Laval'
-        : 'Interior painting - House in Chomedey, Laval',
-    },
-    {
-      before: riveSudImg7975,
-      after: riveSudImg7974,
-      description: isFr
-        ? 'Escalier spiral extérieur - Dérouillage et peinture, Rive-Sud'
-        : 'Exterior spiral staircase - Rust removal and painting, South Shore',
-    },
-    {
-      before: monImg5975,
-      after: monImg5976,
-      description: isFr
-        ? 'Peinture d\'armoires de cuisine - Maison à Laval'
-        : 'Kitchen cabinet painting - House in Laval',
-    },
-    {
-      before: armoiresMileEndAvant,
-      after: armoiresMileEndApres,
-      description: isFr
-        ? 'Peinture d\'armoires de cuisine - Mile-End, Montréal'
-        : 'Kitchen cabinet painting - Mile-End, Montreal',
-    },
-    {
-      before: porteAvant,
-      after: porteApres,
-      description: isFr
-        ? 'Peinture de porte d\'entrée - Restauration extérieure, Montréal'
-        : 'Front door painting - Exterior restoration, Montreal',
-    },
-    {
-      before: chambreFleurieAvant,
-      after: chambreFleurieApres,
-      description: isFr
-        ? 'Rafraîchissement de chambre - Papier peint remplacé, Montréal'
-        : 'Bedroom refresh - Wallpaper replaced, Montreal',
-    },
-    {
-      before: revetementAvant,
-      after: revetementApres,
-      description: isFr
-        ? 'Peinture de revêtement extérieur - Duplex résidentiel'
-        : 'Exterior siding painting - Residential duplex',
     },
   ];
 

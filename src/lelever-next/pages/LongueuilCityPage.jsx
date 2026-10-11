@@ -24,26 +24,13 @@ import FinalCTASection from '../home-page/FinalCTASection';
 
 import headerLongueuil from '../images/3-ville/longueuil/header.JPEG';
 // Avant/apres Longueuil - paires identifiees
-import lonImg5973 from '../images/3-ville/longueuil/avant-apres/IMG_5973 5.jpg';
-import lonImg5974 from '../images/3-ville/longueuil/avant-apres/IMG_5974 5.jpg';
-import lonImg7992 from '../images/3-ville/longueuil/avant-apres/IMG_7992 6.jpg';
-import lonImg7994 from '../images/3-ville/longueuil/avant-apres/IMG_7994 6.jpg';
 import lonImg7990 from '../images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg';
 import lonImg7988 from '../images/3-ville/longueuil/avant-apres/IMG_7988 4.jpg';
-import lonImg6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg';
-import lonImg8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg';
 import lonImg0830 from '../images/3-ville/longueuil/avant-apres/IMG_0830.jpg';
 import lonImg0831 from '../images/3-ville/longueuil/avant-apres/IMG_0831.jpg';
-import lonImg0838 from '../images/3-ville/longueuil/avant-apres/IMG_0838.jpg';
-import lonImg0839 from '../images/3-ville/longueuil/avant-apres/IMG_0839.jpg';
-import balconyStairsBefore from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg";
-import balconyStairsAfter from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg";
-import windowFrameBefore from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
-import windowFrameAfter from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
+
 import bedroomBefore from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
 import bedroomAfter from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
-import greenBedroomBefore from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
-import greenBedroomAfter from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -150,57 +137,25 @@ export default function LongueuilCityPage() {
   // Section 5 - Avant/apres Longueuil
 
   const longueuilBeforeAfterPairs = [
-    {
-      before: lonImg5973,
-      after: lonImg5974,
-      description: isFr ? 'Peinture intérieure - Maison à Vieux-Longueuil' : 'Interior painting - House in Vieux-Longueuil',
-    },
-    {
-      before: lonImg7992,
-      after: lonImg7994,
-      description: isFr ? 'Rafraîchissement complet - Condo à Saint-Hubert' : 'Full refresh - Condo in Saint-Hubert',
-    },
+
     {
       before: lonImg7990,
       after: lonImg7988,
       description: isFr ? 'Peinture résidentielle - Maison à Greenfield Park' : 'Residential painting - House in Greenfield Park',
     },
-    {
-      before: lonImg6031,
-      after: lonImg8108,
-      description: isFr ? 'Mise à niveau avant vente - Propriété à Longueuil' : 'Pre-sale update - Property in Longueuil',
-    },
+    
     {
       before: lonImg0830,
       after: lonImg0831,
       description: isFr ? 'Peinture extérieure - Revêtement de maison à Longueuil' : 'Exterior painting - House siding in Longueuil',
     },
-    {
-      before: balconyStairsBefore,
-      after: balconyStairsAfter,
-      description: isFr ? 'Peinture extérieure - Escalier de balcon à Longueuil' : 'Exterior painting - Balcony stairs in Longueuil',
-    },
-    {
-      before: lonImg0838,
-      after: lonImg0839,
-      description: isFr ? 'Teinture de terrasse - Maison à Longueuil' : 'Deck staining - House in Longueuil',
-    },
-    {
-      before: windowFrameBefore,
-      after: windowFrameAfter,
-      description: isFr ? 'Peinture intérieure - Cadrage de fenêtre à Longueuil' : 'Interior painting - Window frame in Longueuil',
-    },
+
     {
       before: bedroomBefore,
       after: bedroomAfter,
       description: isFr ? 'Peinture résidentielle - Chambre à Longueuil' : 'Residential painting - Bedroom in Longueuil',
     },
-    {
-      before: greenBedroomBefore,
-      after: greenBedroomAfter,
-      description: isFr ? 'Peinture intérieure - Chambre aux murs verts à Longueuil' : 'Interior painting - Green-walled bedroom in Longueuil',
-    },
-  ];
+];
 
   // Section 6 - Pourquoi nous choisir
 

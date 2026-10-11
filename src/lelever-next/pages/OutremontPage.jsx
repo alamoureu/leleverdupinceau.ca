@@ -44,32 +44,14 @@ import { RBQ_LICENSE } from '../constants/company';
 import heroImg from '../images/3-ville/Montréal/outremont/header.jpg';
 import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
+import prisePossessionImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
+import remiseEnEtatImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
+import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import cuisineAvant from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
 import cuisineApres from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';
-import hallAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
-import hallApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
-import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
-import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
-import salleMangerAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0826.jpg';
-import salleMangerApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0827.jpg';
-import papierPeintAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint avant.jpg';
-import papierPeintApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint après.jpg';
-import mursVertsAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
-import mursVertsApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
-import platreAvant from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
-import platreApres from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
-import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
-import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
 
 const CAROUSEL_IMAGES = [
   { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - murs repeints sous les moulures d\'origine' },
-  { before: hallAvant, after: hallApres, description: 'Hall d\'entrée - murs, lambris et boiseries' },
-  { before: moulureAvant, after: moulureApres, description: 'Peinture de boiseries - Moulure' },
-  { before: salleMangerAvant, after: salleMangerApres, description: 'Salle à manger - murs, lambris et plafond à caissons' },
-  { before: papierPeintAvant, after: papierPeintApres, description: 'Retrait de papier peint et peinture - Chambre' },
-  { before: mursVertsAvant, after: mursVertsApres, description: 'Chambre - murs et plinthes repeints en blanc' },
-  { before: platreAvant, after: platreApres, description: 'Réparation de plâtre - Coin de mur endommagé' },
-  { before: clotureAvant, after: clotureApres, description: 'Teinture extérieure - Clôture en bois' },
 ];
 
 const BREADCRUMB = [
@@ -133,16 +115,21 @@ const CONTEXTES = [
     icon: FaKey,
     title: 'Rafraîchissement avant prise de possession',
     text: 'Projet à exécuter vite, proprement et dans un calendrier serré avant l\'installation. Un espace propre et bien peint est prêt à recevoir son nouvel occupant.',
+    image: prisePossessionImg,
   },
   {
     icon: FaPaintBrush,
     title: 'Remise en état légère d\'un espace soigné',
     text: 'Le client ne veut pas tout refaire - il veut redonner de l\'éclat à un espace déjà beau, sans complications ni surprises en cours de route.',
+    image: remiseEnEtatImg,
   },
   {
     icon: FaBriefcase,
     title: 'Projet commercial ou bureau de proximité',
     text: 'Travaux planifiés avec méthode pour limiter l\'impact sur l\'activité et l\'image du lieu. Chantier propre, intervention discrète et résultat net.',
+    image: commercialImg,
+    to: '/services/peinture-commerciale',
+    linkLabel: 'Peinture commerciale',
   },
 ];
 
@@ -358,10 +345,10 @@ export default function OutremontPage() {
                 </Text>
               </Stack>
 
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-                {CONTEXTES.slice(0, 3).map((item, i) => (
+              <Flex wrap="wrap" justify="center" gap={6}>
+                {CONTEXTES.map((item) => (
                   <Box
-                    key={i}
+                    key={item.title}
                     bg="white"
                     border="1px solid"
                     borderColor="gray.200"
@@ -370,19 +357,20 @@ export default function OutremontPage() {
                     boxShadow="sm"
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
+                    w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
+                    display="flex"
+                    flexDirection="column"
                   >
-                    {item.image && (
-                      <Image
-                        src={item.image}
-                        alt={`${item.title} - peinture à Outremont`}
-                        w="100%"
-                        h={{ base: '180px', md: '200px' }}
-                        objectFit="cover"
-                        loading="lazy"
-                        decoding="async"
-                      />
-                    )}
-                    <Stack spacing={4} p={{ base: 6, md: 7 }}>
+                    <Image
+                      src={item.image}
+                      alt={`${item.title} - peinture à Outremont`}
+                      w="100%"
+                      h={{ base: '180px', md: '200px' }}
+                      objectFit="cover"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                    <Stack spacing={4} p={{ base: 6, md: 7 }} flex={1}>
                       <Flex w="48px" h="48px" borderRadius="xl" bg="brand.50" align="center" justify="center">
                         <Icon as={item.icon} color="brand.500" boxSize={5} />
                       </Flex>
@@ -397,36 +385,6 @@ export default function OutremontPage() {
                           {item.linkLabel} <ArrowForwardIcon boxSize={3} />
                         </Link>
                       )}
-                    </Stack>
-                  </Box>
-                ))}
-              </SimpleGrid>
-
-              <Flex wrap="wrap" justify="center" gap={6}>
-                {CONTEXTES.slice(3).map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
-                    boxShadow="sm"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
-                    maxW={{ lg: '420px' }}
-                  >
-                    <Stack spacing={4}>
-                      <Flex w="48px" h="48px" borderRadius="xl" bg="brand.50" align="center" justify="center">
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading as="h3" fontSize={{ base: 'md', md: 'lg' }} fontWeight="700" color="gray.800" lineHeight="1.3">
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                        {item.text}
-                      </Text>
                     </Stack>
                   </Box>
                 ))}

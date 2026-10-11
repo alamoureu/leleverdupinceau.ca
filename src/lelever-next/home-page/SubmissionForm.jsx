@@ -317,7 +317,7 @@ export default function SubmissionForm({
                 placeholder=" "
                 onFocus={() => setIsProjectDetailsFocused(true)}
                 onBlur={() => setIsProjectDetailsFocused(false)}
-                rows={2}
+                rows={5}
                 size="md"
                 fontSize="16px"
                 borderColor="gray.300"

@@ -414,15 +414,17 @@ export default function CitySectorPage({ config }) {
                     {t(sectorsSubtitle)}
                   </Text>
                 </Stack>
-                <SimpleGrid
-                  columns={{ base: 1, md: Math.min(3, sectors.length) }}
-                  spacing={{ base: 3, md: 4 }}
+                <Flex
+                  flexWrap="wrap"
+                  gap={{ base: 3, md: 4 }}
+                  justify="center"
                   maxW="700px"
                   mx="auto"
                 >
                   {sectors.map((secteur) => (
                     <Box
                       key={secteur}
+                      w={{ base: '100%', md: 'calc(33.333% - 11px)' }}
                       bg="white"
                       border="1px solid"
                       borderColor="gray.200"
@@ -440,7 +442,7 @@ export default function CitySectorPage({ config }) {
                       </Text>
                     </Box>
                   ))}
-                </SimpleGrid>
+                </Flex>
                 {sectorsNote && (
                   <Text
                     fontSize={{ base: 'sm', md: 'md' }}

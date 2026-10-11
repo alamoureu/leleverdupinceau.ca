@@ -42,10 +42,6 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
 import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG';
 import teintureImg5974 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.PNG';
-import teintureEscalierAvant from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
-import teintureEscalierApres from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
-import teintureClotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
-import teintureClotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -227,17 +223,7 @@ export default function TeintureExterieurePage() {
       after: teintureImg5974,
       description: 'Terrasse en bois - teinture et protection',
     },
-    {
-      before: teintureEscalierAvant,
-      after: teintureEscalierApres,
-      description: 'Escalier extérieur - teinture et peinture',
-    },
-    {
-      before: teintureClotureAvant,
-      after: teintureClotureApres,
-      description: 'Teinture extérieure - Clôture en bois',
-    },
-  ];
+];
 
   return (
     <Fragment>

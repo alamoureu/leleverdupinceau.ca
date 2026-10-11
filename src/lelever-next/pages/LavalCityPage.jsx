@@ -24,22 +24,13 @@ import SubmissionModal from '../home-page/SubmissionModal';
 
 import headerLaval from '../images/3-ville/laval/header.jpg';
 // Avant/après Laval - paires identifiées
-import lavImg5973 from '../images/3-ville/laval/avant-apres/IMG_5973 4.jpg';
-import lavImg5974 from '../images/3-ville/laval/avant-apres/IMG_5974 4.jpg';
+
 import lavImg5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.jpg';
 import lavImg5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.jpg';
 import lavImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.jpg';
 import lavImg7994 from '../images/3-ville/laval/avant-apres/IMG_7994 5.jpg';
 import lavImg6031 from '../images/3-ville/laval/avant-apres/IMG_6031 3.jpg';
 import lavImg8108 from '../images/3-ville/laval/avant-apres/IMG_8108 3.jpg';
-import lavImg0838 from '../images/3-ville/longueuil/avant-apres/IMG_0838.jpg';
-import lavImg0839 from '../images/3-ville/longueuil/avant-apres/IMG_0839.jpg';
-import escalierBalconAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg';
-import escalierBalconApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg';
-import cadrageFenetreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
-import cadrageFenetreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
-import hallEntreeAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
-import hallEntreeApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
 
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);
@@ -166,11 +157,7 @@ export default function LavalCityPage() {
   // ─── Section 5 - Avant/après Laval ──────────────────────────────────────────
 
   const lavalBeforeAfterPairs = [
-    {
-      before: lavImg5973,
-      after: lavImg5974,
-      description: isFr ? 'Peinture intérieure - Maison à Chomedey' : 'Interior painting - House in Chomedey',
-    },
+    
     {
       before: lavImg5975,
       after: lavImg5976,
@@ -186,27 +173,7 @@ export default function LavalCityPage() {
       after: lavImg8108,
       description: isFr ? 'Mise à niveau avant vente - Condo à Duvernay' : 'Pre-sale update - Condo in Duvernay',
     },
-    {
-      before: escalierBalconAvant,
-      after: escalierBalconApres,
-      description: isFr ? 'Peinture extérieure - Escalier de balcon à Laval' : 'Exterior painting - Balcony staircase in Laval',
-    },
-    {
-      before: cadrageFenetreAvant,
-      after: cadrageFenetreApres,
-      description: isFr ? 'Peinture intérieure - Cadrage de fenêtre à Laval' : 'Interior painting - Window frame in Laval',
-    },
-    {
-      before: lavImg0838,
-      after: lavImg0839,
-      description: isFr ? 'Teinture de patio - Maison à Laval' : 'Deck staining - House in Laval',
-    },
-    {
-      before: hallEntreeAvant,
-      after: hallEntreeApres,
-      description: isFr ? 'Peinture intérieure - Hall d\'entrée à Laval' : 'Interior painting - Entrance hall in Laval',
-    },
-  ];
+];
 
   // ─── Section 6 - Pourquoi nous choisir ──────────────────────────────────────
 

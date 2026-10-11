@@ -10,7 +10,6 @@ import {
   Flex,
   Image,
   Icon,
-  SimpleGrid,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -24,7 +23,7 @@ import HeroSection from '../home-page/HeroSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import ReviewsSection from '../home-page/ReviewsSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
-import BeforeAfterCarouselSection, { buildDefaultImages } from '../home-page/BeforeAfterCarouselSection';
+import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import avisPhotoHeader from '../images/Moses&Dany_Wraping.jpeg';
 import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
@@ -147,14 +146,11 @@ export default function AvisPage() {
     })),
   };
 
-  const beforeAfterPairs = [
-    ...buildDefaultImages(isFr),
-    ...AVIS_PAIRS.map(([before, after, fr, en]) => ({
-      before: avisPhoto(before),
-      after: avisPhoto(after),
-      description: isFr ? fr : en,
-    })),
-  ];
+  const beforeAfterPairs = AVIS_PAIRS.map(([before, after, fr, en]) => ({
+    before: avisPhoto(before),
+    after: avisPhoto(after),
+    description: isFr ? fr : en,
+  }));
 
   return (
     <Fragment>
@@ -210,14 +206,25 @@ export default function AvisPage() {
                 </Text>
               </Stack>
 
-              <SimpleGrid
-                columns={{ base: 1, md: 2, lg: 3 }}
-                spacing={{ base: 3, md: 6 }}
+              <Flex
+                flexWrap="wrap"
+                justifyContent="center"
+                gap={{ base: 3, md: 6 }}
                 maxW="1000px"
                 mx="auto"
               >
                 {whyRecommend.map((item, index) => (
-                  <Flex key={index} align="start" gap={3}>
+                  <Flex
+                    key={index}
+                    align="start"
+                    gap={3}
+                    flex="0 0 auto"
+                    w={{
+                      base: '100%',
+                      md: 'calc((100% - 24px) / 2)',
+                      lg: 'calc((100% - 48px) / 3)',
+                    }}
+                  >
                     <Icon
                       as={FontAwesomeIcon}
                       icon={faCheckCircle}
@@ -231,7 +238,7 @@ export default function AvisPage() {
                     </Text>
                   </Flex>
                 ))}
-              </SimpleGrid>
+              </Flex>
             </Stack>
           </Container>
         </Box>

@@ -36,15 +36,11 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import heroImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
+import heroImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
 import griffintownAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown avant.jpg';
 import griffintownApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown après.JPG';
 import plateauAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg';
 import plateauApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
-import westmountAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg';
-import westmountApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg';
-import ndgAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.jpg';
-import ndgApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 
@@ -232,17 +228,7 @@ export default function PeintureInterieurMontrealPage() {
       after: plateauApres,
       description: 'Rafraîchissement complet - Plateau Mont-Royal',
     },
-    {
-      before: westmountAvant,
-      after: westmountApres,
-      description: 'Murs et plafonds - Westmount',
-    },
-    {
-      before: ndgAvant,
-      after: ndgApres,
-      description: 'Peinture intérieure - Notre-Dame-de-Grâce',
-    },
-  ];
+];
 
   return (
     <Fragment>

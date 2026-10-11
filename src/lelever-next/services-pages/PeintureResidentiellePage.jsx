@@ -43,20 +43,6 @@ import residentielleHeroImg from '../images/2-services/Page peinture résidentie
 
 import avantApresRes1a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg';
 import avantApresRes1b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg';
-import chambreAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
-import chambreApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
-import pieceDoubleAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double avant.jpg';
-import pieceDoubleApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
-import salonLoftAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel à Montréal, Le Lever du Pinceau a peinturé ce condo divise dans Griffintown à Montréal.jpg';
-import salonLoftApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint ce condo divise dans le quartier de Griffintown à Montréal.jpg';
-import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre à Montréal, Le Lever du Pinceau a frindé et peinturé cette cage d_escalier en fer forgé dans le sud ouest de Montréal.jpg';
-import escalierApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a meulé et peint cette cage d_escalier en fer forgé dans le quartier de Verdun à Montréal.jpg';
-import cuisineAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a réparé et peint se plafond de cette cuisine à Montréal.jpg';
-import cuisineApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre et plâtre à Montréal, Le Lever du Pinceau a peint se plafond de cette maison unifamilliale à Montréal.jpg';
-import mouluresAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peint l_ensemble de ce duplex à Montréal.jpg';
-import mouluresApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a peint tout ce condo à Montréal.jpg';
-import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.jpg';
-import corridorApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries après.jpg';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -239,14 +225,7 @@ export default function PeintureResidentiellePage() {
       after: avantApresRes1b,
       description: 'Peinture résidentielle - maison complète Montréal',
     },
-    { before: chambreAvant, after: chambreApres, description: 'Chambre - murs repeints en vert' },
-    { before: pieceDoubleAvant, after: pieceDoubleApres, description: 'Pièce double - murs et boiseries en blanc' },
-    { before: salonLoftAvant, after: salonLoftApres, description: 'Salon de condo - mur d\'accent noir' },
-    { before: escalierAvant, after: escalierApres, description: 'Escalier extérieur en fer forgé - décapage et peinture' },
-    { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - réparation et peinture du plafond' },
-    { before: mouluresAvant, after: mouluresApres, description: 'Murs et moulures décoratives - finition blanche' },
-    { before: corridorAvant, after: corridorApres, description: 'Corridor - murs et boiseries repeints' },
-  ];
+];
 
   return (
     <Fragment>

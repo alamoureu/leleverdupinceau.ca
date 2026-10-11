@@ -38,16 +38,10 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
 import sinistreHeroImg from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
-import sinistreSousSolAvant from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7990.jpg';
-import sinistreSousSolApres from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7988.jpg';
-import sinistrePoutreAvant from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7992.jpg';
-import sinistrePoutreApres from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7994.jpg';
+
 import sinistrePlafondAvant from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_0863.jpg';
 import sinistrePlafondApres from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_0864.jpg';
-import sinistreCadreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
-import sinistreCadreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
-import sinistreFenetreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
-import sinistreFenetreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0860.jpg';
+
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -247,32 +241,13 @@ export default function PeintureApresSinistrePage() {
   };
 
   const carouselImages = [
-    {
-      before: sinistreSousSolAvant,
-      after: sinistreSousSolApres,
-      description: 'Sous-sol - dégât d\'eau et remise en état',
-    },
-    {
-      before: sinistrePoutreAvant,
-      after: sinistrePoutreApres,
-      description: 'Poutre et plafond - taches d\'eau corrigées',
-    },
+
     {
       before: sinistrePlafondAvant,
       after: sinistrePlafondApres,
       description: 'Plafond - taches d\'eau et peinture',
     },
-    {
-      before: sinistreCadreAvant,
-      after: sinistreCadreApres,
-      description: 'Cadrage de fenêtre - reprise après dommage',
-    },
-    {
-      before: sinistreFenetreAvant,
-      after: sinistreFenetreApres,
-      description: 'Mur autour d\'une fenêtre - réparation et peinture',
-    },
-  ];
+];
 
   return (
     <Fragment>
@@ -316,7 +291,6 @@ export default function PeintureApresSinistrePage() {
           sectionBg="gray.50"
           columns={{ base: 1, sm: 2, md: 3 }}
         />
-
 
         {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
         <BeforeAfterCarouselSection
