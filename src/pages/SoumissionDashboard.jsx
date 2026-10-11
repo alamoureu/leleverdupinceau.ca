@@ -116,7 +116,7 @@ function SoumissionDashboard() {
                   <strong>Date</strong> <br />
                   {soumission.date?.toDate?.()
                     ? `${soumission.date.toDate().toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}, ${soumission.date.toDate().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`
-                    : '—'}
+                    : '-'}
                 </Text>
                 <Text size="sm" color="brand.600">
                   <strong>Type de peinture</strong> <br />
@@ -124,7 +124,7 @@ function SoumissionDashboard() {
                 </Text>
                 <Text>
                   <strong>Besoins</strong> <br />
-                  {Array.isArray(soumission.besoinPeinture) ? soumission.besoinPeinture.join(', ') : soumission.besoinPeinture ?? '—'}
+                  {Array.isArray(soumission.besoinPeinture) ? soumission.besoinPeinture.join(', ') : soumission.besoinPeinture ?? '-'}
                 </Text>
                 <Text>
                   <strong>Description</strong> {soumission.message}

@@ -97,7 +97,7 @@ function EmployeesDashboard() {
                 </Text>
                 <Text>
                   <strong>Date:</strong>{' '}
-                  {employee.date?.toDate?.()?.toLocaleDateString() ?? '—'}
+                  {employee.date?.toDate?.()?.toLocaleDateString() ?? '-'}
                 </Text>
                 <Text>
                   <strong>Message:</strong> {employee.message}

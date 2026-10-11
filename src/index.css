@@ -29,35 +29,44 @@ body {
   min-width: 0;
 }
 
-/* Custom scrollbar - applies to main scroll container (#main) and fallback for html */
-html,
-#main {
+/* Site-wide custom scrollbars - brand blue, soft track, pill thumb */
+* {
   scrollbar-width: thin;
-  scrollbar-color: #2355CA rgba(0, 0, 0, 0.08);
+  scrollbar-color: rgba(35, 85, 202, 0.55) rgba(35, 85, 202, 0.08);
 }
 
-#main::-webkit-scrollbar,
-html::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 10px;
   height: 10px;
 }
 
-#main::-webkit-scrollbar-track,
-html::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0.06);
-  border-radius: 10px;
+*::-webkit-scrollbar-track {
+  background: rgba(35, 85, 202, 0.06);
+  border-radius: 999px;
 }
 
-#main::-webkit-scrollbar-thumb,
-html::-webkit-scrollbar-thumb {
-  background: #2355CA;
-  border-radius: 10px;
-  border: 2px solid rgba(0, 0, 0, 0.06);
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #508EF5 0%, #2355CA 100%);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
 }
 
-#main::-webkit-scrollbar-thumb:hover,
-html::-webkit-scrollbar-thumb:hover {
-  background: #1E4BB5;
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #77A7F7 0%, #1E4BB5 100%);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+*::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(180deg, #2355CA 0%, #0A2B68 100%);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
 }
 
 .skip-link {

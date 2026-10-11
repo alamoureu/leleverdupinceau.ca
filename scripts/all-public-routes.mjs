@@ -22,6 +22,41 @@ const CITY_TO_SECTEUR = {
   brossard: '/secteurs/brossard',
 };
 
+const NEIGHBORHOOD_TO_SECTEUR = {
+  westmount: '/secteurs/montreal/westmount',
+  outremont: '/secteurs/montreal/outremont',
+  'plateau-mont-royal': '/secteurs/montreal/plateau-mont-royal',
+  'ville-marie': '/secteurs/montreal/ville-marie',
+};
+
+/** Anciens slugs de quartiers (URLs legacy → redirect). */
+const LEGACY_QUARTIER_SLUGS = [
+  'ahuntsic',
+  'bois-franc',
+  'centre-ville',
+  'cote-des-neiges',
+  'griffintown',
+  'hochelaga',
+  'ile-des-soeurs',
+  'lachine',
+  'lasalle',
+  'le-village',
+  'mile-end',
+  'notre-dame-de-grace',
+  'outremont',
+  'plateau-mont-royal',
+  'pointe-saint-charles',
+  'rosemont-petite-patrie',
+  'saint-henri',
+  'saint-leonard',
+  'verdun',
+  'ville-mont-royal',
+  'ville-saint-laurent',
+  'villeray',
+  'westmount',
+  'ville-marie',
+];
+
 /**
  * Pages pré-rendues en HTML (SSR) = sitemap officiel Site LP uniquement.
  * Les autres routes React restent en SPA (fallback Netlify).
@@ -32,12 +67,6 @@ export const CONTENT_ROUTES = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
 export const SPA_ONLY_ROUTES = [
   '/politique-de-confidentialite',
   '/mentions-legales',
-  '/services/peinture-residentielle/interieure',
-  '/services/peinture-residentielle/exterieure',
-  '/services/peinture-commerciale/interieure',
-  '/services/peinture-commerciale/exterieure',
-  ...['peinture-interieure', 'peinture-exterieure', 'peinture-commerciale', 'peinture-residentielle', 'peinture-industrielle']
-    .flatMap((s) => ['montreal', 'laval', 'longueuil', 'brossard'].map((c) => `/services/${s}/${c}`)),
   '/blog/comment-choisir-un-peintre-professionnel',
   '/blog/prix-peinture-montreal',
   '/blog/erreurs-a-eviter-peinture-interieure',
@@ -68,6 +97,10 @@ const ALIAS_REDIRECTS = {
   '/secteurs-desservis/brossard': '/secteurs/brossard',
   '/services/new-peinture-interieure': '/services/peinture-interieure',
   '/services/new-peinture-exterieure': '/services/peinture-exterieure',
+  '/services/peinture-residentielle/interieure': '/services/peinture-residentielle',
+  '/services/peinture-residentielle/exterieure': '/services/peinture-residentielle',
+  '/services/peinture-commerciale/interieure': '/services/peinture-commerciale',
+  '/services/peinture-commerciale/exterieure': '/services/peinture-commerciale',
 };
 
 function normalize(pathname) {
@@ -89,12 +122,27 @@ function isPrivate(pathname) {
 function resolveTriple(pathname) {
   const m = pathname.match(/^\/services\/([^/]+)\/([^/]+)\/([^/]+)$/);
   if (!m) return null;
-  const [, serviceSlug, param2] = m;
+  const [, serviceSlug, param2, param3] = m;
+  if (param3 && NEIGHBORHOOD_TO_SECTEUR[param3]) {
+    return NEIGHBORHOOD_TO_SECTEUR[param3];
+  }
   if (param2 === 'interieure' || param2 === 'exterieure') {
     return `/services/${serviceSlug}`;
   }
   if (CITY_TO_SECTEUR[param2]) return CITY_TO_SECTEUR[param2];
   return '/services';
+}
+
+/** Legacy /services/:service/:city → /secteurs/:city ; sinon hub service. */
+function resolveDual(pathname) {
+  const m = pathname.match(/^\/services\/([^/]+)\/([^/]+)$/);
+  if (!m) return null;
+  const [, serviceSlug, param2] = m;
+  if (CITY_TO_SECTEUR[param2]) return CITY_TO_SECTEUR[param2];
+  if (param2 === 'interieure' || param2 === 'exterieure') {
+    return `/services/${serviceSlug}`;
+  }
+  return `/services/${serviceSlug}`;
 }
 
 function readLocs(xmlPath) {
@@ -122,47 +170,32 @@ function readAllRoutesTxt() {
     .map(normalize);
 }
 
-/**
- * Quartiers listés dans service_quartier (URLs legacy → redirect).
- * On lit les fichiers du dossier neighborhoods/ + les clés du data file.
- */
-function readQuartierLegacyPaths() {
-  const paths = new Set();
-  const neighDir = path.join(
-    ROOT,
-    'src/lelever-next/services-pages/service_quartier/neighborhoods'
+function legacyQuartierPaths() {
+  return LEGACY_QUARTIER_SLUGS.map(
+    (slug) => `/services/peinture-interieure/montreal/${slug}`
   );
-  if (fs.existsSync(neighDir)) {
-    for (const f of fs.readdirSync(neighDir)) {
-      if (!f.endsWith('Data.js') && !f.endsWith('Data.jsx')) continue;
-      // ahuntsicData.js → try to read slug from file, else kebab from name
-      const src = fs.readFileSync(path.join(neighDir, f), 'utf-8');
-      const slug =
-        (src.match(/slug:\s*['"]([a-z0-9-]+)['"]/) || [])[1] ||
-        f
-          .replace(/Data\.jsx?$/, '')
-          .replace(/([a-z])([A-Z])/g, '$1-$2')
-          .toLowerCase();
-      paths.add(`/services/peinture-interieure/montreal/${slug}`);
-    }
-  }
+}
 
-  const dataFile = path.join(
-    ROOT,
-    'src/lelever-next/services-pages/service_quartier/peintureInterieureSecteursData.js'
+function legacyServiceCityPaths() {
+  return [
+    'peinture-interieure',
+    'peinture-exterieure',
+    'peinture-commerciale',
+    'peinture-residentielle',
+    'peinture-industrielle',
+  ].flatMap((s) =>
+    ['montreal', 'laval', 'longueuil', 'brossard'].map((c) => `/services/${s}/${c}`)
   );
-  if (fs.existsSync(dataFile)) {
-    const src = fs.readFileSync(dataFile, 'utf-8');
-    const block = src.match(/neighborhoods\s*:\s*\{([\s\S]*?)\n\s*\},/);
-    if (block) {
-      for (const m of block[1].matchAll(/['"]?([a-z][a-z0-9-]*)['"]?\s*:/g)) {
-        if (['fr', 'en', 'name'].includes(m[1])) continue;
-        paths.add(`/services/peinture-interieure/montreal/${m[1]}`);
-      }
-    }
-  }
+}
 
-  return [...paths];
+function legacySousServiceCityPaths() {
+  return ['peinture-commerciale', 'peinture-residentielle'].flatMap((svc) =>
+    ['interieure', 'exterieure'].flatMap((sub) =>
+      ['montreal', 'laval', 'longueuil', 'brossard'].map(
+        (city) => `/services/${svc}/${sub}/${city}`
+      )
+    )
+  );
 }
 
 /** Union de toutes les URLs publiques connues (inventaires + app + données). */
@@ -172,17 +205,10 @@ export function getUniversePaths() {
     ...SPA_ONLY_ROUTES,
     ...Object.keys(ALIAS_REDIRECTS),
     ...readLocs(path.join(ROOT, 'public', 'sitemap.xml')),
-    ...readLocs(path.join(ROOT, 'public', 'sitemap-test.xml')),
     ...readAllRoutesTxt(),
-    ...readQuartierLegacyPaths(),
-    // sous-service × ville (4 services-subs × 4 villes)
-    ...['peinture-commerciale', 'peinture-residentielle'].flatMap((svc) =>
-      ['interieure', 'exterieure'].flatMap((sub) =>
-        ['montreal', 'laval', 'longueuil', 'brossard'].map(
-          (city) => `/services/${svc}/${sub}/${city}`
-        )
-      )
-    ),
+    ...legacyQuartierPaths(),
+    ...legacyServiceCityPaths(),
+    ...legacySousServiceCityPaths(),
   ]);
   return [...set].map(normalize).filter((p) => !isPrivate(p)).sort();
 }
@@ -207,14 +233,12 @@ export function classifyPublicRoutes() {
       continue;
     }
 
-    // Chemins /services/:a/:b hors Site LP → hub service (sauf SPA_ONLY déjà filtrés)
-    const dual = pathname.match(/^\/services\/([^/]+)\/([^/]+)$/);
+    const dual = resolveDual(pathname);
     if (dual) {
-      redirects[pathname] = `/services/${dual[1]}`;
+      redirects[pathname] = dual;
       continue;
     }
 
-    // Articles blog / landings / pages hors inventaire → SPA, pas d'échec build
     spaOnlySet.add(pathname);
   }
 

@@ -33,8 +33,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°1 — Ne pas préparer les surfaces correctement',
-        en: 'Mistake #1 — Not preparing surfaces correctly',
+        fr: 'Erreur n°1 - Ne pas préparer les surfaces correctement',
+        en: 'Mistake #1 - Not preparing surfaces correctly',
       },
     },
     {
@@ -103,8 +103,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°2 — Choisir la mauvaise peinture ou le mauvais fini',
-        en: 'Mistake #2 — Choosing the wrong paint or finish',
+        fr: 'Erreur n°2 - Choisir la mauvaise peinture ou le mauvais fini',
+        en: 'Mistake #2 - Choosing the wrong paint or finish',
       },
     },
     {
@@ -171,8 +171,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: "Erreur n°3 — Sous-estimer le temps et l'effort nécessaires",
-        en: 'Mistake #3 — Underestimating the time and effort required',
+        fr: "Erreur n°3 - Sous-estimer le temps et l'effort nécessaires",
+        en: 'Mistake #3 - Underestimating the time and effort required',
       },
     },
     {
@@ -239,8 +239,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°4 — Négliger la protection des planchers et des meubles',
-        en: 'Mistake #4 — Neglecting protection of floors and furniture',
+        fr: 'Erreur n°4 - Négliger la protection des planchers et des meubles',
+        en: 'Mistake #4 - Neglecting protection of floors and furniture',
       },
     },
     {
@@ -292,8 +292,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°5 — Choisir la couleur sans faire de tests',
-        en: 'Mistake #5 — Choosing color without testing',
+        fr: 'Erreur n°5 - Choisir la couleur sans faire de tests',
+        en: 'Mistake #5 - Choosing color without testing',
       },
     },
     {
@@ -358,8 +358,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°6 — Peindre dans de mauvaises conditions',
-        en: 'Mistake #6 — Painting in bad conditions',
+        fr: 'Erreur n°6 - Peindre dans de mauvaises conditions',
+        en: 'Mistake #6 - Painting in bad conditions',
       },
     },
     {
@@ -421,8 +421,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°7 — Bâcler les découpes et les détails',
-        en: 'Mistake #7 — Rushing cuts and details',
+        fr: 'Erreur n°7 - Bâcler les découpes et les détails',
+        en: 'Mistake #7 - Rushing cuts and details',
       },
     },
     {
@@ -484,8 +484,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Erreur n°8 — Vouloir tout faire soi-même, sans aide ni expertise',
-        en: 'Mistake #8 — Wanting to do everything yourself, without help or expertise',
+        fr: 'Erreur n°8 - Vouloir tout faire soi-même, sans aide ni expertise',
+        en: 'Mistake #8 - Wanting to do everything yourself, without help or expertise',
       },
     },
     {
@@ -569,8 +569,8 @@ export const erreursAEviterPeintureInterieureData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Résumé — les erreurs à éviter avant de repeindre votre intérieur',
-        en: 'Summary — mistakes to avoid before repainting your interior',
+        fr: 'Résumé - les erreurs à éviter avant de repeindre votre intérieur',
+        en: 'Summary - mistakes to avoid before repainting your interior',
       },
     },
     {

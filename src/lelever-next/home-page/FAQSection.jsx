@@ -87,12 +87,17 @@ function getFaqs(isFr) {
 
 const DEFAULT_SECTION_PY = { base: 12, md: 16, lg: 20 };
 
-export default function FAQSection({ faqsOverride, title, sectionPy }) {
+export default function FAQSection({
+  faqsOverride,
+  title,
+  sectionPy,
+  sectionBg = 'gray.50',
+  maxW = '800px',
+}) {
   const { t, currentLang } = useTranslation();
   const isFr = currentLang === 'fr';
   const faqs = Array.isArray(faqsOverride) && faqsOverride.length > 0 ? faqsOverride : getFaqs(isFr);
 
-  // Generate Schema Markup for FAQPage
   const faqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -107,7 +112,7 @@ export default function FAQSection({ faqsOverride, title, sectionPy }) {
   };
 
   return (
-    <Box w="100%" py={sectionPy ?? DEFAULT_SECTION_PY} bg="gray.50">
+    <Box w="100%" py={sectionPy ?? DEFAULT_SECTION_PY} bg={sectionBg}>
       <Container maxW="1440px" px={{ base: 4, md: 6 }}>
         <Stack spacing={8}>
           <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
@@ -116,7 +121,7 @@ export default function FAQSection({ faqsOverride, title, sectionPy }) {
             </Heading>
           </Stack>
 
-          <Accordion allowMultiple w="100%" maxW="800px" mx="auto">
+          <Accordion allowMultiple w="100%" maxW={maxW} mx="auto">
             {faqs.map((faq) => (
               <AccordionItem
                 key={faq.question}

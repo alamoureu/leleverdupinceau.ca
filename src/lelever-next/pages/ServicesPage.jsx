@@ -375,12 +375,10 @@ export default function ServicesPage() {
         { label: 'Interior painting in Montreal', href: '/peinture-interieure-montreal' },
       ];
 
-  const heroTitle = isFr
-    ? 'Nos services de peinture dans le Grand Montréal'
-    : 'Our painting services in Greater Montreal';
+  const heroTitle = isFr ? 'Nos services de peinture' : 'Our painting services';
   const heroSubtitle = isFr
-    ? 'Peinture résidentielle, commerciale et industrielle. Intérieure et extérieure. Choisissez votre service ci-dessous.'
-    : 'Residential, commercial and industrial painting. Interior and exterior. Choose your service below.';
+    ? 'Résidentiel, commercial et industriel dans le Grand Montréal.'
+    : 'Residential, commercial and industrial across Greater Montreal.';
 
   return (
     <Fragment>
@@ -471,7 +469,7 @@ export default function ServicesPage() {
             </Stack>
 
             <Box bg="gray.50" borderRadius="xl" py={{ base: 10, md: 14 }} px={{ base: 6, md: 10 }}>
-              <Stack spacing={5} align="center" textAlign="center" maxW="720px" mx="auto">
+              <Stack spacing={5} align="center" textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading as="h2" size="section" color="gray.800">
                   {isFr ? 'Pas certain quel service choisir?' : 'Not sure which service you need?'}
                 </Heading>

@@ -1,4 +1,4 @@
-# 06 — Stack Technique (Décision SSR / Next.js)
+# 06 - Stack Technique (Décision SSR / Next.js)
 
 > **Décision:** Migration de Vite + React SPA → **Next.js (App Router)** pour Server-Side Rendering complet.  
 > Objectif: chaque page du sitemap est rendue côté serveur pour maximiser le SEO.
@@ -18,7 +18,7 @@ Résultat: SEO sous-optimal malgré les efforts de contenu.
 
 ### Solution: Next.js App Router (SSR + SSG)
 - **Server Components:** le HTML est généré sur le serveur avec tout le contenu visible
-- **`generateMetadata()`:** chaque page exporte ses propres `title`, `description`, `canonical`, `og:*` — zéro JavaScript nécessaire pour les bots
+- **`generateMetadata()`:** chaque page exporte ses propres `title`, `description`, `canonical`, `og:*` - zéro JavaScript nécessaire pour les bots
 - **`generateStaticParams()`:** les pages statiques (services, secteurs) sont pré-générées au build
 - **Streaming + Suspense:** performance optimale même pour les pages dynamiques
 - **Built-in Image Optimization:** `<Image>` de Next.js gère `alt`, `title`, `width`, `height`, lazy loading automatiquement
@@ -139,7 +139,7 @@ app/
 
 ---
 
-## SEO PAR PAGE — PATTERN À SUIVRE
+## SEO PAR PAGE - PATTERN À SUIVRE
 
 ### Template `generateMetadata()` (à copier pour chaque page)
 ```typescript
@@ -193,7 +193,7 @@ Exemple:
 - ✅ `Peinture intérieure à Montréal – Murs, plafonds, boiseries | Le Lever du Pinceau`
 - ❌ `Le Lever du Pinceau - Peinture intérieure` (mauvais ordre)
 
-### `<Image>` Next.js — format obligatoire
+### `<Image>` Next.js - format obligatoire
 ```tsx
 import Image from 'next/image'
 
@@ -209,7 +209,7 @@ import Image from 'next/image'
 
 ---
 
-## REDIRECTIONS 301 — MIDDLEWARE NEXT.JS
+## REDIRECTIONS 301 - MIDDLEWARE NEXT.JS
 
 Toutes les redirections de `02-PAGES-A-SUPPRIMER.md` s'implémentent dans `middleware.ts`:
 
@@ -273,30 +273,30 @@ export function middleware(request: NextRequest) {
 
 ## PLAN DE MIGRATION (étapes ordonnées)
 
-### Phase 0 — Préparation (avant de commencer le code)
+### Phase 0 - Préparation (avant de commencer le code)
 - [ ] Initialiser le projet Next.js: `npx create-next-app@latest leleverdupinceau --typescript --app --tailwind`
 - [ ] Installer Chakra UI v3 (si conservé) ou configurer Tailwind
 - [ ] Configurer Firebase (pour le formulaire) dans les API Routes
 - [ ] Mettre en place `middleware.ts` avec toutes les redirections 301
 
-### Phase 1 — Pages critiques (Batch 1, priorité critique)
-- [ ] Homepage `/` — Server Component avec `generateMetadata()`
-- [ ] `/contact` — Formulaire avec Server Action ou API Route
-- [ ] `/services` et `/secteurs` — Hubs de navigation statiques
-- [ ] `/peintre-professionnel` — Page E-E-A-T
+### Phase 1 - Pages critiques (Batch 1, priorité critique)
+- [ ] Homepage `/` - Server Component avec `generateMetadata()`
+- [ ] `/contact` - Formulaire avec Server Action ou API Route
+- [ ] `/services` et `/secteurs` - Hubs de navigation statiques
+- [ ] `/peintre-professionnel` - Page E-E-A-T
 
-### Phase 2 — Services et Secteurs (Batch 1, priorité haute)
+### Phase 2 - Services et Secteurs (Batch 1, priorité haute)
 - [ ] 5 services L2 principaux
 - [ ] 5 villes (dont 2 nouvelles: Rive-Sud, Gatineau)
 - [ ] 4 quartiers Montréal
 - [ ] 2 pages Service × Ville
 
-### Phase 3 — Services spécialisés et L3 (Batch 1, priorité moyenne)
+### Phase 3 - Services spécialisés et L3 (Batch 1, priorité moyenne)
 - [ ] 5 services L2 spécialisés
 - [ ] 3 sous-services L3
 - [ ] `/realisations`
 
-### Phase 4 — Blog et pages secondaires
+### Phase 4 - Blog et pages secondaires
 - [ ] Hub `/blog` + articles existants migrés
 - [ ] Pages légales
 - [ ] `/avis-clients`
@@ -320,8 +320,8 @@ export function middleware(request: NextRequest) {
 ## NOTE SUR CHAKRA UI ET SERVER COMPONENTS
 
 Chakra UI v2 (utilisée actuellement) n'est pas compatible avec les React Server Components. Options:
-1. **Chakra UI v3** — supporte les Server Components (recommandé si on garde Chakra)
-2. **Tailwind CSS** — 100% compatible, zéro overhead runtime
-3. **Hybrid** — Chakra en `"use client"` uniquement pour les composants interactifs, Tailwind pour les layouts SSR
+1. **Chakra UI v3** - supporte les Server Components (recommandé si on garde Chakra)
+2. **Tailwind CSS** - 100% compatible, zéro overhead runtime
+3. **Hybrid** - Chakra en `"use client"` uniquement pour les composants interactifs, Tailwind pour les layouts SSR
 
 **Recommandation:** Utiliser Tailwind CSS pour les pages statiques/SSR + Chakra UI v3 uniquement pour les composants interactifs (formulaires, accordéons, modals). Cela maximise la quantité de HTML rendu côté serveur.

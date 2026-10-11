@@ -25,16 +25,25 @@ export default function MethodSection({
   sectionPy,
   sectionPaddingTop,
   sectionPaddingBottom,
+  title: titleProp,
+  subtitle: subtitleProp,
+  steps: stepsProp,
+  images: imagesProp,
+  ctaText: ctaTextProp,
 }) {
   const { t } = useTranslation();
-  const titleParts = t.methodTitle.split(', ');
+  const methodTitle = titleProp ?? t.methodTitle;
+  const methodSubtitle = subtitleProp ?? t.methodSubtitle;
+  const ctaText = ctaTextProp ?? t.freeSubmission;
+  const titleParts = methodTitle.split(', ');
   const hasTwoParts = titleParts.length >= 2;
+  const images = imagesProp ?? stepImages;
 
   const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
   const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
 
-  const steps = [
+  const steps = stepsProp ?? [
     { title: t.methodStep1Title, description: t.methodStep1Desc },
     { title: t.methodStep2Title, description: t.methodStep2Desc },
     { title: t.methodStep3Title, description: t.methodStep3Desc },
@@ -71,11 +80,11 @@ export default function MethodSection({
                   </Box>
                 </>
               ) : (
-                t.methodTitle
+                methodTitle
               )}
             </Heading>
             <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
-              {t.methodSubtitle}
+              {methodSubtitle}
             </Text>
           </Stack>
 
@@ -145,7 +154,7 @@ export default function MethodSection({
                   h="100%"
                 >
                   <Image
-                    src={stepImages[index]}
+                    src={images[index] || images[0]}
                     alt={step.title}
                     w="100%"
                     h={{
@@ -246,7 +255,7 @@ export default function MethodSection({
               pb={{ base: 2, md: 4 }}
               w="100%"
             >
-              <CtaButton onClick={onSubmissionOpen}>{t.freeSubmission}</CtaButton>
+              <CtaButton onClick={onSubmissionOpen}>{ctaText}</CtaButton>
               <Text
                 fontSize={{ base: 'sm', md: 'lg', lg: 'xl' }}
                 color="gray.600"

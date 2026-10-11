@@ -83,7 +83,7 @@ await mapPool(content, CONCURRENCY, async (route) => {
   const url = `${BASE}${route}`;
   try {
     let res = await fetchManual(url);
-    // Netlify sometimes 301 to trailing slash — follow once
+    // Netlify sometimes 301 to trailing slash - follow once
     if ([301, 302, 307, 308].includes(res.status)) {
       const loc = res.headers.get('location') || '';
       const dest = loc.startsWith('http') ? loc : new URL(loc, BASE).href;
@@ -123,10 +123,10 @@ await mapPool(content, CONCURRENCY, async (route) => {
             .join(', '),
     };
     contentResults.push(row);
-    console.log(`${ok ? '✓' : '✗'} ${route} — ${row.reason}${ok ? ` (${info.words} words, h1 ok, ld=${info.ldCount})` : ''}`);
+    console.log(`${ok ? '✓' : '✗'} ${route} - ${row.reason}${ok ? ` (${info.words} words, h1 ok, ld=${info.ldCount})` : ''}`);
   } catch (error) {
     contentResults.push({ route, ok: false, reason: `fetch error: ${error.message}` });
-    console.log(`✗ ${route} — fetch error: ${error.message}`);
+    console.log(`✗ ${route} - fetch error: ${error.message}`);
   }
 });
 
@@ -177,10 +177,10 @@ await mapPool(redirectEntries, CONCURRENCY, async ([from, to]) => {
     }
 
     redirectResults.push({ from, to, ok, detail });
-    console.log(`${ok ? '✓' : '✗'} ${from} → ${to} — ${detail}`);
+    console.log(`${ok ? '✓' : '✗'} ${from} → ${to} - ${detail}`);
   } catch (error) {
     redirectResults.push({ from, to, ok: false, detail: error.message });
-    console.log(`✗ ${from} — ${error.message}`);
+    console.log(`✗ ${from} - ${error.message}`);
   }
 });
 
@@ -196,11 +196,11 @@ console.log(`TOTAL     : ${contentPass + redirectPass}/${content.length + redire
 
 if (contentFail.length) {
   console.log('\nFailed content pages:');
-  contentFail.forEach((r) => console.log(`  ✗ ${r.route} — ${r.reason}`));
+  contentFail.forEach((r) => console.log(`  ✗ ${r.route} - ${r.reason}`));
 }
 if (redirectFail.length) {
   console.log('\nFailed redirects:');
-  redirectFail.forEach((r) => console.log(`  ✗ ${r.from} → ${r.to} — ${r.detail}`));
+  redirectFail.forEach((r) => console.log(`  ✗ ${r.from} → ${r.to} - ${r.detail}`));
 }
 
 process.exit(contentFail.length || redirectFail.length ? 1 : 0);

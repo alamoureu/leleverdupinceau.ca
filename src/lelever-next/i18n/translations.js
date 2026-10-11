@@ -32,7 +32,8 @@ export const translations = {
     serviceIndustrialDesc: 'Entrepôt, usine, stationnement',
     serviceIndustrialStrip: 'Époxy et revêtements spécialisés.',
     viewAllServices: 'Voir tous nos services',
-    servicesTrustLine: 'Soumission gratuite • Sans engagement',
+    servicesTrustFree: 'Soumission gratuite',
+    servicesTrustNoCommitment: 'Sans engagement',
 
     whyUsTitle: 'Pourquoi nous choisir ?',
     benefit1Title: 'Un travail impeccable',
@@ -273,7 +274,8 @@ export const translations = {
     serviceIndustrialDesc: 'Warehouse, factory, parking',
     serviceIndustrialStrip: 'Epoxy and specialized coatings.',
     viewAllServices: 'View all our services',
-    servicesTrustLine: 'Free quote • No obligation',
+    servicesTrustFree: 'Free quote',
+    servicesTrustNoCommitment: 'No obligation',
 
     whyUsTitle: 'Why choose us?',
     benefit1Title: 'Impeccable work',

@@ -1,6 +1,6 @@
-# 01 — Sitemap Cible (Source de vérité)
+# 01 - Sitemap Cible (Source de vérité)
 
-> **34 pages — Batch 1 (lancement)**  
+> **34 pages - Batch 1 (lancement)**  
 > Ce fichier est la référence absolue pour la structure du site. Ne pas créer de pages hors de cette liste sans mise à jour ici.
 
 ---
@@ -32,11 +32,11 @@
 
 ---
 
-## BATCH 1 — 34 PAGES (à lancer)
+## BATCH 1 - 34 PAGES (à lancer)
 
 ### PAGES PILIERS (L0/L1)
 
-#### #1 — Homepage `/`
+#### #1 - Homepage `/`
 - **Title Tag:** `Peintre Montréal | Peinture résidentielle & commerciale | Le Lever du Pinceau`
 - **H1:** `Peintre professionnel à Montréal`
 - **Mot-clé principal:** `peintre montréal`
@@ -48,7 +48,7 @@
 
 ---
 
-#### #2 — `/peintre-professionnel`
+#### #2 - `/peintre-professionnel`
 - **Title Tag:** `Pourquoi faire appel à un peintre professionnel?`
 - **H1:** `Pourquoi faire appel à un peintre professionnel?`
 - **Mot-clé principal:** `peintre professionnel`
@@ -60,7 +60,7 @@
 
 ---
 
-#### #3 — `/services`
+#### #3 - `/services`
 - **Title Tag:** `Nos services de peinture à Montréal et Gatineau`
 - **H1:** `Nos services de peinture à Montréal et Gatineau`
 - **Mot-clé principal:** `services peinture montréal`
@@ -72,7 +72,7 @@
 
 ---
 
-#### #4 — `/secteurs`
+#### #4 - `/secteurs`
 - **Title Tag:** `Secteurs desservis – Peintre Grand Montréal et Gatineau`
 - **H1:** `Secteurs desservis – Peintre Grand Montréal et Gatineau`
 - **Mot-clé principal:** `peintre grand montréal`
@@ -84,9 +84,9 @@
 
 ---
 
-### SERVICES L2 — PRINCIPAUX (5)
+### SERVICES L2 - PRINCIPAUX (5)
 
-#### #5 — `/services/peinture-interieure`
+#### #5 - `/services/peinture-interieure`
 - **Title Tag:** `Peinture intérieure à Montréal – Murs, plafonds, boiseries`
 - **H1:** `Peinture intérieure à Montréal`
 - **Mot-clé principal:** `peinture intérieure montréal`
@@ -98,7 +98,7 @@
 
 ---
 
-#### #6 — `/services/peinture-exterieure`
+#### #6 - `/services/peinture-exterieure`
 - **Title Tag:** `Peinture extérieure à Montréal – Revêtement, balcon, clôture`
 - **H1:** `Peinture extérieure à Montréal`
 - **Mot-clé principal:** `peinture extérieure montréal`
@@ -110,7 +110,7 @@
 
 ---
 
-#### #7 — `/services/peinture-residentielle`
+#### #7 - `/services/peinture-residentielle`
 - **Title Tag:** `Peinture résidentielle à Montréal – Maison, condo, appartement`
 - **H1:** `Peinture résidentielle à Montréal`
 - **Mot-clé principal:** `peinture résidentielle montréal`
@@ -122,7 +122,7 @@
 
 ---
 
-#### #8 — `/services/peinture-commerciale`
+#### #8 - `/services/peinture-commerciale`
 - **Title Tag:** `Peinture commerciale à Montréal – Bureau, restaurant, commerce`
 - **H1:** `Peinture commerciale à Montréal`
 - **Mot-clé principal:** `peinture commerciale montréal`
@@ -134,7 +134,7 @@
 
 ---
 
-#### #9 — `/services/peinture-industrielle`
+#### #9 - `/services/peinture-industrielle`
 - **Title Tag:** `Peinture industrielle à Montréal – Entrepôt, usine, stationnement`
 - **H1:** `Peinture industrielle à Montréal`
 - **Mot-clé principal:** `peinture industrielle montréal`
@@ -146,101 +146,101 @@
 
 ---
 
-### SERVICES L2 — SPÉCIALISÉS (5) ← À CRÉER
+### SERVICES L2 - SPÉCIALISÉS (5) ← À CRÉER
 
-#### #10 — `/services/teinture-exterieure`
+#### #10 - `/services/teinture-exterieure`
 - **Title Tag:** `Teinture extérieure à Montréal – Bois, patio, clôture`
 - **H1:** `Teinture extérieure à Montréal`
 - **Mot-clé principal:** `teinture extérieure montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** Teinture ≠ peinture. Pénétration bois, semi-transparente vs opaque, produits, fréquence.
 - **Liens internes requis:** Extérieure + Soumission
 
 ---
 
-#### #11 — `/services/preparation-de-surfaces`
+#### #11 - `/services/preparation-de-surfaces`
 - **Title Tag:** `Préparation de surfaces avant peinture à Montréal`
 - **H1:** `Préparation de surfaces avant peinture`
 - **Mot-clé principal:** `préparation surfaces peinture`
 - **Intention:** Informationnelle+
 - **Priorité:** Moyenne
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** 80% du résultat = préparation. Sablage, rebouchage, calfeutrage, apprêt.
 - **Liens internes requis:** Intérieure + Extérieure + Plâtre
 
 ---
 
-#### #12 — `/services/peinture-au-pistolet`
+#### #12 - `/services/peinture-au-pistolet`
 - **Title Tag:** `Peinture au pistolet (airless) à Montréal`
 - **H1:** `Peinture au pistolet (airless) à Montréal`
 - **Mot-clé principal:** `peinture au pistolet montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Moyenne
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** Technologie: avantages, quand utiliser vs rouleau, équipement pro.
 - **Liens internes requis:** Commerciale + Industrielle
 
 ---
 
-#### #13 — `/services/reparation-de-platre-et-gypse`
+#### #13 - `/services/reparation-de-platre-et-gypse`
 - **Title Tag:** `Réparation de plâtre et gypse avant peinture`
 - **H1:** `Réparation de plâtre et gypse`
 - **Mot-clé principal:** `réparation plâtre gypse montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Moyenne
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** Trous, fissures, joints, dégâts d'eau. Réparation AVANT peinture = clé en main.
 - **Liens internes requis:** Préparation + Intérieure
 
 ---
 
-#### #14 — `/services/peinture-apres-sinistre`
+#### #14 - `/services/peinture-apres-sinistre`
 - **Title Tag:** `Peinture après sinistre (dégât d'eau, feu)`
 - **H1:** `Peinture après sinistre`
 - **Mot-clé principal:** `peinture après sinistre montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Moyenne
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** Urgence + assurance. Collaboration assureurs, documentation réclamation.
 - **Liens internes requis:** Résidentielle + Commerciale
 
 ---
 
-### SOUS-SERVICES L3 — PRIORITAIRES (3) ← À CRÉER
+### SOUS-SERVICES L3 - PRIORITAIRES (3) ← À CRÉER
 
-#### #15 — `/services/peinture-interieure/armoires-de-cuisine`
+#### #15 - `/services/peinture-interieure/armoires-de-cuisine`
 - **Title Tag:** `Peinture d'armoires de cuisine à Montréal`
 - **H1:** `Peinture d'armoires de cuisine à Montréal`
 - **Mot-clé principal:** `peinture armoires cuisine montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer (L3 sous peinture-interieure)
+- **Composant actuel:** ❌ N'existe pas - À créer (L3 sous peinture-interieure)
 - **Angle:** Alternative au remplacement. Processus (démontage, sablage, apprêt, 2-3 couches). Alkyde hybride. Coût vs remplacement. Service DISTINCT.
 - **Liens internes requis:** Intérieure + Résidentielle + Soumission
 
 ---
 
-#### #16 — `/services/peinture-residentielle/condo`
+#### #16 - `/services/peinture-residentielle/condo`
 - **Title Tag:** `Peinture de condo à Montréal`
 - **H1:** `Peinture de condo à Montréal`
 - **Mot-clé principal:** `peinture condo montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer (L3 sous peinture-residentielle)
+- **Composant actuel:** ❌ N'existe pas - À créer (L3 sous peinture-residentielle)
 - **Angle:** Contraintes condo: copropriété, ascenseur, bruit, horaires, petits espaces. TRÈS recherché à Montréal.
 - **Liens internes requis:** Résidentielle (parent) + Intérieure + Westmount + Ville-Marie (quartiers condo) + Griffintown (phase 2) + Soumission
 
 ---
 
-#### #17 — `/services/peinture-residentielle/appartement`
+#### #17 - `/services/peinture-residentielle/appartement`
 - **Title Tag:** `Peinture d'appartement à Montréal`
 - **H1:** `Peinture d'appartement à Montréal`
 - **Mot-clé principal:** `peinture appartement montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer (L3 sous peinture-residentielle)
+- **Composant actuel:** ❌ N'existe pas - À créer (L3 sous peinture-residentielle)
 - **Angle:** Contexte locatif: déménagement, 1er juillet, responsabilités locataire vs proprio, budgets 3½/4½/5½. Cible aussi propriétaires bailleurs.
 - **Liens internes requis:** Résidentielle (parent) + Intérieure + Plateau-Mont-Royal (quartier locatif) + Soumission
 
@@ -248,7 +248,7 @@
 
 ### SERVICE × VILLE (2) ← À CRÉER
 
-#### #18 — `/peinture-interieure-montreal`
+#### #18 - `/peinture-interieure-montreal`
 - **Title Tag:** `Peinture intérieure à Montréal – Service professionnel`
 - **H1:** `Peinture intérieure à Montréal`
 - **Mot-clé principal:** `peinture intérieure montréal`
@@ -260,7 +260,7 @@
 
 ---
 
-#### #19 — `/peinture-exterieure-montreal`
+#### #19 - `/peinture-exterieure-montreal`
 - **Title Tag:** `Peinture extérieure à Montréal – Revêtement et teinture`
 - **H1:** `Peinture extérieure à Montréal`
 - **Mot-clé principal:** `peinture extérieure montréal`
@@ -272,9 +272,9 @@
 
 ---
 
-### SECTEURS — VILLES (5)
+### SECTEURS - VILLES (5)
 
-#### #20 — `/secteurs/montreal`
+#### #20 - `/secteurs/montreal`
 - **Title Tag:** `Peintre à Montréal – Service de peinture sur l'île`
 - **H1:** `Peintre à Montréal`
 - **Mot-clé principal:** `peintre à montréal`
@@ -286,7 +286,7 @@
 
 ---
 
-#### #21 — `/secteurs/laval`
+#### #21 - `/secteurs/laval`
 - **Title Tag:** `Peintre à Laval – Peinture résidentielle et commerciale`
 - **H1:** `Peintre à Laval`
 - **Mot-clé principal:** `peintre laval`
@@ -298,7 +298,7 @@
 
 ---
 
-#### #22 — `/secteurs/longueuil`
+#### #22 - `/secteurs/longueuil`
 - **Title Tag:** `Peintre à Longueuil`
 - **H1:** `Peintre à Longueuil`
 - **Mot-clé principal:** `peintre longueuil`
@@ -310,25 +310,25 @@
 
 ---
 
-#### #23 — `/secteurs/rive-sud`
+#### #23 - `/secteurs/rive-sud`
 - **Title Tag:** `Peintre Rive-Sud de Montréal`
 - **H1:** `Peintre Rive-Sud de Montréal`
 - **Mot-clé principal:** `peintre rive-sud montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** HUB RÉGIONAL. Couvre Longueuil, Brossard, St-Lambert, St-Bruno. Linke vers Longueuil. NE PAS être une copie de Longueuil (angle: toute la région).
 - **Liens internes requis:** Longueuil + Services (5 catégories) + Soumission + Avis clients
 
 ---
 
-#### #24 — `/secteurs/gatineau`
+#### #24 - `/secteurs/gatineau`
 - **Title Tag:** `Peintre à Gatineau`
 - **H1:** `Peintre à Gatineau`
 - **Mot-clé principal:** `peintre gatineau`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** Franchise. Quartiers (Hull, Aylmer, Buckingham). Liée au GBP Gatineau. Contenu 100% unique.
 - **Liens internes requis:** Services (5 catégories) + Soumission + Avis clients
 
@@ -336,49 +336,49 @@
 
 ### QUARTIERS MONTRÉAL (4) ← À CRÉER
 
-#### #25 — `/secteurs/montreal/westmount`
+#### #25 - `/secteurs/montreal/westmount`
 - **Title Tag:** `Peintre à Westmount – Service haut de gamme`
 - **H1:** `Peintre à Westmount`
 - **Mot-clé principal:** `peintre westmount`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** PREMIUM. Grandes maisons historiques, boiseries d'époque, clientèle anglophone. Plus gros average ticket de MTL.
 - **Liens internes requis:** Montréal + Résidentielle + Soumission
 
 ---
 
-#### #26 — `/secteurs/montreal/outremont`
+#### #26 - `/secteurs/montreal/outremont`
 - **Title Tag:** `Peintre à Outremont – Peinture résidentielle de qualité`
 - **H1:** `Peintre à Outremont`
 - **Mot-clé principal:** `peintre outremont`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** PRESTIGE francophone. Maisons de prestige, finitions soignées, clientèle exigeante.
 - **Liens internes requis:** Montréal + Résidentielle + Soumission
 
 ---
 
-#### #27 — `/secteurs/montreal/plateau-mont-royal`
+#### #27 - `/secteurs/montreal/plateau-mont-royal`
 - **Title Tag:** `Peintre au Plateau-Mont-Royal`
 - **H1:** `Peintre au Plateau-Mont-Royal`
 - **Mot-clé principal:** `peintre plateau mont-royal`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** PLUS GROS VOLUME. Triplex, duplex patrimoniaux, escaliers extérieurs, moulures d'époque. Densité résidentielle max.
 - **Liens internes requis:** Montréal + Résidentielle + Soumission
 
 ---
 
-#### #28 — `/secteurs/montreal/ville-marie`
+#### #28 - `/secteurs/montreal/ville-marie`
 - **Title Tag:** `Peintre à Ville-Marie et Centre-Ville`
 - **H1:** `Peintre à Ville-Marie et Centre-Ville`
 - **Mot-clé principal:** `peintre ville-marie centre-ville`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** MIX RÉSIDENTIEL + COMMERCIAL. Condos de luxe tours + bureaux + restaurants centre-ville. Moins ciblé par compétiteurs.
 - **Liens internes requis:** Montréal + Commerciale + Condo + Soumission
 
@@ -386,7 +386,7 @@
 
 ### BLOG + PAGES CLASSIQUES + LÉGAL (6)
 
-#### #29 — `/blog`
+#### #29 - `/blog`
 - **Title Tag:** `Blog – Conseils et ressources en peinture`
 - **H1:** `Conseils et ressources en peinture`
 - **Mot-clé principal:** `blog peinture montréal`
@@ -397,7 +397,7 @@
 
 ---
 
-#### #30 — `/avis-clients`
+#### #30 - `/avis-clients`
 - **Title Tag:** `Avis clients – Ce que nos clients disent de nous`
 - **H1:** `Avis clients`
 - **Mot-clé principal:** `avis peintre montréal`
@@ -409,7 +409,7 @@
 
 ---
 
-#### #31 — `/contact` (= `/soumission`)
+#### #31 - `/contact` (= `/soumission`)
 - **Title Tag:** `Soumission gratuite – Estimation en 24h`
 - **H1:** `Demandez votre soumission gratuite`
 - **Mot-clé principal:** `soumission peinture montréal`
@@ -421,37 +421,37 @@
 
 ---
 
-#### #32 — `/realisations`
+#### #32 - `/realisations`
 - **Title Tag:** `Nos réalisations – Portfolio de projets`
 - **H1:** `Nos réalisations`
 - **Mot-clé principal:** `réalisations peinture montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Haute
-- **Composant actuel:** ❌ N'existe pas — À créer
+- **Composant actuel:** ❌ N'existe pas - À créer
 - **Angle:** Portfolio visuel. Avant/après. Chaque réalisation linke vers service + quartier correspondant.
 - **Liens internes requis:** Services + Quartiers + Avis + Soumission
 
 ---
 
-#### #33 — `/mentions-legales`
+#### #33 - `/mentions-legales`
 - **Title Tag:** `Mentions légales`
-- **Intention:** —
+- **Intention:** -
 - **Priorité:** Basse
 - **Composant actuel:** `ThermOfUse` (URL actuelle: `/politiques/termes-conditions`)
 
 ---
 
-#### #34 — `/politique-de-confidentialite`
+#### #34 - `/politique-de-confidentialite`
 - **Title Tag:** `Politique de confidentialité`
-- **Intention:** —
+- **Intention:** -
 - **Priorité:** Basse
 - **Composant actuel:** `PrivacyPolicyPage` (URL actuelle: `/politiques/confidentialite`)
 
 ---
 
-## BATCH 2 — PHASE 2 (après lancement)
+## BATCH 2 - PHASE 2 (après lancement)
 
-### Articles Blog — Priorité #1 (1-3 mois)
+### Articles Blog - Priorité #1 (1-3 mois)
 | # | URL | Déclencheur |
 |---|-----|-------------|
 | 1 | `/blog/prix-peinture-montreal` | Page CONVERSION #1. Plus gros volume. Créer en premier! ✅ Existe déjà |
@@ -462,7 +462,7 @@
 | 6 | `/blog/peinture-demenagement-1er-juillet` | Saisonnier. Publier en mai pour le pic de juin-juillet. |
 | 7 | `/blog/couleurs-tendance-peinture-2026` | Mettre à jour chaque année. |
 
-### Service × Ville — selon données GSC
+### Service × Ville - selon données GSC
 | # | URL | Condition |
 |---|-----|-----------|
 | 8 | `/peinture-residentielle-montreal` | Si impressions élevées + CTR < 5% |
@@ -507,11 +507,11 @@
 |-----------|----------|------|
 | Pages piliers | 4 | 4 existent (à modifier) |
 | Services L2 principaux | 5 | 5 existent (à modifier) |
-| Services L2 spécialisés | 5 | 0 existent — 5 à créer |
-| Sous-services L3 prioritaires | 3 | 0 existent — 3 à créer |
-| Pages service × ville | 2 | 0 existent — 2 à créer |
+| Services L2 spécialisés | 5 | 0 existent - 5 à créer |
+| Sous-services L3 prioritaires | 3 | 0 existent - 3 à créer |
+| Pages service × ville | 2 | 0 existent - 2 à créer |
 | Villes | 5 | 4 existent, 2 à créer (Rive-Sud, Gatineau) |
-| Quartiers Montréal | 4 | 0 existent — 4 à créer |
+| Quartiers Montréal | 4 | 0 existent - 4 à créer |
 | Blog hub | 1 | ✅ Existe |
 | Pages classiques | 3 | 1 existe (Avis), 2 à créer (Réalisations) |
 | Légal | 2 | 2 existent (à renommer) |

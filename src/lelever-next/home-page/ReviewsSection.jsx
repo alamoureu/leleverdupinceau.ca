@@ -290,7 +290,6 @@ export default function ReviewsSection({
               <Button
                 variant='ctaOutline'
                 rightIcon={<ArrowForwardIcon />}
-                bg='white'
                 borderRadius='full'
                 textStyle='nav'
                 px={{ base: 5, md: 7 }}

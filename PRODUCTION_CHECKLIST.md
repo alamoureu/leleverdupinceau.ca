@@ -28,7 +28,7 @@
 ## Optional / follow-up
 
 ### Canonicals (www)
-- **Data files** – Many canonicals in `service_ville`, `sous_service`, `sous_service_ville`, `service_quartier/neighborhoods` still use `https://leleverdupinceau.ca` (no www). For full consistency, replace with `https://www.leleverdupinceau.ca` or build canonicals from `SITE_URL` in code.
+- **Canonicals** – Prefer `https://www.leleverdupinceau.ca` (or build from `SITE_URL`) in page data and Helmet.
 - **Breadcrumb schema** – Service/ville/sous-service pages that build breadcrumb `item` URLs in JS could use `SITE_URL` from `seo/config.js` so everything stays www.
 
 ### Console

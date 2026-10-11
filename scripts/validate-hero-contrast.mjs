@@ -95,7 +95,7 @@ function scanSourceTokens() {
 
 /** Dist: after a dark overlay, paragraphs following the first H1 must be light */
 function scanDistHeroes() {
-  const pages = walkHtml(DIST).filter((p) => !p.includes('image-audit'));
+  const pages = walkHtml(DIST);
   const bad = [];
 
   for (const file of pages) {
@@ -172,7 +172,7 @@ if (distIssues.length) {
   console.error('\n✗ Dark hero text contrast failures in dist/:\n');
   for (const i of distIssues) {
     console.error(
-      `  - ${i.route} [${i.kind}] color=${i.colors.join('|')} — "${i.text}"`,
+      `  - ${i.route} [${i.kind}] color=${i.colors.join('|')} - "${i.text}"`,
     );
   }
 }

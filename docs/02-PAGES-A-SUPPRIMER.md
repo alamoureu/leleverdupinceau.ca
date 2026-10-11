@@ -1,4 +1,4 @@
-# 02 — Pages à Supprimer + Redirections 301
+# 02 - Pages à Supprimer + Redirections 301
 
 > **RÈGLE:** Toute URL supprimée doit avoir une redirection 301 vers la page la plus pertinente.  
 > Ne jamais laisser de 404 sur une URL qui a existé.
@@ -111,12 +111,12 @@ Les routes dynamiques suivantes génèrent des pages à trop hauts axes (service
 | Composant | Fichier | Action |
 |---|---|---|
 | `BrossardCityPage` | `src/lelever-next/pages/BrossardCityPage.jsx` | Supprimer (contenu fusionné dans future page Rive-Sud) |
-| `SousServicePage` | `src/lelever-next/services-pages/sous_service/SousServicePage.jsx` | Vérifier si réutilisable pour L3 — sinon supprimer |
-| `SousServiceVillePage` | `src/lelever-next/services-pages/sous_service_ville/SousServiceVillePage.jsx` | Supprimer |
-| `ServiceQuartierPage` | `src/lelever-next/services-pages/service_ville/ServiceQuartierPage.jsx` | Supprimer |
-| `ServiceQuartierSecteurPage` | `src/lelever-next/services-pages/service_quartier/ServiceQuartierSecteurPage.jsx` | Supprimer |
-| `SmartServiceRouter` | `src/lelever-next/services-pages/SmartServiceRouter.jsx` | Supprimer |
-| `SoumissionPage` | `src/pages/SoumissionPage.jsx` | Supprimer (fusionnée dans ContactPage) |
+| `SousServicePage` | `src/lelever-next/services-pages/sous_service/SousServicePage.jsx` | Vérifier si réutilisable pour L3 - sinon supprimer |
+| `SousServiceVillePage` | ~~supprimé~~ | Fait |
+| `ServiceQuartierPage` | ~~supprimé~~ | Fait |
+| `ServiceQuartierSecteurPage` | ~~supprimé~~ | Fait |
+| `SmartServiceRouter` | ~~supprimé~~ | Fait |
+| `SoumissionPage` | ~~supprimé~~ | Fait (`/soumission` → `/contact`) |
 
 ---
 

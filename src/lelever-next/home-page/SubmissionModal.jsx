@@ -88,8 +88,10 @@ export default function SubmissionModal({ isOpen, onClose }) {
               form={SUBMISSION_FORM_ID}
               type="submit"
               variant="cta"
-              size="lg"
               w="100%"
+              h="40px"
+              minH="40px"
+              fontSize="md"
               borderRadius="full"
               isLoading={isSubmitting}
               loadingText={t.formSubmitting}

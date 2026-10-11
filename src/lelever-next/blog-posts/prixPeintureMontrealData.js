@@ -28,16 +28,16 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 1 — Les prix moyens de peinture à Montréal en 2026',
-        en: 'SECTION 1 — Average painting prices in Montreal in 2026',
+        fr: 'SECTION 1 - Les prix moyens de peinture à Montréal en 2026',
+        en: 'SECTION 1 - Average painting prices in Montreal in 2026',
       },
     },
     {
       type: 'heading',
       level: 2,
       text: {
-        fr: 'Prix peinture Montréal — les fourchettes générales',
-        en: 'Painting prices Montreal — general ranges',
+        fr: 'Prix peinture Montréal - les fourchettes générales',
+        en: 'Painting prices Montreal - general ranges',
       },
     },
     {
@@ -76,8 +76,8 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 2 — Prix selon le type de projet',
-        en: 'SECTION 2 — Prices by project type',
+        fr: 'SECTION 2 - Prix selon le type de projet',
+        en: 'SECTION 2 - Prices by project type',
       },
     },
     {
@@ -222,8 +222,8 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 3 — Ce qui influence vraiment le prix',
-        en: 'SECTION 3 — What really influences the price',
+        fr: 'SECTION 3 - Ce qui influence vraiment le prix',
+        en: 'SECTION 3 - What really influences the price',
       },
     },
     {
@@ -269,8 +269,8 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 4 — Exemple de prix réels (basés sur Montréal)',
-        en: 'SECTION 4 — Real price examples (based on Montreal)',
+        fr: 'SECTION 4 - Exemple de prix réels (basés sur Montréal)',
+        en: 'SECTION 4 - Real price examples (based on Montreal)',
       },
     },
     {
@@ -285,22 +285,22 @@ export const prixPeintureMontrealData = {
       type: 'list',
       items: {
         fr: [
-          'Exemple 1 — Salon + couloir (850 pi² total) : 2 couches + préparation légère → 1 600 $ – 2 300 $',
-          'Exemple 2 — Condo 4 ½ complet : murs + plafonds + portes → 1 900 $ – 3 300 $',
-          'Exemple 3 — Maison 2 étages → 4 500 $ – 9 000 $',
+          'Exemple 1 - Salon + couloir (850 pi² total) : 2 couches + préparation légère → 1 600 $ – 2 300 $',
+          'Exemple 2 - Condo 4 ½ complet : murs + plafonds + portes → 1 900 $ – 3 300 $',
+          'Exemple 3 - Maison 2 étages → 4 500 $ – 9 000 $',
         ],
         en: [
-          'Example 1 — Living room + hallway (850 sq ft total) : 2 coats + light preparation → $1,600 – $2,300',
-          'Example 2 — Complete 4 ½ condo : walls + ceilings + doors → $1,900 – $3,300',
-          'Example 3 — 2-story house → $4,500 – $9,000',
+          'Example 1 - Living room + hallway (850 sq ft total) : 2 coats + light preparation → $1,600 – $2,300',
+          'Example 2 - Complete 4 ½ condo : walls + ceilings + doors → $1,900 – $3,300',
+          'Example 3 - 2-story house → $4,500 – $9,000',
         ],
       },
     },
     {
       type: 'section',
       title: {
-        fr: 'SECTION 5 — Comment économiser sur votre projet',
-        en: 'SECTION 5 — How to save on your project',
+        fr: 'SECTION 5 - Comment économiser sur votre projet',
+        en: 'SECTION 5 - How to save on your project',
       },
     },
     {
@@ -333,8 +333,8 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 6 — Comment éviter de payer trop cher',
-        en: 'SECTION 6 — How to avoid paying too much',
+        fr: 'SECTION 6 - Comment éviter de payer trop cher',
+        en: 'SECTION 6 - How to avoid paying too much',
       },
     },
     {
@@ -364,8 +364,8 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 7 — Quel type de peintre choisir selon votre projet ?',
-        en: 'SECTION 7 — What type of painter to choose according to your project?',
+        fr: 'SECTION 7 - Quel type de peintre choisir selon votre projet ?',
+        en: 'SECTION 7 - What type of painter to choose according to your project?',
       },
     },
     {
@@ -424,8 +424,8 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 8 — Combien coûte une soumission professionnelle ?',
-        en: 'SECTION 8 — How much does a professional quote cost?',
+        fr: 'SECTION 8 - Combien coûte une soumission professionnelle ?',
+        en: 'SECTION 8 - How much does a professional quote cost?',
       },
     },
     {
@@ -489,8 +489,8 @@ export const prixPeintureMontrealData = {
     {
       type: 'section',
       title: {
-        fr: 'SECTION 9 — Conclusion',
-        en: 'SECTION 9 — Conclusion',
+        fr: 'SECTION 9 - Conclusion',
+        en: 'SECTION 9 - Conclusion',
       },
     },
     {

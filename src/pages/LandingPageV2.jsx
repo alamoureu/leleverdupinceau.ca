@@ -31,7 +31,7 @@ import MicrosoftClarity from '../lelever-next/analytics/MicrosoftClarity';
  * Banner heights come from PROMO_BANNER_HEIGHT; navbar heights from LANDING_MAIN_CONTENT_PT.
  * We use CSS calc() to combine them.
  */
-/** Microsoft Clarity project — loaded only on /fr/peintre-montreal */
+/** Microsoft Clarity project - loaded only on /fr/peintre-montreal */
 const CLARITY_PROJECT_ID = 'w4hw2yfvew';
 
 const HERO_CONTENT_PT = {
@@ -146,7 +146,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         overflowX="hidden"
         position="relative"
       >
-        {/* 1. Hero — contentPt clears the fixed promo banner + fixed navbar */}
+        {/* 1. Hero - contentPt clears the fixed promo banner + fixed navbar */}
         <LandingHeroSection
           onSubmissionOpen={onOpen}
           pageContext={t.pageContextName}
@@ -163,13 +163,13 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {/* 3. Services (2 cartes : intérieure + extérieure) */}
         <LandingServicesSection sectionPy={LANDING_SECTION_PY} />
 
-        {/* 4. Section garantie — CTA + badge + engagement */}
+        {/* 4. Section garantie - CTA + badge + engagement */}
         <GuaranteeSection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}
         />
 
-        {/* 5. Méthode en 4 étapes — sentinel déclenche le popup après 1s */}
+        {/* 5. Méthode en 4 étapes - sentinel déclenche le popup après 1s */}
         <MethodSection
           onSubmissionOpen={onOpen}
           hideCta
@@ -177,7 +177,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         />
         <Box ref={methodEndRef} h={0} aria-hidden="true" />
 
-        {/* 6. Formulaire de contact — fond bleu */}
+        {/* 6. Formulaire de contact - fond bleu */}
         <ContactFormSection
           sectionPy={LANDING_SECTION_PY}
           sectionBg="app.ctaBg"
@@ -191,7 +191,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        {/* 8. Avant/Après — 6 paires, carousel swipe mobile */}
+        {/* 8. Avant/Après - 6 paires, carousel swipe mobile */}
         <BeforeAfterCarouselSection
           images={landingPairs}
           sectionPy={LANDING_SECTION_PY}

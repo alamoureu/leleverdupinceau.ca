@@ -370,8 +370,8 @@ export default function LongueuilCityPage() {
 
                 <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7" maxW="900px">
                   {isFr
-                    ? 'Des peintres de métier pour vos projets résidentiels et commerciaux partout à Longueuil.'
-                    : 'Professional painters for your residential and commercial projects throughout Longueuil.'}
+                    ? 'Peintres de métier pour vos projets partout à Longueuil.'
+                    : 'Trade painters for your projects throughout Longueuil.'}
                 </Text>
 
                 <HStack spacing={4} pt={2} flexWrap="wrap">

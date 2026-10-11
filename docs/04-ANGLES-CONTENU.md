@@ -1,4 +1,4 @@
-# 04 — Angles de Contenu & Anti-Cannibalisation
+# 04 - Angles de Contenu & Anti-Cannibalisation
 
 > **Règle d'or:** Chaque page a UN angle unique. Deux pages ne peuvent pas avoir le même angle.  
 > Avant d'écrire du contenu, vérifier ici que l'angle n'est pas déjà pris par une autre page.
@@ -68,7 +68,7 @@
 | `/peinture-interieure-montreal` | SERVICE + VILLE: projets intérieurs réalisés à MTL, quartiers MTL spécifiques, témoignages locaux MTL, photos locales |
 | `/peinture-exterieure-montreal` | SERVICE + VILLE: projets extérieurs MTL, climat montréalais (gel/dégel), saison MTL, photos locales |
 
-### Secteurs — Villes
+### Secteurs - Villes
 
 | Page | Angle unique |
 |---|---|
@@ -122,19 +122,19 @@
 | `peintre professionnel` | `/peintre-professionnel` | `/` (peut mentionner mais pas cibler) |
 | `peinture intérieure montréal` | `/services/peinture-interieure` ET `/peinture-interieure-montreal` | Les deux coexistent car angles différents |
 | `peinture extérieure montréal` | `/services/peinture-exterieure` ET `/peinture-exterieure-montreal` | Idem |
-| `peinture résidentielle montréal` | `/services/peinture-residentielle` | — |
-| `peinture commerciale montréal` | `/services/peinture-commerciale` | — |
-| `peinture industrielle montréal` | `/services/peinture-industrielle` | — |
-| `teinture extérieure montréal` | `/services/teinture-exterieure` | — |
-| `peinture armoires cuisine montréal` | `/services/peinture-interieure/armoires-de-cuisine` | — |
-| `peinture condo montréal` | `/services/peinture-residentielle/condo` | — |
-| `peinture appartement montréal` | `/services/peinture-residentielle/appartement` | — |
-| `peintre à montréal` | `/secteurs/montreal` | — |
-| `peintre laval` | `/secteurs/laval` | — |
-| `peintre longueuil` | `/secteurs/longueuil` | — |
-| `peintre rive-sud montréal` | `/secteurs/rive-sud` | — |
-| `peintre gatineau` | `/secteurs/gatineau` | — |
-| `peintre westmount` | `/secteurs/montreal/westmount` | — |
-| `peintre outremont` | `/secteurs/montreal/outremont` | — |
-| `peintre plateau mont-royal` | `/secteurs/montreal/plateau-mont-royal` | — |
-| `peintre ville-marie centre-ville` | `/secteurs/montreal/ville-marie` | — |
+| `peinture résidentielle montréal` | `/services/peinture-residentielle` | - |
+| `peinture commerciale montréal` | `/services/peinture-commerciale` | - |
+| `peinture industrielle montréal` | `/services/peinture-industrielle` | - |
+| `teinture extérieure montréal` | `/services/teinture-exterieure` | - |
+| `peinture armoires cuisine montréal` | `/services/peinture-interieure/armoires-de-cuisine` | - |
+| `peinture condo montréal` | `/services/peinture-residentielle/condo` | - |
+| `peinture appartement montréal` | `/services/peinture-residentielle/appartement` | - |
+| `peintre à montréal` | `/secteurs/montreal` | - |
+| `peintre laval` | `/secteurs/laval` | - |
+| `peintre longueuil` | `/secteurs/longueuil` | - |
+| `peintre rive-sud montréal` | `/secteurs/rive-sud` | - |
+| `peintre gatineau` | `/secteurs/gatineau` | - |
+| `peintre westmount` | `/secteurs/montreal/westmount` | - |
+| `peintre outremont` | `/secteurs/montreal/outremont` | - |
+| `peintre plateau mont-royal` | `/secteurs/montreal/plateau-mont-royal` | - |
+| `peintre ville-marie centre-ville` | `/secteurs/montreal/ville-marie` | - |

@@ -41,7 +41,7 @@ export default function ContactFormSection({
       {!isFormSuccess && (
         <Box
           w="100%"
-          maxW={{ base: '100%', sm: '480px', md: '560px', lg: '600px' }}
+          maxW={{ base: '100%', sm: '520px', md: '720px', lg: '900px' }}
           mx="auto"
         >
           <Text
@@ -60,6 +60,7 @@ export default function ContactFormSection({
             textAlign="center"
             pb={1}
             textTransform="uppercase"
+            whiteSpace={{ base: 'normal', md: 'nowrap' }}
           >
             {t.contactFormTitle}
           </Text>
@@ -74,7 +75,7 @@ export default function ContactFormSection({
         </Box>
       )}
 
-      {/* Form — white card when section is blue */}
+      {/* Form - white card when section is blue */}
       <Box
         w="100%"
         maxW={{ base: '100%', sm: '480px', md: '560px', lg: '600px' }}

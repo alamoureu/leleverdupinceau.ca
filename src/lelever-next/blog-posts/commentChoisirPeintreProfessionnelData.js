@@ -20,8 +20,8 @@ export const commentChoisirPeintreProfessionnelData = {
     en: 'How to choose a professional painter? (Complete guide 2026)',
   },
   introduction: {
-    fr: "Choisir un peintre professionnel peut sembler simple… jusqu'à ce que surviennent les mauvaises surprises : retouches, dégâts, retards, murs mal couverts, peinture qui s'écaille en quelques mois ou artisans impossibles à joindre.\n\nLa bonne nouvelle ? Tout cela peut être évité si vous savez exactement quoi vérifier avant d'engager.\n\nCe guide vous explique pas à pas comment choisir un peintre professionnel fiable, compétent et transparent — que ce soit pour une maison, un condo, un commerce ou un appartement.",
-    en: 'Choosing a professional painter may seem simple... until bad surprises occur: touch-ups, damage, delays, poorly covered walls, paint that peels in a few months or impossible-to-reach craftsmen.\n\nThe good news? All of this can be avoided if you know exactly what to check before hiring.\n\nThis guide explains step by step how to choose a reliable, competent and transparent professional painter — whether for a house, condo, business or apartment.',
+    fr: "Choisir un peintre professionnel peut sembler simple… jusqu'à ce que surviennent les mauvaises surprises : retouches, dégâts, retards, murs mal couverts, peinture qui s'écaille en quelques mois ou artisans impossibles à joindre.\n\nLa bonne nouvelle ? Tout cela peut être évité si vous savez exactement quoi vérifier avant d'engager.\n\nCe guide vous explique pas à pas comment choisir un peintre professionnel fiable, compétent et transparent - que ce soit pour une maison, un condo, un commerce ou un appartement.",
+    en: 'Choosing a professional painter may seem simple... until bad surprises occur: touch-ups, damage, delays, poorly covered walls, paint that peels in a few months or impossible-to-reach craftsmen.\n\nThe good news? All of this can be avoided if you know exactly what to check before hiring.\n\nThis guide explains step by step how to choose a reliable, competent and transparent professional painter - whether for a house, condo, business or apartment.',
   },
   content: [
     {
@@ -732,8 +732,8 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'heading',
       level: 2,
       text: {
-        fr: "Conclusion — choisir un peintre professionnel, ce n'est pas une question de chance",
-        en: 'Conclusion — choosing a professional painter is not a matter of luck',
+        fr: "Conclusion - choisir un peintre professionnel, ce n'est pas une question de chance",
+        en: 'Conclusion - choosing a professional painter is not a matter of luck',
       },
     },
     {
@@ -772,8 +772,8 @@ export const commentChoisirPeintreProfessionnelData = {
     {
       type: 'paragraph',
       text: {
-        fr: 'Si vous faites tout cela, vous augmentez énormément vos chances de tomber sur une équipe sérieuse, fiable et compétente — et sur un résultat qui dure.',
-        en: 'If you do all this, you greatly increase your chances of finding a serious, reliable and competent team — and a result that lasts.',
+        fr: 'Si vous faites tout cela, vous augmentez énormément vos chances de tomber sur une équipe sérieuse, fiable et compétente - et sur un résultat qui dure.',
+        en: 'If you do all this, you greatly increase your chances of finding a serious, reliable and competent team - and a result that lasts.',
       },
     },
     {

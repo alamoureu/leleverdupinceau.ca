@@ -14,11 +14,6 @@ import {
   SimpleGrid,
   useDisclosure,
   Image,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
@@ -40,6 +35,9 @@ import PageIntro from '../components/PageIntro';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import FAQSection from '../home-page/FAQSection';
+import FeatureCardsSection from '../components/FeatureCardsSection';
+import InternalLinksSection from '../components/InternalLinksSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 
 import heroImg from '../images/neighborhood_placeholder.jpg';
@@ -410,7 +408,7 @@ export default function WestmountPage() {
                   color="white"
                   maxW={{ base: '100%', md: '680px', lg: '780px' }}
                 >
-                  Une équipe de peintres de métier pour vos projets résidentiels et commerciaux légers à Westmount.
+                  Peintres de métier pour vos projets à Westmount.
                 </Text>
 
                 <Flex gap={3} wrap="wrap" pt={{ base: 2, md: 3 }}>
@@ -448,71 +446,28 @@ export default function WestmountPage() {
         </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS WESTMOUNT ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
+        <Box pt={{ base: 16, md: 20, lg: 24 }} pb={0} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Une équipe habituée aux projets où chaque détail compte
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  À Westmount, la qualité perçue du service repose autant sur l&apos;exécution que sur la manière d&apos;entrer et de travailler dans les lieux.
-                </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  {"Westmount s'étend à flanc du mont Royal et compte de nombreuses résidences centenaires en pierre grise (greystone), avec toitures d'ardoise et solins de cuivre. Une bonne partie du secteur est aussi soumise à des règles municipales de conservation du patrimoine qui peuvent encadrer les changements de couleur extérieure, à vérifier auprès de la Ville avant certains projets de façade. Nos équipes travaillent avec le soin supplémentaire que demandent ces matériaux (pierre, cuivre, boiseries d'époque) plutôt qu'avec les méthodes d'une construction standard."}
-                </Text>
-              </Stack>
-
-              <Flex wrap="wrap" justify="center" gap={5}>
-                {CHECKMARKS.map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 5, md: 6 }}
-                    boxShadow="0 2px 12px rgba(0,0,0,0.05)"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
-                    transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
-                    maxW={{ lg: '420px' }}
-                  >
-                    <HStack spacing={4} mb={3} align="center">
-                      <Flex
-                        w="44px"
-                        h="44px"
-                        borderRadius="lg"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                        flexShrink={0}
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Text
-                        fontWeight="bold"
-                        color="gray.800"
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Text>
-                    </HStack>
-                    <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                      {item.text}
-                    </Text>
-                  </Box>
-                ))}
-              </Flex>
+            <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                fontWeight="bold"
+                color="gray.800"
+              >
+                Une équipe habituée aux projets où chaque détail compte
+              </Heading>
+              <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">À Westmount, la qualité perçue du service repose autant sur l'exécution que sur la manière d'entrer et de travailler dans les lieux.</Text>
+              <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">{"Westmount s'étend à flanc du mont Royal et compte de nombreuses résidences centenaires en pierre grise (greystone), avec toitures d'ardoise et solins de cuivre. Une bonne partie du secteur est aussi soumise à des règles municipales de conservation du patrimoine qui peuvent encadrer les changements de couleur extérieure, à vérifier auprès de la Ville avant certains projets de façade. Nos équipes travaillent avec le soin supplémentaire que demandent ces matériaux (pierre, cuivre, boiseries d'époque) plutôt qu'avec les méthodes d'une construction standard."}</Text>
             </Stack>
           </Container>
         </Box>
+        <FeatureCardsSection
+          items={CHECKMARKS}
+          variant="inline"
+          sectionBg="white"
+          sectionPy={{ base: 10, md: 12, lg: 14 }}
+        />
 
         <BeforeAfterCarouselSection
           isFr
@@ -527,7 +482,7 @@ export default function WestmountPage() {
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -621,7 +576,7 @@ export default function WestmountPage() {
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -692,7 +647,7 @@ export default function WestmountPage() {
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -750,127 +705,19 @@ export default function WestmountPage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 7 - FAQ ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="900px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Questions fréquentes sur nos services de peinture à Westmount
-              </Heading>
+        <FAQSection
+          title="Questions fréquentes sur nos services de peinture à Westmount"
+          faqsOverride={FAQS}
+          sectionBg="white"
+          sectionPy={{ base: 16, md: 20, lg: 24 }}
+          maxW="900px"
+        />
 
-              <Accordion allowMultiple>
-                {FAQS.map((faq, i) => (
-                  <AccordionItem
-                    key={i}
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="lg"
-                    mb={3}
-                    overflow="hidden"
-                  >
-                    <AccordionButton
-                      py={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      _hover={{ bg: 'gray.50' }}
-                      _expanded={{ bg: 'gray.50' }}
-                    >
-                      <Box flex="1" textAlign="left">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.4"
-                        >
-                          {faq.question}
-                        </Text>
-                      </Box>
-                      <AccordionIcon color="brand.500" />
-                    </AccordionButton>
-                    <AccordionPanel
-                      pb={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      pt={0}
-                      bg="gray.50"
-                    >
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.8">
-                        {faq.answer}
-                      </Text>
-                    </AccordionPanel>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ===== SECTION 8 - LIENS INTERNES ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Explorer les pages les plus utiles pour votre projet
-              </Heading>
-
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={4}>
-                {INTERNAL_LINKS.map((link, i) => (
-                  <Link
-                    key={i}
-                    as={RouterLink}
-                    to={link.to}
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    <Box
-                      bg="white"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      borderRadius="xl"
-                      p={5}
-                      h="100%"
-                      display="flex"
-                      flexDirection="column"
-                      _hover={{
-                        borderColor: 'brand.500',
-                        transform: 'translateY(-2px)',
-                        boxShadow: 'md',
-                      }}
-                      transition="all 0.2s"
-                    >
-                      <Stack spacing={3} flex={1} justify="space-between">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.3"
-                        >
-                          {link.title}
-                        </Text>
-                        <Text color="gray.500" fontSize="sm" lineHeight="1.6">
-                          {link.description}
-                        </Text>
-                        <HStack spacing={1} color="brand.500">
-                          <Text fontSize="sm" fontWeight="medium">Voir</Text>
-                          <ArrowForwardIcon boxSize={3} />
-                        </HStack>
-                      </Stack>
-                    </Box>
-                  </Link>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
+        <InternalLinksSection
+          title="Explorer les pages les plus utiles pour votre projet"
+          links={INTERNAL_LINKS}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
+        />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
         <FinalCTASection

@@ -9,8 +9,20 @@ const CITY_TO_SECTEUR = {
   brossard: '/secteurs/brossard',
 };
 
+/** Quartiers qui ont maintenant une page dédiée sous /secteurs/montreal/... */
+const NEIGHBORHOOD_TO_SECTEUR = {
+  westmount: '/secteurs/montreal/westmount',
+  outremont: '/secteurs/montreal/outremont',
+  'plateau-mont-royal': '/secteurs/montreal/plateau-mont-royal',
+  'ville-marie': '/secteurs/montreal/ville-marie',
+};
+
 export default function LegacyTripleSegmentRedirect() {
-  const { serviceSlug, param2 } = useParams();
+  const { serviceSlug, param2, param3 } = useParams();
+
+  if (param3 && NEIGHBORHOOD_TO_SECTEUR[param3]) {
+    return <Navigate to={NEIGHBORHOOD_TO_SECTEUR[param3]} replace />;
+  }
 
   if (param2 === 'interieure' || param2 === 'exterieure') {
     return <Navigate to={`/services/${serviceSlug}`} replace />;

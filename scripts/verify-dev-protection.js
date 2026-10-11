@@ -113,7 +113,7 @@ try {
 // Check 4: Sitemap Exclusion
 console.log(`\n${colors.cyan}CHECK 4: Sitemap Exclusion${colors.reset}`);
 try {
-  const sitemapFile = path.join(__dirname, '../public/sitemap-test.xml');
+  const sitemapFile = path.join(__dirname, '../public/sitemap.xml');
   const content = fs.readFileSync(sitemapFile, 'utf-8');
 
   const devRoutesInSitemap = [];

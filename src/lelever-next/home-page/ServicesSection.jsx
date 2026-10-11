@@ -7,10 +7,11 @@ import {
   Text,
   Stack,
   Button,
-  Flex,
+  SimpleGrid,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
+import { SECTION_PY, SECTION_TITLE_MAX_W } from '../constants/sectionSpacing';
 import ServiceCard from './ServiceCard';
 import peintureResidentielleImg from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
 import peintureCommercialeImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
@@ -26,7 +27,42 @@ const serviceImages = [
   peintureExterieureImg,
 ];
 
-export default function ServicesSection() {
+function ServiceLinkCard({ service }) {
+  return (
+    <Box
+      as={RouterLink}
+      to={service.link}
+      role="group"
+      display="block"
+      h="100%"
+      textDecoration="none"
+      outline="none"
+      _hover={{ textDecoration: 'none' }}
+      _focus={{ outline: 'none', boxShadow: 'none' }}
+      _focusVisible={{
+        outline: '2px solid',
+        outlineColor: 'brand.500',
+        outlineOffset: '3px',
+        borderRadius: 'xl',
+      }}
+    >
+      <ServiceCard
+        image={service.image}
+        title={service.title}
+        subtitle={service.subtitle}
+        titleInStrip
+        fillHeight
+        fluid
+        noHoverBorder
+      />
+    </Box>
+  );
+}
+
+export default function ServicesSection({
+  sectionPy = SECTION_PY,
+  sectionBg = 'gray.50',
+}) {
   const { t } = useTranslation();
 
   const services = [
@@ -34,76 +70,55 @@ export default function ServicesSection() {
       image: serviceImages[0],
       title: t.serviceResidential,
       subtitle: t.serviceResidentialDesc,
-      stripText: t.serviceResidentialStrip,
       link: '/services/peinture-residentielle',
     },
     {
       image: serviceImages[1],
       title: t.serviceCommercial,
       subtitle: t.serviceCommercialDesc,
-      stripText: t.serviceCommercialStrip,
       link: '/services/peinture-commerciale',
     },
     {
       image: serviceImages[2],
       title: t.serviceIndustrial,
       subtitle: t.serviceIndustrialDesc,
-      stripText: t.serviceIndustrialStrip,
       link: '/services/peinture-industrielle',
     },
     {
       image: serviceImages[3],
       title: t.serviceInterior,
       subtitle: t.serviceInteriorDesc,
-      stripText: t.serviceInteriorStrip,
       link: '/services/peinture-interieure',
     },
     {
       image: serviceImages[4],
       title: t.serviceExterior,
       subtitle: t.serviceExteriorDesc,
-      stripText: t.serviceExteriorStrip,
       link: '/services/peinture-exterieure',
     },
   ];
 
+  const primary = services.slice(0, 3);
+  const secondary = services.slice(3);
+
   return (
-    <Box bg="white" position="relative" py={{ base: 12, md: 16, lg: 20 }}>
-      <Container
-        maxW="1440px"
-        px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
-      >
-        <Stack
-          spacing={{ base: 2, md: 6 }}
-          align="center"
-          w="100%"
-          maxW={{
-            base: '280px',
-            sm: '300px',
-            md: '100%',
-          }}
-          minW={0}
-          mx="auto"
-        >
+    <Box bg={sectionBg} py={sectionPy}>
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>
+        <Stack spacing={{ base: 8, md: 10 }} align="center" w="100%">
           <Stack
-            spacing={{ base: 1, md: 3 }}
+            spacing={{ base: 2, md: 3 }}
             textAlign="center"
-            maxW={{
-              base: '100%',
-              md: '100%',
-              lg: '1100px',
-              xl: '1200px',
-              '2xl': '1280px',
-            }}
+            maxW={SECTION_TITLE_MAX_W}
             w="100%"
           >
             <Heading
               as="h2"
               size="section"
-              lineHeight="1.3"
+              lineHeight="1.25"
               fontWeight="bold"
               color="gray.800"
-              whiteSpace={{ base: 'normal', md: 'nowrap' }}
+              scrollMarginTop="6rem"
+              whiteSpace={{ base: 'normal', lg: 'nowrap' }}
             >
               {t.servicesTitle}
             </Heading>
@@ -112,71 +127,68 @@ export default function ServicesSection() {
             </Text>
           </Stack>
 
-          <Stack spacing={{ base: 6, md: 8 }} w="100%" minW={0} align="center">
-            {/* Horizontal scroll on all breakpoints; scrollbar visible on desktop */}
-            <Box
+          <Stack
+            spacing={{ base: 5, md: 6, lg: 7 }}
+            w="100%"
+            maxW="1280px"
+            pt={1}
+            pb={3}
+          >
+            <SimpleGrid
+              columns={{ base: 1, md: 2, lg: 3 }}
+              spacing={{ base: 5, md: 6, lg: 7 }}
               w="100%"
-              maxW="100%"
-              minW={0}
-              overflowX={{ base: 'visible', md: 'auto' }}
-              overflowY="hidden"
-              pb={4}
-              px={{ base: 4, md: 0 }}
-              mx={{ base: -4, md: 0 }}
-              sx={{
-                '&::-webkit-scrollbar': { height: 2 },
-                '&::-webkit-scrollbar-track': {
-                  bg: 'gray.100',
-                  borderRadius: 'full',
-                },
-                '&::-webkit-scrollbar-thumb': {
-                  bg: 'gray.300',
-                  borderRadius: 'full',
-                  _hover: { bg: 'gray.400' },
-                },
-                msOverflowStyle: 'auto',
-                scrollbarWidth: 'auto',
-              }}
             >
-              <Flex
-                gap={4}
-                direction={{ base: 'column', md: 'row' }}
-                align={{ base: 'center', md: 'stretch' }}
-              >
-                {services.map((service, index) => (
-                  <Box
-                    key={index}
-                    minW={{ base: '260px', md: '320px', lg: '360px' }}
-                    as={RouterLink}
-                    to={service.link}
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    <ServiceCard
-                      image={service.image}
-                      title={service.title}
-                      subtitle={service.subtitle}
-                      stripText={service.stripText}
-                      noHoverBorder
-                    />
-                  </Box>
-                ))}
-              </Flex>
-            </Box>
+              {primary.map((service) => (
+                <ServiceLinkCard key={service.link} service={service} />
+              ))}
+            </SimpleGrid>
+            <SimpleGrid
+              columns={{ base: 1, md: 2 }}
+              spacing={{ base: 5, md: 6, lg: 7 }}
+              w="100%"
+              maxW={{ md: '840px', lg: '860px' }}
+              mx="auto"
+            >
+              {secondary.map((service) => (
+                <ServiceLinkCard key={service.link} service={service} />
+              ))}
+            </SimpleGrid>
           </Stack>
 
-          <Stack spacing={2} align="center" pt={{ base: 4, md: 6 }} w="100%">
+          <Stack spacing={2} align="center" w="100%">
             <Button
               variant="ctaOutline"
               as={RouterLink}
               to="/services"
               borderRadius="full"
               textStyle="nav"
-              px={{ base: 5, md: 7 }}
-              py={{ base: 3, md: 4 }}
+              size="md"
+              px={{ base: 5, md: 6 }}
               rightIcon={<ArrowForwardIcon />}
             >
               {t.viewAllServices}
             </Button>
+            <Text
+              as="span"
+              display="inline-flex"
+              alignItems="center"
+              gap={2}
+              fontSize="sm"
+              color="gray.500"
+            >
+              {t.servicesTrustFree}
+              <Box
+                as="span"
+                w="3px"
+                h="3px"
+                borderRadius="full"
+                bg="currentColor"
+                flexShrink={0}
+                aria-hidden
+              />
+              {t.servicesTrustNoCommitment}
+            </Text>
           </Stack>
         </Stack>
       </Container>

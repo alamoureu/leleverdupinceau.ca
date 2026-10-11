@@ -1,4 +1,4 @@
-# Documentation — Le Lever du Pinceau (Source de Vérité)
+# Documentation - Le Lever du Pinceau (Source de Vérité)
 
 > Ce dossier `docs/` est la référence absolue pour tous les travaux sur le site.  
 > Avant toute modification, consulter les fichiers pertinents ici.
@@ -20,7 +20,7 @@
 
 ## État du projet
 
-**Batch 1 — 34 pages cibles:**
+**Batch 1 - 34 pages cibles:**
 - ✅ 10 existent et sont opérationnelles (à modifier)
 - 🔄 6 existent mais doivent être renommées/restructurées
 - ❌ 18 sont à créer
@@ -80,8 +80,8 @@
 
 1. **Stack technique:** Next.js App Router (SSR). Chaque page = Server Component avec `generateMetadata()`. Voir `06-STACK-TECHNIQUE.md`.
 2. **Images:** Toutes doivent avoir `title="Peintre professionnel [ville], Le Lever du Pinceau, [tâche] complété"` ET un `alt` descriptif. Utiliser `next/image`.
-3. **Chaque page a UN seul angle** — consulter `04-ANGLES-CONTENU.md` avant d'écrire
-4. **Chaque lien de suppression a une redirect 301** — implémentée dans `middleware.ts` Next.js, voir `02-PAGES-A-SUPPRIMER.md`
-5. **Chaque page a ses liens internes requis** — consulter `03-MAILLAGE-INTERNE.md`
-6. **`/soumission` redirige vers `/contact`** — les deux ne coexistent pas
-7. **H1 exact** — le H1 de chaque page doit correspondre exactement à ce qui est dans `01-SITEMAP-CIBLE.md`
+3. **Chaque page a UN seul angle** - consulter `04-ANGLES-CONTENU.md` avant d'écrire
+4. **Chaque lien de suppression a une redirect 301** - implémentée dans `middleware.ts` Next.js, voir `02-PAGES-A-SUPPRIMER.md`
+5. **Chaque page a ses liens internes requis** - consulter `03-MAILLAGE-INTERNE.md`
+6. **`/soumission` redirige vers `/contact`** - les deux ne coexistent pas
+7. **H1 exact** - le H1 de chaque page doit correspondre exactement à ce qui est dans `01-SITEMAP-CIBLE.md`

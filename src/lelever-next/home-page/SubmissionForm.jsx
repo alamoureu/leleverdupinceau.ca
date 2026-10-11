@@ -287,7 +287,7 @@ export default function SubmissionForm({
             spacing={isModal ? { base: 3, md: 4 } : { base: 4, md: 5 }}
             align="stretch"
             w="100%"
-            pb={isModal ? { base: 2, md: 3 } : { base: 4, md: 6 }}
+            pb={isModal ? { base: 2, md: 3 } : 0}
           >
             {REQUIRED_FIELDS.map(({ name, labelKey, type }, index) => (
               <FormControl key={name} variant="floating" isRequired>
@@ -335,9 +335,10 @@ export default function SubmissionForm({
           </Stack>
 
           {!isModal && (
-            <Box flexShrink={0} w="100%" pt={{ base: 4, md: 6 }} mt="auto" bg="white">
+            <Box flexShrink={0} w="100%" pt={{ base: 1, md: 2 }} mt="auto" bg="white">
               <CtaButton
                 fullWidth
+                size="form"
                 type="submit"
                 _loading={{ opacity: 0.8, cursor: 'not-allowed' }}
                 isLoading={isSubmitting}

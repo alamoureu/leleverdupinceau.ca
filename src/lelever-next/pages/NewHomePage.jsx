@@ -10,6 +10,7 @@ import { Box, useDisclosure } from '@chakra-ui/react';
 import MicrosoftClarity from '../analytics/MicrosoftClarity';
 import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import { useTranslation } from '../i18n';
 import ControlSection from '../home-page/ControlSection';
 import GuaranteeSection from '../home-page/GuaranteeSection';
@@ -26,6 +27,7 @@ import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import { KEYWORDS, LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL } from '../constants/googleReviews';
+import { SECTION_PY } from '../constants/sectionSpacing';
 
 const ContactFormSection = React.lazy(() =>
   import('../home-page/ContactFormSection'),
@@ -93,9 +95,9 @@ export default function NewHomePage() {
         <HeroSection
           onSubmissionOpen={onOpen}
           pageContext={pageContext}
-          description={t.heroDescription}
         />
         <TrustBanner />
+        <PageIntro>{t.heroDescription}</PageIntro>
 
         <ControlSection onSubmissionOpen={onOpen} />
 
@@ -112,9 +114,14 @@ export default function NewHomePage() {
           <Box minH={{ base: '320px', md: '280px' }} />
         )}
 
-        <ServicesSection />
-
-        <BeforeAfterCarouselSection />
+        <Box bg="gray.50">
+          <ServicesSection sectionBg="transparent" sectionPy={SECTION_PY} />
+          <BeforeAfterCarouselSection
+            sectionBg="transparent"
+            sectionPaddingTop={{ base: 2, md: 4 }}
+            sectionPaddingBottom={{ base: 8, md: 10, lg: 12 }}
+          />
+        </Box>
 
         <TeamSection pageContext={pageContext} />
 

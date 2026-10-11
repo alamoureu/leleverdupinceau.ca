@@ -410,8 +410,8 @@ export default function MontrealCityPage() {
           title={isFr ? 'Peintre à Montréal' : 'Painter in Montreal'}
           subtitle={
             isFr
-              ? 'Peintres de métier pour vos projets résidentiels et commerciaux partout à Montréal.'
-              : 'Professional painters for your residential and commercial projects across Montreal.'
+              ? 'Peintres de métier pour vos projets partout à Montréal.'
+              : 'Trade painters for your projects across Montreal.'
           }
           imageBackground={headerMontreal}
         >

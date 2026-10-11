@@ -411,7 +411,7 @@ export default function PeintreProfessionnelPage() {
                 </HStack>
 
                   <Heading as="h1" size="hero" color="white" minW={0}>
-                  Pourquoi faire appel à un peintre professionnel à Montréal&#xA0;?
+                  Pourquoi engager un peintre professionnel&#xA0;?
                   </Heading>
 
                   <Text
@@ -420,7 +420,7 @@ export default function PeintreProfessionnelPage() {
                   minW={0}
                   overflowWrap="break-word"
                 >
-                  Les avantages concrets d'engager un vrai professionnel pour vos travaux de peinture.
+                  Les avantages concrets d&apos;engager un peintre licencié RBQ.
                   </Text>
 
                 <Box pt={{ base: 2, sm: 3, md: 4 }}>
@@ -659,7 +659,7 @@ export default function PeintreProfessionnelPage() {
         <Box py={{ base: 14, md: 18, lg: 20 }} bg="gray.50">
               <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={10} align="center">
-              <Stack spacing={3} maxW="720px" mx="auto" textAlign="center">
+              <Stack spacing={3} maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto" textAlign="center">
                     <Heading
                       as="h2"
                       size="section"
@@ -707,7 +707,7 @@ export default function PeintreProfessionnelPage() {
                 </Stack>
               </Box>
 
-              <Box textAlign="center" maxW="800px" mx="auto" w="100%">
+              <Box textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto" w="100%">
                     <Text
                       textStyle="bodyLarge"
                   fontWeight="medium"

@@ -412,7 +412,7 @@ export default function BlogPostContent({ content, isFr, blogSlug }) {
                           dangerouslySetInnerHTML={{
                             __html: preventOrphanedPunctuation(
                               description.replace(
-                                /Exemple\s+\d+\s*—\s*|Example\s+\d+\s*—\s*/i,
+                                /Exemple\s+\d+\s*-\s*|Example\s+\d+\s*-\s*/i,
                                 ''
                               )
                             ),

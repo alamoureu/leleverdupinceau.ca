@@ -200,8 +200,8 @@ export const brossardCityConfig = {
   },
   heroTitle: { fr: 'Peintre à Brossard', en: 'Painter in Brossard' },
   heroLead: {
-    fr: 'Des peintres de métier pour vos projets résidentiels et commerciaux partout à Brossard.',
-    en: 'Professional painters for your residential and commercial projects throughout Brossard.',
+    fr: 'Peintres de métier pour vos projets partout à Brossard.',
+    en: 'Trade painters for your projects throughout Brossard.',
   },
   heroBody: {
     fr: 'Maisons familiales, condos, commerces et secteurs alphabétiques : nous livrons des chantiers propres, rapides et bien coordonnés à Brossard.',
@@ -328,8 +328,8 @@ export const stLambertCityConfig = {
   },
   heroTitle: { fr: 'Peintre à Saint-Lambert', en: 'Painter in Saint-Lambert' },
   heroLead: {
-    fr: 'Des peintres de métier pour vos projets résidentiels et commerciaux à Saint-Lambert.',
-    en: 'Professional painters for your residential and commercial projects in Saint-Lambert.',
+    fr: 'Peintres de métier pour vos projets à Saint-Lambert.',
+    en: 'Trade painters for your projects in Saint-Lambert.',
   },
   heroBody: {
     fr: 'Maisons de caractère, plex et propriétés familiales : nous réalisons des projets propres, soignés et bien planifiés à Saint-Lambert.',
@@ -456,8 +456,8 @@ export const laprairieCityConfig = {
   },
   heroTitle: { fr: 'Peintre à La Prairie', en: 'Painter in La Prairie' },
   heroLead: {
-    fr: 'Des peintres de métier pour vos projets résidentiels et commerciaux à La Prairie.',
-    en: 'Professional painters for your residential and commercial projects in La Prairie.',
+    fr: 'Peintres de métier pour vos projets à La Prairie.',
+    en: 'Trade painters for your projects in La Prairie.',
   },
   heroBody: {
     fr: 'Maisons unifamiliales, condos et espaces commerciaux : nous livrons des projets propres, rapides et bien coordonnés à La Prairie.',

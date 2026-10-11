@@ -77,7 +77,7 @@ function loadAllRoutes() {
 function loadCanonicalUrls() {
   try {
     const content = fs.readFileSync(
-      path.join(__dirname, '../public/sitemap-test.xml'),
+      path.join(__dirname, '../public/sitemap.xml'),
       'utf-8'
     );
     const matches = content.match(/<loc>(.*?)<\/loc>/g) || [];

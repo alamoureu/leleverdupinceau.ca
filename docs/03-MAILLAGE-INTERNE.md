@@ -1,7 +1,7 @@
-# 03 — Maillage Interne (Matrice de liens)
+# 03 - Maillage Interne (Matrice de liens)
 
 > **Règle:** Chaque page doit avoir MINIMUM les liens listés ici.  
-> Les liens de navigation (header/footer) ne comptent pas — ce sont des liens dans le BODY du contenu.
+> Les liens de navigation (header/footer) ne comptent pas - ce sont des liens dans le BODY du contenu.
 
 ---
 

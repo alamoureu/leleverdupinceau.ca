@@ -1,17 +1,17 @@
-# 05 — Actions Immédiates (To-do list prioritisée)
+# 05 - Actions Immédiates (To-do list prioritisée)
 
 > Ce fichier est le plan d'exécution. Les tâches sont ordonnées par priorité critique → haute → moyenne.  
 > Cocher chaque item une fois complété.
 
 ---
 
-## PRIORITÉ CRITIQUE — Faire en premier
+## PRIORITÉ CRITIQUE - Faire en premier
 
 ### 1. Formulaire de contact sur `/contact`
 - [ ] Le nouveau formulaire (EmbeddedSubmissionForm ou équivalent) doit être intégré à `ContactPage.jsx`
 - [ ] Vérifier que `/soumission` redirige vers `/contact` (redirect 301 dans `App.jsx`)
-- [ ] Unifier les deux pages (ContactPage + SoumissionPage) sous un seul composant
-- **Fichiers concernés:** `src/lelever-next/pages/ContactPage.jsx`, `src/pages/SoumissionPage.jsx`, `src/App.jsx`
+- [x] Unifier sous `/contact` (`SoumissionPage` supprimée, `/soumission` → `/contact`)
+- **Fichiers concernés:** `src/lelever-next/pages/ContactPage.jsx`, `src/App.jsx`
 
 ### 2. Renommer les routes secteurs (redirects 301)
 - [ ] Changer la route `/secteurs-desservis` → `/secteurs` dans `App.jsx`
@@ -30,7 +30,7 @@
 
 ---
 
-## PRIORITÉ HAUTE — Faire rapidement
+## PRIORITÉ HAUTE - Faire rapidement
 
 ### 4. Ajouter l'attribut `title` sur TOUTES les images existantes
 - [ ] Format: `"Peintre professionnel [ville], Le Lever du Pinceau, [tâche] complété"`
@@ -42,11 +42,11 @@
   - `src/lelever-next/city-pages/` (pages de villes)
 
 ### 5. Supprimer les routes dynamiques obsolètes dans App.jsx
-- [ ] Supprimer le pattern `SmartServiceRouter` (service × sous-service × ville)
-- [ ] Supprimer le pattern `SousServicePage` (commerciale/intérieure, etc.)
-- [ ] Supprimer le pattern `ServiceQuartierPage` (service × ville: ex `/services/peinture-interieure/montreal`)
-- [ ] Ajouter des redirects 301 pour chacune des ~40 URLs générées par ces patterns
-- **⚠️ Exception:** Conserver le mécanisme pour les L3: armoires-de-cuisine, condo, appartement
+- [x] Supprimer le pattern `SmartServiceRouter` (service × sous-service × ville)
+- [x] Supprimer les pages `service_ville` / `service_quartier` / `sous_service_ville`
+- [x] Redirect legacy `/services/:service/:city` → `/secteurs/:city`
+- [x] Redirect triples (sous-service × ville / quartier) via `LegacyTripleSegmentRedirect`
+- **Exception conservée:** L3 Site LP (maison via `SousServicePage`, condo/appartement/armoires en pages dédiées)
 - **Fichier concerné:** `src/App.jsx`
 
 ### 6. Créer la page `/secteurs/rive-sud`
@@ -71,7 +71,7 @@
 
 ---
 
-## PRIORITÉ MOYENNE — Faire en 2e vague
+## PRIORITÉ MOYENNE - Faire en 2e vague
 
 ### 9. Créer les 5 pages Services L2 spécialisés
 - [ ] `/services/teinture-exterieure` → `TeinturePage.jsx`
@@ -117,7 +117,7 @@
 - [ ] Ajouter toutes les nouvelles URLs du batch 1
 - [ ] Retirer toutes les URLs supprimées
 - [ ] Mettre à jour les `lastmod`
-- [ ] Vérifier avec `scripts/validate-sitemap.js`
+- [x] Vérifier avec `npm run sitemap:generate` + `public/sitemap.xml`
 
 ### 16. Mettre à jour `routes-manifest.json`
 - [ ] Synchroniser avec le nouveau App.jsx
@@ -153,42 +153,42 @@
 
 ---
 
-## SUIVI DES PAGES — ÉTAT ACTUEL vs CIBLE
+## SUIVI DES PAGES - ÉTAT ACTUEL vs CIBLE
 
 | # | URL cible | État | Composant |
 |---|---|---|---|
-| 1 | `/` | ✅ Existe — à modifier | `NewHomePage` |
-| 2 | `/peintre-professionnel` | ✅ Existe — à modifier | `PeintreProfessionnelPage` |
-| 3 | `/services` | ✅ Existe — à modifier | `ServicesPage` |
-| 4 | `/secteurs` | 🔄 Existe sous `/secteurs-desservis` — renommer | `SecteursDesservisPage` |
-| 5 | `/services/peinture-interieure` | ✅ Existe — à modifier | `PeintureInterieurePage` |
-| 6 | `/services/peinture-exterieure` | ✅ Existe — à modifier | `PeintureExterieurePage` |
-| 7 | `/services/peinture-residentielle` | ✅ Existe — à modifier | `PeintureResidentiellePage` |
-| 8 | `/services/peinture-commerciale` | ✅ Existe — à modifier | `PeintureCommercialePage` |
-| 9 | `/services/peinture-industrielle` | ✅ Existe — à modifier | `PeintureIndustriellePage` |
-| 10 | `/services/teinture-exterieure` | ❌ À créer | — |
-| 11 | `/services/preparation-de-surfaces` | ❌ À créer | — |
-| 12 | `/services/peinture-au-pistolet` | ❌ À créer | — |
-| 13 | `/services/reparation-de-platre-et-gypse` | ❌ À créer | — |
-| 14 | `/services/peinture-apres-sinistre` | ❌ À créer | — |
-| 15 | `/services/peinture-interieure/armoires-de-cuisine` | ❌ À créer | — |
-| 16 | `/services/peinture-residentielle/condo` | ❌ À créer | — |
-| 17 | `/services/peinture-residentielle/appartement` | ❌ À créer | — |
-| 18 | `/peinture-interieure-montreal` | ❌ À créer | — |
-| 19 | `/peinture-exterieure-montreal` | ❌ À créer | — |
-| 20 | `/secteurs/montreal` | 🔄 Existe sous `/secteurs-desservis/montreal` — renommer | `MontrealCityPage` |
-| 21 | `/secteurs/laval` | 🔄 Existe sous `/secteurs-desservis/laval` — renommer | `LavalCityPage` |
-| 22 | `/secteurs/longueuil` | 🔄 Existe sous `/secteurs-desservis/longueuil` — renommer | `LongueuilCityPage` |
-| 23 | `/secteurs/rive-sud` | ❌ À créer (Brossard → Rive-Sud) | — |
-| 24 | `/secteurs/gatineau` | ❌ À créer | — |
-| 25 | `/secteurs/montreal/westmount` | ❌ À créer | — |
-| 26 | `/secteurs/montreal/outremont` | ❌ À créer | — |
-| 27 | `/secteurs/montreal/plateau-mont-royal` | ❌ À créer | — |
-| 28 | `/secteurs/montreal/ville-marie` | ❌ À créer | — |
+| 1 | `/` | ✅ Existe - à modifier | `NewHomePage` |
+| 2 | `/peintre-professionnel` | ✅ Existe - à modifier | `PeintreProfessionnelPage` |
+| 3 | `/services` | ✅ Existe - à modifier | `ServicesPage` |
+| 4 | `/secteurs` | 🔄 Existe sous `/secteurs-desservis` - renommer | `SecteursDesservisPage` |
+| 5 | `/services/peinture-interieure` | ✅ Existe - à modifier | `PeintureInterieurePage` |
+| 6 | `/services/peinture-exterieure` | ✅ Existe - à modifier | `PeintureExterieurePage` |
+| 7 | `/services/peinture-residentielle` | ✅ Existe - à modifier | `PeintureResidentiellePage` |
+| 8 | `/services/peinture-commerciale` | ✅ Existe - à modifier | `PeintureCommercialePage` |
+| 9 | `/services/peinture-industrielle` | ✅ Existe - à modifier | `PeintureIndustriellePage` |
+| 10 | `/services/teinture-exterieure` | ❌ À créer | - |
+| 11 | `/services/preparation-de-surfaces` | ❌ À créer | - |
+| 12 | `/services/peinture-au-pistolet` | ❌ À créer | - |
+| 13 | `/services/reparation-de-platre-et-gypse` | ❌ À créer | - |
+| 14 | `/services/peinture-apres-sinistre` | ❌ À créer | - |
+| 15 | `/services/peinture-interieure/armoires-de-cuisine` | ❌ À créer | - |
+| 16 | `/services/peinture-residentielle/condo` | ❌ À créer | - |
+| 17 | `/services/peinture-residentielle/appartement` | ❌ À créer | - |
+| 18 | `/peinture-interieure-montreal` | ❌ À créer | - |
+| 19 | `/peinture-exterieure-montreal` | ❌ À créer | - |
+| 20 | `/secteurs/montreal` | 🔄 Existe sous `/secteurs-desservis/montreal` - renommer | `MontrealCityPage` |
+| 21 | `/secteurs/laval` | 🔄 Existe sous `/secteurs-desservis/laval` - renommer | `LavalCityPage` |
+| 22 | `/secteurs/longueuil` | 🔄 Existe sous `/secteurs-desservis/longueuil` - renommer | `LongueuilCityPage` |
+| 23 | `/secteurs/rive-sud` | ❌ À créer (Brossard → Rive-Sud) | - |
+| 24 | `/secteurs/gatineau` | ❌ À créer | - |
+| 25 | `/secteurs/montreal/westmount` | ❌ À créer | - |
+| 26 | `/secteurs/montreal/outremont` | ❌ À créer | - |
+| 27 | `/secteurs/montreal/plateau-mont-royal` | ❌ À créer | - |
+| 28 | `/secteurs/montreal/ville-marie` | ❌ À créer | - |
 | 29 | `/blog` | ✅ Existe | `BlogPage` |
-| 30 | `/avis-clients` | 🔄 Existe sous `/avis` — renommer | `AvisPage` |
-| 31 | `/contact` | ✅ Existe — ajouter formulaire | `ContactPage` |
-| 32 | `/realisations` | ❌ À créer | — |
+| 30 | `/avis-clients` | 🔄 Existe sous `/avis` - renommer | `AvisPage` |
+| 31 | `/contact` | ✅ Existe - ajouter formulaire | `ContactPage` |
+| 32 | `/realisations` | ❌ À créer | - |
 | 33 | `/mentions-legales` | 🔄 Existe sous `/politiques/termes-conditions` | `ThermOfUse` |
 | 34 | `/politique-de-confidentialite` | 🔄 Existe sous `/politiques/confidentialite` | `PrivacyPolicyPage` |
 

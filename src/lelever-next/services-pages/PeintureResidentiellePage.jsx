@@ -13,11 +13,6 @@ import {
   HStack,
   SimpleGrid,
   Image,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -37,9 +32,13 @@ import {
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner from '../home-page/TrustBanner';
+import PageIntro from '../components/PageIntro';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import FAQSection from '../home-page/FAQSection';
+import FeatureCardsSection from '../components/FeatureCardsSection';
+import InternalLinksSection from '../components/InternalLinksSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
@@ -330,26 +329,11 @@ export default function PeintureResidentiellePage() {
                   </Text>
                 </HStack>
 
-                <Box as="hgroup" minW={0}>
-                  <Heading as="h1" size="hero" color="white" minW={0}>
-                    Peinture résidentielle à Montréal
-                  </Heading>
-                  <Heading
-                    as="h2"
-                    mt={{ base: 2, md: 3 }}
-                    size="heroSubtitle"
-                    color="white"
-                  >
-                    Maison, condo, appartement
-                  </Heading>
-                </Box>
-
-                <Text
-                  variant="heroDescription"
-                  color="whiteAlpha.900"
-                  maxW={{ base: '100%', md: '680px', lg: '780px' }}
-                >
-                  Un chantier propre, bien coordonné et respectueux de votre espace de vie.
+                <Heading as="h1" size="hero" color="white" minW={0}>
+                  Peinture résidentielle à Montréal
+                </Heading>
+                <Text variant="heroSubtitle" color="white" minW={0}>
+                  Maison, condo, appartement.
                 </Text>
 
                 <Box pt={{ base: 2, md: 3 }}>
@@ -370,76 +354,24 @@ export default function PeintureResidentiellePage() {
           </Container>
         </Box>
         <TrustBanner />
+        <PageIntro>
+          Un chantier propre, bien coordonné et respectueux de votre espace de vie.
+        </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS EXPÉRIENCE CLIENT ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Une expérience sans friction, de la soumission à la remise des clés
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  Chez vous, chaque détail compte - la finition, mais aussi l&apos;expérience du chantier
-                </Text>
-              </Stack>
-
-              <Flex wrap="wrap" justify="center" gap={5}>
-                {CHECKMARKS.map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 5, md: 6 }}
-                    boxShadow="0 2px 12px rgba(0,0,0,0.05)"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
-                    transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
-                    maxW={{ lg: '420px' }}
-                  >
-                    <HStack spacing={4} mb={3} align="center">
-                      <Flex
-                        w="44px"
-                        h="44px"
-                        borderRadius="lg"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                        flexShrink={0}
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Text
-                        fontWeight="bold"
-                        color="gray.800"
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Text>
-                    </HStack>
-                    <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                      {item.text}
-                    </Text>
-                  </Box>
-                ))}
-              </Flex>
-            </Stack>
-          </Container>
-        </Box>
+        <FeatureCardsSection
+          title="Une expérience sans friction, de la soumission à la remise des clés"
+          subtitle="Chez vous, chaque détail compte - la finition, mais aussi l'expérience du chantier"
+          items={CHECKMARKS}
+          variant="inline"
+          sectionBg="white"
+        />
 
         {/* ===== SECTION 4 - SPÉCIALITÉS ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -548,127 +480,19 @@ export default function PeintureResidentiellePage() {
           onCtaClick={onOpen}
         />
 
-        {/* ===== SECTION 7 - FAQ ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="900px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Questions fréquentes sur la peinture résidentielle
-              </Heading>
+        <FAQSection
+          title="Questions fréquentes sur la peinture résidentielle"
+          faqsOverride={FAQS}
+          sectionBg="white"
+          sectionPy={{ base: 16, md: 20, lg: 24 }}
+          maxW="900px"
+        />
 
-              <Accordion allowMultiple>
-                {FAQS.map((faq, i) => (
-                  <AccordionItem
-                    key={i}
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="lg"
-                    mb={3}
-                    overflow="hidden"
-                  >
-                    <AccordionButton
-                      py={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      _hover={{ bg: 'gray.50' }}
-                      _expanded={{ bg: 'gray.50' }}
-                    >
-                      <Box flex="1" textAlign="left">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.4"
-                        >
-                          {faq.question}
-                        </Text>
-                      </Box>
-                      <AccordionIcon color="brand.500" />
-                    </AccordionButton>
-                    <AccordionPanel
-                      pb={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      pt={0}
-                      bg="gray.50"
-                    >
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.8">
-                        {faq.answer}
-                      </Text>
-                    </AccordionPanel>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ===== SECTION 8 - LIENS INTERNES ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Services connexes
-              </Heading>
-
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
-                {INTERNAL_LINKS.map((link, i) => (
-                  <Link
-                    key={i}
-                    as={RouterLink}
-                    to={link.to}
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    <Box
-                      bg="white"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      borderRadius="xl"
-                      p={5}
-                      h="100%"
-                      display="flex"
-                      flexDirection="column"
-                      _hover={{
-                        borderColor: 'brand.500',
-                        transform: 'translateY(-2px)',
-                        boxShadow: 'md',
-                      }}
-                      transition="all 0.2s"
-                    >
-                      <Stack spacing={3} flex={1} justify="space-between">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.3"
-                        >
-                          {link.title}
-                        </Text>
-                        <Text color="gray.500" fontSize="sm" lineHeight="1.6">
-                          {link.description}
-                        </Text>
-                        <HStack spacing={1} color="brand.500">
-                          <Text fontSize="sm" fontWeight="medium">Voir</Text>
-                          <ArrowForwardIcon boxSize={3} />
-                        </HStack>
-                      </Stack>
-                    </Box>
-                  </Link>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
+        <InternalLinksSection
+          title="Services connexes"
+          links={INTERNAL_LINKS}
+          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        />
 
         <FinalCTASection
           onSubmissionOpen={onOpen}

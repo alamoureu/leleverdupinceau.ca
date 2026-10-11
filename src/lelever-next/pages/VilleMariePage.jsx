@@ -13,11 +13,6 @@ import {
   SimpleGrid,
   useDisclosure,
   Image,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
@@ -38,6 +33,9 @@ import {
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import TrustBanner from '../home-page/TrustBanner';
+import FAQSection from '../home-page/FAQSection';
+import FeatureCardsSection from '../components/FeatureCardsSection';
+import InternalLinksSection from '../components/InternalLinksSection';
 import PageIntro from '../components/PageIntro';
 import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -310,7 +308,7 @@ export default function VilleMariePage() {
           pageContext="Ville-Marie"
           imageBackground={heroImg}
           title="Peintre à Ville-Marie"
-          subtitle="Des peintres de métier pour vos projets résidentiels et commerciaux légers au coeur de Montréal."
+          subtitle="Peintres de métier pour vos projets au centre-ville."
           buttonText="Obtenir ma soumission gratuite"
         >
           <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
@@ -331,77 +329,34 @@ export default function VilleMariePage() {
         </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS VILLE-MARIE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
+        <Box pt={{ base: 16, md: 20, lg: 24 }} pb={0} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Une équipe habituée aux réalités d&apos;un chantier centre-ville
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  À Ville-Marie, la réussite du projet dépend autant de la logistique et de la coordination que de la finition.
-                </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  {"Ville-Marie regroupe la plus forte densité de tours à condos de la région, ce qui change la nature du travail : réserver l'ascenseur de service à l'avance, obtenir l'accord du conseil d'administration de la copropriété pour les travaux touchant les parties communes, respecter les plages horaires imposées par le règlement de l'immeuble et les heures de travail permises au centre-ville. Le défi n'est pas la façade ou la fondation, mais la coordination : on planifie ces étapes administratives avant même de fixer une date de chantier."}
-                </Text>
-              </Stack>
-
-              <Flex wrap="wrap" justify="center" gap={5}>
-                {CHECKMARKS.map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 5, md: 6 }}
-                    boxShadow="0 2px 12px rgba(0,0,0,0.05)"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
-                    transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
-                    maxW={{ lg: '420px' }}
-                  >
-                    <HStack spacing={4} mb={3} align="center">
-                      <Flex
-                        w="44px"
-                        h="44px"
-                        borderRadius="lg"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                        flexShrink={0}
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Text
-                        fontWeight="bold"
-                        color="gray.800"
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Text>
-                    </HStack>
-                    <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                      {item.text}
-                    </Text>
-                  </Box>
-                ))}
-              </Flex>
+            <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                fontWeight="bold"
+                color="gray.800"
+              >
+                Une équipe habituée aux réalités d'un chantier centre-ville
+              </Heading>
+              <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">À Ville-Marie, la réussite du projet dépend autant de la logistique et de la coordination que de la finition.</Text>
+              <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">{"Ville-Marie regroupe la plus forte densité de tours à condos de la région, ce qui change la nature du travail : réserver l'ascenseur de service à l'avance, obtenir l'accord du conseil d'administration de la copropriété pour les travaux touchant les parties communes, respecter les plages horaires imposées par le règlement de l'immeuble et les heures de travail permises au centre-ville. Le défi n'est pas la façade ou la fondation, mais la coordination : on planifie ces étapes administratives avant même de fixer une date de chantier."}</Text>
             </Stack>
           </Container>
         </Box>
+        <FeatureCardsSection
+          items={CHECKMARKS}
+          variant="inline"
+          sectionBg="white"
+          sectionPy={{ base: 10, md: 12, lg: 14 }}
+        />
 
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS À VILLE-MARIE ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -495,7 +450,7 @@ export default function VilleMariePage() {
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -566,7 +521,7 @@ export default function VilleMariePage() {
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -624,127 +579,19 @@ export default function VilleMariePage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 7 - FAQ ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="900px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Questions fréquentes sur nos services de peinture à Ville-Marie
-              </Heading>
+        <FAQSection
+          title="Questions fréquentes sur nos services de peinture à Ville-Marie"
+          faqsOverride={FAQS}
+          sectionBg="white"
+          sectionPy={{ base: 16, md: 20, lg: 24 }}
+          maxW="900px"
+        />
 
-              <Accordion allowMultiple>
-                {FAQS.map((faq, i) => (
-                  <AccordionItem
-                    key={i}
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="lg"
-                    mb={3}
-                    overflow="hidden"
-                  >
-                    <AccordionButton
-                      py={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      _hover={{ bg: 'gray.50' }}
-                      _expanded={{ bg: 'gray.50' }}
-                    >
-                      <Box flex="1" textAlign="left">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.4"
-                        >
-                          {faq.question}
-                        </Text>
-                      </Box>
-                      <AccordionIcon color="brand.500" />
-                    </AccordionButton>
-                    <AccordionPanel
-                      pb={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      pt={0}
-                      bg="gray.50"
-                    >
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.8">
-                        {faq.answer}
-                      </Text>
-                    </AccordionPanel>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ===== SECTION 8 - LIENS INTERNES ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Explorer les pages les plus utiles pour votre projet
-              </Heading>
-
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 3 }} spacing={4}>
-                {INTERNAL_LINKS.map((link, i) => (
-                  <Link
-                    key={i}
-                    as={RouterLink}
-                    to={link.to}
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    <Box
-                      bg="white"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      borderRadius="xl"
-                      p={5}
-                      h="100%"
-                      display="flex"
-                      flexDirection="column"
-                      _hover={{
-                        borderColor: 'brand.500',
-                        transform: 'translateY(-2px)',
-                        boxShadow: 'md',
-                      }}
-                      transition="all 0.2s"
-                    >
-                      <Stack spacing={3} flex={1} justify="space-between">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.3"
-                        >
-                          {link.title}
-                        </Text>
-                        <Text color="gray.500" fontSize="sm" lineHeight="1.6">
-                          {link.description}
-                        </Text>
-                        <HStack spacing={1} color="brand.500">
-                          <Text fontSize="sm" fontWeight="medium">Voir</Text>
-                          <ArrowForwardIcon boxSize={3} />
-                        </HStack>
-                      </Stack>
-                    </Box>
-                  </Link>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
+        <InternalLinksSection
+          title="Explorer les pages les plus utiles pour votre projet"
+          links={INTERNAL_LINKS}
+          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
+        />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
         <FinalCTASection

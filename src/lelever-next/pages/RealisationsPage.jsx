@@ -32,6 +32,8 @@ import monImg7999 from '../images/3-ville/Montréal/avant-apres/IMG_7999 9.jpg';
 import monImg7997 from '../images/3-ville/Montréal/avant-apres/IMG_7997 9.jpg';
 import monImg7678 from '../images/3-ville/Montréal/avant-apres/IMG_7678 3.jpg';
 import monImg5873 from '../images/3-ville/Montréal/avant-apres/IMG_5873 3.jpg';
+import monImg5975 from '../images/3-ville/Montréal/avant-apres/IMG_5975 5.jpg';
+import monImg5976 from '../images/3-ville/Montréal/avant-apres/IMG_5976 6.jpg';
 import monImg7971 from '../images/3-ville/Montréal/avant-apres/IMG_7971 5.jpg';
 import monImg6755 from '../images/3-ville/Montréal/avant-apres/IMG_6755 3.jpg';
 import longImg7990 from '../images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg';
@@ -40,6 +42,14 @@ import lavalImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.jpg';
 import lavalImg7994 from '../images/3-ville/laval/avant-apres/IMG_7994 5.jpg';
 import riveSudImg7975 from '../images/3-ville/rive-sud/avant-apres/IMG_7975 4.jpg';
 import riveSudImg7974 from '../images/3-ville/rive-sud/avant-apres/IMG_7974 4.jpg';
+import armoiresMileEndAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint les portes d_armoires de cette cuisine dans le quartier du Mile-end, Montréal.jpg';
+import armoiresMileEndApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg';
+import chambreFleurieAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri avant.jpg';
+import chambreFleurieApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri après.jpg';
+import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import revetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg';
+import revetementApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.jpg';
 import { HAPPY_CLIENTS_COUNT } from '../constants/company';
 
 // ─── Data ───────────────────────────────────────────────────────────────────
@@ -107,30 +117,30 @@ function getProjects(isFr) {
     {
       id: 3,
       title: isFr
-        ? "Réparation et peinture - Cage d'escalier résidentielle"
-        : 'Repair and painting - Residential staircase',
-      district: isFr ? 'Montréal' : 'Montreal',
+        ? "Réparation et peinture - Cage d'escalier à Westmount"
+        : 'Repair and painting - Staircase in Westmount',
+      district: 'Westmount',
       serviceType: isFr ? 'Intérieur' : 'Interior',
       projectType: isFr ? 'Résidentiel' : 'Residential',
       propertyType: isFr ? 'Maison' : 'House',
       context: isFr
-        ? "Cage d'escalier avec surfaces endommagées et murs anciens. Circulation continue pendant les travaux. Réparation des fissures et préparation soignée avant la peinture."
-        : 'Staircase with damaged surfaces and older walls. Ongoing traffic during work. Crack repair and careful prep before painting.',
+        ? "Cage d'escalier avec surfaces endommagées après travaux au deuxième étage. Circulation continue pendant les travaux. Réparation des trous de clous et préparation soignée avant la peinture d'une teinte plus pâle."
+        : 'Staircase with damaged surfaces after second-floor work. Ongoing traffic during work. Nail-hole repair and careful prep before painting a lighter shade.',
       result: isFr
         ? "Surfaces réparées et uniformisées, finition propre sur toute la hauteur de la cage d'escalier."
         : 'Repaired and uniform surfaces, clean finish throughout the full height of the staircase.',
       serviceLink: '/services/peinture-residentielle',
       serviceLinkLabel: isFr ? 'Peinture résidentielle' : 'Residential painting',
-      sectorLink: '/secteurs/montreal',
-      sectorLinkLabel: isFr ? 'Nos services à Montréal' : 'Our services in Montreal',
+      sectorLink: '/secteurs/montreal/westmount',
+      sectorLinkLabel: isFr ? 'Nos services à Westmount' : 'Our services in Westmount',
       beforeImg: monImg7678,
       afterImg: monImg5873,
       beforeAlt: isFr
-        ? "Avant - Réparation et peinture cage d'escalier résidentielle Montréal"
-        : 'Before - Repair and painting residential staircase Montreal',
+        ? "Avant - Réparation et peinture cage d'escalier Westmount"
+        : 'Before - Repair and painting staircase Westmount',
       afterAlt: isFr
-        ? "Après - Réparation et peinture cage d'escalier résidentielle Montréal"
-        : 'After - Repair and painting residential staircase Montreal',
+        ? "Après - Réparation et peinture cage d'escalier Westmount"
+        : 'After - Repair and painting staircase Westmount',
       tags: ['Intérieur', 'Résidentiel', 'Montréal', 'Maison'],
     },
     {
@@ -190,6 +200,180 @@ function getProjects(isFr) {
         ? 'Après - Peinture résidentielle maison Greenfield Park Longueuil'
         : 'After - Residential painting house Greenfield Park Longueuil',
       tags: ['Intérieur', 'Résidentiel', 'Longueuil', 'Maison'],
+    },
+    {
+      id: 6,
+      title: isFr
+        ? 'Peinture d\'armoires de cuisine - Maison à Laval'
+        : 'Kitchen cabinet painting - House in Laval',
+      district: 'Laval',
+      serviceType: isFr ? 'Intérieur' : 'Interior',
+      projectType: isFr ? 'Résidentiel' : 'Residential',
+      propertyType: isFr ? 'Cuisine' : 'Kitchen',
+      context: isFr
+        ? 'Armoires en bois massif depuis plus de 20 ans. Dégraissage, sablage, apprêt, puis application au pistolet d\'un produit conçu pour les portes d\'armoires - sans remplacer les caissons.'
+        : 'Solid wood cabinets for over 20 years. Degreasing, sanding, primer, then spray application of a product made for cabinet doors - without replacing the boxes.',
+      result: isFr
+        ? 'Fini lisse, uniforme et durable, avec un look moderne sans le coût de nouveaux caissons.'
+        : 'Smooth, uniform and durable finish, with a modern look without the cost of new cabinets.',
+      serviceLink: '/services/peinture-interieure/armoires-de-cuisine',
+      serviceLinkLabel: isFr ? 'Peinture d\'armoires de cuisine' : 'Kitchen cabinet painting',
+      sectorLink: '/secteurs/laval',
+      sectorLinkLabel: isFr ? 'Nos services à Laval' : 'Our services in Laval',
+      beforeImg: monImg5975,
+      afterImg: monImg5976,
+      beforeAlt: isFr
+        ? 'Avant - Peinture d\'armoires de cuisine bois Laval'
+        : 'Before - Wood kitchen cabinet painting Laval',
+      afterAlt: isFr
+        ? 'Après - Peinture d\'armoires de cuisine blanches Laval'
+        : 'After - White kitchen cabinet painting Laval',
+      tags: ['Intérieur', 'Résidentiel', 'Laval', 'Cuisine'],
+    },
+    {
+      id: 7,
+      title: isFr
+        ? 'Peinture d\'armoires de cuisine - Mile-End, Montréal'
+        : 'Kitchen cabinet painting - Mile-End, Montreal',
+      district: isFr ? 'Mile-End, Montréal' : 'Mile-End, Montreal',
+      serviceType: isFr ? 'Intérieur' : 'Interior',
+      projectType: isFr ? 'Résidentiel' : 'Residential',
+      propertyType: isFr ? 'Cuisine' : 'Kitchen',
+      context: isFr
+        ? 'Cuisine ouverte avec armoires en bois chaud. Préparation complète des portes et façades, puis peinture au pistolet pour un fini uniforme sur l\'îlot et les caissons périphériques.'
+        : 'Open kitchen with warm wood cabinets. Full prep of doors and faces, then spray painting for a uniform finish on the island and perimeter cabinets.',
+      result: isFr
+        ? 'Armoires transformées en gris anthracite, contraste net avec le comptoir blanc et le dosseret de pierre.'
+        : 'Cabinets transformed to charcoal grey, clean contrast with the white countertop and stone backsplash.',
+      serviceLink: '/services/peinture-interieure/armoires-de-cuisine',
+      serviceLinkLabel: isFr ? 'Peinture d\'armoires de cuisine' : 'Kitchen cabinet painting',
+      sectorLink: '/secteurs/montreal',
+      sectorLinkLabel: isFr ? 'Nos services à Montréal' : 'Our services in Montreal',
+      beforeImg: armoiresMileEndAvant,
+      afterImg: armoiresMileEndApres,
+      beforeAlt: isFr
+        ? 'Avant - Peinture d\'armoires de cuisine Mile-End Montréal'
+        : 'Before - Kitchen cabinet painting Mile-End Montreal',
+      afterAlt: isFr
+        ? 'Après - Peinture d\'armoires de cuisine gris anthracite Mile-End Montréal'
+        : 'After - Charcoal kitchen cabinet painting Mile-End Montreal',
+      tags: ['Intérieur', 'Résidentiel', 'Montréal', 'Cuisine'],
+    },
+    {
+      id: 8,
+      title: isFr
+        ? 'Rafraîchissement de chambre - Papier peint remplacé'
+        : 'Bedroom refresh - Wallpaper replaced',
+      district: isFr ? 'Montréal' : 'Montreal',
+      serviceType: isFr ? 'Intérieur' : 'Interior',
+      projectType: isFr ? 'Résidentiel' : 'Residential',
+      propertyType: isFr ? 'Maison' : 'House',
+      context: isFr
+        ? 'Chambre datée avec papier peint fleuri et bordure. Retrait du papier, réparation des surfaces et préparation soignée avant la nouvelle peinture.'
+        : 'Dated bedroom with floral wallpaper and border. Wallpaper removal, surface repairs and careful prep before the new paint.',
+      result: isFr
+        ? 'Pièce lumineuse aux murs neutres, plafonds et moulures propres, prête pour un nouvel aménagement.'
+        : 'Bright room with neutral walls, clean ceilings and trim, ready for a new layout.',
+      serviceLink: '/services/peinture-interieure',
+      serviceLinkLabel: isFr ? 'Peinture intérieure' : 'Interior painting',
+      sectorLink: '/secteurs/montreal',
+      sectorLinkLabel: isFr ? 'Nos services à Montréal' : 'Our services in Montreal',
+      beforeImg: chambreFleurieAvant,
+      afterImg: chambreFleurieApres,
+      beforeAlt: isFr
+        ? 'Avant - Chambre papier peint fleuri Montréal'
+        : 'Before - Floral wallpaper bedroom Montreal',
+      afterAlt: isFr
+        ? 'Après - Chambre peinte murs neutres Montréal'
+        : 'After - Neutral painted bedroom Montreal',
+      tags: ['Intérieur', 'Résidentiel', 'Montréal', 'Maison'],
+    },
+    {
+      id: 9,
+      title: isFr
+        ? 'Peinture de porte d\'entrée - Restauration extérieure'
+        : 'Front door painting - Exterior restoration',
+      district: isFr ? 'Montréal' : 'Montreal',
+      serviceType: isFr ? 'Extérieur' : 'Exterior',
+      projectType: isFr ? 'Résidentiel' : 'Residential',
+      propertyType: isFr ? 'Maison' : 'House',
+      context: isFr
+        ? 'Porte double en bois avec peinture écaillée et bois exposé. Décapage, préparation et application d\'un fini lustré adapté aux intempéries montréalaises.'
+        : 'Wooden double door with peeling paint and exposed wood. Stripping, prep and application of a gloss finish suited to Montreal weather.',
+      result: isFr
+        ? 'Porte bleu marine au fini lustré, quincaillerie mise en valeur, protection durable contre l\'humidité.'
+        : 'Navy door with a gloss finish, hardware highlighted, lasting protection against moisture.',
+      serviceLink: '/services/peinture-exterieure',
+      serviceLinkLabel: isFr ? 'Peinture extérieure' : 'Exterior painting',
+      sectorLink: '/secteurs/montreal',
+      sectorLinkLabel: isFr ? 'Nos services à Montréal' : 'Our services in Montreal',
+      beforeImg: porteAvant,
+      afterImg: porteApres,
+      beforeAlt: isFr
+        ? 'Avant - Porte d\'entrée bois peinture écaillée Montréal'
+        : 'Before - Peeling wood front door Montreal',
+      afterAlt: isFr
+        ? 'Après - Porte d\'entrée bleu marine fini lustré Montréal'
+        : 'After - Navy gloss front door Montreal',
+      tags: ['Extérieur', 'Résidentiel', 'Montréal', 'Maison'],
+    },
+    {
+      id: 10,
+      title: isFr
+        ? 'Escalier spiral extérieur - Dérouillage et peinture'
+        : 'Exterior spiral staircase - Rust removal and painting',
+      district: isFr ? 'Rive-Sud' : 'South Shore',
+      serviceType: isFr ? 'Extérieur' : 'Exterior',
+      projectType: isFr ? 'Résidentiel' : 'Residential',
+      propertyType: isFr ? 'Maison' : 'House',
+      context: isFr
+        ? 'Escalier en fer forgé rouillé, peinture écaillée sur toute la structure. Préparation antirouille, protection des surfaces adjacentes et peinture adaptée au métal extérieur.'
+        : 'Rusted wrought-iron staircase with peeling paint throughout. Anti-rust prep, protection of adjacent surfaces and paint suited to exterior metal.',
+      result: isFr
+        ? 'Structure noire uniforme, sans rouille apparente, finition propre contrastant avec la brique.'
+        : 'Uniform black structure, no visible rust, clean finish contrasting with the brick.',
+      serviceLink: '/services/peinture-exterieure',
+      serviceLinkLabel: isFr ? 'Peinture extérieure' : 'Exterior painting',
+      sectorLink: '/secteurs',
+      sectorLinkLabel: isFr ? 'Nos secteurs desservis' : 'Our service areas',
+      beforeImg: riveSudImg7975,
+      afterImg: riveSudImg7974,
+      beforeAlt: isFr
+        ? 'Avant - Escalier spiral rouillé peinture extérieure Rive-Sud'
+        : 'Before - Rusted spiral staircase exterior painting South Shore',
+      afterAlt: isFr
+        ? 'Après - Escalier spiral noir peint Rive-Sud'
+        : 'After - Black painted spiral staircase South Shore',
+      tags: ['Extérieur', 'Résidentiel', 'Longueuil', 'Maison'],
+    },
+    {
+      id: 11,
+      title: isFr
+        ? 'Peinture de revêtement extérieur - Duplex résidentiel'
+        : 'Exterior siding painting - Residential duplex',
+      district: isFr ? 'Grand Montréal' : 'Greater Montreal',
+      serviceType: isFr ? 'Extérieur' : 'Exterior',
+      projectType: isFr ? 'Résidentiel' : 'Residential',
+      propertyType: isFr ? 'Maison' : 'House',
+      context: isFr
+        ? 'Duplex avec revêtement à rafraîchir. Lavage, préparation des surfaces, protection des boiseries et application d\'une nouvelle couleur sur l\'ensemble de la façade.'
+        : 'Duplex with siding needing a refresh. Washing, surface prep, trim protection and application of a new color across the full facade.',
+      result: isFr
+        ? 'Façade transformée, contraste net avec les volets et le socle, look soigné et durable.'
+        : 'Transformed facade, clean contrast with shutters and foundation, neat and lasting look.',
+      serviceLink: '/services/peinture-exterieure',
+      serviceLinkLabel: isFr ? 'Peinture extérieure' : 'Exterior painting',
+      sectorLink: '/secteurs/montreal',
+      sectorLinkLabel: isFr ? 'Nos services à Montréal' : 'Our services in Montreal',
+      beforeImg: revetementAvant,
+      afterImg: revetementApres,
+      beforeAlt: isFr
+        ? 'Avant - Peinture revêtement extérieur duplex Montréal'
+        : 'Before - Exterior siding painting duplex Montreal',
+      afterAlt: isFr
+        ? 'Après - Peinture revêtement extérieur duplex Montréal'
+        : 'After - Exterior siding painting duplex Montreal',
+      tags: ['Extérieur', 'Résidentiel', 'Montréal', 'Maison'],
     },
   ];
 }
@@ -547,8 +731,8 @@ export default function RealisationsPage() {
       before: monImg7678,
       after: monImg5873,
       description: isFr
-        ? "Réparation et peinture - Cage d'escalier résidentielle, Montréal"
-        : 'Repair and painting - Residential staircase, Montreal',
+        ? "Réparation et peinture - Cage d'escalier à Westmount"
+        : 'Repair and painting - Staircase in Westmount',
     },
     {
       before: longImg7990,
@@ -575,8 +759,43 @@ export default function RealisationsPage() {
       before: riveSudImg7975,
       after: riveSudImg7974,
       description: isFr
-        ? 'Peinture extérieure - Résidence sur la Rive-Sud'
-        : 'Exterior painting - Residence on the South Shore',
+        ? 'Escalier spiral extérieur - Dérouillage et peinture, Rive-Sud'
+        : 'Exterior spiral staircase - Rust removal and painting, South Shore',
+    },
+    {
+      before: monImg5975,
+      after: monImg5976,
+      description: isFr
+        ? 'Peinture d\'armoires de cuisine - Maison à Laval'
+        : 'Kitchen cabinet painting - House in Laval',
+    },
+    {
+      before: armoiresMileEndAvant,
+      after: armoiresMileEndApres,
+      description: isFr
+        ? 'Peinture d\'armoires de cuisine - Mile-End, Montréal'
+        : 'Kitchen cabinet painting - Mile-End, Montreal',
+    },
+    {
+      before: porteAvant,
+      after: porteApres,
+      description: isFr
+        ? 'Peinture de porte d\'entrée - Restauration extérieure, Montréal'
+        : 'Front door painting - Exterior restoration, Montreal',
+    },
+    {
+      before: chambreFleurieAvant,
+      after: chambreFleurieApres,
+      description: isFr
+        ? 'Rafraîchissement de chambre - Papier peint remplacé, Montréal'
+        : 'Bedroom refresh - Wallpaper replaced, Montreal',
+    },
+    {
+      before: revetementAvant,
+      after: revetementApres,
+      description: isFr
+        ? 'Peinture de revêtement extérieur - Duplex résidentiel'
+        : 'Exterior siding painting - Residential duplex',
     },
   ];
 
@@ -703,11 +922,9 @@ export default function RealisationsPage() {
               pt={{ base: '64px', sm: '70px', md: '70px' }}
               pb={{ base: 10, sm: 12, md: '5vh' }}
             >
-              <Stack spacing={{ base: 3, sm: 4, md: 5, lg: 6 }} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
+              <Stack spacing={{ base: 2, md: 3 }} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
                 <Heading as="h1" size="hero" color="white" minW={0}>
-                  {isFr
-                    ? 'Nos réalisations en peinture à Montréal, Laval, Longueuil et sur la Rive-Sud'
-                    : 'Our painting projects in Montreal, Laval, Longueuil and the South Shore'}
+                  {isFr ? 'Nos réalisations' : 'Our projects'}
                 </Heading>
                 <Text
                   variant="heroSubtitle"
@@ -715,12 +932,12 @@ export default function RealisationsPage() {
                   minW={0}
                 >
                   {isFr
-                    ? 'Des projets réels, des transformations visibles et un aperçu concret de notre niveau de finition.'
-                    : 'Real projects, visible transformations and a concrete overview of our finish quality.'}
+                    ? 'Projets réels et transformations visibles dans le Grand Montréal.'
+                    : 'Real projects and visible transformations across Greater Montreal.'}
                 </Text>
                 <HStack
                   spacing={{ base: 3, md: 4 }}
-                  pt={{ base: 2, sm: 3, md: 4 }}
+                  pt={{ base: 1, md: 2 }}
                   flexWrap="wrap"
                 >
                   <Button

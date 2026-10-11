@@ -13,11 +13,6 @@ import {
   HStack,
   SimpleGrid,
   Image,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
@@ -41,6 +36,9 @@ import PageIntro from '../components/PageIntro';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import FAQSection from '../home-page/FAQSection';
+import FeatureCardsSection from '../components/FeatureCardsSection';
+import InternalLinksSection from '../components/InternalLinksSection';
 
 import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
 import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG';
@@ -320,7 +318,7 @@ export default function TeintureExterieurePage() {
                 </HStack>
 
                 <Heading as="h1" size="hero" color="white" minW={0}>
-                  Teinture extérieure à Montréal pour patio, clôture et revêtement bois
+                  Teinture extérieure à Montréal
                 </Heading>
 
                 <Text
@@ -328,7 +326,7 @@ export default function TeintureExterieurePage() {
                   color="white"
                   maxW={{ base: '100%', md: '680px', lg: '780px' }}
                 >
-                  Protégez et ravivez vos surfaces en bois avec une finition adaptée au climat québécois et à l&apos;exposition réelle de votre propriété.
+                  Patio, clôture et revêtement bois protégés pour le climat québécois.
                 </Text>
 
                 <Box pt={{ base: 2, md: 3 }}>
@@ -354,173 +352,24 @@ export default function TeintureExterieurePage() {
         </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS ===== */}
-        <Box pt={{ base: 10, md: 12, lg: 14 }} pb={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Pourquoi confier votre teinture extérieure à des professionnels?
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  Un bon produit ne suffit pas : le résultat dépend surtout de la préparation, du choix de finition et des conditions d&apos;application.
-                </Text>
-              </Stack>
-
-              <Flex wrap="wrap" justify="center" gap={5}>
-                {CHECKMARKS.map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 5, md: 6 }}
-                    boxShadow="0 2px 12px rgba(0,0,0,0.05)"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
-                    transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
-                    maxW={{ lg: '420px' }}
-                  >
-                    <HStack spacing={4} mb={3} align="center">
-                      <Flex
-                        w="44px"
-                        h="44px"
-                        borderRadius="lg"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                        flexShrink={0}
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Text
-                        fontWeight="bold"
-                        color="gray.800"
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Text>
-                    </HStack>
-                    <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                      {item.text}
-                    </Text>
-                  </Box>
-                ))}
-              </Flex>
-            </Stack>
-          </Container>
-        </Box>
+        <FeatureCardsSection
+          title="Pourquoi confier votre teinture extérieure à des professionnels?"
+          subtitle="Un bon produit ne suffit pas : le résultat dépend surtout de la préparation, du choix de finition et des conditions d'application."
+          items={CHECKMARKS}
+          variant="inline"
+          sectionBg="white"
+          sectionPy={{ base: 10, md: 12, lg: 14 }}
+        />
 
         {/* ===== SECTION 4 - SPÉCIALITÉS BOIS ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Les surfaces extérieures en bois que nous teintons le plus souvent
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  Chaque surface a ses particularités : niveau d&apos;exposition, type de bois, usure et fréquence d&apos;entretien varient d&apos;un projet à l&apos;autre.
-                </Text>
-              </Stack>
-
-              <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={6}>
-                {SPECIALITES.slice(0, 3).map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
-                    boxShadow="sm"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                  >
-                    <Stack spacing={4}>
-                      <Flex
-                        w="48px"
-                        h="48px"
-                        borderRadius="xl"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading
-                        as="h3"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        fontWeight="700"
-                        color="gray.800"
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                        {item.text}
-                      </Text>
-                    </Stack>
-                  </Box>
-                ))}
-              </SimpleGrid>
-
-              <Flex wrap="wrap" justify="center" gap={6}>
-                {SPECIALITES.slice(3).map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
-                    boxShadow="sm"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
-                    maxW={{ lg: '420px' }}
-                  >
-                    <Stack spacing={4}>
-                      <Flex
-                        w="48px"
-                        h="48px"
-                        borderRadius="xl"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading
-                        as="h3"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        fontWeight="700"
-                        color="gray.800"
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                        {item.text}
-                      </Text>
-                    </Stack>
-                  </Box>
-                ))}
-              </Flex>
-            </Stack>
-          </Container>
-        </Box>
+        <FeatureCardsSection
+          title="Les surfaces extérieures en bois que nous teintons le plus souvent"
+          subtitle="Chaque surface a ses particularités : niveau d'exposition, type de bois, usure et fréquence d'entretien varient d'un projet à l'autre."
+          items={SPECIALITES}
+          variant="stacked"
+          sectionBg="gray.50"
+          columns={{ base: 1, md: 2, lg: 3 }}
+        />
 
         {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
         <BeforeAfterCarouselSection
@@ -540,127 +389,19 @@ export default function TeintureExterieurePage() {
           ctaText="Soumission gratuite - réponse en moins de 24 h"
         />
 
-        {/* ===== SECTION 7 - FAQ ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="900px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Questions fréquentes sur la teinture extérieure
-              </Heading>
+        <FAQSection
+          title="Questions fréquentes sur la teinture extérieure"
+          faqsOverride={FAQS}
+          sectionBg="white"
+          sectionPy={{ base: 16, md: 20, lg: 24 }}
+          maxW="900px"
+        />
 
-              <Accordion allowMultiple>
-                {FAQS.map((faq, i) => (
-                  <AccordionItem
-                    key={i}
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="lg"
-                    mb={3}
-                    overflow="hidden"
-                  >
-                    <AccordionButton
-                      py={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      _hover={{ bg: 'gray.50' }}
-                      _expanded={{ bg: 'gray.50' }}
-                    >
-                      <Box flex="1" textAlign="left">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.4"
-                        >
-                          {faq.question}
-                        </Text>
-                      </Box>
-                      <AccordionIcon color="brand.500" />
-                    </AccordionButton>
-                    <AccordionPanel
-                      pb={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      pt={0}
-                      bg="gray.50"
-                    >
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.8">
-                        {faq.answer}
-                      </Text>
-                    </AccordionPanel>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ===== SECTION 8 - LIENS INTERNES ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                En savoir plus sur nos services connexes
-              </Heading>
-
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
-                {INTERNAL_LINKS.map((link, i) => (
-                  <Link
-                    key={i}
-                    as={RouterLink}
-                    to={link.to}
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    <Box
-                      bg="white"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      borderRadius="xl"
-                      p={5}
-                      h="100%"
-                      display="flex"
-                      flexDirection="column"
-                      _hover={{
-                        borderColor: 'brand.500',
-                        transform: 'translateY(-2px)',
-                        boxShadow: 'md',
-                      }}
-                      transition="all 0.2s"
-                    >
-                      <Stack spacing={3} flex={1} justify="space-between">
-                        <Text
-                          fontWeight="600"
-                          color="gray.800"
-                          fontSize={{ base: 'sm', md: 'md' }}
-                          lineHeight="1.3"
-                        >
-                          {link.title}
-                        </Text>
-                        <Text color="gray.500" fontSize="sm" lineHeight="1.6">
-                          {link.description}
-                        </Text>
-                        <HStack spacing={1} color="brand.500">
-                          <Text fontSize="sm" fontWeight="medium">Voir</Text>
-                          <ArrowForwardIcon boxSize={3} />
-                        </HStack>
-                      </Stack>
-                    </Box>
-                  </Link>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
+        <InternalLinksSection
+          title="En savoir plus sur nos services connexes"
+          links={INTERNAL_LINKS}
+          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
         <FinalCTASection

@@ -13,11 +13,6 @@ import {
   SimpleGrid,
   useDisclosure,
   Image,
-  Accordion,
-  AccordionItem,
-  AccordionButton,
-  AccordionPanel,
-  AccordionIcon,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
@@ -41,6 +36,9 @@ import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import FAQSection from '../home-page/FAQSection';
+import FeatureCardsSection from '../components/FeatureCardsSection';
+import InternalLinksSection from '../components/InternalLinksSection';
 import { RBQ_LICENSE } from '../constants/company';
 
 import heroImg from '../images/3-ville/Montréal/outremont/header.jpg';
@@ -310,7 +308,7 @@ export default function OutremontPage() {
           pageContext="Outremont"
           imageBackground={heroImg}
           title="Peintre à Outremont"
-          subtitle="Des peintres de métier pour les maisons, condos et projets soignés à Outremont."
+          subtitle="Peintres de métier pour maisons et condos à Outremont."
           buttonText="Obtenir ma soumission gratuite"
         >
           <HStack spacing={3} textStyle="bodyLarge" color="whiteAlpha.900" mb={{ base: 2, md: 4 }} flexWrap="wrap">
@@ -340,77 +338,34 @@ export default function OutremontPage() {
         </PageIntro>
 
         {/* ===== SECTION 3 - CHECKMARKS OUTREMONT ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
+        <Box pt={{ base: 16, md: 20, lg: 24 }} pb={0} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Une approche adaptée aux propriétés d&apos;Outremont
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  Dans un quartier où l&apos;on remarque les détails, la qualité du chantier compte autant que le résultat final.
-                </Text>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  {"Outremont partage avec Westmount sa position à flanc du mont Royal, mais son caractère architectural est différent : de grandes résidences du début du 20e siècle en stuc ou en brique, avec des corniches et des moulures ouvragées plutôt que la pierre grise typique de Westmount. Ces détails décoratifs demandent un travail au pinceau minutieux dans les creux et les reliefs, là où le pistolet uniformise trop et efface le détail. C'est une des raisons pour lesquelles on garde une bonne partie de ce type de travail en finition manuelle."}
-                </Text>
-              </Stack>
-
-              <Flex wrap="wrap" justify="center" gap={5}>
-                {CHECKMARKS.map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 5, md: 6 }}
-                    boxShadow="0 2px 12px rgba(0,0,0,0.05)"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md' }}
-                    transition="all 0.2s"
-                    w={{ base: '100%', md: 'calc(50% - 10px)', lg: 'calc(33.333% - 14px)' }}
-                    maxW={{ lg: '420px' }}
-                  >
-                    <HStack spacing={4} mb={3} align="center">
-                      <Flex
-                        w="44px"
-                        h="44px"
-                        borderRadius="lg"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                        flexShrink={0}
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Text
-                        fontWeight="bold"
-                        color="gray.800"
-                        fontSize={{ base: 'sm', md: 'md' }}
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Text>
-                    </HStack>
-                    <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                      {item.text}
-                    </Text>
-                  </Box>
-                ))}
-              </Flex>
+            <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
+              <Heading
+                as="h2"
+                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+                fontWeight="bold"
+                color="gray.800"
+              >
+                Une approche adaptée aux propriétés d'Outremont
+              </Heading>
+              <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">Dans un quartier où l'on remarque les détails, la qualité du chantier compte autant que le résultat final.</Text>
+              <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">{"Outremont partage avec Westmount sa position à flanc du mont Royal, mais son caractère architectural est différent : de grandes résidences du début du 20e siècle en stuc ou en brique, avec des corniches et des moulures ouvragées plutôt que la pierre grise typique de Westmount. Ces détails décoratifs demandent un travail au pinceau minutieux dans les creux et les reliefs, là où le pistolet uniformise trop et efface le détail. C'est une des raisons pour lesquelles on garde une bonne partie de ce type de travail en finition manuelle."}</Text>
             </Stack>
           </Container>
         </Box>
+        <FeatureCardsSection
+          items={CHECKMARKS}
+          variant="inline"
+          sectionBg="white"
+          sectionPy={{ base: 10, md: 12, lg: 14 }}
+        />
 
         {/* ===== SECTION 4 - CONTEXTES FRÉQUENTS À OUTREMONT ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -507,7 +462,7 @@ export default function OutremontPage() {
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW="800px" mx="auto">
+              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
                 <Heading
                   as="h2"
                   fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
@@ -558,103 +513,19 @@ export default function OutremontPage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 7 - FAQ ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="900px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Questions fréquentes sur nos services de peinture à Outremont
-              </Heading>
+        <FAQSection
+          title="Questions fréquentes sur nos services de peinture à Outremont"
+          faqsOverride={FAQS}
+          sectionBg="white"
+          sectionPy={{ base: 16, md: 20, lg: 24 }}
+          maxW="900px"
+        />
 
-              <Accordion allowMultiple>
-                {FAQS.map((faq, i) => (
-                  <AccordionItem
-                    key={i}
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="lg"
-                    mb={3}
-                    overflow="hidden"
-                  >
-                    <AccordionButton
-                      py={{ base: 4, md: 5 }}
-                      px={{ base: 5, md: 6 }}
-                      _hover={{ bg: 'gray.50' }}
-                      _expanded={{ bg: 'gray.50' }}
-                    >
-                      <Box flex="1" textAlign="left">
-                        <Text fontWeight="600" color="gray.800" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.4">
-                          {faq.question}
-                        </Text>
-                      </Box>
-                      <AccordionIcon color="brand.500" />
-                    </AccordionButton>
-                    <AccordionPanel pb={{ base: 4, md: 5 }} px={{ base: 5, md: 6 }} pt={0} bg="gray.50">
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.8">
-                        {faq.answer}
-                      </Text>
-                    </AccordionPanel>
-                  </AccordionItem>
-                ))}
-              </Accordion>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ===== SECTION 8 - LIENS INTERNES STRATÉGIQUES ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 8, md: 12 }}>
-              <Heading
-                as="h2"
-                fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                fontWeight="bold"
-                color="gray.800"
-                textAlign="center"
-              >
-                Explorer les bons services selon votre projet
-              </Heading>
-
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={4}>
-                {INTERNAL_LINKS.map((link, i) => (
-                  <Link key={i} as={RouterLink} to={link.to} _hover={{ textDecoration: 'none' }}>
-                    <Box
-                      bg="white"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      borderRadius="xl"
-                      p={5}
-                      h="100%"
-                      display="flex"
-                      flexDirection="column"
-                      _hover={{ borderColor: 'brand.500', transform: 'translateY(-2px)', boxShadow: 'md' }}
-                      transition="all 0.2s"
-                    >
-                      <Stack spacing={3} flex={1} justify="space-between">
-                        <Text fontWeight="600" color="gray.800" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.3">
-                          {link.title}
-                        </Text>
-                        <Text color="gray.500" fontSize="sm" lineHeight="1.6">
-                          {link.description}
-                        </Text>
-                        <HStack spacing={1} color="brand.500">
-                          <Text fontSize="sm" fontWeight="medium">Voir</Text>
-                          <ArrowForwardIcon boxSize={3} />
-                        </HStack>
-                      </Stack>
-                    </Box>
-                  </Link>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
+        <InternalLinksSection
+          title="Explorer les bons services selon votre projet"
+          links={INTERNAL_LINKS}
+          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}
         <FinalCTASection

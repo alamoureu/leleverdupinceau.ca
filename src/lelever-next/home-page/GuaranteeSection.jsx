@@ -7,7 +7,9 @@ import {
   Image,
   Heading,
   Flex,
+  Button,
 } from '@chakra-ui/react';
+import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import CtaButton from './CtaButton';
 import satisfactionBadgeFr from '../images/satisfaction_fr.webp';
@@ -23,7 +25,11 @@ const SATISFACTION_BADGE_FRAME = {
   '2xl': '236px',
 };
 
-/** Sceaux : `src/lelever-next/images/satisfaction_fr.webp` | `satisfaction_en.webp` */
+/**
+ * variant:
+ * - "home" (default): badge + text side-by-side, optional top CTA
+ * - "centered": service-page layout (badge, title, body, CTA stacked)
+ */
 export default function GuaranteeSection({
   onSubmissionOpen,
   hideCta = false,
@@ -33,8 +39,11 @@ export default function GuaranteeSection({
   ctaSubtitle: ctaSubtitleProp,
   title: titleProp,
   body: bodyProp,
+  note,
   mt,
   sectionPy,
+  sectionBg,
+  variant = 'home',
 }) {
   const { t, currentLang } = useTranslation();
   const [badgeError, setBadgeError] = useState(false);
@@ -47,10 +56,65 @@ export default function GuaranteeSection({
     setBadgeError(false);
   }, [badgeSrc]);
   const badgeAlt = badgeAltProp ?? t.guaranteeBadgeAlt;
-  const ctaText = ctaTextProp ?? t.ctaButton;
+  const ctaText = ctaTextProp ?? (variant === 'centered' ? t.heroButton : t.ctaButton);
   const ctaSubtitle = ctaSubtitleProp ?? t.ctaSubtitle;
   const title = titleProp ?? t.guaranteeTitle;
   const body = bodyProp ?? t.guaranteeBody;
+
+  if (variant === 'centered') {
+    return (
+      <Box py={sectionPy ?? { base: 16, md: 20, lg: 24 }} bg={sectionBg ?? 'gray.50'} mt={mt}>
+        <Container maxW="900px" px={{ base: 4, md: 6 }} textAlign="center">
+          <Stack spacing={6} align="center">
+            {!badgeError && badgeSrc ? (
+              <Image
+                key={badgeSrc}
+                src={badgeSrc}
+                alt={badgeAlt}
+                boxSize={{ base: '120px', md: '150px' }}
+                objectFit="contain"
+                loading="lazy"
+                onError={() => setBadgeError(true)}
+              />
+            ) : (
+              <Text fontWeight="bold" color="gray.800" fontSize="sm">
+                {t.guaranteeFallbackShort}
+              </Text>
+            )}
+            <Heading
+              as="h2"
+              fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
+              fontWeight="bold"
+              color="gray.800"
+            >
+              {title}
+            </Heading>
+            <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.700" lineHeight="1.8" maxW="720px">
+              {body}
+            </Text>
+            {!hideCta && (
+              <Button
+                variant="cta"
+                size={{ base: 'md', md: 'lg' }}
+                rightIcon={<ArrowForwardIcon />}
+                onClick={onSubmissionOpen}
+                borderRadius="full"
+                px={{ base: 6, md: 8 }}
+                fontWeight="600"
+              >
+                {ctaText}
+              </Button>
+            )}
+            {note && (
+              <Text fontSize="sm" color="gray.500">
+                {note}
+              </Text>
+            )}
+          </Stack>
+        </Container>
+      </Box>
+    );
+  }
 
   const defaultPtPb =
     sectionPy == null
@@ -71,7 +135,7 @@ export default function GuaranteeSection({
       : { pt: sectionPy, pb: sectionPy };
 
   return (
-    <Box mt={mt} pt={defaultPtPb.pt} pb={defaultPtPb.pb} bg="white">
+    <Box mt={mt} pt={defaultPtPb.pt} pb={defaultPtPb.pb} bg={sectionBg ?? 'white'}>
       <Container
         maxW={hideCta ? '1440px' : '750px'}
         px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}

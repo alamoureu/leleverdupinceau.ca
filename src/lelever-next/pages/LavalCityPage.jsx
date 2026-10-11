@@ -350,8 +350,8 @@ export default function LavalCityPage() {
           title={isFr ? 'Peintre à Laval' : 'Painter in Laval'}
           subtitle={
             isFr
-              ? 'Des peintres de métier pour vos projets résidentiels et commerciaux partout à Laval.'
-              : 'Professional painters for your residential and commercial projects throughout Laval.'
+              ? 'Peintres de métier pour vos projets partout à Laval.'
+              : 'Trade painters for your projects throughout Laval.'
           }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
         >

@@ -164,7 +164,7 @@ export default function ContactPage() {
           pageContext={isFr ? 'Page Contact' : 'Contact Page'}
           title={isFr ? 'Contactez Le Lever du Pinceau' : 'Contact Le Lever du Pinceau'}
           subtitle={isFr ? 'Soumission gratuite en moins de 24 h.' : 'Free quote in less than 24 h.'}
-          buttonText={isFr ? 'Disponible pour projets urgents sur demande' : 'Available for urgent projects on demand'}
+          buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
           imageBackground={contactPhotoHeader}
           overlayBg='linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.7) 45%, rgba(18, 38, 74, 0.5) 100%)'
         >

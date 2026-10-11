@@ -1,6 +1,6 @@
 const ERP_LEAD_SOURCE = 'leleverdupinceau_website';
 
-/** ERP website lead webhook (Render) — POST goes here from the browser, not via leleverdupinceau.ca. */
+/** ERP website lead webhook (Render) - POST goes here from the browser, not via leleverdupinceau.ca. */
 export const ERP_WEBSITE_LEAD_URL =
   'https://llp-erp-server.onrender.com/api/webhooks/leads/website';
 

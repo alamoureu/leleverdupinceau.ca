@@ -1,8 +1,11 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import { Box, Button, Container, Flex, Heading, Link, Stack, Text } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
+import { SECTION_TITLE_MAX_W } from '../constants/sectionSpacing';
+import useAutoScroll from './useAutoScroll';
+import CardCaptionStrip from './CardCaptionStrip';
 
 import img7922 from '../images/Avant après landing Page/Copie de IMG_7922.jpg';
 import img7924 from '../images/Avant après landing Page/Copie de IMG_7924.jpg';
@@ -33,6 +36,15 @@ import img5984 from '../images/before_after/IMG_5984.jpg';
 import imgStaircaseBefore from '../images/IMG_7678.PNG';
 import imgStaircaseAfter from '../images/IMG_5873.PNG';
 
+function splitCaption(description) {
+  if (!description) return { title: '', subtitle: '' };
+  const parts = description.split(/\s+[–-]\s+/);
+  if (parts.length >= 2) {
+    return { title: parts[0].trim(), subtitle: parts.slice(1).join(' - ').trim() };
+  }
+  return { title: description.trim(), subtitle: '' };
+}
+
 const DEFAULT_PAIRS = [
   // Old before_after set (first)
   [img5969, img5970],
@@ -53,20 +65,20 @@ const DEFAULT_PAIRS = [
 
 const DEFAULT_DESCRIPTIONS = [
   // Old list (first)
-  { fr: 'Salon – murs plâtre et peinture', en: 'Living room – walls, plaster and paint' },
-  { fr: 'Cage d’escalier – réparation légère et peinture', en: 'Staircase – light repair and painting' },
-  { fr: 'Terrasse en bois – teinture et protection', en: 'Wood deck – stain and protection' },
-  { fr: 'Cuisine – armoires peintes en blanc', en: 'Kitchen – cabinets painted white' },
-  { fr: 'Espace industriel – plafond steel deck et murs peints', en: 'Industrial space – steel deck ceiling and walls painted' },
-  { fr: 'Maison – murs rafraîchis (protection et peinture)', en: 'House – walls refreshed (protection and painting)' },
+  { fr: 'Salon - murs plâtre et peinture', en: 'Living room - walls, plaster and paint' },
+  { fr: 'Cage d\'escalier - réparation légère et peinture', en: 'Staircase - light repair and painting' },
+  { fr: 'Terrasse en bois - teinture et protection', en: 'Wood deck - stain and protection' },
+  { fr: 'Cuisine - armoires peintes en blanc', en: 'Kitchen - cabinets painted white' },
+  { fr: 'Espace industriel - plafond steel deck et murs peints', en: 'Industrial space - steel deck ceiling and walls painted' },
+  { fr: 'Maison - murs rafraîchis (protection et peinture)', en: 'House - walls refreshed (protection and painting)' },
   // New landing page set
-  { fr: 'Salon – peinture murale (avant / après)', en: 'Living room – wall painting (before / after)' },
-  { fr: 'Escalier extérieur – décapage et peinture', en: 'Outdoor staircase – stripping and painting' },
-  { fr: 'Sous-sol – dégâts d’eau et rafraîchissement', en: 'Basement – water damage and refresh' },
-  { fr: 'Cuisine – réparation et finition', en: 'Kitchen – repair and finish' },
-  { fr: 'Murs et boiseries – finition propre', en: 'Walls and trim – clean finish' },
-  { fr: 'Maison – extérieur rafraîchi', en: 'Home – refreshed exterior' },
-  { fr: 'Espace industriel – préparation et peinture', en: 'Industrial space – prep and painting' },
+  { fr: 'Salon - peinture murale (avant / après)', en: 'Living room - wall painting (before / after)' },
+  { fr: 'Escalier extérieur - décapage et peinture', en: 'Outdoor staircase - stripping and painting' },
+  { fr: 'Sous-sol - dégâts d\'eau et rafraîchissement', en: 'Basement - water damage and refresh' },
+  { fr: 'Cuisine - réparation et finition', en: 'Kitchen - repair and finish' },
+  { fr: 'Murs et boiseries - finition propre', en: 'Walls and trim - clean finish' },
+  { fr: 'Maison - extérieur rafraîchi', en: 'Home - refreshed exterior' },
+  { fr: 'Espace industriel - préparation et peinture', en: 'Industrial space - prep and painting' },
 ];
 
 export function buildDefaultImages(isFr) {
@@ -108,11 +120,14 @@ export default function BeforeAfterCarouselSection({
   sectionPy,
   sectionPaddingTop,
   sectionPaddingBottom,
+  sectionBg = 'white',
 }) {
   const { t, currentLang } = useTranslation();
   const isFr = isFrProp ?? currentLang === 'fr';
   const title = titleProp ?? t.beforeAfterTitle;
   const subtitle = subtitleProp ?? t.beforeAfterSubtitle;
+  const scrollerRef = useRef(null);
+  useAutoScroll(scrollerRef, { speed: 0.35 });
 
   const items = useMemo(() => {
     const base =
@@ -133,21 +148,36 @@ export default function BeforeAfterCarouselSection({
     return base;
   }, [images, isFr, kitchenPairOverride]);
 
+  const loopItems = useMemo(
+    () => [
+      ...items.map((pair, i) => ({ ...pair, key: `a-${i}` })),
+      ...items.map((pair, i) => ({ ...pair, key: `b-${i}` })),
+    ],
+    [items],
+  );
+
   const fallbackPy = sectionPy ?? DEFAULT_SECTION_PY;
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : fallbackPy;
   const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : fallbackPy;
 
   return (
-    <Box pt={pt} pb={pb} bg="white" overflowX="hidden">
-      <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-        <Stack spacing={{ base: 6, md: 8 }} align="center">
-          <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="900px">
+    <Box pt={pt} pb={pb} bg={sectionBg} overflowX="hidden">
+      <Container maxW="1440px" px={{ base: 4, sm: 5, md: 6, lg: 8 }}>
+        <Stack spacing={{ base: 3, md: 4 }} align="center">
+          <Stack
+            spacing={{ base: 2, md: 3 }}
+            textAlign="center"
+            maxW={SECTION_TITLE_MAX_W}
+            w="100%"
+          >
             <Heading
               as="h2"
               size="section"
               fontWeight="bold"
               color="gray.800"
-              lineHeight="1.3"
+              lineHeight="1.25"
+              scrollMarginTop="6rem"
+              whiteSpace={{ base: 'normal', lg: 'nowrap' }}
             >
               {title}
             </Heading>
@@ -157,65 +187,58 @@ export default function BeforeAfterCarouselSection({
           </Stack>
 
           <Box
+            ref={scrollerRef}
             w="100%"
             maxW="100%"
             minW={0}
             overflowX="auto"
             overflowY="hidden"
-            pb={6}
-            px={{ base: 4, md: 0 }}
+            pt={2}
+            pb={10}
+            px={{ base: 4, md: 1 }}
             mx={{ base: -4, md: 0 }}
             sx={{
-              '&::-webkit-scrollbar': { height: 2 },
-              '&::-webkit-scrollbar-track': {
-                bg: 'gray.100',
-                borderRadius: 'full',
-              },
-              '&::-webkit-scrollbar-thumb': {
-                bg: 'gray.300',
-                borderRadius: 'full',
-                _hover: { bg: 'gray.400' },
-              },
+              scrollBehavior: 'auto',
               msOverflowStyle: 'auto',
-              scrollbarWidth: 'auto',
             }}
           >
             <Flex
               direction="row"
-              gap={{ base: 6, md: 8, lg: 10 }}
+              gap={4}
               w="max-content"
               minW="100%"
-              pb={2}
+              align="stretch"
             >
-              {items.map((pair, index) => {
+              {loopItems.map((pair) => {
                 const hasPair = Boolean(pair?.before && pair?.after);
                 const placeholderBody = isFr
                   ? 'Visuels avant/après à dédier à cette page uniquement, sans réutiliser une photo déjà affichée sur un autre service.'
                   : 'Before/after visuals to add for this page only, without reusing a photo already shown on another service.';
+                const caption = splitCaption(pair.description);
 
                 return (
                 <Box
-                  key={index}
+                  key={pair.key}
                   minW={{
-                    base: '280px',
-                    sm: '320px',
-                    md: '340px',
+                    base: '260px',
+                    md: '320px',
                     lg: '360px',
                   }}
-                  w={{ base: '280px', sm: '320px', md: '340px', lg: '360px' }}
+                  w={{ base: '260px', md: '320px', lg: '360px' }}
                 >
                   <Box
                     width="100%"
                     borderRadius="xl"
                     overflow="hidden"
-                    boxShadow="md"
-                    _hover={{ boxShadow: 'lg' }}
+                    border="1px solid"
+                    borderColor="gray.200"
+                    boxShadow="0 2px 12px rgba(0,0,0,0.06)"
+                    _hover={{ boxShadow: '0 8px 24px rgba(0,0,0,0.1)' }}
                     transition="box-shadow 0.2s"
                     bg="white"
                   >
                     {hasPair ? (
                     <Stack spacing={0}>
-                      {/* Avant */}
                       <Box position="relative" w="100%">
                         <img
                           src={pair.before}
@@ -242,7 +265,6 @@ export default function BeforeAfterCarouselSection({
                           {t.beforeAfterLabelBefore}
                         </Box>
                       </Box>
-                      {/* Après */}
                       <Box
                         position="relative"
                         w="100%"
@@ -298,22 +320,14 @@ export default function BeforeAfterCarouselSection({
                         </Text>
                       </Flex>
                     )}
+                    {(caption.title || caption.subtitle) && (
+                      <CardCaptionStrip
+                        title={caption.title}
+                        subtitle={caption.subtitle}
+                        compact
+                      />
+                    )}
                   </Box>
-                  {pair.description && (
-                    <Text
-                      fontSize="sm"
-                      color="gray.600"
-                      textAlign="center"
-                      mt={4}
-                      fontWeight="medium"
-                      maxW="320px"
-                      mx="auto"
-                      noOfLines={3}
-                      lineHeight="1.3"
-                    >
-                      {pair.description}
-                    </Text>
-                  )}
                 </Box>
                 );
               })}
@@ -327,7 +341,6 @@ export default function BeforeAfterCarouselSection({
             <Button
               variant="ctaOutline"
               rightIcon={<ArrowForwardIcon />}
-              bg="white"
               borderRadius="full"
               textStyle="nav"
               px={{ base: 5, md: 7 }}

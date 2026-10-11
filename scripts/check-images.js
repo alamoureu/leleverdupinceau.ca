@@ -29,7 +29,7 @@ const pathsToCheck = [
   'heroImage.png',
   // TeamSection / PeintreProfessionnelPage
   '1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG',
-  // ResourcesSection / ServiceQuartierGuidesSection
+  // ResourcesSection / ServiceGuidesSection
   '1-page-principale/blog hub/Peinture intérieure/IMG_6764.PNG',
   '1-page-principale/blog hub/Peinture résidentielle/IMG_6763.PNG',
   '1-page-principale/blog hub/Peinture commerciale/IMG_6762.PNG',

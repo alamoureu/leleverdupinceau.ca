@@ -337,15 +337,11 @@ export default function SecteursDesservisPage() {
           onSubmissionOpen={onOpen}
           imageBackground={heroSecteurHub}
           overlayBg="rgba(2, 42, 104, 0.55)"
-          title={
-            isFr
-              ? 'Services de peinture dans le Grand Montréal et sur la Rive-Sud'
-              : 'Painting services in Greater Montreal and on the South Shore'
-          }
+          title={isFr ? 'Secteurs desservis' : 'Service areas'}
           subtitle={
             isFr
-              ? 'Nos équipes interviennent rapidement à Montréal, Laval, Longueuil et sur la Rive-Sud.'
-              : 'Our teams respond quickly in Montreal, Laval, Longueuil and on the South Shore.'
+              ? 'Montréal, Laval, Longueuil et la Rive-Sud.'
+              : 'Montreal, Laval, Longueuil and the South Shore.'
           }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
         >
