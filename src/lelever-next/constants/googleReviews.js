@@ -3,8 +3,8 @@
  * badges, sous-titres, meta descriptions et JSON-LD en dépendent.
  * REVIEW_COUNT ne doit jamais dépasser le vrai nombre d'avis Google (JSON-LD).
  */
-export const GOOGLE_REVIEW_COUNT = 240;
-export const GOOGLE_RATING = 4.8;
+export const GOOGLE_REVIEW_COUNT = 200;
+export const GOOGLE_RATING = 4.9;
 
 export const GOOGLE_REVIEWS_LABEL = {
   fr: `${GOOGLE_REVIEW_COUNT}+ avis`,

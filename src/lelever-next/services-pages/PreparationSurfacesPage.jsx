@@ -38,13 +38,20 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import surfacesHeroImg from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
-
+import surfacesHeroImg from '../images/L2 Services specialise/Photo page -surfaces/header-wrapping.JPEG';
 import surfacesAvant1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5914.JPG';
 import surfacesApres1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5916.JPG';
+import surfacesPoutreAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0834.jpg';
+import surfacesPoutreApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0835.jpg';
+import surfacesCadreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
+import surfacesCadreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
+import surfacesFenetreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
+import surfacesFenetreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0860.jpg';
+import surfacesArmoiresAvant from '../images/3-ville/Montréal/avant-apres/IMG_5975 5.jpg';
+import surfacesArmoiresApres from '../images/3-ville/Montréal/avant-apres/IMG_5976 6.jpg';
+import surfacesCouloirAvant from '../images/3-ville/laval/avant-apres/IMG_6031 3.jpg';
+import surfacesCouloirApres from '../images/3-ville/laval/avant-apres/IMG_8108 3.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
-
-const PLACEHOLDER_PAIR = { before: null, after: null };
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -223,12 +230,32 @@ export default function PreparationSurfacesPage() {
     {
       before: surfacesAvant1,
       after: surfacesApres1,
-      description: 'Préparation de surfaces Montréal avant après',
+      description: 'Préparation de surfaces - Correction avant peinture',
     },
     {
-      ...PLACEHOLDER_PAIR,
-      description:
-        'Deuxième paire : à documenter sur de la préparation pure (les fichiers 7992/7994 sont réservés à la page après sinistre).',
+      before: surfacesPoutreAvant,
+      after: surfacesPoutreApres,
+      description: 'Poutre d\'acier - dérouillage et peinture',
+    },
+    {
+      before: surfacesCadreAvant,
+      after: surfacesCadreApres,
+      description: 'Cadrage de fenêtre - plâtre et peinture',
+    },
+    {
+      before: surfacesFenetreAvant,
+      after: surfacesFenetreApres,
+      description: 'Réparation et peinture autour d\'une fenêtre',
+    },
+    {
+      before: surfacesArmoiresAvant,
+      after: surfacesArmoiresApres,
+      description: 'Armoires de cuisine - préparation et peinture',
+    },
+    {
+      before: surfacesCouloirAvant,
+      after: surfacesCouloirApres,
+      description: 'Couloir - plâtre et préparation avant peinture',
     },
   ];
 

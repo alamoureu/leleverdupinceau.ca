@@ -47,7 +47,7 @@ const fontFamily =
   "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif";
 
 /** Libère la zone du badge avis Google accroché sous la nav (coin supérieur droit du héros). */
-const clearReviewBadge = { pr: { base: '96px', sm: '128px', md: '132px', lg: '132px' } };
+const clearReviewBadge = { pr: { base: '88px', sm: '120px', md: '124px', lg: '124px' } };
 
 /** Héros photo : 3 niveaux (titre h1, sous-titre style h2, description). */
 const heroSubtitle = {
@@ -217,6 +217,7 @@ const theme = extendTheme({
           color: 'white',
           boxShadow: 'ctaGlow',
           maxW: '22rem',
+          whiteSpace: 'nowrap',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'brand.600', boxShadow: 'ctaGlowHover', _disabled: { bg: 'brand.500' } },
           _active: { bg: 'brand.700' },
@@ -226,6 +227,7 @@ const theme = extendTheme({
           color: 'brand.500',
           boxShadow: 'ctaGlowLight',
           maxW: '22rem',
+          whiteSpace: 'nowrap',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'gray.50', boxShadow: 'ctaGlowLightHover' },
           _active: { bg: 'gray.100' },
@@ -236,6 +238,7 @@ const theme = extendTheme({
           color: 'white',
           boxShadow: 'ctaGlow',
           maxW: '22rem',
+          whiteSpace: 'nowrap',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'brand.600', boxShadow: 'ctaGlowHover', _disabled: { bg: 'brand.500' } },
           _active: { bg: 'brand.700' },
@@ -246,6 +249,7 @@ const theme = extendTheme({
           color: 'brand.500',
           boxShadow: 'ctaGlowLight',
           maxW: '22rem',
+          whiteSpace: 'nowrap',
           transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
           _hover: { bg: 'gray.50', boxShadow: 'ctaGlowLightHover' },
           _active: { bg: 'gray.100' },

@@ -188,7 +188,7 @@ export default function AvisPage() {
             { label: isFr ? 'Avis' : 'Reviews' },
           ]}
           secondaryCta={{
-            label: isFr ? 'Laisser un avis Google' : 'Leave a Google review',
+            label: isFr ? 'Avis Google' : 'Google review',
             to: GOOGLE_REVIEWS_URL,
           }}
         />

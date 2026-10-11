@@ -29,7 +29,7 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import headerMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
 import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
 import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
-import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import quartierPlateau from '../images/pillar-pages/secteur-hub/IMG_7900.jpg';
 import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.jpg';

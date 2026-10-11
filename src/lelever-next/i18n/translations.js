@@ -9,7 +9,7 @@ export const translations = {
   fr: {
     heroTitle: 'Peinture à Montréal',
     heroTitleSecondLine: '',
-    heroSubtitle: 'Un résultat impeccable, rien de moins.',
+    heroSubtitle: 'Un\u00A0résultat\u00A0impeccable,\u00A0rien\u00A0de\u00A0moins.',
     heroDescription: 'Intérieur, extérieur, résidentiel et commercial - service clé en main.',
     heroButton: 'Obtenir ma soumission gratuite',
     heroImageAlt: 'Services de peinture résidentielle et commerciale',
@@ -251,7 +251,7 @@ export const translations = {
   en: {
     heroTitle: 'Painting in Montreal',
     heroTitleSecondLine: '',
-    heroSubtitle: 'An impeccable result, nothing less.',
+    heroSubtitle: 'An\u00A0impeccable\u00A0result,\u00A0nothing\u00A0less.',
     heroDescription: 'Interior, exterior, residential and commercial - turnkey service.',
     heroButton: 'Get my free quote',
     heroImageAlt: 'Residential and commercial painting services',

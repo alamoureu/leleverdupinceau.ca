@@ -179,6 +179,7 @@ export default function CitySectorPage({ config }) {
           description={heroBody ? t(heroBody) : undefined}
           imageBackground={headerImage}
           imageAlt={t(headerAlt)}
+          buttonText={isFr ? 'Soumission gratuite' : 'Free quote'}
           breadcrumb={[
             { label: isFr ? 'Accueil' : 'Home', to: '/' },
             { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },

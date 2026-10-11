@@ -18,14 +18,18 @@ export const SECTION_PY = { base: 12, md: 16, lg: 20 };
 /** Pages service, sous-service et quartier (blocs plus aérés). */
 export const PAGE_SECTION_PY = { base: 16, md: 20, lg: 24 };
 
-/** Hero photo partagé (HeroSection + landings internes). */
+/**
+ * Hero photo partagé (HeroSection + landings internes).
+ * md+ : remplit le viewport sous la nav fixe (~7rem) pour que la TrustBanner
+ * reste aérée sous le CTA - surtout iPad landscape où un floor px seul est trop bas.
+ */
 export const PAGE_HERO_MIN_H = {
-  base: '260px',
-  sm: '280px',
-  md: 'max(400px, 48vh)',
-  lg: 'max(440px, 50vh)',
-  xl: 'max(520px, 68vh)',
-  '2xl': 'max(680px, 78vh)',
+  base: 'max(360px, 50dvh)',
+  sm: 'max(380px, 48dvh)',
+  md: 'max(560px, calc(100dvh - 11rem))',
+  lg: 'max(600px, calc(100dvh - 11rem))',
+  xl: 'max(680px, calc(100dvh - 10.5rem))',
+  '2xl': 'max(740px, calc(100dvh - 10.5rem))',
 };
 
 /** Padding-top du contenu dans le hero photo (sous le header / badge avis). */

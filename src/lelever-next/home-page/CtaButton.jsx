@@ -49,7 +49,7 @@ export default function CtaButton({
       h="auto"
       fontWeight="600"
       letterSpacing="0.01em"
-      whiteSpace={isForm ? 'nowrap' : 'normal'}
+      whiteSpace="nowrap"
       lineHeight="1.25"
       textAlign="center"
       overflow="hidden"

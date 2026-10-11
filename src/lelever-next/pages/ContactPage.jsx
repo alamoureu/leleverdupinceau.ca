@@ -33,7 +33,7 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import FullWidthSection from '../components/FullWidthSection';
 import { SECTION_PY, SECTION_TITLE_MAX_W, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
-import contactPhotoHeader from '../images/hero/contact-hero.webp';
+import contactPhotoHeader from '../images/L3 Sous services/Photo page appartement/header.PNG';
 
 const BUSINESS_EMAIL = LOCAL_BUSINESS_SCHEMA.email;
 const BUSINESS_PHONE_DISPLAY = '(438) 868-0772';
@@ -213,12 +213,12 @@ export default function ContactPage() {
         <HeroSection
           onSubmissionOpen={onOpen}
           pageContext={isFr ? 'Page Contact' : 'Contact Page'}
-          title={isFr ? 'Contactez Le Lever du Pinceau' : 'Contact Le Lever du Pinceau'}
-          subtitle={isFr ? 'Soumission gratuite en moins de 24 h.' : 'Free quote in less than 24 h.'}
+          title={isFr ? 'Contactez Le\u00A0Lever du\u00A0Pinceau' : 'Contact Le\u00A0Lever du\u00A0Pinceau'}
+          subtitle={isFr ? 'Soumission gratuite en moins de\u00A024\u00A0h.' : 'Free quote in less than\u00A024\u00A0h.'}
           description={
             isFr
-              ? 'Résidentiel et commercial à Montréal, Laval et Longueuil.'
-              : 'Residential and commercial in Montreal, Laval and Longueuil.'
+              ? 'Résidentiel et commercial à Montréal, Laval et\u00A0Longueuil.'
+              : 'Residential and commercial in Montreal, Laval and\u00A0Longueuil.'
           }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
           imageBackground={contactPhotoHeader}
@@ -242,10 +242,16 @@ export default function ContactPage() {
               <Heading as="h2" size="section" color="gray.800">
                 {isFr ? 'Nos coordonnées' : 'Our contact information'}
               </Heading>
-              <Text color="gray.600" textStyle="body" maxW="640px" mx="auto">
+              <Text
+                color="gray.600"
+                textStyle="body"
+                maxW={{ base: '100%', md: '720px' }}
+                mx="auto"
+                sx={{ textWrap: 'pretty' }}
+              >
                 {isFr
-                  ? 'Écrivez-nous, appelez-nous ou passez nous voir. Réponse rapide garantie.'
-                  : 'Email us, call us, or stop by. Fast response guaranteed.'}
+                  ? 'Écrivez-nous, appelez-nous ou passez nous voir. Réponse rapide\u00A0garantie.'
+                  : 'Email us, call us, or stop by. Fast response\u00A0guaranteed.'}
               </Text>
             </Stack>
 
@@ -342,60 +348,60 @@ export default function ContactPage() {
           </Stack>
         </FullWidthSection>
 
-            <SectorsSection
-              title={
-                isFr
-                  ? 'Nous servons tout le Grand Montréal'
-                  : 'We serve all of Greater Montreal'
-              }
-              subtitle={
-                isFr
-                  ? 'Montréal, Laval, Longueuil, Brossard - tous les quartiers desservis'
-                  : 'Montreal, Laval, Longueuil, Brossard - all neighborhoods served'
-              }
-              pageContext={isFr ? 'Page Contact' : 'Contact Page'}
-              disableLinks={true}
-              showButton={true}
-              buttonLink='/secteurs'
-              buttonText={isFr ? 'Voir les secteurs' : 'View service areas'}
-            />
+        <SectorsSection
+          title={
+            isFr
+              ? 'Nous servons tout le Grand Montréal'
+              : 'We serve all of Greater Montreal'
+          }
+          subtitle={
+            isFr
+              ? 'Montréal, Laval, Longueuil, Brossard - tous les quartiers desservis'
+              : 'Montreal, Laval, Longueuil, Brossard - all neighborhoods served'
+          }
+          pageContext={isFr ? 'Page Contact' : 'Contact Page'}
+          disableLinks={true}
+          showButton={true}
+          buttonLink="/secteurs"
+          buttonText={isFr ? 'Voir les secteurs' : 'View service areas'}
+        />
 
-            <FAQSection
-              faqsOverride={faqs}
-              title={
-                isFr
-                  ? 'Questions fréquentes avant de nous contacter'
-                  : 'Frequently asked questions before contacting us'
-              }
-            />
+        <FAQSection
+          faqsOverride={faqs}
+          title={
+            isFr
+              ? 'Questions fréquentes avant de nous contacter'
+              : 'Frequently asked questions before contacting us'
+          }
+        />
 
-            <Box py={{ base: 8, md: 10 }} textAlign='center'>
-              <Container maxW='1440px' px={{ base: 4, md: 6 }}>
-                <Text color='gray.600' textStyle='body' mb={4}>
-                  {isFr
-                    ? 'Vous souhaitez en savoir plus sur notre équipe?'
-                    : 'Would you like to know more about our team?'}
-                </Text>
-                <Link
-                  as={RouterLink}
-                  to='/peintre-professionnel'
-                  _hover={{ textDecoration: 'none' }}
-                >
-                  <Button
-                    variant='ctaOutline'
-                    rightIcon={<ArrowForwardIcon />}
-                    borderRadius='full'
-                    textStyle='nav'
-                    px={{ base: 5, md: 7 }}
-                    py={{ base: 3, md: 4 }}
-                  >
-                    {isFr
-                      ? 'Découvrez nos peintres professionnels'
-                      : 'Discover our professional painters'}
-                  </Button>
-                </Link>
-              </Container>
-            </Box>
+        <Box py={{ base: 8, md: 10 }} textAlign="center">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Text color="gray.600" textStyle="body" mb={4}>
+              {isFr
+                ? 'Vous souhaitez en savoir plus sur notre équipe?'
+                : 'Would you like to know more about our team?'}
+            </Text>
+            <Link
+              as={RouterLink}
+              to="/peintre-professionnel"
+              _hover={{ textDecoration: 'none' }}
+            >
+              <Button
+                variant="ctaOutline"
+                rightIcon={<ArrowForwardIcon />}
+                borderRadius="full"
+                textStyle="nav"
+                px={{ base: 5, md: 7 }}
+                py={{ base: 3, md: 4 }}
+              >
+                {isFr
+                  ? 'Découvrez nos peintres professionnels'
+                  : 'Discover our professional painters'}
+              </Button>
+            </Link>
+          </Container>
+        </Box>
 
         <FinalCTASection
           title={isFr ? 'Prêt à commencer votre projet de peinture ?' : 'Ready to start your painting project?'}

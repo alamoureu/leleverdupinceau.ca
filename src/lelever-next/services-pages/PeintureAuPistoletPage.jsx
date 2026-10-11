@@ -38,12 +38,16 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import pistoletHeroImg from '../images/L2 Services specialise/Photo page -pistolet/header-spray man.JPEG';
+import pistoletHeroImg from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.png';
 import pistoletAvant1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.jpg';
 import pistoletApres1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg';
+import pistoletExterieurAvant from '../images/3-ville/longueuil/avant-apres/IMG_0830.jpg';
+import pistoletExterieurApres from '../images/3-ville/longueuil/avant-apres/IMG_0831.jpg';
+import pistoletArmoiresAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.PNG';
+import pistoletArmoiresApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG';
+import pistoletCuisineAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';
+import pistoletCuisineApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
-
-const PLACEHOLDER_PAIR = { before: null, after: null };
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -239,12 +243,22 @@ export default function PeintureAuPistoletPage() {
     {
       before: pistoletAvant1,
       after: pistoletApres1,
-      description: 'Chantier au pistolet - séquence locale (fichiers du dossier pistolet uniquement).',
+      description: 'Peinture au pistolet - finition uniforme',
     },
     {
-      ...PLACEHOLDER_PAIR,
-      description:
-        'Deuxième emplacement : ajouter une autre paire airless dédiée (sans reprendre les visuels condo).',
+      before: pistoletExterieurAvant,
+      after: pistoletExterieurApres,
+      description: 'Revêtement extérieur - grattage et peinture au pistolet',
+    },
+    {
+      before: pistoletArmoiresAvant,
+      after: pistoletArmoiresApres,
+      description: 'Armoires de cuisine - peinture au pistolet',
+    },
+    {
+      before: pistoletCuisineAvant,
+      after: pistoletCuisineApres,
+      description: 'Cuisine ouverte - armoires peintes au pistolet',
     },
   ];
 

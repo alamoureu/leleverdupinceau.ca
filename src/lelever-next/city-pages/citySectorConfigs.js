@@ -1,4 +1,4 @@
-import headerBrossard from '../images/3-ville/brossard/+Header/IMG_6784.PNG';
+import headerBrossard from '../images/3-ville/brossard/+Header/IMG_1414.jpg';
 import headerRiveSud from '../images/3-ville/rive-sud/header (1).JPEG';
 import rsImg5973 from '../images/3-ville/rive-sud/avant-apres/IMG_5973 6.jpg';
 import rsImg5974 from '../images/3-ville/rive-sud/avant-apres/IMG_5974 6.jpg';
@@ -28,7 +28,7 @@ import laprairie0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg'
 
 import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
 import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
-import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 
 const riveSudExtraPairs = [

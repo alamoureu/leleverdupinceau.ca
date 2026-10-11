@@ -351,6 +351,7 @@ export default function LongueuilCityPage() {
               ? 'Peintre professionnel à Longueuil - Le Lever du Pinceau'
               : 'Professional painter in Longueuil - Le Lever du Pinceau'
           }
+          buttonText={isFr ? 'Soumission gratuite' : 'Free quote'}
           breadcrumb={[
             { label: isFr ? 'Accueil' : 'Home', to: '/' },
             { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },

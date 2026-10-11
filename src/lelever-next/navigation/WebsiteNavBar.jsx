@@ -23,6 +23,7 @@ import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 import ShakeButton from '../home-page/ShakeButton';
+import { showsNavReviewBadge } from '../constants/navReviewBadge';
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();
@@ -30,23 +31,13 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
 
-  const isHomePage = location.pathname === '/';
-  const showsReviewBadge =
-    location.pathname.startsWith('/services') ||
-    location.pathname.startsWith('/secteurs') ||
-    [
-      '/peinture-interieure-montreal',
-      '/peinture-exterieure-montreal',
-      '/peintre-professionnel',
-      '/a-propos',
-      '/blog',
-    ].includes(location.pathname.replace(/\/$/, ''));
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
       : location.pathname === '/fr/peintre-montreal' ||
         location.pathname === '/en/peintre-montreal' ||
         location.pathname === '/en/painter-montreal';
+  const showsReviewBadge = showsNavReviewBadge(location.pathname);
 
   return (
     <Box
@@ -302,7 +293,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
           </HStack>
         </Box>
 
-        {(isHomePage || showsReviewBadge || isNewLanding) && (
+        {(showsReviewBadge || isNewLanding) && (
           <Box
             position="absolute"
             bottom={0}

@@ -38,7 +38,7 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import armoiresHeroImg from '../images/L3 Sous services/Photo page armoires de cuisine/header.jpeg';
+import armoiresHeroImg from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.jpg';
 import armoiresImg5975 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.PNG';
 import armoiresImg5976 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG';
 import armoiresImg8114 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';

@@ -18,7 +18,11 @@ import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import TrustBanner, { TRUST_BANNER_ABOVE_PB, TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
-import { PAGE_HERO_CONTENT_PT, PAGE_HERO_STACK_SPACING } from '../constants/sectionSpacing';
+import {
+  PAGE_HERO_CONTENT_PT,
+  PAGE_HERO_MIN_H,
+  PAGE_HERO_STACK_SPACING,
+} from '../constants/sectionSpacing';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
@@ -865,8 +869,9 @@ export default function RealisationsPage() {
           position="relative"
           w="100%"
           minW={0}
-          minH={{ base: '380px', sm: '420px', md: '520px', lg: '580px', xl: '660px', '2xl': '740px' }}
-          h={{ base: 'auto', sm: 'auto', md: '60vh', lg: '65vh', xl: '78vh', '2xl': '82vh' }}
+          minH={PAGE_HERO_MIN_H}
+          display="flex"
+          alignItems={{ base: 'flex-start', md: 'center' }}
           bgColor="gray.600"
           px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
           pb={TRUST_BANNER_ABOVE_PB}
@@ -903,20 +908,15 @@ export default function RealisationsPage() {
           />
           <Container
             maxW="1440px"
-            h="100%"
             position="relative"
             zIndex={2}
+            w="100%"
             px={{ base: 4, sm: 4, md: 6, lg: 8 }}
+            pt={{ base: PAGE_HERO_CONTENT_PT.base, sm: PAGE_HERO_CONTENT_PT.sm, md: 0 }}
+            pb={0}
             minW={0}
           >
-            <Stack
-              h="100%"
-              minW={0}
-              justify="flex-start"
-              pt={PAGE_HERO_CONTENT_PT}
-              pb={0}
-            >
-              <Stack spacing={PAGE_HERO_STACK_SPACING} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
+            <Stack spacing={PAGE_HERO_STACK_SPACING} minW={0} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
                 <Heading as="h1" size="hero" color="white" minW={0}>
                   {isFr ? 'Nos réalisations' : 'Our projects'}
                 </Heading>
@@ -982,7 +982,6 @@ export default function RealisationsPage() {
                     <ArrowForwardIcon ml={2} />
                   </Button>
                 </HStack>
-              </Stack>
             </Stack>
           </Container>
         </Box>

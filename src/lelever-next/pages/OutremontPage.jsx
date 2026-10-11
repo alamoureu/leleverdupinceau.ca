@@ -42,7 +42,7 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import { RBQ_LICENSE } from '../constants/company';
 
 import heroImg from '../images/3-ville/Montréal/outremont/header.jpg';
-import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
 import cuisineAvant from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
 import cuisineApres from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';

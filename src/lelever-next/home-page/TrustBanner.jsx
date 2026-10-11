@@ -27,7 +27,7 @@ const translations = {
 };
 
 /** Explicit height so the negative margins center the card exactly on the seam between two sections. */
-export const CARD_HEIGHT = { base: 'clamp(96px, 27vw, 108px)', md: '120px', lg: '136px' };
+export const CARD_HEIGHT = { base: 'clamp(112px, 30vw, 124px)', md: '120px', lg: '136px' };
 /** md+ uses the md air token (CARD_HEIGHT also has lg; do not fall back to base). */
 const airFor = (bp) => (bp === 'base' ? TRUST_BANNER_AIR.base : TRUST_BANNER_AIR.md);
 const halfCard = (extraFn) =>
@@ -68,12 +68,12 @@ export default function TrustBanner() {
         maxW="960px"
         h={CARD_HEIGHT}
         mx="auto"
-        px={{ base: 1, md: 6 }}
-        py={{ base: 1, md: 0 }}
+        px={{ base: 2, md: 6 }}
+        py={{ base: 2, md: 0 }}
         wrap={{ base: 'wrap', md: 'nowrap' }}
         align="center"
         alignContent="center"
-        rowGap={{ base: 0.5, md: 0 }}
+        rowGap={{ base: 1.5, md: 0 }}
         bg="white"
         borderRadius="2xl"
         border="1px solid"
@@ -90,7 +90,7 @@ export default function TrustBanner() {
                 display={{ base: 'none', md: 'block' }}
               />
             )}
-            <Flex flex={{ base: '1 1 50%', md: '1 1 0' }} direction="column" align="center" gap={{ base: 0.5, md: 1 }}>
+            <Flex flex={{ base: '1 1 50%', md: '1 1 0' }} direction="column" align="center" gap={1}>
               {item.value ? (
                 <Text
                   h={ICON_H}

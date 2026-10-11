@@ -27,7 +27,7 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
-import maisonHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import maisonHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import chambreAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
 import chambreApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
 import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.jpg';
@@ -36,6 +36,32 @@ import pieceDoubleAvant from '../images/L2 Services principaux/Photo page -peint
 import pieceDoubleApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
 import revetementAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg";
 import revetementApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.jpg";
+import salleMangerAvant from '../images/3-ville/brossard/avant-apres/IMG_0826.jpg';
+import salleMangerApres from '../images/3-ville/brossard/avant-apres/IMG_0827.jpg';
+import porteAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0828.jpg';
+import porteApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0829.jpg';
+import poutreAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0834.jpg';
+import poutreApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0835.jpg';
+import fenetreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
+import fenetreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
+import chambrePapierAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0842.jpg';
+import chambrePapierApres from '../images/3-ville/st-lambert/avant-apres/IMG_0843.jpg';
+import chambreVerteAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0844.jpg';
+import chambreVerteApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0845.jpg';
+import chambreBlancheAvant from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
+import chambreBlancheApres from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
+import chambreFloraleAvant from '../images/3-ville/laprairie/avant-apres/IMG_0852.jpg';
+import chambreFloraleApres from '../images/3-ville/laprairie/avant-apres/IMG_0853.jpg';
+import hallAvant from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
+import hallApres from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
+import plintheAvant from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
+import plintheApres from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
+import pieceWestmountAvant from '../images/3-ville/Montréal/avant-apres/IMG_5984 6.jpg';
+import pieceWestmountApres from '../images/3-ville/Montréal/avant-apres/IMG_5982 5.jpg';
+import escalierAvant from '../images/3-ville/Montréal/avant-apres/IMG_7678 3.jpg';
+import escalierApres from '../images/3-ville/Montréal/avant-apres/IMG_5873 3.jpg';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -232,6 +258,71 @@ export default function PeintureMaisonPage() {
       before: revetementAvant,
       after: revetementApres,
       description: 'Peinture extérieure - Revêtement de maison',
+    },
+    {
+      before: salleMangerAvant,
+      after: salleMangerApres,
+      description: 'Salle à manger - murs bleus repeints gris foncé',
+    },
+    {
+      before: porteAvant,
+      after: porteApres,
+      description: "Porte d'entrée - décapage et peinture bleu marine",
+    },
+    {
+      before: poutreAvant,
+      after: poutreApres,
+      description: "Poutre d'acier - rouille traitée et peinture noire",
+    },
+    {
+      before: fenetreAvant,
+      after: fenetreApres,
+      description: 'Cadrage de fenêtre - plâtre et peinture',
+    },
+    {
+      before: chambrePapierAvant,
+      after: chambrePapierApres,
+      description: 'Chambre - papier peint retiré et murs repeints',
+    },
+    {
+      before: chambreVerteAvant,
+      after: chambreVerteApres,
+      description: 'Chambre - papier peint retiré, murs verts',
+    },
+    {
+      before: chambreBlancheAvant,
+      after: chambreBlancheApres,
+      description: 'Chambre - murs repeints en blanc',
+    },
+    {
+      before: chambreFloraleAvant,
+      after: chambreFloraleApres,
+      description: 'Chambre - papier peint fleuri remplacé par la peinture',
+    },
+    {
+      before: hallAvant,
+      after: hallApres,
+      description: "Hall d'entrée - murs et boiseries rafraîchis",
+    },
+    {
+      before: plintheAvant,
+      after: plintheApres,
+      description: 'Plinthe - réparation et peinture',
+    },
+    {
+      before: clotureAvant,
+      after: clotureApres,
+      description: 'Clôture en bois - teinture',
+    },
+    {
+      before: pieceWestmountAvant,
+      after: pieceWestmountApres,
+      description: 'Peinture intérieure - Pièce double à Westmount',
+    },
+    {
+      before: escalierAvant,
+      after: escalierApres,
+      description: "Réparation et peinture - Cage d'escalier résidentielle",
     },
   ];
 

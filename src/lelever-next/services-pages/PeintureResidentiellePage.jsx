@@ -39,7 +39,7 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
-import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 
 import avantApresRes1a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg';
 import avantApresRes1b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg';

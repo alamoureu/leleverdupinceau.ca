@@ -41,8 +41,8 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 
-import heroImg from '../images/neighborhood_placeholder.jpg';
-import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import heroImg from '../images/3-ville/Montréal/westmount/header.jpg';
+import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
 import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
 import emmenagementImg from '../images/L3 Sous services/Photo page appartement/header.PNG';

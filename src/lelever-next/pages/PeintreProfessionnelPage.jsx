@@ -713,9 +713,10 @@ export default function PeintreProfessionnelPage() {
                     variant="ctaOutline"
                     borderRadius="full"
                     px={{ base: 6, md: 8 }}
+                    whiteSpace="nowrap"
                     rightIcon={<ArrowForwardIcon />}
                   >
-                    Nos réalisations
+                    {'Nos\u00A0réalisations'}
                   </Button>
                 </Link>
               </Box>

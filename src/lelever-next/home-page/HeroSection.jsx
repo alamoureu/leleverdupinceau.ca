@@ -9,16 +9,17 @@ import {
   Flex,
   Link,
   Button,
+  useBreakpointValue,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.webp';
 import CtaButton from './CtaButton';
 import HeroBreadcrumb from '../components/HeroBreadcrumb';
 import TrustBanner, { TRUST_BANNER_ABOVE_PB } from './TrustBanner';
+import { showsNavReviewBadge } from '../constants/navReviewBadge';
 import {
-  PAGE_HERO_CONTENT_PT,
   PAGE_HERO_MIN_H,
   PAGE_HERO_STACK_SPACING,
   PAGE_HERO_TITLES_SPACING,
@@ -66,6 +67,8 @@ export default function HeroSection({
   children,
 }) {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const clearBadge = showsNavReviewBadge(pathname);
   const heroTitle = title ?? t.heroTitle;
   const heroTitleSecondLine = titleSecondLine ?? t.heroTitleSecondLine;
   const heroSubtitle = subtitle ?? t.heroSubtitle;
@@ -76,6 +79,25 @@ export default function HeroSection({
     `${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`;
   const secondaryIsExternal =
     secondaryCta?.to && /^https?:\/\//i.test(secondaryCta.to);
+  const hasSecondaryCta = Boolean(secondaryCta?.label && secondaryCta?.to);
+  /** Keep multi-word CTA labels on one line even if white-space is overridden. */
+  const secondaryLabel = secondaryCta?.label
+    ? String(secondaryCta.label).replace(/ /g, '\u00A0')
+    : '';
+  /** Dual CTAs: drop arrow icons under sm so both labels stay on one row. */
+  const showCtaIcon = useBreakpointValue({ base: !hasSecondaryCta, sm: true });
+  const ctaIcon = showCtaIcon ? <ArrowForwardIcon /> : undefined;
+  const dualCtaPx = hasSecondaryCta
+    ? { base: 3, sm: 4, md: 6 }
+    : { base: 5, md: 6 };
+  const dualCtaFont = hasSecondaryCta
+    ? { base: 'xs', sm: 'sm', md: 'md' }
+    : { base: 'sm', md: 'md' };
+  const secondaryBtnSx = {
+    whiteSpace: 'nowrap',
+    flexWrap: 'nowrap',
+    '& .chakra-button__icon': { flexShrink: 0 },
+  };
 
   return (
     <>
@@ -85,7 +107,7 @@ export default function HeroSection({
       minW={0}
       minH={PAGE_HERO_MIN_H}
       display="flex"
-      alignItems="flex-start"
+      alignItems="center"
       bgColor="gray.600"
       px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
       pb={showTrustBanner ? TRUST_BANNER_ABOVE_PB : { base: 10, md: 14 }}
@@ -118,38 +140,47 @@ export default function HeroSection({
           zIndex={1}
         />
       </>
-      {/* Top-aligned content; hero pb reserves the TrustBanner overlap seam */}
+      {/* Left-aligned; vertically centered in the hero (mobile + desktop). */}
       <Container
         maxW="1440px"
         position="relative"
         zIndex={2}
         w="100%"
-        px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-        pt={PAGE_HERO_CONTENT_PT}
+        px={{ base: 3, sm: 4, md: 6, lg: 8 }}
+        pt={0}
         pb={0}
         minW={0}
       >
         <Stack
           spacing={PAGE_HERO_STACK_SPACING}
           minW={0}
-          maxW={{ base: '100%', md: '900px', lg: '960px', xl: '1100px' }}
+          w="100%"
+          maxW={{ base: '100%', md: '960px', lg: '1040px', xl: '1160px' }}
           align="flex-start"
           textAlign="left"
-          layerStyle="clearReviewBadge"
         >
           {(breadcrumb?.length > 0 || children) && (
-            breadcrumb?.length > 0 ? (
-              <HeroBreadcrumb items={breadcrumb} />
-            ) : (
-              children
-            )
+            <Box
+              w="100%"
+              minW={0}
+              layerStyle={clearBadge ? 'clearReviewBadge' : undefined}
+            >
+              {breadcrumb?.length > 0 ? (
+                <HeroBreadcrumb items={breadcrumb} />
+              ) : (
+                children
+              )}
+            </Box>
           )}
           <Heading
             as="h1"
             size="hero"
             color="white"
             minW={0}
+            w="100%"
             textAlign="left"
+            layerStyle={clearBadge ? 'clearReviewBadge' : undefined}
+            sx={{ textWrap: 'balance' }}
           >
             {typeof heroTitle === 'string'
               ? heroTitle.includes(', ') && heroTitle === t.heroTitle
@@ -184,7 +215,12 @@ export default function HeroSection({
           </Heading>
 
           {(heroSubtitle || heroDescription) && (
-            <Stack spacing={PAGE_HERO_TITLES_SPACING} minW={0} maxW={{ base: '560px', md: '640px' }}>
+            <Stack
+              spacing={PAGE_HERO_TITLES_SPACING}
+              minW={0}
+              w="100%"
+              maxW={{ base: '100%', md: '820px', lg: '900px' }}
+            >
               {heroSubtitle && (
                 <Text
                   variant="heroSubtitle"
@@ -192,6 +228,7 @@ export default function HeroSection({
                   minW={0}
                   overflowWrap="break-word"
                   textAlign="left"
+                  sx={{ textWrap: 'pretty' }}
                 >
                   {heroSubtitle}
                 </Text>
@@ -201,6 +238,7 @@ export default function HeroSection({
                   variant="heroDescription"
                   color="whiteAlpha.900"
                   textAlign="left"
+                  sx={{ textWrap: 'pretty' }}
                 >
                   {heroDescription}
                 </Text>
@@ -209,21 +247,23 @@ export default function HeroSection({
           )}
 
           <Flex
-            gap={3}
+            gap={{ base: 2, md: 3 }}
             pt={{ base: 1, sm: 2, md: 4 }}
             align="center"
             direction="row"
-            flexWrap="wrap"
+            flexWrap="nowrap"
             w="100%"
             minW={0}
             alignSelf="stretch"
           >
-            {secondaryCta?.label && secondaryCta?.to ? (
+            {hasSecondaryCta ? (
               <>
                 <CtaButton
                   align="start"
                   onClick={onSubmissionOpen}
-                  rightIcon={<ArrowForwardIcon />}
+                  rightIcon={ctaIcon}
+                  px={dualCtaPx}
+                  fontSize={dualCtaFont}
                 >
                   {heroButton}
                 </CtaButton>
@@ -233,15 +273,14 @@ export default function HeroSection({
                       ? { href: secondaryCta.to, isExternal: true, rel: 'nofollow noopener noreferrer' }
                       : { as: RouterLink, to: secondaryCta.to })}
                     color="whiteAlpha.900"
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    fontSize={dualCtaFont}
                     fontWeight="600"
                     flexShrink={0}
-                    maxW="100%"
-                    whiteSpace="normal"
+                    whiteSpace="nowrap"
                     alignSelf="center"
                     _hover={{ color: 'white', textDecoration: 'underline' }}
                   >
-                    {secondaryCta.label}
+                    {secondaryLabel}
                   </Link>
                 ) : secondaryIsExternal ? (
                   <Button
@@ -250,47 +289,49 @@ export default function HeroSection({
                     isExternal
                     rel="nofollow noopener noreferrer"
                     variant="ctaOutlineLight"
-                    rightIcon={<ArrowForwardIcon />}
+                    rightIcon={ctaIcon}
                     borderRadius="full"
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    fontSize={dualCtaFont}
                     fontWeight="600"
-                    px={{ base: 5, md: 6 }}
+                    px={dualCtaPx}
                     minH={{ base: '44px', md: '48px' }}
-                    h="auto"
+                    h={{ base: '44px', md: '48px' }}
                     w="auto"
-                    maxW="22rem"
-                    flexShrink={1}
-                    whiteSpace="normal"
+                    maxW="none"
+                    flexShrink={0}
+                    whiteSpace="nowrap"
                     textAlign="center"
-                    lineHeight="1.25"
-                    py={2}
-                    overflow="hidden"
+                    lineHeight="1"
+                    py={0}
+                    overflow="visible"
+                    sx={secondaryBtnSx}
                     _hover={{ textDecoration: 'none' }}
                   >
-                    {secondaryCta.label}
+                    {secondaryLabel}
                   </Button>
                 ) : (
                   <Button
                     variant="ctaOutlineLight"
                     as={RouterLink}
                     to={secondaryCta.to}
-                    rightIcon={<ArrowForwardIcon />}
+                    rightIcon={ctaIcon}
                     borderRadius="full"
-                    fontSize={{ base: 'sm', md: 'md' }}
+                    fontSize={dualCtaFont}
                     fontWeight="600"
-                    px={{ base: 5, md: 6 }}
+                    px={dualCtaPx}
                     minH={{ base: '44px', md: '48px' }}
-                    h="auto"
+                    h={{ base: '44px', md: '48px' }}
                     w="auto"
-                    maxW="22rem"
-                    flexShrink={1}
-                    whiteSpace="normal"
+                    maxW="none"
+                    flexShrink={0}
+                    whiteSpace="nowrap"
                     textAlign="center"
-                    lineHeight="1.25"
-                    py={2}
-                    overflow="hidden"
+                    lineHeight="1"
+                    py={0}
+                    overflow="visible"
+                    sx={secondaryBtnSx}
                   >
-                    {secondaryCta.label}
+                    {secondaryLabel}
                   </Button>
                 )}
               </>

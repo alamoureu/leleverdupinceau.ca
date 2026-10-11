@@ -38,11 +38,16 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
 import platreHeroImg from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG';
-
-import platreAvant1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6030.PNG';
-import platreApres1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6031.PNG';
-import platreAvant2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.PNG';
-import platreApres2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.PNG';
+import platreSalonAvant from '../images/3-ville/Montréal/avant-apres/IMG_5969 5.jpg';
+import platreSalonApres from '../images/3-ville/Montréal/avant-apres/IMG_5970 5.jpg';
+import platrePlafondAvant from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_0863.jpg';
+import platrePlafondApres from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_0864.jpg';
+import platreCadreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
+import platreCadreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
+import platreFenetreAvant from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
+import platreFenetreApres from '../images/3-ville/st-lambert/avant-apres/IMG_0860.jpg';
+import platreCoinAvant from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
+import platreCoinApres from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -216,14 +221,29 @@ export default function ReparationPlatreGysePage() {
 
   const carouselImages = [
     {
-      before: platreAvant1,
-      after: platreApres1,
-      description: 'Réparation plâtre plafond fissuré Montréal avant après',
+      before: platreSalonAvant,
+      after: platreSalonApres,
+      description: 'Salon - fissures et patches de plâtre corrigées',
     },
     {
-      before: platreAvant2,
-      after: platreApres2,
-      description: 'Correction joints et mur abîmé avant peinture - Montréal',
+      before: platrePlafondAvant,
+      after: platrePlafondApres,
+      description: 'Plafond - taches et réparation de gypse',
+    },
+    {
+      before: platreCadreAvant,
+      after: platreCadreApres,
+      description: 'Cadrage de fenêtre - plâtre et peinture',
+    },
+    {
+      before: platreFenetreAvant,
+      after: platreFenetreApres,
+      description: 'Réparation autour d\'une fenêtre',
+    },
+    {
+      before: platreCoinAvant,
+      after: platreCoinApres,
+      description: 'Réparation de plâtre - Coin de mur endommagé',
     },
   ];
 

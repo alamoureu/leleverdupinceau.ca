@@ -4,15 +4,15 @@
  */
 import peintureInterieure from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
 import peintureExterieure from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
-import peintureResidentielle from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import peintureResidentielle from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
 import peintureCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import peintureIndustrielle from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
 import teintureExterieure from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
-import preparationSurfaces from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
-import reparationPlatre from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG';
+import preparationSurfaces from '../images/L2 Services specialise/Photo page -surfaces/header-wrapping.JPEG';
+import reparationPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
 import peintureApresSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
-import peintureAuPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray man.JPEG';
-import armoiresCuisine from '../images/L3 Sous services/Photo page armoires de cuisine/header.jpeg';
+import peintureAuPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.png';
+import armoiresCuisine from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.jpg';
 import peintureCondo from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
 import peintureAppartement from '../images/L3 Sous services/Photo page appartement/header.PNG';
 import peintureInterieureMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
