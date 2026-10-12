@@ -78,6 +78,9 @@ export default function ResourcesSection({
           <SimpleGrid
             columns={{ base: 1, md: 3 }}
             spacing={{ base: 4, md: 5, lg: 6 }}
+            w="100%"
+            maxW={{ base: '100%', md: '1100px', lg: '1200px' }}
+            mx="auto"
           >
             {articles.map((article) => (
               <Link
