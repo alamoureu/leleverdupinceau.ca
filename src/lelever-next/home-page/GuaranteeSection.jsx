@@ -218,7 +218,7 @@ export default function GuaranteeSection({
               spacing={{ base: 3, sm: 3.5, md: 4, lg: 4 }}
               textAlign={{ base: 'center', md: 'left' }}
               align={{ base: 'center', md: 'flex-start' }}
-              flex={{ base: 'none', md: '1 1 0%' }}
+              flex="none"
               w={{ base: '100%', md: 'auto' }}
               minW={0}
               maxW={{
@@ -260,6 +260,7 @@ export default function GuaranteeSection({
                 overflowWrap="break-word"
                 wordBreak="break-word"
                 w="100%"
+                maxW={{ md: '36ch' }}
               >
                 {body}
               </Text>

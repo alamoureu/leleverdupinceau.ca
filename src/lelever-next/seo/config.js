@@ -1,5 +1,5 @@
 /**
- * SEO config – Montreal painting company
+ * SEO config - Montreal painting company
  * Goal: dominate "peinture Montréal", "painting Montreal", "peintre professionnel Montréal"
  */
 

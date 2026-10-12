@@ -54,8 +54,10 @@ export default function HeroSection({
   subtitle,
   description,
   buttonText,
+  hideCta = false,
   imageBackground,
   imageAlt,
+  imagePosition = 'center',
   /** Overlay on background image (CSS background value). Default: dark translucent. */
   overlayBg = 'rgba(0, 0, 0, 0.4)',
   /** Optional breadcrumb items for HeroBreadcrumb (preferred over children). */
@@ -123,6 +125,7 @@ export default function HeroSection({
           w="100%"
           h="100%"
           objectFit="cover"
+          objectPosition={imagePosition}
           zIndex={0}
           loading="eager"
           fetchpriority="high"
@@ -246,6 +249,7 @@ export default function HeroSection({
             </Stack>
           )}
 
+          {!hideCta && (
           <Flex
             gap={{ base: 2, md: 3 }}
             pt={{ base: 1, sm: 2, md: 4 }}
@@ -341,6 +345,7 @@ export default function HeroSection({
               </CtaButton>
             )}
           </Flex>
+          )}
         </Stack>
       </Container>
     </Box>

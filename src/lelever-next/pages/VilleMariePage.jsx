@@ -31,6 +31,7 @@ import {
   FaStar,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
@@ -42,7 +43,11 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import { RBQ_LICENSE } from '../constants/company';
 
-import heroImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
+import heroImg from '../images/3-ville/Montréal/ville-marie/header.jpg';
+import interieureImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
+import exterieureImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
+import residentielleImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
+import realisationsImg from '../images/3-ville/Montréal/5. réalisations/IMG_5877.JPG';
 import condoImg from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
 import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
 import appartementImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
@@ -132,26 +137,30 @@ const SERVICES = [
   {
     title: 'Peinture intérieure à Montréal',
     text: 'Pour les condos, unités occupées et projets centre-ville où la logistique, la propreté et la finition intérieure sont prioritaires.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
     cta: 'Voir la page',
+    image: interieureImg,
   },
   {
     title: 'Peinture extérieure à Montréal',
     text: 'Pour les façades, balcons, boiseries extérieures et surfaces exposées au climat montréalais.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
     cta: 'Voir la page',
+    image: exterieureImg,
   },
   {
     title: 'Peinture résidentielle',
     text: 'Pour un chantier simple à vivre, bien planifié et sans stress dans votre condo, appartement ou propriété urbaine.',
     to: '/services/peinture-residentielle',
     cta: 'Voir la page',
+    image: residentielleImg,
   },
   {
     title: 'Nos réalisations',
     text: 'Pour montrer des projets concrets et appuyer la crédibilité dans un contexte centre-ville.',
     to: '/realisations',
     cta: 'Voir les projets',
+    image: realisationsImg,
   },
 ];
 
@@ -196,12 +205,12 @@ const INTERNAL_LINKS = [
   {
     title: 'Peinture intérieure à Montréal',
     description: 'Intérieur résidentiel et commercial dans la métropole.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
   },
   {
     title: 'Peinture extérieure à Montréal',
     description: 'Façades, boiseries, balcons et surfaces exposées.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
   },
   {
     title: 'Peinture résidentielle',
@@ -259,7 +268,7 @@ export default function VilleMariePage() {
     '@type': 'LocalBusiness',
     name: 'Le Lever du Pinceau',
     url: 'https://leleverdupinceau.ca',
-    telephone: '+15148005155',
+    telephone: LOCAL_BUSINESS_SCHEMA.telephone,
     areaServed: [
       { '@type': 'City', name: 'Ville-Marie' },
       { '@type': 'City', name: 'Montréal' },
@@ -451,7 +460,7 @@ export default function VilleMariePage() {
                       border="1px solid"
                       borderColor="gray.200"
                       borderRadius="xl"
-                      p={{ base: 6, md: 7 }}
+                      overflow="hidden"
                       h="100%"
                       display="flex"
                       flexDirection="column"
@@ -462,7 +471,16 @@ export default function VilleMariePage() {
                       }}
                       transition="all 0.2s"
                     >
-                      <Stack spacing={4} flex={1} justify="space-between">
+                      <Image
+                        src={service.image}
+                        alt={`${service.title} - Ville-Marie`}
+                        w="100%"
+                        h="180px"
+                        objectFit="cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <Stack spacing={4} flex={1} justify="space-between" p={{ base: 6, md: 7 }}>
                         <Box>
                           <Heading
                             as="h3"

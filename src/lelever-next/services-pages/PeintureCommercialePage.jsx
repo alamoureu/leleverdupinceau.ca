@@ -42,6 +42,8 @@ import bureauAvant from '../images/L2 Services principaux/Photo page -peinture-c
 import bureauApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre professionnel commercial à Montréal, Le Lever du Pinceau a complété ce bureau commerciale au centre ville.jpg';
 import localNdgAvant from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal de profession, Le Lever du Pinceau a peinturé ce local commercial dans NDG, Montréal.jpg';
 import localNdgApres from '../images/L2 Services principaux/Photo page -peinture-commerciale/Peintre Montréal professionnel, Le Lever du Pinceau a peinturé ce local commercial dans le quartier Notre-dame-de-grâce, Mtl.jpg';
+import steelDeckAvant from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
+import steelDeckApres from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -218,6 +220,7 @@ export default function PeintureCommercialePage() {
     { before: bureauAvant, after: bureauApres, description: 'Peinture bureau commercial - centre-ville Montréal' },
     
     { before: localNdgAvant, after: localNdgApres, description: 'Peinture local commercial - NDG, Montréal' },
+    { before: steelDeckAvant, after: steelDeckApres, description: 'Plafond steel deck peint au pistolet - commercial' },
 ];
 
   return (

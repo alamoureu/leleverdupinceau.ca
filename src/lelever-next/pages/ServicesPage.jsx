@@ -12,11 +12,9 @@ import {
   Button,
   HStack,
   Image,
-  Icon,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { FaPaintBrush, FaBroom, FaSprayCan, FaToolbox, FaHouseDamage } from 'react-icons/fa';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
@@ -31,6 +29,15 @@ import imgCommerciale from '../images/2-services/Page peinture commerciale/1. r�
 import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
 import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
 import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
+import imgTeinture from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
+import imgSurfaces from '../images/Moses&Dany_Wraping.jpeg';
+import imgPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.png';
+import imgPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
+import imgSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
+import imgArmoires from '../images/L3 Sous services/Photo page armoires de cuisine/header.jpeg';
+import imgMaison from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
+import imgCondo from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
+import imgAppartement from '../images/L3 Sous services/Photo page appartement/header.PNG';
 
 function MainHubCard({
   image,
@@ -95,58 +102,55 @@ function MainHubCard({
           {description}
         </Text>
         {subLinks && subLinks.length > 0 && (
-          <SimpleGrid columns={{ base: 1, sm: 2 }} spacingX={4} spacingY={2}>
+          <Stack spacing={2}>
             {subLinks.map((item) => (
               <Link
                 key={item.href}
                 as={RouterLink}
                 to={item.href}
+                display="flex"
+                alignItems="center"
+                gap={2}
                 fontSize="sm"
                 fontWeight="medium"
                 color="brand.500"
                 _hover={{ textDecoration: 'underline', color: 'brand.600' }}
               >
+                <ArrowForwardIcon boxSize={3} />
                 {item.label}
               </Link>
             ))}
-          </SimpleGrid>
+          </Stack>
         )}
-        <Box pt={1} mt="auto">
-          <Button
-            as={RouterLink}
-            to={buttonHref}
-            variant="ghost"
-            borderRadius="full"
-            size="md"
-            border="1.5px solid"
-            borderColor="brand.500"
-            color="brand.500"
-            bg="transparent"
-            boxShadow="none"
-            fontWeight="semibold"
-            _hover={{ bg: 'brand.50', boxShadow: 'none' }}
-            _active={{ bg: 'brand.100' }}
-            rightIcon={<ArrowForwardIcon />}
-          >
-            {buttonLabel}
-          </Button>
-        </Box>
+        <Button
+          variant="ctaOutline"
+          as={RouterLink}
+          to={buttonHref}
+          borderRadius="full"
+          size="md"
+          w="100%"
+          mt="auto"
+          rightIcon={<ArrowForwardIcon />}
+        >
+          {buttonLabel}
+        </Button>
       </Stack>
     </Box>
   );
 }
 
-function SpecializedRow({ icon, title, description, href, isFr }) {
+function PhotoLinkCard({ image, title, description, href, isFr }) {
   return (
     <Link
       as={RouterLink}
       to={href}
       borderRadius="lg"
+      overflow="hidden"
       border="1px solid"
       borderColor="gray.200"
       bg="white"
-      p={{ base: 4, md: 5 }}
-      display="block"
+      display="flex"
+      flexDirection="column"
       h="100%"
       transition="border-color 0.2s, box-shadow 0.2s"
       _hover={{
@@ -155,33 +159,48 @@ function SpecializedRow({ icon, title, description, href, isFr }) {
         boxShadow: 'md',
       }}
     >
-      <HStack align="flex-start" spacing={4}>
-        <Flex
-          flexShrink={0}
-          w="44px"
-          h="44px"
-          borderRadius="lg"
-          bg="brand.50"
-          align="center"
-          justify="center"
-          color="brand.500"
-        >
-          <Icon as={icon} boxSize={5} />
-        </Flex>
-        <Stack spacing={1} minW={0}>
-          <Heading as="h3" size="subsection" color="gray.800">
-            {title}
-          </Heading>
-          <Text fontSize="sm" color="gray.600" lineHeight="1.5">
-            {description}
-          </Text>
-          <HStack color="brand.500" fontSize="sm" fontWeight="medium" pt={1}>
-            <Text>{isFr ? 'En savoir plus' : 'Learn more'}</Text>
-            <ArrowForwardIcon boxSize={3} />
-          </HStack>
-        </Stack>
-      </HStack>
+      <Image
+        src={image}
+        alt={title}
+        w="100%"
+        h={{ base: '180px', md: '200px' }}
+        objectFit="cover"
+        loading="lazy"
+        decoding="async"
+      />
+      <Stack spacing={1} p={{ base: 4, md: 5 }} flex={1}>
+        <Heading as="h3" size="subsection" color="gray.800">
+          {title}
+        </Heading>
+        <Text fontSize="sm" color="gray.600" lineHeight="1.5">
+          {description}
+        </Text>
+        <HStack color="brand.500" fontSize="sm" fontWeight="medium" pt={1} mt="auto">
+          <Text>{isFr ? 'En savoir plus' : 'Learn more'}</Text>
+          <ArrowForwardIcon boxSize={3} />
+        </HStack>
+      </Stack>
     </Link>
+  );
+}
+
+function PhotoLinkSection({ title, subtitle, items, isFr }) {
+  return (
+    <Stack spacing={6} pt={{ base: 4, md: 8 }}>
+      <Stack spacing={2} textAlign="center">
+        <Heading as="h2" size="section" color="gray.800">
+          {title}
+        </Heading>
+        <Text textStyle="bodyLarge" color="gray.600" maxW="720px" mx="auto">
+          {subtitle}
+        </Text>
+      </Stack>
+      <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={4}>
+        {items.map((item) => (
+          <PhotoLinkCard key={item.href} {...item} isFr={isFr} />
+        ))}
+      </SimpleGrid>
+    </Stack>
   );
 }
 
@@ -240,7 +259,7 @@ export default function ServicesPage() {
             { label: 'Condo painting', href: '/services/peinture-residentielle/condo' },
             { label: 'Apartment painting', href: '/services/peinture-residentielle/appartement' },
           ],
-      buttonLabel: isFr ? 'Voir tous les services résidentiels' : 'All residential services',
+      buttonLabel: isFr ? 'Services résidentiels' : 'Residential services',
       buttonHref: '/services/peinture-residentielle',
       imageAlt: isFr ? 'Peinture résidentielle - Le Lever du Pinceau' : 'Residential painting - Le Lever du Pinceau',
     },
@@ -253,7 +272,7 @@ export default function ServicesPage() {
         : 'Offices, restaurants, retail, lobbies and daycares.',
       titleHref: '/services/peinture-commerciale',
       subLinks: [],
-      buttonLabel: isFr ? 'Voir tous les services commerciaux' : 'All commercial services',
+      buttonLabel: isFr ? 'Services commerciaux' : 'Commercial services',
       buttonHref: '/services/peinture-commerciale',
       imageAlt: isFr ? 'Peinture commerciale - Le Lever du Pinceau' : 'Commercial painting - Le Lever du Pinceau',
     },
@@ -284,7 +303,7 @@ export default function ServicesPage() {
       subLinks: isFr
         ? [{ label: 'Armoires de cuisine', href: '/services/peinture-interieure/armoires-de-cuisine' }]
         : [{ label: 'Kitchen cabinets', href: '/services/peinture-interieure/armoires-de-cuisine' }],
-      buttonLabel: isFr ? 'Voir tous les services intérieurs' : 'All interior services',
+      buttonLabel: isFr ? 'Services intérieurs' : 'Interior services',
       buttonHref: '/services/peinture-interieure',
       imageAlt: isFr ? 'Peinture intérieure - Le Lever du Pinceau' : 'Interior painting - Le Lever du Pinceau',
     },
@@ -297,7 +316,7 @@ export default function ServicesPage() {
         : 'Siding, deck, fence, foundation. Protection built for Quebec weather.',
       titleHref: '/services/peinture-exterieure',
       subLinks: [],
-      buttonLabel: isFr ? 'Voir tous les services extérieurs' : 'All exterior services',
+      buttonLabel: isFr ? 'Services extérieurs' : 'Exterior services',
       buttonHref: '/services/peinture-exterieure',
       imageAlt: isFr ? 'Peinture extérieure - Le Lever du Pinceau' : 'Exterior painting - Le Lever du Pinceau',
     },
@@ -306,66 +325,120 @@ export default function ServicesPage() {
   const specialized = isFr
     ? [
         {
-          icon: FaPaintBrush,
+          image: imgTeinture,
           title: 'Teinture extérieure',
           description: 'Patio, clôture, revêtement en bois.',
           href: '/services/teinture-exterieure',
         },
         {
-          icon: FaBroom,
+          image: imgSurfaces,
           title: 'Préparation de surfaces',
-          description: 'Sablage, rebouchage, plâtre, calfeutrage.',
+          description: 'Sablage, plâtrage, calfeutrage, protection.',
           href: '/services/preparation-de-surfaces',
         },
         {
-          icon: FaSprayCan,
+          image: imgPistolet,
           title: 'Peinture au pistolet',
           description: 'Application airless pour grands espaces.',
           href: '/services/peinture-au-pistolet',
         },
         {
-          icon: FaToolbox,
+          image: imgPlatre,
           title: 'Réparation de plâtre et gypse',
           description: 'Trous, fissures, joints avant peinture.',
           href: '/services/reparation-de-platre-et-gypse',
         },
         {
-          icon: FaHouseDamage,
+          image: imgSinistre,
           title: 'Peinture après sinistre',
           description: 'Dégât d\'eau, feu, moisissure.',
           href: '/services/peinture-apres-sinistre',
         },
+        {
+          image: imgArmoires,
+          title: "Peinture d'armoires de cuisine",
+          description: 'Armoires rafraîchies au pistolet, fini lisse et durable.',
+          href: '/services/peinture-interieure/armoires-de-cuisine',
+        },
       ]
     : [
         {
-          icon: FaPaintBrush,
+          image: imgTeinture,
           title: 'Exterior staining',
           description: 'Deck, fence, wood siding.',
           href: '/services/teinture-exterieure',
         },
         {
-          icon: FaBroom,
+          image: imgSurfaces,
           title: 'Surface preparation',
-          description: 'Sanding, patching, plaster, caulking.',
+          description: 'Sanding, plastering, caulking, protection.',
           href: '/services/preparation-de-surfaces',
         },
         {
-          icon: FaSprayCan,
+          image: imgPistolet,
           title: 'Spray painting',
           description: 'Airless application for large areas.',
           href: '/services/peinture-au-pistolet',
         },
         {
-          icon: FaToolbox,
+          image: imgPlatre,
           title: 'Drywall and plaster repair',
           description: 'Holes, cracks and seams before paint.',
           href: '/services/reparation-de-platre-et-gypse',
         },
         {
-          icon: FaHouseDamage,
+          image: imgSinistre,
           title: 'Post-disaster painting',
           description: 'Water, fire or mould recovery.',
           href: '/services/peinture-apres-sinistre',
+        },
+        {
+          image: imgArmoires,
+          title: 'Kitchen cabinet painting',
+          description: 'Spray-refinished cabinets with a smooth, durable finish.',
+          href: '/services/peinture-interieure/armoires-de-cuisine',
+        },
+      ];
+
+  const propertyTypes = isFr
+    ? [
+        {
+          image: imgMaison,
+          title: 'Maison unifamiliale',
+          description: 'Intérieur complet ou pièces ciblées, maison occupée ou vide.',
+          href: '/services/peinture-residentielle/maison',
+        },
+        {
+          image: imgCondo,
+          title: 'Condo',
+          description: 'Coordination avec la copropriété et chantier propre.',
+          href: '/services/peinture-residentielle/condo',
+        },
+        {
+          image: imgAppartement,
+          title: 'Appartement',
+          description: 'Avant emménagement ou entre deux locataires.',
+          href: '/services/peinture-residentielle/appartement',
+        },
+      ]
+    : [
+        {
+          image: imgMaison,
+          title: 'Single-family house',
+          description: 'Full interior or selected rooms, occupied or empty.',
+          href: '/services/peinture-residentielle/maison',
+        },
+        {
+          image: imgCondo,
+          title: 'Condo',
+          description: 'Coordination with the condo board and a clean job site.',
+          href: '/services/peinture-residentielle/condo',
+        },
+        {
+          image: imgAppartement,
+          title: 'Apartment',
+          description: 'Before move-in or between tenants.',
+          href: '/services/peinture-residentielle/appartement',
         },
       ];
 
@@ -374,15 +447,15 @@ export default function ServicesPage() {
         { label: 'Pourquoi engager un peintre professionnel?', href: '/peintre-professionnel' },
         { label: 'Nos secteurs desservis', href: '/secteurs' },
         { label: 'Voir nos réalisations', href: '/realisations' },
-        { label: 'Peinture extérieure à Montréal', href: '/peinture-exterieure-montreal' },
-        { label: 'Peinture intérieure à Montréal', href: '/peinture-interieure-montreal' },
+        { label: 'Peinture extérieure à Montréal', href: '/services/peinture-exterieure' },
+        { label: 'Peinture intérieure à Montréal', href: '/services/peinture-interieure' },
       ]
     : [
         { label: 'Why hire a professional painter?', href: '/peintre-professionnel' },
         { label: 'Areas we serve', href: '/secteurs' },
         { label: 'View our portfolio', href: '/realisations' },
-        { label: 'Exterior painting in Montreal', href: '/peinture-exterieure-montreal' },
-        { label: 'Interior painting in Montreal', href: '/peinture-interieure-montreal' },
+        { label: 'Exterior painting in Montreal', href: '/services/peinture-exterieure' },
+        { label: 'Interior painting in Montreal', href: '/services/peinture-interieure' },
       ];
 
   const heroTitle = isFr ? 'Nos services de peinture' : 'Our painting services';
@@ -433,45 +506,38 @@ export default function ServicesPage() {
               </Heading>
             </Stack>
 
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={{ base: 8, md: 8 }}>
-              {rowOne.map((s) => (
-                <MainHubCard key={s.key} {...s} />
+            <Flex wrap="wrap" justify="center" gap={8}>
+              {[...rowOne, ...rowTwo].map((s) => (
+                <Box
+                  key={s.key}
+                  w={{ base: '100%', md: 'calc((100% - 2rem) / 2)', xl: 'calc((100% - 4rem) / 3)' }}
+                >
+                  <MainHubCard {...s} />
+                </Box>
               ))}
-            </SimpleGrid>
+            </Flex>
 
-            <SimpleGrid
-              columns={{ base: 1, md: 2 }}
-              spacing={{ base: 8, md: 8 }}
-              maxW={{ md: '920px' }}
-              mx="auto"
-            >
-              {rowTwo.map((s) => (
-                <MainHubCard key={s.key} {...s} />
-              ))}
-            </SimpleGrid>
+            <PhotoLinkSection
+              title={isFr ? 'Services spécialisés' : 'Specialized services'}
+              subtitle={
+                isFr
+                  ? 'Des solutions complémentaires pour un résultat complet'
+                  : 'Complementary solutions for a complete result'
+              }
+              items={specialized}
+              isFr={isFr}
+            />
 
-            <Stack spacing={6} pt={{ base: 4, md: 8 }}>
-              <Stack spacing={2} textAlign="center">
-                <Heading as="h2" size="section" color="gray.800">
-                  {isFr ? 'Services spécialisés' : 'Specialized services'}
-                </Heading>
-                <Text textStyle="bodyLarge" color="gray.600" maxW="720px" mx="auto">
-                  {isFr
-                    ? 'Des solutions complémentaires pour un résultat complet'
-                    : 'Complementary solutions for a complete result'}
-                </Text>
-              </Stack>
-              <Flex wrap="wrap" justify="center" gap={4}>
-                {specialized.map((item) => (
-                  <Box
-                    key={item.href}
-                    w={{ base: '100%', md: 'calc((100% - 1rem) / 2)', lg: 'calc((100% - 2rem) / 3)' }}
-                  >
-                    <SpecializedRow {...item} isFr={isFr} />
-                  </Box>
-                ))}
-              </Flex>
-            </Stack>
+            <PhotoLinkSection
+              title={isFr ? 'Type de propriété' : 'Property type'}
+              subtitle={
+                isFr
+                  ? 'Un service adapté à votre maison, votre condo ou votre appartement'
+                  : 'A service tailored to your house, condo or apartment'
+              }
+              items={propertyTypes}
+              isFr={isFr}
+            />
           </Stack>
         </Container>
 

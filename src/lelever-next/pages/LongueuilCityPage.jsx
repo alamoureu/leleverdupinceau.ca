@@ -31,6 +31,14 @@ import lonImg0831 from '../images/3-ville/longueuil/avant-apres/IMG_0831.jpg';
 
 import bedroomBefore from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
 import bedroomAfter from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
+import lonAdd1b from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
+import lonAdd1a from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
+import lonAdd2b from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
+import lonAdd2a from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
+import lonAdd3b from '../images/3-ville/brossard/avant-apres/IMG_0838.jpg';
+import lonAdd3a from '../images/3-ville/brossard/avant-apres/IMG_0839.jpg';
+import lonAdd4b from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
+import lonAdd4a from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -155,6 +163,11 @@ export default function LongueuilCityPage() {
       after: bedroomAfter,
       description: isFr ? 'Peinture résidentielle - Chambre à Longueuil' : 'Residential painting - Bedroom in Longueuil',
     },
+
+  { before: lonAdd1b, after: lonAdd1a, description: 'Balcon et escalier - peinture' },
+  { before: lonAdd2b, after: lonAdd2a, description: 'Cadrage de fenêtre - plâtre et peinture' },
+  { before: lonAdd3b, after: lonAdd3a, description: 'Intérieur - rafraîchissement' },
+  { before: lonAdd4b, after: lonAdd4a, description: 'Salon - murs et boiseries' },
 ];
 
   // Section 6 - Pourquoi nous choisir

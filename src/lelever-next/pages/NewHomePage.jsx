@@ -68,11 +68,11 @@ export default function NewHomePage() {
   }, [isOpen]);
 
   const title = isFr
-    ? 'Peinture à Montréal | Résidentielle et commerciale | Le Lever du Pinceau'
-    : 'Painting in Montreal | Residential and commercial | Le Lever du Pinceau';
+    ? 'Peintre professionnel à Montréal | Le Lever du Pinceau'
+    : 'Professional Painter in Montreal | Le Lever du Pinceau';
   const description = isFr
-    ? `Entreprise de peinture à Montréal. Service clé en main: intérieur, extérieur, résidentiel et commercial. ${GOOGLE_REVIEWS_LABEL.fr} 5 étoiles. Licence RBQ. Soumission gratuite en 24h.`
-    : `Painting company in Montreal. Turnkey interior, exterior, residential and commercial service. ${GOOGLE_REVIEW_COUNT}+ 5-star reviews. RBQ license. Free quote in 24h.`;
+    ? `Peintre à Montréal : intérieur, extérieur, résidentiel et commercial. ${GOOGLE_REVIEWS_LABEL.fr} 5 étoiles, licence RBQ, soumission gratuite en 24h.`
+    : `Montreal painter: interior, exterior, residential and commercial. ${GOOGLE_REVIEW_COUNT}+ 5-star reviews, RBQ license, free quote in 24h.`;
 
   const faqTitle = isFr
     ? 'Questions fréquentes sur nos services de peinture'
@@ -96,7 +96,7 @@ export default function NewHomePage() {
           description={t.heroDescription}
         />
 
-        <ControlSection onSubmissionOpen={onOpen} />
+        <ControlSection />
 
         <GuaranteeSection onSubmissionOpen={onOpen} />
 

@@ -1,6 +1,9 @@
 // Blog post data: Bétonel vs Benjamin Moore
+import heroImage from '../images/1-page-principale/blog hub/blog-comparatif-peinture.jpg';
+
 export const betonelVsBenjaminMooreData = {
   slug: 'betonel-vs-benjamin-moore',
+  heroImage,
   url: 'https://leleverdupinceau.ca/blog/betonel-vs-benjamin-moore',
   seo: {
     title: {

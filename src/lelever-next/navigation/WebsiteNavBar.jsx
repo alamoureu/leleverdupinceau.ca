@@ -24,6 +24,7 @@ import { useTranslation } from '../i18n';
 import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 import ShakeButton from '../home-page/ShakeButton';
 import { showsNavReviewBadge } from '../constants/navReviewBadge';
+import whiteLogo from '../images/whitelogo.png';
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();
@@ -171,7 +172,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 loading="eager"
                 fetchpriority="low"
                 decoding="async"
-                src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
+                src={whiteLogo}
                 alt="Logo Le Lever du Pinceau"
                 htmlWidth={1409}
                 htmlHeight={873}

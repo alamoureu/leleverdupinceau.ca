@@ -8,7 +8,6 @@ import {
   Stack,
   SimpleGrid,
   Link,
-  Button,
   Icon,
   HStack,
   Image,
@@ -21,6 +20,7 @@ import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import FinalCTASection from '../home-page/FinalCTASection';
+import CtaButton from '../home-page/CtaButton';
 import SubmissionModal from '../home-page/SubmissionModal';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
@@ -503,23 +503,9 @@ export default function SecteursDesservisPage() {
                   ? 'Nous couvrons l\'ensemble du Grand Montréal et la Rive-Sud. Décrivez votre projet et nous confirmerons notre disponibilité dans votre quartier.'
                   : 'We cover all of Greater Montreal and the South Shore. Describe your project and we will confirm our availability in your neighborhood.'}
               </Text>
-              <Link as={RouterLink} to="/contact" _hover={{ textDecoration: 'none' }}>
-                <Button
-                  variant="cta"
-                  rightIcon={<ArrowForwardIcon />}
-                  borderRadius="full"
-                  size="lg"
-                  px={{ base: 8, md: 10 }}
-                  w="auto"
-                  maxW="20rem"
-                  whiteSpace="normal"
-                  lineHeight="1.2"
-                  h="auto"
-                  minH="48px"
-                >
-                  {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-                </Button>
-              </Link>
+              <CtaButton as={RouterLink} to="/contact" rightIcon={<ArrowForwardIcon />}>
+                {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
+              </CtaButton>
             </Stack>
           </Container>
         </Box>

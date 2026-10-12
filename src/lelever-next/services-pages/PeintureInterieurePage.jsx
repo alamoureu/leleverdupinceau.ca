@@ -1,63 +1,136 @@
 import React, { Fragment } from 'react';
-import { Link as RouterLink } from 'react-router-dom';
+import { Box, useDisclosure } from '@chakra-ui/react';
 import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  Stack,
-  Button,
-  Flex,
-  Link,
-  Icon,
-  HStack,
-  SimpleGrid,
-  Image,
-  useDisclosure,
-} from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
-import {
+  FaBuilding,
+  FaTruck,
+  FaCalendarAlt,
+  FaShieldAlt,
+  FaStar,
+  FaComments,
+  FaHome,
+  FaKey,
+  FaTag,
   FaPaintBrush,
   FaLayerGroup,
   FaCut,
   FaPalette,
   FaBox,
-  FaShieldAlt,
-  FaHome,
   FaUtensils,
   FaBath,
   FaBorderAll,
   FaArrowsAlt,
-  FaBuilding,
   FaWarehouse,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
-import SubmissionModal from '../home-page/SubmissionModal';
-import FinalCTASection from '../home-page/FinalCTASection';
-import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
-
-import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
-
-import chambreVerteAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
-import chambreVerteApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
-
-import hallEntreeAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
-import hallEntreeApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
-
+import {
+  SpecialitesSection,
+  serviceBreadcrumbSchema,
+  faqPageSchema,
+} from '../components/ServicePageSections';
+import SubmissionModal from '../home-page/SubmissionModal';
+import FinalCTASection from '../home-page/FinalCTASection';
+import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
-const HERO_BREADCRUMB = [
-  { label: 'Accueil', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Peinture intérieure' },
+import heroImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
+import griffintownAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown avant.jpg';
+import griffintownApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Griffintown après.JPG';
+import plateauAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg';
+import plateauApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
+import westmountAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg';
+import westmountApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg';
+import ndgAvant from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.jpg';
+import ndgApres from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.jpg';
+import armoiresMileEndAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint les portes d_armoires de cette cuisine dans le quartier du Mile-end, Montréal.jpg';
+import armoiresMileEndApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.jpg';
+import armoiresBlanchesAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_ensemble des armoires de cuisines de cette maison pour une transformation incroyable à Montréal.jpg';
+import armoiresBlanchesApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres pros à Montréal, Le Lever du Pinceau a peint les armoires de cuisines de cette maison dans le grand Montréal.jpg';
+import escalierWestmountAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peinturé et ont faites les réparations de plâtre sur les plafonds et les murs de cette maison à Westmount, Montréal.jpg';
+import escalierWestmountApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint  l_ensemble de cette maison victorienne à Westmount, Montréal.jpg';
+import couloirPlateauAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a travaillé au plâtre et à peinturé les murs du couloir de cette appartement au Plateau, Montréal.jpg';
+import couloirPlateauApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/peintre-plateau-montreal-appartement.jpg';
+import chambrePapierPeintAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint avant.jpg';
+import chambrePapierPeintApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint après.jpg';
+import chambreVerteAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts avant.jpg';
+import chambreVerteApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre murs verts après.jpg';
+import chambreFleurieAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri avant.jpg';
+import chambreFleurieApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, chambre papier peint fleuri après.jpg';
+import hallEntreeAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée avant.jpg';
+import hallEntreeApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, hall d_entrée après.jpg';
+import cadrageFenetreAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
+import cadrageFenetreApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
+import moulureAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
+import moulureApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
+import poutreAcierAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
+import poutreAcierApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+
+const CHECKMARKS_LOCAUX = [
+  {
+    icon: FaBuilding,
+    title: 'Habitués aux condos, plex et maisons de quartier',
+    text: 'Centre-ville, Plateau, Outremont, Ville-Marie ou Westmount : les contraintes ne sont pas les mêmes d\'un projet à l\'autre.',
+  },
+  {
+    icon: FaTruck,
+    title: 'Logistique simple en milieu urbain',
+    text: 'Accès, stationnement, immeuble occupé, ascenseur, circulation du matériel : on planifie le chantier pour que tout se passe proprement.',
+  },
+  {
+    icon: FaCalendarAlt,
+    title: 'Échéancier clair pour les projets sensibles',
+    text: 'Avant emménagement, avant vente, avant retour au bureau ou entre deux occupations : on comprend l\'importance du timing.',
+  },
+  {
+    icon: FaShieldAlt,
+    title: 'Protection complète des espaces habités',
+    text: 'Dans un condo ou un appartement occupé, chaque pièce compte. Le chantier doit rester propre, structuré et rassurant.',
+  },
+  {
+    icon: FaStar,
+    title: 'Finition nette dans des espaces très visibles',
+    text: 'En ville, les pièces sont souvent plus compactes et les détails sautent aux yeux. Le niveau de finition doit être impeccable.',
+  },
+  {
+    icon: FaComments,
+    title: 'Communication simple du début à la fin',
+    text: 'Quand le projet se fait vite et dans un espace occupé, la clarté de communication compte autant que l\'exécution.',
+  },
 ];
 
-const CHECKMARKS = [
+const CONTEXTES = [
+  {
+    icon: FaBuilding,
+    title: 'Condo centre-ville ou tour résidentielle',
+    text: 'Accès, ascenseur, stationnement limité, heures de travaux et espace compact : tout doit être coordonné proprement.',
+  },
+  {
+    icon: FaHome,
+    title: 'Plex, triplex et immeubles montréalais',
+    text: 'Escaliers, circulation verticale, murs plus anciens, petites zones communes et voisinage rapproché demandent une exécution respectueuse et bien protégée.',
+  },
+  {
+    icon: FaHome,
+    title: 'Maison unifamiliale en quartier résidentiel',
+    text: 'Les familles veulent un chantier rapide, propre et prévisible, sans que la maison soit désorganisée plus longtemps que nécessaire.',
+  },
+  {
+    icon: FaTag,
+    title: 'Rafraîchissement avant mise en marché',
+    text: 'Peindre avant de vendre permet souvent de rendre l\'espace plus lumineux, propre et projetable pour les visites.',
+  },
+  {
+    icon: FaKey,
+    title: 'Travaux avant emménagement ou prise de possession',
+    text: 'C\'est souvent la meilleure fenêtre pour peindre rapidement l\'intérieur avant de replacer les meubles et reprendre la routine.',
+  },
+];
+
+const CHECKMARKS_TECHNIQUES = [
   {
     icon: FaPaintBrush,
     title: 'Préparation minutieuse de chaque surface',
@@ -95,7 +168,6 @@ const SPECIALITES = [
     icon: FaHome,
     title: 'Murs et plafonds',
     text: 'Le coeur de la peinture intérieure. Minimum 2 couches avec sablage entre chaque pour un fini parfaitement uniforme.',
-    link: null,
   },
   {
     icon: FaUtensils,
@@ -109,41 +181,55 @@ const SPECIALITES = [
     icon: FaUtensils,
     title: 'Cuisine (murs)',
     text: 'Peinture résistante à la graisse et à l\'humidité. Fini lavable recommandé : perle ou semi-brillant. Coordination couleurs murs-armoires.',
-    link: null,
   },
   {
     icon: FaBath,
     title: 'Salle de bain',
     text: 'Fini semi-brillant anti-humidité obligatoire. Traitement anti-moisissure si nécessaire. Ventilation vérifiée avant application.',
-    link: null,
   },
   {
     icon: FaBorderAll,
     title: 'Boiseries, moulures et portes',
     text: 'Sablage, apprêt, peinture alkyde ou latex en fini semi-brillant. Découpes précises à la main. Le travail qui distingue un pro.',
-    link: null,
   },
   {
     icon: FaArrowsAlt,
     title: 'Escaliers et cage d\'escalier',
     text: 'Équipement spécialisé pour les hauteurs. Peinture et/ou teinture des marches, contremarches, rampes et murs.',
-    link: null,
   },
   {
     icon: FaBuilding,
     title: 'Plafonds hauts et cathédrales',
     text: 'Échafaudage professionnel et pistolet airless pour les plafonds hors d\'atteinte. Expertise en sécurité.',
-    link: null,
   },
   {
     icon: FaWarehouse,
     title: 'Sous-sol',
     text: 'Gestion de l\'humidité, murs de fondation, plancher de béton. Couleurs claires recommandées pour compenser l\'éclairage limité.',
-    link: null,
   },
 ];
 
 const FAQS = [
+  {
+    question: 'Intervenez-vous dans quels quartiers de Montréal\u00A0?',
+    answer: 'Oui. Nous desservons Montréal et plusieurs quartiers comme le Plateau Mont-Royal, Ville-Marie, Outremont, Westmount, Griffintown, Rosemont et d\'autres secteurs du Grand Montréal.',
+  },
+  {
+    question: 'Faites-vous la peinture intérieure de condos à Montréal\u00A0?',
+    answer: 'Oui. Nous réalisons régulièrement des projets en condo, y compris dans des immeubles occupés ou avec contraintes d\'accès. Nous adaptons le chantier aux règles de l\'immeuble et à l\'espace disponible.',
+  },
+  {
+    question: 'Pouvez-vous peindre avant un emménagement ou une mise en marché\u00A0?',
+    answer: 'Oui. C\'est l\'un des contextes les plus fréquents. Nous planifions les travaux pour que l\'espace soit prêt dans le bon délai, avant l\'arrivée des meubles ou des visites.',
+  },
+  {
+    question: 'Comment gérez-vous l\'accès, le stationnement ou l\'ascenseur dans les immeubles montréalais\u00A0?',
+    answer: 'Ces éléments sont intégrés à la planification du chantier. L\'objectif est de limiter les imprévus, protéger les zones de passage et garder une exécution fluide malgré les contraintes de l\'immeuble.',
+  },
+  {
+    question: 'Faites-vous aussi la peinture d\'armoires, de condos et d\'appartements\u00A0?',
+    answer: 'Oui. Selon le projet, nous pouvons aussi intervenir sur des armoires de cuisine, des condos et des appartements. Ces services ont aussi leurs pages dédiées dans le site.',
+  },
   {
     question: 'Combien de temps dure un projet de peinture intérieure\u00A0?',
     answer: 'La durée dépend surtout du nombre de pièces, de l\'état des surfaces et du niveau de préparation requis. Un projet simple peut prendre 1 à 2 jours, tandis qu\'un projet plus complet avec réparations, sablage et plusieurs couches peut prendre plus longtemps. Une soumission détaillée permet d\'établir un échéancier clair dès le départ.',
@@ -164,19 +250,24 @@ const FAQS = [
 
 const INTERNAL_LINKS = [
   {
-    title: 'Peinture intérieure à Montréal',
-    description: 'Page locale - intérieur résidentiel et commercial dans la métropole.',
-    to: '/peinture-interieure-montreal',
-  },
-  {
     title: 'Peinture extérieure',
     description: 'Revêtement, balcon, clôture et surfaces extérieures.',
     to: '/services/peinture-exterieure',
   },
   {
     title: 'Peinture résidentielle',
-    description: 'Service complet pour maisons, condos et appartements.',
+    description: 'Maisons, condos, logements et appartements à Montréal.',
     to: '/services/peinture-residentielle',
+  },
+  {
+    title: 'Peinture condo',
+    description: 'Projets spécialisés en condo : accès, contraintes et finition.',
+    to: '/services/peinture-residentielle/condo',
+  },
+  {
+    title: 'Peinture appartement',
+    description: 'Remise en état locative, logement occupé ou rafraîchissement.',
+    to: '/services/peinture-residentielle/appartement',
   },
   {
     title: 'Préparation de surfaces',
@@ -189,239 +280,137 @@ const INTERNAL_LINKS = [
     to: '/services/reparation-de-platre-et-gypse',
   },
   {
-    title: 'Pourquoi choisir un peintre professionnel\u00A0?',
-    description: 'Licence RBQ, assurance, expertise - ce qui fait la différence.',
-    to: '/peintre-professionnel',
+    title: 'Nos secteurs desservis à Montréal',
+    description: 'Plateau, Ville-Marie, Outremont, Westmount et Grand Montréal.',
+    to: '/secteurs/montreal',
   },
   {
-    title: 'Nos secteurs desservis',
-    description: 'Montréal, Laval, Longueuil et la Rive-Sud.',
-    to: '/secteurs',
+    title: 'Nos réalisations',
+    description: 'Avant / après de projets réels pour juger la finition.',
+    to: '/realisations',
   },
 ];
+
+const carouselImages = [
+  { before: griffintownAvant, after: griffintownApres, description: 'Peinture intérieure - Condo Griffintown' },
+  { before: plateauAvant, after: plateauApres, description: 'Rafraîchissement complet - Plateau Mont-Royal' },
+  { before: westmountAvant, after: westmountApres, description: 'Murs et plafonds - Westmount' },
+  { before: ndgAvant, after: ndgApres, description: 'Peinture intérieure - Notre-Dame-de-Grâce' },
+  { before: armoiresMileEndAvant, after: armoiresMileEndApres, description: 'Peinture d\'armoires de cuisine - Mile-End, Montréal' },
+  { before: escalierWestmountAvant, after: escalierWestmountApres, description: 'Peinture intérieure murs et plafonds - Westmount, Montréal' },
+  { before: armoiresBlanchesAvant, after: armoiresBlanchesApres, description: 'Armoires de cuisine en bois peintes en blanc - Montréal' },
+  { before: couloirPlateauAvant, after: couloirPlateauApres, description: 'Réparation de plâtre et peinture du couloir - Plateau, Montréal' },
+  { before: chambrePapierPeintAvant, after: chambrePapierPeintApres, description: 'Chambre - retrait du papier peint et peinture des murs, Montréal' },
+  { before: chambreVerteAvant, after: chambreVerteApres, description: 'Chambre - murs verts repeints en blanc, Montréal' },
+  { before: chambreFleurieAvant, after: chambreFleurieApres, description: 'Chambre - papier peint fleuri remplacé par une peinture neuve, Montréal' },
+  { before: hallEntreeAvant, after: hallEntreeApres, description: 'Hall d\'entrée - murs, plafond et portes, Montréal' },
+  { before: cadrageFenetreAvant, after: cadrageFenetreApres, description: 'Cadrage de fenêtre - réparation de plâtre et peinture, Montréal' },
+  { before: moulureAvant, after: moulureApres, description: 'Moulure - retouches et peinture de finition, Montréal' },
+  { before: poutreAcierAvant, after: poutreAcierApres, description: 'Poutre d\'acier rouillée - préparation et peinture, Montréal' },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Peinture intérieure à Montréal',
+  description: 'Service de peinture intérieure à Montréal pour condos, plex et maisons : murs, plafonds, boiseries et armoires. Chantier propre, finition impeccable, équipe RBQ.',
+  provider: {
+    '@type': 'LocalBusiness',
+    name: 'Le Lever du Pinceau',
+    url: 'https://leleverdupinceau.ca',
+  },
+  areaServed: { '@type': 'City', name: 'Montréal' },
+};
 
 export default function PeintureInterieurePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Accueil',
-        item: 'https://leleverdupinceau.ca/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Services',
-        item: 'https://leleverdupinceau.ca/services',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Peinture intérieure',
-        item: 'https://leleverdupinceau.ca/services/peinture-interieure',
-      },
-    ],
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQS.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
-
-  const carouselImages = [
-    {
-      before: chambreVerteAvant,
-      after: chambreVerteApres,
-      description: 'Chambre - murs verts repeints en blanc, Montréal',
-    },
-    {
-      before: hallEntreeAvant,
-      after: hallEntreeApres,
-      description: 'Hall d\'entrée - murs, plafond et portes, Montréal',
-    },
-];
-
   return (
     <Fragment>
       <SEOHead
-        title="Peinture intérieure | Murs, plafonds et boiseries | Le Lever du Pinceau"
-        description="Service de peinture intérieure: murs, plafonds, boiseries et finitions. Préparation soignée, chantier propre, licence RBQ. Grand Montréal. Soumission gratuite."
+        title="Peinture intérieure à Montréal | Peintres professionnels | Le Lever du Pinceau"
+        description="Peinture intérieure à Montréal pour condos, plex et maisons : murs, plafonds, boiseries et armoires. Chantier propre, licence RBQ, soumission gratuite."
         canonicalPath="/services/peinture-interieure"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[
+          serviceBreadcrumbSchema('Peinture intérieure', '/services/peinture-interieure'),
+          faqPageSchema(FAQS),
+          serviceSchema,
+        ]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
-
         <HeroSection
           onSubmissionOpen={onOpen}
-          pageContext='Peinture intérieure'
-          imageBackground={interieureHeroImg}
-          imageAlt='Peinture intérieure - peintre professionnel au travail'
-          overlayBg='rgba(0, 0, 0, 0.50)'
-          title='Peinture intérieure'
-          subtitle='Murs, plafonds, baies vitrées, boiseries.'
-          description='Techniques et finitions impeccables pour chaque pièce.'
-          buttonText='Obtenir ma soumission gratuite'
-          breadcrumb={HERO_BREADCRUMB}
+          pageContext="Peinture intérieure"
+          imageBackground={heroImg}
+          imageAlt="Peinture intérieure à Montréal - condo lumineux et impeccable après travaux"
+          overlayBg="rgba(0, 0, 0, 0.50)"
+          title="Peinture intérieure à Montréal"
+          subtitle="Murs, plafonds, boiseries et armoires"
+          description="Des projets propres, rapides et impeccables dans les condos, plex et maisons du Grand Montréal."
+          buttonText="Obtenir ma soumission gratuite"
+          breadcrumb={[
+            { label: 'Accueil', to: '/' },
+            { label: 'Services', to: '/services' },
+            { label: 'Peinture intérieure' },
+          ]}
         />
-{/* ===== SECTION 3 - CHECKMARKS TECHNIQUES ===== */}
+
         <FeatureCardsSection
           sectionPaddingTop={TRUST_BANNER_BELOW_PT}
-          title="Ce qui distingue notre peinture intérieure"
-          subtitle="Des techniques maîtrisées pour chaque surface de votre intérieur"
-          items={CHECKMARKS}
+          title="Une exécution pensée pour les réalités d'un projet intérieur à Montréal"
+          subtitle="Le bon résultat ne dépend pas seulement de la peinture, mais aussi du contexte dans lequel le chantier se déroule."
+          items={CHECKMARKS_LOCAUX}
           variant="inline"
-          sectionBg="white"
         />
 
-        {/* ===== SECTION 4 - SPÉCIALITÉS PAR PIÈCE ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Chaque pièce mérite une attention particulière
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  Nous adaptons nos techniques et nos produits selon l&apos;espace à peindre
-                </Text>
-              </Stack>
+        <FeatureCardsSection
+          title="Une approche différente selon le type de projet à Montréal"
+          subtitle="Un condo à Griffintown, un plex à Rosemont ou une maison à Outremont ne se planifient pas de la même façon."
+          items={CONTEXTES}
+          variant="stacked"
+          sectionBg="gray.50"
+          columns={{ base: 1, sm: 2, md: 3 }}
+        />
 
-              <SimpleGrid columns={{ base: 1, sm: 2, md: 3, lg: 4 }} spacing={5}>
-                {SPECIALITES.map((item, i) => (
-                  <Box
-                    key={i}
-                    bg="white"
-                    border="1px solid"
-                    borderColor="gray.200"
-                    borderRadius="xl"
-                    p={{ base: 6, md: 7 }}
-                    boxShadow="sm"
-                    _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
-                    transition="all 0.2s"
-                    display="flex"
-                    flexDirection="column"
-                    position="relative"
-                  >
-                    {item.popular && (
-                      <Box
-                        position="absolute"
-                        top={3}
-                        right={3}
-                        bg="brand.500"
-                        color="white"
-                        fontSize="xs"
-                        fontWeight="700"
-                        px={2}
-                        py={1}
-                        borderRadius="full"
-                      >
-                        Populaire
-                      </Box>
-                    )}
-                    <Stack spacing={3} flex={1}>
-                      <Flex
-                        w="44px"
-                        h="44px"
-                        borderRadius="xl"
-                        bg="brand.50"
-                        align="center"
-                        justify="center"
-                        flexShrink={0}
-                      >
-                        <Icon as={item.icon} color="brand.500" boxSize={5} />
-                      </Flex>
-                      <Heading
-                        as="h3"
-                        fontSize={{ base: 'md', md: 'lg' }}
-                        fontWeight="700"
-                        color="gray.800"
-                        lineHeight="1.3"
-                      >
-                        {item.title}
-                      </Heading>
-                      <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7" flex={1}>
-                        {item.text}
-                      </Text>
-                      {item.link && (
-                        <Link
-                          as={RouterLink}
-                          to={item.link}
-                          color="brand.500"
-                          fontWeight="600"
-                          fontSize="sm"
-                          _hover={{ textDecoration: 'underline' }}
-                          display="inline-flex"
-                          alignItems="center"
-                          gap={1}
-                        >
-                          {item.linkLabel} <ArrowForwardIcon boxSize={3} />
-                        </Link>
-                      )}
-                    </Stack>
-                  </Box>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
         <BeforeAfterCarouselSection
           isFr={true}
-          title="Résultats de nos projets de peinture intérieure"
-          subtitle="Finitions soignées, surfaces préparées et projets intérieurs réalisés à Montréal."
+          title="Avant / après de projets intérieurs à Montréal"
+          subtitle="Des réalisations qui montrent le niveau de finition, mais aussi la diversité des contextes locaux."
           images={carouselImages}
           sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
           sectionPaddingBottom={{ base: 6, md: 8 }}
         />
 
-        {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
         <ServiceGuaranteeSection
           body="Chaque projet est réalisé avec les bons produits, les bonnes techniques et le niveau de soin que vous méritez. Si le résultat ne vous convient pas, nous revenons corriger sans frais supplémentaires."
           onCtaClick={onOpen}
+          note="Réponse généralement en moins de 24h"
         />
 
-        <FAQSection
-          title="Questions fréquentes sur la peinture intérieure"
-          faqsOverride={FAQS}
-          sectionBg="white"
-          sectionPy={{ base: 16, md: 20, lg: 24 }}
-          maxW="900px"
-          emitSchema={false}
+        <FeatureCardsSection
+          title="Ce qui distingue notre peinture intérieure à Montréal"
+          subtitle="Des techniques maîtrisées pour chaque surface de votre intérieur"
+          items={CHECKMARKS_TECHNIQUES}
+          variant="inline"
         />
 
-        <InternalLinksSection
-          title="Services connexes"
-          links={INTERNAL_LINKS}
-          columns={{ base: 1, sm: 2, md: 3, lg: 4 }}
+        <SpecialitesSection
+          title="Chaque pièce mérite une attention particulière"
+          subtitle="Nous adaptons nos techniques et nos produits selon l'espace à peindre"
+          items={SPECIALITES}
         />
+
+        <FAQSection title="Questions fréquentes sur la peinture intérieure à Montréal" faqsOverride={FAQS} emitSchema={false} />
+
+        <InternalLinksSection title="Services connexes" links={INTERNAL_LINKS} />
 
         <FinalCTASection
+          title={'Prêt à rafraîchir votre intérieur à Montréal\u00A0?'}
+          subtitle="Obtenez une soumission gratuite pour votre projet de peinture intérieure à Montréal"
+          buttonText="Obtenir ma soumission gratuite"
           onSubmissionOpen={onOpen}
-          title={'Prêt à transformer votre intérieur\u00A0?'}
-          subtitle={'Soumission gratuite en moins de 24h'}
-          buttonText={'Obtenir ma soumission gratuite'}
         />
-
       </Box>
 
       <SubmissionModal isOpen={isOpen} onClose={onClose} />

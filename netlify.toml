@@ -7,6 +7,17 @@
   # ~/.cache/ms-playwright, qui serait retéléchargé à chaque build.
   PLAYWRIGHT_BROWSERS_PATH = "0"
 
+[[redirects]]
+  from = "https://www.leleverdupinceau.ca/*"
+  to = "https://leleverdupinceau.ca/:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "http://www.leleverdupinceau.ca/*"
+  to = "https://leleverdupinceau.ca/:splat"
+  status = 301
+  force = true
+
 # Old site gone: /legacy → home (301)
 [[redirects]]
   from = "/legacy/*"
@@ -53,6 +64,16 @@
   status = 301
   force = true
 [[redirects]]
+  from = "/peinture-interieure-montreal"
+  to = "/services/peinture-interieure"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/peinture-exterieure-montreal"
+  to = "/services/peinture-exterieure"
+  status = 301
+  force = true
+[[redirects]]
   from = "/services/new-peinture-exterieure/*"
   to = "/services/peinture-exterieure/:splat"
   status = 301
@@ -85,10 +106,6 @@
   status = 301
   force = true
 
-# SPA fallback for unknown routes (admin, 404).
-# Do NOT use force=true: Netlify must serve prerendered /path/index.html first
-# so crawlers get real HTML, not the home SPA shell.
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+# Le repli (admin -> app-shell.html, URL inconnue -> 404.html en 404) est écrit
+# dans dist/_redirects par scripts/prerender.mjs. Pas de catch-all ici : servir
+# index.html (l'accueil pré-rendu) en 200 crée des duplicatas de l'accueil.

@@ -18,7 +18,6 @@ import peintureAppartement from '../images/L3 Sous services/Photo page apparteme
 // Distinct from condo header.jpg (old MTL intérieur header was a byte copy) and from
 // réalisations IMG_5877 (same Griffintown loft scene as Griffintown après).
 import peintureInterieureMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
-import peintureExterieureMontreal from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/header extérieure.jpg';
 import peintreProfessionnel from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
 import secteurs from '../images/pillar-pages/secteur-hub/IMG_7894.jpg';
 import realisations from '../images/3-ville/Montréal/5. réalisations/IMG_5877.JPG';
@@ -38,8 +37,6 @@ export const ROUTE_THUMBNAIL_BY_PATH = {
   '/services/peinture-apres-sinistre': peintureApresSinistre,
   '/services/peinture-au-pistolet': peintureAuPistolet,
   '/services/peinture-interieure/armoires-de-cuisine': armoiresCuisine,
-  '/peinture-interieure-montreal': peintureInterieureMontreal,
-  '/peinture-exterieure-montreal': peintureExterieureMontreal,
   '/peintre-professionnel': peintreProfessionnel,
   '/secteurs': secteurs,
   '/secteurs/montreal': peintureInterieureMontreal,

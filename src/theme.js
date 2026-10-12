@@ -183,10 +183,19 @@ const theme = extendTheme({
     Button: {
       baseStyle: {
         minH: { base: '44px', md: '40px' },
+        maxW: '100%',
+        whiteSpace: 'normal',
+        textAlign: 'center',
         _focusVisible: {
           outline: '2px solid var(--chakra-colors-brand-500)',
           outlineOffset: '2px',
         },
+      },
+      sizes: {
+        lg: { h: 'auto', minH: 12, py: 3 },
+        md: { h: 'auto', py: 2 },
+        sm: { h: 'auto', py: 1.5 },
+        xs: { h: 'auto', py: 1 },
       },
       defaultProps: {
         colorScheme: 'brand',
@@ -347,7 +356,7 @@ const theme = extendTheme({
       'app.brand': 'brand.500',
       'app.brandHover': 'brand.600',
       'app.header': 'brand.700',
-      'app.ctaBg': 'brand.500',  // Same as contact button – all CTA section backgrounds
+      'app.ctaBg': 'brand.500',  // Same as contact button - all CTA section backgrounds
     },
   },
 });

@@ -37,9 +37,26 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import platreHeroImg from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG';
-import platreCoinAvant from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
-import platreCoinApres from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+import ContactFormSection from '../home-page/ContactFormSection';
+
+import platreHeroImg from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
+
+import platreAvant1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.PNG';
+import platreApres1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6030.PNG';
+import platreAvant2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6031.PNG';
+import platreApres2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.PNG';
+import platreAvant3 from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
+import platreApres3 from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+import platreAvant4 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
+import platreApres4 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
+import platreAvant5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0859.jpg';
+import platreApres5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0860.jpg';
+import platreAvant6 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
+import platreApres6 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
+import platreAvant7 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0863.jpg';
+import platreApres7 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0864.jpg';
+import platreAvant8 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg';
+import platreApres8 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -144,11 +161,6 @@ const INTERNAL_LINKS = [
     to: '/services/peinture-interieure',
   },
   {
-    title: 'Peinture intérieure à Montréal',
-    description: 'Page locale pour les projets intérieurs dans la métropole.',
-    to: '/peinture-interieure-montreal',
-  },
-  {
     title: 'Peinture après sinistre',
     description: 'Dégât d\'eau, incendie - remise en état avec documentation assureur.',
     to: '/services/peinture-apres-sinistre',
@@ -214,11 +226,46 @@ export default function ReparationPlatreGysePage() {
   const carouselImages = [
 
     {
-      before: platreCoinAvant,
-      after: platreCoinApres,
-      description: 'Réparation de plâtre - Coin de mur endommagé',
+      before: platreAvant1,
+      after: platreApres1,
+      description: 'Sous-sol en gypse neuf : joints tirés et vis recouvertes avant finition',
     },
-];
+    {
+      before: platreAvant2,
+      after: platreApres2,
+      description: 'Corridor aux trous rebouchés, mur lissé et repeint - Montréal',
+    },
+    {
+      before: platreAvant3,
+      after: platreApres3,
+      description: 'Coin de mur arraché réparé, remis droit et repeint',
+    },
+    {
+      before: platreAvant4,
+      after: platreApres4,
+      description: 'Gypse autour d\'une fenêtre repris, joints tirés et mur repeint',
+    },
+    {
+      before: platreAvant5,
+      after: platreApres5,
+      description: 'Peinture écaillée sous une fenêtre grattée, réparée et repeinte',
+    },
+    {
+      before: platreAvant6,
+      after: platreApres6,
+      description: 'Plinthe marquée et rayée réparée puis repeinte',
+    },
+    {
+      before: platreAvant7,
+      after: platreApres7,
+      description: 'Taches d\'eau au plafond bloquées et plafond repeint uniformément',
+    },
+    {
+      before: platreAvant8,
+      after: platreApres8,
+      description: 'Fissures au plafond et trous aux murs réparés dans un condo du Plateau',
+    },
+  ];
 
   return (
     <Fragment>
@@ -236,10 +283,11 @@ export default function ReparationPlatreGysePage() {
           pageContext='Réparation de plâtre et gypse'
           imageBackground={platreHeroImg}
           imageAlt='Réparation de plâtre et gypse à Montréal - correction de fissures et trous avant peinture'
+          imagePosition='center 30%'
           overlayBg='rgba(0, 0, 0, 0.55)'
           title='Réparation de plâtre et gypse à Montréal'
-          subtitle='Surfaces corrigées pour un fini lisse, droit et prêt à peindre.'
-          description='Fissures, trous et joints visibles corrigés avant peinture.'
+          subtitle='Fissures, trous et joints.'
+          description='Des surfaces abîmées corrigées proprement pour un fini lisse, droit et prêt à peindre.'
           buttonText='Obtenir ma soumission gratuite'
           breadcrumb={HERO_BREADCRUMB}
         />
@@ -253,6 +301,15 @@ export default function ReparationPlatreGysePage() {
           sectionBg="white"
         />
 
+        <BeforeAfterCarouselSection
+          isFr={true}
+          title="Avant / après de surfaces réparées"
+          subtitle="Fissures effacées, trous comblés, joints disparus - la transformation visible avant la finition à Montréal."
+          images={carouselImages}
+          sectionPaddingTop={0}
+          sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
+        />
+
         {/* ===== SECTION 4 - TYPES DE RÉPARATIONS ===== */}
         <FeatureCardsSection
           title="Une intervention différente selon le défaut à corriger"
@@ -263,21 +320,11 @@ export default function ReparationPlatreGysePage() {
           columns={{ base: 1, sm: 2, md: 3 }}
         />
 
-        {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
-        <BeforeAfterCarouselSection
-          isFr={true}
-          title="Avant / après de surfaces réparées"
-          subtitle="Fissures effacées, trous comblés, joints disparus - la transformation visible avant la finition à Montréal."
-          images={carouselImages}
-          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
-          sectionPaddingBottom={{ base: 6, md: 8 }}
-        />
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
 
-        {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
         <ServiceGuaranteeSection
           title="Une réparation bien faite change tout le résultat final"
           body="Quand les défauts sont mal corrigés, ils reviennent vite sous la peinture ou restent visibles à la lumière. Notre objectif est de remettre la surface au bon niveau avant la finition, pour éviter les reprises inutiles et livrer un résultat plus propre dès la première fois."
-          onCtaClick={onOpen}
         />
 
         <FAQSection

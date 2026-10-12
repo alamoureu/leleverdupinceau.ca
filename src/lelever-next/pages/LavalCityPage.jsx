@@ -31,6 +31,14 @@ import lavImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.jpg';
 import lavImg7994 from '../images/3-ville/laval/avant-apres/IMG_7994 5.jpg';
 import lavImg6031 from '../images/3-ville/laval/avant-apres/IMG_6031 3.jpg';
 import lavImg8108 from '../images/3-ville/laval/avant-apres/IMG_8108 3.jpg';
+import lavFolder0822 from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
+import lavFolder0823 from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
+import lavFolder0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
+import lavFolder0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
+import lavFolder0838 from '../images/3-ville/brossard/avant-apres/IMG_0838.jpg';
+import lavFolder0839 from '../images/3-ville/brossard/avant-apres/IMG_0839.jpg';
+import lavFolder0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
+import lavFolder0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
 
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);
@@ -172,6 +180,26 @@ export default function LavalCityPage() {
       before: lavImg6031,
       after: lavImg8108,
       description: isFr ? 'Mise à niveau avant vente - Condo à Duvernay' : 'Pre-sale update - Condo in Duvernay',
+    },
+    {
+      before: lavFolder0822,
+      after: lavFolder0823,
+      description: isFr ? 'Balcon et escalier - Maison à Laval' : 'Balcony and stairs - House in Laval',
+    },
+    {
+      before: lavFolder0836,
+      after: lavFolder0837,
+      description: isFr ? 'Cadrage de fenêtre - plâtre et peinture' : 'Window casing - plaster and paint',
+    },
+    {
+      before: lavFolder0838,
+      after: lavFolder0839,
+      description: isFr ? 'Rafraîchissement intérieur - Laval' : 'Interior refresh - Laval',
+    },
+    {
+      before: lavFolder0855,
+      after: lavFolder0856,
+      description: isFr ? 'Pièce intérieure remise à neuf - Laval' : 'Interior room refreshed - Laval',
     },
 ];
 

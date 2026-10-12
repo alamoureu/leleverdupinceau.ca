@@ -3,11 +3,10 @@
  * Doit rester aligné avec WebsiteNavBar.
  */
 const REVIEW_BADGE_PATHS = new Set([
-  '/peinture-interieure-montreal',
-  '/peinture-exterieure-montreal',
   '/peintre-professionnel',
   '/a-propos',
   '/blog',
+  '/realisations',
   '/fr/peintre-montreal',
   '/en/peintre-montreal',
   '/en/painter-montreal',

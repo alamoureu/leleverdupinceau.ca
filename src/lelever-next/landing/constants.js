@@ -6,7 +6,7 @@ export const CANONICAL_BASE = 'https://www.leleverdupinceau.ca';
 
 /**
  * Padding-top du contenu hero sous la nav fixe (landing : pas de bandeau noir, une seule rangée).
- * Valeurs calées sur `WebsiteNavBar` (py + logo ~52–68px) + petite marge, pas sur l’accueil `#main`+hero.
+ * Valeurs calées sur `WebsiteNavBar` (py + logo ~52-68px) + petite marge, pas sur l’accueil `#main`+hero.
  */
 export const LANDING_MAIN_CONTENT_PT = {
   base: '9.75rem',

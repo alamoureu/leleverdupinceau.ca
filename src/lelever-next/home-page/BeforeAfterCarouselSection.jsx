@@ -51,6 +51,12 @@ import img5982 from '../images/before_after/IMG_5982.jpg';
 import img5984 from '../images/before_after/IMG_5984.jpg';
 import imgStaircaseBefore from '../images/IMG_7678.PNG';
 import imgStaircaseAfter from '../images/IMG_5873.PNG';
+import home0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
+import home0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
+import home0861 from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
+import home0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+import home0842 from '../images/3-ville/st-lambert/avant-apres/IMG_0842.jpg';
+import home0843 from '../images/3-ville/st-lambert/avant-apres/IMG_0843.jpg';
 
 function splitCaption(description) {
   if (!description) return { title: '', subtitle: '' };
@@ -77,6 +83,9 @@ const DEFAULT_PAIRS = [
   [img7999, img7997],
   [img7971, img6755],
   [img7985, img6757],
+  [home0855, home0856],
+  [home0861, home0862],
+  [home0842, home0843],
 ];
 
 const DEFAULT_DESCRIPTIONS = [
@@ -95,6 +104,9 @@ const DEFAULT_DESCRIPTIONS = [
   { fr: 'Murs et boiseries - finition propre', en: 'Walls and trim - clean finish' },
   { fr: 'Maison - extérieur rafraîchi', en: 'Home - refreshed exterior' },
   { fr: 'Espace industriel - préparation et peinture', en: 'Industrial space - prep and painting' },
+  { fr: 'Pièce intérieure - rafraîchissement', en: 'Interior room - refresh' },
+  { fr: 'Plinthe et murs - finition nette', en: 'Baseboard and walls - clean finish' },
+  { fr: 'Chambre - retrait de papier peint', en: 'Bedroom - wallpaper removal' },
 ];
 
 export function buildDefaultImages(isFr) {

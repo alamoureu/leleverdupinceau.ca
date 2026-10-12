@@ -14,9 +14,9 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { FaTrowel } from 'react-icons/fa6';
 import {
   FaSearchPlus,
-  FaFillDrip,
   FaTools,
   FaCut,
   FaLayerGroup,
@@ -41,6 +41,16 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import surfacesHeroImg from '../images/L2 Services specialise/Photo page -surfaces/header-wrapping.JPEG';
 import surfacesAvant1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5914.JPG';
 import surfacesApres1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5916.JPG';
+import prep0834 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
+import prep0835 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+import prep0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
+import prep0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
+import prep0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
+import prep0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.jpg';
+import prep5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.jpg';
+import prep5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.jpg';
+import prep6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg';
+import prep8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -56,7 +66,7 @@ const CHECKMARKS = [
     text: 'Nous identifions les fissures, trous, joints faibles, défauts visuels, anciennes réparations et zones qui pourraient nuire à l\'adhérence ou au fini avant toute intervention.',
   },
   {
-    icon: FaFillDrip,
+    icon: FaTrowel,
     title: 'Rebouchage, correction et lissage des imperfections',
     text: 'Petits impacts, anciennes fixations, trous de vis, éclats et défauts de surface sont repris pour créer une base plus uniforme avant l\'application de la finition.',
   },
@@ -121,6 +131,10 @@ const FAQS = [
     answer: 'Parce qu\'une belle peinture ne peut pas cacher durablement une surface mal préparée. Une bonne préparation améliore l\'adhérence, réduit les défauts visibles et permet d\'obtenir un fini plus net et plus durable.',
   },
   {
+    question: 'Comment protégez-vous les lieux avant de peindre\u00A0?',
+    answer: 'Nous accordons beaucoup d\'importance à la protection, et elle est faite avant la première goutte de peinture. Les planchers sont couverts de papier et de ruban, les meubles, armoires et électroménagers sont emballés sous plastique, et la quincaillerie est masquée. Tout ce qui ne doit pas être peint reste propre du début à la fin du chantier.',
+  },
+  {
     question: 'Est-ce que vous rebouchez les trous et petites imperfections avant de peindre\u00A0?',
     answer: 'Oui. Nous corrigeons les petits trous, impacts, anciennes fixations et irrégularités courantes avant l\'application finale afin d\'obtenir une surface plus uniforme.',
   },
@@ -157,11 +171,6 @@ const INTERNAL_LINKS = [
     title: 'Peinture au pistolet',
     description: 'Application airless pour grands espaces et surfaces exigeantes.',
     to: '/services/peinture-au-pistolet',
-  },
-  {
-    title: 'Peinture intérieure à Montréal',
-    description: 'Page locale pour les projets intérieurs dans la métropole.',
-    to: '/peinture-interieure-montreal',
   },
   {
     title: 'Pourquoi faire appel à un peintre professionnel\u00A0?',
@@ -222,6 +231,31 @@ export default function PreparationSurfacesPage() {
       after: surfacesApres1,
       description: 'Préparation de surfaces - Correction avant peinture',
     },
+    {
+      before: prep0834,
+      after: prep0835,
+      description: "Poutre d'acier préparée et peinte",
+    },
+    {
+      before: prep0836,
+      after: prep0837,
+      description: 'Cadrage de fenêtre - plâtre réparé',
+    },
+    {
+      before: prep0859,
+      after: prep0860,
+      description: "Réparation autour d'une fenêtre",
+    },
+    {
+      before: prep5975,
+      after: prep5976,
+      description: "Préparation et peinture d'armoires",
+    },
+    {
+      before: prep6031,
+      after: prep8108,
+      description: 'Couloir - plâtre réparé avant peinture',
+    },
 ];
 
   return (
@@ -239,11 +273,12 @@ export default function PreparationSurfacesPage() {
           onSubmissionOpen={onOpen}
           pageContext='Préparation de surfaces'
           imageBackground={surfacesHeroImg}
-          imageAlt='Préparation de surfaces avant peinture à Montréal - sablage, rebouchage et apprêt'
+          imageAlt='Protection des planchers et des armoires avant peinture à Montréal - Le Lever du Pinceau'
+          imagePosition='center 60%'
           overlayBg='rgba(0, 0, 0, 0.50)'
           title='Préparation de surfaces à Montréal'
           subtitle='Support propre, lisse et prêt à recevoir la peinture.'
-          description='Rebouchage, sablage, calfeutrage et apprêt avant peinture.'
+          description='Rebouchage, sablage, calfeutrage et protection avant peinture.'
           buttonText='Obtenir ma soumission gratuite'
           breadcrumb={HERO_BREADCRUMB}
         />

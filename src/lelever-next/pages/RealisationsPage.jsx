@@ -11,19 +11,15 @@ import {
   Link,
   HStack,
   SimpleGrid,
-  Image,
   useDisclosure,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import TrustBanner, { TRUST_BANNER_ABOVE_PB, TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
-import {
-  PAGE_HERO_CONTENT_PT,
-  PAGE_HERO_MIN_H,
-  PAGE_HERO_STACK_SPACING,
-} from '../constants/sectionSpacing';
-import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import ReviewsSection from '../home-page/ReviewsSection';
+import ContactFormSection from '../home-page/ContactFormSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -38,8 +34,6 @@ import monImg7678 from '../images/3-ville/Montréal/avant-apres/IMG_7678 3.jpg';
 import monImg5873 from '../images/3-ville/Montréal/avant-apres/IMG_5873 3.jpg';
 import monImg5975 from '../images/3-ville/Montréal/avant-apres/IMG_5975 5.jpg';
 import monImg5976 from '../images/3-ville/Montréal/avant-apres/IMG_5976 6.jpg';
-import monImg7971 from '../images/3-ville/Montréal/avant-apres/IMG_7971 5.jpg';
-import monImg6755 from '../images/3-ville/Montréal/avant-apres/IMG_6755 3.jpg';
 import longImg7990 from '../images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg';
 import longImg7988 from '../images/3-ville/longueuil/avant-apres/IMG_7988 4.jpg';
 import lavalImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.jpg';
@@ -54,6 +48,8 @@ import porteAvant from "../images/L2 Services principaux/Photo page -peinture-ex
 import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
 import revetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg';
 import revetementApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.jpg';
+import lavalImg5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.jpg';
+import lavalImg5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.jpg';
 import { HAPPY_CLIENTS_COUNT } from '../constants/company';
 
 // ─── Data ───────────────────────────────────────────────────────────────────
@@ -63,8 +59,8 @@ function getProjects(isFr) {
     {
       id: 1,
       title: isFr
-        ? 'Peinture intérieure - Condo à Griffintown'
-        : 'Interior painting - Condo in Griffintown',
+        ? "Peinture d'un condo nouvellement acheté à Griffintown"
+        : 'Painting a newly purchased condo in Griffintown',
       district: isFr ? 'Griffintown, Montréal' : 'Griffintown, Montreal',
       serviceType: isFr ? 'Intérieur' : 'Interior',
       projectType: isFr ? 'Résidentiel' : 'Residential',
@@ -75,7 +71,7 @@ function getProjects(isFr) {
       result: isFr
         ? 'Finition nette sur murs et plafonds, couleurs choisies avec le client, chantier propre et délais respectés.'
         : 'Clean finish on walls and ceilings, colors chosen with the client, tidy job site and deadlines met.',
-      serviceLink: '/peinture-interieure-montreal',
+      serviceLink: '/services/peinture-interieure',
       serviceLinkLabel: isFr ? 'Peinture intérieure à Montréal' : 'Interior painting in Montreal',
       sectorLink: '/secteurs/montreal',
       sectorLinkLabel: isFr ? 'Nos services à Montréal' : 'Our services in Montreal',
@@ -87,7 +83,7 @@ function getProjects(isFr) {
       afterAlt: isFr
         ? 'Après - Peinture intérieure condo Griffintown Montréal'
         : 'After - Interior painting condo Griffintown Montreal',
-      tags: ['Intérieur', 'Résidentiel', 'Montréal', 'Condo'],
+      tags: ['Intérieur', 'Résidentiel', 'Condo'],
     },
     {
       id: 2,
@@ -116,20 +112,20 @@ function getProjects(isFr) {
       afterAlt: isFr
         ? 'Après - Peinture intérieure appartement Plateau Mont-Royal Montréal'
         : 'After - Interior painting apartment Plateau Mont-Royal Montreal',
-      tags: ['Intérieur', 'Résidentiel', 'Montréal', 'Appartement'],
+      tags: ['Intérieur', 'Résidentiel', 'Appartement'],
     },
     {
       id: 3,
       title: isFr
-        ? "Réparation et peinture - Cage d'escalier à Westmount"
-        : 'Repair and painting - Staircase in Westmount',
-      district: 'Westmount',
+        ? "Réparation et peinture d'une cage d'escalier après travaux au deuxième étage"
+        : 'Repairing and painting a staircase after second-floor renovations',
+      district: isFr ? 'Westmount, Montréal' : 'Westmount, Montreal',
       serviceType: isFr ? 'Intérieur' : 'Interior',
       projectType: isFr ? 'Résidentiel' : 'Residential',
       propertyType: isFr ? 'Maison' : 'House',
       context: isFr
-        ? "Cage d'escalier avec surfaces endommagées après travaux au deuxième étage. Circulation continue pendant les travaux. Réparation des trous de clous et préparation soignée avant la peinture d'une teinte plus pâle."
-        : 'Staircase with damaged surfaces after second-floor work. Ongoing traffic during work. Nail-hole repair and careful prep before painting a lighter shade.',
+        ? "Cage d'escalier avec surfaces endommagées et murs anciens. Circulation continue pendant les travaux. Réparation des trous de clous et préparation soignée avant la peinture d'une teinte plus pâle."
+        : 'Staircase with damaged surfaces and older walls. Ongoing traffic during the work. Nail holes repaired and careful prep before painting in a lighter shade.',
       result: isFr
         ? "Surfaces réparées et uniformisées, finition propre sur toute la hauteur de la cage d'escalier."
         : 'Repaired and uniform surfaces, clean finish throughout the full height of the staircase.',
@@ -140,12 +136,12 @@ function getProjects(isFr) {
       beforeImg: monImg7678,
       afterImg: monImg5873,
       beforeAlt: isFr
-        ? "Avant - Réparation et peinture cage d'escalier Westmount"
-        : 'Before - Repair and painting staircase Westmount',
+        ? "Avant - Réparation et peinture cage d'escalier maison Westmount"
+        : 'Before - Repair and painting house staircase Westmount',
       afterAlt: isFr
-        ? "Après - Réparation et peinture cage d'escalier Westmount"
-        : 'After - Repair and painting staircase Westmount',
-      tags: ['Intérieur', 'Résidentiel', 'Montréal', 'Maison'],
+        ? "Après - Réparation et peinture cage d'escalier maison Westmount"
+        : 'After - Repair and painting house staircase Westmount',
+      tags: ['Intérieur', 'Résidentiel', 'Maison'],
     },
     {
       id: 4,
@@ -174,7 +170,7 @@ function getProjects(isFr) {
       afterAlt: isFr
         ? 'Après - Peinture intérieure maison Chomedey Laval'
         : 'After - Interior painting house Chomedey Laval',
-      tags: ['Intérieur', 'Résidentiel', 'Laval', 'Maison'],
+      tags: ['Intérieur', 'Résidentiel', 'Maison'],
     },
     {
       id: 5,
@@ -203,7 +199,36 @@ function getProjects(isFr) {
       afterAlt: isFr
         ? 'Après - Peinture résidentielle maison Greenfield Park Longueuil'
         : 'After - Residential painting house Greenfield Park Longueuil',
-      tags: ['Intérieur', 'Résidentiel', 'Longueuil', 'Maison'],
+      tags: ['Intérieur', 'Résidentiel', 'Maison'],
+    },
+    {
+      id: 6,
+      title: isFr
+        ? "Préparation et peinture d'armoires de cuisine en bois pour un look plus moderne"
+        : 'Prepping and painting wood kitchen cabinets for a more modern look',
+      district: 'Laval',
+      serviceType: isFr ? 'Intérieur' : 'Interior',
+      projectType: isFr ? 'Résidentiel' : 'Residential',
+      propertyType: isFr ? 'Armoires de cuisine' : 'Kitchen cabinets',
+      context: isFr
+        ? "Nos clients avaient leurs armoires en bois massif depuis plus de 20 ans et souhaitaient leur donner un nouveau look sans payer pour de nouveaux caissons. Dégraissage, sablage, apprêt, puis application au pistolet d'un produit conçu pour les portes d'armoires."
+        : 'Our clients had owned their solid wood cabinets for more than 20 years and wanted a new look without paying for new boxes. Degreasing, sanding, primer, then spray application of a product made specifically for cabinet doors.',
+      result: isFr
+        ? 'Un fini lisse, uniforme et durable, avec une apparence au goût du jour.'
+        : 'A smooth, uniform and durable finish with an up-to-date look.',
+      serviceLink: '/services/peinture-interieure/armoires-de-cuisine',
+      serviceLinkLabel: isFr ? "Peinture d'armoires de cuisine" : 'Kitchen cabinet painting',
+      sectorLink: '/secteurs/laval',
+      sectorLinkLabel: isFr ? 'Nos services à Laval' : 'Our services in Laval',
+      beforeImg: lavalImg5975,
+      afterImg: lavalImg5976,
+      beforeAlt: isFr
+        ? 'Avant - Armoires de cuisine en bois massif, maison à Laval'
+        : 'Before - Solid wood kitchen cabinets, house in Laval',
+      afterAlt: isFr
+        ? 'Après - Armoires de cuisine peintes en blanc au pistolet, maison à Laval'
+        : 'After - Kitchen cabinets spray-painted white, house in Laval',
+      tags: ['Intérieur', 'Résidentiel', 'Armoires de cuisine'],
     },
     {
       id: 6,
@@ -418,8 +443,8 @@ function getRealisationsFaqs(isFr) {
     },
     {
       question: isFr
-        ? 'Réalisez-vous des projets à Montréal, Laval, Longueuil et sur la Rive-Sud?'
-        : 'Do you carry out projects in Montreal, Laval, Longueuil and the South Shore?',
+        ? 'Réalisez-vous des projets à Montréal, Laval et Longueuil?'
+        : 'Do you carry out projects in Montreal, Laval and Longueuil?',
       answer: isFr
         ? "Oui. Nous intervenons dans l'ensemble de ces territoires. Chaque région a ses particularités: type de bâtiment, accès, conditions climatiques et contraintes logistiques. Notre équipe est habituée à travailler dans ces différents contextes urbains et périurbains."
         : 'Yes. We work throughout all these territories. Each region has its particularities: building type, access, climate conditions and logistical constraints. Our team is accustomed to working in these different urban and suburban contexts.',
@@ -477,9 +502,6 @@ const FILTER_TAGS = [
   { key: 'Extérieur', fr: 'Extérieur', en: 'Exterior' },
   { key: 'Résidentiel', fr: 'Résidentiel', en: 'Residential' },
   { key: 'Commercial', fr: 'Commercial', en: 'Commercial' },
-  { key: 'Montréal', fr: 'Montréal', en: 'Montreal' },
-  { key: 'Laval', fr: 'Laval', en: 'Laval' },
-  { key: 'Longueuil', fr: 'Longueuil', en: 'Longueuil' },
 ];
 
 // ─── Sub-components ──────────────────────────────────────────────────────────
@@ -714,31 +736,19 @@ export default function RealisationsPage() {
     ],
   };
 
-  // ── Carousel images for Section 3 ───────────────────────────────────────────
-
-  const carouselImages = [
-    {
-      before: monImg7971,
-      after: monImg6755,
-      description: isFr
-        ? 'Projet extérieur - Résidence, Montréal'
-        : 'Exterior project - Residence, Montreal',
-    },
-  ];
-
   // ── Internal links ───────────────────────────────────────────────────────────
 
   const internalLinks = [
     {
       label: isFr ? 'Peinture intérieure à Montréal' : 'Interior painting in Montreal',
-      to: '/peinture-interieure-montreal',
+      to: '/services/peinture-interieure',
       description: isFr
         ? 'Condos, plex et appartements - finition professionnelle en milieu urbain.'
         : 'Condos, plex and apartments - professional finish in urban settings.',
     },
     {
       label: isFr ? 'Peinture extérieure à Montréal' : 'Exterior painting in Montreal',
-      to: '/peinture-exterieure-montreal',
+      to: '/services/peinture-exterieure',
       description: isFr
         ? 'Façades, balcons et escaliers - surfaces adaptées au climat montréalais.'
         : 'Facades, balconies and staircases - surfaces adapted to Montreal climate.',
@@ -754,8 +764,8 @@ export default function RealisationsPage() {
       label: isFr ? 'Nos secteurs desservis' : 'Our service areas',
       to: '/secteurs',
       description: isFr
-        ? 'Montréal, Laval, Longueuil et la Rive-Sud.'
-        : 'Montreal, Laval, Longueuil and the South Shore.',
+        ? 'Montréal, Laval et Longueuil.'
+        : 'Montreal, Laval and Longueuil.',
     },
     {
       label: isFr ? 'Avis clients' : 'Client reviews',
@@ -787,144 +797,36 @@ export default function RealisationsPage() {
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
 
-        {/* ── Section 1 - Hero Banner ───────────────────────────────────────── */}
-        <Box
-          position="relative"
-          w="100%"
-          minW={0}
-          minH={PAGE_HERO_MIN_H}
-          display="flex"
-          alignItems={{ base: 'flex-start', md: 'center' }}
-          bgColor="gray.600"
-          px={{ base: 0, sm: 3, md: 5, lg: 8, xl: 10, '2xl': 12 }}
-          pb={TRUST_BANNER_ABOVE_PB}
-          overflow="visible"
-        >
-          <Image
-            src={heroImage}
-            alt={
-              isFr
-                ? 'Réalisations peinture résidentielle et commerciale - Le Lever du Pinceau Montréal'
-                : 'Residential and commercial painting projects - Le Lever du Pinceau Montreal'
-            }
-            position="absolute"
-            top={0}
-            left={0}
-            w="100%"
-            h="100%"
-            objectFit="cover"
-            zIndex={0}
-            loading="eager"
-            fetchpriority="high"
-            decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
-          />
-          <Box
-            position="absolute"
-            top={0}
-            left={0}
-            right={0}
-            bottom={0}
-            bg="rgba(0, 0, 0, 0.45)"
-            zIndex={1}
-          />
-          <Container
-            maxW="1440px"
-            position="relative"
-            zIndex={2}
-            w="100%"
-            px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-            pt={{ base: PAGE_HERO_CONTENT_PT.base, sm: PAGE_HERO_CONTENT_PT.sm, md: 0 }}
-            pb={0}
-            minW={0}
-          >
-            <Stack spacing={PAGE_HERO_STACK_SPACING} minW={0} maxW={{ base: '100%', md: '720px', lg: '820px' }}>
-                <Heading as="h1" size="hero" color="white" minW={0}>
-                  {isFr ? 'Nos réalisations' : 'Our projects'}
-                </Heading>
-                <Text
-                  variant="heroSubtitle"
-                  color="white"
-                  minW={0}
-                >
-                  {isFr
-                    ? 'Projets réels et transformations visibles dans le Grand Montréal.'
-                    : 'Real projects and visible transformations across Greater Montreal.'}
-                </Text>
-                <Text
-                  variant="heroDescription"
-                  color="whiteAlpha.900"
-                  maxW={{ base: '560px', md: '640px' }}
-                >
-                  {isFr
-                    ? 'Condos, maisons, plex et commerces - pour voir comment nous travaillons.'
-                    : 'Condos, homes, plex and businesses - see how we work.'}
-                </Text>
-
-                <HStack
-                  spacing={{ base: 3, md: 4 }}
-                  pt={{ base: 1, md: 2 }}
-                  flexWrap="wrap"
-                >
-                  <Button
-                    variant="cta"
-                    onClick={onOpen}
-                    borderRadius="full"
-                    px={{ base: 7, md: 9, lg: 12 }}
-                    py={{ base: 3, md: 4, lg: 6 }}
-                    minH={{ base: '48px', md: '56px', lg: '64px' }}
-                    h="auto"
-                    whiteSpace="normal"
-                    lineHeight="1.15"
-                    fontWeight="semibold"
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    w="auto"
-                    maxW="20rem"
-                  >
-                    {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
-                    <ArrowForwardIcon ml={2} />
-                  </Button>
-                  <Button
-                    variant="ctaOutlineLight"
-                    as={RouterLink}
-                    to="/services"
-                    borderRadius="full"
-                    px={{ base: 6, md: 8, lg: 10 }}
-                    py={{ base: 3, md: 4, lg: 6 }}
-                    minH={{ base: '48px', md: '56px', lg: '64px' }}
-                    h="auto"
-                    whiteSpace="normal"
-                    lineHeight="1.15"
-                    fontWeight="medium"
-                    fontSize={{ base: 'sm', md: 'md' }}
-                    w="auto"
-                    maxW="20rem"
-                  >
-                    {isFr ? 'Voir nos services' : 'View our services'}
-                    <ArrowForwardIcon ml={2} />
-                  </Button>
-                </HStack>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ── Section 2 - Barre de confiance ───────────────────────────────── */}
-        <TrustBanner />
-
-        {/* ── Section 3 - Projets vedettes avant / après ────────────────────── */}
-        <BeforeAfterCarouselSection
-          isFr={isFr}
-          title={isFr ? 'Des transformations visibles, projet après projet' : 'Visible transformations, project after project'}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          title={isFr ? 'Nos réalisations' : 'Our projects'}
           subtitle={
             isFr
-              ? 'Une sélection de chantiers récents qui montrent le niveau de finition, la variété des projets et la qualité du travail livré.'
-              : 'A selection of recent job sites showing the level of finish, variety of projects and quality of work delivered.'
+              ? 'Projets réels et transformations visibles dans le Grand Montréal.'
+              : 'Real projects and visible transformations across Greater Montreal.'
           }
-          images={carouselImages}
-          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
-          sectionPaddingBottom={{ base: 4, md: 6 }}
+          description={
+            isFr
+              ? 'Condos, maisons, plex et commerces - pour voir comment nous travaillons.'
+              : 'Condos, homes, plex and businesses - see how we work.'
+          }
+          imageBackground={heroImage}
+          imageAlt={
+            isFr
+              ? 'Réalisations peinture résidentielle et commerciale - Le Lever du Pinceau Montréal'
+              : 'Residential and commercial painting projects - Le Lever du Pinceau Montreal'
+          }
+          breadcrumb={[
+            { label: isFr ? 'Accueil' : 'Home', to: '/' },
+            { label: isFr ? 'Réalisations' : 'Projects' },
+          ]}
+          secondaryCta={{
+            label: isFr ? 'Voir nos services' : 'View our services',
+            to: '/services',
+          }}
         />
+
+        <ReviewsSection sectionPaddingTop={TRUST_BANNER_BELOW_PT} />
 
         {/* ── Sections 4+5 - Cartes projet + Filtres ───────────────────────── */}
         <Box py={{ base: 12, md: 16, lg: 20 }} bg="white">
@@ -936,8 +838,8 @@ export default function RealisationsPage() {
                 </Heading>
                 <Text textStyle="bodyLarge" color="gray.600" maxW="720px" mx="auto" lineHeight="1.7">
                   {isFr
-                    ? 'Chaque projet est identifié par son type, son contexte et sa localisation. Filtrez selon vos besoins pour trouver des réalisations proches de votre situation.'
-                    : 'Each project is identified by its type, context and location. Filter by your needs to find projects similar to your situation.'}
+                    ? 'Chaque projet est identifié par son type et son contexte. Filtrez selon vos besoins pour trouver des réalisations proches de votre situation.'
+                    : 'Each project is identified by its type and context. Filter by your needs to find projects similar to your situation.'}
                 </Text>
               </Stack>
 
@@ -993,7 +895,7 @@ export default function RealisationsPage() {
           </Container>
         </Box>
 
-        {/* ── Section 6 - Preuve locale et contexte des projets ─────────────── */}
+        {/* ── Section 5 - Preuve locale et contexte des projets ─────────────── */}
         <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 8, md: 10 }}>
@@ -1048,6 +950,9 @@ export default function RealisationsPage() {
           </Container>
         </Box>
 
+        {/* ── Section 6 - Formulaire de soumission ──────────────────────────── */}
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
+
         {/* ── Section 7 - FAQ ───────────────────────────────────────────────── */}
         <FAQSection
           faqsOverride={realisationsFaqs}
@@ -1069,13 +974,14 @@ export default function RealisationsPage() {
                 </Text>
               </Stack>
 
-              <SimpleGrid columns={{ base: 1, sm: 2, lg: 3 }} spacing={{ base: 4, md: 6 }}>
+              <Flex wrap="wrap" justify="center" gap={{ base: 4, md: 6 }}>
                 {internalLinks.map((item) => (
                   <Link
                     key={item.to}
                     as={RouterLink}
                     to={item.to}
                     _hover={{ textDecoration: 'none' }}
+                    w={{ base: '100%', sm: 'calc(50% - 8px)', md: 'calc(50% - 12px)', lg: 'calc(33.333% - 16px)' }}
                   >
                     <Box
                       p={{ base: 5, md: 6 }}
@@ -1101,7 +1007,7 @@ export default function RealisationsPage() {
                     </Box>
                   </Link>
                 ))}
-              </SimpleGrid>
+              </Flex>
             </Stack>
           </Container>
         </Box>

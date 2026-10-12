@@ -32,6 +32,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -42,6 +43,10 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
 import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG';
 import teintureImg5974 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.PNG';
+import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg';
+import escalierApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg';
+import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -160,11 +165,6 @@ const INTERNAL_LINKS = [
     to: '/services/peinture-residentielle',
   },
   {
-    title: 'Peinture extérieure à Montréal',
-    description: 'Page locale pour les projets extérieurs dans la région de Montréal.',
-    to: '/peinture-exterieure-montreal',
-  },
-  {
     title: 'Pourquoi choisir un peintre professionnel\u00A0?',
     description: 'Licence RBQ, assurance, expertise - ce qui fait la différence.',
     to: '/peintre-professionnel',
@@ -223,7 +223,17 @@ export default function TeintureExterieurePage() {
       after: teintureImg5974,
       description: 'Terrasse en bois - teinture et protection',
     },
-];
+    {
+      before: escalierAvant,
+      after: escalierApres,
+      description: 'Teinture d\'un escalier extérieur en bois - avant / après',
+    },
+    {
+      before: clotureAvant,
+      after: clotureApres,
+      description: 'Teinture d\'une clôture en bois - avant / après',
+    },
+  ];
 
   return (
     <Fragment>
@@ -243,8 +253,8 @@ export default function TeintureExterieurePage() {
           imageAlt='Teinture extérieure bois à Montréal - patio, clôture et revêtement'
           overlayBg='rgba(0, 0, 0, 0.45)'
           title='Teinture extérieure à Montréal'
-          subtitle='Patio, clôture et revêtement bois protégés pour le climat québécois.'
-          description='Semi-transparente, opaque ou protectrice selon le type de bois.'
+          subtitle='Patio · Clôture · Revêtement bois'
+          description="Protégez et ravivez vos surfaces en bois avec une finition adaptée au climat québécois et à l'exposition réelle de votre propriété."
           buttonText='Obtenir ma soumission gratuite'
           breadcrumb={HERO_BREADCRUMB}
         />
@@ -269,22 +279,22 @@ export default function TeintureExterieurePage() {
           columns={{ base: 1, md: 2, lg: 3 }}
         />
 
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={0} />
+
         {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
         <BeforeAfterCarouselSection
           isFr={true}
           title="Des surfaces en bois ravivées et mieux protégées"
           subtitle="Quelques projets récents de teinture extérieure à Montréal et dans les environs."
           images={carouselImages}
-          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
-          sectionPaddingBottom={{ base: 6, md: 8 }}
+          sectionPaddingTop={{ base: 10, md: 12 }}
+          sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
         />
 
         {/* ===== SECTION 6 - GARANTIE / ENGAGEMENT ===== */}
         <ServiceGuaranteeSection
           title="Une teinture appliquée avec méthode, pas à la va-vite"
           body="La tenue d'une teinture extérieure dépend autant de la préparation et des conditions d'application que du produit choisi. Nous évaluons l'état du bois, le niveau d'exposition et la bonne fenêtre météo avant d'intervenir pour livrer un résultat propre, durable et cohérent avec votre surface."
-          onCtaClick={onOpen}
-          ctaText="Soumission gratuite - réponse en moins de 24 h"
         />
 
         <FAQSection

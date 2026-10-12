@@ -62,9 +62,14 @@ const c = {
   bold: '\x1b[1m',
 };
 
-/** `/` → dist/index.html, `/contact` → dist/contact/index.html */
+const NOT_FOUND_ROUTE = '/404';
+/** Shell SPA vierge (#root vide) : dist/index.html devient l'accueil pré-rendu. */
+const APP_SHELL = 'app-shell.html';
+
+/** `/` → dist/index.html, `/contact` → dist/contact/index.html, `/404` → dist/404.html */
 function outputFileFor(route) {
   if (route === '/') return path.join(DIST, 'index.html');
+  if (route === NOT_FOUND_ROUTE) return path.join(DIST, '404.html');
   return path.join(DIST, ...route.split('/').filter(Boolean), 'index.html');
 }
 
@@ -291,6 +296,7 @@ async function main() {
   }
 
   const template = readTemplateScripts();
+  const spaShell = fs.readFileSync(path.join(DIST, 'index.html'), 'utf-8');
   console.log(
     `\n${c.cyan}${c.bold}Pré-rendu HTML (Site LP)${c.reset} ${c.dim}(${routes.length} pages + ${Object.keys(legacy).length} redirects, ${spaOnly.length} SPA only, ${CONCURRENCY} en parallèle)${c.reset}\n`
   );
@@ -308,7 +314,7 @@ async function main() {
   const rendered = new Map();
   const failed = [];
 
-  const queue = [...routes];
+  const queue = [...routes, NOT_FOUND_ROUTE];
   const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
     while (queue.length > 0) {
       const route = queue.shift();
@@ -332,12 +338,12 @@ async function main() {
     fs.writeFileSync(file, html, 'utf-8');
   }
 
-  // Échecs isolés : écrire le shell SPA pour que dist reste couvert (Netlify
-  // servira le HTML puis hydratera React). Sans ça, le check "fichiers manquants"
-  // cassait le build alors que le message parlait déjà de fallback SPA.
-  const spaShell = fs.readFileSync(path.join(DIST, 'index.html'), 'utf-8');
-  for (const { route } of failed) {
+  // Échecs isolés et routes SPA : shell vierge, rendu côté client. Jamais le HTML de
+  // l'accueil, sinon les crawlers voient un duplicata de l'accueil en 200.
+  fs.writeFileSync(path.join(DIST, APP_SHELL), spaShell, 'utf-8');
+  for (const route of [...failed.map((f) => f.route), ...spaOnly]) {
     const file = outputFileFor(route);
+    if (rendered.has(route) || fs.existsSync(file)) continue;
     fs.mkdirSync(path.dirname(file), { recursive: true });
     fs.writeFileSync(file, spaShell, 'utf-8');
   }
@@ -361,9 +367,13 @@ async function main() {
   }
 
   redirectLines.push('');
-  redirectLines.push('# SPA fallback (admin, 404, routes inconnues)');
-  redirectLines.push('# Sans force (!) : les /path/index.html pré-rendus sont servis en priorité aux crawlers');
-  redirectLines.push('/*  /index.html  200');
+  redirectLines.push('# Outils internes : app React sans pré-rendu');
+  redirectLines.push(`/admin  /${APP_SHELL}  200`);
+  redirectLines.push(`/admin/*  /${APP_SHELL}  200`);
+  redirectLines.push(`/timesheet  /${APP_SHELL}  200`);
+  redirectLines.push('');
+  redirectLines.push('# URL inconnue : vraie 404 (sans force, les fichiers pré-rendus passent en priorité)');
+  redirectLines.push('/*  /404.html  404');
   fs.writeFileSync(path.join(DIST, '_redirects'), `${redirectLines.join('\n')}\n`, 'utf-8');
 
   // Sitemap indexable (hors landings ads) pour que Google découvre toutes les pages pré-rendues
@@ -377,7 +387,7 @@ async function main() {
   }
 
   console.log(
-    `\n${c.bold}${rendered.size}/${routes.length} pages pré-rendues${c.reset}` +
+    `\n${c.bold}${rendered.size}/${routes.length + 1} pages pré-rendues (dont 404)${c.reset}` +
       ` ${c.dim}+ ${redirectCount} redirections 301 legacy${c.reset}` +
       (failed.length > 0 ? ` ${c.yellow}(${failed.length} en échec → shell SPA)${c.reset}` : '')
   );

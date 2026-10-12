@@ -36,12 +36,20 @@ import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection'
 import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
+import ContactFormSection from '../home-page/ContactFormSection';
 
 import sinistreHeroImg from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
 
-import sinistrePlafondAvant from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_0863.jpg';
-import sinistrePlafondApres from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_0864.jpg';
-
+import sinistreAvant1 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7990.jpg';
+import sinistreApres1 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7988.jpg';
+import sinistreAvant2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7992.jpg';
+import sinistreApres2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7994.jpg';
+import sinistreAvant3 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0836.jpg';
+import sinistreApres3 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0837.jpg';
+import sinistreAvant4 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0859.jpg';
+import sinistreApres4 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0860.jpg';
+import sinistreAvant5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0863.jpg';
+import sinistreApres5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0864.jpg';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -241,13 +249,32 @@ export default function PeintureApresSinistrePage() {
   };
 
   const carouselImages = [
-
     {
-      before: sinistrePlafondAvant,
-      after: sinistrePlafondApres,
-      description: 'Plafond - taches d\'eau et peinture',
+      before: sinistreAvant1,
+      after: sinistreApres1,
+      description: 'Sous-sol taché remis en état après dégât d\'eau',
     },
-];
+    {
+      before: sinistreAvant2,
+      after: sinistreApres2,
+      description: 'Remise en état après dégât d\'eau - surface repeinte Montréal',
+    },
+    {
+      before: sinistreAvant3,
+      after: sinistreApres3,
+      description: 'Gypse remplacé autour d\'une fenêtre, joints tirés et mur repeint',
+    },
+    {
+      before: sinistreAvant4,
+      after: sinistreApres4,
+      description: 'Peinture écaillée par l\'humidité sous une fenêtre, reprise et repeinte',
+    },
+    {
+      before: sinistreAvant5,
+      after: sinistreApres5,
+      description: 'Tache d\'eau au plafond bloquée et plafond repeint uniformément',
+    },
+  ];
 
   return (
     <Fragment>
@@ -265,9 +292,10 @@ export default function PeintureApresSinistrePage() {
           pageContext='Peinture après-sinistre'
           imageBackground={sinistreHeroImg}
           imageAlt="Peinture après-sinistre à Montréal - espace remis en état après dégât d'eau"
+          imagePosition="center 30%"
           overlayBg='rgba(0, 0, 0, 0.55)'
           title='Peinture après sinistre à Montréal'
-          subtitle="Remise en état après dégât d'eau, fumée ou reprise de travaux."
+          subtitle="Dégât d'eau, fumée et remise en état."
           description='Intervention structurée après réparations, propre et rapide.'
           buttonText='Obtenir ma soumission gratuite'
           breadcrumb={HERO_BREADCRUMB}
@@ -282,6 +310,15 @@ export default function PeintureApresSinistrePage() {
           sectionBg="white"
         />
 
+        <BeforeAfterCarouselSection
+          isFr={true}
+          title="Avant / après : surfaces remises en état après un dommage"
+          subtitle="Plafonds tachés, murs marqués et zones reprises - avant et après remise en état à Montréal."
+          images={carouselImages}
+          sectionPaddingTop={0}
+          sectionPaddingBottom={{ base: 16, md: 20, lg: 24 }}
+        />
+
         {/* ===== SECTION 4 - CONTEXTES APRÈS-SINISTRE ===== */}
         <FeatureCardsSection
           title="Une approche adaptée au type de dommage et à l'état réel des surfaces"
@@ -292,20 +329,10 @@ export default function PeintureApresSinistrePage() {
           columns={{ base: 1, sm: 2, md: 3 }}
         />
 
-        {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
-        <BeforeAfterCarouselSection
-          isFr={true}
-          title="Avant / après : surfaces remises en état après un dommage"
-          subtitle="Plafonds tachés, murs marqués et zones reprises - avant et après remise en état à Montréal."
-          images={carouselImages}
-          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
-          sectionPaddingBottom={{ base: 6, md: 8 }}
-        />
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
 
-        {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
         <ServiceGuaranteeSection
           body="Chaque projet de remise en état est suivi jusqu'à ce que le résultat soit propre, uniforme et conforme aux attentes. On ne quitte pas le chantier tant que l'espace n'est pas prêt."
-          onCtaClick={onOpen}
         />
 
         <FAQSection

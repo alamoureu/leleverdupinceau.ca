@@ -46,8 +46,6 @@ export const OFFICIAL_SITE_LP_ROUTES = [
   { path: '/secteurs/montreal/plateau-mont-royal', label: 'Plateau Mont-Royal' },
   { path: '/secteurs/montreal/ville-marie', label: 'Ville-Marie / Centre-Ville' },
   // Pages piliers & sous-services
-  { path: '/peinture-interieure-montreal', label: 'Intérieure Montréal' },
-  { path: '/peinture-exterieure-montreal', label: 'Extérieure Montréal' },
   {
     path: '/services/peinture-interieure/armoires-de-cuisine',
     label: 'Armoire de cuisine',
@@ -77,26 +75,45 @@ export const OFFICIAL_SITE_LP_ROUTES = [
     path: '/services/peinture-residentielle/appartement',
     label: 'Appartement',
   },
+  // Blog
+  { path: '/blog/prix-peinture-montreal', label: 'Prix peinture Montréal' },
+  {
+    path: '/blog/comment-choisir-un-peintre-professionnel',
+    label: 'Comment choisir un peintre',
+  },
+  {
+    path: '/blog/erreurs-a-eviter-peinture-interieure',
+    label: 'Erreurs à éviter',
+  },
+  {
+    path: '/blog/peinture-armoires-cuisine-guide',
+    label: 'Guide armoires cuisine',
+  },
+  { path: '/blog/betonel-vs-benjamin-moore', label: 'Bétonel vs Benjamin Moore' },
+  // Pages légales
+  { path: '/mentions-legales', label: 'Mentions légales' },
+  {
+    path: '/politique-de-confidentialite',
+    label: 'Politique de confidentialité',
+  },
 ];
+
+const LEGAL_ROUTES = ['/mentions-legales', '/politique-de-confidentialite'];
 
 function priorityFor(route) {
   if (route === '/') return '1.0';
+  if (LEGAL_ROUTES.includes(route)) return '0.3';
   if (route === '/contact') return '0.95';
   if (route === '/services' || route === '/secteurs') return '0.95';
   if (route.startsWith('/services/') && route.split('/').length === 3) return '0.85';
   if (route.startsWith('/secteurs/')) return '0.85';
   if (route.startsWith('/blog')) return '0.75';
-  if (
-    route === '/peinture-interieure-montreal' ||
-    route === '/peinture-exterieure-montreal'
-  ) {
-    return '0.9';
-  }
   return '0.8';
 }
 
 function changefreqFor(route) {
   if (route === '/') return 'daily';
+  if (LEGAL_ROUTES.includes(route)) return 'yearly';
   if (route.startsWith('/blog')) return 'weekly';
   if (route.startsWith('/services') || route.startsWith('/secteurs')) return 'weekly';
   return 'monthly';

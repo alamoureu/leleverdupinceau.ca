@@ -25,6 +25,7 @@ import ReviewsSection from '../home-page/ReviewsSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
+import ControlSection from '../home-page/ControlSection';
 
 /**
  * Template partagé pour les pages de ville / secteur (Site LP).
@@ -60,6 +61,7 @@ export default function CitySectorPage({ config }) {
     whyUsTitle,
     whyUsSubtitle,
     whyUsCards = [],
+    control,
     sectorsTitle,
     sectorsSubtitle,
     sectors,
@@ -133,6 +135,8 @@ export default function CitySectorPage({ config }) {
     number: ctx.number,
     title: t(ctx.title),
     description: t(ctx.description),
+    to: ctx.to,
+    linkLabel: ctx.linkLabel ? t(ctx.linkLabel) : null,
   }));
 
   const localizedWhyUs = whyUsCards.map((card) => ({
@@ -244,6 +248,19 @@ export default function CitySectorPage({ config }) {
                         <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.6">
                           {ctx.description}
                         </Text>
+                        {ctx.to && (
+                          <Link as={RouterLink} to={ctx.to} _hover={{ textDecoration: 'none' }}>
+                            <Button
+                              variant="ctaOutline"
+                              rightIcon={<ArrowForwardIcon />}
+                              borderRadius="full"
+                              size="sm"
+                              px={5}
+                            >
+                              {ctx.linkLabel || (isFr ? 'En savoir plus' : 'Learn more')}
+                            </Button>
+                          </Link>
+                        )}
                       </Stack>
                     </Box>
                   ))}
@@ -337,6 +354,18 @@ export default function CitySectorPage({ config }) {
           sectionPaddingBottom={{ base: 12, md: 16, lg: 20 }}
         />
 
+        {control ? (
+          <ControlSection
+            title={t(control.title)}
+            subtitle={t(control.subtitle)}
+            cards={control.cards.map((card) => ({
+              title: t(card.title),
+              subtitle: t(card.subtitle),
+              description: t(card.description),
+            }))}
+            pt={{ base: 12, md: 16 }}
+          />
+        ) : (
         <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={8}>
@@ -381,6 +410,7 @@ export default function CitySectorPage({ config }) {
             </Stack>
           </Container>
         </Box>
+        )}
 
         <ReviewsSection
           hideButton

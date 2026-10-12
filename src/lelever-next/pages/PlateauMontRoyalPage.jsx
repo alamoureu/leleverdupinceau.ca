@@ -31,6 +31,7 @@ import {
   FaLayerGroup,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
@@ -51,9 +52,28 @@ import emmenagementImg from '../images/L2 Services principaux/Photo page -peintu
 import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import escalierAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_7975 3.jpg';
 import escalierApres from '../images/L3 Quartiers/Avant apres plateau/IMG_7974 3.jpg';
+import plAdd1b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import plAdd1a from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import plAdd2b from '../images/3-ville/brossard/avant-apres/IMG_0832.jpg';
+import plAdd2a from '../images/3-ville/brossard/avant-apres/IMG_0833.jpg';
+import plAdd3b from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
+import plAdd3a from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+import plAdd4b from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
+import plAdd4a from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+import plAdd5b from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import plAdd5a from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
+import plAdd6b from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
+import plAdd6a from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';
 
 const CAROUSEL_IMAGES = [
   { before: escalierAvant, after: escalierApres, description: 'Escalier en colimaçon - décapage et peinture' },
+
+  { before: plAdd1b, after: plAdd1a, description: "Porte d'entrée - décapage et peinture" },
+  { before: plAdd2b, after: plAdd2a, description: 'Revêtement - rafraîchissement' },
+  { before: plAdd3b, after: plAdd3a, description: "Poutre d'acier - préparation et peinture" },
+  { before: plAdd4b, after: plAdd4a, description: 'Plinthe et murs - finition' },
+  { before: plAdd5b, after: plAdd5a, description: 'Clôture en bois - teinture' },
+  { before: plAdd6b, after: plAdd6a, description: 'Cuisine - Outremont' },
 ];
 
 const BREADCRUMB = [
@@ -137,13 +157,13 @@ const SERVICES = [
   {
     title: 'Peinture intérieure à Montréal',
     text: 'Pour les condos, plex et appartements du Plateau où la finition, la protection et la logistique urbaine comptent autant que le résultat.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
     cta: 'Voir la page',
   },
   {
     title: 'Peinture extérieure à Montréal',
     text: 'Pour les balcons, escaliers, boiseries extérieures, façades et autres surfaces exposées au climat montréalais.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
     cta: 'Voir la page',
   },
   {
@@ -201,12 +221,12 @@ const INTERNAL_LINKS = [
   {
     title: 'Peinture intérieure à Montréal',
     description: 'Intérieur résidentiel et commercial dans la métropole.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
   },
   {
     title: 'Peinture extérieure à Montréal',
     description: 'Façades, boiseries, balcons et surfaces exposées.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
   },
   {
     title: 'Peinture résidentielle',
@@ -264,7 +284,7 @@ export default function PlateauMontRoyalPage() {
     '@type': 'LocalBusiness',
     name: 'Le Lever du Pinceau',
     url: 'https://leleverdupinceau.ca',
-    telephone: '+15148005155',
+    telephone: LOCAL_BUSINESS_SCHEMA.telephone,
     areaServed: [
       { '@type': 'City', name: 'Plateau Mont-Royal' },
       { '@type': 'City', name: 'Montréal' },

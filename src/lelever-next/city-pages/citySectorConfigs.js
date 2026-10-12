@@ -16,6 +16,16 @@ import stLambert0842 from '../images/3-ville/st-lambert/avant-apres/IMG_0842.jpg
 import stLambert0843 from '../images/3-ville/st-lambert/avant-apres/IMG_0843.jpg';
 import stLambert0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
 import stLambert0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.jpg';
+import stLambert0846 from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
+import stLambert0847 from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
+import stLambert0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
+import stLambert0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
+import stLambert5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.jpg';
+import stLambert5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.jpg';
+import stLambert6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg';
+import stLambert8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg';
+import laprairie0818 from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
+import laprairie0819 from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
 
 import laprairie0852 from '../images/3-ville/laprairie/avant-apres/IMG_0852.jpg';
 import laprairie0853 from '../images/3-ville/laprairie/avant-apres/IMG_0853.jpg';
@@ -131,7 +141,7 @@ export const brossardCityConfig = {
       number: '01',
       title: { fr: 'Maison récente avec fissures de tassement', en: 'Recent home with settlement cracks' },
       description: {
-        fr: 'Aux coins de portes et fenêtres, un simple mastic ne suffit souvent pas. On rebouche avec toile à fissures aux points qui bougent, puis on peindre pour un résultat qui tient.',
+        fr: 'Aux coins de portes et fenêtres, un simple mastic ne suffit souvent pas. On rebouche avec toile à fissures aux points qui bougent, puis on peint pour un résultat qui tient.',
         en: 'At door and window corners, filler alone is often not enough. We patch with crack tape at points that move, then paint for a finish that lasts.',
       },
     },
@@ -436,19 +446,23 @@ export const stLambertCityConfig = {
   contexts: [
     {
       number: '01',
-      title: { fr: 'Maison de caractère et boiseries anciennes', en: 'Character home and old woodwork' },
+      title: { fr: 'Maison de caractère à rafraîchir', en: 'Character home to refresh' },
       description: {
-        fr: 'Plusieurs couches de peinture, parfois antérieures aux normes actuelles. On évalue l\'état des couches et on ajuste la méthode de préparation avant de repeindre.',
-        en: 'Several coats of paint, sometimes predating current standards. We assess the existing layers and adjust the prep method before repainting.',
+        fr: "Pièces d'apparat, escaliers et boiseries remis en valeur sans perdre les détails qui font le charme de la maison.",
+        en: 'Formal rooms, staircases and trim brought back to life without losing the details that give the house its charm.',
       },
+      to: '/services/peinture-residentielle/maison',
+      linkLabel: { fr: 'Voir la peinture de maison', en: 'See house painting' },
     },
     {
       number: '02',
-      title: { fr: 'Retrait de papier peint et remise à neuf', en: 'Wallpaper removal and refresh' },
+      title: { fr: 'Condo ou unité en copropriété', en: 'Condo or co-ownership unit' },
       description: {
-        fr: 'Dans les maisons plus anciennes, le papier peint est encore fréquent. Retrait soigné, réparation des surfaces et peinture uniforme pour moderniser la pièce.',
-        en: 'In older homes, wallpaper is still common. Careful removal, surface repair and even paint to modernize the room.',
+        fr: "Règlements du syndicat, réservation de l'ascenseur et protection des aires communes planifiés avant le début des travaux.",
+        en: 'Condo board rules, elevator booking and protection of common areas planned before the work begins.',
       },
+      to: '/services/peinture-residentielle/condo',
+      linkLabel: { fr: 'Voir la peinture de condo', en: 'See condo painting' },
     },
     {
       number: '03',
@@ -462,7 +476,7 @@ export const stLambertCityConfig = {
       number: '04',
       title: { fr: 'Réparation autour des fenêtres et boiseries', en: 'Repair around windows and trim' },
       description: {
-        fr: 'Écaillage, humidité ou usure sur les cadres : on prépare, on rebouche et on peindre pour un contour net qui tient.',
+        fr: 'Écaillage, humidité ou usure sur les cadres : on prépare, on rebouche et on peint pour un contour net qui tient.',
         en: 'Peeling, moisture or wear on frames: we prep, patch and paint for a clean surround that lasts.',
       },
     },
@@ -542,7 +556,7 @@ export const stLambertCityConfig = {
       before: stLambert0859,
       after: stLambert0860,
       description: {
-        fr: 'Réparation et peinture autour d\'une fenêtre',
+        fr: "Réparation et peinture autour d'une fenêtre",
         en: 'Repair and painting around a window',
       },
     },
@@ -552,6 +566,38 @@ export const stLambertCityConfig = {
       description: {
         fr: 'Cadrage de fenêtre - plâtre et peinture',
         en: 'Window frame - plaster and paint',
+      },
+    },
+    {
+      before: stLambert0846,
+      after: stLambert0847,
+      description: {
+        fr: 'Salon - murs et boiseries rafraîchis',
+        en: 'Living room - walls and trim refreshed',
+      },
+    },
+    {
+      before: stLambert0855,
+      after: stLambert0856,
+      description: {
+        fr: 'Pièce intérieure - finition nette',
+        en: 'Interior room - clean finish',
+      },
+    },
+    {
+      before: stLambert5975,
+      after: stLambert5976,
+      description: {
+        fr: 'Armoires de cuisine transformées',
+        en: 'Kitchen cabinets transformed',
+      },
+    },
+    {
+      before: stLambert6031,
+      after: stLambert8108,
+      description: {
+        fr: 'Couloir - plâtre réparé et murs repeints',
+        en: 'Hallway - plaster repaired and walls repainted',
       },
     },
   ],
@@ -590,6 +636,43 @@ export const stLambertCityConfig = {
     },
   ],
 
+
+  control: {
+    title: {
+      fr: 'Une exécution fiable, propre et bien encadrée',
+      en: 'Reliable, clean and well-managed execution',
+    },
+    subtitle: {
+      fr: 'Trois engagements qui guident chaque chantier dans les maisons de caractère de Saint-Lambert.',
+      en: "Three commitments that guide every job in Saint-Lambert's character homes.",
+    },
+    cards: [
+      {
+        title: { fr: 'Organisation claire', en: 'Clear organization' },
+        subtitle: { fr: 'un plan avant le premier coup de pinceau', en: 'a plan before the first brushstroke' },
+        description: {
+          fr: 'Ordre des pièces, échéancier écrit et personne-ressource : vous savez qui vient, quand, et ce qui sera fait dans votre maison.',
+          en: 'Room order, written schedule and a single contact: you know who is coming, when, and what will be done in your home.',
+        },
+      },
+      {
+        title: { fr: 'Chantier propre', en: 'Clean job site' },
+        subtitle: { fr: 'même avec les vieilles couches', en: 'even with old paint layers' },
+        description: {
+          fr: 'Ponçage humide, confinement de la poussière et nettoyage chaque soir, essentiels quand les boiseries portent des décennies de peinture.',
+          en: 'Wet sanding, dust containment and cleanup every evening, essential when the woodwork carries decades of paint.',
+        },
+      },
+      {
+        title: { fr: 'Résultat durable', en: 'Lasting result' },
+        subtitle: { fr: 'plâtre et boiseries bien préparés', en: 'well-prepared plaster and trim' },
+        description: {
+          fr: 'Plâtre réparé avec des matériaux compatibles et boiseries apprêtées correctement : la finition tient des années, sans fissures qui reviennent.',
+          en: 'Plaster repaired with compatible materials and trim properly primed: the finish lasts for years, with no returning cracks.',
+        },
+      },
+    ],
+  },
   sectorsTitle: {
     fr: 'Nous desservons Saint-Lambert et les secteurs voisins',
     en: 'We serve Saint-Lambert and nearby areas',
@@ -598,13 +681,7 @@ export const stLambertCityConfig = {
     fr: 'Centre-ville, secteurs résidentiels établis et villes voisines de la Rive-Sud.',
     en: 'Downtown, established residential areas and neighboring South Shore cities.',
   },
-  sectors: [
-    'Centre-ville',
-    'Secteurs résidentiels établis',
-    'Proche Longueuil',
-    'Proche Brossard',
-    'Rive-Sud voisine',
-  ],
+  sectors: [],
   sectorsNote: {
     fr: "Nous intervenons aussi à Longueuil, Brossard et La Prairie selon le type de projet et l'échéancier.",
     en: 'We also work in Longueuil, Brossard and La Prairie depending on the project and timeline.',
@@ -670,7 +747,7 @@ export const stLambertCityConfig = {
     fr: 'Maison de caractère, boiseries anciennes ou plex à Saint-Lambert : on évalue la préparation avant de peindre.',
     en: 'Character home, old woodwork or plex in Saint-Lambert: we assess prep before painting.',
   },
-  areaServed: ['Centre-ville'],
+  areaServed: ['Saint-Lambert', 'Rive-Sud'],
 };
 
 export const laprairieCityConfig = {
@@ -843,6 +920,14 @@ export const laprairieCityConfig = {
       description: {
         fr: 'Remise à neuf de plinthes - Intérieur résidentiel',
         en: 'Baseboard refresh - Residential interior',
+      },
+    },
+     {
+      before: laprairie0818,
+      after: laprairie0819,
+      description: {
+        fr: 'Réparation de plâtre et peinture',
+        en: 'Plaster repair and painting',
       },
     },
   ],

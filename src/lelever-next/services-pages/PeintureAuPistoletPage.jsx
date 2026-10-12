@@ -31,6 +31,7 @@ import {
 import SEOHead from '../seo/SEOHead';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
@@ -41,6 +42,12 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import pistoletHeroImg from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.png';
 import pistoletAvant1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.jpg';
 import pistoletApres1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg';
+import revetementAvant from '../images/3-ville/longueuil/avant-apres/IMG_0830.jpg';
+import revetementApres from '../images/3-ville/longueuil/avant-apres/IMG_0831.jpg';
+import armoiresBlanchesAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.PNG';
+import armoiresBlanchesApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG';
+import armoiresGrisesAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';
+import armoiresGrisesApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG';
 
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
@@ -172,11 +179,6 @@ const INTERNAL_LINKS = [
     to: '/services/peinture-interieure/armoires-de-cuisine',
   },
   {
-    title: 'Peinture intérieure à Montréal',
-    description: 'Page locale pour les projets intérieurs dans la métropole.',
-    to: '/peinture-interieure-montreal',
-  },
-  {
     title: 'Pourquoi engager un peintre professionnel\u00A0?',
     description: 'Licence RBQ, assurance, expertise - ce qui fait la différence.',
     to: '/peintre-professionnel',
@@ -240,7 +242,22 @@ export default function PeintureAuPistoletPage() {
       after: pistoletApres1,
       description: 'Peinture au pistolet - finition uniforme',
     },
-];
+    {
+      before: revetementAvant,
+      after: revetementApres,
+      description: 'Revêtement extérieur écaillé remis à neuf au pistolet - avant / après',
+    },
+    {
+      before: armoiresBlanchesAvant,
+      after: armoiresBlanchesApres,
+      description: 'Armoires de cuisine en chêne peintes en blanc au pistolet - avant / après',
+    },
+    {
+      before: armoiresGrisesAvant,
+      after: armoiresGrisesApres,
+      description: 'Armoires de cuisine en bois peintes en gris au pistolet - avant / après',
+    },
+  ];
 
   return (
     <Fragment>
@@ -275,8 +292,19 @@ export default function PeintureAuPistoletPage() {
           sectionBg="white"
         />
 
-        {/* ===== SECTION 4 - SURFACES ET CONTEXTES ADAPTÉS ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
+        {/* ===== SECTION 4 - AVANT / APRÈS ===== */}
+        <BeforeAfterCarouselSection
+          isFr={true}
+          title="Des projets où la méthode fait toute la différence"
+          subtitle="Revêtements, armoires, boiseries et grandes surfaces - avant et après application au pistolet à Montréal."
+          images={carouselImages}
+          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
+          sectionPaddingBottom={{ base: 6, md: 8 }}
+        />
+        <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
+
+        {/* ===== SECTION 5 - SURFACES ET CONTEXTES ADAPTÉS ===== */}
+        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>
               <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
@@ -355,22 +383,10 @@ export default function PeintureAuPistoletPage() {
           </Container>
         </Box>
 
-        {/* ===== SECTION 5 - AVANT / APRÈS ===== */}
-        <BeforeAfterCarouselSection
-          isFr={true}
-          title="Des projets où la méthode fait toute la différence"
-          subtitle="Plafonds ouverts, boiseries, portes et grandes surfaces - avant et après application au pistolet à Montréal."
-          images={carouselImages}
-          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
-          sectionPaddingBottom={{ base: 6, md: 8 }}
-        />
-
-        {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
+        {/* ===== SECTION 6 - GARANTIE ===== */}
         <ServiceGuaranteeSection
           title="Une méthode rapide ne veut pas dire un chantier bâclé"
           body="Le pistolet donne d'excellents résultats seulement quand la préparation, le masquage et la séquence d'application sont bien exécutés. Nous ne quittons pas le chantier tant que le résultat n'est pas propre, uniforme et conforme aux attentes."
-          onCtaClick={onOpen}
-          note="Réponse en moins de 24h"
         />
 
         <FAQSection

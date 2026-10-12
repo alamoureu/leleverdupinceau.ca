@@ -31,6 +31,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Fragment, useContext } from 'react';
 import appContext from '../../AppProvider';
+import whiteLogo from '../images/whitelogo.png';
 
 const PHONE_DISPLAY = '(438) 868-0772';
 const PHONE_HREF = 'tel:+14388680772';
@@ -166,7 +167,7 @@ export const MobileDrawer = () => {
             borderColor="whiteAlpha.200"
           >
             <Image
-              src="https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png"
+              src={whiteLogo}
               alt="Le Lever du Pinceau"
               h={{ base: '40px', sm: '46px' }}
               w="auto"

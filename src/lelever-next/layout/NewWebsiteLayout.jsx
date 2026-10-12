@@ -21,6 +21,7 @@ import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
+import whiteLogo from '../images/whitelogo.png';
 export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
@@ -85,9 +86,7 @@ export default function NewWebsiteLayout() {
                     <Image
                       loading="lazy"
                       decoding="async"
-                      src={
-                        'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/whitelogo.png'
-                      }
+                      src={whiteLogo}
                       alt="Logo Le Lever du Pinceau"
                       htmlWidth={1409}
                       htmlHeight={873}

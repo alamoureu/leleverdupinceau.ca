@@ -322,13 +322,13 @@ export const commentChoisirPeintreProfessionnelData = {
       type: 'list',
       items: {
         fr: [
-          'tient en une seule phrase ("peinture 3 pièces – X $")',
+          'tient en une seule phrase ("peinture 3 pièces - X $")',
           'ne mentionne ni préparation ni protection',
           'ne parle pas des produits utilisés',
           'ne mentionne aucune garantie',
         ],
         en: [
-          'fits in a single sentence ("painting 3 rooms – X $")',
+          'fits in a single sentence ("painting 3 rooms - X $")',
           'mentions neither preparation nor protection',
           'does not talk about products used',
           'mentions no guarantee',

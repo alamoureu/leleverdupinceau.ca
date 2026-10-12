@@ -101,6 +101,8 @@ const ALIAS_REDIRECTS = {
   '/services/peinture-residentielle/exterieure': '/services/peinture-residentielle',
   '/services/peinture-commerciale/interieure': '/services/peinture-commerciale',
   '/services/peinture-commerciale/exterieure': '/services/peinture-commerciale',
+  '/peinture-interieure-montreal': '/services/peinture-interieure',
+  '/peinture-exterieure-montreal': '/services/peinture-exterieure',
 };
 
 function normalize(pathname) {

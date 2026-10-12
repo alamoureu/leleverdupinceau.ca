@@ -50,6 +50,16 @@ import monImg7678 from '../images/3-ville/Montréal/avant-apres/IMG_7678 3.jpg';
 import monImg5873 from '../images/3-ville/Montréal/avant-apres/IMG_5873 3.jpg';
 import monImg7971 from '../images/3-ville/Montréal/avant-apres/IMG_7971 5.jpg';
 import monImg6755 from '../images/3-ville/Montréal/avant-apres/IMG_6755 3.jpg';
+import mtlAdd1b from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
+import mtlAdd1a from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+import mtlAdd2b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import mtlAdd2a from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import mtlAdd3b from '../images/3-ville/st-lambert/avant-apres/IMG_0842.jpg';
+import mtlAdd3a from '../images/3-ville/st-lambert/avant-apres/IMG_0843.jpg';
+import mtlAdd4b from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
+import mtlAdd4a from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+import mtlAdd5b from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
+import mtlAdd5a from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
 
 export default function MontrealCityPage() {
   const { currentLang } = useContext(appContext);
@@ -168,8 +178,8 @@ export default function MontrealCityPage() {
   // Section 5 - Services les plus demandes
 
   const serviceCardImages = {
-    '/peinture-interieure-montreal': interieureHeroImg,
-    '/peinture-exterieure-montreal': exterieureHeroImg,
+    '/services/peinture-interieure': interieureHeroImg,
+    '/services/peinture-exterieure': exterieureHeroImg,
     '/services/peinture-residentielle': residentielleHeroImg,
     '/services/peinture-commerciale': commercialeHeroImg,
   };
@@ -178,12 +188,12 @@ export default function MontrealCityPage() {
     {
       title: 'Peinture intérieure à Montréal',
       description: 'Condos, plex, maisons et appartements: préparation sérieuse, finition nette et chantier propre du début à la fin.',
-      to: '/peinture-interieure-montreal',
+      to: '/services/peinture-interieure',
     },
     {
       title: 'Peinture extérieure à Montréal',
       description: 'Façades, balcons, escaliers et revêtements extérieurs adaptés au climat montréalais et aux surfaces locales.',
-      to: '/peinture-exterieure-montreal',
+      to: '/services/peinture-exterieure',
     },
     {
       title: 'Peinture résidentielle',
@@ -199,12 +209,12 @@ export default function MontrealCityPage() {
     {
       title: 'Interior painting in Montreal',
       description: 'Condos, plex, homes and apartments: serious preparation, clean finish and tidy job site from start to finish.',
-      to: '/peinture-interieure-montreal',
+      to: '/services/peinture-interieure',
     },
     {
       title: 'Exterior painting in Montreal',
       description: 'Facades, balconies, staircases and exterior cladding adapted to Montreal\'s climate and local surfaces.',
-      to: '/peinture-exterieure-montreal',
+      to: '/services/peinture-exterieure',
     },
     {
       title: 'Residential painting',
@@ -257,6 +267,12 @@ export default function MontrealCityPage() {
       after: poutreAcierApres,
       description: isFr ? "Peinture intérieure - Poutre d'acier rouillée" : 'Interior painting - Rusted steel beam',
     },
+
+  { before: mtlAdd1b, after: mtlAdd1a, description: 'Réparation de plâtre' },
+  { before: mtlAdd2b, after: mtlAdd2a, description: "Porte d'entrée - décapage et peinture" },
+  { before: mtlAdd3b, after: mtlAdd3a, description: 'Chambre - retrait de papier peint' },
+  { before: mtlAdd4b, after: mtlAdd4a, description: 'Plinthe et murs - finition' },
+  { before: mtlAdd5b, after: mtlAdd5a, description: 'Escalier extérieur - Verdun' },
 ];
 
   // Section 7 - FAQ Montreal
@@ -314,15 +330,15 @@ export default function MontrealCityPage() {
   // Section 8 - Liens internes
 
   const serviceLinks = isFr ? [
-    { label: 'Peinture intérieure à Montréal', to: '/peinture-interieure-montreal' },
-    { label: 'Peinture extérieure à Montréal', to: '/peinture-exterieure-montreal' },
+    { label: 'Peinture intérieure à Montréal', to: '/services/peinture-interieure' },
+    { label: 'Peinture extérieure à Montréal', to: '/services/peinture-exterieure' },
     { label: 'Peinture résidentielle', to: '/services/peinture-residentielle' },
     { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
     { label: 'Avis clients', to: '/avis-clients' },
     { label: 'Voir nos réalisations', to: '/realisations' },
   ] : [
-    { label: 'Interior painting in Montreal', to: '/peinture-interieure-montreal' },
-    { label: 'Exterior painting in Montreal', to: '/peinture-exterieure-montreal' },
+    { label: 'Interior painting in Montreal', to: '/services/peinture-interieure' },
+    { label: 'Exterior painting in Montreal', to: '/services/peinture-exterieure' },
     { label: 'Residential painting', to: '/services/peinture-residentielle' },
     { label: 'Commercial painting', to: '/services/peinture-commerciale' },
     { label: 'Client reviews', to: '/avis-clients' },

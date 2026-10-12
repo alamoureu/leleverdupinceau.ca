@@ -13,7 +13,6 @@ import {
   HStack,
   SimpleGrid,
   useDisclosure,
-  Image,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import {
@@ -40,6 +39,7 @@ import ReviewsSection from '../home-page/ReviewsSection';
 import FAQSection from '../home-page/FAQSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
+import CtaButton from '../home-page/CtaButton';
 import ServiceCard from '../home-page/ServiceCard';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
@@ -594,23 +594,9 @@ export default function PeintreProfessionnelPage() {
                     >
                   Le Lever du Pinceau coche toutes ces cases. Vérifiez par vous-même.
                     </Text>
-                <Button
-                  variant="cta"
-                  onClick={onOpen}
-                  borderRadius="full"
-                  px={{ base: 8, md: 10 }}
-                  py={{ base: 3, md: 4 }}
-                  rightIcon={<ArrowForwardIcon />}
-                  size="lg"
-                  w="auto"
-                  maxW="20rem"
-                  whiteSpace="normal"
-                  lineHeight="1.2"
-                  h="auto"
-                  minH="48px"
-                >
+                <CtaButton onClick={onOpen} rightIcon={<ArrowForwardIcon />}>
                   Obtenir ma soumission gratuite
-                </Button>
+                </CtaButton>
               </Box>
                 </Stack>
               </Container>

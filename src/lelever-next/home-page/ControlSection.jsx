@@ -18,34 +18,21 @@ import { TRUST_BANNER_BELOW_PT } from './TrustBanner';
 
 const cardImages = [control1, control2, control3];
 
-export default function ControlSection({ onSubmissionOpen }) {
+// Sans props : version de l'accueil. Les autres pages passent leur propre texte (cards sans image = images de l'accueil).
+export default function ControlSection({ title, subtitle, cards: customCards, pt }) {
   const { t } = useTranslation();
-  const titleParts = t.controlTitle.split(', ');
+  const heading = title || t.controlTitle;
+  const titleParts = heading.split(', ');
   const hasTwoParts = titleParts.length >= 2;
 
-  const cards = [
-    {
-      image: cardImages[0],
-      title: t.controlCard1Title,
-      subtitle: t.controlCard1Subtitle,
-      description: t.controlCard1Desc,
-    },
-    {
-      image: cardImages[1],
-      title: t.controlCard2Title,
-      subtitle: t.controlCard2Subtitle,
-      description: t.controlCard2Desc,
-    },
-    {
-      image: cardImages[2],
-      title: t.controlCard3Title,
-      subtitle: t.controlCard3Subtitle,
-      description: t.controlCard3Desc,
-    },
-  ];
+  const cards = (customCards || [1, 2, 3].map((n) => ({
+    title: t[`controlCard${n}Title`],
+    subtitle: t[`controlCard${n}Subtitle`],
+    description: t[`controlCard${n}Desc`],
+  }))).map((card, i) => ({ image: cardImages[i % cardImages.length], ...card }));
 
   return (
-    <Box pt={TRUST_BANNER_BELOW_PT} mt={0} pb={SECTION_PY} bg="white">
+    <Box pt={pt ?? TRUST_BANNER_BELOW_PT} mt={0} pb={SECTION_PY} bg="white">
       <Container
         maxW="1440px"
         px={{ base: 4, sm: 5, md: 6, lg: 8, xl: 10, '2xl': 12 }}
@@ -80,11 +67,11 @@ export default function ControlSection({ onSubmissionOpen }) {
                   </Box>
                 </>
               ) : (
-                t.controlTitle
+                heading
               )}
             </Heading>
             <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7">
-              {t.controlSubtitle}
+              {subtitle || t.controlSubtitle}
             </Text>
           </Stack>
 

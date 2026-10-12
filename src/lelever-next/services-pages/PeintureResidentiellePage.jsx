@@ -43,6 +43,24 @@ import residentielleHeroImg from '../images/2-services/Page peinture résidentie
 
 import avantApresRes1a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg';
 import avantApresRes1b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg';
+import res0828 from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import res0829 from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import res0834 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
+import res0835 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
+import res0844 from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
+import res0845 from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
+import res5984 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg';
+import res5982 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg';
+import res7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg';
+import res7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg';
+import res7975 from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
+import res7974 from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
+import res7992 from '../images/3-ville/longueuil/avant-apres/IMG_7992 6.jpg';
+import res7994 from '../images/3-ville/longueuil/avant-apres/IMG_7994 6.jpg';
+import res7999 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.jpg';
+import res7997 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.jpg';
+import res8253 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8253.jpg';
+import res8252 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8252.jpg';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -88,7 +106,7 @@ const SPECIALITES = [
     icon: FaHome,
     title: 'Maison unifamiliale',
     text: 'Intérieur complet, pièces sélectionnées ou rafraîchissement ciblé. Nous nous adaptons à vos besoins et à votre occupation du lieu.',
-    link: null,
+    link: '/services/peinture-residentielle/maison',
     popular: true,
   },
   {
@@ -221,10 +239,19 @@ export default function PeintureResidentiellePage() {
 
   const carouselImages = [
     {
-      before: avantApresRes1a,
-      after: avantApresRes1b,
-      description: 'Peinture résidentielle - maison complète Montréal',
+      before: avantApresRes1b,
+      after: avantApresRes1a,
+      description: 'Peinture résidentielle - cage d\'escalier à Westmount',
     },
+    { before: res0828, after: res0829, description: "Porte d'entrée - peinture extérieure" },
+    { before: res0834, after: res0835, description: "Poutre d'acier - intérieur résidentiel" },
+    { before: res0844, after: res0845, description: 'Chambre - rafraîchissement résidentiel' },
+    { before: res5984, after: res5982, description: 'Pièce double - Westmount' },
+    { before: res7924, after: res7922, description: 'Salon - Condo Griffintown' },
+    { before: res7975, after: res7974, description: 'Escalier extérieur - Verdun' },
+    { before: res7992, after: res7994, description: 'Maison - peinture résidentielle' },
+    { before: res7999, after: res7997, description: 'Intérieur - Notre-Dame-de-Grâce' },
+    { before: res8253, after: res8252, description: 'Corridor - rafraîchissement' },
 ];
 
   return (
@@ -245,8 +272,8 @@ export default function PeintureResidentiellePage() {
           imageAlt='Peinture résidentielle à Montréal - peintre professionnel en action'
           overlayBg='rgba(0, 0, 0, 0.50)'
           title='Peinture résidentielle à Montréal'
-          subtitle='Pour votre domicile, du devis à la livraison.'
-          description='Chantier propre, bien coordonné et respectueux de votre espace.'
+          subtitle='Maison, condo, appartement'
+          description='Un chantier propre, bien coordonné et respectueux de votre espace de vie.'
           buttonText='Obtenir ma soumission gratuite'
           breadcrumb={HERO_BREADCRUMB}
         />

@@ -8,6 +8,7 @@ export default function ServiceGuaranteeSection({
   onCtaClick,
   ctaText,
   note,
+  hideCta = false,
 }) {
   return (
     <GuaranteeSection
@@ -17,6 +18,7 @@ export default function ServiceGuaranteeSection({
       onSubmissionOpen={onCtaClick}
       ctaText={ctaText}
       note={note}
+      hideCta={hideCta}
     />
   );
 }

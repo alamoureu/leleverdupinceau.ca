@@ -30,6 +30,7 @@ import {
   FaCheckCircle,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
@@ -49,8 +50,27 @@ import emmenagementImg from '../images/L3 Sous services/Photo page appartement/h
 import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
 import salleEauAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0807.jpg';
 import salleEauApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0808.jpg';
+import wmAdd1b from '../images/3-ville/brossard/avant-apres/IMG_0826.jpg';
+import wmAdd1a from '../images/3-ville/brossard/avant-apres/IMG_0827.jpg';
+import wmAdd2b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
+import wmAdd2a from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
+import wmAdd3b from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
+import wmAdd3a from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
+import wmAdd4b from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
+import wmAdd4a from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
+import wmAdd5b from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
+import wmAdd5a from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+import wmAdd6b from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg';
+import wmAdd6a from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg';
 const BEFORE_AFTER = [
   { before: salleEauAvant, after: salleEauApres, description: 'Salle d\'eau - murs repeints, moulures rafraîchies' },
+
+  { before: wmAdd1b, after: wmAdd1a, description: 'Escalier extérieur - peinture' },
+  { before: wmAdd2b, after: wmAdd2a, description: "Porte d'entrée - décapage et peinture" },
+  { before: wmAdd3b, after: wmAdd3a, description: 'Salon - murs et boiseries' },
+  { before: wmAdd4b, after: wmAdd4a, description: 'Pièce intérieure - finition nette' },
+  { before: wmAdd5b, after: wmAdd5a, description: 'Plinthe et murs - finition' },
+  { before: wmAdd6b, after: wmAdd6a, description: 'Pièce double - Westmount' },
 ];
 
 const HERO_BREADCRUMB = [
@@ -99,8 +119,8 @@ const CONTEXTES = [
     image: maisonImg,
     title: 'Maison occupée avec standards élevés',
     text: 'Protection totale des surfaces existantes, propreté quotidienne, zones de travail bien séquencées et communication rassurante à chaque étape du chantier.',
-    to: '/services/peinture-residentielle',
-    linkLabel: 'Voir la peinture de maison',
+    to: '/services/peinture-residentielle/maison',
+    linkLabel: 'Voir la peinture de maison unifamiliale',
   },
   {
     icon: FaBuilding,
@@ -138,13 +158,13 @@ const SERVICES = [
   {
     title: 'Peinture intérieure',
     text: 'Pour les pièces occupées, condos et intérieurs où la finition, la protection et la coordination comptent autant que le résultat.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
     cta: 'Voir la page',
   },
   {
     title: 'Peinture extérieure',
     text: 'Pour les façades, boiseries extérieures, balcons, escaliers et surfaces exposées au climat montréalais.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
     cta: 'Voir la page',
   },
   {
@@ -202,12 +222,12 @@ const INTERNAL_LINKS = [
   {
     title: 'Peinture intérieure à Montréal',
     description: 'Intérieur résidentiel et commercial dans la métropole.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
   },
   {
     title: 'Peinture extérieure à Montréal',
     description: 'Façades, boiseries, balcons et surfaces exposées.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
   },
   {
     title: 'Peinture résidentielle',
@@ -265,7 +285,7 @@ export default function WestmountPage() {
     '@type': 'LocalBusiness',
     name: 'Le Lever du Pinceau',
     url: 'https://leleverdupinceau.ca',
-    telephone: '+15148005155',
+    telephone: LOCAL_BUSINESS_SCHEMA.telephone,
     areaServed: [
       { '@type': 'City', name: 'Westmount' },
       { '@type': 'City', name: 'Montréal' },

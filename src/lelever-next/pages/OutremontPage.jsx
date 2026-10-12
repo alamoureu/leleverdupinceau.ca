@@ -29,6 +29,7 @@ import {
   FaBriefcase,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
@@ -47,11 +48,35 @@ import condoImg from '../images/L3 Sous services/Photo page -peinture condo/head
 import prisePossessionImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
 import remiseEnEtatImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
 import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
+import interieureImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
+import exterieureImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
 import cuisineAvant from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
 import cuisineApres from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';
+import ouAdd1b from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
+import ouAdd1a from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+import ouAdd2b from '../images/3-ville/brossard/avant-apres/IMG_0826.jpg';
+import ouAdd2a from '../images/3-ville/brossard/avant-apres/IMG_0827.jpg';
+import ouAdd3b from '../images/3-ville/st-lambert/avant-apres/IMG_0842.jpg';
+import ouAdd3a from '../images/3-ville/st-lambert/avant-apres/IMG_0843.jpg';
+import ouAdd4b from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
+import ouAdd4a from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
+import ouAdd5b from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
+import ouAdd5a from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
+import ouAdd6b from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
+import ouAdd6a from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+import ouAdd7b from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
+import ouAdd7a from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
 
 const CAROUSEL_IMAGES = [
   { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - murs repeints sous les moulures d\'origine' },
+
+  { before: ouAdd1b, after: ouAdd1a, description: 'Réparation de plâtre' },
+  { before: ouAdd2b, after: ouAdd2a, description: 'Escalier extérieur - peinture' },
+  { before: ouAdd3b, after: ouAdd3a, description: 'Chambre - retrait de papier peint' },
+  { before: ouAdd4b, after: ouAdd4a, description: 'Salon - murs et boiseries' },
+  { before: ouAdd5b, after: ouAdd5a, description: 'Pièce intérieure - finition nette' },
+  { before: ouAdd6b, after: ouAdd6a, description: 'Plinthe et murs - finition' },
+  { before: ouAdd7b, after: ouAdd7a, description: 'Clôture en bois - teinture' },
 ];
 
 const BREADCRUMB = [
@@ -137,26 +162,30 @@ const SERVICES = [
   {
     title: 'Peinture intérieure à Montréal',
     text: 'Pour les maisons et condos d\'Outremont où la finition intérieure, la protection et la coordination comptent autant que le résultat.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
     cta: 'Voir la page',
+    image: interieureImg,
   },
   {
     title: 'Peinture extérieure à Montréal',
     text: 'Pour les façades, boiseries extérieures, balcons et surfaces exposées au climat montréalais.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
     cta: 'Voir la page',
+    image: exterieureImg,
   },
   {
     title: 'Peinture résidentielle',
     text: 'Pour un chantier simple à vivre, bien coordonné et sans stress dans votre maison ou appartement.',
     to: '/services/peinture-residentielle',
     cta: 'Voir la page',
+    image: maisonImg,
   },
   {
     title: 'Peinture condo',
     text: 'Pour les condos et unités en copropriété où l\'accès, la coordination et la propreté du chantier sont essentiels.',
     to: '/services/peinture-residentielle/condo',
     cta: 'Voir la page',
+    image: condoImg,
   },
 ];
 
@@ -164,12 +193,12 @@ const INTERNAL_LINKS = [
   {
     title: 'Peinture intérieure à Montréal',
     description: 'Intérieur résidentiel et commercial dans la métropole.',
-    to: '/peinture-interieure-montreal',
+    to: '/services/peinture-interieure',
   },
   {
     title: 'Peinture extérieure à Montréal',
     description: 'Façades, boiseries, balcons et surfaces exposées.',
-    to: '/peinture-exterieure-montreal',
+    to: '/services/peinture-exterieure',
   },
   {
     title: 'Peinture résidentielle',
@@ -251,7 +280,7 @@ export default function OutremontPage() {
     '@type': 'LocalBusiness',
     name: 'Le Lever du Pinceau',
     url: 'https://leleverdupinceau.ca',
-    telephone: '+15148005155',
+    telephone: LOCAL_BUSINESS_SCHEMA.telephone,
     areaServed: [
       { '@type': 'City', name: 'Outremont' },
       { '@type': 'City', name: 'Montréal' },
@@ -421,14 +450,23 @@ export default function OutremontPage() {
                       border="1px solid"
                       borderColor="gray.200"
                       borderRadius="xl"
-                      p={{ base: 6, md: 7 }}
+                      overflow="hidden"
                       h="100%"
                       display="flex"
                       flexDirection="column"
                       _hover={{ borderColor: 'brand.500', transform: 'translateY(-2px)', boxShadow: 'md' }}
                       transition="all 0.2s"
                     >
-                      <Stack spacing={4} flex={1} justify="space-between">
+                      <Image
+                        src={service.image}
+                        alt={`${service.title} - Outremont`}
+                        w="100%"
+                        h="180px"
+                        objectFit="cover"
+                        loading="lazy"
+                        decoding="async"
+                      />
+                      <Stack spacing={4} flex={1} justify="space-between" p={{ base: 6, md: 7 }}>
                         <Box>
                           <Heading as="h3" fontSize={{ base: 'md', md: 'lg' }} fontWeight="700" color="gray.800" lineHeight="1.3" mb={3}>
                             {service.title}

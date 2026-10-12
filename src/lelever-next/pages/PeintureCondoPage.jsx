@@ -1,15 +1,4 @@
-import React, { Fragment } from 'react';
-import {
-  Box,
-  Container,
-  Heading,
-  Text,
-  Stack,
-  Button,
-  useDisclosure,
-  Image,
-} from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
+import React from 'react';
 import {
   FaBuilding,
   FaShieldAlt,
@@ -17,35 +6,16 @@ import {
   FaBroom,
   FaCalendarAlt,
   FaStar,
-  FaCouch,
-  FaGavel,
-  FaTag,
-  FaKey,
-  FaMapMarkedAlt,
 } from 'react-icons/fa';
-import SEOHead from '../seo/SEOHead';
-import HeroSection from '../home-page/HeroSection';
-import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
-import SubmissionModal from '../home-page/SubmissionModal';
-import FinalCTASection from '../home-page/FinalCTASection';
-import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
-import FAQSection from '../home-page/FAQSection';
-import FeatureCardsSection from '../components/FeatureCardsSection';
-import InternalLinksSection from '../components/InternalLinksSection';
+import ResidentialSubServicePage from '../components/ResidentialSubServicePage';
 
 import condoHeroImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
-
+import condoImg7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg';
+import condoImg7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg';
+import condoImg7999 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7999 4.jpg';
+import condoImg7997 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.jpg';
 import condoImg8108 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
 import condoImg6031 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.jpg';
-
-import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
-
-const HERO_BREADCRUMB = [
-  { label: 'Accueil', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'Peinture résidentielle', to: '/services/peinture-residentielle' },
-  { label: 'Condo' },
-];
 
 const CHECKMARKS = [
   {
@@ -80,31 +50,21 @@ const CHECKMARKS = [
   },
 ];
 
-const SITUATIONS = [
+const CONTROL_CARDS = [
   {
-    icon: FaCouch,
-    title: 'Condo occupé au quotidien',
-    text: 'Quand vous vivez sur place pendant les travaux, la priorité est d\'organiser le chantier pièce par pièce, avec un niveau de propreté et de coordination qui vous permet de continuer à utiliser votre espace.',
+    title: 'Coordination avec le syndicat',
+    subtitle: 'Règlements et accès réglés d\'avance',
+    description: 'Plages horaires, ascenseur et stationnement : on valide tout avec la gestion avant le premier coup de pinceau.',
   },
   {
-    icon: FaGavel,
-    title: 'Condo avec règles strictes de copropriété',
-    text: 'Certaines tours et copropriétés imposent des heures de travail, une réservation d\'ascenseur, des zones protégées ou des avis préalables. Nous adaptons le chantier à ces contraintes dès le départ.',
+    title: 'Échéancier respecté',
+    subtitle: 'Pas de chantier qui traîne',
+    description: 'Vous savez quelles pièces seront touchées et quand, pour continuer à vivre dans votre condo sans surprise.',
   },
   {
-    icon: FaTag,
-    title: 'Rafraîchissement avant vente',
-    text: 'Un condo fraîchement peint paraît plus propre, plus lumineux et plus facile à projeter pour un acheteur. L\'objectif est une mise à niveau rapide, propre et visuellement forte.',
-  },
-  {
-    icon: FaKey,
-    title: 'Condo avant emménagement',
-    text: 'Quand les clés sont obtenues mais que l\'installation n\'est pas faite, c\'est souvent le meilleur moment pour peindre efficacement, sans contourner le mobilier et sans prolonger l\'inconfort.',
-  },
-  {
-    icon: FaMapMarkedAlt,
-    title: 'Condo avec accès ou circulation complexes',
-    text: 'Centre-ville, tour avec monte-charge, stationnement restreint, étages élevés ou long trajet intérieur : la logistique change le chantier. On l\'intègre au plan au lieu de l\'improviser.',
+    title: 'Finitions impeccables',
+    subtitle: 'Sous un éclairage qui pardonne peu',
+    description: 'Grandes fenêtres et murs lisses montrent tout : chaque ligne de coupe et chaque plafond est livré net.',
   },
 ];
 
@@ -143,9 +103,14 @@ const INTERNAL_LINKS = [
     to: '/services/peinture-interieure',
   },
   {
-    title: 'Peinture intérieure à Montréal',
-    description: 'Page locale - intérieur résidentiel et commercial dans la métropole.',
-    to: '/peinture-interieure-montreal',
+    title: 'Peinture de maison unifamiliale',
+    description: 'Plusieurs étages, boiseries et escaliers.',
+    to: '/services/peinture-residentielle/maison',
+  },
+  {
+    title: 'Peinture d\'appartement',
+    description: 'Logement occupé ou entre deux locataires.',
+    to: '/services/peinture-residentielle/appartement',
   },
   {
     title: 'Nos secteurs desservis',
@@ -164,142 +129,55 @@ const INTERNAL_LINKS = [
   },
 ];
 
-export default function PeintureCondoPage() {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Accueil',
-        item: 'https://leleverdupinceau.ca/',
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Services',
-        item: 'https://leleverdupinceau.ca/services',
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Peinture résidentielle',
-        item: 'https://leleverdupinceau.ca/services/peinture-residentielle',
-      },
-      {
-        '@type': 'ListItem',
-        position: 4,
-        name: 'Peinture de condo',
-        item: 'https://leleverdupinceau.ca/services/peinture-residentielle/condo',
-      },
-    ],
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: FAQS.map((faq) => ({
-      '@type': 'Question',
-      name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
-    })),
-  };
-
-  const carouselImages = [
-
-    {
-      before: condoImg8108,
-      after: condoImg6031,
-      description: 'Rénovation avant vente - Condo',
-    },
+const CAROUSEL_IMAGES = [
+  { before: condoImg7924, after: condoImg7922, description: 'Salon - Condo Griffintown, Montréal' },
+  { before: condoImg7999, after: condoImg7997, description: 'Rafraîchissement intérieur - Condo Montréal' },
+  { before: condoImg6031, after: condoImg8108, description: 'Rénovation avant vente - Condo' },
 ];
 
+export default function PeintureCondoPage() {
   return (
-    <Fragment>
-      <SEOHead
-        title="Peinture de condo à Montréal | Copropriété et parties communes | Le Lever du Pinceau"
-        description="Spécialisé condo à Montréal: coordination avec le syndicat, protection des parties communes, accès et échéancier clair. Soumission gratuite."
-        canonicalPath="/services/peinture-residentielle/condo"
-        schemaArray={[breadcrumbSchema, faqSchema]}
-      />
-
-      <Box w="100%" minW={0} bg="white" overflowX="hidden">
-
-        <HeroSection
-          onSubmissionOpen={onOpen}
-          pageContext='Condo'
-          imageBackground={condoHeroImg}
-          imageAlt='Peinture de condo à Montréal - intérieur lumineux et soigné'
-          overlayBg='rgba(0, 0, 0, 0.45)'
-          title='Peinture de condo à Montréal'
-          subtitle='Chantier propre et bien coordonné, adapté à la copropriété.'
-          description='Protection des parties communes et entente avec le syndicat.'
-          buttonText='Obtenir ma soumission gratuite'
-          breadcrumb={HERO_BREADCRUMB}
-        />
-
-        <FeatureCardsSection
-          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
-          title="Une exécution pensée pour la réalité d'un condo"
-          subtitle="Dans un immeuble occupé, la qualité du chantier se joue autant dans la coordination que dans la finition."
-          items={CHECKMARKS}
-          variant="inline"
-          sectionBg="white"
-        />
-
-        <FeatureCardsSection
-          title="Une approche différente selon la réalité du condo"
-          subtitle="Un condo occupé, un condo à vendre ou un condo avant emménagement ne se planifient pas de la même façon."
-          items={SITUATIONS}
-          variant="stacked"
-          sectionBg="gray.50"
-        />
-
-        <BeforeAfterCarouselSection
-          isFr={true}
-          title="Avant / après de projets en condo"
-          subtitle="Finitions soignées, espaces lumineux et chantiers propres dans des condos montréalais."
-          images={carouselImages}
-          sectionPaddingTop={{ base: 16, md: 20, lg: 24 }}
-          sectionPaddingBottom={{ base: 6, md: 8 }}
-        />
-
-        <ServiceGuaranteeSection
-          title="Un projet de condo bien géré évite beaucoup de friction"
-          body="En copropriété, la qualité d'un chantier ne se mesure pas seulement à la finition finale. Elle se mesure aussi à la propreté, à la coordination, au respect des consignes de l'immeuble et à la simplicité de l'expérience pour vous. Notre approche vise justement à rendre le projet fluide, propre et prévisible du début à la fin."
-          onCtaClick={onOpen}
-        />
-
-        <FAQSection
-          title="Questions fréquentes sur la peinture de condo"
-          faqsOverride={FAQS}
-          sectionBg="white"
-          sectionPy={{ base: 16, md: 20, lg: 24 }}
-          maxW="900px"
-          emitSchema={false}
-        />
-
-        <InternalLinksSection
-          title="En savoir plus"
-          links={INTERNAL_LINKS}
-        />
-
-        <FinalCTASection
-          title={"Besoin d'un chantier propre et bien coordonné dans votre condo\u00A0?"}
-          subtitle="Obtenez votre soumission gratuite en moins de 24h"
-          buttonText="Obtenir ma soumission gratuite"
-          onSubmissionOpen={onOpen}
-        />
-
-      </Box>
-
-      <SubmissionModal isOpen={isOpen} onClose={onClose} />
-    </Fragment>
+    <ResidentialSubServicePage
+      slug="condo"
+      seo={{
+        title: 'Peinture de condo à Montréal | Chantier propre et coordonné | Le Lever du Pinceau',
+        description:
+          'Peinture de condo à Montréal. Chantier propre, coordination avec la copropriété, protection des parties communes et échéancier clair. Soumission gratuite.',
+      }}
+      breadcrumbName="Peinture de condo"
+      breadcrumbLabel="Condo"
+      hero={{
+        image: condoHeroImg,
+        alt: 'Peinture de condo à Montréal - intérieur lumineux et soigné',
+        width: 1600,
+        height: 1067,
+        title: 'Peinture de condo à Montréal',
+        subtitle: 'Chantier propre et bien coordonné, adapté à la copropriété.',
+        description: 'Protection des parties communes et entente avec le syndicat.',
+      }}
+      checkmarks={{
+        title: 'Une exécution pensée pour la réalité d\'un condo',
+        intro: 'Dans un immeuble occupé, la qualité du chantier se joue autant dans la coordination que dans la finition.',
+        items: CHECKMARKS,
+      }}
+      control={{
+        title: 'Quand tout est sous contrôle, votre condo reste vivable',
+        subtitle: 'Ce qui rend un chantier en copropriété simple pour vous, vos voisins et la gestion.',
+        cards: CONTROL_CARDS,
+      }}
+      carousel={{
+        title: 'Avant / après de projets en condo',
+        subtitle: 'Finitions soignées, espaces lumineux et chantiers propres dans des condos montréalais.',
+        images: CAROUSEL_IMAGES,
+      }}
+      guarantee={{
+        title: 'Un projet de condo bien géré évite beaucoup de friction',
+        body: "En copropriété, la qualité d'un chantier ne se mesure pas seulement à la finition finale. Elle se mesure aussi à la propreté, à la coordination, au respect des consignes de l'immeuble et à la simplicité de l'expérience pour vous. Notre approche vise justement à rendre le projet fluide, propre et prévisible du début à la fin.",
+      }}
+      faqTitle="Questions fréquentes sur la peinture de condo"
+      faqs={FAQS}
+      internalLinks={INTERNAL_LINKS}
+      finalCtaTitle={"Besoin d'un chantier propre et bien coordonné dans votre condo\u00A0?"}
+    />
   );
 }
