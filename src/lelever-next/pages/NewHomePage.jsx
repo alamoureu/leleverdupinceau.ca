@@ -23,7 +23,7 @@ import ResourcesSection from '../home-page/ResourcesSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import { KEYWORDS, LOCAL_BUSINESS_SCHEMA } from '../seo/config';
+import { KEYWORDS } from '../seo/config';
 import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL } from '../constants/googleReviews';
 import { SECTION_PY } from '../constants/sectionSpacing';
 
@@ -85,7 +85,6 @@ export default function NewHomePage() {
         description={description}
         canonicalPath="/"
         keywords={KEYWORDS[currentLang] || KEYWORDS.fr}
-        schema={LOCAL_BUSINESS_SCHEMA}
       />
       <MicrosoftClarity />
 

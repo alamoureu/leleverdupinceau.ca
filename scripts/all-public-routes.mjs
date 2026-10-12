@@ -63,15 +63,8 @@ const LEGACY_QUARTIER_SLUGS = [
  */
 export const CONTENT_ROUTES = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
 
-/** Routes app hors Site LP - pas de pré-rendu, pas de 301 forcé. */
+/** Routes app hors Site LP - pas de pré-rendu, pas de 301 forcé (ads / noindex). */
 export const SPA_ONLY_ROUTES = [
-  '/politique-de-confidentialite',
-  '/mentions-legales',
-  '/blog/comment-choisir-un-peintre-professionnel',
-  '/blog/prix-peinture-montreal',
-  '/blog/erreurs-a-eviter-peinture-interieure',
-  '/blog/peinture-armoires-cuisine-guide',
-  '/blog/betonel-vs-benjamin-moore',
   '/fr/peintre-montreal',
   '/en/peintre-montreal',
   '/en/painter-montreal',
@@ -263,7 +256,7 @@ export function classifyPublicRoutes() {
 }
 
 export function redirectHtml(from, to) {
-  const canonical = `https://www.leleverdupinceau.ca${to}`;
+  const canonical = `https://leleverdupinceau.ca${to}`;
   return `<!DOCTYPE html>
 <html lang="fr">
 <head>

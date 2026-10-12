@@ -1,6 +1,8 @@
 /**
  * Validate that a deployed site exposes SEO content without JavaScript.
  * Usage: node scripts/validate-crawler-seo.mjs https://leafy-kheer-5bf952.netlify.app
+ *
+ * For full inventory coverage use: npm run validate:crawler -- <url>
  */
 
 const BASE = (process.argv[2] || '').replace(/\/$/, '');
@@ -9,23 +11,33 @@ if (!BASE) {
   process.exit(1);
 }
 
-const ROUTES = [
+/** Content pages that must be pre-rendered with full HTML. */
+const CONTENT_ROUTES = [
   '/',
   '/contact',
   '/a-propos',
   '/services/peinture-interieure',
-  '/services/peinture-interieure/montreal',
-  '/services/peinture-commerciale/interieure',
+  '/services/peinture-residentielle/condo',
   '/secteurs/laval',
+  '/secteurs/st-lambert',
   '/secteurs/montreal/westmount',
   '/blog/prix-peinture-montreal',
   '/peintre-professionnel',
-  '/fr/peintre-montreal',
-  // legacy (should 301 or redirect stub)
+];
+
+/** Ads landings: SPA-only, noindex, Disallow in robots. Empty #root is OK. */
+const SPA_NOINDEX_ROUTES = ['/fr/peintre-montreal'];
+
+/** Legacy URLs that must 301 (or redirect stub) to a content page. */
+const REDIRECT_ROUTES = [
+  '/services/peinture-interieure/montreal',
+  '/services/peinture-commerciale/interieure',
   '/services/peinture-interieure/montreal/westmount',
   '/soumission',
   '/avis',
   '/secteurs-desservis/laval',
+  '/peinture-interieure-montreal',
+  '/peinture-exterieure-montreal',
 ];
 
 const UA = 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)';
@@ -38,6 +50,11 @@ function extract(html) {
     [, '']
   )[1];
   const canonical = (html.match(/<link[^>]*rel=["']canonical["'][^>]*href=["']([^"']*)["']/i) || [, ''])[1];
+  const robots = (
+    html.match(/<meta[^>]*name=["']robots["'][^>]*content=["']([^"']*)["']/i) ||
+    html.match(/<meta[^>]*content=["']([^"']*)["'][^>]*name=["']robots["']/i) ||
+    [, '']
+  )[1];
   const h1 = (html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i) || [, ''])[1]
     .replace(/<[^>]+>/g, ' ')
     .replace(/\s+/g, ' ')
@@ -60,15 +77,14 @@ function extract(html) {
   );
   const emptyRoot = /<div[^>]*id=["']root["'][^>]*>\s*<\/div>/i.test(html);
   const isRedirectStub = /legacy-redirect|http-equiv=["']refresh["']/i.test(html);
-  return { title, desc, canonical, h1, words, ld, emptyRoot, isRedirectStub };
+  return { title, desc, canonical, robots, h1, words, ld, emptyRoot, isRedirectStub };
 }
 
 async function fetchRaw(url, redirectMode = 'manual') {
-  const res = await fetch(url, {
+  return fetch(url, {
     headers: { 'User-Agent': UA, Accept: 'text/html' },
     redirect: redirectMode,
   });
-  return res;
 }
 
 let pass = 0;
@@ -77,7 +93,72 @@ const failures = [];
 
 console.log(`Crawler SEO validation (JavaScript OFF)\nSite: ${BASE}\n${'='.repeat(72)}`);
 
-for (const route of ROUTES) {
+for (const route of CONTENT_ROUTES) {
+  const url = `${BASE}${route}`;
+  try {
+    const res = await fetchRaw(url, 'follow');
+    const html = await res.text();
+    const info = extract(html);
+
+    console.log(`\n${route}`);
+    console.log(`  HTTP ${res.status} | ${html.length} bytes`);
+    console.log(`  title : ${info.title.slice(0, 75) || '(NONE)'}`);
+    console.log(`  desc  : ${(info.desc || '(NONE)').slice(0, 75)}`);
+    console.log(`  canon : ${info.canonical || '(NONE)'}`);
+    console.log(`  h1    : ${(info.h1 || '(NONE)').slice(0, 75)}`);
+    console.log(
+      `  words : ${info.words} | empty #root: ${info.emptyRoot} | JSON-LD: ${info.ld.join(', ') || 'none'}`
+    );
+
+    const legalNoH1 = route.includes('politique') || route.includes('mentions');
+    const ok =
+      res.status === 200 &&
+      !info.emptyRoot &&
+      Boolean(info.title) &&
+      info.words > 100 &&
+      Boolean(info.h1 || legalNoH1) &&
+      Boolean(info.desc);
+
+    console.log(`  ${ok ? 'PASS (full HTML visible without JavaScript)' : 'FAIL (crawler would see empty or thin page)'}`);
+    if (ok) pass += 1;
+    else {
+      fail += 1;
+      failures.push(route);
+    }
+  } catch (error) {
+    console.log(`\n${route}`);
+    console.log(`  FAIL fetch: ${error.message}`);
+    fail += 1;
+    failures.push(route);
+  }
+}
+
+for (const route of SPA_NOINDEX_ROUTES) {
+  const url = `${BASE}${route}`;
+  try {
+    const res = await fetchRaw(url, 'follow');
+    const html = await res.text();
+    const info = extract(html);
+    const noindex = /noindex/i.test(info.robots);
+    const ok = res.status === 200 && (noindex || info.emptyRoot);
+
+    console.log(`\n${route}`);
+    console.log(`  HTTP ${res.status} | robots: ${info.robots || '(none)'} | empty #root: ${info.emptyRoot}`);
+    console.log(`  ${ok ? 'PASS (SPA noindex / ads landing)' : 'FAIL (expected noindex SPA landing)'}`);
+    if (ok) pass += 1;
+    else {
+      fail += 1;
+      failures.push(route);
+    }
+  } catch (error) {
+    console.log(`\n${route}`);
+    console.log(`  FAIL fetch: ${error.message}`);
+    fail += 1;
+    failures.push(route);
+  }
+}
+
+for (const route of REDIRECT_ROUTES) {
   const url = `${BASE}${route}`;
   try {
     let res = await fetchRaw(url, 'manual');
@@ -112,37 +193,10 @@ for (const route of ROUTES) {
 
     const html = await res.text();
     const info = extract(html);
-
     console.log(`\n${route}`);
     console.log(`  HTTP ${res.status} | ${html.length} bytes`);
-    console.log(`  title : ${info.title.slice(0, 75) || '(NONE)'}`);
-    console.log(`  desc  : ${(info.desc || '(NONE)').slice(0, 75)}`);
-    console.log(`  canon : ${info.canonical || '(NONE)'}`);
-    console.log(`  h1    : ${(info.h1 || '(NONE)').slice(0, 75)}`);
-    console.log(
-      `  words : ${info.words} | empty #root: ${info.emptyRoot} | JSON-LD: ${info.ld.join(', ') || 'none'}`
-    );
-
-    let ok = false;
-    let label = '';
-    if (info.isRedirectStub) {
-      ok = Boolean(info.canonical) && res.status === 200;
-      label = ok ? 'PASS (redirect HTML stub)' : 'FAIL incomplete redirect stub';
-    } else {
-      const legalNoH1 = route.includes('politique') || route.includes('mentions');
-      ok =
-        res.status === 200 &&
-        !info.emptyRoot &&
-        Boolean(info.title) &&
-        info.words > 100 &&
-        Boolean(info.h1 || legalNoH1) &&
-        Boolean(info.desc);
-      label = ok
-        ? 'PASS (full HTML visible without JavaScript)'
-        : 'FAIL (crawler would see empty or thin page)';
-    }
-
-    console.log(`  ${label}`);
+    const ok = info.isRedirectStub && Boolean(info.canonical) && res.status === 200;
+    console.log(`  ${ok ? 'PASS (redirect HTML stub)' : 'FAIL incomplete redirect stub'}`);
     if (ok) pass += 1;
     else {
       fail += 1;
@@ -156,7 +210,8 @@ for (const route of ROUTES) {
   }
 }
 
+const total = CONTENT_ROUTES.length + SPA_NOINDEX_ROUTES.length + REDIRECT_ROUTES.length;
 console.log(`\n${'='.repeat(72)}`);
-console.log(`RESULT: ${pass} pass, ${fail} fail / ${ROUTES.length}`);
+console.log(`RESULT: ${pass} pass, ${fail} fail / ${total}`);
 if (failures.length) console.log(`Failed: ${failures.join(', ')}`);
 process.exit(fail ? 1 : 0);

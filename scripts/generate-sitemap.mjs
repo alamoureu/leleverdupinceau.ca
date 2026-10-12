@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, '..');
-const ORIGIN = 'https://www.leleverdupinceau.ca';
+const ORIGIN = 'https://leleverdupinceau.ca';
 
 /**
  * Sitemap officiel Site LP - ordre du plan.

@@ -1,14 +1,16 @@
 import React, { Fragment, useContext } from 'react';
-import { Helmet } from 'react-helmet';
 import { Box, Container, Heading, Text, Stack } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import BlogPostContent from './components/BlogPostContent';
 import HeroBreadcrumb from '../components/HeroBreadcrumb';
 import FinalCTASection from '../home-page/FinalCTASection';
+import SEOHead from '../seo/SEOHead';
+import { SITE_URL } from '../seo/config';
 
 export default function BlogPostPage({ blogData }) {
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
+  const canonicalPath = new URL(blogData.url).pathname;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -20,9 +22,9 @@ export default function BlogPostPage({ blogData }) {
         name: item,
         item:
           index === 0
-            ? 'https://leleverdupinceau.ca/'
+            ? `${SITE_URL}/`
             : index === 1
-              ? 'https://leleverdupinceau.ca/blog'
+              ? `${SITE_URL}/blog`
               : blogData.url,
       }),
     ),
@@ -62,35 +64,18 @@ export default function BlogPostPage({ blogData }) {
   };
 
   const schemas = buildSchema();
+  const schemaArray = schemas['@graph']
+    ? [breadcrumbSchema, schemas]
+    : [breadcrumbSchema, schemas.blogSchema, schemas.faqSchema].filter(Boolean);
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {blogData.seo.title[isFr ? 'fr' : 'en']} | Le Lever du Pinceau
-        </title>
-        <meta
-          name="description"
-          content={blogData.seo.metaDescription[isFr ? 'fr' : 'en']}
-        />
-        <link rel="canonical" href={blogData.url} />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-        {schemas.blogSchema && (
-          <script type="application/ld+json">
-            {JSON.stringify(schemas.blogSchema)}
-          </script>
-        )}
-        {schemas.faqSchema && (
-          <script type="application/ld+json">
-            {JSON.stringify(schemas.faqSchema)}
-          </script>
-        )}
-        {schemas['@graph'] && (
-          <script type="application/ld+json">{JSON.stringify(schemas)}</script>
-        )}
-      </Helmet>
+      <SEOHead
+        title={`${blogData.seo.title[isFr ? 'fr' : 'en']} | Le Lever du Pinceau`}
+        description={blogData.seo.metaDescription[isFr ? 'fr' : 'en']}
+        canonicalPath={canonicalPath}
+        schemaArray={schemaArray}
+      />
 
       <Box w="100%" bg="white" overflowX="hidden">
         <Container

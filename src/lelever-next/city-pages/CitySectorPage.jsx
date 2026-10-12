@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -26,6 +25,9 @@ import ContactFormSection from '../home-page/ContactFormSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import ControlSection from '../home-page/ControlSection';
+import SEOHead from '../seo/SEOHead';
+import { SITE_URL } from '../seo/config';
+import { COMPANY_PHONE_E164 } from '../constants/company';
 
 /**
  * Template partagé pour les pages de ville / secteur (Site LP).
@@ -77,7 +79,8 @@ export default function CitySectorPage({ config }) {
     areaServed = [],
   } = config;
 
-  const canonical = `https://www.leleverdupinceau.ca/secteurs/${slug}`;
+  const canonicalPath = `/secteurs/${slug}`;
+  const canonical = `${SITE_URL}${canonicalPath}`;
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -87,13 +90,13 @@ export default function CitySectorPage({ config }) {
         '@type': 'ListItem',
         position: 1,
         name: isFr ? 'Accueil' : 'Home',
-        item: 'https://www.leleverdupinceau.ca/',
+        item: `${SITE_URL}/`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: isFr ? 'Secteurs desservis' : 'Service areas',
-        item: 'https://www.leleverdupinceau.ca/secteurs',
+        item: `${SITE_URL}/secteurs`,
       },
       {
         '@type': 'ListItem',
@@ -109,7 +112,7 @@ export default function CitySectorPage({ config }) {
     '@type': 'Painter',
     name: `Le Lever du Pinceau - ${cityName}`,
     url: canonical,
-    telephone: '+14388680772',
+    telephone: COMPANY_PHONE_E164,
     areaServed: [
       { '@type': 'City', name: cityName },
       ...areaServed.map((name) => ({ '@type': 'Neighborhood', name })),
@@ -165,14 +168,12 @@ export default function CitySectorPage({ config }) {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>{t(seoTitle)}</title>
-        <meta name="description" content={t(seoDescription)} />
-        <link rel="canonical" href={canonical} />
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqPageSchema)}</script>
-      </Helmet>
+      <SEOHead
+        title={t(seoTitle)}
+        description={t(seoDescription)}
+        canonicalPath={canonicalPath}
+        schemaArray={[breadcrumbSchema, localBusinessSchema, faqPageSchema]}
+      />
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
         <HeroSection

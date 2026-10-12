@@ -3,9 +3,10 @@
  * Goal: dominate "peinture Montréal", "painting Montreal", "peintre professionnel Montréal"
  */
 
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from '../constants/googleReviews';
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL } from '../constants/googleReviews';
 
-export const SITE_URL = 'https://www.leleverdupinceau.ca';
+/** Canonical host = apex (Netlify 301s www → apex). */
+export const SITE_URL = 'https://leleverdupinceau.ca';
 
 export const DEFAULT_OG_IMAGE = 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg';
 
@@ -45,17 +46,15 @@ export const KEYWORDS = {
   ].join(', '),
 };
 
-/** Default meta for social / fallback (aligned with home, not city/service pages) */
+/** Default meta for social / fallback (aligned with NewHomePage) */
 export const DEFAULT_META = {
   fr: {
-    title: 'Peinture à Montréal | Résidentielle et commerciale | Le Lever du Pinceau',
-    description:
-      'Entreprise de peinture à Montréal. Intérieur, extérieur, résidentiel et commercial. Laval, Longueuil, Brossard. Devis gratuit. Équipe professionnelle, finition impeccable.',
+    title: 'Peintre professionnel à Montréal | Le Lever du Pinceau',
+    description: `Peintre à Montréal : intérieur, extérieur, résidentiel et commercial. ${GOOGLE_REVIEWS_LABEL.fr} 5 étoiles, licence RBQ, soumission gratuite en 24h.`,
   },
   en: {
-    title: 'Painting in Montreal | Residential and commercial | Le Lever du Pinceau',
-    description:
-      'Painting company in Montreal. Interior, exterior, residential and commercial. Laval, Longueuil, Brossard. Free quote. Professional team, impeccable finish.',
+    title: 'Professional Painter in Montreal | Le Lever du Pinceau',
+    description: `Montreal painter: interior, exterior, residential and commercial. ${GOOGLE_REVIEW_COUNT}+ 5-star reviews, RBQ license, free quote in 24h.`,
   },
 };
 
@@ -63,12 +62,12 @@ export const DEFAULT_META = {
 export const LOCAL_BUSINESS_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'ProfessionalService',
-  '@id': 'https://www.leleverdupinceau.ca/#organization',
+  '@id': 'https://leleverdupinceau.ca/#organization',
   name: 'Le Lever du Pinceau',
   alternateName: 'Le Lever du Pinceau - Peintres professionnels Montréal',
   description:
     'Entreprise de peinture professionnelle à Montréal, Laval, Longueuil et Brossard. Peinture résidentielle, commerciale, intérieure, extérieure et industrielle. Devis gratuit. Équipe qualifiée RBQ.',
-  url: 'https://www.leleverdupinceau.ca',
+  url: 'https://leleverdupinceau.ca',
   telephone: '+14388680772',
   email: 'leleverdupinceau@gmail.com',
   address: {

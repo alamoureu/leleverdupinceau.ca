@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -21,6 +20,9 @@ import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection'
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
+import SEOHead from '../seo/SEOHead';
+import { SITE_URL } from '../seo/config';
+import { COMPANY_PHONE_E164 } from '../constants/company';
 
 import headerLaval from '../images/3-ville/laval/header.jpg';
 // Avant/après Laval - paires identifiées
@@ -51,9 +53,9 @@ export default function LavalCityPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: isFr ? 'Accueil' : 'Home', item: 'https://www.leleverdupinceau.ca/' },
-      { '@type': 'ListItem', position: 2, name: isFr ? 'Secteurs desservis' : 'Service areas', item: 'https://www.leleverdupinceau.ca/secteurs' },
-      { '@type': 'ListItem', position: 3, name: 'Laval', item: 'https://www.leleverdupinceau.ca/secteurs/laval' },
+      { '@type': 'ListItem', position: 1, name: isFr ? 'Accueil' : 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: isFr ? 'Secteurs desservis' : 'Service areas', item: `${SITE_URL}/secteurs` },
+      { '@type': 'ListItem', position: 3, name: 'Laval', item: `${SITE_URL}/secteurs/laval` },
     ],
   };
 
@@ -61,8 +63,8 @@ export default function LavalCityPage() {
     '@context': 'https://schema.org',
     '@type': 'Painter',
     name: 'Le Lever du Pinceau - Laval',
-    url: 'https://www.leleverdupinceau.ca/secteurs/laval',
-    telephone: '+14388680772',
+    url: `${SITE_URL}/secteurs/laval`,
+    telephone: COMPANY_PHONE_E164,
     areaServed: [
       { '@type': 'City', name: 'Laval' },
       { '@type': 'Neighborhood', name: 'Chomedey' },
@@ -311,25 +313,20 @@ export default function LavalCityPage() {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
+      <SEOHead
+        title={
+          isFr
             ? 'Peintre à Laval | Résidentiel et commercial | Le Lever du Pinceau'
-            : 'Painter in Laval | Residential and commercial | Le Lever du Pinceau'}
-        </title>
-        <meta
-          name="description"
-          content={
-            isFr
-              ? 'Peintre à Laval pour bungalows et split-levels : aluminium qui craie, vinyle, intérieur familial. Licence RBQ. Soumission gratuite.'
-              : 'Painter in Laval for bungalows and split-levels: chalking aluminum, vinyl, family interiors. RBQ license. Free quote.'
-          }
-        />
-        <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/laval" />
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqPageSchema)}</script>
-      </Helmet>
+            : 'Painter in Laval | Residential and commercial | Le Lever du Pinceau'
+        }
+        description={
+          isFr
+            ? 'Peintre à Laval pour bungalows et split-levels : aluminium qui craie, vinyle, intérieur familial. Licence RBQ. Soumission gratuite.'
+            : 'Painter in Laval for bungalows and split-levels: chalking aluminum, vinyl, family interiors. RBQ license. Free quote.'
+        }
+        canonicalPath="/secteurs/laval"
+        schemaArray={[breadcrumbSchema, localBusinessSchema, faqPageSchema]}
+      />
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
 

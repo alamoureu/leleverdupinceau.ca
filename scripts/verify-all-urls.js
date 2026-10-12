@@ -35,7 +35,7 @@ const EXPECTED_URLS = [
   '/mentions-legales',
 ];
 
-const HOST = 'https://www.leleverdupinceau.ca';
+const HOST = 'https://leleverdupinceau.ca';
 
 function main() {
   let failed = 0;

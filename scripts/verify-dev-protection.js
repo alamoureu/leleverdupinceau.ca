@@ -119,7 +119,7 @@ try {
   const devRoutesInSitemap = [];
 
   // Only flag dev/preview routes that should not be in sitemap
-  if (content.includes('<loc>https://www.leleverdupinceau.ca/new-landing</loc>')) {
+  if (content.includes('<loc>https://leleverdupinceau.ca/new-landing</loc>')) {
     devRoutesInSitemap.push('/new-landing');
   }
 

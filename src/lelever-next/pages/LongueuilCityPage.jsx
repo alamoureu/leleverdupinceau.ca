@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -21,6 +20,9 @@ import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
+import SEOHead from '../seo/SEOHead';
+import { SITE_URL } from '../seo/config';
+import { COMPANY_PHONE_E164 } from '../constants/company';
 
 import headerLongueuil from '../images/3-ville/longueuil/header.JPEG';
 // Avant/apres Longueuil - paires identifiees
@@ -50,9 +52,9 @@ export default function LongueuilCityPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: isFr ? 'Accueil' : 'Home', item: 'https://www.leleverdupinceau.ca/' },
-      { '@type': 'ListItem', position: 2, name: isFr ? 'Secteurs desservis' : 'Service areas', item: 'https://www.leleverdupinceau.ca/secteurs' },
-      { '@type': 'ListItem', position: 3, name: 'Longueuil', item: 'https://www.leleverdupinceau.ca/secteurs/longueuil' },
+      { '@type': 'ListItem', position: 1, name: isFr ? 'Accueil' : 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: isFr ? 'Secteurs desservis' : 'Service areas', item: `${SITE_URL}/secteurs` },
+      { '@type': 'ListItem', position: 3, name: 'Longueuil', item: `${SITE_URL}/secteurs/longueuil` },
     ],
   };
 
@@ -60,8 +62,8 @@ export default function LongueuilCityPage() {
     '@context': 'https://schema.org',
     '@type': 'Painter',
     name: 'Le Lever du Pinceau - Longueuil',
-    url: 'https://www.leleverdupinceau.ca/secteurs/longueuil',
-    telephone: '+14388680772',
+    url: `${SITE_URL}/secteurs/longueuil`,
+    telephone: COMPANY_PHONE_E164,
     areaServed: [
       { '@type': 'City', name: 'Longueuil' },
       { '@type': 'Neighborhood', name: 'Vieux-Longueuil' },
@@ -278,25 +280,20 @@ export default function LongueuilCityPage() {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
+      <SEOHead
+        title={
+          isFr
             ? 'Peintre à Longueuil | Résidentiel et commercial | Le Lever du Pinceau'
-            : 'Painter in Longueuil | Residential and commercial | Le Lever du Pinceau'}
-        </title>
-        <meta
-          name="description"
-          content={
-            isFr
-              ? 'Peintre à Longueuil : Vieux près du fleuve, tours près du métro, Saint-Hubert et Greenfield Park. Efflorescence, intérieur et extérieur. Soumission gratuite.'
-              : 'Painter in Longueuil: Old Town by the river, towers near the metro, Saint-Hubert and Greenfield Park. Efflorescence, interior and exterior. Free quote.'
-          }
-        />
-        <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/longueuil" />
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqPageSchema)}</script>
-      </Helmet>
+            : 'Painter in Longueuil | Residential and commercial | Le Lever du Pinceau'
+        }
+        description={
+          isFr
+            ? 'Peintre à Longueuil : Vieux près du fleuve, tours près du métro, Saint-Hubert et Greenfield Park. Efflorescence, intérieur et extérieur. Soumission gratuite.'
+            : 'Painter in Longueuil: Old Town by the river, towers near the metro, Saint-Hubert and Greenfield Park. Efflorescence, interior and exterior. Free quote.'
+        }
+        canonicalPath="/secteurs/longueuil"
+        schemaArray={[breadcrumbSchema, localBusinessSchema, faqPageSchema]}
+      />
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
         <HeroSection

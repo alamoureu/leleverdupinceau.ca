@@ -2,7 +2,7 @@
  * Landing page SEO and config. Single source of truth for meta and URLs.
  */
 
-export const CANONICAL_BASE = 'https://www.leleverdupinceau.ca';
+export const CANONICAL_BASE = 'https://leleverdupinceau.ca';
 
 /**
  * Padding-top du contenu hero sous la nav fixe (landing : pas de bandeau noir, une seule rangée).

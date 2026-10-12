@@ -1,6 +1,5 @@
 import React, { Fragment, useContext } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
-import { Helmet } from 'react-helmet';
 import {
   Box,
   Container,
@@ -25,6 +24,9 @@ import CityWhyUsSection from '../city-pages/CityWhyUsSection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
+import SEOHead from '../seo/SEOHead';
+import { SITE_URL } from '../seo/config';
+import { COMPANY_PHONE_E164 } from '../constants/company';
 
 import headerMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
 import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
@@ -72,9 +74,9 @@ export default function MontrealCityPage() {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: isFr ? 'Accueil' : 'Home', item: 'https://www.leleverdupinceau.ca/' },
-      { '@type': 'ListItem', position: 2, name: isFr ? 'Secteurs desservis' : 'Service areas', item: 'https://www.leleverdupinceau.ca/secteurs' },
-      { '@type': 'ListItem', position: 3, name: 'Montréal', item: 'https://www.leleverdupinceau.ca/secteurs/montreal' },
+      { '@type': 'ListItem', position: 1, name: isFr ? 'Accueil' : 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: isFr ? 'Secteurs desservis' : 'Service areas', item: `${SITE_URL}/secteurs` },
+      { '@type': 'ListItem', position: 3, name: 'Montréal', item: `${SITE_URL}/secteurs/montreal` },
     ],
   };
 
@@ -82,8 +84,8 @@ export default function MontrealCityPage() {
     '@context': 'https://schema.org',
     '@type': 'Painter',
     name: 'Le Lever du Pinceau - Montréal',
-    url: 'https://www.leleverdupinceau.ca/secteurs/montreal',
-    telephone: '+14388680772',
+    url: `${SITE_URL}/secteurs/montreal`,
+    telephone: COMPANY_PHONE_E164,
     areaServed: [
       { '@type': 'City', name: 'Montréal' },
       { '@type': 'Neighborhood', name: 'Plateau Mont-Royal' },
@@ -356,25 +358,20 @@ export default function MontrealCityPage() {
 
   return (
     <Fragment>
-      <Helmet>
-        <title>
-          {isFr
+      <SEOHead
+        title={
+          isFr
             ? 'Peintre à Montréal par quartier | Condos, plex et maisons | Le Lever du Pinceau'
-            : 'Painter in Montreal by neighborhood | Condos, plex and homes | Le Lever du Pinceau'}
-        </title>
-        <meta
-          name="description"
-          content={
-            isFr
-              ? 'Peintre local à Montréal pour chaque quartier: Plateau, Ville-Marie, Westmount, Outremont et plus. Condos, plex, maisons et commerces. Licence RBQ. Soumission gratuite.'
-              : 'Local painter in Montreal for every neighborhood: Plateau, Ville-Marie, Westmount, Outremont and more. Condos, plex, homes and businesses. RBQ license. Free quote.'
-          }
-        />
-        <link rel="canonical" href="https://www.leleverdupinceau.ca/secteurs/montreal" />
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(localBusinessSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(faqPageSchema)}</script>
-      </Helmet>
+            : 'Painter in Montreal by neighborhood | Condos, plex and homes | Le Lever du Pinceau'
+        }
+        description={
+          isFr
+            ? 'Peintre local à Montréal pour chaque quartier: Plateau, Ville-Marie, Westmount, Outremont et plus. Condos, plex, maisons et commerces. Licence RBQ. Soumission gratuite.'
+            : 'Local painter in Montreal for every neighborhood: Plateau, Ville-Marie, Westmount, Outremont and more. Condos, plex, homes and businesses. RBQ license. Free quote.'
+        }
+        canonicalPath="/secteurs/montreal"
+        schemaArray={[breadcrumbSchema, localBusinessSchema, faqPageSchema]}
+      />
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
 

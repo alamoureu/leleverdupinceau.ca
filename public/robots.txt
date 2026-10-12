@@ -13,5 +13,5 @@ Disallow: /fr/peintre-montreal
 Disallow: /en/peintre-montreal
 Disallow: /en/painter-montreal
 
-Sitemap: https://www.leleverdupinceau.ca/sitemap.xml
-# LLM / agent guidance: https://www.leleverdupinceau.ca/llms.txt
+Sitemap: https://leleverdupinceau.ca/sitemap.xml
+# LLM / agent guidance: https://leleverdupinceau.ca/llms.txt
