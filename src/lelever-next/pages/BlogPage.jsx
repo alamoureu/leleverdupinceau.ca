@@ -22,16 +22,16 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
-import heroImage from '../images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.PNG';
-import blogPhotoHeader from '../images/5-landing-page/Photo/Danny_Wraping.jpeg';
-import imgArmoiresCuisine from '../images/1-page-principale/blog hub/blog-armoires-cuisine.jpg';
-import imgComparatifPeinture from '../images/1-page-principale/blog hub/blog-comparatif-peinture.jpg';
+import heroImage from '../images/1-page-principale/blog hub/Peinture extérieure/IMG_6753.webp';
+import blogPhotoHeader from '../images/5-landing-page/Photo/Danny_Wraping.webp';
+import imgArmoiresCuisine from '../images/1-page-principale/blog hub/blog-armoires-cuisine.webp';
+import imgComparatifPeinture from '../images/1-page-principale/blog hub/blog-comparatif-peinture.webp';
 import ResourcesSection from '../home-page/ResourcesSection';
-import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
-import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
-import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
-import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
+import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.webp';
+import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.webp';
+import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.webp';
+import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.webp';
 
 export default function BlogPage() {
   const { currentLang } = useContext(appContext);

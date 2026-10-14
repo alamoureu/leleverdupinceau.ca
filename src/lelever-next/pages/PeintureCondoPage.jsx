@@ -9,13 +9,13 @@ import {
 } from 'react-icons/fa';
 import ResidentialSubServicePage from '../components/ResidentialSubServicePage';
 
-import condoHeroImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
-import condoImg7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg';
-import condoImg7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg';
-import condoImg7999 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7999 4.jpg';
-import condoImg7997 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.jpg';
-import condoImg8108 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
-import condoImg6031 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.jpg';
+import condoHeroImg from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
+import condoImg7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.webp';
+import condoImg7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.webp';
+import condoImg7999 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7999 4.webp';
+import condoImg7997 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7997 4.webp';
+import condoImg8108 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.webp';
+import condoImg6031 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_6031.webp';
 
 const CHECKMARKS = [
   {

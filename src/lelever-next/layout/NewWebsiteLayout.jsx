@@ -21,7 +21,7 @@ import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
-import whiteLogo from '../images/whitelogo.png';
+import whiteLogo from '../images/whitelogo.webp';
 export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();

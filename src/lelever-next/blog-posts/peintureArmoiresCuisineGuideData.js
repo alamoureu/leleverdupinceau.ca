@@ -1,5 +1,5 @@
 // Blog post data: Peindre ses armoires de cuisine - Guide complet 2026
-import heroImage from '../images/1-page-principale/blog hub/blog-armoires-cuisine.jpg';
+import heroImage from '../images/1-page-principale/blog hub/blog-armoires-cuisine.webp';
 
 export const peintureArmoiresCuisineGuideData = {
   slug: 'peinture-armoires-cuisine-guide',

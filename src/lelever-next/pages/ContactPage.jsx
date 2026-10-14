@@ -33,7 +33,7 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import FullWidthSection from '../components/FullWidthSection';
 import { SECTION_PY, SECTION_TITLE_MAX_W, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
-import contactPhotoHeader from '../images/L3 Sous services/Photo page appartement/header.PNG';
+import contactPhotoHeader from '../images/L3 Sous services/Photo page appartement/header.webp';
 
 const BUSINESS_EMAIL = LOCAL_BUSINESS_SCHEMA.email;
 const BUSINESS_PHONE_DISPLAY = '(438) 868-0772';
@@ -190,13 +190,20 @@ export default function ContactPage() {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
     name: 'Contact',
-    url: 'https://leleverdupinceau.ca/contact',
+    url: `${LOCAL_BUSINESS_SCHEMA.url}/contact`,
     mainEntity: {
+      '@id': LOCAL_BUSINESS_SCHEMA['@id'],
       '@type': 'LocalBusiness',
       name: LOCAL_BUSINESS_SCHEMA.name,
       telephone: BUSINESS_PHONE_TEL,
       email: BUSINESS_EMAIL,
       address: LOCAL_BUSINESS_SCHEMA.address,
+      url: LOCAL_BUSINESS_SCHEMA.url,
+      geo: LOCAL_BUSINESS_SCHEMA.geo,
+      areaServed: LOCAL_BUSINESS_SCHEMA.areaServed,
+      aggregateRating: LOCAL_BUSINESS_SCHEMA.aggregateRating,
+      hasCredential: LOCAL_BUSINESS_SCHEMA.hasCredential,
+      sameAs: LOCAL_BUSINESS_SCHEMA.sameAs,
     },
   };
 

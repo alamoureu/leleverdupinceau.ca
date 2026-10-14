@@ -16,11 +16,11 @@ import {
   MOBILE_CENTERED_CARD_SX,
 } from '../constants/responsiveGrid';
 import ServiceCard from './ServiceCard';
-import peintureResidentielleImg from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
-import peintureCommercialeImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import peintureInterieureImg from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
-import peintureExterieureImg from '../images/1-page-principale/service hub/Peinture extérieure/IMG_6767.PNG';
-import peintureIndustrielleImg from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
+import peintureResidentielleImg from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.webp';
+import peintureCommercialeImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import peintureInterieureImg from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.webp';
+import peintureExterieureImg from '../images/1-page-principale/service hub/Peinture extérieure/IMG_6767.webp';
+import peintureIndustrielleImg from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.webp';
 
 const serviceImages = [
   peintureResidentielleImg,

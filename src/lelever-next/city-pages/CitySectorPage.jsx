@@ -190,10 +190,6 @@ export default function CitySectorPage({ config }) {
             { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },
             { label: cityName },
           ]}
-          secondaryCta={{
-            label: isFr ? 'Nos réalisations' : 'Our projects',
-            to: '/realisations',
-          }}
         />
 
         <CityWhyUsSection

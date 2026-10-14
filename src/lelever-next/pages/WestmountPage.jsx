@@ -42,26 +42,26 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 
-import heroImg from '../images/3-ville/Montréal/westmount/header.jpg';
-import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
-import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
-import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
-import emmenagementImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
-import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import salleEauAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0807.jpg';
-import salleEauApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0808.jpg';
-import wmAdd1b from '../images/3-ville/brossard/avant-apres/IMG_0826.jpg';
-import wmAdd1a from '../images/3-ville/brossard/avant-apres/IMG_0827.jpg';
-import wmAdd2b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import wmAdd2a from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
-import wmAdd3b from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
-import wmAdd3a from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
-import wmAdd4b from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
-import wmAdd4a from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
-import wmAdd5b from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
-import wmAdd5a from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
-import wmAdd6b from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg';
-import wmAdd6a from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg';
+import heroImg from '../images/3-ville/Montréal/westmount/header.webp';
+import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
+import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
+import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.webp';
+import emmenagementImg from '../images/L3 Sous services/Photo page appartement/header.webp';
+import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import salleEauAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0807.webp';
+import salleEauApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0808.webp';
+import wmAdd1b from '../images/3-ville/brossard/avant-apres/IMG_0826.webp';
+import wmAdd1a from '../images/3-ville/brossard/avant-apres/IMG_0827.webp';
+import wmAdd2b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.webp";
+import wmAdd2a from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.webp";
+import wmAdd3b from '../images/3-ville/brossard/avant-apres/IMG_0846.webp';
+import wmAdd3a from '../images/3-ville/brossard/avant-apres/IMG_0847.webp';
+import wmAdd4b from '../images/3-ville/brossard/avant-apres/IMG_0855.webp';
+import wmAdd4a from '../images/3-ville/brossard/avant-apres/IMG_0856.webp';
+import wmAdd5b from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
+import wmAdd5a from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
+import wmAdd6b from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.webp';
+import wmAdd6a from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.webp';
 const BEFORE_AFTER = [
   { before: salleEauAvant, after: salleEauApres, description: 'Salle d\'eau - murs repeints, moulures rafraîchies' },
 
@@ -328,7 +328,6 @@ export default function WestmountPage() {
           description='Maisons, condos et espaces raffinés - chantiers discrets.'
           buttonText='Soumission gratuite'
           breadcrumb={HERO_BREADCRUMB}
-          secondaryCta={{ label: 'Nos réalisations', to: '/realisations' }}
         />
 {/* ===== SECTION 3 - CHECKMARKS WESTMOUNT ===== */}
         <Box pt={TRUST_BANNER_BELOW_PT} pb={0} bg="white">

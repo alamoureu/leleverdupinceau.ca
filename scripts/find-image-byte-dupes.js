@@ -9,7 +9,7 @@ const crypto = require('crypto');
 
 const ROOT = path.join(__dirname, '../src/lelever-next/images');
 
-const exts = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.JPG', '.JPEG', '.PNG']);
+const exts = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.JPG', '.JPEG', '.PNG', '.WEBP']);
 
 function walk(dir, out = []) {
   for (const name of fs.readdirSync(dir, { withFileTypes: true })) {

@@ -29,6 +29,7 @@ import {
   FaKey,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { servicePageSchema } from '../components/ServicePageSections';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -38,10 +39,10 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import armoiresHeroImg from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.jpg';
+import armoiresHeroImg from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.webp';
 
-import armoiresImg8114 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';
-import armoiresImg8120 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG';
+import armoiresImg8114 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.webp';
+import armoiresImg8120 from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.webp';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -225,7 +226,17 @@ export default function PeintureArmoiresCuisinePage() {
         title="Peinture d'armoires de cuisine à Montréal | Service pro | Le Lever du Pinceau"
         description="Service professionnel de peinture d'armoires à Montréal: portes, façades et caissons visibles. Fini uniforme, chantier protégé. Soumission gratuite."
         canonicalPath="/services/peinture-interieure/armoires-de-cuisine"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[
+          breadcrumbSchema,
+          faqSchema,
+          servicePageSchema({
+            name: "Peinture d'armoires de cuisine à Montréal",
+            path: '/services/peinture-interieure/armoires-de-cuisine',
+            description:
+              "Service professionnel de peinture d'armoires à Montréal: portes, façades et caissons visibles. Fini uniforme, chantier protégé. Soumission gratuite.",
+            serviceType: "Peinture d'armoires de cuisine",
+          }),
+        ]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">

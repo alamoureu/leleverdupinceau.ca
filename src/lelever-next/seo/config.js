@@ -3,7 +3,8 @@
  * Goal: dominate "peinture Montréal", "painting Montreal", "peintre professionnel Montréal"
  */
 
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL } from '../constants/googleReviews';
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL, GOOGLE_REVIEWS_URL } from '../constants/googleReviews';
+import { RBQ_LICENSE } from '../constants/company';
 
 /** Canonical host = apex (Netlify 301s www → apex). */
 export const SITE_URL = 'https://leleverdupinceau.ca';
@@ -111,7 +112,14 @@ export const LOCAL_BUSINESS_SCHEMA = {
   sameAs: [
     'https://www.facebook.com/profile.php?id=100094900160859',
     'https://www.instagram.com/leleverdupinceau',
+    GOOGLE_REVIEWS_URL,
   ],
+  hasCredential: {
+    '@type': 'EducationalOccupationalCredential',
+    credentialCategory: 'license',
+    name: 'Licence RBQ',
+    identifier: RBQ_LICENSE,
+  },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Services de peinture',
@@ -121,6 +129,11 @@ export const LOCAL_BUSINESS_SCHEMA = {
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Peinture intérieure' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Peinture extérieure' } },
       { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Peinture industrielle' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Teinture extérieure' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Préparation de surfaces' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Peinture au pistolet' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Réparation de plâtre et gypse' } },
+      { '@type': 'Offer', itemOffered: { '@type': 'Service', name: 'Peinture après-sinistre' } },
     ],
   },
 };

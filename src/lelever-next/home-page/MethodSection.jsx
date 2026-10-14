@@ -12,8 +12,8 @@ import { useTranslation } from '../i18n';
 import CtaButton from './CtaButton';
 import method1 from '../images/new-landing/method-1.webp';
 import method2 from '../images/new-landing/method-2.webp';
-import method3 from '../images/new-landing/method-3.PNG';
-import method4 from '../images/new-landing/method-4.PNG';
+import method3 from '../images/new-landing/method-3.webp';
+import method4 from '../images/new-landing/method-4.webp';
 
 const stepImages = [method1, method2, method3, method4];
 

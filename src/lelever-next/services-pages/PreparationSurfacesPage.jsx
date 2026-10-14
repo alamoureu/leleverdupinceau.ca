@@ -29,6 +29,7 @@ import {
   FaExpand,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { servicePageSchema } from '../components/ServicePageSections';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -38,19 +39,19 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import surfacesHeroImg from '../images/L2 Services specialise/Photo page -surfaces/header-wrapping.JPEG';
-import surfacesAvant1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5914.JPG';
-import surfacesApres1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5916.JPG';
-import prep0834 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
-import prep0835 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
-import prep0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
-import prep0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
-import prep0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
-import prep0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.jpg';
-import prep5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.jpg';
-import prep5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.jpg';
-import prep6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg';
-import prep8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg';
+import surfacesHeroImg from '../images/L2 Services specialise/Photo page -surfaces/header-wrapping.webp';
+import surfacesAvant1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5914.webp';
+import surfacesApres1 from '../images/L2 Services specialise/Photo page -surfaces/Avant-apres/IMG_5916.webp';
+import prep0834 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.webp';
+import prep0835 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.webp';
+import prep0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.webp';
+import prep0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.webp';
+import prep0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.webp';
+import prep0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.webp';
+import prep5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.webp';
+import prep5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.webp';
+import prep6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.webp';
+import prep8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.webp';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -264,7 +265,17 @@ export default function PreparationSurfacesPage() {
         title="Préparation de surfaces à Montréal | Avant peinture | Le Lever du Pinceau"
         description="Préparation de surfaces à Montréal : rebouchage, sablage, calfeutrage, apprêt et correction des imperfections avant peinture. Soumission gratuite."
         canonicalPath="/services/preparation-de-surfaces"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[
+          breadcrumbSchema,
+          faqSchema,
+          servicePageSchema({
+            name: 'Préparation de surfaces à Montréal',
+            path: '/services/preparation-de-surfaces',
+            description:
+              'Préparation de surfaces à Montréal : rebouchage, sablage, calfeutrage, apprêt et correction des imperfections avant peinture. Soumission gratuite.',
+            serviceType: 'Préparation de surfaces',
+          }),
+        ]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">

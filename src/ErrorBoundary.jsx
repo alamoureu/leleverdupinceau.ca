@@ -9,7 +9,7 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-import blackLogo from './lelever-next/images/blacklogo.png';
+import blackLogo from './lelever-next/images/blacklogo.webp';
 
 /**
  * Catches React render errors and shows a fallback UI so the app doesn't white-screen.

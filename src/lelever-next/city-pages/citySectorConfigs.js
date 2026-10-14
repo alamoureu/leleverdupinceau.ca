@@ -1,42 +1,42 @@
-import headerBrossard from '../images/3-ville/brossard/+Header/IMG_1414.jpg';
-import headerRiveSud from '../images/3-ville/rive-sud/header (1).JPEG';
+import headerBrossard from '../images/3-ville/brossard/+Header/IMG_1414.webp';
+import headerRiveSud from '../images/3-ville/rive-sud/header (1).webp';
 
-import brossard0822 from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
-import brossard0823 from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
-import brossard0826 from '../images/3-ville/brossard/avant-apres/IMG_0826.jpg';
-import brossard0827 from '../images/3-ville/brossard/avant-apres/IMG_0827.jpg';
-import brossard0832 from '../images/3-ville/brossard/avant-apres/IMG_0832.jpg';
-import brossard0833 from '../images/3-ville/brossard/avant-apres/IMG_0833.jpg';
-import brossard0838 from '../images/3-ville/brossard/avant-apres/IMG_0838.jpg';
-import brossard0839 from '../images/3-ville/brossard/avant-apres/IMG_0839.jpg';
+import brossard0822 from '../images/3-ville/brossard/avant-apres/IMG_0822.webp';
+import brossard0823 from '../images/3-ville/brossard/avant-apres/IMG_0823.webp';
+import brossard0826 from '../images/3-ville/brossard/avant-apres/IMG_0826.webp';
+import brossard0827 from '../images/3-ville/brossard/avant-apres/IMG_0827.webp';
+import brossard0832 from '../images/3-ville/brossard/avant-apres/IMG_0832.webp';
+import brossard0833 from '../images/3-ville/brossard/avant-apres/IMG_0833.webp';
+import brossard0838 from '../images/3-ville/brossard/avant-apres/IMG_0838.webp';
+import brossard0839 from '../images/3-ville/brossard/avant-apres/IMG_0839.webp';
 
-import stLambert0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
-import stLambert0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
-import stLambert0842 from '../images/3-ville/st-lambert/avant-apres/IMG_0842.jpg';
-import stLambert0843 from '../images/3-ville/st-lambert/avant-apres/IMG_0843.jpg';
-import stLambert0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.jpg';
-import stLambert0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.jpg';
-import stLambert0846 from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
-import stLambert0847 from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
-import stLambert0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
-import stLambert0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
-import stLambert5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.jpg';
-import stLambert5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.jpg';
-import stLambert6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.jpg';
-import stLambert8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.jpg';
-import laprairie0818 from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
-import laprairie0819 from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
+import stLambert0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.webp';
+import stLambert0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.webp';
+import stLambert0842 from '../images/3-ville/st-lambert/avant-apres/IMG_0842.webp';
+import stLambert0843 from '../images/3-ville/st-lambert/avant-apres/IMG_0843.webp';
+import stLambert0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.webp';
+import stLambert0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.webp';
+import stLambert0846 from '../images/3-ville/brossard/avant-apres/IMG_0846.webp';
+import stLambert0847 from '../images/3-ville/brossard/avant-apres/IMG_0847.webp';
+import stLambert0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.webp';
+import stLambert0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.webp';
+import stLambert5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.webp';
+import stLambert5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.webp';
+import stLambert6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.webp';
+import stLambert8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.webp';
+import laprairie0818 from '../images/3-ville/Montréal/avant-apres/IMG_0818.webp';
+import laprairie0819 from '../images/3-ville/Montréal/avant-apres/IMG_0819.webp';
 
-import laprairie0852 from '../images/3-ville/laprairie/avant-apres/IMG_0852.jpg';
-import laprairie0853 from '../images/3-ville/laprairie/avant-apres/IMG_0853.jpg';
-import laprairie0861 from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
-import laprairie0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
+import laprairie0852 from '../images/3-ville/laprairie/avant-apres/IMG_0852.webp';
+import laprairie0853 from '../images/3-ville/laprairie/avant-apres/IMG_0853.webp';
+import laprairie0861 from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
+import laprairie0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
 
-import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
-import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
-import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
-import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import platreHeroImg from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.JPEG';
+import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.webp';
+import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
+import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
+import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import platreHeroImg from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.webp';
 
 function baseInternalLinks(cityLabelFr, cityLabelEn, siblingLinks = []) {
   return [

@@ -24,7 +24,7 @@ import { useTranslation } from '../i18n';
 import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 import ShakeButton from '../home-page/ShakeButton';
 import { showsNavReviewBadge } from '../constants/navReviewBadge';
-import whiteLogo from '../images/whitelogo.png';
+import whiteLogo from '../images/whitelogo.webp';
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();

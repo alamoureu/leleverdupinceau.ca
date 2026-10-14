@@ -44,26 +44,26 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import { RBQ_LICENSE } from '../constants/company';
 
-import heroImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
-import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
-import appartementImg from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg';
-import reventeImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
-import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
-import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import escalierAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_7975 3.jpg';
-import escalierApres from '../images/L3 Quartiers/Avant apres plateau/IMG_7974 3.jpg';
-import plAdd1b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import plAdd1a from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
-import plAdd2b from '../images/3-ville/brossard/avant-apres/IMG_0832.jpg';
-import plAdd2a from '../images/3-ville/brossard/avant-apres/IMG_0833.jpg';
-import plAdd3b from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
-import plAdd3a from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
-import plAdd4b from '../images/3-ville/laprairie/avant-apres/IMG_0861.jpg';
-import plAdd4a from '../images/3-ville/laprairie/avant-apres/IMG_0862.jpg';
-import plAdd5b from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
-import plAdd5a from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
-import plAdd6b from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.jpg';
-import plAdd6a from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.jpg';
+import heroImg from '../images/L3 Sous services/Photo page appartement/header.webp';
+import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
+import appartementImg from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.webp';
+import reventeImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.webp';
+import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.webp';
+import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import escalierAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_7975 3.webp';
+import escalierApres from '../images/L3 Quartiers/Avant apres plateau/IMG_7974 3.webp';
+import plAdd1b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.webp";
+import plAdd1a from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.webp";
+import plAdd2b from '../images/3-ville/brossard/avant-apres/IMG_0832.webp';
+import plAdd2a from '../images/3-ville/brossard/avant-apres/IMG_0833.webp';
+import plAdd3b from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.webp';
+import plAdd3a from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.webp';
+import plAdd4b from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
+import plAdd4a from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
+import plAdd5b from '../images/3-ville/Montréal/avant-apres/IMG_1405.webp';
+import plAdd5a from '../images/3-ville/Montréal/avant-apres/IMG_1406.webp';
+import plAdd6b from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.webp';
+import plAdd6a from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.webp';
 
 const CAROUSEL_IMAGES = [
   { before: escalierAvant, after: escalierApres, description: 'Escalier en colimaçon - décapage et peinture' },

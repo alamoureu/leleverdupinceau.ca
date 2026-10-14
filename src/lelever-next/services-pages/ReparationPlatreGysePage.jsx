@@ -28,6 +28,7 @@ import {
   FaWater,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { servicePageSchema } from '../components/ServicePageSections';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -39,24 +40,24 @@ import InternalLinksSection from '../components/InternalLinksSection';
 
 import ContactFormSection from '../home-page/ContactFormSection';
 
-import platreHeroImg from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
+import platreHeroImg from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.webp';
 
-import platreAvant1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.PNG';
-import platreApres1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6030.PNG';
-import platreAvant2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6031.PNG';
-import platreApres2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.PNG';
-import platreAvant3 from '../images/3-ville/Montréal/avant-apres/IMG_0818.jpg';
-import platreApres3 from '../images/3-ville/Montréal/avant-apres/IMG_0819.jpg';
-import platreAvant4 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.jpg';
-import platreApres4 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.jpg';
-import platreAvant5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0859.jpg';
-import platreApres5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0860.jpg';
-import platreAvant6 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.jpg';
-import platreApres6 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.jpg';
-import platreAvant7 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0863.jpg';
-import platreApres7 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0864.jpg';
-import platreAvant8 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.jpg';
-import platreApres8 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
+import platreAvant1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8106.webp';
+import platreApres1 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6030.webp';
+import platreAvant2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_6031.webp';
+import platreApres2 from '../images/L2 Services specialise/Photo page -plâtre/Avant après/IMG_8108.webp';
+import platreAvant3 from '../images/3-ville/Montréal/avant-apres/IMG_0818.webp';
+import platreApres3 from '../images/3-ville/Montréal/avant-apres/IMG_0819.webp';
+import platreAvant4 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre avant.webp';
+import platreApres4 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, cadrage de fenêtre après.webp';
+import platreAvant5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0859.webp';
+import platreApres5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0860.webp';
+import platreAvant6 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure avant.webp';
+import platreApres6 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, moulure après.webp';
+import platreAvant7 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0863.webp';
+import platreApres7 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0864.webp';
+import platreAvant8 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau avant.webp';
+import platreApres8 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.webp';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -270,10 +271,20 @@ export default function ReparationPlatreGysePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Réparation de plâtre et gypse à Montréal | Fissures, trous et joints | Le Lever du Pinceau"
+        title="Réparation plâtre et gypse Montréal | Le Lever du Pinceau"
         description="Réparation de plâtre et gypse à Montréal. Correction de fissures, trous, joints visibles et surfaces abîmées avant peinture. Soumission gratuite et travail propre."
         canonicalPath="/services/reparation-de-platre-et-gypse"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[
+          breadcrumbSchema,
+          faqSchema,
+          servicePageSchema({
+            name: 'Réparation de plâtre et gypse à Montréal',
+            path: '/services/reparation-de-platre-et-gypse',
+            description:
+              'Réparation de plâtre et gypse à Montréal. Correction de fissures, trous, joints visibles et surfaces abîmées avant peinture. Soumission gratuite et travail propre.',
+            serviceType: 'Réparation de plâtre et gypse',
+          }),
+        ]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">

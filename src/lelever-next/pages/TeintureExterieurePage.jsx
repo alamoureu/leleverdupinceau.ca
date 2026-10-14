@@ -30,6 +30,7 @@ import {
   FaCouch,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { servicePageSchema } from '../components/ServicePageSections';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import ContactFormSection from '../home-page/ContactFormSection';
@@ -40,13 +41,13 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
-import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.PNG';
-import teintureImg5974 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.PNG';
-import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg';
-import escalierApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg';
-import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.jpg';
-import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.jpg';
+import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.webp';
+import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.webp';
+import teintureImg5974 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.webp';
+import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.webp';
+import escalierApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.webp';
+import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.webp';
+import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.webp';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -241,7 +242,17 @@ export default function TeintureExterieurePage() {
         title="Teinture extérieure à Montréal | Patio, clôture et bois | Le Lever du Pinceau"
         description="Service de teinture extérieure à Montréal pour patio, clôture, revêtement et autres surfaces en bois. Protection durable, préparation soignée et soumission gratuite."
         canonicalPath="/services/teinture-exterieure"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[
+          breadcrumbSchema,
+          faqSchema,
+          servicePageSchema({
+            name: 'Teinture extérieure à Montréal',
+            path: '/services/teinture-exterieure',
+            description:
+              'Service de teinture extérieure à Montréal pour patio, clôture, revêtement et autres surfaces en bois. Protection durable, préparation soignée et soumission gratuite.',
+            serviceType: 'Teinture extérieure',
+          }),
+        ]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">

@@ -23,21 +23,21 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import CtaButton from '../home-page/CtaButton';
 import SubmissionModal from '../home-page/SubmissionModal';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
-import serviceHubPhotoHeader from '../images/5-landing-page/Photo/spray man 3000.jpeg';
-import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
-import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
-import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
-import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.PNG';
-import imgTeinture from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
-import imgSurfaces from '../images/Moses&Dany_Wraping.jpeg';
-import imgPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.png';
-import imgPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
-import imgSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
-import imgArmoires from '../images/L3 Sous services/Photo page armoires de cuisine/header.jpeg';
-import imgMaison from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.PNG';
-import imgCondo from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
-import imgAppartement from '../images/L3 Sous services/Photo page appartement/header.PNG';
+import serviceHubPhotoHeader from '../images/5-landing-page/Photo/spray man 3000.webp';
+import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.webp';
+import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.webp';
+import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.webp';
+import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.webp';
+import imgTeinture from '../images/L2 Services specialise/Photo page teinture/Header.webp';
+import imgSurfaces from '../images/Moses&Dany_Wraping.webp';
+import imgPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.webp';
+import imgPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.webp';
+import imgSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.webp';
+import imgArmoires from '../images/L3 Sous services/Photo page armoires de cuisine/header.webp';
+import imgMaison from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.webp';
+import imgCondo from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
+import imgAppartement from '../images/L3 Sous services/Photo page appartement/header.webp';
 
 function MainHubCard({
   image,
@@ -159,16 +159,25 @@ function PhotoLinkCard({ image, title, description, href, isFr }) {
         boxShadow: 'md',
       }}
     >
-      <Image
-        src={image}
-        alt={title}
+      {/* iOS Safari collapses <img> height when it is a direct flex-column child */}
+      <Box
         w="100%"
         h={{ base: '180px', md: '200px' }}
-        objectFit="cover"
-        loading="lazy"
-        decoding="async"
-      />
-      <Stack spacing={1} p={{ base: 4, md: 5 }} flex={1}>
+        flexShrink={0}
+        overflow="hidden"
+      >
+        <Image
+          src={image}
+          alt={title}
+          w="100%"
+          h="100%"
+          objectFit="cover"
+          display="block"
+          loading="lazy"
+          decoding="async"
+        />
+      </Box>
+      <Stack spacing={1} p={{ base: 4, md: 5 }} flex={1} minH={0}>
         <Heading as="h3" size="subsection" color="gray.800">
           {title}
         </Heading>

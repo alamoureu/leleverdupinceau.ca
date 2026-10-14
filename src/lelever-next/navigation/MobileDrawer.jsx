@@ -31,10 +31,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { Fragment, useContext } from 'react';
 import appContext from '../../AppProvider';
-import whiteLogo from '../images/whitelogo.png';
+import whiteLogo from '../images/whitelogo.webp';
+import { COMPANY_PHONE_E164 } from '../constants/company';
 
 const PHONE_DISPLAY = '(438) 868-0772';
-const PHONE_HREF = 'tel:+14388680772';
+const PHONE_HREF = `tel:${COMPANY_PHONE_E164}`;
 
 function NavItem({ icon, label, onClick }) {
   return (
@@ -228,14 +229,15 @@ export const MobileDrawer = () => {
             px={{ base: 4, sm: 5 }}
             py={3}
             flexDirection="column"
-            alignItems="stretch"
+            alignItems="center"
+            justifyContent="center"
             gap={2}
           >
             <Button
               type="button"
               variant="cta"
-              w="100%"
               h="46px"
+              px={8}
               borderRadius="full"
               fontWeight="bold"
               leftIcon={<FontAwesomeIcon icon={faPhoneAlt} />}
@@ -244,11 +246,12 @@ export const MobileDrawer = () => {
             >
               Contact
             </Button>
-            <Box as="a" href={PHONE_HREF} textAlign="center">
+            <Box as="a" href={PHONE_HREF} textAlign="center" w="100%">
               <Text
                 fontSize="sm"
                 fontWeight="600"
                 color="brand.500"
+                textAlign="center"
                 _hover={{ color: 'brand.600', textDecoration: 'underline' }}
               >
                 {PHONE_DISPLAY}

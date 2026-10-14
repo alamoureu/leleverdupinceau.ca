@@ -12,6 +12,7 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
+import { SITE_URL, LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 
 const SECTION_PY = { base: 16, md: 20, lg: 24 };
 const H2_SIZE = { base: '2xl', md: '3xl', lg: '4xl' };
@@ -105,10 +106,24 @@ export function serviceBreadcrumbSchema(name, path) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: 'https://leleverdupinceau.ca/' },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://leleverdupinceau.ca/services' },
-      { '@type': 'ListItem', position: 3, name, item: `https://leleverdupinceau.ca${path}` },
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
+      { '@type': 'ListItem', position: 3, name, item: `${SITE_URL}${path}` },
     ],
+  };
+}
+
+/** Service JSON-LD for service / sub-service pages (provider = org @id). */
+export function servicePageSchema({ name, path, description, serviceType }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name,
+    description,
+    url: `${SITE_URL}${path}`,
+    serviceType: serviceType || name,
+    provider: { '@id': LOCAL_BUSINESS_SCHEMA['@id'] },
+    areaServed: LOCAL_BUSINESS_SCHEMA.areaServed,
   };
 }
 

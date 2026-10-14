@@ -24,23 +24,23 @@ import SEOHead from '../seo/SEOHead';
 import { SITE_URL } from '../seo/config';
 import { COMPANY_PHONE_E164 } from '../constants/company';
 
-import headerLongueuil from '../images/3-ville/longueuil/header.JPEG';
+import headerLongueuil from '../images/3-ville/longueuil/header.webp';
 // Avant/apres Longueuil - paires identifiees
-import lonImg7990 from '../images/3-ville/longueuil/avant-apres/IMG_7990 4.jpg';
-import lonImg7988 from '../images/3-ville/longueuil/avant-apres/IMG_7988 4.jpg';
-import lonImg0830 from '../images/3-ville/longueuil/avant-apres/IMG_0830.jpg';
-import lonImg0831 from '../images/3-ville/longueuil/avant-apres/IMG_0831.jpg';
+import lonImg7990 from '../images/3-ville/longueuil/avant-apres/IMG_7990 4.webp';
+import lonImg7988 from '../images/3-ville/longueuil/avant-apres/IMG_7988 4.webp';
+import lonImg0830 from '../images/3-ville/longueuil/avant-apres/IMG_0830.webp';
+import lonImg0831 from '../images/3-ville/longueuil/avant-apres/IMG_0831.webp';
 
-import bedroomBefore from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
-import bedroomAfter from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
-import lonAdd1b from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
-import lonAdd1a from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
-import lonAdd2b from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
-import lonAdd2a from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
-import lonAdd3b from '../images/3-ville/brossard/avant-apres/IMG_0838.jpg';
-import lonAdd3a from '../images/3-ville/brossard/avant-apres/IMG_0839.jpg';
-import lonAdd4b from '../images/3-ville/brossard/avant-apres/IMG_0846.jpg';
-import lonAdd4a from '../images/3-ville/brossard/avant-apres/IMG_0847.jpg';
+import bedroomBefore from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.webp';
+import bedroomAfter from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.webp';
+import lonAdd1b from '../images/3-ville/brossard/avant-apres/IMG_0822.webp';
+import lonAdd1a from '../images/3-ville/brossard/avant-apres/IMG_0823.webp';
+import lonAdd2b from '../images/3-ville/st-lambert/avant-apres/IMG_0836.webp';
+import lonAdd2a from '../images/3-ville/st-lambert/avant-apres/IMG_0837.webp';
+import lonAdd3b from '../images/3-ville/brossard/avant-apres/IMG_0838.webp';
+import lonAdd3a from '../images/3-ville/brossard/avant-apres/IMG_0839.webp';
+import lonAdd4b from '../images/3-ville/brossard/avant-apres/IMG_0846.webp';
+import lonAdd4a from '../images/3-ville/brossard/avant-apres/IMG_0847.webp';
 export default function LongueuilCityPage() {
   const { currentLang } = useContext(appContext);
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -322,10 +322,6 @@ export default function LongueuilCityPage() {
             { label: isFr ? 'Secteurs desservis' : 'Service areas', to: '/secteurs' },
             { label: 'Longueuil' },
           ]}
-          secondaryCta={{
-            label: isFr ? 'Nos réalisations' : 'Our projects',
-            to: '/realisations',
-          }}
         />
 
         {/* SECTION 3 - Checkmarks Longueuil */}

@@ -42,12 +42,12 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import CtaButton from '../home-page/CtaButton';
 import ServiceCard from '../home-page/ServiceCard';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
-import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
-import peintreProResidentielle from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.PNG';
-import peintreProCommerciale from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.PNG';
-import peintreProInterieure from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.PNG';
-import peintreProExterieure from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.PNG';
-import peintreProIndustrielle from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.PNG';
+import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.webp';
+import peintreProResidentielle from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.webp';
+import peintreProCommerciale from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.webp';
+import peintreProInterieure from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.webp';
+import peintreProExterieure from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.webp';
+import peintreProIndustrielle from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.webp';
 
 const WHY_PROFESSIONAL = [
   {
@@ -308,7 +308,7 @@ export default function PeintreProfessionnelPage() {
   return (
     <Fragment>
       <SEOHead
-        title="Pourquoi engager un peintre professionnel | Licence RBQ et garanties | Le Lever du Pinceau"
+        title="Pourquoi engager un peintre pro | RBQ | Le Lever du Pinceau"
         description="Avantages d'un peintre licencié RBQ, risques du travail au noir, et critères pour vérifier un peintre avant de signer. Page informative par Le Lever du Pinceau."
         canonicalPath="/peintre-professionnel"
         schemaArray={[breadcrumbSchema, faqSchema, articleSchema]}

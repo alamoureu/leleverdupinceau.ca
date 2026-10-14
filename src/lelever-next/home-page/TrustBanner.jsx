@@ -3,7 +3,7 @@ import { Box, Flex, Text, Image, Divider } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import { HAPPY_CLIENTS_COUNT, RBQ_LICENSE } from '../constants/company';
 import { TRUST_BANNER_AIR } from '../constants/sectionSpacing';
-import quebecLogo from '../images/rbqlogo.png';
+import quebecLogo from '../images/rbqlogo.webp';
 import intactAssuranceFr from '../images/assurance-intact/Intact_Assurance_fr.svg';
 import intactInsuranceEn from '../images/assurance-intact/Intact_Insurance_idn-HFcHKw_1.svg';
 

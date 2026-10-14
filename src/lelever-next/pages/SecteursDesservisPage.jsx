@@ -24,11 +24,11 @@ import CtaButton from '../home-page/CtaButton';
 import SubmissionModal from '../home-page/SubmissionModal';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
-import heroSecteurHub from '../images/pillar-pages/secteur-hub/IMG_7894.jpg';
-import quartierWestmount from '../images/pillar-pages/secteur-hub/IMG_7896.jpg';
-import quartierOutremont from '../images/pillar-pages/secteur-hub/IMG_7898.jpg';
-import quartierPlateau from '../images/pillar-pages/secteur-hub/IMG_7900.jpg';
-import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.jpg';
+import heroSecteurHub from '../images/pillar-pages/secteur-hub/IMG_7894.webp';
+import quartierWestmount from '../images/pillar-pages/secteur-hub/IMG_7896.webp';
+import quartierOutremont from '../images/pillar-pages/secteur-hub/IMG_7898.webp';
+import quartierPlateau from '../images/pillar-pages/secteur-hub/IMG_7900.webp';
+import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.webp';
 import montrealSecteur from '../images/mtl.webp';
 import lavalSecteur from '../images/laval.webp';
 import longueuilSecteur from '../images/longueuil.webp';
@@ -204,6 +204,7 @@ export default function SecteursDesservisPage() {
       to={city.link}
       _hover={{ textDecoration: 'none' }}
       w="100%"
+      minW={0}
       h="100%"
       display="block"
     >
@@ -218,29 +219,33 @@ export default function SecteursDesservisPage() {
         bg={city.imgScale < 1 ? '#022a68' : 'white'}
         minH={{ base: '260px', md: '300px' }}
         h="100%"
+        w="100%"
+        minW={0}
         _hover={{
           borderColor: 'brand.500',
           boxShadow: 'xl',
           transform: 'translateY(-4px)',
         }}
       >
-        <Image
-          src={city.image}
-          alt={city.name}
-          position="absolute"
-          top={city.imgTop}
-          left={0}
-          w="100%"
-          h="100%"
-          objectFit="cover"
-          zIndex={0}
-          transform={city.imgScale !== 1 ? `scale(${city.imgScale})` : undefined}
-          transformOrigin="center center"
-          loading="lazy"
-          decoding="async"
+        <Box position="absolute" inset={0} overflow="hidden" zIndex={0}>
+          <Image
+            src={city.image}
+            alt={city.name}
+            position="absolute"
+            top={city.imgTop}
+            left={0}
+            w="100%"
+            h="100%"
+            maxW="none"
+            objectFit="cover"
+            transform={city.imgScale !== 1 ? `scale(${city.imgScale})` : undefined}
+            transformOrigin="center center"
+            loading="lazy"
+            decoding="async"
             htmlWidth={1600}
             htmlHeight={1067}
-        />
+          />
+        </Box>
         <Box
           position="absolute"
           top={0}
@@ -347,6 +352,8 @@ export default function SecteursDesservisPage() {
               <SimpleGrid
                 columns={{ base: 1, md: 3 }}
                 spacing={{ base: 5, md: 6 }}
+                w="100%"
+                minW={0}
               >
                 {cities.map((city) => (
                   <CityCard key={city.name} city={city} />
@@ -357,9 +364,9 @@ export default function SecteursDesservisPage() {
         </Box>
 
         {/* SECTION 4 - Quartiers de Montréal */}
-        <Box py={{ base: 12, md: 16, lg: 20 }} bg="white">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={10}>
+        <Box py={{ base: 12, md: 16, lg: 20 }} bg="white" w="100%" minW={0} overflowX="hidden">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }} minW={0}>
+            <Stack spacing={10} minW={0}>
               <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
                 <Heading as="h2" size="section" color="gray.800">
                   {isFr
@@ -374,8 +381,10 @@ export default function SecteursDesservisPage() {
               </Stack>
 
               <SimpleGrid
-                columns={{ base: 2, md: 4 }}
+                columns={{ base: 1, sm: 2, md: 4 }}
                 spacing={{ base: 4, md: 6 }}
+                w="100%"
+                minW={0}
               >
                 {quartiersData.map((quartier) => (
                   <Link
@@ -383,11 +392,15 @@ export default function SecteursDesservisPage() {
                     as={RouterLink}
                     to={quartier.link}
                     _hover={{ textDecoration: 'none' }}
+                    w="100%"
+                    minW={0}
                     h="100%"
                     display="block"
                   >
                     <Box
                       position="relative"
+                      w="100%"
+                      minW={0}
                       h="100%"
                       minH={{ base: '220px', md: '260px' }}
                       borderRadius="xl"
@@ -414,8 +427,8 @@ export default function SecteursDesservisPage() {
                         zIndex={0}
                         loading="lazy"
                         decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
+                        htmlWidth={1600}
+                        htmlHeight={1067}
                       />
                       <Box
                         position="absolute"
@@ -431,29 +444,31 @@ export default function SecteursDesservisPage() {
                         zIndex={2}
                         p={{ base: 4, md: 5 }}
                         h="100%"
+                        minW={0}
                         justify="flex-end"
                         spacing={2}
                       >
-                        <Box h={{ base: '52px', md: '56px' }} display="flex" alignItems="flex-start">
-                          <HStack spacing={2} align="flex-start">
-                            <Icon
-                              as={FontAwesomeIcon}
-                              icon={faMapMarkerAlt}
-                              color="white"
-                              boxSize={4}
-                              mt="2px"
-                            />
-                            <Heading
-                              as="h3"
-                              fontSize={{ base: 'sm', md: 'md' }}
-                              fontWeight="bold"
-                              color="white"
-                              lineHeight="1.3"
-                            >
-                              {quartier.name}
-                            </Heading>
-                          </HStack>
-                        </Box>
+                        <HStack spacing={2} align="flex-start" minW={0} w="100%">
+                          <Icon
+                            as={FontAwesomeIcon}
+                            icon={faMapMarkerAlt}
+                            color="white"
+                            boxSize={4}
+                            mt="2px"
+                            flexShrink={0}
+                          />
+                          <Heading
+                            as="h3"
+                            fontSize={{ base: 'sm', md: 'md' }}
+                            fontWeight="bold"
+                            color="white"
+                            lineHeight="1.3"
+                            minW={0}
+                            wordBreak="break-word"
+                          >
+                            {quartier.name}
+                          </Heading>
+                        </HStack>
                         <Text
                           fontSize={{ base: 'xs', md: 'sm' }}
                           color="whiteAlpha.900"
@@ -478,7 +493,9 @@ export default function SecteursDesservisPage() {
                 color="gray.600"
                 textAlign="center"
                 maxW="680px"
+                w="100%"
                 mx="auto"
+                px={{ base: 1, md: 0 }}
                 fontStyle="italic"
               >
                 {isFr

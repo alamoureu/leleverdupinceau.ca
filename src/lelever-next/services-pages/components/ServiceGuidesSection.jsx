@@ -1,9 +1,9 @@
 import React, { useContext, useMemo } from 'react';
 import appContext from '../../../AppProvider';
 import ResourcesSection from '../../home-page/ResourcesSection';
-import commentChoisirPeintre from '../../images/5-landing-page/Photo/louis_Consultation.jpeg';
-import prixProjetPeinture from '../../images/1-page-principale/blog hub/prix-projet-montreal.png';
-import erreurEviterProjet from '../../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
+import commentChoisirPeintre from '../../images/5-landing-page/Photo/louis_Consultation.webp';
+import prixProjetPeinture from '../../images/1-page-principale/blog hub/prix-projet-montreal.webp';
+import erreurEviterProjet from '../../images/1-page-principale/blog hub/erreurs-eviter-peindre.webp';
 
 const getBlogImage = (href) => {
   if (href.includes('comment-choisir')) return commentChoisirPeintre;

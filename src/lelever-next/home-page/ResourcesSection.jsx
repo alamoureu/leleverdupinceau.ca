@@ -15,9 +15,9 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
-import commentChoisirPeintre from '../images/5-landing-page/Photo/louis_Consultation.jpeg';
-import prixProjetPeinture from '../images/1-page-principale/blog hub/prix-projet-montreal.png';
-import erreursEviterImage from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.png';
+import commentChoisirPeintre from '../images/5-landing-page/Photo/louis_Consultation.webp';
+import prixProjetPeinture from '../images/1-page-principale/blog hub/prix-projet-montreal.webp';
+import erreursEviterImage from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.webp';
 
 export default function ResourcesSection({
   title,

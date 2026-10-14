@@ -1,5 +1,5 @@
 // Blog post data: Bétonel vs Benjamin Moore
-import heroImage from '../images/1-page-principale/blog hub/blog-comparatif-peinture.jpg';
+import heroImage from '../images/1-page-principale/blog hub/blog-comparatif-peinture.webp';
 
 export const betonelVsBenjaminMooreData = {
   slug: 'betonel-vs-benjamin-moore',
@@ -7,8 +7,8 @@ export const betonelVsBenjaminMooreData = {
   url: 'https://leleverdupinceau.ca/blog/betonel-vs-benjamin-moore',
   seo: {
     title: {
-      fr: 'Bétonel vs Benjamin Moore : quelle peinture choisir pour votre maison ?',
-      en: 'Bétonel vs Benjamin Moore: which paint to choose for your home?',
+      fr: 'Bétonel vs Benjamin Moore : comparatif',
+      en: 'Bétonel vs Benjamin Moore: comparison',
     },
     metaDescription: {
       fr: "Comparatif complet entre Bétonel et Benjamin Moore : prix, produits similaires, palette de couleurs, qualité et avis de peintres professionnels à Montréal. Guide 2026.",

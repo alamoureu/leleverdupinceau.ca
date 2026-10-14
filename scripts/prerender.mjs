@@ -288,7 +288,13 @@ async function main() {
     process.exit(1);
   }
 
-  const { content: routes, redirects: legacy, spaOnly = [], uncovered } = classifyPublicRoutes();
+  const {
+    content: routes,
+    noindexPrerender = [],
+    redirects: legacy,
+    spaOnly = [],
+    uncovered,
+  } = classifyPublicRoutes();
   if (uncovered.length > 0) {
     console.error(`${c.red}✗ URLs publiques non classées (ni contenu ni redirect) :${c.reset}`);
     uncovered.forEach((p) => console.error(`  ${p}`));
@@ -298,7 +304,7 @@ async function main() {
   const template = readTemplateScripts();
   const spaShell = fs.readFileSync(path.join(DIST, 'index.html'), 'utf-8');
   console.log(
-    `\n${c.cyan}${c.bold}Pré-rendu HTML (Site LP)${c.reset} ${c.dim}(${routes.length} pages + ${Object.keys(legacy).length} redirects, ${spaOnly.length} SPA only, ${CONCURRENCY} en parallèle)${c.reset}\n`
+    `\n${c.cyan}${c.bold}Pré-rendu HTML (Site LP)${c.reset} ${c.dim}(${routes.length} pages + ${noindexPrerender.length} noindex + ${Object.keys(legacy).length} redirects, ${spaOnly.length} SPA only, ${CONCURRENCY} en parallèle)${c.reset}\n`
   );
 
   const server = await preview({
@@ -314,7 +320,7 @@ async function main() {
   const rendered = new Map();
   const failed = [];
 
-  const queue = [...routes, NOT_FOUND_ROUTE];
+  const queue = [...routes, ...noindexPrerender, NOT_FOUND_ROUTE];
   const workers = Array.from({ length: Math.min(CONCURRENCY, queue.length) }, async () => {
     while (queue.length > 0) {
       const route = queue.shift();
@@ -386,8 +392,9 @@ async function main() {
     process.exit(1);
   }
 
+  const expectedPages = routes.length + noindexPrerender.length + 1;
   console.log(
-    `\n${c.bold}${rendered.size}/${routes.length + 1} pages pré-rendues (dont 404)${c.reset}` +
+    `\n${c.bold}${rendered.size}/${expectedPages} pages pré-rendues (dont 404 + landings noindex)${c.reset}` +
       ` ${c.dim}+ ${redirectCount} redirections 301 legacy${c.reset}` +
       (failed.length > 0 ? ` ${c.yellow}(${failed.length} en échec → shell SPA)${c.reset}` : '')
   );
@@ -408,7 +415,7 @@ async function main() {
 
   // Vérification finale : chaque URL classée a un fichier dans dist
   const missingFiles = [];
-  for (const route of routes) {
+  for (const route of [...routes, ...noindexPrerender]) {
     if (!fs.existsSync(outputFileFor(route))) missingFiles.push(route);
   }
   for (const from of Object.keys(legacy)) {

@@ -2,15 +2,15 @@ import React from 'react';
 import { FaKey, FaCouch, FaTag, FaBroom, FaBuilding } from 'react-icons/fa';
 import ResidentialSubServicePage from '../components/ResidentialSubServicePage';
 
-import appartHeroImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
-import appartImg6759 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.jpg';
-import appartImg7983 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.jpg';
-import chambreAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0844.jpg';
-import chambreApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0845.jpg';
-import corridorAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8253.jpg';
-import corridorApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8252.jpg';
-import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre à Montréal, Le Lever du Pinceau a frindé et peinturé cette cage d_escalier en fer forgé dans le sud ouest de Montréal.jpg';
-import escalierApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a meulé et peint cette cage d_escalier en fer forgé dans le quartier de Verdun à Montréal.jpg';
+import appartHeroImg from '../images/L3 Sous services/Photo page appartement/header.webp';
+import appartImg6759 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.webp';
+import appartImg7983 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.webp';
+import chambreAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0844.webp';
+import chambreApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0845.webp';
+import corridorAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8253.webp';
+import corridorApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8252.webp';
+import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre à Montréal, Le Lever du Pinceau a frindé et peinturé cette cage d_escalier en fer forgé dans le sud ouest de Montréal.webp';
+import escalierApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a meulé et peint cette cage d_escalier en fer forgé dans le quartier de Verdun à Montréal.webp';
 
 const SITUATIONS = [
   {

@@ -38,29 +38,30 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+import { servicePageSchema } from '../components/ServicePageSections';
 
-import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
+import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
 
-import avantApresRes1a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.jpg';
-import avantApresRes1b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.jpg';
-import res0828 from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import res0829 from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
-import res0834 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.jpg';
-import res0835 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.jpg';
-import res0844 from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.jpg';
-import res0845 from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
-import res5984 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.jpg';
-import res5982 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.jpg';
-import res7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.jpg';
-import res7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.jpg';
-import res7975 from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
-import res7974 from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
-import res7992 from '../images/3-ville/longueuil/avant-apres/IMG_7992 6.jpg';
-import res7994 from '../images/3-ville/longueuil/avant-apres/IMG_7994 6.jpg';
-import res7999 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.jpg';
-import res7997 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.jpg';
-import res8253 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8253.jpg';
-import res8252 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8252.jpg';
+import avantApresRes1a from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.webp';
+import avantApresRes1b from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.webp';
+import res0828 from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.webp";
+import res0829 from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.webp";
+import res0834 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier avant.webp';
+import res0835 from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peinture intérieure Montréal, poutre d_acier après.webp';
+import res0844 from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre avant.webp';
+import res0845 from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.webp';
+import res5984 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.webp';
+import res5982 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.webp';
+import res7924 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7924 3.webp';
+import res7922 from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_7922 2.webp';
+import res7975 from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.webp';
+import res7974 from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.webp';
+import res7992 from '../images/3-ville/longueuil/avant-apres/IMG_7992 6.webp';
+import res7994 from '../images/3-ville/longueuil/avant-apres/IMG_7994 6.webp';
+import res7999 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce avant.webp';
+import res7997 from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/Notre-dame-de-grâce après.webp';
+import res8253 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8253.webp';
+import res8252 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8252.webp';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -260,7 +261,17 @@ export default function PeintureResidentiellePage() {
         title="Peinture résidentielle à Montréal | Pour votre domicile | Le Lever du Pinceau"
         description="Peinture résidentielle clé en main à Montréal: protection des meubles, horaires flexibles, chantier propre. Hub maisons et logements. Licence RBQ. Soumission gratuite."
         canonicalPath="/services/peinture-residentielle"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[
+          breadcrumbSchema,
+          faqSchema,
+          servicePageSchema({
+            name: 'Peinture résidentielle à Montréal',
+            path: '/services/peinture-residentielle',
+            description:
+              'Peinture résidentielle clé en main à Montréal: protection des meubles, horaires flexibles, chantier propre. Hub maisons et logements. Licence RBQ.',
+            serviceType: 'Peinture résidentielle',
+          }),
+        ]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">

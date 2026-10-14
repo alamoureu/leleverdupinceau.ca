@@ -43,16 +43,16 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import { RBQ_LICENSE } from '../constants/company';
 
-import heroImg from '../images/3-ville/Montréal/ville-marie/header.jpg';
-import interieureImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.jpg';
-import exterieureImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
-import residentielleImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.jpeg';
-import realisationsImg from '../images/3-ville/Montréal/5. réalisations/IMG_5877.JPG';
-import condoImg from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.jpg';
-import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.jpg';
-import appartementImg from '../images/L3 Sous services/Photo page appartement/header.PNG';
-import bureauImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.jpg';
+import heroImg from '../images/3-ville/Montréal/ville-marie/header.webp';
+import interieureImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.webp';
+import exterieureImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
+import residentielleImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.webp';
+import realisationsImg from '../images/3-ville/Montréal/5. réalisations/IMG_5877.webp';
+import condoImg from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.webp';
+import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.webp';
+import appartementImg from '../images/L3 Sous services/Photo page appartement/header.webp';
+import bureauImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.webp';
 
 const BREADCRUMB = [
   { label: 'Accueil', to: '/' },

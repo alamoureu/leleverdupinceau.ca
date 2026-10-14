@@ -37,19 +37,20 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ContactFormSection from '../home-page/ContactFormSection';
+import { servicePageSchema } from '../components/ServicePageSections';
 
-import sinistreHeroImg from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
+import sinistreHeroImg from '../images/L2 Services specialise/Photo page -après-sinitre/header.webp';
 
-import sinistreAvant1 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7990.jpg';
-import sinistreApres1 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7988.jpg';
-import sinistreAvant2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7992.jpg';
-import sinistreApres2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7994.jpg';
-import sinistreAvant3 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0836.jpg';
-import sinistreApres3 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0837.jpg';
-import sinistreAvant4 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0859.jpg';
-import sinistreApres4 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0860.jpg';
-import sinistreAvant5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0863.jpg';
-import sinistreApres5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0864.jpg';
+import sinistreAvant1 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7990.webp';
+import sinistreApres1 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7988.webp';
+import sinistreAvant2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7992.webp';
+import sinistreApres2 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_7994.webp';
+import sinistreAvant3 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0836.webp';
+import sinistreApres3 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0837.webp';
+import sinistreAvant4 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0859.webp';
+import sinistreApres4 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0860.webp';
+import sinistreAvant5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0863.webp';
+import sinistreApres5 from '../images/L2 Services specialise/Photo page -après-sinitre/photo avant-après/IMG_0864.webp';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -217,23 +218,13 @@ export default function PeintureApresSinistrePage() {
     ],
   };
 
-  const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
+  const serviceSchema = servicePageSchema({
     name: 'Peinture après-sinistre à Montréal',
+    path: '/services/peinture-apres-sinistre',
     description:
-      'Service de peinture après-sinistre à Montréal pour dégâts d\'eau, fumée légère, plafonds tachés et remise en état après réparations. Intervention structurée, propre et rapide.',
-    provider: {
-      '@type': 'LocalBusiness',
-      name: 'Le Lever du Pinceau',
-      url: 'https://leleverdupinceau.ca',
-    },
-    areaServed: {
-      '@type': 'City',
-      name: 'Montréal',
-    },
+      "Service de peinture après-sinistre à Montréal pour dégâts d'eau, fumée légère, plafonds tachés et remise en état après réparations. Intervention structurée, propre et rapide.",
     serviceType: 'Peinture après-sinistre',
-  };
+  });
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -279,7 +270,7 @@ export default function PeintureApresSinistrePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peinture après-sinistre à Montréal | Dégât d'eau et remise en état | Le Lever du Pinceau"
+        title="Peinture après-sinistre à Montréal | Le Lever du Pinceau"
         description="Peinture après-sinistre à Montréal pour dégâts d'eau, fumée légère, plafonds tachés et remise en état après réparations. Intervention structurée, propre et rapide. Soumission gratuite."
         canonicalPath="/services/peinture-apres-sinistre"
         schemaArray={[breadcrumbSchema, serviceSchema, faqSchema]}

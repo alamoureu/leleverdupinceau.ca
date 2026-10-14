@@ -63,12 +63,18 @@ const LEGACY_QUARTIER_SLUGS = [
  */
 export const CONTENT_ROUTES = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
 
-/** Routes app hors Site LP - pas de pré-rendu, pas de 301 forcé (ads / noindex). */
-export const SPA_ONLY_ROUTES = [
+/**
+ * Landings pubs : pré-rendues avec noindex dans le HTML (pas de Disallow robots.txt),
+ * hors sitemap. Google peut crawler et voir noindex plutôt qu'une fiche fantôme.
+ */
+export const NOINDEX_PRERENDER_ROUTES = [
   '/fr/peintre-montreal',
   '/en/peintre-montreal',
   '/en/painter-montreal',
 ];
+
+/** Routes app hors Site LP - shell SPA uniquement (pas de HTML SSR). */
+export const SPA_ONLY_ROUTES = [];
 
 /** Redirects explicites (App.jsx <Navigate>). */
 const ALIAS_REDIRECTS = {
@@ -197,6 +203,7 @@ function legacySousServiceCityPaths() {
 export function getUniversePaths() {
   const set = new Set([
     ...CONTENT_ROUTES,
+    ...NOINDEX_PRERENDER_ROUTES,
     ...SPA_ONLY_ROUTES,
     ...Object.keys(ALIAS_REDIRECTS),
     ...readLocs(path.join(ROOT, 'public', 'sitemap.xml')),
@@ -209,16 +216,18 @@ export function getUniversePaths() {
 }
 
 /**
- * @returns {{ content: string[], redirects: Record<string, string>, spaOnly: string[], uncovered: string[] }}
+ * @returns {{ content: string[], noindexPrerender: string[], redirects: Record<string, string>, spaOnly: string[], uncovered: string[] }}
  */
 export function classifyPublicRoutes() {
   const contentSet = new Set(CONTENT_ROUTES.map(normalize));
+  const noindexSet = new Set(NOINDEX_PRERENDER_ROUTES.map(normalize));
   const spaOnlySet = new Set(SPA_ONLY_ROUTES.map(normalize));
   const redirects = { ...ALIAS_REDIRECTS };
   const uncovered = [];
 
   for (const pathname of getUniversePaths()) {
     if (contentSet.has(pathname)) continue;
+    if (noindexSet.has(pathname)) continue;
     if (spaOnlySet.has(pathname)) continue;
     if (redirects[pathname]) continue;
 
@@ -240,6 +249,7 @@ export function classifyPublicRoutes() {
   for (const [from, to] of Object.entries(redirects)) {
     if (from === to) delete redirects[from];
     if (contentSet.has(from)) delete redirects[from];
+    if (noindexSet.has(from)) delete redirects[from];
     if (spaOnlySet.has(from)) delete redirects[from];
   }
 
@@ -249,6 +259,7 @@ export function classifyPublicRoutes() {
       if (b === '/') return 1;
       return a.localeCompare(b);
     }),
+    noindexPrerender: [...noindexSet].sort(),
     redirects,
     spaOnly: [...spaOnlySet].sort(),
     uncovered,
@@ -277,8 +288,9 @@ export function redirectHtml(from, to) {
 // CLI : rapport de couverture
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
 if (isMain) {
-  const { content, redirects, spaOnly, uncovered } = classifyPublicRoutes();
+  const { content, noindexPrerender, redirects, spaOnly, uncovered } = classifyPublicRoutes();
   console.log(`Contenu à pré-rendre (Site LP) : ${content.length}`);
+  console.log(`Landings noindex (pré-rendu)  : ${noindexPrerender.length}`);
   console.log(`Redirects 301                 : ${Object.keys(redirects).length}`);
   console.log(`SPA only (pas de HTML SSR)    : ${spaOnly.length}`);
   console.log(`Non classés                   : ${uncovered.length}`);
@@ -286,5 +298,5 @@ if (isMain) {
     uncovered.forEach((p) => console.log(`  ✗ ${p}`));
     process.exit(1);
   }
-  console.log('OK - Site LP pré-rendu ; reste en SPA ou redirect.');
+  console.log('OK - Site LP pré-rendu ; landings noindex ; reste en SPA ou redirect.');
 }

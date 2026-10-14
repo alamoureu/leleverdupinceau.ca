@@ -34,24 +34,25 @@ import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 import {
   SpecialitesSection,
   serviceBreadcrumbSchema,
+  servicePageSchema,
   faqPageSchema,
 } from '../components/ServicePageSections';
 
-import heroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
-import plateauAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau avant.jpg';
-import plateauApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau après.jpg';
-import escalierVerdunAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.jpg';
-import escalierVerdunApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.jpg';
-import terrasseAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
-import terrasseApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.jpg';
-import cornicheAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg';
-import cornicheApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.jpg';
-import escalierBalconAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.jpg';
-import escalierBalconApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.jpg';
-import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.jpg";
-import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.jpg";
-import revetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.jpg';
-import revetementApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.jpg';
+import heroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
+import plateauAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau avant.webp';
+import plateauApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/plateau après.webp';
+import escalierVerdunAvant from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun avant.webp';
+import escalierVerdunApres from '../images/L3 Services X Villes/Photo page -peinture-extérieure-montréal/avant après/verdun après.webp';
+import terrasseAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.webp';
+import terrasseApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a teint cette terasse sur la rive-sud de Montréal.webp';
+import cornicheAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.webp';
+import cornicheApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peintre extérieur dans le grand Montréal, Le Lever du Pinceau a peint cette cornciche dans Ville-Mont-Royal, Montréal.webp';
+import escalierBalconAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.webp';
+import escalierBalconApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.webp';
+import porteAvant from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.webp";
+import porteApres from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée après.webp";
+import revetementAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison avant.webp';
+import revetementApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, revêtement maison après.webp';
 
 const CHECKMARKS_LOCAUX = [
   {
@@ -278,19 +279,6 @@ const carouselImages = [
 
 ];
 
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  name: 'Peinture extérieure à Montréal',
-  description: 'Service de peinture extérieure à Montréal pour façades, balcons, escaliers, revêtements et corniches. Équipe RBQ, chantier propre et soumission gratuite.',
-  provider: {
-    '@type': 'LocalBusiness',
-    name: 'Le Lever du Pinceau',
-    url: 'https://leleverdupinceau.ca',
-  },
-  areaServed: { '@type': 'City', name: 'Montréal' },
-};
-
 export default function PeintureExterieurePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -303,7 +291,13 @@ export default function PeintureExterieurePage() {
         schemaArray={[
           serviceBreadcrumbSchema('Peinture extérieure', '/services/peinture-exterieure'),
           faqPageSchema(FAQS),
-          serviceSchema,
+          servicePageSchema({
+            name: 'Peinture extérieure à Montréal',
+            path: '/services/peinture-exterieure',
+            description:
+              'Service de peinture extérieure à Montréal pour façades, balcons, escaliers, revêtements et corniches. Équipe RBQ, chantier propre et soumission gratuite.',
+            serviceType: 'Peinture extérieure',
+          }),
         ]}
       />
 

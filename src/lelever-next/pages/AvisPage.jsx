@@ -25,18 +25,18 @@ import ReviewsSection from '../home-page/ReviewsSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FinalCTASection from '../home-page/FinalCTASection';
-import avisPhotoHeader from '../images/Moses&Dany_Wraping.jpeg';
-import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.PNG';
-import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.PNG';
-import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.PNG';
-import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import imgPeintresPro from '../images/5-landing-page/Photo/spray man 3000.jpeg';
+import avisPhotoHeader from '../images/Moses&Dany_Wraping.webp';
+import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.webp';
+import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.webp';
+import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.webp';
+import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import imgPeintresPro from '../images/5-landing-page/Photo/spray man 3000.webp';
 
-const AVIS_PHOTOS = import.meta.glob('../images/1-page-principale/avis/avant-apres/*.jpg', {
+const AVIS_PHOTOS = import.meta.glob('../images/1-page-principale/avis/avant-apres/*.webp', {
   eager: true,
   import: 'default',
 });
-const avisPhoto = (n) => AVIS_PHOTOS[`../images/1-page-principale/avis/avant-apres/IMG_${n}.jpg`];
+const avisPhoto = (n) => AVIS_PHOTOS[`../images/1-page-principale/avis/avant-apres/IMG_${n}.webp`];
 
 /** [avant, après, fr, en] */
 const AVIS_PAIRS = [

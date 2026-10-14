@@ -29,6 +29,7 @@ import {
   FaTools,
 } from 'react-icons/fa';
 import SEOHead from '../seo/SEOHead';
+import { servicePageSchema } from '../components/ServicePageSections';
 import HeroSection from '../home-page/HeroSection';
 import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import ContactFormSection from '../home-page/ContactFormSection';
@@ -39,15 +40,15 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 
-import pistoletHeroImg from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.png';
-import pistoletAvant1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.jpg';
-import pistoletApres1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.jpg';
-import revetementAvant from '../images/3-ville/longueuil/avant-apres/IMG_0830.jpg';
-import revetementApres from '../images/3-ville/longueuil/avant-apres/IMG_0831.jpg';
-import armoiresBlanchesAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.PNG';
-import armoiresBlanchesApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.PNG';
-import armoiresGrisesAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.PNG';
-import armoiresGrisesApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.PNG';
+import pistoletHeroImg from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.webp';
+import pistoletAvant1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5977 3.webp';
+import pistoletApres1 from '../images/L2 Services specialise/Photo page -pistolet/photo avant-après/IMG_5978 3.webp';
+import revetementAvant from '../images/3-ville/longueuil/avant-apres/IMG_0830.webp';
+import revetementApres from '../images/3-ville/longueuil/avant-apres/IMG_0831.webp';
+import armoiresBlanchesAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5975.webp';
+import armoiresBlanchesApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_5976.webp';
+import armoiresGrisesAvant from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8114.webp';
+import armoiresGrisesApres from '../images/L3 Sous services/Photo page armoires de cuisine/Avant après/IMG_8120.webp';
 
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
@@ -265,7 +266,17 @@ export default function PeintureAuPistoletPage() {
         title="Peinture au pistolet à Montréal | Finition uniforme | Le Lever du Pinceau"
         description="Service de peinture au pistolet à Montréal pour plafonds ouverts, boiseries, portes, armoires et grandes surfaces. Finition uniforme, masquage rigoureux et soumission gratuite."
         canonicalPath="/services/peinture-au-pistolet"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[
+          breadcrumbSchema,
+          faqSchema,
+          servicePageSchema({
+            name: 'Peinture au pistolet à Montréal',
+            path: '/services/peinture-au-pistolet',
+            description:
+              'Service de peinture au pistolet à Montréal pour plafonds ouverts, boiseries, portes, armoires et grandes surfaces. Finition uniforme, masquage rigoureux et soumission gratuite.',
+            serviceType: 'Peinture au pistolet',
+          }),
+        ]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">

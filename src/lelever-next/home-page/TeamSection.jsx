@@ -12,7 +12,7 @@ import {
 } from '@chakra-ui/react';
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
-import teamSectionImg from '../images/5-landing-page/Photo/spray man 3000.jpeg';
+import teamSectionImg from '../images/5-landing-page/Photo/spray man 3000.webp';
 
 export default function TeamSection({ pageContext = '' }) {
   const { t, currentLang } = useTranslation();

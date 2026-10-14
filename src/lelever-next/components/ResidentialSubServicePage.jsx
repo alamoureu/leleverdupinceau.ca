@@ -13,8 +13,8 @@ import ControlSection from '../home-page/ControlSection';
 import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
-
-const SITE = 'https://leleverdupinceau.ca';
+import { servicePageSchema } from './ServicePageSections';
+import { SITE_URL } from '../seo/config';
 
 /**
  * Gabarit des sous-pages résidentielles (maison, condo, appartement) :
@@ -44,15 +44,15 @@ export default function ResidentialSubServicePage({
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE}/` },
-      { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE}/services` },
+      { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/services` },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Peinture résidentielle',
-        item: `${SITE}/services/peinture-residentielle`,
+        item: `${SITE_URL}/services/peinture-residentielle`,
       },
-      { '@type': 'ListItem', position: 4, name: breadcrumbName, item: `${SITE}${canonicalPath}` },
+      { '@type': 'ListItem', position: 4, name: breadcrumbName, item: `${SITE_URL}${canonicalPath}` },
     ],
   };
 
@@ -66,13 +66,20 @@ export default function ResidentialSubServicePage({
     })),
   };
 
+  const serviceSchema = servicePageSchema({
+    name: breadcrumbName,
+    path: canonicalPath,
+    description: seo.description,
+    serviceType: breadcrumbName,
+  });
+
   return (
     <Fragment>
       <SEOHead
         title={seo.title}
         description={seo.description}
         canonicalPath={canonicalPath}
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[breadcrumbSchema, faqSchema, serviceSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">

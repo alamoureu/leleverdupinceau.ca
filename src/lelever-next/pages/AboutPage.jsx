@@ -28,7 +28,7 @@ import ReviewsSection from '../home-page/ReviewsSection';
 import SectorsSection from '../home-page/SectorsSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
-import aProposPhotoHeader from '../images/1-page-principale/a propos/Photo header/IMG_6772.PNG';
+import aProposPhotoHeader from '../images/1-page-principale/a propos/Photo header/IMG_6772.webp';
 
 function InlineLink({ to, children }) {
   return (

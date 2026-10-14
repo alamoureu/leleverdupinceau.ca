@@ -8,10 +8,7 @@ Disallow: /admin
 Disallow: /admin/
 Disallow: /timesheet
 
-# Paid landing pages (noindex / ads only)
-Disallow: /fr/peintre-montreal
-Disallow: /en/peintre-montreal
-Disallow: /en/painter-montreal
+# Paid landing pages: crawlable so Google sees their noindex meta (not Disallow alone)
 
 Sitemap: https://leleverdupinceau.ca/sitemap.xml
 # LLM / agent guidance: https://leleverdupinceau.ca/llms.txt

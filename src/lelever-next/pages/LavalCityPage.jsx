@@ -24,23 +24,23 @@ import SEOHead from '../seo/SEOHead';
 import { SITE_URL } from '../seo/config';
 import { COMPANY_PHONE_E164 } from '../constants/company';
 
-import headerLaval from '../images/3-ville/laval/header.jpg';
+import headerLaval from '../images/3-ville/laval/header.webp';
 // Avant/après Laval - paires identifiées
 
-import lavImg5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.jpg';
-import lavImg5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.jpg';
-import lavImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.jpg';
-import lavImg7994 from '../images/3-ville/laval/avant-apres/IMG_7994 5.jpg';
-import lavImg6031 from '../images/3-ville/laval/avant-apres/IMG_6031 3.jpg';
-import lavImg8108 from '../images/3-ville/laval/avant-apres/IMG_8108 3.jpg';
-import lavFolder0822 from '../images/3-ville/brossard/avant-apres/IMG_0822.jpg';
-import lavFolder0823 from '../images/3-ville/brossard/avant-apres/IMG_0823.jpg';
-import lavFolder0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.jpg';
-import lavFolder0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.jpg';
-import lavFolder0838 from '../images/3-ville/brossard/avant-apres/IMG_0838.jpg';
-import lavFolder0839 from '../images/3-ville/brossard/avant-apres/IMG_0839.jpg';
-import lavFolder0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.jpg';
-import lavFolder0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.jpg';
+import lavImg5975 from '../images/3-ville/laval/avant-apres/IMG_5975 4.webp';
+import lavImg5976 from '../images/3-ville/laval/avant-apres/IMG_5976 5.webp';
+import lavImg7992 from '../images/3-ville/laval/avant-apres/IMG_7992 5.webp';
+import lavImg7994 from '../images/3-ville/laval/avant-apres/IMG_7994 5.webp';
+import lavImg6031 from '../images/3-ville/laval/avant-apres/IMG_6031 3.webp';
+import lavImg8108 from '../images/3-ville/laval/avant-apres/IMG_8108 3.webp';
+import lavFolder0822 from '../images/3-ville/brossard/avant-apres/IMG_0822.webp';
+import lavFolder0823 from '../images/3-ville/brossard/avant-apres/IMG_0823.webp';
+import lavFolder0836 from '../images/3-ville/st-lambert/avant-apres/IMG_0836.webp';
+import lavFolder0837 from '../images/3-ville/st-lambert/avant-apres/IMG_0837.webp';
+import lavFolder0838 from '../images/3-ville/brossard/avant-apres/IMG_0838.webp';
+import lavFolder0839 from '../images/3-ville/brossard/avant-apres/IMG_0839.webp';
+import lavFolder0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.webp';
+import lavFolder0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.webp';
 
 export default function LavalCityPage() {
   const { currentLang } = useContext(appContext);

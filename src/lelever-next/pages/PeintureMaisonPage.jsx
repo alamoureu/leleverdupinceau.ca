@@ -27,10 +27,10 @@ import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
-import maisonHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
+import maisonHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
 
-import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.jpg';
-import corridorApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries après.jpg';
+import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.webp';
+import corridorApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries après.webp';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },

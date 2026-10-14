@@ -2,25 +2,25 @@
  * One source of truth: route path → card thumbnail (usually the page hero).
  * Used by InternalLinksSection so pages keep { title, description, to } only.
  */
-import peintureInterieure from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.jpeg';
-import peintureExterieure from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.JPG';
-import peintureResidentielle from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.jpg';
-import peintureCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.PNG';
-import peintureIndustrielle from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.jpg';
-import teintureExterieure from '../images/L2 Services specialise/Photo page teinture/Header.PNG';
-import preparationSurfaces from '../images/L2 Services specialise/Photo page -surfaces/header-wrapping.JPEG';
-import reparationPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.jpg';
-import peintureApresSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.jpg';
-import peintureAuPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.png';
-import armoiresCuisine from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.jpg';
-import peintureCondo from '../images/L3 Sous services/Photo page -peinture condo/header.jpg';
-import peintureAppartement from '../images/L3 Sous services/Photo page appartement/header.PNG';
+import peintureInterieure from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.webp';
+import peintureExterieure from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
+import peintureResidentielle from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
+import peintureCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import peintureIndustrielle from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.webp';
+import teintureExterieure from '../images/L2 Services specialise/Photo page teinture/Header.webp';
+import preparationSurfaces from '../images/L2 Services specialise/Photo page -surfaces/header-wrapping.webp';
+import reparationPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.webp';
+import peintureApresSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.webp';
+import peintureAuPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.webp';
+import armoiresCuisine from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.webp';
+import peintureCondo from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
+import peintureAppartement from '../images/L3 Sous services/Photo page appartement/header.webp';
 // Distinct from condo header.jpg (old MTL intérieur header was a byte copy) and from
 // réalisations IMG_5877 (same Griffintown loft scene as Griffintown après).
-import peintureInterieureMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.jpg';
-import peintreProfessionnel from '../images/1-page-principale/service hub/Photo header/IMG_6771.PNG';
-import secteurs from '../images/pillar-pages/secteur-hub/IMG_7894.jpg';
-import realisations from '../images/3-ville/Montréal/5. réalisations/IMG_5877.JPG';
+import peintureInterieureMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/plateau après.webp';
+import peintreProfessionnel from '../images/1-page-principale/service hub/Photo header/IMG_6771.webp';
+import secteurs from '../images/pillar-pages/secteur-hub/IMG_7894.webp';
+import realisations from '../images/3-ville/Montréal/5. réalisations/IMG_5877.webp';
 
 export const ROUTE_THUMBNAIL_BY_PATH = {
   '/services/peinture-interieure': peintureInterieure,
