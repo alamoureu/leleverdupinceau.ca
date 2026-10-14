@@ -73,7 +73,7 @@ const CAROUSEL_IMAGES = [
   { before: plAdd3b, after: plAdd3a, description: "Poutre d'acier - préparation et peinture" },
   { before: plAdd4b, after: plAdd4a, description: 'Plinthe et murs - finition' },
   { before: plAdd5b, after: plAdd5a, description: 'Clôture en bois - teinture' },
-  { before: plAdd6b, after: plAdd6a, description: 'Cuisine - Outremont' },
+  { before: plAdd6b, after: plAdd6a, description: 'Cuisine' },
 ];
 
 const BREADCRUMB = [
@@ -308,7 +308,7 @@ export default function PlateauMontRoyalPage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peintre dans le Plateau Mont-Royal | Condos, plex et appartements | Le Lever du Pinceau"
+        title="Peintre au Plateau Mont-Royal | Condos et plex | Le Lever du Pinceau"
         description="Le Lever du Pinceau réalise des projets de peinture dans le Plateau Mont-Royal pour condos, plex, appartements et commerces légers. Chantier propre, coordination simple et soumission rapide."
         canonicalPath="/secteurs/montreal/plateau-mont-royal"
         schemaArray={[breadcrumbSchema, localBusinessSchema, faqSchema]}

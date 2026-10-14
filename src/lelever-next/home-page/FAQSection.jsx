@@ -31,8 +31,8 @@ function getFaqs(isFr) {
         ? 'Offrez-vous une garantie sur vos travaux ?'
         : 'Do you offer a guarantee on your work?',
       answer: isFr
-        ? 'Oui. Nous offrons une garantie satisfaction à 100%. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.'
-        : "Yes. We offer a 100% satisfaction guarantee. If the result doesn't meet your expectations, we will correct it at no additional cost.",
+        ? "Oui. Nous offrons une garantie satisfaction à 100 % : nous n'arrêtons pas de travailler tant que vous n'êtes pas 100 % satisfait des travaux. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires."
+        : "Yes. We offer a 100% satisfaction guarantee: we don't stop working until you are 100% satisfied with the work. If the result doesn't meet your expectations, we will correct it at no additional cost.",
     },
     {
       question: isFr
@@ -137,12 +137,13 @@ export default function FAQSection({
             overflow="hidden"
           >
             <Accordion allowToggle>
-              {faqs.map((faq, index) => (
+              {faqs.map((faq) => (
                 <AccordionItem
                   key={faq.question}
-                  border="none"
-                  borderTopWidth={index === 0 ? 0 : '1px'}
-                  borderColor="gray.200"
+                  border="0"
+                  borderBottom="1px solid"
+                  borderBottomColor="gray.300"
+                  _last={{ borderBottom: 0 }}
                 >
                   <h3>
                     <AccordionButton

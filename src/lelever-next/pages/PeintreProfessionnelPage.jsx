@@ -38,8 +38,8 @@ import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import ReviewsSection from '../home-page/ReviewsSection';
 import FAQSection from '../home-page/FAQSection';
 import SubmissionModal from '../home-page/SubmissionModal';
+import SubmissionForm from '../home-page/SubmissionForm';
 import FinalCTASection from '../home-page/FinalCTASection';
-import CtaButton from '../home-page/CtaButton';
 import ServiceCard from '../home-page/ServiceCard';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.webp';
@@ -586,17 +586,22 @@ export default function PeintreProfessionnelPage() {
               </Box>
 
               <Box textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto" w="100%">
-                    <Text
-                      textStyle="bodyLarge"
+                <Text
+                  textStyle="bodyLarge"
                   fontWeight="medium"
                   color="gray.700"
-                  mb={4}
-                    >
+                  mb={2}
+                >
                   Le Lever du Pinceau coche toutes ces cases. Vérifiez par vous-même.
-                    </Text>
-                <CtaButton onClick={onOpen} rightIcon={<ArrowForwardIcon />}>
-                  Obtenir ma soumission gratuite
-                </CtaButton>
+                </Text>
+                <Box
+                  w="100%"
+                  maxW={{ base: '100%', sm: '480px', md: '560px', lg: '600px' }}
+                  mx="auto"
+                  textAlign="left"
+                >
+                  <SubmissionForm />
+                </Box>
               </Box>
                 </Stack>
               </Container>

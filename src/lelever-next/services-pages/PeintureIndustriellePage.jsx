@@ -41,6 +41,7 @@ import industrielleImg1 from '../images/L2 Services principaux/Photo page -peint
 import industrielleImg2 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.webp';
 import industrielleImg3 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine sur la rive nord de Montréal.webp';
 import industrielleImg4 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre industrielle dans le grand Montréal, Le Lever du Pinceau a peinturé au spray l_extérieure de cette usine à Laval.webp';
+import industrielleImg5 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.webp';
 import industrielleImg6 from '../images/L2 Services principaux/Photo page -peinture-industrielle/Peintre professionnel sur l_île de Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck en mur à Montréal.webp';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
@@ -215,6 +216,11 @@ export default function PeintureIndustriellePage() {
       before: industrielleImg3,
       after: industrielleImg4,
       description: 'Peinture extérieure usine au pistolet - Rive-Nord de Montréal',
+    },
+    {
+      before: industrielleImg2,
+      after: industrielleImg5,
+      description: 'Plafond steel deck peint au pistolet - gris à blanc',
     },
 ];
 

@@ -103,7 +103,7 @@ const content = {
       {
         title: 'Quelles garanties offrons-nous ?',
         body: [
-          "Nous offrons une garantie de satisfaction à 100 % ainsi qu'une garantie sur la finition. Concrètement : un résultat impeccable, un chantier propre, une équipe professionnelle, une communication claire et une finition qui dure.",
+          "Nous offrons une garantie de satisfaction à 100 % ainsi qu'une garantie sur la finition. Concrètement : nous n'arrêtons pas de travailler tant que vous n'êtes pas 100 % satisfait des travaux, un résultat impeccable, un chantier propre, une équipe professionnelle, une communication claire et une finition qui dure.",
           'Ces engagements reposent sur cinq principes qui guident chaque projet : la qualité, la propreté, la transparence, le respect et des finitions impeccables. Des soumissions claires, un prix honnête et le respect de vos lieux, de votre temps et de vos attentes, c\'est notre façon de travailler.',
         ],
       },
@@ -189,7 +189,7 @@ const content = {
       {
         title: 'What guarantees do we offer?',
         body: [
-          'We offer a 100% satisfaction guarantee as well as a finish guarantee. In practice: an impeccable result, a clean worksite, a professional team, clear communication and a finish that lasts.',
+          "We offer a 100% satisfaction guarantee as well as a finish guarantee. In practice: we don't stop working until you are 100% satisfied with the work, an impeccable result, a clean worksite, a professional team, clear communication and a finish that lasts.",
           'These commitments rest on five principles that guide every project: quality, cleanliness, transparency, respect and impeccable finishes. Clear quotes, honest pricing and respect for your premises, your time and your expectations, that is how we work.',
         ],
       },

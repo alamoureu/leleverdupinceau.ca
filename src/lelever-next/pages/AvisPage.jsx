@@ -17,7 +17,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
-import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS, GOOGLE_REVIEWS_URL } from '../constants/googleReviews';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS } from '../constants/googleReviews';
+import { AVIS_AVANT_APRES_PAIRS } from '../constants/avisAvantApres';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import HeroSection from '../home-page/HeroSection';
 import SubmissionModal from '../home-page/SubmissionModal';
@@ -37,30 +38,6 @@ const AVIS_PHOTOS = import.meta.glob('../images/1-page-principale/avis/avant-apr
   import: 'default',
 });
 const avisPhoto = (n) => AVIS_PHOTOS[`../images/1-page-principale/avis/avant-apres/IMG_${n}.webp`];
-
-/** [avant, après, fr, en] */
-const AVIS_PAIRS = [
-  ['0828', '0829', "Porte d'entrée - décapage et peinture bleu marine", 'Front door - stripping and navy blue paint'],
-  ['0855', '0856', "Hall d'entrée - murs et boiseries rafraîchis", 'Entrance hall - walls and trim refreshed'],
-  ['0848', '0849', 'Maison - revêtement extérieur repeint', 'House - exterior siding repainted'],
-  ['0842', '0843', 'Chambre - papier peint retiré et murs repeints', 'Bedroom - wallpaper removed and walls repainted'],
-  ['0826', '0827', 'Salle à manger - murs bleus repeints gris foncé', 'Dining room - blue walls repainted dark grey'],
-  ['0834', '0835', "Poutre d'acier - rouille traitée et peinture noire", 'Steel beam - rust treated and black paint'],
-  ['0807', '0808', 'Salle de bain - murs repeints gris', 'Bathroom - walls repainted grey'],
-  ['0830', '0831', 'Revêtement extérieur - grattage et peinture', 'Exterior siding - scraping and painting'],
-  ['0844', '0845', 'Chambre - papier peint retiré, murs verts', 'Bedroom - wallpaper removed, green walls'],
-  ['0838', '0839', 'Terrasse en bois - teinture', 'Wood deck - stain'],
-  ['0852', '0853', 'Chambre - papier peint fleuri remplacé par la peinture', 'Bedroom - floral wallpaper replaced with paint'],
-  ['0822', '0823', 'Escalier extérieur - teinture du bois', 'Outdoor stairs - wood stain'],
-  ['0832', '0833', 'Chambre - murs repeints gris pâle', 'Bedroom - walls repainted light grey'],
-  ['1405', '1406', 'Clôture en bois - teinture', 'Wood fence - stain'],
-  ['0846', '0847', 'Chambre - murs repeints en blanc', 'Bedroom - walls repainted white'],
-  ['0836', '0837', 'Cadrage de fenêtre - plâtre et peinture', 'Window frame - plaster and paint'],
-  ['0859', '0860', 'Fenêtre - peinture écaillée réparée', 'Window - peeling paint repaired'],
-  ['0818', '0819', 'Corridor - coin de mur réparé et repeint', 'Hallway - wall corner repaired and repainted'],
-  ['0861', '0862', 'Plinthe - réparation et peinture', 'Baseboard - repair and paint'],
-  ['0863', '0864', "Plafond - tache d'eau réparée", 'Ceiling - water stain repaired'],
-];
 
 export default function AvisPage() {
   const { currentLang } = useContext(appContext);
@@ -146,7 +123,7 @@ export default function AvisPage() {
     })),
   };
 
-  const beforeAfterPairs = AVIS_PAIRS.map(([before, after, fr, en]) => ({
+  const beforeAfterPairs = AVIS_AVANT_APRES_PAIRS.map(({ before, after, fr, en }) => ({
     before: avisPhoto(before),
     after: avisPhoto(after),
     description: isFr ? fr : en,
@@ -183,10 +160,6 @@ export default function AvisPage() {
             { label: isFr ? 'Accueil' : 'Home', to: '/' },
             { label: isFr ? 'Avis' : 'Reviews' },
           ]}
-          secondaryCta={{
-            label: isFr ? 'Avis Google' : 'Google review',
-            to: GOOGLE_REVIEWS_URL,
-          }}
         />
         <ReviewsSection hideButton sectionPaddingTop={TRUST_BANNER_BELOW_PT} />
 

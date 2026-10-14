@@ -5,8 +5,10 @@
 const REVIEW_BADGE_PATHS = new Set([
   '/peintre-professionnel',
   '/a-propos',
+  '/avis-clients',
   '/blog',
   '/realisations',
+  '/contact',
   '/fr/peintre-montreal',
   '/en/peintre-montreal',
   '/en/painter-montreal',

@@ -227,7 +227,7 @@ export default function PeintureCommercialePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peinture commerciale à Montréal | Bureau, restaurant, commerce | Le Lever du Pinceau"
+        title="Peinture commerciale à Montréal | Bureaux et commerces | Le Lever du Pinceau"
         description="Service de peinture commerciale à Montréal. Bureau, restaurant, commerce, garderie. Travaux hors heures, respect des délais, finitions durables. Licence RBQ. Soumission gratuite."
         canonicalPath="/services/peinture-commerciale"
         schemaArray={[

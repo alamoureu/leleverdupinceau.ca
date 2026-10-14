@@ -21,6 +21,7 @@ import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
+import { COMPANY_EMAIL } from '../constants/company';
 import whiteLogo from '../images/whitelogo.webp';
 export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
@@ -319,13 +320,13 @@ export default function NewWebsiteLayout() {
                       (438) 868-0772
                     </Link>
                     <Link
-                      href="mailto:leleverdupinceau@gmail.com"
+                      href={`mailto:${COMPANY_EMAIL}`}
                       color="white"
                       textStyle="footerLink"
                       wordBreak="break-all"
                       _hover={{ textDecoration: 'underline', color: 'gray.300' }}
                     >
-                      leleverdupinceau@gmail.com
+                      {COMPANY_EMAIL}
                     </Link>
                     <Text color="white" textStyle="footerLink" fontSize={{ base: 'sm', md: 'md' }} wordBreak="break-word">
                       2175 Rue Saint-Patrick, Montréal, QC H3K 1B4

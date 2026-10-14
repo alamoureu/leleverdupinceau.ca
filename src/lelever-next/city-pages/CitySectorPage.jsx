@@ -164,6 +164,7 @@ export default function CitySectorPage({ config }) {
     description: t(card.description),
     to: card.to,
     image: card.image,
+    imageScale: card.imageScale,
   }));
 
   return (
@@ -234,8 +235,10 @@ export default function CitySectorPage({ config }) {
                       border="1px solid"
                       borderColor="gray.200"
                       boxShadow="sm"
+                      display="flex"
+                      flexDirection="column"
                     >
-                      <Stack spacing={3}>
+                      <Stack spacing={3} flex="1">
                         <Text fontSize="2xl" fontWeight="bold" color="brand.100" lineHeight="1">
                           {ctx.number}
                         </Text>
@@ -245,20 +248,25 @@ export default function CitySectorPage({ config }) {
                         <Text fontSize={{ base: 'sm', md: 'md' }} color="gray.600" lineHeight="1.6">
                           {ctx.description}
                         </Text>
-                        {ctx.to && (
-                          <Link as={RouterLink} to={ctx.to} _hover={{ textDecoration: 'none' }}>
-                            <Button
-                              variant="ctaOutline"
-                              rightIcon={<ArrowForwardIcon />}
-                              borderRadius="full"
-                              size="sm"
-                              px={5}
-                            >
-                              {ctx.linkLabel || (isFr ? 'En savoir plus' : 'Learn more')}
-                            </Button>
-                          </Link>
-                        )}
                       </Stack>
+                      {ctx.to && (
+                        <Link
+                          as={RouterLink}
+                          to={ctx.to}
+                          mt={4}
+                          _hover={{ textDecoration: 'none' }}
+                        >
+                          <Button
+                            variant="ctaOutline"
+                            rightIcon={<ArrowForwardIcon />}
+                            borderRadius="full"
+                            size="sm"
+                            px={5}
+                          >
+                            {ctx.linkLabel || (isFr ? 'En savoir plus' : 'Learn more')}
+                          </Button>
+                        </Link>
+                      )}
                     </Box>
                   ))}
                 </Flex>
@@ -305,15 +313,18 @@ export default function CitySectorPage({ config }) {
                       transition="all 0.2s"
                     >
                       {card.image && (
-                        <Image
-                          src={card.image}
-                          alt={card.title}
-                          w="100%"
-                          aspectRatio="16/10"
-                          objectFit="cover"
-                          loading="lazy"
-                          decoding="async"
-                        />
+                        <Box overflow="hidden" aspectRatio="16/10">
+                          <Image
+                            src={card.image}
+                            alt={card.title}
+                            w="100%"
+                            h="100%"
+                            objectFit="cover"
+                            transform={card.imageScale ? `scale(${card.imageScale})` : undefined}
+                            loading="lazy"
+                            decoding="async"
+                          />
+                        </Box>
                       )}
                       <Stack spacing={4} p={{ base: 5, md: 6 }}>
                         <Text fontWeight="bold" color="gray.800" fontSize={{ base: 'md', md: 'lg' }}>

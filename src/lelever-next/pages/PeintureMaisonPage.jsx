@@ -26,11 +26,39 @@ import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
 import InternalLinksSection from '../components/InternalLinksSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
+import { servicePageSchema } from '../components/ServicePageSections';
 
-import maisonHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
+import maisonHeroImg from '../images/L3 Sous services/Photo page -peinture maison/header.webp';
 
 import corridorAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries avant.webp';
 import corridorApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, corridor et boiseries après.webp';
+
+import salleMangerAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0826.webp';
+import salleMangerApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0827.webp';
+import porteAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0828.webp';
+import porteApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0829.webp';
+import poutreAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0834.webp';
+import poutreApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0835.webp';
+import fenetreAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0836.webp';
+import fenetreApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0837.webp';
+import chambrePapierAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0842.webp';
+import chambrePapierApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0843.webp';
+import chambreVerteAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0844.webp';
+import chambreVerteApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0845.webp';
+import chambreBlancheAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0846.webp';
+import chambreBlancheApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0847.webp';
+import chambreFloraleAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0852.webp';
+import chambreFloraleApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0853.webp';
+import hallAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0855.webp';
+import hallApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0856.webp';
+import plintheAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0861.webp';
+import plintheApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_0862.webp';
+import clotureAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_1405.webp';
+import clotureApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_1406.webp';
+import pieceWestmountAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_5984.webp';
+import pieceWestmountApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_5982.webp';
+import escalierAvant from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_7678.webp';
+import escalierApres from '../images/L3 Sous services/Photo page -peinture maison/avant apres/IMG_5873.webp';
 
 const HERO_BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -207,11 +235,84 @@ export default function PeintureMaisonPage() {
     })),
   };
 
+  const serviceSchema = servicePageSchema({
+    name: 'Peinture de maison unifamiliale',
+    path: '/services/peinture-residentielle/maison',
+    description:
+      'Peinture de maison unifamiliale à Montréal, Laval, Longueuil et Rive-Sud. Chantier propre, préparation soignée, intérieur et extérieur. Soumission gratuite.',
+    serviceType: 'Peinture de maison unifamiliale',
+  });
+
   const carouselImages = [
     {
       before: corridorAvant,
       after: corridorApres,
       description: 'Corridor et boiseries - Maison résidentielle',
+    },
+    {
+      before: salleMangerAvant,
+      after: salleMangerApres,
+      description: 'Salle à manger - murs bleus repeints gris foncé',
+    },
+    {
+      before: porteAvant,
+      after: porteApres,
+      description: "Porte d'entrée - décapage et peinture bleu marine",
+    },
+    {
+      before: poutreAvant,
+      after: poutreApres,
+      description: "Poutre d'acier - rouille traitée et peinture noire",
+    },
+    {
+      before: fenetreAvant,
+      after: fenetreApres,
+      description: 'Cadrage de fenêtre - plâtre et peinture',
+    },
+    {
+      before: chambrePapierAvant,
+      after: chambrePapierApres,
+      description: 'Chambre - papier peint retiré et murs repeints',
+    },
+    {
+      before: chambreVerteAvant,
+      after: chambreVerteApres,
+      description: 'Chambre - papier peint retiré, murs verts',
+    },
+    {
+      before: chambreBlancheAvant,
+      after: chambreBlancheApres,
+      description: 'Chambre - murs repeints en blanc',
+    },
+    {
+      before: chambreFloraleAvant,
+      after: chambreFloraleApres,
+      description: 'Chambre - papier peint fleuri remplacé par la peinture',
+    },
+    {
+      before: hallAvant,
+      after: hallApres,
+      description: "Hall d'entrée - murs et boiseries rafraîchis",
+    },
+    {
+      before: plintheAvant,
+      after: plintheApres,
+      description: 'Plinthe - réparation et peinture',
+    },
+    {
+      before: clotureAvant,
+      after: clotureApres,
+      description: 'Clôture en bois - teinture',
+    },
+    {
+      before: pieceWestmountAvant,
+      after: pieceWestmountApres,
+      description: 'Peinture intérieure - Pièce double à Westmount',
+    },
+    {
+      before: escalierAvant,
+      after: escalierApres,
+      description: "Réparation et peinture - Cage d'escalier résidentielle",
     },
   ];
 
@@ -221,7 +322,7 @@ export default function PeintureMaisonPage() {
         title="Peinture de maison unifamiliale | Grand Montréal | Le Lever du Pinceau"
         description="Peinture de maison unifamiliale à Montréal, Laval, Longueuil et Rive-Sud. Chantier propre, préparation soignée, intérieur et extérieur. Soumission gratuite."
         canonicalPath="/services/peinture-residentielle/maison"
-        schemaArray={[breadcrumbSchema, faqSchema]}
+        schemaArray={[breadcrumbSchema, faqSchema, serviceSchema]}
       />
 
       <Box w="100%" minW={0} bg="white" overflowX="hidden">
@@ -229,7 +330,7 @@ export default function PeintureMaisonPage() {
           onSubmissionOpen={onOpen}
           pageContext="Maison"
           imageBackground={maisonHeroImg}
-          imageAlt="Peinture de maison unifamiliale - intérieur résidentiel soigné"
+          imageAlt="Peintre professionnel au travail dans une maison unifamiliale"
           overlayBg="rgba(0, 0, 0, 0.45)"
           title="Peinture de maison unifamiliale"
           subtitle="Chantier propre, planifié pièce par pièce pour une maison habitée."

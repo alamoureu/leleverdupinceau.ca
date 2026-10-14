@@ -34,7 +34,7 @@ import imgSurfaces from '../images/Moses&Dany_Wraping.webp';
 import imgPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.webp';
 import imgPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.webp';
 import imgSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.webp';
-import imgArmoires from '../images/L3 Sous services/Photo page armoires de cuisine/header.webp';
+import imgArmoires from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.webp';
 import imgMaison from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.webp';
 import imgCondo from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
 import imgAppartement from '../images/L3 Sous services/Photo page appartement/header.webp';
@@ -294,7 +294,7 @@ export default function ServicesPage() {
         : 'Warehouses, factories, parking areas. Epoxy and specialized coatings.',
       titleHref: '/services/peinture-industrielle',
       subLinks: [],
-      buttonLabel: isFr ? 'En savoir plus' : 'Learn more',
+      buttonLabel: isFr ? 'Services industriels' : 'Industrial services',
       buttonHref: '/services/peinture-industrielle',
       imageAlt: isFr ? 'Peinture industrielle - Le Lever du Pinceau' : 'Industrial painting - Le Lever du Pinceau',
     },

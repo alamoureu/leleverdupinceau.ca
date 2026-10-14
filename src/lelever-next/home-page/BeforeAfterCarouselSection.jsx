@@ -57,10 +57,14 @@ import home0861 from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
 import home0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
 import home0842 from '../images/3-ville/st-lambert/avant-apres/IMG_0842.webp';
 import home0843 from '../images/3-ville/st-lambert/avant-apres/IMG_0843.webp';
+import homePlintheAvant from '../images/Avant après landing Page/plinthe-marques-avant.webp';
+import homePlintheApres from '../images/Avant après landing Page/plinthe-propre-apres.webp';
+import homeChambreAvant from '../images/Avant après landing Page/chambre-papier-peint-avant.webp';
+import homeChambreApres from '../images/Avant après landing Page/chambre-murs-blancs-apres.webp';
 
 function splitCaption(description) {
   if (!description) return { title: '', subtitle: '' };
-  const parts = description.split(/\s+[–-]\s+/);
+  const parts = description.split(/\s+-\s+/);
   if (parts.length >= 2) {
     return { title: parts[0].trim(), subtitle: parts.slice(1).join(' - ').trim() };
   }
@@ -86,6 +90,8 @@ const DEFAULT_PAIRS = [
   [home0855, home0856],
   [home0861, home0862],
   [home0842, home0843],
+  [homePlintheAvant, homePlintheApres],
+  [homeChambreAvant, homeChambreApres],
 ];
 
 const DEFAULT_DESCRIPTIONS = [
@@ -107,6 +113,8 @@ const DEFAULT_DESCRIPTIONS = [
   { fr: 'Pièce intérieure - rafraîchissement', en: 'Interior room - refresh' },
   { fr: 'Plinthe et murs - finition nette', en: 'Baseboard and walls - clean finish' },
   { fr: 'Chambre - retrait de papier peint', en: 'Bedroom - wallpaper removal' },
+  { fr: 'Plinthe - marques réparées et peinture', en: 'Baseboard - scuffs repaired and painted' },
+  { fr: 'Chambre - papier peint retiré, murs blancs', en: 'Bedroom - wallpaper removed, white walls' },
 ];
 
 export function buildDefaultImages(isFr) {
@@ -139,12 +147,13 @@ export function buildLandingPagePairs(isFr) {
 
 const DEFAULT_SECTION_PY = { base: 8, md: 12, lg: 16 };
 
-function BeforeAfterPairCard({ pair, isFr, t }) {
+function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
   const hasPair = Boolean(pair?.before && pair?.after);
   const placeholderBody = isFr
     ? 'Visuels avant/après à dédier à cette page uniquement, sans réutiliser une photo déjà affichée sur un autre service.'
     : 'Before/after visuals to add for this page only, without reusing a photo already shown on another service.';
   const caption = splitCaption(pair.description);
+  const imgLoading = priority ? 'eager' : 'lazy';
 
   return (
     <Box
@@ -172,7 +181,7 @@ function BeforeAfterPairCard({ pair, isFr, t }) {
                 alt={t.beforeAfterAltBefore}
                 width={1200}
                 height={800}
-                loading="lazy"
+                loading={imgLoading}
                 decoding="async"
                 style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
               />
@@ -202,7 +211,7 @@ function BeforeAfterPairCard({ pair, isFr, t }) {
                 alt={t.beforeAfterAltAfter}
                 width={1200}
                 height={800}
-                loading="lazy"
+                loading={imgLoading}
                 decoding="async"
                 style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
               />
@@ -350,6 +359,7 @@ export default function BeforeAfterCarouselSection({
                   pair={pair}
                   isFr={isFr}
                   t={t}
+                  priority={i < 3}
                 />
               ))}
             </SimpleGrid>
@@ -390,7 +400,12 @@ export default function BeforeAfterCarouselSection({
                     }}
                     flexShrink={0}
                   >
-                    <BeforeAfterPairCard pair={pair} isFr={isFr} t={t} />
+                    <BeforeAfterPairCard
+                      pair={pair}
+                      isFr={isFr}
+                      t={t}
+                      priority={i < 3}
+                    />
                   </Box>
                 ))}
               </Flex>

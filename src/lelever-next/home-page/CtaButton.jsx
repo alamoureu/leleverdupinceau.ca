@@ -4,6 +4,7 @@ import ShakeButton from './ShakeButton';
 
 /** Plafond largeur CTA site-wide (hors boutons formulaire). Assez large pour le libellé FR + icône. */
 export const CTA_MAX_W = '22rem'; // 352px
+export const CTA_LARGE_MAX_W = '26rem'; // 416px
 
 const SIZES = {
   default: {
@@ -11,6 +12,13 @@ const SIZES = {
     px: { base: 5, md: 6 },
     py: 2,
     fontSize: { base: 'sm', md: 'md' },
+    borderRadius: 'full',
+  },
+  large: {
+    minH: { base: '52px', md: '58px' },
+    px: { base: 7, md: 9 },
+    py: 3,
+    fontSize: { base: 'md', md: 'lg' },
     borderRadius: 'full',
   },
   // Aligné sur les champs Input size="md" (~40px), pill comme les autres CTA
@@ -28,7 +36,7 @@ const SIZES = {
 
 /**
  * Bouton call-to-action unique du site : respiration lente.
- * Largeur au contenu, plafonnée à CTA_MAX_W (sauf `size="form"`).
+ * Largeur au contenu, plafonnée à CTA_MAX_W (sauf `size="form"` / `size="large"`).
  * `align`: "center" (défaut, sections centrées) ou "start" (héros aligné à gauche).
  */
 export default function CtaButton({
@@ -41,11 +49,12 @@ export default function CtaButton({
 }) {
   const sizeStyles = SIZES[size] || SIZES.default;
   const isForm = size === 'form';
+  const maxW = size === 'large' ? CTA_LARGE_MAX_W : CTA_MAX_W;
   const button = (
     <Button
       variant={variant === 'light' ? 'ctaLight' : 'cta'}
       w={isForm || fullWidth ? '100%' : 'auto'}
-      maxW={isForm || fullWidth ? '100%' : CTA_MAX_W}
+      maxW={isForm || fullWidth ? '100%' : maxW}
       h="auto"
       fontWeight="600"
       letterSpacing="0.01em"
@@ -63,7 +72,7 @@ export default function CtaButton({
   if (isForm) return button;
 
   const wrapperStyle = {
-    maxWidth: `min(100%, ${CTA_MAX_W})`,
+    maxWidth: `min(100%, ${maxW})`,
     width: fullWidth ? '100%' : 'fit-content',
     marginLeft: align === 'start' ? 0 : 'auto',
     marginRight: align === 'start' ? 0 : 'auto',

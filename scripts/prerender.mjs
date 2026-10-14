@@ -191,18 +191,34 @@ function cleanDocumentForSerialization({ template, trackerHosts }) {
 
 
   // 5. PERF CRITIQUE : pendant le crawl, React.lazy charge TOUTES les chunks de la
-  // page (y compris les modules d'images 2 Mo). Vite injecte alors un
+  // page (y compris les modules d'images). Vite injecte alors un
   // <link rel="modulepreload"> pour chacune. Si on les laisse dans le HTML, le
-  // navigateur télécharge ~15-17 Mo au premier paint (LCP 20s+) et allonge la
-  // chaîne critique (HTML → vendor ~190 Ko). On retire TOUS les modulepreload :
-  // le contenu LCP est déjà dans le HTML pré-rendu ; Vite chargera les JS à
-  // l'hydratation sans concurrencer l'image LCP sur la bande passante.
+  // navigateur télécharge des Mo au premier paint et allonge la chaîne critique.
+  // On retire TOUS les modulepreload : le contenu LCP est déjà dans le HTML
+  // pré-rendu ; Vite chargera les JS à l'hydratation sans concurrencer l'image LCP.
   document.querySelectorAll('link[rel="modulepreload"]').forEach((link) => {
     link.remove();
   });
   document.querySelectorAll('link[rel="preload"][as="image"]').forEach((link) => {
     link.remove();
   });
+
+  // 5b. Le héros LCP est souvent à ~150 Ko dans le body. Sans preload dans <head>,
+  // le navigateur ne le découvre qu'après avoir parsé tout le HTML pré-rendu.
+  // On réinjecte UN seul preload pointant vers l'image fetchpriority=high.
+  const lcpImg =
+    document.querySelector('img[fetchpriority="high"]') ||
+    document.querySelector('main img[loading="eager"]') ||
+    document.querySelector('img[loading="eager"]');
+  const lcpHref = lcpImg?.getAttribute('src');
+  if (lcpHref) {
+    const lcpLink = document.createElement('link');
+    lcpLink.rel = 'preload';
+    lcpLink.as = 'image';
+    lcpLink.href = lcpHref;
+    lcpLink.setAttribute('fetchpriority', 'high');
+    document.head.insertBefore(lcpLink, document.head.firstChild);
+  }
 
   // 6. Images : ne PAS muter width/height/loading/fetchpriority ici.
   // Ces attrs viennent de React (htmlWidth, etc.). Les réécrire avec

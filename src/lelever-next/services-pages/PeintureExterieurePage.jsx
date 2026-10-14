@@ -285,7 +285,7 @@ export default function PeintureExterieurePage() {
   return (
     <Fragment>
       <SEOHead
-        title="Peinture extérieure à Montréal | Façades, balcons et escaliers | Le Lever du Pinceau"
+        title="Peinture extérieure à Montréal | Façades et balcons | Le Lever du Pinceau"
         description="Peinture extérieure à Montréal : façades, balcons, escaliers, revêtements et corniches. Produits adaptés au climat québécois, licence RBQ, soumission gratuite."
         canonicalPath="/services/peinture-exterieure"
         schemaArray={[

@@ -140,7 +140,7 @@ export default function PeintureCondoPage() {
     <ResidentialSubServicePage
       slug="condo"
       seo={{
-        title: 'Peinture de condo à Montréal | Chantier propre et coordonné | Le Lever du Pinceau',
+        title: 'Peinture de condo à Montréal | Chantier propre | Le Lever du Pinceau',
         description:
           'Peinture de condo à Montréal. Chantier propre, coordination avec la copropriété, protection des parties communes et échéancier clair. Soumission gratuite.',
       }}

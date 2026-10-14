@@ -527,15 +527,20 @@ export default function MontrealCityPage() {
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
                   >
-                    <Image
-                      src={serviceCardImages[card.to]}
-                      alt={card.title}
-                      w="100%"
-                      aspectRatio="16/10"
-                      objectFit="cover"
-                      loading="lazy"
-                      decoding="async"
-                    />
+                    <Box overflow="hidden" aspectRatio="16/10">
+                      <Image
+                        src={serviceCardImages[card.to]}
+                        alt={card.title}
+                        w="100%"
+                        h="100%"
+                        objectFit="cover"
+                        transform={
+                          card.to === '/services/peinture-interieure' ? 'scale(1.25)' : undefined
+                        }
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </Box>
                     <Stack spacing={4} p={{ base: 5, md: 6 }}>
                       <Text fontWeight="bold" color="gray.800" fontSize={{ base: 'md', md: 'lg' }}>
                         {card.title}

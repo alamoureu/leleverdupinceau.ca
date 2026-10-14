@@ -252,17 +252,6 @@ const theme = extendTheme({
           _hover: { bg: 'brand.600', boxShadow: 'ctaGlowHover', _disabled: { bg: 'brand.500' } },
           _active: { bg: 'brand.700' },
         },
-        /** Rempli blanc sur fond sombre (ex-outline clair). */
-        ctaOutlineLight: {
-          bg: 'white',
-          color: 'brand.500',
-          boxShadow: 'ctaGlowLight',
-          maxW: '22rem',
-          whiteSpace: 'nowrap',
-          transition: 'background-color 0.2s ease, box-shadow 0.3s ease',
-          _hover: { bg: 'gray.50', boxShadow: 'ctaGlowLightHover' },
-          _active: { bg: 'gray.100' },
-        },
         outlineBrand: {
           bg: 'brand.500',
           borderColor: 'brand.500',

@@ -3,14 +3,20 @@ import { FaKey, FaCouch, FaTag, FaBroom, FaBuilding } from 'react-icons/fa';
 import ResidentialSubServicePage from '../components/ResidentialSubServicePage';
 
 import appartHeroImg from '../images/L3 Sous services/Photo page appartement/header.webp';
-import appartImg6759 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_6759 2.webp';
-import appartImg7983 from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.webp';
 import chambreAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0844.webp';
 import chambreApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0845.webp';
 import corridorAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8253.webp';
 import corridorApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_8252.webp';
-import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre à Montréal, Le Lever du Pinceau a frindé et peinturé cette cage d_escalier en fer forgé dans le sud ouest de Montréal.webp';
-import escalierApres from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peintre Montréalais, Le Lever du Pinceau a meulé et peint cette cage d_escalier en fer forgé dans le quartier de Verdun à Montréal.webp';
+import escalierPlexAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7975.webp';
+import escalierPlexApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7974.webp';
+import porteAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0828.webp';
+import porteApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_0829.webp';
+import pieceAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_5984.webp';
+import pieceApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_5982.webp';
+import mouluresAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7999.webp';
+import mouluresApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7997.webp';
+import cuisineAvant from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7992.webp';
+import cuisineApres from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7994.webp';
 
 const SITUATIONS = [
   {
@@ -108,19 +114,34 @@ const CAROUSEL_IMAGES = [
     description: 'Chambre - papier peint retiré, murs repeints et moulures rafraîchies',
   },
   {
-    before: appartImg7983,
-    after: appartImg6759,
-    description: 'Cage d\'escalier - Remise en état, Montréal',
-  },
-  {
     before: corridorAvant,
     after: corridorApres,
     description: 'Corridor et rampe d\'escalier - murs réparés et boiseries repeintes',
   },
   {
-    before: escalierAvant,
-    after: escalierApres,
-    description: 'Escalier extérieur en fer forgé d\'un plex - meulé et repeint, Verdun',
+    before: escalierPlexAvant,
+    after: escalierPlexApres,
+    description: 'Escalier extérieur en colimaçon - plex, peinture neuve',
+  },
+  {
+    before: porteAvant,
+    after: porteApres,
+    description: 'Porte d\'entrée - décapage et peinture bleu marine',
+  },
+  {
+    before: pieceAvant,
+    after: pieceApres,
+    description: 'Pièce avec baie vitrée - remise au propre et finition nette',
+  },
+  {
+    before: mouluresAvant,
+    after: mouluresApres,
+    description: 'Moulures et murs - fissures réparées, blanc uniforme',
+  },
+  {
+    before: cuisineAvant,
+    after: cuisineApres,
+    description: 'Cuisine - reprise de plafond après dégât d\'eau',
   },
 ];
 
@@ -129,7 +150,7 @@ export default function PeintureAppartementPage() {
     <ResidentialSubServicePage
       slug="appartement"
       seo={{
-        title: "Peinture d'appartement à Montréal | Remise en état locative | Le Lever du Pinceau",
+        title: "Peinture d'appartement à Montréal | Remise en état | Le Lever du Pinceau",
         description:
           "Peinture d'appartement à Montréal pour logement occupé, remise en état entre locataires ou rafraîchissement avant vente. Soumission gratuite en 24h.",
       }}

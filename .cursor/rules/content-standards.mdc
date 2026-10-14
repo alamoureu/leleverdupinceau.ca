@@ -46,8 +46,9 @@ Le héros photo contient **toujours** 3 niveaux (voir `theme.js` : `hero` / `her
 2. **Sous-titre** (style h2, `variant="heroSubtitle"`) - une phrase courte, ~15 mots max
 3. **Description** (`variant="heroDescription"` ou prop `description` sur `HeroSection`) - une phrase de soutien, pas un paragraphe long
 
-Puis : bouton CTA. Fil d'Ariane optionnel au-dessus.
+Puis : **un seul** bouton CTA. Fil d'Ariane optionnel au-dessus.
 
+- **JAMAIS de second CTA** dans le héros (ni `secondaryCta`, ni bouton outline à côté de « Soumission gratuite », ni lien « Avis Google » / « Voir nos services » jumelé). Un seul CTA primaire.
 - Ne pas laisser le 3e niveau uniquement dans `<PageIntro>` sous la photo : il appartient au héros.
 - Avant de livrer une page, vérifier le héros : si le bloc texte dépasse ~4 lignes sur desktop, raccourcir la description.
 

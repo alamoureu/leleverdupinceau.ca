@@ -7,10 +7,10 @@ import { HAPPY_CLIENTS_COUNT } from '../constants/company';
 
 export const translations = {
   fr: {
-    heroTitle: 'Peinture à Montréal',
+    heroTitle: 'Peintre à Montréal',
     heroTitleSecondLine: '',
     heroSubtitle: 'Un\u00A0résultat\u00A0impeccable,\u00A0rien\u00A0de\u00A0moins.',
-    heroDescription: 'Intérieur, extérieur, résidentiel et commercial - service clé en main.',
+    heroDescription: 'Intérieur, extérieur, résidentiel et commercial: service clé en main.',
     heroButton: 'Obtenir ma soumission gratuite',
     heroImageAlt: 'Services de peinture résidentielle et commerciale',
 
@@ -222,7 +222,7 @@ export const translations = {
 
     guaranteeTitle: 'Notre engagement',
     guaranteeBody:
-      'Nous ne quittons pas le chantier tant que vous n’êtes pas 100% satisfait des travaux effectués.',
+      "Nous n'arrêtons pas de travailler tant que vous n'êtes pas 100 % satisfait des travaux.",
     guaranteeBadgeAlt: 'Sceau 100 % satisfaction garantie',
     guaranteeFallbackShort: '100% satisfaction',
 
@@ -231,7 +231,7 @@ export const translations = {
       "Le coût dépend de la superficie, de l'état des surfaces et du nombre de couches. En moyenne, pour un projet résidentiel standard, comptez entre 1$ et 3$ par pied carré.",
     landingFaq2Question: 'Offrez-vous une garantie sur vos travaux?',
     landingFaq2Answer:
-      'Oui. Nous offrons une garantie satisfaction à 100%. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.',
+      "Oui. Nous offrons une garantie satisfaction à 100 % : nous n'arrêtons pas de travailler tant que vous n'êtes pas 100 % satisfait des travaux. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.",
     landingFaq3Question: 'Quel est le délai pour obtenir une soumission?',
     landingFaq3Answer:
       "Nous répondons généralement sous 24 heures. Après avoir pris connaissance de votre projet, nous planifions une visite sur place pour évaluer les surfaces, la préparation nécessaire et établir une soumission détaillée et transparente. Notre équipe est réactive et s'adapte à vos disponibilités pour accélérer le processus.",
@@ -249,10 +249,10 @@ export const translations = {
       "Oui, nous proposons une gamme complète de peintures écologiques à faible émission de COV (composés organiques volatils). Ces produits sont idéaux pour les chambres d'enfants, les personnes sensibles aux odeurs, et les espaces commerciaux qui doivent rester opérationnels. Nous travaillons avec des marques réputées comme Bétonel Dulux, en utilisant notamment les gammes VIP, Diamond et Lifemaster, reconnues pour leur durabilité, leur excellente couvrance et leurs faibles émissions de COV. Nous vous conseillerons sur le meilleur choix selon votre projet et votre budget.",
   },
   en: {
-    heroTitle: 'Painting in Montreal',
+    heroTitle: 'Painter in Montreal',
     heroTitleSecondLine: '',
     heroSubtitle: 'An\u00A0impeccable\u00A0result,\u00A0nothing\u00A0less.',
-    heroDescription: 'Interior, exterior, residential and commercial - turnkey service.',
+    heroDescription: 'Interior, exterior, residential and commercial: turnkey service.',
     heroButton: 'Get my free quote',
     heroImageAlt: 'Residential and commercial painting services',
 
@@ -461,7 +461,7 @@ export const translations = {
 
     guaranteeTitle: 'Our commitment',
     guaranteeBody:
-      "We don't leave the job site until you are 100% satisfied with the work performed.",
+      "We don't stop working until you are 100% satisfied with the work.",
     guaranteeBadgeAlt: '100% satisfaction guaranteed seal',
     guaranteeFallbackShort: '100% satisfaction',
 
@@ -470,7 +470,7 @@ export const translations = {
       'The cost depends on the area, surface condition, and number of coats. On average, expect between $1 and $3 per square foot for a standard residential project.',
     landingFaq2Question: 'Do you offer a guarantee on your work?',
     landingFaq2Answer:
-      "Yes. We offer a 100% satisfaction guarantee. If the result doesn't meet your expectations, we will correct it at no additional cost.",
+      "Yes. We offer a 100% satisfaction guarantee: we don't stop working until you are 100% satisfied with the work. If the result doesn't meet your expectations, we will correct it at no additional cost.",
     landingFaq3Question: 'What is the turnaround time for a quote?',
     landingFaq3Answer:
       'We generally respond within 24 hours. After learning about your project, we schedule an on-site visit to assess surfaces, necessary preparation, and establish a detailed and transparent quote. Our team is responsive and adapts to your schedule to speed up the process.',

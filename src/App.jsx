@@ -27,7 +27,9 @@ function lazyRoute(importFn, displayName) {
 }
 
 const LandingPageV2 = lazyRoute(() => import('./pages/LandingPageV2'), 'LandingPageV2');
-const NewHomePage = lazyRoute(() => import('./lelever-next/pages/NewHomePage'), 'NewHomePage');
+// Start the home chunk as soon as App loads so "/" does not wait on a second waterfall.
+const newHomePageImport = import('./lelever-next/pages/NewHomePage');
+const NewHomePage = lazyRoute(() => newHomePageImport, 'NewHomePage');
 const ContactPage = lazyRoute(() => import('./lelever-next/pages/ContactPage'), 'ContactPage');
 const AvisPage = lazyRoute(() => import('./lelever-next/pages/AvisPage'), 'AvisPage');
 const AboutPage = lazyRoute(() => import('./lelever-next/pages/AboutPage'), 'AboutPage');

@@ -86,7 +86,7 @@ export default function LandingHeroSection({
           h="100%"
           objectFit="cover"
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
           htmlWidth={1600}
           htmlHeight={1067}
@@ -208,7 +208,7 @@ export default function LandingHeroSection({
               </Text>
 
               <Box pt={{ base: 2, sm: 3, md: 2, lg: 2, xl: 3 }} w="100%">
-                <CtaButton align="start" onClick={onSubmissionOpen}>
+                <CtaButton size="large" align="start" onClick={onSubmissionOpen}>
                   {heroButton}
                 </CtaButton>
               </Box>

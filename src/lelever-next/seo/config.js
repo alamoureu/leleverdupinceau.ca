@@ -4,7 +4,12 @@
  */
 
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL, GOOGLE_REVIEWS_URL } from '../constants/googleReviews';
-import { RBQ_LICENSE } from '../constants/company';
+import {
+  BUSINESS_HOURS_CLOSES,
+  BUSINESS_HOURS_OPENS,
+  COMPANY_EMAIL,
+  RBQ_LICENSE,
+} from '../constants/company';
 
 /** Canonical host = apex (Netlify 301s www → apex). */
 export const SITE_URL = 'https://leleverdupinceau.ca';
@@ -70,7 +75,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     'Entreprise de peinture professionnelle à Montréal, Laval, Longueuil et Brossard. Peinture résidentielle, commerciale, intérieure, extérieure et industrielle. Devis gratuit. Équipe qualifiée RBQ.',
   url: 'https://leleverdupinceau.ca',
   telephone: '+14388680772',
-  email: 'leleverdupinceau@gmail.com',
+  email: COMPANY_EMAIL,
   address: {
     '@type': 'PostalAddress',
     streetAddress: '2175 Rue Saint-Patrick',
@@ -97,9 +102,17 @@ export const LOCAL_BUSINESS_SCHEMA = {
   priceRange: '$$',
   openingHoursSpecification: {
     '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
-    opens: '05:30',
-    closes: '23:30',
+    dayOfWeek: [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ],
+    opens: BUSINESS_HOURS_OPENS,
+    closes: BUSINESS_HOURS_CLOSES,
   },
   aggregateRating: {
     '@type': 'AggregateRating',

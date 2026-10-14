@@ -335,7 +335,7 @@ export default function SubmissionForm({
           </Stack>
 
           {!isModal && (
-            <Box flexShrink={0} w="100%" pt={{ base: 1, md: 2 }} mt="auto" bg="white">
+            <Box flexShrink={0} w="100%" pt={{ base: 6, md: 8 }} mt="auto" bg="white">
               <CtaButton
                 fullWidth
                 size="form"

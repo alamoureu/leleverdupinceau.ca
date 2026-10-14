@@ -83,7 +83,7 @@ export default function SubmissionModal({ isOpen, onClose }) {
           />
         </ModalBody>
         {!isSuccess && (
-          <ModalFooter display="flex" flexDirection="column" gap={3} py={3}>
+          <ModalFooter display="flex" flexDirection="column" gap={3} pt={5} pb={4}>
             <Button
               form={SUBMISSION_FORM_ID}
               type="submit"

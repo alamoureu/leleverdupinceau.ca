@@ -26,9 +26,14 @@ import stLambert6031 from '../images/3-ville/longueuil/avant-apres/IMG_6031 4.we
 import stLambert8108 from '../images/3-ville/longueuil/avant-apres/IMG_8108 4.webp';
 import laprairie0818 from '../images/3-ville/Montréal/avant-apres/IMG_0818.webp';
 import laprairie0819 from '../images/3-ville/Montréal/avant-apres/IMG_0819.webp';
-
+import laprairie0846 from '../images/3-ville/brossard/avant-apres/IMG_0846.webp';
+import laprairie0847 from '../images/3-ville/brossard/avant-apres/IMG_0847.webp';
 import laprairie0852 from '../images/3-ville/laprairie/avant-apres/IMG_0852.webp';
 import laprairie0853 from '../images/3-ville/laprairie/avant-apres/IMG_0853.webp';
+import laprairie0855 from '../images/3-ville/brossard/avant-apres/IMG_0855.webp';
+import laprairie0856 from '../images/3-ville/brossard/avant-apres/IMG_0856.webp';
+import laprairie0859 from '../images/3-ville/st-lambert/avant-apres/IMG_0859.webp';
+import laprairie0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.webp';
 import laprairie0861 from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
 import laprairie0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
 
@@ -195,6 +200,7 @@ export const brossardCityConfig = {
       },
       to: '/services/peinture-interieure',
       image: sharedServiceImages.interior,
+      imageScale: 1.25,
     },
     {
       title: { fr: 'Peinture extérieure à Brossard', en: 'Exterior painting in Brossard' },
@@ -263,6 +269,54 @@ export const brossardCityConfig = {
       description: {
         fr: 'Teinture de terrasse - Maison à Brossard',
         en: 'Deck staining - Home in Brossard',
+      },
+    },
+    {
+      before: stLambert0836,
+      after: stLambert0837,
+      description: {
+        fr: 'Cadrage de fenêtre - plâtre et peinture',
+        en: 'Window frame - plaster and paint',
+      },
+    },
+    {
+      before: stLambert0842,
+      after: stLambert0843,
+      description: {
+        fr: 'Retrait de papier peint et peinture - Chambre',
+        en: 'Wallpaper removal and painting - Bedroom',
+      },
+    },
+    {
+      before: stLambert0846,
+      after: stLambert0847,
+      description: {
+        fr: 'Chambre - murs repeints en blanc',
+        en: 'Bedroom - walls repainted white',
+      },
+    },
+    {
+      before: laprairie0852,
+      after: laprairie0853,
+      description: {
+        fr: 'Retrait de papier peint et peinture - Pièce',
+        en: 'Wallpaper removal and painting - Room',
+      },
+    },
+    {
+      before: stLambert0855,
+      after: stLambert0856,
+      description: {
+        fr: "Hall d'entrée - murs et boiseries rafraîchis",
+        en: 'Entry hall - walls and trim refreshed',
+      },
+    },
+    {
+      before: stLambert0859,
+      after: stLambert0860,
+      description: {
+        fr: "Réparation et peinture autour d'une fenêtre",
+        en: 'Repair and painting around a window',
       },
     },
   ],
@@ -922,12 +976,36 @@ export const laprairieCityConfig = {
         en: 'Baseboard refresh - Residential interior',
       },
     },
-     {
+    {
       before: laprairie0818,
       after: laprairie0819,
       description: {
         fr: 'Réparation de plâtre et peinture',
         en: 'Plaster repair and painting',
+      },
+    },
+    {
+      before: laprairie0846,
+      after: laprairie0847,
+      description: {
+        fr: 'Chambre - murs repeints en blanc',
+        en: 'Bedroom - walls repainted white',
+      },
+    },
+    {
+      before: laprairie0855,
+      after: laprairie0856,
+      description: {
+        fr: "Hall d'entrée - murs et boiseries rafraîchis",
+        en: 'Entry hall - walls and trim refreshed',
+      },
+    },
+    {
+      before: laprairie0859,
+      after: laprairie0860,
+      description: {
+        fr: "Réparation et peinture autour d'une fenêtre",
+        en: 'Repair and painting around a window',
       },
     },
   ],

@@ -32,6 +32,7 @@ import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import FullWidthSection from '../components/FullWidthSection';
 import { SECTION_PY, SECTION_TITLE_MAX_W, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
+import { BUSINESS_HOURS_DISPLAY } from '../constants/company';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import contactPhotoHeader from '../images/L3 Sous services/Photo page appartement/header.webp';
 
@@ -40,7 +41,7 @@ const BUSINESS_PHONE_DISPLAY = '(438) 868-0772';
 const BUSINESS_PHONE_TEL = LOCAL_BUSINESS_SCHEMA.telephone;
 const BUSINESS_ADDRESS = `${LOCAL_BUSINESS_SCHEMA.address.streetAddress}, ${LOCAL_BUSINESS_SCHEMA.address.addressLocality}, ${LOCAL_BUSINESS_SCHEMA.address.addressRegion} ${LOCAL_BUSINESS_SCHEMA.address.postalCode}`;
 
-function ContactDetailCard({ icon, label, value, href }) {
+function ContactDetailCard({ icon, label, value, note, href }) {
   const content = (
     <Stack spacing={3} align="center" h="100%">
       <Flex
@@ -65,6 +66,11 @@ function ContactDetailCard({ icon, label, value, href }) {
       >
         {value}
       </Text>
+      {note ? (
+        <Text color="brand.600" textStyle="caption" fontWeight="semibold">
+          {note}
+        </Text>
+      ) : null}
     </Stack>
   );
 
@@ -130,6 +136,17 @@ export default function ContactPage() {
       value: BUSINESS_ADDRESS,
       href: null,
     },
+    {
+      icon: faClock,
+      label: isFr ? "Heures d'ouverture" : 'Opening hours',
+      value: isFr
+        ? `Tous les jours, ${BUSINESS_HOURS_DISPLAY.fr}`
+        : `Every day, ${BUSINESS_HOURS_DISPLAY.en}`,
+      note: isFr
+        ? 'Projets urgents sur demande'
+        : 'Urgent projects on request',
+      href: null,
+    },
   ];
 
   const faqs = [
@@ -162,8 +179,8 @@ export default function ContactPage() {
         ? 'Offrez-vous une garantie ?'
         : 'Do you offer a guarantee?',
       answer: isFr
-        ? 'Oui, garantie de satisfaction + garantie sur la finition'
-        : 'Yes, satisfaction guarantee + finish guarantee',
+        ? "Oui, garantie de satisfaction à 100 % : nous n'arrêtons pas de travailler tant que vous n'êtes pas 100 % satisfait des travaux, plus une garantie sur la finition"
+        : "Yes, 100% satisfaction guarantee: we don't stop working until you are 100% satisfied with the work, plus a finish guarantee",
     },
   ];
 
@@ -262,96 +279,18 @@ export default function ContactPage() {
               </Text>
             </Stack>
 
-            <SimpleGrid columns={{ base: 1, md: 3 }} spacing={5}>
+            <SimpleGrid columns={{ base: 1, sm: 2 }} spacing={5}>
               {contactInfo.map((info) => (
                 <ContactDetailCard
                   key={info.label}
                   icon={info.icon}
                   label={info.label}
                   value={info.value}
+                  note={info.note}
                   href={info.href}
                 />
               ))}
             </SimpleGrid>
-
-            <Box
-              bg="white"
-              borderRadius="xl"
-              border="1px solid"
-              borderColor="gray.200"
-              boxShadow="0 2px 12px rgba(0,0,0,0.05)"
-              overflow="hidden"
-            >
-              <Flex
-                direction={{ base: 'column', md: 'row' }}
-                align={{ base: 'stretch', md: 'center' }}
-                gap={{ base: 5, md: 8 }}
-                p={{ base: 5, md: 7 }}
-              >
-                <Flex align="center" gap={4} minW={{ md: '220px' }}>
-                  <Flex
-                    w="52px"
-                    h="52px"
-                    borderRadius="xl"
-                    bg="brand.50"
-                    align="center"
-                    justify="center"
-                    flexShrink={0}
-                  >
-                    <Icon
-                      as={FontAwesomeIcon}
-                      icon={faClock}
-                      boxSize={5}
-                      color="brand.500"
-                    />
-                  </Flex>
-                  <Text fontWeight="bold" color="gray.800" textStyle="bodyLarge">
-                    {isFr ? "Heures d'ouverture" : 'Opening hours'}
-                  </Text>
-                </Flex>
-
-                <SimpleGrid
-                  columns={{ base: 1, sm: 2 }}
-                  spacing={{ base: 3, sm: 6 }}
-                  flex="1"
-                >
-                  <Box>
-                    <Text textStyle="caption" color="gray.500" fontWeight="600" mb={1}>
-                      {isFr ? 'Lundi au vendredi' : 'Monday to Friday'}
-                    </Text>
-                    <Text color="gray.800" textStyle="body" fontWeight="semibold">
-                      {isFr ? '5h30 - 23h30' : '5:30 AM - 11:30 PM'}
-                    </Text>
-                  </Box>
-                  <Box>
-                    <Text textStyle="caption" color="gray.500" fontWeight="600" mb={1}>
-                      {isFr ? 'Samedi et dimanche' : 'Saturday and Sunday'}
-                    </Text>
-                    <Text color="gray.800" textStyle="body" fontWeight="semibold">
-                      {isFr ? '5h30 - 23h30' : '5:30 AM - 11:30 PM'}
-                    </Text>
-                  </Box>
-                </SimpleGrid>
-
-                <Box
-                  px={4}
-                  py={2.5}
-                  bg="brand.50"
-                  borderRadius="full"
-                  border="1px solid"
-                  borderColor="brand.100"
-                  flexShrink={0}
-                  alignSelf={{ base: 'stretch', md: 'center' }}
-                  textAlign="center"
-                >
-                  <Text color="brand.700" textStyle="caption" fontWeight="bold">
-                    {isFr
-                      ? 'Projets urgents sur demande'
-                      : 'Urgent projects on request'}
-                  </Text>
-                </Box>
-              </Flex>
-            </Box>
           </Stack>
         </FullWidthSection>
 

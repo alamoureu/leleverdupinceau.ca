@@ -44,10 +44,14 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import teintureHeroImg from '../images/L2 Services specialise/Photo page teinture/Header.webp';
 import teintureImg5973 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5973.webp';
 import teintureImg5974 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_5974.webp';
+import teintureImg0824 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_0824.webp';
+import teintureImg0825 from '../images/L2 Services specialise/Photo page teinture/Avant après/IMG_0825.webp';
 import escalierAvant from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon avant.webp';
 import escalierApres from '../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, escalier de balcon après.webp';
 import clotureAvant from '../images/3-ville/Montréal/avant-apres/IMG_1405.webp';
 import clotureApres from '../images/3-ville/Montréal/avant-apres/IMG_1406.webp';
+import terrasseAvant from '../images/3-ville/brossard/avant-apres/IMG_0838.webp';
+import terrasseApres from '../images/3-ville/brossard/avant-apres/IMG_0839.webp';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 
 const HERO_BREADCRUMB = [
@@ -233,6 +237,16 @@ export default function TeintureExterieurePage() {
       before: clotureAvant,
       after: clotureApres,
       description: 'Teinture d\'une clôture en bois - avant / après',
+    },
+    {
+      before: teintureImg0824,
+      after: teintureImg0825,
+      description: 'Terrasse en bois - teinture opaque',
+    },
+    {
+      before: terrasseAvant,
+      after: terrasseApres,
+      description: 'Terrasse en bois - teinture et protection',
     },
   ];
 

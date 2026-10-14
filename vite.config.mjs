@@ -67,5 +67,7 @@ export default defineConfig({
     '**/*.jpeg',
     '**/*.JPG',
     '**/*.JPEG',
+    '**/*.webp',
+    '**/*.WEBP',
   ],
 });

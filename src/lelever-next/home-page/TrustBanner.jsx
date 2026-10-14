@@ -110,6 +110,9 @@ export default function TrustBanner() {
                   w="auto"
                   sx={{ aspectRatio: String(item.ratio) }}
                   objectFit="contain"
+                  loading="eager"
+                  fetchPriority="low"
+                  decoding="async"
                 />
               )}
               <Text

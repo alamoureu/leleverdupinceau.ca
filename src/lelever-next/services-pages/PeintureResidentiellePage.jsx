@@ -108,6 +108,7 @@ const SPECIALITES = [
     title: 'Maison unifamiliale',
     text: 'Intérieur complet, pièces sélectionnées ou rafraîchissement ciblé. Nous nous adaptons à vos besoins et à votre occupation du lieu.',
     link: '/services/peinture-residentielle/maison',
+    linkLabel: 'Voir notre service maison',
     popular: true,
   },
   {
@@ -160,7 +161,8 @@ const FAQS = [
   },
   {
     question: 'Donnez-vous une garantie sur vos travaux\u00A0?',
-    answer: 'Oui. Si le résultat ne vous satisfait pas, nous revenons corriger sans frais supplémentaires. Notre engagement est simple : un travail propre, soigné et durable dont vous êtes pleinement satisfait.',
+    answer:
+      'Oui. Nous offrons une garantie satisfaction à 100 % : nous n\'arrêtons pas de travailler tant que vous n\'êtes pas 100 % satisfait des travaux. Si le résultat ne répond pas à vos attentes, nous corrigeons le tout sans frais supplémentaires.',
   },
 ];
 
@@ -407,7 +409,7 @@ export default function PeintureResidentiellePage() {
 
         {/* ===== SECTION 6 - GARANTIE + CTA MID-PAGE ===== */}
         <ServiceGuaranteeSection
-          body="Votre maison est votre espace. Nous la traitons avec soin, nous respectons votre vie quotidienne et nous livrons un résultat dont vous êtes pleinement satisfait. C'est notre engagement sur chaque projet résidentiel."
+          body="Votre maison est votre espace. Nous la traitons avec soin et nous respectons votre vie quotidienne. Nous n'arrêtons pas de travailler tant que vous n'êtes pas 100 % satisfait des travaux."
           onCtaClick={onOpen}
         />
 

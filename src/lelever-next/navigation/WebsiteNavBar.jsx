@@ -170,7 +170,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             >
               <Image
                 loading="eager"
-                fetchpriority="low"
+                fetchPriority="low"
                 decoding="async"
                 src={whiteLogo}
                 alt="Logo Le Lever du Pinceau"

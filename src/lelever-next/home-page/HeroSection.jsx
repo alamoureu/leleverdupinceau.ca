@@ -7,12 +7,9 @@ import {
   Stack,
   Image,
   Flex,
-  Link,
-  Button,
-  useBreakpointValue,
 } from '@chakra-ui/react';
-import { ArrowForwardIcon } from '@chakra-ui/icons';
-import { Link as RouterLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.webp';
 import CtaButton from './CtaButton';
@@ -28,6 +25,7 @@ import {
 /**
  * Photo hero partagé (accueil, villes, services, landings).
  * Inclut TrustBanner par défaut pour un espacement mobile cohérent partout.
+ * Un seul CTA primaire - jamais de second bouton dans le héros.
  *
  * @param {{
  *   onSubmissionOpen?: () => void,
@@ -41,7 +39,6 @@ import {
  *   imageAlt?: string,
  *   overlayBg?: string,
  *   breadcrumb?: Array<{ label: string, to?: string, href?: string }>,
- *   secondaryCta?: { label: string, to: string, as?: 'button' | 'link' },
  *   showTrustBanner?: boolean,
  *   children?: React.ReactNode,
  * }} props
@@ -62,8 +59,6 @@ export default function HeroSection({
   overlayBg = 'rgba(0, 0, 0, 0.4)',
   /** Optional breadcrumb items for HeroBreadcrumb (preferred over children). */
   breadcrumb,
-  /** Optional secondary CTA: outline button or text link next to the primary CTA. */
-  secondaryCta,
   /** Carte de confiance sous le hero (défaut: oui). */
   showTrustBanner = true,
   children,
@@ -79,30 +74,13 @@ export default function HeroSection({
   const resolvedAlt =
     imageAlt ||
     `${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`;
-  const secondaryIsExternal =
-    secondaryCta?.to && /^https?:\/\//i.test(secondaryCta.to);
-  const hasSecondaryCta = Boolean(secondaryCta?.label && secondaryCta?.to);
-  /** Keep multi-word CTA labels on one line even if white-space is overridden. */
-  const secondaryLabel = secondaryCta?.label
-    ? String(secondaryCta.label).replace(/ /g, '\u00A0')
-    : '';
-  /** Dual CTAs: drop arrow icons under sm so both labels stay on one row. */
-  const showCtaIcon = useBreakpointValue({ base: !hasSecondaryCta, sm: true });
-  const ctaIcon = showCtaIcon ? <ArrowForwardIcon /> : undefined;
-  const dualCtaPx = hasSecondaryCta
-    ? { base: 3, sm: 4, md: 6 }
-    : { base: 5, md: 6 };
-  const dualCtaFont = hasSecondaryCta
-    ? { base: 'xs', sm: 'sm', md: 'md' }
-    : { base: 'sm', md: 'md' };
-  const secondaryBtnSx = {
-    whiteSpace: 'nowrap',
-    flexWrap: 'nowrap',
-    '& .chakra-button__icon': { flexShrink: 0 },
-  };
+  const heroSrc = imageBackground || heroImage;
 
   return (
     <>
+    <Helmet>
+      <link rel="preload" href={heroSrc} as="image" fetchpriority="high" />
+    </Helmet>
     <Box
       position="relative"
       w="100%"
@@ -117,7 +95,7 @@ export default function HeroSection({
     >
       <>
         <Image
-          src={imageBackground || heroImage}
+          src={heroSrc}
           alt={resolvedAlt}
           position="absolute"
           top={0}
@@ -128,7 +106,7 @@ export default function HeroSection({
           objectPosition={imagePosition}
           zIndex={0}
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
           htmlWidth={1920}
           htmlHeight={1266}
@@ -260,90 +238,9 @@ export default function HeroSection({
             minW={0}
             alignSelf="stretch"
           >
-            {hasSecondaryCta ? (
-              <>
-                <CtaButton
-                  align="start"
-                  onClick={onSubmissionOpen}
-                  rightIcon={ctaIcon}
-                  px={dualCtaPx}
-                  fontSize={dualCtaFont}
-                >
-                  {heroButton}
-                </CtaButton>
-                {secondaryCta.as === 'link' ? (
-                  <Link
-                    {...(secondaryIsExternal
-                      ? { href: secondaryCta.to, isExternal: true, rel: 'nofollow noopener noreferrer' }
-                      : { as: RouterLink, to: secondaryCta.to })}
-                    color="whiteAlpha.900"
-                    fontSize={dualCtaFont}
-                    fontWeight="600"
-                    flexShrink={0}
-                    whiteSpace="nowrap"
-                    alignSelf="center"
-                    _hover={{ color: 'white', textDecoration: 'underline' }}
-                  >
-                    {secondaryLabel}
-                  </Link>
-                ) : secondaryIsExternal ? (
-                  <Button
-                    as={Link}
-                    href={secondaryCta.to}
-                    isExternal
-                    rel="nofollow noopener noreferrer"
-                    variant="ctaOutlineLight"
-                    rightIcon={ctaIcon}
-                    borderRadius="full"
-                    fontSize={dualCtaFont}
-                    fontWeight="600"
-                    px={dualCtaPx}
-                    minH={{ base: '44px', md: '48px' }}
-                    h={{ base: '44px', md: '48px' }}
-                    w="auto"
-                    maxW="none"
-                    flexShrink={0}
-                    whiteSpace="nowrap"
-                    textAlign="center"
-                    lineHeight="1"
-                    py={0}
-                    overflow="visible"
-                    sx={secondaryBtnSx}
-                    _hover={{ textDecoration: 'none' }}
-                  >
-                    {secondaryLabel}
-                  </Button>
-                ) : (
-                  <Button
-                    variant="ctaOutlineLight"
-                    as={RouterLink}
-                    to={secondaryCta.to}
-                    rightIcon={ctaIcon}
-                    borderRadius="full"
-                    fontSize={dualCtaFont}
-                    fontWeight="600"
-                    px={dualCtaPx}
-                    minH={{ base: '44px', md: '48px' }}
-                    h={{ base: '44px', md: '48px' }}
-                    w="auto"
-                    maxW="none"
-                    flexShrink={0}
-                    whiteSpace="nowrap"
-                    textAlign="center"
-                    lineHeight="1"
-                    py={0}
-                    overflow="visible"
-                    sx={secondaryBtnSx}
-                  >
-                    {secondaryLabel}
-                  </Button>
-                )}
-              </>
-            ) : (
-              <CtaButton align="start" onClick={onSubmissionOpen}>
-                {heroButton}
-              </CtaButton>
-            )}
+            <CtaButton size="large" align="start" onClick={onSubmissionOpen}>
+              {heroButton}
+            </CtaButton>
           </Flex>
           )}
         </Stack>

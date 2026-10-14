@@ -29,6 +29,8 @@ export default function ServiceCard({
   fillHeight = false,
   compact = false,
   fluid = false,
+  /** Eager-load near-fold cards (e.g. ControlSection on the home page). */
+  priority = false,
   children,
 }) {
   const bottomText = stripText ?? (subtitleOnImageOnly ? undefined : subtitle);
@@ -120,7 +122,8 @@ export default function ServiceCard({
           objectFit="cover"
           objectPosition="center center"
           display="block"
-          loading="lazy"
+          loading={priority ? 'eager' : 'lazy'}
+          fetchPriority={priority ? 'low' : undefined}
           decoding="async"
           htmlWidth={800}
           htmlHeight={600}

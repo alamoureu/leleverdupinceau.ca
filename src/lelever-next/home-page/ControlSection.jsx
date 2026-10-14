@@ -97,6 +97,7 @@ export default function ControlSection({ title, subtitle, cards: customCards, pt
                   stripText={card.description}
                   fluid
                   noHoverBorder
+                  priority
                 />
               </Box>
             ))}
