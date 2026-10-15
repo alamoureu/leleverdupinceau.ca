@@ -28,7 +28,7 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 import { servicePageSchema } from '../components/ServicePageSections';
 
-import residentielleHeroImg from '../images/services/residentielle/header/IMG_7844.webp';
+import residentielleHeroImg from '../images/landing/secteur-hub/IMG_7900.webp';
 
 import avantApresRes1a from '../images/services/residentielle/avant-apres/Peintre professionnel Montréal, Le Lever du Pinceau a peint l_ensemble de cette maison centenaire de Montréal.webp';
 import avantApresRes1b from '../images/services/residentielle/avant-apres/Peintre Montréal, Le Lever du Pinceau a peinturé l_ensemble de cette maison plein de boiserie décorative à Westmount.webp';
@@ -270,7 +270,7 @@ export default function PeintureResidentiellePage() {
           onSubmissionOpen={onOpen}
           pageContext='Peinture résidentielle'
           imageBackground={residentielleHeroImg}
-          imageAlt='Peinture résidentielle à Montréal - peintre professionnel en action'
+          imageAlt='Peinture résidentielle à Montréal - rue résidentielle du Plateau-Mont-Royal'
           title='Peinture résidentielle à Montréal'
           subtitle='Maison, condo, appartement'
           description='Un chantier propre, bien coordonné et respectueux de votre espace de vie.'

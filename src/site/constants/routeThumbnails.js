@@ -4,7 +4,7 @@
  */
 import peintureInterieure from '../images/villes/montreal/ville-marie/header.webp';
 import peintureExterieure from '../images/services/exterieure/header/IMG_0989.webp';
-import peintureResidentielle from '../images/services/residentielle/header/IMG_7844.webp';
+import peintureResidentielle from '../images/landing/secteur-hub/IMG_7900.webp';
 import peintureCommerciale from '../images/services/commerciale/realisations/IMG_6760.webp';
 import peintureIndustrielle from '../images/services/industrielle/Peintre industrielle à Montréal, Le Lever du Pinceau a peinturé au spray ce plafond en steel deck à Montréal.webp';
 import teintureExterieure from '../images/services/teinture/header.webp';
