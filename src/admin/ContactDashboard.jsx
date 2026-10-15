@@ -1,0 +1,119 @@
+import React, { useState, useEffect } from 'react';
+import {
+  Box,
+  Input,
+  List,
+  ListItem,
+  Text,
+  Heading,
+  Stack,
+  Flex,
+} from '@chakra-ui/react';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { AuthService } from './authService';
+import PasswordProtection from './PasswordProtection';
+
+function ContactsDashboard() {
+  const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (AuthService.isAuthenticated(AuthService.ROLES.ADMIN)) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    const fetchContacts = async () => {
+      const querySnapshot = await getDocs(collection(db, 'Contact'));
+      const contactList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setContacts(contactList);
+    };
+
+    fetchContacts();
+  }, [isAuthenticated]);
+
+  const toSearchableString = (value) => {
+    if (value == null) return '';
+    if (typeof value === 'object' && typeof value.toDate === 'function') {
+      return value.toDate().toISOString();
+    }
+    try {
+      return String(value);
+    } catch {
+      return '';
+    }
+  };
+
+  const filteredContacts = contacts.filter((contact) =>
+    Object.values(contact).some((value) =>
+      toSearchableString(value).toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
+  if (!isAuthenticated) {
+    return (
+      <PasswordProtection
+        role={AuthService.ROLES.ADMIN}
+        onAuthenticated={() => setIsAuthenticated(true)}
+        title='Requêtes de contact'
+        description='Veuillez entrer le mot de passe administrateur.'
+      />
+    );
+  }
+
+  return (
+    <Box p={4}>
+      <Heading mb={4} textAlign='center'>
+        Contacts Dashboard
+      </Heading>
+      <Input
+        placeholder='Rechercher une requête de contact'
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        mb={4}
+      />
+      <List spacing={3}>
+        {filteredContacts.map((contact, index) => (
+          <ListItem
+            key={contact.id ?? `contact-${index}`}
+            p={4}
+            borderWidth='1px'
+            borderRadius='md'
+            bg='gray.50'
+            shadow='sm'
+          >
+            <Flex justifyContent='space-between' alignItems='center'>
+              <Stack spacing={2}>
+                <Text>
+                  <strong>Name:</strong> {contact.name}
+                </Text>
+                <Text>
+                  <strong>Email:</strong>{' '}
+                  <a href={`mailto:${contact.email}`}>{contact.email}</a>
+                </Text>
+                <Text>
+                  <strong>Phone:</strong> {contact.phoneNumber}
+                </Text>
+                <Text>
+                  <strong>Message:</strong>{' '}
+                  {contact.message || 'No message provided'}
+                </Text>
+              </Stack>
+            </Flex>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+}
+
+ContactsDashboard.displayName = 'ContactsDashboard';
+export default ContactsDashboard;

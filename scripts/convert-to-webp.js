@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Convert all raster images under src/lelever-next/images to WebP,
+ * Convert all raster images under src/site/images to WebP,
  * update local code/script references, then remove the originals.
  *
  * Usage:
@@ -16,7 +16,7 @@ const path = require('path');
 const os = require('os');
 
 const projectRoot = path.join(__dirname, '..');
-const imagesBase = path.join(projectRoot, 'src', 'lelever-next', 'images');
+const imagesBase = path.join(projectRoot, 'src', 'site', 'images');
 const sourceExtRe = /\.(png|jpe?g|gif|heic)$/i;
 const skipDirs = new Set(['node_modules', '.git']);
 
@@ -113,7 +113,7 @@ function updateReferences(convertedBasenames) {
       content = content.replace(replaceRe, (match, relPath) => {
         const quote = match[0];
         if (/^https?:\/\//i.test(relPath) || relPath.startsWith('//')) return match;
-        if (!relPath.includes('images/') && !relPath.includes('lelever-next/')) {
+        if (!relPath.includes('images/') && !relPath.includes('site/')) {
           const base = path.basename(relPath);
           const webpBase = base.replace(sourceExtRe, '.webp');
           if (!convertedBasenames.has(webpBase.toLowerCase()) && !convertedBasenames.has(base.toLowerCase())) {
@@ -146,7 +146,7 @@ async function main() {
   }
 
   const files = collectRasterFiles(imagesBase);
-  console.log(`Found ${files.length} raster images to convert under src/lelever-next/images`);
+  console.log(`Found ${files.length} raster images to convert under src/site/images`);
   if (opts.dryRun) {
     console.log('Dry run - no files will be written.');
     files.slice(0, 20).forEach((f) => console.log('  ', path.relative(imagesBase, f), '->', path.basename(webpPathFor(f))));

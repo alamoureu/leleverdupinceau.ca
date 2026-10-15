@@ -1,0 +1,142 @@
+import React, {
+  Fragment,
+  Suspense,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
+import { Box, useDisclosure } from '@chakra-ui/react';
+import MicrosoftClarity from '../components/MicrosoftClarity';
+import HeroSection from '../home-page/HeroSection';
+import { useTranslation } from '../i18n';
+import ControlSection from '../home-page/ControlSection';
+import GuaranteeSection from '../home-page/GuaranteeSection';
+import MethodSection from '../home-page/MethodSection';
+import ServicesSection from '../home-page/ServicesSection';
+import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
+import TeamSection from '../home-page/TeamSection';
+import ReviewsSection from '../home-page/ReviewsSection';
+import SectorsSection from '../home-page/SectorsSection';
+import FAQSection from '../home-page/FAQSection';
+import ResourcesSection from '../home-page/ResourcesSection';
+import FinalCTASection from '../home-page/FinalCTASection';
+import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
+import { KEYWORDS } from '../seo/config';
+import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL } from '../constants/googleReviews';
+import { SECTION_PY } from '../constants/sectionSpacing';
+
+const ContactFormSection = React.lazy(() =>
+  import('../home-page/ContactFormSection'),
+);
+const SubmissionModal = React.lazy(() =>
+  import('../home-page/SubmissionModal'),
+);
+
+export default function HomePage() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const { currentLang } = useContext(appContext);
+  const { t } = useTranslation();
+  const isFr = currentLang === 'fr';
+  const pageContext = isFr ? 'Accueil' : 'Home';
+  const [loadForm, setLoadForm] = useState(false);
+  const formSentinelRef = useRef(null);
+
+  useEffect(() => {
+    if (loadForm) return undefined;
+    const el = formSentinelRef.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setLoadForm(true);
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadForm(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: '240px 0px' },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [loadForm]);
+
+  useEffect(() => {
+    if (isOpen) setLoadForm(true);
+  }, [isOpen]);
+
+  const title = isFr
+    ? 'Peintre professionnel à Montréal | Le Lever du Pinceau'
+    : 'Professional Painter in Montreal | Le Lever du Pinceau';
+  const description = isFr
+    ? `Peintre à Montréal : intérieur, extérieur, résidentiel et commercial. ${GOOGLE_REVIEWS_LABEL.fr} 5 étoiles, licence RBQ, soumission gratuite en 24h.`
+    : `Montreal painter: interior, exterior, residential and commercial. ${GOOGLE_REVIEW_COUNT}+ 5-star reviews, RBQ license, free quote in 24h.`;
+
+  const faqTitle = isFr
+    ? 'Questions fréquentes sur nos services de peinture'
+    : 'Frequently asked questions about our painting services';
+
+  return (
+    <Fragment>
+      <SEOHead
+        title={title}
+        description={description}
+        canonicalPath="/"
+        keywords={KEYWORDS[currentLang] || KEYWORDS.fr}
+      />
+      <MicrosoftClarity />
+
+      <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          pageContext={pageContext}
+          description={t.heroDescription}
+        />
+
+        <ControlSection />
+
+        <GuaranteeSection onSubmissionOpen={onOpen} />
+
+        <MethodSection onSubmissionOpen={onOpen} hideCta />
+
+        <Box ref={formSentinelRef} minH="1px" aria-hidden />
+        {loadForm ? (
+          <Suspense fallback={<Box minH={{ base: '320px', md: '280px' }} />}>
+            <ContactFormSection />
+          </Suspense>
+        ) : (
+          <Box minH={{ base: '320px', md: '280px' }} />
+        )}
+
+        <Box bg="gray.50">
+          <ServicesSection sectionBg="transparent" sectionPy={SECTION_PY} />
+          <BeforeAfterCarouselSection
+            sectionBg="gray.50"
+            sectionPaddingTop={{ base: 2, md: 4 }}
+            sectionPaddingBottom={{ base: 8, md: 10, lg: 12 }}
+          />
+        </Box>
+
+        <TeamSection pageContext={pageContext} />
+
+        <ReviewsSection />
+
+        <SectorsSection pageContext={pageContext} />
+
+        <FAQSection title={faqTitle} />
+
+        <ResourcesSection />
+
+        <FinalCTASection onSubmissionOpen={onOpen} />
+      </Box>
+
+      {loadForm && (
+        <Suspense fallback={null}>
+          <SubmissionModal isOpen={isOpen} onClose={onClose} />
+        </Suspense>
+      )}
+    </Fragment>
+  );
+}

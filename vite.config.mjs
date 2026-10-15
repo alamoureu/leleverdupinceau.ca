@@ -16,7 +16,7 @@ export default defineConfig({
     alias: {
       '@typography-jsx': path.resolve(
         rootDir,
-        'src/lelever-next/utils/typography-jsx',
+        'src/site/utils/typography-jsx',
       ),
     },
   },

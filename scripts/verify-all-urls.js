@@ -65,7 +65,7 @@ function main() {
 
   const appPath = path.join(BASE, 'src', 'App.jsx');
   const appContent = fs.readFileSync(appPath, 'utf-8');
-  const hasIndex = appContent.includes('path="/"') && appContent.includes('NewHomePage');
+  const hasIndex = appContent.includes('path="/"') && appContent.includes('HomePage');
   const hasContact = appContent.includes('path="contact"');
   const hasServices = appContent.includes('path="/services"');
   if (!hasIndex || !hasContact || !hasServices) {

@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const crypto = require('crypto');
 
-const ROOT = path.join(__dirname, '../src/lelever-next/images');
+const ROOT = path.join(__dirname, '../src/site/images');
 
 const exts = new Set(['.jpg', '.jpeg', '.png', '.webp', '.gif', '.JPG', '.JPEG', '.PNG', '.WEBP']);
 

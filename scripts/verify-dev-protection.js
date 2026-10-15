@@ -89,7 +89,7 @@ console.log(`\n${colors.cyan}CHECK 3: noindex on 404 page${colors.reset}`);
 try {
   const notFoundPath = path.join(
     __dirname,
-    '../src/lelever-next/pages/NotFoundPage.jsx'
+    '../src/site/pages/NotFoundPage.jsx'
   );
   if (fs.existsSync(notFoundPath)) {
     const content = fs.readFileSync(notFoundPath, 'utf-8');

@@ -1,7 +1,7 @@
 /**
  * Inventaire complet des URLs publiques et classification contenu vs redirect.
  * Source de vérité pour le pré-rendu : "rien ne doit tomber dans le fallback SPA"
- * sauf admin / timesheet / 404.
+ * sauf admin / 404.
  *
  * Usage : importé par prerender.mjs ; aussi exécutable :
  *   node scripts/all-public-routes.mjs

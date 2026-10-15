@@ -132,3 +132,9 @@ dist
 # Scripts Python dependencies and dist-info
 scripts/_pydeps/
 scripts/*.dist-info/
+
+# Local tooling / generated verification
+.video-helper/
+route-verification-success.json
+*.DS_Store
+.DS_Store

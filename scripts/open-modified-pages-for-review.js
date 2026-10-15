@@ -30,13 +30,13 @@ const MODIFIED_PAGES = [
   ['/avis-clients', 'Avis clients'],
   ['/realisations', 'Réalisations'],
   ['/blog', 'Blog'],
-  ['/blog/comment-choisir-un-peintre-professionnel', 'Blog – Comment choisir un peintre'],
-  ['/blog/prix-peinture-montreal', 'Blog – Prix peinture Montréal'],
-  ['/blog/erreurs-a-eviter-peinture-interieure', 'Blog – Erreurs à éviter'],
-  ['/services/peinture-residentielle/maison', 'L3 – Maison'],
-  ['/services/peinture-residentielle/condo', 'L3 – Condo'],
-  ['/services/peinture-interieure/armoires-de-cuisine', 'L3 – Armoires'],
-  ['/services/teinture-exterieure', 'Spécialisé – Teinture extérieure'],
+  ['/blog/comment-choisir-un-peintre-professionnel', 'Blog - Comment choisir un peintre'],
+  ['/blog/prix-peinture-montreal', 'Blog - Prix peinture Montréal'],
+  ['/blog/erreurs-a-eviter-peinture-interieure', 'Blog - Erreurs à éviter'],
+  ['/services/peinture-residentielle/maison', 'L3 - Maison'],
+  ['/services/peinture-residentielle/condo', 'L3 - Condo'],
+  ['/services/peinture-interieure/armoires-de-cuisine', 'L3 - Armoires'],
+  ['/services/teinture-exterieure', 'Spécialisé - Teinture extérieure'],
 ];
 
 function openInBrowser(urlOrPath, isLocalFile = false) {
@@ -75,7 +75,7 @@ async function run() {
 
   for (let i = 0; i < MODIFIED_PAGES.length; i++) {
     const [pathName, label] = MODIFIED_PAGES[i];
-    console.log(`  ${i + 1}/${MODIFIED_PAGES.length} – ${label}`);
+    console.log(`  ${i + 1}/${MODIFIED_PAGES.length} - ${label}`);
     openInBrowser(pathName);
     if (i < MODIFIED_PAGES.length - 1) await delay(DELAY_MS);
   }

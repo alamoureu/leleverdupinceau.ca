@@ -389,10 +389,10 @@ async function main() {
   }
 
   redirectLines.push('');
-  redirectLines.push('# Outils internes : app React sans pré-rendu');
+  redirectLines.push('# Admin (lead dashboards) : app React sans pré-rendu');
   redirectLines.push(`/admin  /${APP_SHELL}  200`);
   redirectLines.push(`/admin/*  /${APP_SHELL}  200`);
-  redirectLines.push(`/timesheet  /${APP_SHELL}  200`);
+  redirectLines.push('/timesheet  /  301!');
   redirectLines.push('');
   redirectLines.push('# URL inconnue : vraie 404 (sans force, les fichiers pré-rendus passent en priorité)');
   redirectLines.push('/*  /404.html  404');

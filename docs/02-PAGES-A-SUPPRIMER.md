@@ -88,7 +88,7 @@ Ces routes existent dans le code et doivent être renommées + redirect 301 ajou
 | `/avis` | `/avis-clients` | `AvisPage` | Changer route + redirect `/avis` → `/avis-clients` |
 | `/soumission` | `/contact` | `SoumissionPage` | Unifier sous ContactPage + redirect |
 | `/politiques/confidentialite` | `/politique-de-confidentialite` | `PrivacyPolicyPage` | Changer route + redirect |
-| `/politiques/termes-conditions` | `/mentions-legales` | `ThermOfUse` | Changer route + redirect |
+| `/politiques/termes-conditions` | `/mentions-legales` | `TermsOfUse` | Changer route + redirect |
 
 ---
 
@@ -110,8 +110,8 @@ Les routes dynamiques suivantes génèrent des pages à trop hauts axes (service
 
 | Composant | Fichier | Action |
 |---|---|---|
-| `BrossardCityPage` | `src/lelever-next/pages/BrossardCityPage.jsx` | Supprimer (contenu fusionné dans future page Rive-Sud) |
-| `SousServicePage` | `src/lelever-next/services-pages/sous_service/SousServicePage.jsx` | Vérifier si réutilisable pour L3 - sinon supprimer |
+| `BrossardCityPage` | `src/site/pages/BrossardCityPage.jsx` | Supprimer (contenu fusionné dans future page Rive-Sud) |
+| `SousServicePage` | `src/site/services-pages/sous_service/SousServicePage.jsx` | Vérifier si réutilisable pour L3 - sinon supprimer |
 | `SousServiceVillePage` | ~~supprimé~~ | Fait |
 | `ServiceQuartierPage` | ~~supprimé~~ | Fait |
 | `ServiceQuartierSecteurPage` | ~~supprimé~~ | Fait |

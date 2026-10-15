@@ -1,0 +1,607 @@
+import React, { Fragment, useContext } from 'react';
+import { Link as RouterLink } from 'react-router-dom';
+import {
+  Box,
+  Container,
+  Heading,
+  Text,
+  Stack,
+  SimpleGrid,
+  Link,
+  Icon,
+  HStack,
+  Image,
+  useDisclosure,
+} from '@chakra-ui/react';
+import { FaArrowRight as ArrowForwardIcon, FaMapMarkerAlt } from 'react-icons/fa';
+import appContext from '../../AppProvider';
+import SEOHead from '../seo/SEOHead';
+import HeroSection from '../home-page/HeroSection';
+import FinalCTASection from '../home-page/FinalCTASection';
+import CtaButton from '../home-page/CtaButton';
+import SubmissionModal from '../home-page/SubmissionModal';
+import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
+import heroSecteurHub from '../images/landing/secteur-hub/IMG_7894.webp';
+import quartierWestmount from '../images/landing/secteur-hub/IMG_7896.webp';
+import quartierOutremont from '../images/landing/secteur-hub/IMG_7898.webp';
+import quartierPlateau from '../images/landing/secteur-hub/IMG_7900.webp';
+import quartierVilleMarie from '../images/landing/secteur-hub/IMG_7902.webp';
+import montrealSecteur from '../images/shared/city-thumbs/montreal.webp';
+import lavalSecteur from '../images/shared/city-thumbs/laval.webp';
+import longueuilSecteur from '../images/shared/city-thumbs/longueuil.webp';
+import brossardSecteur from '../images/shared/city-thumbs/brossard.webp';
+import stLambertSecteur from '../images/shared/city-thumbs/st-lambert.webp';
+import laprairieSecteur from '../images/shared/city-thumbs/laprairie.webp';
+
+export default function SecteursDesservisPage() {
+  const { currentLang } = useContext(appContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const isFr = currentLang === 'fr';
+
+  // ─── Schema markup ──────────────────────────────────────────────────────────
+
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: isFr ? 'Accueil' : 'Home',
+        item: 'https://leleverdupinceau.ca/',
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: isFr ? 'Secteurs desservis' : 'Service areas',
+        item: 'https://leleverdupinceau.ca/secteurs',
+      },
+    ],
+  };
+
+  const areaServedSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Painter',
+    name: 'Le Lever du Pinceau',
+    url: 'https://leleverdupinceau.ca',
+    telephone: '+14388680772',
+    areaServed: [
+      { '@type': 'City', name: 'Montréal' },
+      { '@type': 'City', name: 'Laval' },
+      { '@type': 'City', name: 'Longueuil' },
+      { '@type': 'City', name: 'Brossard' },
+      { '@type': 'City', name: 'Saint-Lambert' },
+      { '@type': 'City', name: 'La Prairie' },
+    ],
+  };
+
+  // ─── Section 3 - City cards ──────────────────────────────────────────────────
+
+  const cities = [
+    {
+      name: 'Montréal',
+      description: isFr
+        ? 'Plex d\'avant-guerre, plâtre sur lattis, condos et quartiers centraux.'
+        : 'Pre-war plexes, plaster on lath, condos and central neighborhoods.',
+      link: '/secteurs/montreal',
+      image: montrealSecteur,
+      imgScale: 1.25,
+      imgTop: '-20px',
+    },
+    {
+      name: 'Laval',
+      description: isFr
+        ? 'Bungalows 1960-1990, aluminium qui craie et quartiers pavillonnaires.'
+        : '1960s-1990s bungalows, chalking aluminum and suburban neighborhoods.',
+      link: '/secteurs/laval',
+      image: lavalSecteur,
+      imgScale: 1,
+      imgTop: '0',
+    },
+    {
+      name: 'Longueuil',
+      description: isFr
+        ? 'Vieux-Longueuil près du fleuve, tours près du métro, Saint-Hubert.'
+        : 'Old Longueuil by the river, towers near the metro, Saint-Hubert.',
+      link: '/secteurs/longueuil',
+      image: longueuilSecteur,
+      imgScale: 1,
+      imgTop: '0',
+    },
+    {
+      name: 'Brossard',
+      description: isFr
+        ? 'Constructions récentes près du REM, fissures de tassement et DIX30.'
+        : 'Recent builds near the REM, settlement cracks and DIX30.',
+      link: '/secteurs/brossard',
+      image: brossardSecteur,
+      imgScale: 1,
+      imgTop: '0',
+    },
+    {
+      name: 'Saint-Lambert',
+      description: isFr
+        ? 'Maisons de caractère, boiseries anciennes et préparation sécuritaire.'
+        : 'Character homes, old woodwork and safe preparation.',
+      link: '/secteurs/st-lambert',
+      image: stLambertSecteur,
+      imgScale: 1,
+      imgTop: '0',
+      focus: { x: 50, y: 72 },
+    },
+    {
+      name: 'La Prairie',
+      description: isFr
+        ? 'Vieux-La Prairie en pierre et quartiers résidentiels plus récents.'
+        : 'Stone Old La Prairie and newer residential neighborhoods.',
+      link: '/secteurs/laprairie',
+      image: laprairieSecteur,
+      imgScale: 1,
+      imgTop: '0',
+      focus: { x: 55, y: 74 },
+    },
+  ];
+
+  // ─── Section 4 - Quartiers Montréal ─────────────────────────────────────────
+
+  const quartiersData = [
+    {
+      name: 'Westmount',
+      description: isFr
+        ? 'Maisons de prestige, boiseries d\'époque, service haut de gamme.'
+        : 'Prestigious homes, period woodwork, high-end service.',
+      link: '/secteurs/montreal/westmount',
+      image: quartierWestmount,
+    },
+    {
+      name: 'Outremont',
+      description: isFr
+        ? 'Grandes résidences, corniches et moulures travaillées au pinceau.'
+        : 'Large residences, cornices and mouldings finished by brush.',
+      link: '/secteurs/montreal/outremont',
+      image: quartierOutremont,
+    },
+    {
+      name: 'Plateau-Mont-Royal',
+      description: isFr
+        ? 'Triplex, duplex patrimoniaux, escaliers extérieurs et moulures.'
+        : 'Heritage triplex, duplex, exterior staircases and mouldings.',
+      link: '/secteurs/montreal/plateau-mont-royal',
+      image: quartierPlateau,
+    },
+    {
+      name: 'Ville-Marie / Centre-Ville',
+      description: isFr
+        ? 'Condos de luxe, bureaux et commerces du centre-ville.'
+        : 'Luxury condos, offices and downtown businesses.',
+      link: '/secteurs/montreal/ville-marie',
+      image: quartierVilleMarie,
+    },
+  ];
+
+  // ─── Section 6 - Internal service links ─────────────────────────────────────
+
+  const serviceLinks = isFr ? [
+    { label: 'Peinture intérieure', to: '/services/peinture-interieure' },
+    { label: 'Peinture extérieure', to: '/services/peinture-exterieure' },
+    { label: 'Peinture résidentielle', to: '/services/peinture-residentielle' },
+    { label: 'Peinture commerciale', to: '/services/peinture-commerciale' },
+    { label: 'Pourquoi un peintre professionnel?', to: '/peintre-professionnel' },
+  ] : [
+    { label: 'Interior painting', to: '/services/peinture-interieure' },
+    { label: 'Exterior painting', to: '/services/peinture-exterieure' },
+    { label: 'Residential painting', to: '/services/peinture-residentielle' },
+    { label: 'Commercial painting', to: '/services/peinture-commerciale' },
+    { label: 'Why hire a professional painter?', to: '/peintre-professionnel' },
+  ];
+
+  // ─── City card component ─────────────────────────────────────────────────────
+
+  const CityCard = ({ city }) => (
+    <Link
+      as={RouterLink}
+      to={city.link}
+      _hover={{ textDecoration: 'none' }}
+      w="100%"
+      minW={0}
+      h="100%"
+      display="block"
+    >
+      <Box
+        position="relative"
+        borderRadius="2xl"
+        overflow="hidden"
+        border="1px solid"
+        borderColor="gray.200"
+        cursor="pointer"
+        transition="all 0.2s"
+        bg={city.imgScale < 1 ? '#022a68' : 'white'}
+        minH={{ base: '260px', md: '300px' }}
+        h="100%"
+        w="100%"
+        minW={0}
+        _hover={{
+          borderColor: 'brand.500',
+          boxShadow: 'xl',
+          transform: 'translateY(-4px)',
+        }}
+      >
+        <Box position="absolute" inset={0} overflow="hidden" zIndex={0}>
+          <Image
+            src={city.image}
+            alt={city.name}
+            position="absolute"
+            top={city.imgTop}
+            left={0}
+            w="100%"
+            h="100%"
+            maxW="none"
+            objectFit="cover"
+            objectPosition={
+              city.focus
+                ? `${city.focus.x}% ${city.focus.y}%`
+                : undefined
+            }
+            transform={city.imgScale !== 1 ? `scale(${city.imgScale})` : undefined}
+            transformOrigin="center center"
+            loading="lazy"
+            decoding="async"
+            htmlWidth={1600}
+            htmlHeight={1067}
+          />
+        </Box>
+        <Box
+          position="absolute"
+          top={0}
+          left={0}
+          right={0}
+          bottom={0}
+          bgGradient="linear(to-b, rgba(2, 42, 104, 0.3), rgba(2, 42, 104, 0.85))"
+          zIndex={1}
+        />
+        <Stack
+          position="relative"
+          zIndex={2}
+          p={{ base: 6, md: 8 }}
+          h="100%"
+          justify="flex-end"
+          spacing={3}
+        >
+          <HStack spacing={3}>
+            <Icon as={FaMapMarkerAlt}
+              color="white"
+              boxSize={5}
+            />
+            <Heading as="h3" size="subsection" color="white">
+              {city.name}
+            </Heading>
+          </HStack>
+          <Text color="whiteAlpha.900" textStyle="bodyLarge" lineHeight="1.6" fontWeight="medium">
+            {city.description}
+          </Text>
+          <HStack spacing={2} color="white" pt={2}>
+            <Text textStyle="caption" fontWeight="bold">
+              {isFr ? 'Voir le secteur' : 'View area'}
+            </Text>
+            <Icon as={ArrowForwardIcon} boxSize={4} />
+          </HStack>
+        </Stack>
+      </Box>
+    </Link>
+  );
+
+  // ─── Breadcrumb (rendered as hero children) ──────────────────────────────────
+
+  const heroBreadcrumb = [
+    { label: isFr ? 'Accueil' : 'Home', to: '/' },
+        { label: isFr ? 'Secteurs desservis' : 'Service areas' },
+      ];
+
+  return (
+    <Fragment>
+      <SEOHead
+        title={
+          isFr
+            ? 'Secteurs desservis | Montréal, Laval, Longueuil et Rive-Sud | Le Lever du Pinceau'
+            : 'Service areas | Montreal, Laval, Longueuil and South Shore | Le Lever du Pinceau'
+        }
+        description={
+          isFr
+            ? 'Trouvez votre ville ou quartier desservi: Montréal, Laval, Longueuil, Brossard, Saint-Lambert et La Prairie. Accédez à la page locale de votre secteur.'
+            : 'Find your city or neighborhood we serve: Montreal, Laval, Longueuil, Brossard, Saint-Lambert and La Prairie. Open the local page for your area.'
+        }
+        canonicalPath="/secteurs"
+        schemaArray={[breadcrumbSchema, areaServedSchema]}
+      />
+
+      <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
+
+        {/* SECTION 1 - Hero Banner avec image de fond */}
+        <HeroSection
+          onSubmissionOpen={onOpen}
+          imageBackground={heroSecteurHub}
+          title={isFr ? 'Secteurs desservis' : 'Service areas'}
+          subtitle={
+            isFr
+              ? 'Montréal, Laval, Longueuil et la Rive-Sud.'
+              : 'Montreal, Laval, Longueuil and the South Shore.'
+          }
+          description={
+            isFr
+              ? 'Chaque ville et quartier a sa page locale : réalités du bâti, projets typiques et soumission gratuite.'
+              : 'Each city and neighborhood has a local page: building realities, typical projects and a free quote.'
+          }
+          buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
+          breadcrumb={heroBreadcrumb}
+        />
+
+        {/* SECTION 3 - Nos villes desservies (5 cartes) */}
+        <Box pt={TRUST_BANNER_BELOW_PT} pb={SECTION_PY} bg="gray.50">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={TRUST_BANNER_AIR_SPACE}>
+              <Stack spacing={{ base: 2, md: 3 }} textAlign="center" maxW="720px" mx="auto">
+                <Heading as="h2" size="section" color="gray.800">
+                  {isFr ? 'Choisissez votre ville' : 'Choose your city'}
+                </Heading>
+                <Text color="gray.600" textStyle="bodyLarge" lineHeight="1.6">
+                  {isFr
+                    ? 'Ouvrez la page de votre ville pour voir les types de projets locaux, les quartiers desservis et des exemples avant / après près de chez vous.'
+                    : 'Open your city page to see local project types, neighborhoods served and before / after examples near you.'}
+                </Text>
+              </Stack>
+
+              <SimpleGrid
+                columns={{ base: 1, md: 3 }}
+                spacing={{ base: 5, md: 6 }}
+                w="100%"
+                minW={0}
+              >
+                {cities.map((city) => (
+                  <CityCard key={city.name} city={city} />
+                ))}
+              </SimpleGrid>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* SECTION 4 - Quartiers de Montréal */}
+        <Box py={{ base: 12, md: 16, lg: 20 }} bg="white" w="100%" minW={0} overflowX="hidden">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }} minW={0}>
+            <Stack spacing={10} minW={0}>
+              <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
+                <Heading as="h2" size="section" color="gray.800">
+                  {isFr
+                    ? 'Nos peintres dans les quartiers de Montréal'
+                    : 'Our painters in Montreal neighborhoods'}
+                </Heading>
+                <Text textStyle="bodyLarge" color="gray.600" maxW="600px" mx="auto">
+                  {isFr
+                    ? 'Nous réalisons des projets partout sur l\'île'
+                    : 'We complete projects across the entire island'}
+                </Text>
+              </Stack>
+
+              <SimpleGrid
+                columns={{ base: 1, sm: 2, md: 4 }}
+                spacing={{ base: 4, md: 6 }}
+                w="100%"
+                minW={0}
+              >
+                {quartiersData.map((quartier) => (
+                  <Link
+                    key={quartier.name}
+                    as={RouterLink}
+                    to={quartier.link}
+                    _hover={{ textDecoration: 'none' }}
+                    w="100%"
+                    minW={0}
+                    h="100%"
+                    display="block"
+                  >
+                    <Box
+                      position="relative"
+                      w="100%"
+                      minW={0}
+                      h="100%"
+                      minH={{ base: '220px', md: '260px' }}
+                      borderRadius="xl"
+                      overflow="hidden"
+                      border="1px solid"
+                      borderColor="gray.200"
+                      cursor="pointer"
+                      transition="all 0.2s"
+                      _hover={{
+                        borderColor: 'brand.500',
+                        boxShadow: 'xl',
+                        transform: 'translateY(-4px)',
+                      }}
+                    >
+                      <Image
+                        src={quartier.image}
+                        alt={quartier.name}
+                        position="absolute"
+                        top={0}
+                        left={0}
+                        w="100%"
+                        h="100%"
+                        objectFit="cover"
+                        zIndex={0}
+                        loading="lazy"
+                        decoding="async"
+                        htmlWidth={1600}
+                        htmlHeight={1067}
+                      />
+                      <Box
+                        position="absolute"
+                        top={0}
+                        left={0}
+                        right={0}
+                        bottom={0}
+                        bgGradient="linear(to-b, rgba(2, 42, 104, 0.2), rgba(2, 42, 104, 0.82))"
+                        zIndex={1}
+                      />
+                      <Stack
+                        position="relative"
+                        zIndex={2}
+                        p={{ base: 4, md: 5 }}
+                        h="100%"
+                        minW={0}
+                        justify="flex-end"
+                        spacing={2}
+                      >
+                        <HStack spacing={2} align="flex-start" minW={0} w="100%">
+                          <Icon as={FaMapMarkerAlt}
+                            color="white"
+                            boxSize={4}
+                            mt="2px"
+                            flexShrink={0}
+                          />
+                          <Heading
+                            as="h3"
+                            fontSize={{ base: 'sm', md: 'md' }}
+                            fontWeight="bold"
+                            color="white"
+                            lineHeight="1.3"
+                            minW={0}
+                            wordBreak="break-word"
+                          >
+                            {quartier.name}
+                          </Heading>
+                        </HStack>
+                        <Text
+                          fontSize={{ base: 'xs', md: 'sm' }}
+                          color="whiteAlpha.900"
+                          lineHeight="1.5"
+                        >
+                          {quartier.description}
+                        </Text>
+                        <HStack spacing={1} color="white" pt={1}>
+                          <Text fontSize="xs" fontWeight="bold">
+                            {isFr ? 'Voir le quartier' : 'View neighborhood'}
+                          </Text>
+                          <Icon as={ArrowForwardIcon} boxSize={3} />
+                        </HStack>
+                      </Stack>
+                    </Box>
+                  </Link>
+                ))}
+              </SimpleGrid>
+
+              <Text
+                fontSize={{ base: 'sm', md: 'md' }}
+                color="gray.600"
+                textAlign="center"
+                maxW="680px"
+                w="100%"
+                mx="auto"
+                px={{ base: 1, md: 0 }}
+                fontStyle="italic"
+              >
+                {isFr
+                  ? 'Aussi présents à Griffintown, Rosemont, Verdun, Saint-Henri, Ville Mont-Royal, Notre-Dame-de-Grâce et dans tous les quartiers de l\'île de Montréal.'
+                  : 'Also present in Griffintown, Rosemont, Verdun, Saint-Henri, Ville Mont-Royal, Notre-Dame-de-Grace and in all neighborhoods of the island of Montreal.'}
+              </Text>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* SECTION 5 - Pas certain de votre secteur? */}
+        <Box py={{ base: 12, md: 16, lg: 20 }} bg="gray.50">
+          <Container maxW="800px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={6} textAlign="center" align="center">
+              <Heading as="h2" size="section" color="gray.800">
+                {isFr
+                  ? 'Vous ne trouvez pas votre secteur\u00A0?'
+                  : "Can't find your area?"}
+              </Heading>
+              <Text textStyle="bodyLarge" color="gray.600" lineHeight="1.7" maxW="600px">
+                {isFr
+                  ? 'Nous couvrons l\'ensemble du Grand Montréal et la Rive-Sud. Décrivez votre projet et nous confirmerons notre disponibilité dans votre quartier.'
+                  : 'We cover all of Greater Montreal and the South Shore. Describe your project and we will confirm our availability in your neighborhood.'}
+              </Text>
+              <CtaButton as={RouterLink} to="/contact" rightIcon={<ArrowForwardIcon />}>
+                {isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
+              </CtaButton>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* SECTION 6 - Liens internes de redistribution */}
+        <Box py={{ base: 12, md: 16, lg: 20 }} bg="white">
+          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
+            <Stack spacing={8}>
+              <Stack spacing={{ base: 2, md: 3 }} textAlign="center">
+                <Heading as="h2" size="section" color="gray.800">
+                  {isFr ? 'Nos services de peinture' : 'Our painting services'}
+                </Heading>
+                <Text textStyle="bodyLarge" color="gray.600" maxW="580px" mx="auto">
+                  {isFr
+                    ? 'Découvrez nos services offerts dans toutes les régions desservies.'
+                    : 'Discover our services available in all regions served.'}
+                </Text>
+              </Stack>
+
+              <Stack
+                spacing={3}
+                maxW="560px"
+                mx="auto"
+                w="100%"
+              >
+                {serviceLinks.map((link) => (
+                  <Link
+                    key={link.to}
+                    as={RouterLink}
+                    to={link.to}
+                    _hover={{ textDecoration: 'none' }}
+                  >
+                    <HStack
+                      spacing={3}
+                      p={{ base: 3, md: 4 }}
+                      borderRadius="lg"
+                      border="1px solid"
+                      borderColor="gray.200"
+                      bg="white"
+                      transition="all 0.2s"
+                      _hover={{
+                        borderColor: 'brand.500',
+                        bg: 'brand.50',
+                      }}
+                    >
+                      <Icon as={ArrowForwardIcon} color="brand.500" boxSize={4} flexShrink={0} />
+                      <Text
+                        fontWeight="medium"
+                        color="gray.700"
+                        fontSize={{ base: 'sm', md: 'md' }}
+                      >
+                        {link.label}
+                      </Text>
+                    </HStack>
+                  </Link>
+                ))}
+              </Stack>
+            </Stack>
+          </Container>
+        </Box>
+
+        {/* SECTION 7 - CTA final */}
+        <FinalCTASection
+          onSubmissionOpen={onOpen}
+          title={
+            isFr
+              ? "Besoin d'un peintre dans votre secteur\u00A0?"
+              : 'Need a painter in your area?'
+          }
+          subtitle={
+            isFr
+              ? 'Nos équipes interviennent rapidement dans toutes les villes et quartiers du Grand Montréal. Soumission gratuite en moins de 24h.'
+              : 'Our teams serve quickly in all cities and neighborhoods of Greater Montreal. Free quote in less than 24h.'
+          }
+          buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
+        />
+      </Box>
+
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
+    </Fragment>
+  );
+}

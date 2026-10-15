@@ -42,7 +42,7 @@
 - **Mot-clé principal:** `peintre montréal`
 - **Intention:** Transactionnelle
 - **Priorité:** Critique
-- **Composant actuel:** `NewHomePage`
+- **Composant actuel:** `HomePage`
 - **Angle (anti-cannibalisation):** MARQUE + CONVERSION. Qui on est, 100+ avis 4.9★, RBQ, assurance. Sections courtes services + CTA. NE PAS détailler les services.
 - **Liens internes requis:** Tous les L1 + soumission + avis + réalisations
 
@@ -73,8 +73,8 @@
 ---
 
 #### #4 - `/secteurs`
-- **Title Tag:** `Secteurs desservis – Peintre Grand Montréal et Gatineau`
-- **H1:** `Secteurs desservis – Peintre Grand Montréal et Gatineau`
+- **Title Tag:** `Secteurs desservis - Peintre Grand Montréal et Gatineau`
+- **H1:** `Secteurs desservis - Peintre Grand Montréal et Gatineau`
 - **Mot-clé principal:** `peintre grand montréal`
 - **Intention:** Navigationnelle
 - **Priorité:** Critique
@@ -87,7 +87,7 @@
 ### SERVICES L2 - PRINCIPAUX (5)
 
 #### #5 - `/services/peinture-interieure`
-- **Title Tag:** `Peinture intérieure à Montréal – Murs, plafonds, boiseries`
+- **Title Tag:** `Peinture intérieure à Montréal - Murs, plafonds, boiseries`
 - **H1:** `Peinture intérieure à Montréal`
 - **Mot-clé principal:** `peinture intérieure montréal`
 - **Intention:** Transactionnelle
@@ -99,7 +99,7 @@
 ---
 
 #### #6 - `/services/peinture-exterieure`
-- **Title Tag:** `Peinture extérieure à Montréal – Revêtement, balcon, clôture`
+- **Title Tag:** `Peinture extérieure à Montréal - Revêtement, balcon, clôture`
 - **H1:** `Peinture extérieure à Montréal`
 - **Mot-clé principal:** `peinture extérieure montréal`
 - **Intention:** Transactionnelle
@@ -111,7 +111,7 @@
 ---
 
 #### #7 - `/services/peinture-residentielle`
-- **Title Tag:** `Peinture résidentielle à Montréal – Maison, condo, appartement`
+- **Title Tag:** `Peinture résidentielle à Montréal - Maison, condo, appartement`
 - **H1:** `Peinture résidentielle à Montréal`
 - **Mot-clé principal:** `peinture résidentielle montréal`
 - **Intention:** Transactionnelle
@@ -123,7 +123,7 @@
 ---
 
 #### #8 - `/services/peinture-commerciale`
-- **Title Tag:** `Peinture commerciale à Montréal – Bureau, restaurant, commerce`
+- **Title Tag:** `Peinture commerciale à Montréal - Bureau, restaurant, commerce`
 - **H1:** `Peinture commerciale à Montréal`
 - **Mot-clé principal:** `peinture commerciale montréal`
 - **Intention:** Transactionnelle
@@ -135,7 +135,7 @@
 ---
 
 #### #9 - `/services/peinture-industrielle`
-- **Title Tag:** `Peinture industrielle à Montréal – Entrepôt, usine, stationnement`
+- **Title Tag:** `Peinture industrielle à Montréal - Entrepôt, usine, stationnement`
 - **H1:** `Peinture industrielle à Montréal`
 - **Mot-clé principal:** `peinture industrielle montréal`
 - **Intention:** Transactionnelle
@@ -149,7 +149,7 @@
 ### SERVICES L2 - SPÉCIALISÉS (5) ← À CRÉER
 
 #### #10 - `/services/teinture-exterieure`
-- **Title Tag:** `Teinture extérieure à Montréal – Bois, patio, clôture`
+- **Title Tag:** `Teinture extérieure à Montréal - Bois, patio, clôture`
 - **H1:** `Teinture extérieure à Montréal`
 - **Mot-clé principal:** `teinture extérieure montréal`
 - **Intention:** Transactionnelle
@@ -249,7 +249,7 @@
 ### SERVICE × VILLE (2) ← À CRÉER
 
 #### #18 - `/peinture-interieure-montreal`
-- **Title Tag:** `Peinture intérieure à Montréal – Service professionnel`
+- **Title Tag:** `Peinture intérieure à Montréal - Service professionnel`
 - **H1:** `Peinture intérieure à Montréal`
 - **Mot-clé principal:** `peinture intérieure montréal`
 - **Intention:** Transactionnelle
@@ -261,7 +261,7 @@
 ---
 
 #### #19 - `/peinture-exterieure-montreal`
-- **Title Tag:** `Peinture extérieure à Montréal – Revêtement et teinture`
+- **Title Tag:** `Peinture extérieure à Montréal - Revêtement et teinture`
 - **H1:** `Peinture extérieure à Montréal`
 - **Mot-clé principal:** `peinture extérieure montréal`
 - **Intention:** Transactionnelle
@@ -275,7 +275,7 @@
 ### SECTEURS - VILLES (5)
 
 #### #20 - `/secteurs/montreal`
-- **Title Tag:** `Peintre à Montréal – Service de peinture sur l'île`
+- **Title Tag:** `Peintre à Montréal - Service de peinture sur l'île`
 - **H1:** `Peintre à Montréal`
 - **Mot-clé principal:** `peintre à montréal`
 - **Intention:** Transactionnelle
@@ -287,7 +287,7 @@
 ---
 
 #### #21 - `/secteurs/laval`
-- **Title Tag:** `Peintre à Laval – Peinture résidentielle et commerciale`
+- **Title Tag:** `Peintre à Laval - Peinture résidentielle et commerciale`
 - **H1:** `Peintre à Laval`
 - **Mot-clé principal:** `peintre laval`
 - **Intention:** Transactionnelle
@@ -337,7 +337,7 @@
 ### QUARTIERS MONTRÉAL (4) ← À CRÉER
 
 #### #25 - `/secteurs/montreal/westmount`
-- **Title Tag:** `Peintre à Westmount – Service haut de gamme`
+- **Title Tag:** `Peintre à Westmount - Service haut de gamme`
 - **H1:** `Peintre à Westmount`
 - **Mot-clé principal:** `peintre westmount`
 - **Intention:** Transactionnelle
@@ -349,7 +349,7 @@
 ---
 
 #### #26 - `/secteurs/montreal/outremont`
-- **Title Tag:** `Peintre à Outremont – Peinture résidentielle de qualité`
+- **Title Tag:** `Peintre à Outremont - Peinture résidentielle de qualité`
 - **H1:** `Peintre à Outremont`
 - **Mot-clé principal:** `peintre outremont`
 - **Intention:** Transactionnelle
@@ -387,7 +387,7 @@
 ### BLOG + PAGES CLASSIQUES + LÉGAL (6)
 
 #### #29 - `/blog`
-- **Title Tag:** `Blog – Conseils et ressources en peinture`
+- **Title Tag:** `Blog - Conseils et ressources en peinture`
 - **H1:** `Conseils et ressources en peinture`
 - **Mot-clé principal:** `blog peinture montréal`
 - **Intention:** Informationnelle
@@ -398,7 +398,7 @@
 ---
 
 #### #30 - `/avis-clients`
-- **Title Tag:** `Avis clients – Ce que nos clients disent de nous`
+- **Title Tag:** `Avis clients - Ce que nos clients disent de nous`
 - **H1:** `Avis clients`
 - **Mot-clé principal:** `avis peintre montréal`
 - **Intention:** Transactionnelle
@@ -410,7 +410,7 @@
 ---
 
 #### #31 - `/contact` (= `/soumission`)
-- **Title Tag:** `Soumission gratuite – Estimation en 24h`
+- **Title Tag:** `Soumission gratuite - Estimation en 24h`
 - **H1:** `Demandez votre soumission gratuite`
 - **Mot-clé principal:** `soumission peinture montréal`
 - **Intention:** Transactionnelle
@@ -422,7 +422,7 @@
 ---
 
 #### #32 - `/realisations`
-- **Title Tag:** `Nos réalisations – Portfolio de projets`
+- **Title Tag:** `Nos réalisations - Portfolio de projets`
 - **H1:** `Nos réalisations`
 - **Mot-clé principal:** `réalisations peinture montréal`
 - **Intention:** Transactionnelle
@@ -437,7 +437,7 @@
 - **Title Tag:** `Mentions légales`
 - **Intention:** -
 - **Priorité:** Basse
-- **Composant actuel:** `ThermOfUse` (URL actuelle: `/politiques/termes-conditions`)
+- **Composant actuel:** `TermsOfUse` (URL actuelle: `/politiques/termes-conditions`)
 
 ---
 

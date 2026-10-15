@@ -1,18 +1,20 @@
 ---
 description: Workflow pour intégrer les photos du dossier "Photos à ajouter-last-modifs" dans les pages du site
-globs: src/lelever-next/images/**
+globs: src/site/images/**
 alwaysApply: true
 ---
 
 # Photos à ajouter - leleverdupinceau.ca
 
-La plupart des modifications futures partent du dossier `src/lelever-next/images/Photos à ajouter-last-modifs/`.
+La plupart des modifications futures partent du dossier `src/site/images/Photos à ajouter-last-modifs/`.
 
-## Structure
+Les images live du site sont sous `src/site/images/` (`villes/`, `services/`, `sous-services/`, `home/`, etc.). Voir `src/site/images/README.md`.
+
+## Structure (dossier d'arrivée)
 
 Un sous-dossier par page (ex. `Montréal`, `Laval`, `Résidentiel`, `Home page`, `Réparations de plâtre et de gypse`), avec des sous-dossiers par section :
 
-- `Avant-après` : paires avant/après pour `BeforeAfterCarouselSection` (deux fichiers consécutifs = une paire, avant puis après).
+- `Avant-après` : paires avant/après pour `BeforeAfterCarouselSection` (deux fichiers consécutifs = une paire, avant puis après). Une fois intégrées, elles vont dans le `avant-apres/` de la page cible.
 - `header` : image de héros de la page.
 - `photos quartier` : photos de la galerie/section quartier.
 

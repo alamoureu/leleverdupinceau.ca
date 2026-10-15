@@ -1,0 +1,153 @@
+import React, { useState, useEffect } from 'react';
+import {
+  Box,
+  Input,
+  List,
+  ListItem,
+  Text,
+  Heading,
+  Stack,
+  Flex,
+} from '@chakra-ui/react';
+import { db } from '../firebase';
+import { collection, getDocs } from 'firebase/firestore';
+import { AuthService } from './authService';
+import PasswordProtection from './PasswordProtection';
+
+function SoumissionDashboard() {
+  const [soumissions, setSoumissions] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  useEffect(() => {
+    if (AuthService.isAuthenticated(AuthService.ROLES.ADMIN)) {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    const fetchSoumissions = async () => {
+      const querySnapshot = await getDocs(collection(db, 'Soumission'));
+      const soumissionList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      soumissionList.sort((a, b) => {
+        const dateA = a.date?.toDate?.()?.getTime() ?? 0;
+        const dateB = b.date?.toDate?.()?.getTime() ?? 0;
+        return dateB - dateA;
+      });
+      setSoumissions(soumissionList);
+    };
+
+    fetchSoumissions();
+  }, [isAuthenticated]);
+
+  const toSearchableString = (value) => {
+    if (value == null) return '';
+    if (typeof value === 'object' && typeof value.toDate === 'function') {
+      return value.toDate().toISOString();
+    }
+    try {
+      return String(value);
+    } catch {
+      return '';
+    }
+  };
+
+  const filteredSoumissions = soumissions.filter((soumission) =>
+    Object.values(soumission).some((value) =>
+      toSearchableString(value).toLowerCase().includes(searchTerm.toLowerCase())
+    )
+  );
+
+  if (!isAuthenticated) {
+    return (
+      <PasswordProtection
+        role={AuthService.ROLES.ADMIN}
+        onAuthenticated={() => setIsAuthenticated(true)}
+        title='Soumissions'
+        description='Veuillez entrer le mot de passe administrateur.'
+      />
+    );
+  }
+
+  return (
+    <Box p={4}>
+      <Heading mb={4} textAlign='center'>
+        Soumission Dashboard
+      </Heading>
+      <Input
+        placeholder='Rechercher une soumission'
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        mb={4}
+      />
+      <List spacing={3}>
+        {filteredSoumissions.map((soumission, index) => (
+          <ListItem
+            key={soumission.id ?? `soumission-${index}`}
+            p={4}
+            borderWidth='1px'
+            borderRadius='md'
+            bg='gray.50'
+            shadow='sm'
+          >
+            <Flex justifyContent='space-between' alignItems='center'>
+              <Stack spacing={2}>
+                <Text>
+                  <strong>Name</strong> <br />
+                  {soumission.name}
+                </Text>
+                <Text>
+                  <strong>Address</strong> <br />
+                  <a
+                    href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+                      soumission.address
+                    )}`}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    {soumission.address}
+                  </a>
+                </Text>
+                <Text>
+                  <strong>Email</strong> <br />
+                  <a href={`mailto:${soumission.email}`}>{soumission.email}</a>
+                </Text>
+                <Text>
+                  <strong>Phone</strong> <br />
+                  <a href={`tel:${soumission.tel}`}>{soumission.tel}</a>
+                </Text>
+                <Text size='sm' color='brand.600'>
+                  <strong>Date</strong> <br />
+                  {soumission.date?.toDate?.()
+                    ? `${soumission.date.toDate().toLocaleDateString('en-US', { day: 'numeric', month: 'short' })}, ${soumission.date.toDate().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })}`
+                    : '-'}
+                </Text>
+                <Text size='sm' color='brand.600'>
+                  <strong>Type de peinture</strong> <br />
+                  {soumission.typePeinture}
+                </Text>
+                <Text>
+                  <strong>Besoins</strong> <br />
+                  {Array.isArray(soumission.besoinPeinture)
+                    ? soumission.besoinPeinture.join(', ')
+                    : soumission.besoinPeinture ?? '-'}
+                </Text>
+                <Text>
+                  <strong>Description</strong> {soumission.message}
+                </Text>
+              </Stack>
+            </Flex>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+}
+
+SoumissionDashboard.displayName = 'SoumissionDashboard';
+export default SoumissionDashboard;

@@ -11,7 +11,7 @@
 - [ ] Le nouveau formulaire (EmbeddedSubmissionForm ou équivalent) doit être intégré à `ContactPage.jsx`
 - [ ] Vérifier que `/soumission` redirige vers `/contact` (redirect 301 dans `App.jsx`)
 - [x] Unifier sous `/contact` (`SoumissionPage` supprimée, `/soumission` → `/contact`)
-- **Fichiers concernés:** `src/lelever-next/pages/ContactPage.jsx`, `src/App.jsx`
+- **Fichiers concernés:** `src/site/pages/ContactPage.jsx`, `src/App.jsx`
 
 ### 2. Renommer les routes secteurs (redirects 301)
 - [ ] Changer la route `/secteurs-desservis` → `/secteurs` dans `App.jsx`
@@ -36,10 +36,10 @@
 - [ ] Format: `"Peintre professionnel [ville], Le Lever du Pinceau, [tâche] complété"`
 - [ ] Auditer toutes les images dans les composants existants (pas seulement les nouvelles)
 - [ ] Composants à auditer prioritairement:
-  - `src/lelever-next/home-page/` (toutes les sections avec images)
-  - `src/lelever-next/pages/` (toutes les pages)
-  - `src/lelever-next/services-pages/` (pages de services)
-  - `src/lelever-next/city-pages/` (pages de villes)
+  - `src/site/home-page/` (toutes les sections avec images)
+  - `src/site/pages/` (toutes les pages)
+  - `src/site/services-pages/` (pages de services)
+  - `src/site/city-pages/` (pages de villes)
 
 ### 5. Supprimer les routes dynamiques obsolètes dans App.jsx
 - [x] Supprimer le pattern `SmartServiceRouter` (service × sous-service × ville)
@@ -50,13 +50,13 @@
 - **Fichier concerné:** `src/App.jsx`
 
 ### 6. Créer la page `/secteurs/rive-sud`
-- [ ] Nouveau composant `RiveSudCityPage.jsx` dans `src/lelever-next/pages/`
+- [ ] Nouveau composant `RiveSudCityPage.jsx` dans `src/site/pages/`
 - [ ] Angle: HUB RÉGIONAL (Longueuil + Brossard + St-Lambert + St-Bruno)
 - [ ] Liens internes: `/secteurs/longueuil`, 5 services, `/contact`
 - [ ] Ajouter la route dans `App.jsx`
 
 ### 7. Créer la page `/secteurs/gatineau`
-- [ ] Nouveau composant `GatineauCityPage.jsx` dans `src/lelever-next/pages/`
+- [ ] Nouveau composant `GatineauCityPage.jsx` dans `src/site/pages/`
 - [ ] Angle: Franchise Gatineau (Hull, Aylmer, Buckingham)
 - [ ] Liens internes: 5 services, `/contact`
 - [ ] Ajouter la route dans `App.jsx`
@@ -119,7 +119,7 @@
 - [ ] Mettre à jour les `lastmod`
 - [x] Vérifier avec `npm run sitemap:generate` + `public/sitemap.xml`
 
-### 16. Mettre à jour `routes-manifest.json`
+### 16. Mettre à jour `docs/routes-manifest.json`
 - [ ] Synchroniser avec le nouveau App.jsx
 
 ### 17. Vérifier les `<Navigate>` existants dans App.jsx
@@ -133,9 +133,9 @@
 ## CONVENTIONS À RESPECTER
 
 ### Nommage des composants de pages
-- Pages piliers: `[Nom]Page.jsx` dans `src/lelever-next/pages/`
-- Pages de quartiers: `[Quartier]Page.jsx` dans `src/lelever-next/pages/` ou `city-pages/`
-- Pages de services: dans `src/lelever-next/services-pages/`
+- Pages piliers: `[Nom]Page.jsx` dans `src/site/pages/`
+- Pages de quartiers: `[Quartier]Page.jsx` dans `src/site/pages/` ou `city-pages/`
+- Pages de services: dans `src/site/services-pages/`
 
 ### Format des titles SEO (dans SEOHead)
 - `[H1] | Le Lever du Pinceau`
@@ -157,7 +157,7 @@
 
 | # | URL cible | État | Composant |
 |---|---|---|---|
-| 1 | `/` | ✅ Existe - à modifier | `NewHomePage` |
+| 1 | `/` | ✅ Existe - à modifier | `HomePage` |
 | 2 | `/peintre-professionnel` | ✅ Existe - à modifier | `PeintreProfessionnelPage` |
 | 3 | `/services` | ✅ Existe - à modifier | `ServicesPage` |
 | 4 | `/secteurs` | 🔄 Existe sous `/secteurs-desservis` - renommer | `SecteursDesservisPage` |
@@ -189,7 +189,7 @@
 | 30 | `/avis-clients` | 🔄 Existe sous `/avis` - renommer | `AvisPage` |
 | 31 | `/contact` | ✅ Existe - ajouter formulaire | `ContactPage` |
 | 32 | `/realisations` | ❌ À créer | - |
-| 33 | `/mentions-legales` | 🔄 Existe sous `/politiques/termes-conditions` | `ThermOfUse` |
+| 33 | `/mentions-legales` | 🔄 Existe sous `/politiques/termes-conditions` | `TermsOfUse` |
 | 34 | `/politique-de-confidentialite` | 🔄 Existe sous `/politiques/confidentialite` | `PrivacyPolicyPage` |
 
 **Légende:** ✅ Existe et OK | 🔄 Existe mais à renommer/modifier | ❌ À créer

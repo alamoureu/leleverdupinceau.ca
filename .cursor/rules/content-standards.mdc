@@ -71,5 +71,5 @@ Réutiliser les composants `TrustBanner`, `CityWhyUsSection`, `BeforeAfterCarous
 ## Composants site-wide
 
 - Avis : toujours `ReviewsSection` (avec `reviewsOverride` au besoin), jamais une grille d'avis maison.
-- FAQ : toujours `FAQSection` (`src/lelever-next/home-page/FAQSection.jsx`, avec `faqsOverride` / `faqs` au besoin). Jamais d'accordion, cartes ou liste FAQ maison. Pas de wrapper one-off autour de `FAQSection`.
+- FAQ : toujours `FAQSection` (`src/site/home-page/FAQSection.jsx`, avec `faqsOverride` / `faqs` au besoin). Jamais d'accordion, cartes ou liste FAQ maison. Pas de wrapper one-off autour de `FAQSection`.
 - Fin de page : chaque page se termine par `FinalCTASection`. Ne jamais recopier un bloc CTA `bg="app.ctaBg"` à la main.

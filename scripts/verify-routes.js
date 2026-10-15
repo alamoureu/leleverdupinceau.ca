@@ -196,10 +196,10 @@ function scanDataFiles() {
     }
   }
 
-  scan(path.join(__dirname, '../src/lelever-next/services-pages'));
-  scan(path.join(__dirname, '../src/lelever-next/city-pages'));
-  scan(path.join(__dirname, '../src/lelever-next/pages'));
-  scan(path.join(__dirname, '../src/lelever-next/blog-posts'));
+  scan(path.join(__dirname, '../src/site/services-pages'));
+  scan(path.join(__dirname, '../src/site/city-pages'));
+  scan(path.join(__dirname, '../src/site/pages'));
+  scan(path.join(__dirname, '../src/site/blog-posts'));
 
   return dataFiles;
 }

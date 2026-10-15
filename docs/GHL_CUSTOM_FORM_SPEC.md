@@ -1,4 +1,4 @@
-# Go High Level – Custom Form Replacement Spec
+# Go High Level - Custom Form Replacement Spec
 
 Use this with ChatGPT (or GHL support) to align a **custom on-site form** with your Go High Level forms so data lands in the same place as the current iframe forms.
 
@@ -52,15 +52,15 @@ Our custom form collects: name, email, phone, address, projectDetails, paintingT
 
 ## 3. Webhook payload (custom form → GHL)
 
-- **Webhook URL (inbound – used by custom form):**  
+- **Webhook URL (inbound - used by custom form):**  
   `https://services.leadconnectorhq.com/hooks/jv3Oww982uHzfUFk9Ize/webhook-trigger/bde68bea-be14-4bf6-88e8-13acd1e05bdb`
 
 - **Method:** POST  
 - **Headers:** `Content-Type: application/json`  
-- **Body (JSON)** – must match GHL "Create Contact" placeholders (`{{contact.name}}`, `{{contact.phone}}`, `{{contact.email}}`, `{{contact.description_du_projet}}`):
+- **Body (JSON)** - must match GHL "Create Contact" placeholders (`{{contact.name}}`, `{{contact.phone}}`, `{{contact.email}}`, `{{contact.description_du_projet}}`):
   - `name` and `first_name` (full name)
   - `phone`, `email`, `address`, `address_1`
-  - `description_du_projet` (project description – same as custom field value)
+  - `description_du_projet` (project description - same as custom field value)
   - `6LFScGe0fXKzH5ZI3x4S` → "Peinture intérieure" or "Peinture extérieure" (localized)
   - `xGRSLO7DGNCfFO4KZn5T` → project description text
   - `formId`, `location_id`, `source`, `submittedAt`
@@ -105,7 +105,7 @@ Our payload sends these at the **top level** of the JSON body: `name`, `first_na
 
 If the confirmation email or internal notification shows empty values for `{{contact.name}}`, `{{contact.phone}}`, `{{contact.email}}`, the email step is not getting data from the webhook. Fix it in GHL as follows.
 
-### Option A – Use webhook payload in the email (recommended)
+### Option A - Use webhook payload in the email (recommended)
 
 **Do not use** `{{contact.name}}` in the email. Use the **Inbound Webhook trigger** merge fields instead, so the email reads straight from the payload we send.
 
@@ -118,7 +118,7 @@ In the **Send Email** (or Send Internal Notification) step, in the merge field p
 - **Trigger** → **Inbound Webhook** → **Body** → **description_de_la_job**
 - **Trigger** → **Inbound Webhook** → **Body** → **service_demand**
 
-If your builder labels it differently, look for: **Webhook**, **Webhook payload**, **Request body**, or **Custom data** – then pick **name**, **phone**, **email**, etc. from that object.
+If your builder labels it differently, look for: **Webhook**, **Webhook payload**, **Request body**, or **Custom data** - then pick **name**, **phone**, **email**, etc. from that object.
 
 **Example:**  
 Subject: `NEW LEAD - [Trigger → Inbound Webhook → Body → name]`  
@@ -129,7 +129,7 @@ Body:
 
 Once these point to the trigger body, the email will no longer be empty.
 
-### Option B – Fix “Create Contact” so `{{contact}}` is filled
+### Option B - Fix “Create Contact” so `{{contact}}` is filled
 
 If you prefer to keep using `{{contact.name}}`, `{{contact.phone}}`, etc., then **Create Contact** must get its values from the webhook, not from an existing contact.
 
@@ -145,7 +145,7 @@ If any field is mapped to “Contact” or “Workflow contact” (the contact b
 ### Quick check
 
 1. Submit the custom form once, then in GHL open the workflow run (or webhook log) and confirm the **trigger body** contains `name`, `phone`, `email` with real values.
-2. If the body is correct but the email is still empty, the email step is not using that body – switch to **Option A** (use trigger body in the email).
+2. If the body is correct but the email is still empty, the email step is not using that body - switch to **Option A** (use trigger body in the email).
 
 ---
 

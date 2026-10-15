@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Audit images under src/lelever-next/images against real imports in src/.
+ * Audit images under src/site/images against real imports in src/.
  * Reports missing imports and unused files on disk.
  */
 
@@ -9,7 +9,7 @@ const path = require('path');
 const { execSync } = require('child_process');
 
 const root = path.join(__dirname, '..');
-const imagesBase = path.join(root, 'src', 'lelever-next', 'images');
+const imagesBase = path.join(root, 'src', 'site', 'images');
 const IMAGE_EXT = /\.(webp|jpe?g|png|gif|svg)$/i;
 
 function collectImageFiles(dir, relPrefix = '') {
@@ -86,7 +86,7 @@ const { referenced, missing } = resolveImports();
 const onDisk = collectImageFiles(imagesBase);
 const unused = onDisk.filter((f) => !referenced.has(f));
 
-console.log('\nImage audit: src/lelever-next/images\n');
+console.log('\nImage audit: src/site/images\n');
 console.log('Imports resolved:', referenced.size);
 console.log('Files on disk:', onDisk.length);
 

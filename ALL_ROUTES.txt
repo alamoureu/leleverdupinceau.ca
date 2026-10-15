@@ -170,10 +170,6 @@
 # /admin/soumissions
 # /admin/emplois
 # /admin/contact
-# /admin/timesheets
-# /admin/employees
-# /admin/employee-details
-# /timesheet
 
 # ========================================
 # ROUTE COUNT

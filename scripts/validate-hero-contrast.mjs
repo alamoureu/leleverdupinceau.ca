@@ -67,7 +67,7 @@ function isLight(c) {
 /** Source-side: invalid whiteAlpha / blackAlpha tokens */
 function scanSourceTokens() {
   const roots = [
-    path.join(__dirname, '..', 'src', 'lelever-next'),
+    path.join(__dirname, '..', 'src', 'site'),
     path.join(__dirname, '..', 'src', 'pages'),
   ];
   const files = [];

@@ -1,13 +1,13 @@
 #!/usr/bin/env node
 /**
- * Compress AND resize website images in place (overwrites originals in src/lelever-next/images).
+ * Compress AND resize website images in place (overwrites originals in src/site/images).
  * Resizing is the main fix for slow loading: images larger than maxDim are scaled down.
  * Requires: npm install --save-dev sharp
  *
  * Usage:
  *   node scripts/compress-images.js              # compress + resize all images
  *   node scripts/compress-images.js --dry-run    # list files that would be processed
- *   node scripts/compress-images.js --max-dim=1080 --include=avant --include=before_after
+ *   node scripts/compress-images.js --max-dim=1080 --include=avant --include=avant-apres
  *
  * Options:
  *   --quality=82     JPEG/WebP quality (default 82)
@@ -26,7 +26,7 @@ const path = require('path');
 const os = require('os');
 
 const projectRoot = path.join(__dirname, '..');
-const imagesBase = path.join(projectRoot, 'src', 'lelever-next', 'images');
+const imagesBase = path.join(projectRoot, 'src', 'site', 'images');
 const imageExtensions = /\.(png|jpg|jpeg|gif|heic|webp)$/i;
 
 function collectAllImageFiles(dir, relPrefix = '') {

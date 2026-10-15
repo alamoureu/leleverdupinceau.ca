@@ -148,13 +148,13 @@ app/
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Peinture intérieure à Montréal – Murs, plafonds, boiseries | Le Lever du Pinceau',
+  title: 'Peinture intérieure à Montréal - Murs, plafonds, boiseries | Le Lever du Pinceau',
   description: 'Service de peinture intérieure professionnel à Montréal. Murs, plafonds, boiseries. RBQ, assurés. Soumission gratuite en 24h.',
   alternates: {
     canonical: 'https://leleverdupinceau.ca/services/peinture-interieure',
   },
   openGraph: {
-    title: 'Peinture intérieure à Montréal – Le Lever du Pinceau',
+    title: 'Peinture intérieure à Montréal - Le Lever du Pinceau',
     description: 'Peinture intérieure professionnelle à Montréal. Murs, plafonds, boiseries. Soumission gratuite en 24h.',
     url: 'https://leleverdupinceau.ca/services/peinture-interieure',
     siteName: 'Le Lever du Pinceau',
@@ -190,7 +190,7 @@ export default function PeintureInterieurePage() {
 ```
 
 Exemple:
-- ✅ `Peinture intérieure à Montréal – Murs, plafonds, boiseries | Le Lever du Pinceau`
+- ✅ `Peinture intérieure à Montréal - Murs, plafonds, boiseries | Le Lever du Pinceau`
 - ❌ `Le Lever du Pinceau - Peinture intérieure` (mauvais ordre)
 
 ### `<Image>` Next.js - format obligatoire

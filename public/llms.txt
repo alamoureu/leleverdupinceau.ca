@@ -2,7 +2,7 @@
 
 > Entreprise de peinture résidentielle et commerciale à Montréal, Laval, Longueuil et la Rive-Sud. Licence RBQ 5864-1481-01. Devis gratuit en ligne.
 
-Site web public en français. Contenu marketing et informationnel sur les services de peinture, les secteurs desservis et les guides pratiques. Ne pas indexer les zones admin, timesheet ni les pages publicitaires payantes listées dans robots.txt.
+Site web public en français. Contenu marketing et informationnel sur les services de peinture, les secteurs desservis et les guides pratiques. Ne pas indexer les zones admin ni les pages publicitaires payantes listées dans robots.txt.
 
 ## Pages principales
 

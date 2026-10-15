@@ -9,7 +9,7 @@ Objectif de chaque changement : laisser le code **plus propre et plus lean** qu'
 
 ## Une seule source de vérité
 
-Tout chiffre ou fait d'entreprise affiché à plusieurs endroits (nb d'avis, note Google, RBQ, téléphone, adresse) vit dans `src/lelever-next/constants/` ou `seo/config.js`. Les pages, traductions, meta descriptions et JSON-LD l'importent.
+Tout chiffre ou fait d'entreprise affiché à plusieurs endroits (nb d'avis, note Google, RBQ, téléphone, adresse) vit dans `src/site/constants/` ou `seo/config.js`. Les pages, traductions, meta descriptions et JSON-LD l'importent.
 
 ```jsx
 // ❌ INTERDIT : chiffre recopié dans une page
@@ -36,6 +36,23 @@ Avant d'ajouter une valeur en dur, chercher (`rg`) si elle existe déjà ailleur
 - Pas de breakpoints Chakra redondants : `{ base: 2, sm: 2, md: 3 }` devient `{ base: 2, md: 3 }`.
 - Pas de commentaires qui répètent le code ; commenter seulement une contrainte non évidente.
 - Pas de nouveaux fichiers one-off quand un fichier existant peut accueillir le changement.
+
+## Pas de dossier pour un seul composant
+
+Un composant = un fichier plat dans le dossier partagé déjà prévu (`home-page/`, `components/`, `city-pages/`, etc.). Ne jamais créer un sous-dossier qui ne contient qu'un seul fichier composant.
+
+```text
+# ❌ INTERDIT
+src/site/components/HeroBreadcrumb/HeroBreadcrumb.jsx
+src/site/components/HeroBreadcrumb/index.jsx
+src/site/blog-posts/components/BlogPostContent.jsx   # dossier components avec 1 seul fichier
+
+# ✅ CORRECT
+src/site/components/HeroBreadcrumb.jsx
+src/site/blog-posts/BlogPostContent.jsx
+```
+
+Créer un sous-dossier `components/` seulement s'il regroupe **plusieurs** fichiers liés. Sinon, placer le fichier au niveau du domaine parent.
 
 ## Vérifier
 
