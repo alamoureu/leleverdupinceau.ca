@@ -73,16 +73,33 @@ function splitCaption(description) {
 /** Paires déjà sur l'accueil (ordre conservé). IDs avis déjà couverts pour éviter les doublons. */
 const CURATED_AVIS_IDS = new Set(['0855', '0861', '0842']);
 
-/** Dedupes by image URL: neither before nor after may repeat. */
-function dedupeBeforeAfterPairs(pairs) {
+/**
+ * Dedupes by image URL: neither before nor after may repeat in the same list.
+ * Exported for tests / build checks. Callers must still avoid defining dupes.
+ */
+export function dedupeBeforeAfterPairs(pairs) {
   const seen = new Set();
-  return pairs.filter((pair) => {
-    if (!pair?.before || !pair?.after) return false;
-    if (seen.has(pair.before) || seen.has(pair.after)) return false;
+  const out = [];
+  let dropped = 0;
+  for (const pair of pairs) {
+    if (!pair?.before || !pair?.after) {
+      dropped += 1;
+      continue;
+    }
+    if (seen.has(pair.before) || seen.has(pair.after)) {
+      dropped += 1;
+      continue;
+    }
     seen.add(pair.before);
     seen.add(pair.after);
-    return true;
-  });
+    out.push(pair);
+  }
+  if (dropped > 0 && typeof console !== 'undefined') {
+    console.warn(
+      `[BeforeAfter] dropped ${dropped} pair(s) with missing or duplicate images`,
+    );
+  }
+  return out;
 }
 
 const CURATED_PAIRS = [
@@ -92,7 +109,7 @@ const CURATED_PAIRS = [
   [img5975, img5976, { fr: 'Cuisine - armoires peintes en blanc', en: 'Kitchen - cabinets painted white' }],
   [img5977, img5978, { fr: 'Espace industriel - plafond steel deck et murs peints', en: 'Industrial space - steel deck ceiling and walls painted' }],
   [img5984, img5982, { fr: 'Maison - murs rafraîchis (protection et peinture)', en: 'House - walls refreshed (protection and painting)' }],
-  [img7924, img7922, { fr: 'Salon - peinture murale (avant / après)', en: 'Living room - wall painting (before / after)' }],
+  [img7924, img7922, { fr: 'Salon - peinture murale', en: 'Living room - wall painting' }],
   [img7975, img7974, { fr: 'Escalier extérieur - décapage et peinture', en: 'Outdoor staircase - stripping and painting' }],
   [img7990, img7988, { fr: 'Sous-sol - dégâts d\'eau et rafraîchissement', en: 'Basement - water damage and refresh' }],
   [img7992, img7994, { fr: 'Cuisine - réparation et finition', en: 'Kitchen - repair and finish' }],
@@ -145,7 +162,7 @@ export function buildDefaultImages(isFr) {
  */
 export function buildLandingPagePairs(isFr) {
   const pairs = [
-    { before: img7924, after: img7922, fr: 'Salon - peinture murale (avant / après)', en: 'Living room - wall painting (before / after)' },
+    { before: img7924, after: img7922, fr: 'Salon - peinture murale', en: 'Living room - wall painting' },
     { before: img7975, after: img7974, fr: 'Escalier extérieur - décapage et peinture', en: 'Outdoor staircase - stripping and painting' },
     { before: img7990, after: img7988, fr: 'Sous-sol - dégâts d\'eau et rafraîchissement', en: 'Basement - water damage and refresh' },
     { before: imgStaircaseBefore, after: imgStaircaseAfter, fr: 'Cage d\'escalier - réparation légère et peinture', en: 'Staircase - light repair and painting' },
@@ -168,6 +185,12 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
     : 'Before/after visuals to add for this page only, without reusing a photo already shown on another service.';
   const caption = splitCaption(pair.description);
   const imgLoading = priority ? 'eager' : 'lazy';
+  const beforeAlt = caption.title
+    ? `${t.beforeAfterAltBefore} - ${caption.title}`
+    : t.beforeAfterAltBefore;
+  const afterAlt = caption.title
+    ? `${t.beforeAfterAltAfter} - ${caption.title}`
+    : t.beforeAfterAltAfter;
 
   return (
     <Box
@@ -192,7 +215,7 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
             <Box position="relative" w="100%">
               <img
                 src={pair.before}
-                alt={t.beforeAfterAltBefore}
+                alt={beforeAlt}
                 width={1200}
                 height={800}
                 loading={imgLoading}
@@ -211,6 +234,7 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
                 fontSize={{ base: 'xs', md: 'sm' }}
                 fontWeight="bold"
                 boxShadow="sm"
+                aria-hidden="true"
               >
                 {t.beforeAfterLabelBefore}
               </Box>
@@ -222,7 +246,7 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
             >
               <img
                 src={pair.after}
-                alt={t.beforeAfterAltAfter}
+                alt={afterAlt}
                 width={1200}
                 height={800}
                 loading={imgLoading}
@@ -241,6 +265,7 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
                 fontSize={{ base: 'xs', md: 'sm' }}
                 fontWeight="bold"
                 boxShadow="sm"
+                aria-hidden="true"
               >
                 {t.beforeAfterLabelAfter}
               </Box>
@@ -400,7 +425,6 @@ export default function BeforeAfterCarouselSection({
               axis="horizontal"
               autoScroll
               speed={0.35}
-              loopMode="duplicate"
               fadeFrom={sectionBg}
               w="100%"
               maxW="100%"
@@ -420,20 +444,11 @@ export default function BeforeAfterCarouselSection({
               >
                 {items.map((pair, i) => (
                   <PairSlide
-                    key={`ba-a-${i}-${pair.before}`}
+                    key={`ba-${i}-${pair.before}`}
                     pair={pair}
                     isFr={isFr}
                     t={t}
-                    priority={i < 3}
-                  />
-                ))}
-                {items.map((pair, i) => (
-                  <PairSlide
-                    key={`ba-b-${i}-${pair.before}`}
-                    pair={pair}
-                    isFr={isFr}
-                    t={t}
-                    priority={false}
+                    priority={i < 6}
                   />
                 ))}
               </Flex>

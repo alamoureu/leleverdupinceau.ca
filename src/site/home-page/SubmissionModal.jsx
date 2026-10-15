@@ -37,7 +37,12 @@ export default function SubmissionModal({ isOpen, onClose }) {
       blockScrollOnMount
     >
       <ModalOverlay />
-      <ModalContent maxH="90vh" display="flex" flexDirection="column">
+      <ModalContent
+        maxH={{ base: '100dvh', md: '98vh' }}
+        my={{ base: 2, md: 3 }}
+        display="flex"
+        flexDirection="column"
+      >
         {!isSuccess && (
           <ModalHeader
             id="submission-modal-title"
@@ -67,10 +72,8 @@ export default function SubmissionModal({ isOpen, onClose }) {
         )}
         <ModalCloseButton />
         <ModalBody
-          overflowY={isSuccess ? 'hidden' : 'auto'}
-          overflowX="hidden"
+          overflow="visible"
           flex="1"
-          minH={0}
           px={0}
           pt={0}
           pb={0}

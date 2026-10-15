@@ -1,0 +1,27 @@
+# Avant/après - zéro doublon
+
+## Interdit : cloner la liste pour le carrousel
+
+Ne **jamais** rendre `items` deux fois dans `BeforeAfterCarouselSection` (ou un `FadedScroller` similaire) pour un « infinite loop ». Ça affiche chaque projet deux fois (ex. Cage d'escalier ×2).
+
+```jsx
+// ❌ INTERDIT
+{items.map(...)}
+{items.map(...)}
+loopMode="duplicate"
+
+// ✅ CORRECT - une seule liste ; le scroll repart au début
+{items.map(...)}
+```
+
+`loopMode="duplicate"` a été retiré de `FadedScroller` / `useAutoScroll` volontairement.
+
+## Une image = une fois par liste
+
+Dans une même liste de paires (`images`, `beforeAfterPairs`, `CURATED_PAIRS`, landing pairs), ni `before` ni `after` ne peut réapparaître.
+
+Le runtime appelle `dedupeBeforeAfterPairs` en filet de sécurité. Le build exécute `npm run check:before-after` (`scripts/check-before-after-dupes.mjs`) et **échoue** si un doublon est réintroduit.
+
+## Labels
+
+Badges `AVANT` / `APRÈS` : `aria-hidden`. L'alt décrit la photo (`Avant - Cage d'escalier`), pas seulement « Avant », pour éviter « AvantAVANT » si l'image charge mal.

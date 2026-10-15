@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { Outlet, Link as RouterLink, useLocation } from 'react-router-dom';
 import WebsiteNavBar from '../navigation/WebsiteNavBar';
+import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
 import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
@@ -50,6 +51,7 @@ export default function WebsiteLayout() {
           flex="1"
         >
           <WebsiteNavBar isNewLanding={isLocaleLanding} />
+          {isLocaleLanding && <FloatingLanguageToggle />}
 
           <Stack
             as="main"

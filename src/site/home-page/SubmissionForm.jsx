@@ -277,9 +277,7 @@ export default function SubmissionForm({
       >
         <Box
           flex={isModal ? '1' : undefined}
-          minH={isModal ? 0 : undefined}
-          overflowY={isModal ? 'auto' : 'visible'}
-          overscrollBehavior="contain"
+          overflow="visible"
           w="100%"
           pt={3}
           px={isModal ? 5 : 0}

@@ -119,7 +119,7 @@ export const MobileDrawer = () => {
         onClick={onToggle}
         display={{
           base: 'inline-flex',
-          lg: 'none',
+          xl: 'none',
         }}
         variant="ghost"
         color="white"

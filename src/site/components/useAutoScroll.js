@@ -2,9 +2,8 @@ import { useEffect } from 'react';
 
 /**
  * Continuous auto-scroll (horizontal or vertical).
- * loopMode:
- * - 'restart' (default): when reaching the end, jumps back to the start
- * - 'duplicate': seamless loop; content must be rendered twice, resets at scrollSize / 2
+ * When reaching the end, jumps back to the start.
+ * Never requires the item list to be rendered twice (that caused visible doublons).
  * Pauses on hover/focus/touch/wheel and when off-screen.
  * Resumes after the gesture settles (debounced), unless still hovered/focused.
  * Respects reduced motion.
@@ -16,7 +15,6 @@ export default function useAutoScroll(
     enabled = true,
     resumeDelay = 1400,
     axis = 'horizontal',
-    loopMode = 'restart',
   } = {},
 ) {
   useEffect(() => {
@@ -64,20 +62,6 @@ export default function useAutoScroll(
     };
 
     const wrapLoop = () => {
-      if (loopMode === 'duplicate') {
-        if (isVertical) {
-          const loopAt = el.scrollHeight / 2;
-          if (loopAt > 0 && el.scrollTop >= loopAt) {
-            el.scrollTop -= loopAt;
-          }
-        } else {
-          const loopAt = el.scrollWidth / 2;
-          if (loopAt > 0 && el.scrollLeft >= loopAt) {
-            el.scrollLeft -= loopAt;
-          }
-        }
-        return;
-      }
       if (isVertical) {
         const max = el.scrollHeight - el.clientHeight;
         if (max > 4 && el.scrollTop >= max - 1) {
@@ -113,7 +97,6 @@ export default function useAutoScroll(
 
     const onPointerLeave = () => {
       hoverPaused = false;
-      // Keep paused through the resume delay so continuation isn't abrupt.
       interactionPaused = true;
       scheduleResume();
     };
@@ -138,8 +121,6 @@ export default function useAutoScroll(
       scheduleResume();
     };
 
-    // Trackpad/mouse wheel: stop for the gesture, then continue once it settles
-    // (still deferred if the pointer remains over the scroller).
     const onWheel = () => {
       pauseInteraction();
     };
@@ -174,5 +155,5 @@ export default function useAutoScroll(
       el.removeEventListener('focusin', onFocusIn);
       el.removeEventListener('focusout', onFocusOut);
     };
-  }, [scrollerRef, speed, enabled, resumeDelay, axis, loopMode]);
+  }, [scrollerRef, speed, enabled, resumeDelay, axis]);
 }

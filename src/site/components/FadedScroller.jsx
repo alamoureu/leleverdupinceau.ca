@@ -36,8 +36,8 @@ function buildEdgeMask(isVertical, showStart, showEnd, size) {
  * Edge fades only appear when content is clipped under that edge, so on
  * mobile the first card stays crisp until it actually scrolls under the fade.
  *
- * loopMode 'duplicate' needs the item list rendered twice for a seamless loop.
- * Default loopMode 'restart' jumps back to the start (no duplicated cards).
+ * Auto-scroll restarts at the start when it reaches the end. Never render the
+ * item list twice for looping - that shows every card as a visible doublon.
  *
  * @example
  * <FadedScroller axis="horizontal" autoScroll speed={0.35} fadeFrom="white">
@@ -50,10 +50,11 @@ export default function FadedScroller({
   autoScroll = false,
   speed = 0.45,
   resumeDelay = 1400,
-  loopMode = 'restart',
   fadeSize = DEFAULT_FADE_SIZE,
   // Kept for call-site compat; masks use alpha, not a surface color.
   fadeFrom: _fadeFrom = 'white',
+  // Discarded: restart-only scroll; must not reach the DOM via ...wrapperProps.
+  loopMode: _loopMode,
   hideScrollbar = true,
   scrollerProps,
   ...wrapperProps
@@ -70,7 +71,6 @@ export default function FadedScroller({
     speed,
     resumeDelay,
     axis,
-    loopMode,
   });
 
   useEffect(() => {

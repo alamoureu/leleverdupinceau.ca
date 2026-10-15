@@ -207,7 +207,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             </Box>
 
             <Spacer
-              display={isNewLanding ? 'block' : { base: 'none', lg: 'block' }}
+              display={isNewLanding ? 'block' : { base: 'none', xl: 'block' }}
             />
 
             {isNewLanding && (
@@ -229,26 +229,27 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     (438) 868-0772
                   </Text>
                 </a>
-                <LanguageToggle variant="nav" />
               </HStack>
             )}
 
             <Spacer
-              display={{ base: 'none', lg: isNewLanding ? 'none' : 'block' }}
+              display={{ base: 'none', xl: isNewLanding ? 'none' : 'block' }}
             />
 
             <ButtonGroup
-              size={{ base: 'sm', sm: 'md', lg: 'sm', xl: 'md' }}
+              size="md"
               variant="text.accent"
-              spacing={{ base: '2', lg: '1.5', xl: '2' }}
-              display={{ base: 'none', lg: isNewLanding ? 'none' : 'flex' }}
+              spacing={2}
+              display={{ base: 'none', xl: isNewLanding ? 'none' : 'flex' }}
+              flexShrink={0}
             >
               <ServicesPopover />
               <Button
                 onClick={() => navigate('/secteurs')}
                 textStyle="nav"
-                px={{ base: 3, lg: 3, xl: 3 }}
+                px={3}
                 color="white"
+                whiteSpace="nowrap"
                 _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr' ? 'Secteurs desservis' : 'Service Areas'}
@@ -256,8 +257,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               <Button
                 onClick={() => navigate('/peintre-professionnel')}
                 textStyle="nav"
-                px={{ base: 3, lg: 3, xl: 3 }}
+                px={3}
                 color="white"
+                whiteSpace="nowrap"
                 _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr'
@@ -267,8 +269,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               <Button
                 onClick={() => navigate('/avis-clients')}
                 textStyle="nav"
-                px={{ base: 3, lg: 3, xl: 3 }}
+                px={3}
                 color="white"
+                whiteSpace="nowrap"
                 _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr' ? 'Avis' : 'Reviews'}
@@ -276,8 +279,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               <Button
                 onClick={() => navigate('/blog')}
                 textStyle="nav"
-                px={{ base: 3, lg: 3, xl: 3 }}
+                px={3}
                 color="white"
+                whiteSpace="nowrap"
                 _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
               >
                 {currentLang === 'fr' ? 'Blog' : 'Blog'}
@@ -287,11 +291,12 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                   onClick={() => navigate('/contact')}
                   textStyle="nav"
                   h="auto"
-                  px={{ base: 6, xl: 8 }}
-                  py={{ base: 3, xl: 3.5 }}
+                  px={8}
+                  py={3.5}
                   variant="cta"
                   borderRadius="full"
                   fontWeight="bold"
+                  whiteSpace="nowrap"
                 >
                   Contact
                 </Button>
@@ -301,7 +306,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
             <Box
               display={{
                 base: isNewLanding ? 'none' : 'flex',
-                lg: 'none',
+                xl: 'none',
               }}
               alignItems="center"
               flexShrink={0}

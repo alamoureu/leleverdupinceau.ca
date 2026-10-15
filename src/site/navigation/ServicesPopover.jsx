@@ -64,8 +64,9 @@ export const ServicesPopover = () => {
         <Button
           rightIcon={<PopoverIcon isOpen={isOpen} />}
           textStyle="nav"
-          px={{ base: 3, lg: 3, xl: 3 }}
+          px={3}
           color="white"
+          whiteSpace="nowrap"
           _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
         >
           {currentLang === 'fr' ? 'Services' : 'Services'}
