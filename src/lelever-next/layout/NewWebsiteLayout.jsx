@@ -16,20 +16,19 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons';
 import { Outlet, Link as RouterLink, useLocation } from 'react-router-dom';
 import WebsiteNavBar from '../navigation/WebsiteNavBar';
-import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
 import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
 import { COMPANY_EMAIL } from '../constants/company';
 import whiteLogo from '../images/whitelogo.webp';
+import { HEADER_OFFSET } from '../navigation/navBarSizes';
 export default function NewWebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
   const location = useLocation();
   const isLocaleLanding =
     location.pathname === '/fr/peintre-montreal' ||
-    location.pathname === '/en/peintre-montreal' ||
     location.pathname === '/en/painter-montreal';
 
   return (
@@ -62,7 +61,7 @@ export default function NewWebsiteLayout() {
             minW={0}
             tabIndex={-1}
             flex="1"
-            pt={isLocaleLanding ? 0 : { base: '120px', sm: '122px', md: '112px' }}
+            pt={isLocaleLanding ? 0 : HEADER_OFFSET}
             mt={0}
           >
             <Outlet />
@@ -388,7 +387,6 @@ export default function NewWebsiteLayout() {
               </Box>
             </Box>
           )}
-          <FloatingLanguageToggle />
         </Flex>
       </Box>
     </Fragment>

@@ -17,7 +17,7 @@ const os = require('os');
 
 const projectRoot = path.join(__dirname, '..');
 const imagesBase = path.join(projectRoot, 'src', 'lelever-next', 'images');
-const sourceExtRe = /\.(png|jpe?g|gif)$/i;
+const sourceExtRe = /\.(png|jpe?g|gif|heic)$/i;
 const skipDirs = new Set(['node_modules', '.git']);
 
 function parseArgs() {
@@ -101,9 +101,9 @@ function updateReferences(convertedBasenames) {
   let replacements = 0;
   // Match quoted paths; allow apostrophes inside double/backtick quotes.
   const replaceRes = [
-    /"((?:\\.|[^"\\])*?\.(?:png|jpe?g|gif))"/gi,
-    /'((?:\\.|[^'\\])*?\.(?:png|jpe?g|gif))'/gi,
-    /`((?:\\.|[^`\\])*?\.(?:png|jpe?g|gif))`/gi,
+    /"((?:\\.|[^"\\])*?\.(?:png|jpe?g|gif|heic))"/gi,
+    /'((?:\\.|[^'\\])*?\.(?:png|jpe?g|gif|heic))'/gi,
+    /`((?:\\.|[^`\\])*?\.(?:png|jpe?g|gif|heic))`/gi,
   ];
 
   for (const file of files) {

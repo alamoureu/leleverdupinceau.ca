@@ -307,7 +307,6 @@ export default function PeintureExterieurePage() {
           pageContext="Peinture extérieure"
           imageBackground={heroImg}
           imageAlt="Peinture extérieure à Montréal - peintre du Lever du Pinceau qui prépare une corniche"
-          overlayBg="rgba(0, 0, 0, 0.50)"
           title="Peinture extérieure à Montréal"
           subtitle="Façades, balcons, escaliers, corniches et revêtements"
           description="Des surfaces peintes pour résister au climat montréalais."

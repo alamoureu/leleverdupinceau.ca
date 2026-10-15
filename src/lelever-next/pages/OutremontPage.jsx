@@ -39,17 +39,12 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
-import InternalLinksSection from '../components/InternalLinksSection';
+import ResourcesSection from '../home-page/ResourcesSection';
 import { RBQ_LICENSE } from '../constants/company';
 
 import heroImg from '../images/3-ville/Montréal/outremont/header.webp';
-import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
-import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
 import prisePossessionImg from '../images/L3 Sous services/Photo page appartement/header.webp';
 import remiseEnEtatImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.webp';
-import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
-import interieureImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.webp';
-import exterieureImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
 import cuisineAvant from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.webp';
 import cuisineApres from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.webp';
 import ouAdd1b from '../images/3-ville/Montréal/avant-apres/IMG_0818.webp';
@@ -66,6 +61,13 @@ import ouAdd6b from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
 import ouAdd6a from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
 import ouAdd7b from '../images/3-ville/Montréal/avant-apres/IMG_1405.webp';
 import ouAdd7a from '../images/3-ville/Montréal/avant-apres/IMG_1406.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const maisonImg = thumbnailForRoute('/services/peinture-residentielle');
+const condoImg = thumbnailForRoute('/services/peinture-residentielle/condo');
+const commercialImg = thumbnailForRoute('/services/peinture-commerciale');
+const interieureImg = thumbnailForRoute('/services/peinture-interieure');
+const exterieureImg = thumbnailForRoute('/services/peinture-exterieure');
 
 const CAROUSEL_IMAGES = [
   { before: cuisineAvant, after: cuisineApres, description: 'Cuisine - murs repeints sous les moulures d\'origine' },
@@ -186,39 +188,6 @@ const SERVICES = [
     to: '/services/peinture-residentielle/condo',
     cta: 'Voir la page',
     image: condoImg,
-  },
-];
-
-const INTERNAL_LINKS = [
-  {
-    title: 'Peinture intérieure à Montréal',
-    description: 'Intérieur résidentiel et commercial dans la métropole.',
-    to: '/services/peinture-interieure',
-  },
-  {
-    title: 'Peinture extérieure à Montréal',
-    description: 'Façades, boiseries, balcons et surfaces exposées.',
-    to: '/services/peinture-exterieure',
-  },
-  {
-    title: 'Peinture résidentielle',
-    description: 'Maisons, condos, appartements - toutes les formules.',
-    to: '/services/peinture-residentielle',
-  },
-  {
-    title: 'Peinture condo',
-    description: 'Coordination, accès et finitions en copropriété.',
-    to: '/services/peinture-residentielle/condo',
-  },
-  {
-    title: 'Pourquoi choisir un peintre professionnel ?',
-    description: 'Licence RBQ, assurance, expertise - ce qui fait la différence.',
-    to: '/peintre-professionnel',
-  },
-  {
-    title: 'Voir nos réalisations',
-    description: 'Avant / après de projets réels pour juger la qualité.',
-    to: '/realisations',
   },
 ];
 
@@ -496,10 +465,9 @@ export default function OutremontPage() {
           maxW="900px"
          emitSchema={false} />
 
-        <InternalLinksSection
-          title="Explorer les bons services selon votre projet"
-          links={INTERNAL_LINKS}
-          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
+        <ResourcesSection
+          title="Conseils avant votre projet de peinture à Outremont"
+          sectionBg="gray.50"
         />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}

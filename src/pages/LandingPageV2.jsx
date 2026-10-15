@@ -21,6 +21,7 @@ import BeforeAfterCarouselSection, { buildLandingPagePairs } from '../lelever-ne
 import ContactFormSection from '../lelever-next/home-page/ContactFormSection';
 import MethodSection from '../lelever-next/home-page/MethodSection';
 import GuaranteeSection from '../lelever-next/home-page/GuaranteeSection';
+import ServiceGuaranteeSection from '../lelever-next/home-page/ServiceGuaranteeSection';
 import FAQSection from '../lelever-next/home-page/FAQSection';
 import FinalCTASection from '../lelever-next/home-page/FinalCTASection';
 import SubmissionModal from '../lelever-next/home-page/SubmissionModal';
@@ -99,6 +100,9 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
     })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
   }, [location.pathname]);
 
+  const landingPath =
+    lang === 'en' ? '/en/painter-montreal' : '/fr/peintre-montreal';
+
   return (
     <Fragment>
       <Helmet>
@@ -108,10 +112,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         <meta name="description" content={meta.description} />
         <meta name="keywords" content={meta.keywords} />
         {indexable && (
-          <link
-            rel="canonical"
-            href={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
-          />
+          <link rel="canonical" href={`${CANONICAL_BASE}${landingPath}`} />
         )}
         {indexable && <meta property="og:type" content="website" />}
         {indexable && <meta property="og:title" content={meta.title} />}
@@ -119,10 +120,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           <meta property="og:description" content={meta.description} />
         )}
         {indexable && (
-          <meta
-            property="og:url"
-            content={`${CANONICAL_BASE}/${lang}/peintre-montreal`}
-          />
+          <meta property="og:url" content={`${CANONICAL_BASE}${landingPath}`} />
         )}
         {indexable && (
           <meta
@@ -183,9 +181,8 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           sectionBg="app.ctaBg"
         />
 
-        {/* 7. Avis clients */}
+        {/* 7. Avis clients - même carrousel que le site principal */}
         <ReviewsSection
-          hideButton
           sectionBg="white"
           sectionPaddingTop={LANDING_SECTION_PY}
           sectionPaddingBottom={LANDING_SECTION_PY}
@@ -199,10 +196,13 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
           sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        {/* 9. FAQ */}
+        {/* 9. Satisfaction 100% - même section que les pages services */}
+        <ServiceGuaranteeSection onCtaClick={onOpen} />
+
+        {/* 10. FAQ */}
         <FAQSection faqsOverride={landingFaqs} sectionPy={LANDING_SECTION_PY} />
 
-        {/* 9. Final CTA */}
+        {/* 11. Final CTA */}
         <FinalCTASection
           onSubmissionOpen={onOpen}
           sectionPy={LANDING_SECTION_PY}

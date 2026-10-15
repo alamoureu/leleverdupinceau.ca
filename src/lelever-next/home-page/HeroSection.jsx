@@ -22,6 +22,10 @@ import {
   PAGE_HERO_TITLES_SPACING,
 } from '../constants/sectionSpacing';
 
+/** Fade bleu marque partagé par tous les héros photo. */
+export const HERO_OVERLAY_BG =
+  'linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.62) 42%, rgba(18, 38, 74, 0.38) 100%)';
+
 /**
  * Photo hero partagé (accueil, villes, services, landings).
  * Inclut TrustBanner par défaut pour un espacement mobile cohérent partout.
@@ -55,8 +59,8 @@ export default function HeroSection({
   imageBackground,
   imageAlt,
   imagePosition = 'center',
-  /** Overlay on background image (CSS background value). Default: dark translucent. */
-  overlayBg = 'rgba(0, 0, 0, 0.4)',
+  /** Overlay on background image (CSS background value). Default: brand blue fade. */
+  overlayBg = HERO_OVERLAY_BG,
   /** Optional breadcrumb items for HeroBreadcrumb (preferred over children). */
   breadcrumb,
   /** Carte de confiance sous le hero (défaut: oui). */

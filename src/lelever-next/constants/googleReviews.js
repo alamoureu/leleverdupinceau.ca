@@ -2,7 +2,12 @@
  * Source unique pour les avis Google. Modifier ici seulement :
  * badges, sous-titres, meta descriptions et JSON-LD en dépendent.
  * REVIEW_COUNT ne doit jamais dépasser le vrai nombre d'avis Google (JSON-LD).
+ * avatar: photo de profil Google réelle seulement (pas les initiales générées).
  */
+import avatarStephanieCastonguay from '../images/1-page-principale/avis/avatars/stephanie-castonguay.webp';
+import avatarZoeBoudreau from '../images/1-page-principale/avis/avatars/zoe-boudreau.webp';
+import avatarFredericChoiniere from '../images/1-page-principale/avis/avatars/frederic-choiniere.webp';
+
 export const GOOGLE_REVIEW_COUNT = 200;
 export const GOOGLE_RATING = 4.9;
 
@@ -24,14 +29,43 @@ const MONTHS_AGO = (n) =>
     ? { fr: 'Il y a 1 mois', en: 'a month ago' }
     : { fr: `Il y a ${n} mois`, en: `${n} months ago` };
 
-/** Avis Google réels (texte copié de la fiche), du plus récent au plus ancien. */
+/**
+ * Avis Google réels (texte copié de la fiche).
+ * Ordre : photo en premier, puis mélange photo / initiales pour le carrousel.
+ */
 export const GOOGLE_REVIEWS = [
   {
     name: 'Stephanie Castonguay',
+    avatar: avatarStephanieCastonguay,
     time: MONTHS_AGO(2),
     content: {
       fr: "Nous sommes extrêmement satisfaits de notre expérience avec Le Lever du Pinceau. Dès le début, Philippe a été très disponible, à l'écoute et attentif à nos besoins. Notre date de travaux a dû être modifiée à plusieurs reprises et il a fait preuve d'une grande flexibilité. L'équipe de peintres était travaillante, professionnelle et respectueuse des lieux. Le résultat final est exactement à notre goût\u00A0!",
       en: 'We are extremely satisfied with our experience with Le Lever du Pinceau. From the start, Philippe was very available, attentive and listened to our needs. Our work date had to be changed several times and he showed great flexibility. The painting team was hard-working, professional and respectful of our home. The final result is exactly to our taste!',
+    },
+  },
+  {
+    name: 'Mike S',
+    time: MONTHS_AGO(1),
+    content: {
+      fr: "Excellente expérience. Très bons communicateurs. Super facile de travailler avec eux. Ils sont arrivés à l'heure, ont fourni un devis raisonnable, ont travaillé efficacement et ont fait un excellent travail (plâtre et peinture). Je les engagerai sans hésiter à nouveau.",
+      en: 'Excellent experience. Great communicators. Super easy to work with. They came on time, provided a reasonable quote, worked efficiently, and did a great job (plaster and paint). Will definitely hire them again.',
+    },
+  },
+  {
+    name: 'Maureen Beech',
+    time: { fr: 'Il y a 6 jours', en: '6 days ago' },
+    content: {
+      fr: 'Très ravie des résultats\u00A0! Équipe professionnelle et agréable. Projets livrés dans les délais et lieux laissés impeccables.',
+      en: 'Very delighted with the results! Professional and pleasant team. Projects completed on time and the site was left clean and orderly.',
+    },
+  },
+  {
+    name: 'Zoé Boudreau',
+    avatar: avatarZoeBoudreau,
+    time: MONTHS_AGO(1),
+    content: {
+      fr: 'Je suis très ravie du service reçu\u00A0! Équipe compétente, rapide et courtoise. Je recommande chaleureusement\u00A0!',
+      en: 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
     },
   },
   {
@@ -43,11 +77,28 @@ export const GOOGLE_REVIEWS = [
     },
   },
   {
-    name: 'Zoé Boudreau',
+    name: 'Marie Lambert',
     time: MONTHS_AGO(1),
     content: {
-      fr: 'Je suis très ravie du service reçu\u00A0! Équipe compétente, rapide et courtoise. Je recommande chaleureusement\u00A0!',
-      en: 'I am very delighted with the service received! Competent, fast and courteous team. I warmly recommend!',
+      fr: "Nous sommes très heureux de notre expérience avec Le Lever Du Pinceau. Leur travail minutieux et leur grande courtoisie en font une référence pour quiconque recherche une main-d'œuvre fiable et efficace.",
+      en: 'We are very happy with our experience with Le Lever Du Pinceau. Their meticulous work and great courtesy make them a reference for anyone looking for reliable and efficient labor.',
+    },
+  },
+  {
+    name: 'Coralie Beauchamp',
+    time: MONTHS_AGO(1),
+    content: {
+      fr: 'Excellente expérience avec le levé du pinceau\u00A0! Professionnels, respectueux des lieux, honnêtes et travail parfait. Je recommande vivement cette équipe\u00A0!',
+      en: 'Great experience with Le Lever du Pinceau! Professional, respectful of the place, honest and perfect work. I highly recommend this team!',
+    },
+  },
+  {
+    name: 'Frédéric Choinière',
+    avatar: avatarFredericChoiniere,
+    time: MONTHS_AGO(1),
+    content: {
+      fr: "J'ai fait appel à l'équipe pour des toits difficiles d'accès. Ils ont fait un travail minutieux, sécuritaire et à l'écoute\u00A0!",
+      en: 'I retained them for metal roofs difficult to access. They did the work with great care, safety, and listened to our concerns!',
     },
   },
   {
@@ -59,35 +110,11 @@ export const GOOGLE_REVIEWS = [
     },
   },
   {
-    name: 'Marie Lambert',
-    time: MONTHS_AGO(1),
-    content: {
-      fr: "Nous sommes très heureux de notre expérience avec Le Lever Du Pinceau. Leur travail minutieux et leur grande courtoisie en font une référence pour quiconque recherche une main-d'œuvre fiable et efficace.",
-      en: 'We are very happy with our experience with Le Lever Du Pinceau. Their meticulous work and great courtesy make them a reference for anyone looking for reliable and efficient labor.',
-    },
-  },
-  {
     name: 'Chantal Baril',
     time: MONTHS_AGO(2),
     content: {
       fr: "Je suis très ravie des travaux qui ont été effectués à notre résidence. J'ai reçu un devis rapidement et les travaux ont débuté tel que convenu, malgré une météo inclémente. Le résultat a dépassé mes attentes\u00A0; le souci du détail est apparent\u00A0!",
       en: 'I am very delighted with the work that was done at our residence. I received a quote quickly, and the work started as agreed, despite inclement weather. The result exceeded my expectations; the attention to detail is evident!',
-    },
-  },
-  {
-    name: 'Frédéric Choinière',
-    time: MONTHS_AGO(1),
-    content: {
-      fr: "J'ai fait appel à l'équipe pour des toits difficiles d'accès. Ils ont fait un travail minutieux, sécuritaire et à l'écoute\u00A0!",
-      en: 'I retained them for metal roofs difficult to access. They did the work with great care, safety, and listened to our concerns!',
-    },
-  },
-  {
-    name: 'Maureen Beech',
-    time: { fr: 'Il y a 6 jours', en: '6 days ago' },
-    content: {
-      fr: 'Très ravie des résultats\u00A0! Équipe professionnelle et agréable. Projets livrés dans les délais et lieux laissés impeccables.',
-      en: 'Very delighted with the results! Professional and pleasant team. Projects completed on time and the site was left clean and orderly.',
     },
   },
   {
@@ -104,22 +131,6 @@ export const GOOGLE_REVIEWS = [
     content: {
       fr: "Travail impeccable\u00A0! Louis est professionnel, sympathique et créatif\u00A0! Travail soigné et rapide. Je recommande vivement et j'utiliserai leurs services pour des travaux futurs\u00A0!",
       en: 'Impeccable work! Louis is professional, friendly and creative! Neat and fast work. I highly recommend and will use their services for future work!',
-    },
-  },
-  {
-    name: 'Coralie Beauchamp',
-    time: MONTHS_AGO(1),
-    content: {
-      fr: 'Excellente expérience avec le levé du pinceau\u00A0! Professionnels, respectueux des lieux, honnêtes et travail parfait. Je recommande vivement cette équipe\u00A0!',
-      en: 'Great experience with Le Lever du Pinceau! Professional, respectful of the place, honest and perfect work. I highly recommend this team!',
-    },
-  },
-  {
-    name: 'Mike S',
-    time: MONTHS_AGO(1),
-    content: {
-      fr: "Excellente expérience. Très bons communicateurs. Super facile de travailler avec eux. Ils sont arrivés à l'heure, ont fourni un devis raisonnable, ont travaillé efficacement et ont fait un excellent travail (plâtre et peinture). Je les engagerai sans hésiter à nouveau.",
-      en: 'Excellent experience. Great communicators. Super easy to work with. They came on time, provided a reasonable quote, worked efficiently, and did a great job (plaster and paint). Will definitely hire them again.',
     },
   },
   {

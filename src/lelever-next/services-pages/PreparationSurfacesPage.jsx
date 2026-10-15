@@ -286,7 +286,6 @@ export default function PreparationSurfacesPage() {
           imageBackground={surfacesHeroImg}
           imageAlt='Protection des planchers et des armoires avant peinture à Montréal - Le Lever du Pinceau'
           imagePosition='center 60%'
-          overlayBg='rgba(0, 0, 0, 0.50)'
           title='Préparation de surfaces à Montréal'
           subtitle='Support propre, lisse et prêt à recevoir la peinture.'
           description='Rebouchage, sablage, calfeutrage et protection avant peinture.'

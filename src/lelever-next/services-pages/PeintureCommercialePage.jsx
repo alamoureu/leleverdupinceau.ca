@@ -250,7 +250,6 @@ export default function PeintureCommercialePage() {
           pageContext='Peinture commerciale'
           imageBackground={commercialeHeroImg}
           imageAlt='Peinture commerciale à Montréal - bureau et espace commercial professionnel'
-          overlayBg='rgba(0, 0, 0, 0.55)'
           title='Peinture commerciale à Montréal'
           subtitle='Bureau, restaurant, commerce.'
           description='Travaux hors heures, délais respectés, sans perturbation.'

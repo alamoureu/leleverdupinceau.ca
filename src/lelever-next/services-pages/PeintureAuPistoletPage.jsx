@@ -286,7 +286,6 @@ export default function PeintureAuPistoletPage() {
           pageContext='Peinture au pistolet'
           imageBackground={pistoletHeroImg}
           imageAlt='Peinture au pistolet à Montréal - application professionnelle sur chantier contrôlé'
-          overlayBg='rgba(0, 0, 0, 0.55)'
           title='Peinture au pistolet à Montréal'
           subtitle='Fini uniforme et rapide pour grandes surfaces, portes et boiseries.'
           description='Masquage rigoureux pour un rendu uniforme et contrôlé.'

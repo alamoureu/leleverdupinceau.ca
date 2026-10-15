@@ -43,11 +43,7 @@ import InternalLinksSection from '../components/InternalLinksSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 
 import heroImg from '../images/3-ville/Montréal/westmount/header.webp';
-import maisonImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
-import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
 import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.webp';
-import emmenagementImg from '../images/L3 Sous services/Photo page appartement/header.webp';
-import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
 import salleEauAvant from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0807.webp';
 import salleEauApres from '../images/3-ville/Montréal/westmount/avant-apres/IMG_0808.webp';
 import wmAdd1b from '../images/3-ville/brossard/avant-apres/IMG_0826.webp';
@@ -62,6 +58,13 @@ import wmAdd5b from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
 import wmAdd5a from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
 import wmAdd6b from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount avant.webp';
 import wmAdd6a from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/Avant-après/westmount après.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const maisonImg = thumbnailForRoute('/services/peinture-residentielle/maison');
+const condoImg = thumbnailForRoute('/services/peinture-residentielle/condo');
+const emmenagementImg = thumbnailForRoute('/services/peinture-residentielle/appartement');
+const commercialImg = thumbnailForRoute('/services/peinture-commerciale');
+
 const BEFORE_AFTER = [
   { before: salleEauAvant, after: salleEauApres, description: 'Salle d\'eau - murs repeints, moulures rafraîchies' },
 
@@ -322,7 +325,6 @@ export default function WestmountPage() {
           pageContext='Westmount'
           imageBackground={heroImg}
           imageAlt='Peintre à Westmount - intérieur résidentiel haut de gamme'
-          overlayBg='rgba(0, 0, 0, 0.45)'
           title='Peintre à Westmount'
           subtitle='Peintres de métier pour projets soignés et exigeants.'
           description='Maisons, condos et espaces raffinés - chantiers discrets.'

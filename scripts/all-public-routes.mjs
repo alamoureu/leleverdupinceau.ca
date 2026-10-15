@@ -67,9 +67,9 @@ export const CONTENT_ROUTES = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
  * Landings pubs : pré-rendues avec noindex dans le HTML (pas de Disallow robots.txt),
  * hors sitemap. Google peut crawler et voir noindex plutôt qu'une fiche fantôme.
  */
+/** One FR + one EN ads landing only (no duplicate EN peintre/painter URLs). */
 export const NOINDEX_PRERENDER_ROUTES = [
   '/fr/peintre-montreal',
-  '/en/peintre-montreal',
   '/en/painter-montreal',
 ];
 
@@ -89,6 +89,7 @@ const ALIAS_REDIRECTS = {
   '/brossard': '/secteurs/brossard',
   '/a-propos-de-nous': '/a-propos',
   '/peintre-montreal': '/fr/peintre-montreal',
+  '/en/peintre-montreal': '/en/painter-montreal',
   '/secteurs-desservis': '/secteurs',
   '/secteurs-desservis/montreal': '/secteurs/montreal',
   '/secteurs-desservis/laval': '/secteurs/laval',
@@ -124,6 +125,10 @@ function resolveTriple(pathname) {
   const m = pathname.match(/^\/services\/([^/]+)\/([^/]+)\/([^/]+)$/);
   if (!m) return null;
   const [, serviceSlug, param2, param3] = m;
+  // City last segment wins over interieure/exterieure (consolidates city intent)
+  if (param3 && CITY_TO_SECTEUR[param3]) {
+    return CITY_TO_SECTEUR[param3];
+  }
   if (param3 && NEIGHBORHOOD_TO_SECTEUR[param3]) {
     return NEIGHBORHOOD_TO_SECTEUR[param3];
   }

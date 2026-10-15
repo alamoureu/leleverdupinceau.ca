@@ -250,7 +250,6 @@ export default function PeintureIndustriellePage() {
           pageContext='Peinture industrielle'
           imageBackground={industrielleImg2}
           imageAlt='Peinture industrielle à Montréal - plafond steel deck au pistolet airless'
-          overlayBg='rgba(0, 0, 0, 0.60)'
           title='Peinture industrielle à Montréal'
           subtitle='Entrepôt, usine, stationnement.'
           description='Revêtements spécialisés et application au pistolet airless.'

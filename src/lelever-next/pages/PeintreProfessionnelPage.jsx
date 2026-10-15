@@ -43,11 +43,13 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import ServiceCard from '../home-page/ServiceCard';
 import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import peintreProPhotoHeader from '../images/1-page-principale/service hub/Photo header/IMG_6771.webp';
-import peintreProResidentielle from '../images/1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.webp';
-import peintreProCommerciale from '../images/1-page-principale/peintre pro/Peinture commerciale/IMG_6751.webp';
-import peintreProInterieure from '../images/1-page-principale/peintre pro/Peinture intérieure/IMG_6764.webp';
-import peintreProExterieure from '../images/1-page-principale/peintre pro/Peinture extérieure/IMG_6753.webp';
-import peintreProIndustrielle from '../images/1-page-principale/peintre pro/Peinture industrielle/IMG_6752.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const peintreProInterieure = thumbnailForRoute('/services/peinture-interieure');
+const peintreProExterieure = thumbnailForRoute('/services/peinture-exterieure');
+const peintreProResidentielle = thumbnailForRoute('/services/peinture-residentielle');
+const peintreProCommerciale = thumbnailForRoute('/services/peinture-commerciale');
+const peintreProIndustrielle = thumbnailForRoute('/secteurs');
 
 const WHY_PROFESSIONAL = [
   {
@@ -321,7 +323,6 @@ export default function PeintreProfessionnelPage() {
           pageContext='Peintre professionnel'
           imageBackground={peintreProPhotoHeader}
           imageAlt='Peintre professionnel en action - Le Lever du Pinceau'
-          overlayBg='rgba(0, 0, 0, 0.45)'
           title='Pourquoi un peintre professionnel ?'
           subtitle="Licence RBQ, assurance et garanties."
           description='Un chantier géré de A à Z.'

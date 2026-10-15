@@ -88,7 +88,6 @@ export default function ResidentialSubServicePage({
           pageContext={breadcrumbName}
           imageBackground={hero.image}
           imageAlt={hero.alt}
-          overlayBg="rgba(0, 0, 0, 0.45)"
           title={hero.title}
           subtitle={hero.subtitle}
           description={hero.description}

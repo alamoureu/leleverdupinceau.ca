@@ -33,6 +33,7 @@ import { Fragment, useContext } from 'react';
 import appContext from '../../AppProvider';
 import whiteLogo from '../images/whitelogo.webp';
 import { COMPANY_PHONE_E164 } from '../constants/company';
+import { NAV_BAR_H, NAV_BAR_PY, NAV_LOGO_H, NAV_LOGO_W } from './navBarSizes';
 
 const PHONE_DISPLAY = '(438) 868-0772';
 const PHONE_HREF = `tel:${COMPANY_PHONE_E164}`;
@@ -158,21 +159,24 @@ export const MobileDrawer = () => {
         >
           <DrawerHeader
             bg="brand.700"
-            py={3}
-            px={{ base: 4, sm: 5 }}
+            h={NAV_BAR_H}
+            py={NAV_BAR_PY}
+            px={{ base: 4, sm: 6 }}
             position="relative"
             display="flex"
             justifyContent="center"
             alignItems="center"
-            borderBottom="1px solid"
-            borderColor="whiteAlpha.200"
+            boxSizing="border-box"
+            boxShadow="inset 0 -1px 0 rgba(255, 255, 255, 0.12)"
+            fontSize="inherit"
+            fontWeight="normal"
+            lineHeight="normal"
           >
             <Image
               src={whiteLogo}
               alt="Le Lever du Pinceau"
-              h={{ base: '40px', sm: '46px' }}
-              w="auto"
-              maxW="170px"
+              h={NAV_LOGO_H}
+              w={NAV_LOGO_W}
               objectFit="contain"
               htmlWidth={1409}
               htmlHeight={873}

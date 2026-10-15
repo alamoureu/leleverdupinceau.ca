@@ -20,6 +20,11 @@ const NEIGHBORHOOD_TO_SECTEUR = {
 export default function LegacyTripleSegmentRedirect() {
   const { serviceSlug, param2, param3 } = useParams();
 
+  // /services/:service/:scope/:city → city page (avoids service×city cannibalization)
+  if (param3 && CITY_TO_SECTEUR[param3]) {
+    return <Navigate to={CITY_TO_SECTEUR[param3]} replace />;
+  }
+
   if (param3 && NEIGHBORHOOD_TO_SECTEUR[param3]) {
     return <Navigate to={NEIGHBORHOOD_TO_SECTEUR[param3]} replace />;
   }

@@ -37,22 +37,29 @@ import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import FAQSection from '../home-page/FAQSection';
 import FeatureCardsSection from '../components/FeatureCardsSection';
-import InternalLinksSection from '../components/InternalLinksSection';
+import ResourcesSection from '../home-page/ResourcesSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import FinalCTASection from '../home-page/FinalCTASection';
 import { RBQ_LICENSE } from '../constants/company';
 
 import heroImg from '../images/3-ville/Montréal/ville-marie/header.webp';
-import interieureImg from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.webp';
-import exterieureImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
-import residentielleImg from '../images/2-services/Page peinture résidentielle/Photo header/Paint Cut-in Louis.webp';
 import realisationsImg from '../images/3-ville/Montréal/5. réalisations/IMG_5877.webp';
-import condoImg from '../images/L3 Sous services/Photo page -peinture condo/avant apres/IMG_8108.webp';
 import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.webp';
-import appartementImg from '../images/L3 Sous services/Photo page appartement/header.webp';
-import bureauImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
 import miseEnVenteImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.webp';
+import blogPrix from '../images/1-page-principale/blog hub/prix-projet-montreal.webp';
+import blogChoisirPeintre from '../images/5-landing-page/Photo/louis_Consultation.webp';
+import blogErreurs from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.webp';
+import blogArmoires from '../images/1-page-principale/blog hub/blog-armoires-cuisine.webp';
+import blogComparatif from '../images/1-page-principale/blog hub/blog-comparatif-peinture.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const interieureImg = thumbnailForRoute('/services/peinture-interieure');
+const exterieureImg = thumbnailForRoute('/services/peinture-exterieure');
+const residentielleImg = thumbnailForRoute('/services/peinture-residentielle');
+const condoImg = thumbnailForRoute('/services/peinture-residentielle/condo');
+const appartementImg = thumbnailForRoute('/services/peinture-residentielle/appartement');
+const bureauImg = thumbnailForRoute('/services/peinture-commerciale');
 
 const BREADCRUMB = [
   { label: 'Accueil', to: '/' },
@@ -201,31 +208,31 @@ const FAQS = [
   },
 ];
 
-const INTERNAL_LINKS = [
+const BLOG_ARTICLES = [
   {
-    title: 'Peinture intérieure à Montréal',
-    description: 'Intérieur résidentiel et commercial dans la métropole.',
-    to: '/services/peinture-interieure',
+    title: "Prix d'un projet de peinture à Montréal",
+    href: '/blog/prix-peinture-montreal',
+    image: blogPrix,
   },
   {
-    title: 'Peinture extérieure à Montréal',
-    description: 'Façades, boiseries, balcons et surfaces exposées.',
-    to: '/services/peinture-exterieure',
+    title: 'Comment choisir un peintre professionnel',
+    href: '/blog/comment-choisir-un-peintre-professionnel',
+    image: blogChoisirPeintre,
   },
   {
-    title: 'Peinture résidentielle',
-    description: 'Maisons, condos, appartements - toutes les formules.',
-    to: '/services/peinture-residentielle',
+    title: 'Erreurs à éviter avant de peindre',
+    href: '/blog/erreurs-a-eviter-peinture-interieure',
+    image: blogErreurs,
   },
   {
-    title: 'Nos réalisations',
-    description: 'Avant / après de projets réels pour juger la qualité.',
-    to: '/realisations',
+    title: 'Peindre ses armoires de cuisine, guide complet 2026',
+    href: '/blog/peinture-armoires-cuisine-guide',
+    image: blogArmoires,
   },
   {
-    title: 'Nos autres secteurs à Montréal',
-    description: 'Tous les quartiers et secteurs desservis dans la ville.',
-    to: '/secteurs/montreal',
+    title: 'Bétonel vs Benjamin Moore : quelle peinture choisir ?',
+    href: '/blog/betonel-vs-benjamin-moore',
+    image: blogComparatif,
   },
 ];
 
@@ -579,10 +586,11 @@ export default function VilleMariePage() {
           maxW="900px"
          emitSchema={false} />
 
-        <InternalLinksSection
-          title="Explorer les pages les plus utiles pour votre projet"
-          links={INTERNAL_LINKS}
-          columns={{ base: 1, sm: 2, md: 3, lg: 3 }}
+        <ResourcesSection
+          title="Conseils avant votre projet de peinture à Ville-Marie"
+          articles={BLOG_ARTICLES}
+          hideButton
+          sectionBg="gray.50"
         />
 
         {/* ===== SECTION 9 - CTA FINAL ===== */}

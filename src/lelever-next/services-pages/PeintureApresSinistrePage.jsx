@@ -284,7 +284,6 @@ export default function PeintureApresSinistrePage() {
           imageBackground={sinistreHeroImg}
           imageAlt="Peinture après-sinistre à Montréal - espace remis en état après dégât d'eau"
           imagePosition="center 30%"
-          overlayBg='rgba(0, 0, 0, 0.55)'
           title='Peinture après sinistre à Montréal'
           subtitle="Dégât d'eau, fumée et remise en état."
           description='Intervention structurée après réparations, propre et rapide.'

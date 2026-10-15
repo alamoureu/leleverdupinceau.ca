@@ -20,6 +20,7 @@ import {
   MOBILE_CENTERED_CARD_SX,
   columnsForCount,
 } from '../constants/responsiveGrid';
+import { AVIS_AVANT_APRES_PAIRS } from '../constants/avisAvantApres';
 import FadedScroller from '../components/FadedScroller';
 import CardCaptionStrip from './CardCaptionStrip';
 
@@ -38,7 +39,6 @@ import img7999 from '../images/Avant après landing Page/Copie de IMG_7999 2.web
 import img6755 from '../images/Avant après landing Page/Copie de IMG_6755.webp';
 import img6757 from '../images/Avant après landing Page/Copie de IMG_6757.webp';
 
-// Old before_after set
 import img5969 from '../images/before_after/IMG_5969.webp';
 import img5970 from '../images/before_after/IMG_5970.webp';
 import img5973 from '../images/before_after/IMG_5973.webp';
@@ -57,10 +57,14 @@ import home0861 from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
 import home0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
 import home0842 from '../images/3-ville/st-lambert/avant-apres/IMG_0842.webp';
 import home0843 from '../images/3-ville/st-lambert/avant-apres/IMG_0843.webp';
-import homePlintheAvant from '../images/Avant après landing Page/plinthe-marques-avant.webp';
-import homePlintheApres from '../images/Avant après landing Page/plinthe-propre-apres.webp';
-import homeChambreAvant from '../images/Avant après landing Page/chambre-papier-peint-avant.webp';
-import homeChambreApres from '../images/Avant après landing Page/chambre-murs-blancs-apres.webp';
+import armoiresMileEndAvant from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintre Montréal, Le Lever du Pinceau a peint les portes d_armoires de cette cuisine dans le quartier du Mile-end, Montréal.webp';
+import armoiresMileEndApres from '../images/L2 Services principaux/peinture interieure/+avant apres -peinture intérieure/Peintres d_expériences à Montréal, Le Lever du Pinceau a peinturé les portes d_armoires de cette cuisine à Montréal.webp';
+
+const AVIS_PHOTOS = import.meta.glob('../images/1-page-principale/avis/avant-apres/*.webp', {
+  eager: true,
+  import: 'default',
+});
+const avisPhoto = (n) => AVIS_PHOTOS[`../images/1-page-principale/avis/avant-apres/IMG_${n}.webp`];
 
 function splitCaption(description) {
   if (!description) return { title: '', subtitle: '' };
@@ -71,58 +75,61 @@ function splitCaption(description) {
   return { title: description.trim(), subtitle: '' };
 }
 
-const DEFAULT_PAIRS = [
-  // Old before_after set (first)
-  [img5969, img5970],
-  [imgStaircaseBefore, imgStaircaseAfter],
-  [img5973, img5974],
-  [img5975, img5976],
-  [img5977, img5978],
-  [img5984, img5982],
-  // New landing page set
-  [img7924, img7922],
-  [img7975, img7974],
-  [img7990, img7988],
-  [img7992, img7994],
-  [img7999, img7997],
-  [img7971, img6755],
-  [img7985, img6757],
-  [home0855, home0856],
-  [home0861, home0862],
-  [home0842, home0843],
-  [homePlintheAvant, homePlintheApres],
-  [homeChambreAvant, homeChambreApres],
+/** Paires déjà sur l'accueil (ordre conservé). IDs avis déjà couverts pour éviter les doublons. */
+const CURATED_AVIS_IDS = new Set(['0855', '0861', '0842']);
+
+const CURATED_PAIRS = [
+  [img5969, img5970, { fr: 'Salon - murs plâtre et peinture', en: 'Living room - walls, plaster and paint' }],
+  [imgStaircaseBefore, imgStaircaseAfter, { fr: 'Cage d\'escalier - réparation légère et peinture', en: 'Staircase - light repair and painting' }],
+  [img5973, img5974, { fr: 'Terrasse en bois - teinture et protection', en: 'Wood deck - stain and protection' }],
+  [img5975, img5976, { fr: 'Cuisine - armoires peintes en blanc', en: 'Kitchen - cabinets painted white' }],
+  [img5977, img5978, { fr: 'Espace industriel - plafond steel deck et murs peints', en: 'Industrial space - steel deck ceiling and walls painted' }],
+  [img5984, img5982, { fr: 'Maison - murs rafraîchis (protection et peinture)', en: 'House - walls refreshed (protection and painting)' }],
+  [img7924, img7922, { fr: 'Salon - peinture murale (avant / après)', en: 'Living room - wall painting (before / after)' }],
+  [img7975, img7974, { fr: 'Escalier extérieur - décapage et peinture', en: 'Outdoor staircase - stripping and painting' }],
+  [img7990, img7988, { fr: 'Sous-sol - dégâts d\'eau et rafraîchissement', en: 'Basement - water damage and refresh' }],
+  [img7992, img7994, { fr: 'Cuisine - réparation et finition', en: 'Kitchen - repair and finish' }],
+  [img7999, img7997, { fr: 'Murs et boiseries - finition propre', en: 'Walls and trim - clean finish' }],
+  [img7971, img6755, { fr: 'Maison - extérieur rafraîchi', en: 'Home - refreshed exterior' }],
+  [img7985, img6757, { fr: 'Espace industriel - préparation et peinture', en: 'Industrial space - prep and painting' }],
+  [home0855, home0856, { fr: "Hall d'entrée - murs et boiseries rafraîchis", en: 'Entrance hall - walls and trim refreshed' }],
+  [home0861, home0862, { fr: 'Plinthe - réparation et peinture', en: 'Baseboard - repair and paint' }],
+  [home0842, home0843, { fr: 'Chambre - papier peint retiré et murs repeints', en: 'Bedroom - wallpaper removed and walls repainted' }],
 ];
 
-const DEFAULT_DESCRIPTIONS = [
-  // Old list (first)
-  { fr: 'Salon - murs plâtre et peinture', en: 'Living room - walls, plaster and paint' },
-  { fr: 'Cage d\'escalier - réparation légère et peinture', en: 'Staircase - light repair and painting' },
-  { fr: 'Terrasse en bois - teinture et protection', en: 'Wood deck - stain and protection' },
-  { fr: 'Cuisine - armoires peintes en blanc', en: 'Kitchen - cabinets painted white' },
-  { fr: 'Espace industriel - plafond steel deck et murs peints', en: 'Industrial space - steel deck ceiling and walls painted' },
-  { fr: 'Maison - murs rafraîchis (protection et peinture)', en: 'House - walls refreshed (protection and painting)' },
-  // New landing page set
-  { fr: 'Salon - peinture murale (avant / après)', en: 'Living room - wall painting (before / after)' },
-  { fr: 'Escalier extérieur - décapage et peinture', en: 'Outdoor staircase - stripping and painting' },
-  { fr: 'Sous-sol - dégâts d\'eau et rafraîchissement', en: 'Basement - water damage and refresh' },
-  { fr: 'Cuisine - réparation et finition', en: 'Kitchen - repair and finish' },
-  { fr: 'Murs et boiseries - finition propre', en: 'Walls and trim - clean finish' },
-  { fr: 'Maison - extérieur rafraîchi', en: 'Home - refreshed exterior' },
-  { fr: 'Espace industriel - préparation et peinture', en: 'Industrial space - prep and painting' },
-  { fr: 'Pièce intérieure - rafraîchissement', en: 'Interior room - refresh' },
-  { fr: 'Plinthe et murs - finition nette', en: 'Baseboard and walls - clean finish' },
-  { fr: 'Chambre - retrait de papier peint', en: 'Bedroom - wallpaper removal' },
-  { fr: 'Plinthe - marques réparées et peinture', en: 'Baseboard - scuffs repaired and painted' },
-  { fr: 'Chambre - papier peint retiré, murs blancs', en: 'Bedroom - wallpaper removed, white walls' },
+const EXTRA_FEATURED = [
+  [
+    armoiresMileEndAvant,
+    armoiresMileEndApres,
+    {
+      fr: 'Cuisine - armoires peintes (Mile-End)',
+      en: 'Kitchen - cabinets painted (Mile-End)',
+    },
+  ],
 ];
 
 export function buildDefaultImages(isFr) {
-  return DEFAULT_PAIRS.map(([before, after], i) => ({
+  const curated = CURATED_PAIRS.map(([before, after, labels]) => ({
     before,
     after,
-    description: isFr ? DEFAULT_DESCRIPTIONS[i].fr : DEFAULT_DESCRIPTIONS[i].en,
+    description: isFr ? labels.fr : labels.en,
   }));
+
+  const fromAvis = AVIS_AVANT_APRES_PAIRS.filter(
+    (pair) => !CURATED_AVIS_IDS.has(pair.before),
+  ).map((pair) => ({
+    before: avisPhoto(pair.before),
+    after: avisPhoto(pair.after),
+    description: isFr ? pair.fr : pair.en,
+  }));
+
+  const featured = EXTRA_FEATURED.map(([before, after, labels]) => ({
+    before,
+    after,
+    description: isFr ? labels.fr : labels.en,
+  }));
+
+  return [...curated, ...fromAvis, ...featured];
 }
 
 /**
@@ -270,6 +277,31 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
   );
 }
 
+function PairSlide({ pair, isFr, t, priority }) {
+  return (
+    <Box
+      minW={{
+        base: 'min(80vw, 300px)',
+        md: '320px',
+        lg: '360px',
+      }}
+      w={{
+        base: 'min(80vw, 300px)',
+        md: '320px',
+        lg: '360px',
+      }}
+      flexShrink={0}
+    >
+      <BeforeAfterPairCard
+        pair={pair}
+        isFr={isFr}
+        t={t}
+        priority={priority}
+      />
+    </Box>
+  );
+}
+
 export default function BeforeAfterCarouselSection({
   isFr: isFrProp,
   title: titleProp,
@@ -368,6 +400,7 @@ export default function BeforeAfterCarouselSection({
               axis="horizontal"
               autoScroll
               speed={0.35}
+              loopMode="duplicate"
               fadeFrom={sectionBg}
               w="100%"
               maxW="100%"
@@ -386,27 +419,22 @@ export default function BeforeAfterCarouselSection({
                 align="stretch"
               >
                 {items.map((pair, i) => (
-                  <Box
-                    key={`ba-${i}-${pair.before}-${pair.after}`}
-                    minW={{
-                      base: 'min(80vw, 300px)',
-                      md: '320px',
-                      lg: '360px',
-                    }}
-                    w={{
-                      base: 'min(80vw, 300px)',
-                      md: '320px',
-                      lg: '360px',
-                    }}
-                    flexShrink={0}
-                  >
-                    <BeforeAfterPairCard
-                      pair={pair}
-                      isFr={isFr}
-                      t={t}
-                      priority={i < 3}
-                    />
-                  </Box>
+                  <PairSlide
+                    key={`ba-a-${i}-${pair.before}`}
+                    pair={pair}
+                    isFr={isFr}
+                    t={t}
+                    priority={i < 3}
+                  />
+                ))}
+                {items.map((pair, i) => (
+                  <PairSlide
+                    key={`ba-b-${i}-${pair.before}`}
+                    pair={pair}
+                    isFr={isFr}
+                    t={t}
+                    priority={false}
+                  />
                 ))}
               </Flex>
             </FadedScroller>

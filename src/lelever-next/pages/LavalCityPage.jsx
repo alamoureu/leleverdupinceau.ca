@@ -335,7 +335,6 @@ export default function LavalCityPage() {
           onSubmissionOpen={onOpen}
           pageContext="Laval"
           imageBackground={headerLaval}
-          overlayBg="rgba(2, 42, 104, 0.55)"
           title={isFr ? 'Peintre à Laval' : 'Painter in Laval'}
           subtitle={
             isFr

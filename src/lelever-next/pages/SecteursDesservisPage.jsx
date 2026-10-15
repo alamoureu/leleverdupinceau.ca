@@ -130,6 +130,7 @@ export default function SecteursDesservisPage() {
       image: stLambertSecteur,
       imgScale: 1,
       imgTop: '0',
+      focus: { x: 50, y: 72 },
     },
     {
       name: 'La Prairie',
@@ -140,6 +141,7 @@ export default function SecteursDesservisPage() {
       image: laprairieSecteur,
       imgScale: 1,
       imgTop: '0',
+      focus: { x: 55, y: 74 },
     },
   ];
 
@@ -238,6 +240,11 @@ export default function SecteursDesservisPage() {
             h="100%"
             maxW="none"
             objectFit="cover"
+            objectPosition={
+              city.focus
+                ? `${city.focus.x}% ${city.focus.y}%`
+                : undefined
+            }
             transform={city.imgScale !== 1 ? `scale(${city.imgScale})` : undefined}
             transformOrigin="center center"
             loading="lazy"
@@ -318,7 +325,6 @@ export default function SecteursDesservisPage() {
         <HeroSection
           onSubmissionOpen={onOpen}
           imageBackground={heroSecteurHub}
-          overlayBg="rgba(2, 42, 104, 0.55)"
           title={isFr ? 'Secteurs desservis' : 'Service areas'}
           subtitle={
             isFr

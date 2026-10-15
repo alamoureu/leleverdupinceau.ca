@@ -338,7 +338,6 @@ export default function PeintureInterieurePage() {
           pageContext="Peinture intérieure"
           imageBackground={heroImg}
           imageAlt="Peinture intérieure à Montréal - condo lumineux et impeccable après travaux"
-          overlayBg="rgba(0, 0, 0, 0.50)"
           title="Peinture intérieure à Montréal"
           subtitle="Murs, plafonds, boiseries et armoires"
           description="Des projets propres, rapides et impeccables dans les condos, plex et maisons du Grand Montréal."

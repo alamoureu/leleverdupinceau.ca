@@ -256,7 +256,6 @@ export default function AboutPage() {
           subtitle={c.tagline}
           description={c.description}
           imageBackground={aProposPhotoHeader}
-          overlayBg='linear-gradient(155deg, rgba(18, 38, 74, 0.94) 0%, rgba(18, 38, 74, 0.78) 45%, rgba(18, 38, 74, 0.6) 100%)'
           breadcrumb={[
             { label: c.home, to: '/' },
             { label: c.breadcrumb },

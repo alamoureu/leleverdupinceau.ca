@@ -50,6 +50,7 @@ export default function FinalCTASection({
 
           <CtaButton
             variant="light"
+            size="large"
             rightIcon={<ArrowForwardIcon />}
             onClick={onSubmissionOpen || onOpen}
           >

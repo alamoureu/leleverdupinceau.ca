@@ -1,242 +1,114 @@
 #!/usr/bin/env node
 /**
- * Check all image paths referenced in the codebase under src/lelever-next/images
- * and report which files or folders are missing.
+ * Audit images under src/lelever-next/images against real imports in src/.
+ * Reports missing imports and unused files on disk.
  */
 
 const fs = require('fs');
 const path = require('path');
+const { execSync } = require('child_process');
 
-const imagesBase = path.join(__dirname, '..', 'src', 'lelever-next', 'images');
+const root = path.join(__dirname, '..');
+const imagesBase = path.join(root, 'src', 'lelever-next', 'images');
+const IMAGE_EXT = /\.(webp|jpe?g|png|gif|svg)$/i;
 
-// Every image path referenced in code (relative to lelever-next/images)
-// Extracted from imports across the codebase.
-const referencedPaths = [
-  // before_after
-  'before_after/IMG_5969.webp',
-  'before_after/IMG_5970.webp',
-  'before_after/IMG_5971.webp',
-  'before_after/IMG_5972.webp',
-  'before_after/IMG_5973.webp',
-  'before_after/IMG_5974.webp',
-  'before_after/IMG_5975.webp',
-  'before_after/IMG_5976.webp',
-  'before_after/IMG_5977.webp',
-  'before_after/IMG_5978.webp',
-  'before_after/IMG_5982.webp',
-  'before_after/IMG_5984.webp',
-  // new-landing
-  'new-landing/method-1.webp',
-  'new-landing/method-2.webp',
-  'new-landing/method-3.webp',
-  'new-landing/method-4.webp',
-  'new-landing/control-1.webp',
-  'new-landing/control-2.webp',
-  'new-landing/control-3.webp',
-  // root
-  'mtl.webp',
-  'laval.webp',
-  'longueuil.webp',
-  'brossard.webp',
-  'rbqlogo.webp',
-  'trushieldlogo.webp',
-  'heroImage.webp',
-  'secteurs_desservis.webp',
-  // 1-page-principale
-  '1-page-principale/service hub/Peinture résidentielle/IMG_6768.webp',
-  '1-page-principale/service hub/Peinture intérieure/IMG_6758.webp',
-  '1-page-principale/service hub/Photo header/IMG_6771.webp',
-  '1-page-principale/service hub/Peinture commerciale/IMG_6766.webp',
-  '1-page-principale/service hub/Peinture industrielle/IMG_6757.webp',
-  '1-page-principale/Home/Projet extérieur/IMG_6755.webp',
-  '1-page-principale/peintre pro/Peinture résidentielle/IMG_6763.webp',
-  '1-page-principale/blog hub/Peinture intérieure/IMG_6764.webp',
-  '1-page-principale/blog hub/Peinture résidentielle/IMG_6763.webp',
-  '1-page-principale/blog hub/Peinture commerciale/IMG_6762.webp',
-  '1-page-principale/blog hub/Peinture extérieure/IMG_6753.webp',
-  '1-page-principale/blog hub/Peinture industrielle/IMG_6752.webp',
-  '1-page-principale/sector hub/Peinture intérieure/IMG_6759.webp',
-  // 2-services
-  '2-services/Page peinture résidentielle/1. réalisations/IMG_6778.webp',
-  '2-services/Page peinture résidentielle/2. réalisations/IMG_6779.webp',
-  '2-services/Page peinture résidentielle/3. réalisations/IMG_6764.webp',
-  '2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.webp',
-  '2-services/Page peinture industrielle/1. réalisations/IMG_6752.webp',
-  '2-services/Page peinture industrielle/2. réalisations/IMG_6757.webp',
-  '2-services/Page peinture industrielle/3. réalisations/IMG_5978.webp',
-  '2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp',
-  '2-services/Page peinture commerciale/2. réalisations/IMG_6759.webp',
-  '2-services/Page peinture commerciale/3. réalisations/IMG_6777.webp',
-  '2-services/Page peinture commerciale/Peinture commerciale extérieure/IMG_6777.webp',
-  '2-services/Page peinture extérieure/1. réalisations/IMG_6755.webp',
-  '2-services/Page peinture extérieure/2. réalisations/IMG_6761.webp',
-  '2-services/Page peinture extérieure/3. réalisations/IMG_6756.webp',
-  '2-services/Page peinture extérieure/Peinture résidentielle extérieure/IMG_6763.webp',
-  '2-services/Page peinture extérieure/Peinture commerciale extérieure/IMG_6777.webp',
-  '2-services/Page peinture extérieure/Photo header/IMG_0989.webp',
-  '2-services/Page peinture intérieure/1. réalisations/IMG_6032.webp',
-  '2-services/Page peinture intérieure/2. réalisations/IMG_6768.webp',
-  '2-services/Page peinture intérieure/3. réalisations/IMG_6762.webp',
-  '2-services/Page peinture intérieure/4. réalisations/IMG_6751.webp',
-  '2-services/Page peinture intérieure/5. réalisations/IMG_6754.webp',
-  '2-services/Page peinture intérieure/6. réalisations/IMG_5976.webp',
-  // 3-ville Montréal
-  '3-ville/Montréal/résidentielle/IMG_6763.webp',
-  '3-ville/Montréal/extérieure/IMG_6778.webp',
-  '3-ville/Montréal/commerciale/IMG_6760.webp',
-  '3-ville/Montréal/1. réalisations/IMG_6767.webp',
-  '3-ville/Montréal/2. réalisations/IMG_6760.webp',
-  '3-ville/Montréal/3. réalisations/IMG_6759.webp',
-  '3-ville/Montréal/4. réalisations/IMG_6756.webp',
-  '3-ville/Montréal/5. réalisations/IMG_5877.webp',
-  '3-ville/Montréal/6. réalisations/IMG_6779.webp',
-  // 3-ville laval
-  '3-ville/laval/résidentielle/IMG_6763.webp',
-  '3-ville/laval/extérieure/IMG_6756.webp',
-  '3-ville/laval/commerciale/IMG_6760.webp',
-  '3-ville/laval/1. réalisations/IMG_5976.webp',
-  '3-ville/laval/2. réalisations/IMG_6765.webp',
-  '3-ville/laval/3. réalisations/IMG_6753.webp',
-  '3-ville/laval/intérieure/IMG_6764.webp',
-  '3-ville/laval/industrielle/IMG_6780.webp',
-  '3-ville/laval/résidentielle/IMG_6763.webp',
-  // 3-ville brossard
-  '3-ville/brossard/résidentielle/IMG_6763.webp',
-  '3-ville/brossard/extérieure/IMG_6778.webp',
-  '3-ville/brossard/commerciale/IMG_6759.webp',
-  '3-ville/brossard/1. réalisations/IMG_6761.webp',
-  '3-ville/brossard/2. réalisations/IMG_6768.webp',
-  '3-ville/brossard/3. réalisations/IMG_6777.webp',
-  '3-ville/brossard/intérieure/IMG_6764.webp',
-  '3-ville/brossard/industrielle/IMG_6752.webp',
-  '3-ville/brossard/résidentielle/IMG_6763.webp',
-  // 3-ville longueuil
-  '3-ville/longueuil/résidentielle/IMG_6763.webp',
-  '3-ville/longueuil/extérieure/IMG_6778.webp',
-  '3-ville/longueuil/commerciale/IMG_6777.webp',
-  '3-ville/longueuil/1. réalisations/IMG_5974.webp',
-  '3-ville/longueuil/2. réalisations/IMG_6028.webp',
-  '3-ville/longueuil/3. réalisations/IMG_6024.webp',
-  '3-ville/longueuil/intérieure/IMG_6758.webp',
-  '3-ville/longueuil/industrielle/IMG_6752.webp',
-  '3-ville/longueuil/résidentielle/IMG_6763.webp',
-  // 4-sous-services
-  '4-sous-services/résidentielle x éxtérieure/1. réalisations/IMG_6778.webp',
-  '4-sous-services/résidentielle x éxtérieure/2. réalisations/IMG_6755.webp',
-  '4-sous-services/résidentielle x éxtérieure/3. réalisations/IMG_6761.webp',
-  '4-sous-services/commercial x éxtérieure/1. réalisations/IMG_6777.webp',
-  '4-sous-services/commercial x éxtérieure/2. réalisations/IMG_6756.webp',
-  '4-sous-services/commercial x intérieure/1. réalisations/IMG_6759.webp',
-  '4-sous-services/commercial x intérieure/2. réalisations/IMG_6760.webp',
-  '4-sous-services/commercial x intérieure/3. réalisations/IMG_6762.webp',
-  '4-sous-services/commercial x intérieure/+header/IMG_6821.webp',
-  '4-sous-services/résdientielle x intérieure/1. réalisations/IMG_6764.webp',
-  '4-sous-services/résdientielle x intérieure/2. réalisations/IMG_5976.webp',
-  '4-sous-services/résdientielle x intérieure/3. réalisations/IMG_6024.webp',
-  '4-sous-services/résdientielle x intérieure/4. réalisations/IMG_5900.webp',
-  '4-sous-services/résdientielle x intérieure/5. réalisations/IMG_5873.webp',
-  '4-sous-services/résdientielle x intérieure/6. réalisations/IMG_5982.webp',
-];
-
-function getAllDirsRecursive(dir, base = dir) {
-  const results = [];
-  if (!fs.existsSync(dir)) return results;
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const e of entries) {
-    const full = path.join(dir, e.name);
-    const rel = path.relative(base, full).replace(/\\/g, '/');
-    if (e.isDirectory()) {
-      results.push(rel + '/');
-      results.push(...getAllDirsRecursive(full, base));
-    } else {
-      results.push(rel);
-    }
-  }
-  return results;
-}
-
-const missingFiles = [];
-const missingFolders = [];
-
-referencedPaths.forEach((relPath) => {
-  const fullPath = path.join(imagesBase, relPath.replace(/\//g, path.sep));
-  if (!fs.existsSync(fullPath)) {
-    missingFiles.push(relPath);
-  }
-});
-
-// Folders that are expected (from referenced paths) – check if any are completely missing
-const expectedFolders = new Set();
-referencedPaths.forEach((p) => {
-  const parts = p.split('/');
-  for (let i = 0; i < parts.length - 1; i++) {
-    expectedFolders.add(parts.slice(0, i + 1).join('/'));
-  }
-});
-
-expectedFolders.forEach((folder) => {
-  const full = path.join(imagesBase, folder.replace(/\//g, path.sep));
-  if (!fs.existsSync(full)) {
-    missingFolders.push(folder + '/');
-  }
-});
-
-// Also list all actual folders under images/ to report "which folders exist" and spot any empty/unused
-const allExisting = getAllDirsRecursive(imagesBase);
-const imageExtensions = /\.(png|jpg|jpeg|gif|webp|svg|PNG|JPG|JPEG|JPG)$/i;
-const existingImageFiles = allExisting.filter((r) => imageExtensions.test(r));
-const existingDirs = allExisting.filter((r) => r.endsWith('/'));
-
-console.log('\n📁 Image audit: src/lelever-next/images\n');
-console.log('Referenced image paths checked:', referencedPaths.length);
-
-if (missingFiles.length > 0) {
-  console.log('\n❌ MISSING FILES (referenced in code but not found):');
-  missingFiles.forEach((p) => console.log('   ', p));
-}
-
-if (missingFolders.length > 0) {
-  console.log('\n❌ MISSING FOLDERS (part of a referenced path):');
-  [...new Set(missingFolders)].forEach((p) => console.log('   ', p));
-}
-
-if (missingFiles.length === 0 && missingFolders.length === 0) {
-  console.log('\n✅ All referenced image files and folders exist.');
-}
-
-// Summary of folders under images
-console.log('\n📂 Top-level folders under images/:');
-const topDirs = fs.readdirSync(imagesBase, { withFileTypes: true }).filter((e) => e.isDirectory());
-topDirs.forEach((d) => console.log('   -', d.name));
-
-// Optional: list image files that exist but are NOT referenced (unused)
-const referencedSet = new Set(referencedPaths.map((p) => p.replace(/\//g, path.sep)));
 function collectImageFiles(dir, relPrefix = '') {
   const list = [];
-  const entries = fs.readdirSync(dir, { withFileTypes: true });
-  for (const e of entries) {
-    const name = e.name;
-    const rel = relPrefix ? relPrefix + path.sep + name : name;
-    const full = path.join(dir, name);
-    if (e.isDirectory()) {
-      if (name !== 'node_modules' && !name.startsWith('.')) {
-        list.push(...collectImageFiles(full, rel));
-      }
-    } else if (/\.(png|jpg|jpeg|gif|webp|svg|PNG|JPG|JPEG|GIF|WEBP|SVG)$/i.test(name)) {
-      const normalized = rel.replace(/\\/g, '/');
-      list.push(normalized);
-    }
+  if (!fs.existsSync(dir)) return list;
+  for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (e.name.startsWith('.')) continue;
+    const rel = relPrefix ? `${relPrefix}/${e.name}` : e.name;
+    const full = path.join(dir, e.name);
+    if (e.isDirectory()) list.push(...collectImageFiles(full, rel));
+    else if (IMAGE_EXT.test(e.name)) list.push(rel.replace(/\\/g, '/'));
   }
   return list;
 }
-const allImageFiles = collectImageFiles(imagesBase);
-const unused = allImageFiles.filter((f) => !referencedSet.has(f) && !referencedSet.has(f.replace(/\//g, path.sep)));
 
-if (unused.length > 0) {
-  console.log('\n📋 Image files present on disk but NOT referenced in code (unused):');
-  unused.forEach((p) => console.log('   ', p));
-  console.log('   Total unused:', unused.length);
+function resolveImports() {
+  const referenced = new Set();
+  const missing = [];
+
+  const out = execSync(
+    `rg -n "from\\\\s+['\\"]" --glob '*.{js,jsx}' src || true`,
+    { cwd: root, encoding: 'utf8' }
+  ).trim();
+
+  for (const line of out ? out.split('\n') : []) {
+    const first = line.indexOf(':');
+    const second = line.indexOf(':', first + 1);
+    if (first < 0 || second < 0) continue;
+    const file = path.join(root, line.slice(0, first));
+    const content = line.slice(second + 1);
+    const m = content.match(/from\s+(['"])([\s\S]*?)\1/);
+    if (!m) continue;
+    const rel = m[2];
+    if (!IMAGE_EXT.test(rel) || !rel.includes('images')) continue;
+    const abs = path.resolve(path.dirname(file), rel);
+    if (!fs.existsSync(abs)) {
+      missing.push({ file: path.relative(root, file), abs: path.relative(root, abs) });
+      continue;
+    }
+    if (abs.startsWith(imagesBase + path.sep) || abs === imagesBase) {
+      referenced.add(path.relative(imagesBase, abs).replace(/\\/g, '/'));
+    }
+  }
+
+  // import.meta.glob directories
+  const globOut = execSync(
+    `rg -n "import\\.meta\\.glob" --glob '*.{js,jsx}' src || true`,
+    { cwd: root, encoding: 'utf8' }
+  ).trim();
+
+  for (const line of globOut ? globOut.split('\n') : []) {
+    const first = line.indexOf(':');
+    if (first < 0) continue;
+    const file = path.join(root, line.slice(0, first));
+    const q = line.slice(first).match(/glob\(\s*['"]([^'"]+)['"]/);
+    if (!q) continue;
+    const pattern = q[1];
+    const star = pattern.search(/[*{]/);
+    const prefix = star >= 0 ? pattern.slice(0, star) : pattern;
+    const searchDir = path.resolve(path.dirname(file), prefix);
+    if (!fs.existsSync(searchDir)) continue;
+    for (const f of collectImageFiles(searchDir)) {
+      const abs = path.join(searchDir, f);
+      if (abs.startsWith(imagesBase + path.sep)) {
+        referenced.add(path.relative(imagesBase, abs).replace(/\\/g, '/'));
+      }
+    }
+  }
+
+  return { referenced, missing };
+}
+
+const { referenced, missing } = resolveImports();
+const onDisk = collectImageFiles(imagesBase);
+const unused = onDisk.filter((f) => !referenced.has(f));
+
+console.log('\nImage audit: src/lelever-next/images\n');
+console.log('Imports resolved:', referenced.size);
+console.log('Files on disk:', onDisk.length);
+
+if (missing.length) {
+  console.log('\nMISSING (imported but not found):');
+  missing.forEach((m) => console.log('  ', m.file, '->', m.abs));
+} else {
+  console.log('\nAll image imports resolve.');
+}
+
+const staging = unused.filter((f) => f.startsWith('Photos à ajouter'));
+const liveUnused = unused.filter((f) => !f.startsWith('Photos à ajouter'));
+
+if (liveUnused.length) {
+  console.log(`\nUnused outside staging (${liveUnused.length}):`);
+  liveUnused.slice(0, 40).forEach((p) => console.log('  ', p));
+  if (liveUnused.length > 40) console.log(`  ... +${liveUnused.length - 40} more`);
+}
+
+if (staging.length) {
+  console.log(`\nUnused in Photos à ajouter (inbox, ${staging.length}): kept for future adds`);
 }
 
 console.log('');
-process.exit(missingFiles.length > 0 || missingFolders.length > 0 ? 1 : 0);
+process.exit(missing.length ? 1 : 0);

@@ -246,7 +246,6 @@ export default function ContactPage() {
           }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
           imageBackground={contactPhotoHeader}
-          overlayBg='linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.7) 45%, rgba(18, 38, 74, 0.5) 100%)'
           breadcrumb={[
             { label: isFr ? 'Accueil' : 'Home', to: '/' },
             { label: 'Contact' },

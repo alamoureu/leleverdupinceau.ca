@@ -11,8 +11,10 @@ import { useTranslation } from '../i18n';
 import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import { TRUST_BANNER_BELOW_PT } from './TrustBanner';
 import ServiceCard from './ServiceCard';
-import peintureInterieureImg from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.webp';
-import peintureExterieureImg from '../images/1-page-principale/service hub/Peinture extérieure/IMG_6767.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const peintureInterieureImg = thumbnailForRoute('/services/peinture-interieure');
+const peintureExterieureImg = thumbnailForRoute('/services/peinture-exterieure');
 
 const DEFAULT_SECTION_PB = {
   base: 10,

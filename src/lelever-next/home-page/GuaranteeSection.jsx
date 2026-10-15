@@ -143,7 +143,9 @@ export default function GuaranteeSection({
         <Stack spacing={{ base: 2, sm: 3, md: 5 }} align="center">
           {!hideCta && (
             <Stack spacing={1} align="center" w="100%">
-              <CtaButton onClick={onSubmissionOpen}>{ctaText}</CtaButton>
+              <CtaButton size="large" onClick={onSubmissionOpen}>
+                {ctaText}
+              </CtaButton>
               <Text
                 fontSize={{ base: 'sm', md: 'lg' }}
                 color="gray.600"

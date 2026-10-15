@@ -26,25 +26,16 @@ import laprairieSecteur from '../images/laprairie.webp';
 // Export images for reuse
 export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
 
-/** Centre vertical de l'icône pin (au-dessus du nom dans la tuile). */
-const PIN_CENTER_TOP = 'calc(50% - 18px)';
-
 /**
- * Cadrage des tuiles secteurs. `focus` (en % de l'image) place le centre de la
- * zone surlignée sous le pin ; le zoom légèrement > 100 % garde la tuile couverte.
- * `!important` : index.html plafonne `img[width][height]` à max-width 100 %.
+ * Cadrage des tuiles secteurs. `focus` (en % de l'image) centre la zone
+ * surlignée dans la tuile via object-position (cover sans trou).
  */
 function sectorTileImageProps(sector) {
   if (sector.imageTransform) return sector.imageTransform;
   if (sector.focus) {
     return {
-      top: PIN_CENTER_TOP,
-      left: '50%',
-      w: '100%',
-      h: 'auto',
-      maxW: 'none !important',
-      objectFit: undefined,
-      transform: `translate(-${sector.focus.x}%, -${sector.focus.y}%)`,
+      objectFit: 'cover',
+      objectPosition: `${sector.focus.x}% ${sector.focus.y}%`,
     };
   }
   if (sector.name === 'Montréal') {
@@ -78,14 +69,14 @@ const defaultSectors = [
     name: 'Saint-Lambert',
     link: '/secteurs/st-lambert',
     image: stLambertSecteur,
-    focus: { x: 52, y: 61 },
+    // Cartes quasi carrées dans une tuile large : seul Y décale la zone bleue sous le pin
+    focus: { x: 50, y: 87 },
   },
   {
     name: 'La Prairie',
     link: '/secteurs/laprairie',
     image: laprairieSecteur,
-    // Pin au milieu, un cran plus haut
-    focus: { x: 55, y: 56 },
+    focus: { x: 50, y: 85 },
   },
 ];
 

@@ -27,11 +27,13 @@ import blogPhotoHeader from '../images/5-landing-page/Photo/Danny_Wraping.webp';
 import imgArmoiresCuisine from '../images/1-page-principale/blog hub/blog-armoires-cuisine.webp';
 import imgComparatifPeinture from '../images/1-page-principale/blog hub/blog-comparatif-peinture.webp';
 import ResourcesSection from '../home-page/ResourcesSection';
-import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.webp';
-import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
-import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.webp';
-import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.webp';
-import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const imgResidentielle = thumbnailForRoute('/services/peinture-residentielle');
+const imgCommerciale = thumbnailForRoute('/services/peinture-commerciale');
+const imgInterieure = thumbnailForRoute('/services/peinture-interieure');
+const imgExterieure = thumbnailForRoute('/services/peinture-exterieure');
+const imgIndustrielle = thumbnailForRoute('/services/peinture-industrielle');
 
 export default function BlogPage() {
   const { currentLang } = useContext(appContext);
@@ -134,7 +136,6 @@ export default function BlogPage() {
           }
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
           imageBackground={blogPhotoHeader}
-          overlayBg='linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.62) 42%, rgba(18, 38, 74, 0.38) 100%)'
           breadcrumb={[
             { label: isFr ? 'Accueil' : 'Home', to: '/' },
             { label: 'Blog' },

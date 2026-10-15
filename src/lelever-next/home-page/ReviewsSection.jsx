@@ -63,19 +63,32 @@ function ReviewCard({ review, index, isActive }) {
     >
       <Box opacity={isActive ? 1 : 0.55} transition='opacity 0.4s' display='flex' flexDirection='column' h='100%'>
         <HStack spacing={3} align='center'>
-          <Flex
-            align='center'
-            justify='center'
-            boxSize={{ base: '40px', md: '44px' }}
-            flexShrink={0}
-            borderRadius='full'
-            bg={AVATAR_COLORS[index % AVATAR_COLORS.length]}
-            color='white'
-            fontWeight='bold'
-            fontSize='lg'
-          >
-            {review.name.charAt(0)}
-          </Flex>
+          {review.avatar ? (
+            <Image
+              src={review.avatar}
+              alt={review.name}
+              boxSize={{ base: '40px', md: '44px' }}
+              flexShrink={0}
+              borderRadius='full'
+              objectFit='cover'
+              loading='lazy'
+              decoding='async'
+            />
+          ) : (
+            <Flex
+              align='center'
+              justify='center'
+              boxSize={{ base: '40px', md: '44px' }}
+              flexShrink={0}
+              borderRadius='full'
+              bg={AVATAR_COLORS[index % AVATAR_COLORS.length]}
+              color='white'
+              fontWeight='bold'
+              fontSize='lg'
+            >
+              {review.name.charAt(0)}
+            </Flex>
+          )}
           <Box flex={1} minW={0}>
             <Text fontWeight='bold' color='gray.800' noOfLines={1}>
               {review.name}
@@ -129,10 +142,11 @@ export default function ReviewsSection({
 
   const allReviews =
     reviewsOverride ||
-    GOOGLE_REVIEWS.map(({ name, time, content }) => ({
+    GOOGLE_REVIEWS.map(({ name, time, content, avatar }) => ({
       name,
       time: time[currentLang],
       content: content[currentLang],
+      avatar,
     }));
   const count = allReviews.length;
 

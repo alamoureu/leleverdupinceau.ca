@@ -331,7 +331,6 @@ export default function PeintureMaisonPage() {
           pageContext="Maison"
           imageBackground={maisonHeroImg}
           imageAlt="Peintre professionnel au travail dans une maison unifamiliale"
-          overlayBg="rgba(0, 0, 0, 0.45)"
           title="Peinture de maison unifamiliale"
           subtitle="Chantier propre, planifié pièce par pièce pour une maison habitée."
           description="Intérieur, boiseries et extérieur - préparation adaptée à votre bâti."

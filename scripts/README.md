@@ -22,8 +22,12 @@ node scripts/verify-links.js    # to= / href= dans le code
 ## Images / review
 
 ```bash
-npm run images:compress
+npm run images:to-webp        # PNG/JPG → WebP (max 1920), réécrit les imports
+npm run images:optimize-ba    # avant/après → max 1080px WebP
+npm run images:compress       # tout le dossier images, max 1920
 npm run images:byte-dupes
 npm run open:modified
 npm run review:pages
 ```
+
+Les assets du site sont déjà en WebP. Le gain principal pour les carrousels avant/après est le redimensionnement (`images:optimize-ba`), pas un changement de format.

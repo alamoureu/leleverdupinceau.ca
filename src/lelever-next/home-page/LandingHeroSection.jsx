@@ -11,6 +11,7 @@ import { useTranslation } from '../i18n';
 import heroImage from '../images/heroImage.webp';
 import { LANDING_MAIN_CONTENT_PT } from '../landing/constants';
 import CtaButton from './CtaButton';
+import { HERO_OVERLAY_BG } from './HeroSection';
 import { CARD_HEIGHT as TRUST_CARD_HEIGHT } from './TrustBanner';
 
 /** V en bas du hero : la pointe s'arrête juste au-dessus de la carte TrustBanner (à cheval sur le bas de la section). */
@@ -97,7 +98,7 @@ export default function LandingHeroSection({
           left={0}
           right={0}
           bottom={0}
-          bg="rgba(0, 0, 0, 0.4)"
+          bg={HERO_OVERLAY_BG}
         />
       </Box>
 

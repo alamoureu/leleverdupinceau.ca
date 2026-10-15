@@ -29,10 +29,7 @@ import { SITE_URL } from '../seo/config';
 import { COMPANY_PHONE_E164 } from '../constants/company';
 
 import headerMontreal from '../images/L3 Services X Villes/Photo page -peinture-intérieure-montréal/header.webp';
-import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.webp';
-import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
-import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
-import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
 import quartierPlateau from '../images/pillar-pages/secteur-hub/IMG_7900.webp';
 import quartierVilleMarie from '../images/pillar-pages/secteur-hub/IMG_7902.webp';
 import quartierOutremont from '../images/pillar-pages/secteur-hub/IMG_7898.webp';
@@ -180,10 +177,10 @@ export default function MontrealCityPage() {
   // Section 5 - Services les plus demandes
 
   const serviceCardImages = {
-    '/services/peinture-interieure': interieureHeroImg,
-    '/services/peinture-exterieure': exterieureHeroImg,
-    '/services/peinture-residentielle': residentielleHeroImg,
-    '/services/peinture-commerciale': commercialeHeroImg,
+    '/services/peinture-interieure': thumbnailForRoute('/services/peinture-interieure'),
+    '/services/peinture-exterieure': thumbnailForRoute('/services/peinture-exterieure'),
+    '/services/peinture-residentielle': thumbnailForRoute('/services/peinture-residentielle'),
+    '/services/peinture-commerciale': thumbnailForRoute('/services/peinture-commerciale'),
   };
 
   const serviceCards = isFr ? [

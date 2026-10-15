@@ -283,7 +283,6 @@ export default function PeintureResidentiellePage() {
           pageContext='Peinture résidentielle'
           imageBackground={residentielleHeroImg}
           imageAlt='Peinture résidentielle à Montréal - peintre professionnel en action'
-          overlayBg='rgba(0, 0, 0, 0.50)'
           title='Peinture résidentielle à Montréal'
           subtitle='Maison, condo, appartement'
           description='Un chantier propre, bien coordonné et respectueux de votre espace de vie.'

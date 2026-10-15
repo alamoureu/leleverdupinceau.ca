@@ -1,17 +1,24 @@
 #!/usr/bin/env node
 /**
- * Compress AND resize ALL website images in place (overwrites originals in src/lelever-next/images).
+ * Compress AND resize website images in place (overwrites originals in src/lelever-next/images).
  * Resizing is the main fix for slow loading: images larger than maxDim are scaled down.
  * Requires: npm install --save-dev sharp
  *
  * Usage:
- *   node scripts/compress-images.js              # compress + resize all images in place
- *   node scripts/compress-images.js --dry-run    # list all files that would be processed
+ *   node scripts/compress-images.js              # compress + resize all images
+ *   node scripts/compress-images.js --dry-run    # list files that would be processed
+ *   node scripts/compress-images.js --max-dim=1080 --include=avant --include=before_after
  *
  * Options:
- *   --quality=82    JPEG/WebP quality (default 82)
- *   --png-level=9   PNG compression 0-9 (default 9)
- *   --max-dim=1920  Max width/height in px; images larger are resized (default 1920)
+ *   --quality=82     JPEG/WebP quality (default 82)
+ *   --png-level=9    PNG compression 0-9 (default 9)
+ *   --max-dim=1920   Max width/height in px; larger images are resized (default 1920)
+ *   --include=SUB    Only process paths containing SUB (case-insensitive, repeatable; OR)
+ *   --exclude=SUB    Skip paths containing SUB (case-insensitive, repeatable; OR)
+ *
+ * Roles (recommended max-dim):
+ *   Carousel / avant-après : 1080 (cards ~360px CSS, 2x DPR)
+ *   Heroes / headers       : 1920
  */
 
 const fs = require('fs');
@@ -20,7 +27,7 @@ const os = require('os');
 
 const projectRoot = path.join(__dirname, '..');
 const imagesBase = path.join(projectRoot, 'src', 'lelever-next', 'images');
-const imageExtensions = /\.(png|jpg|jpeg|gif|webp|PNG|JPG|JPEG|GIF|WEBP)$/i;
+const imageExtensions = /\.(png|jpg|jpeg|gif|heic|webp)$/i;
 
 function collectAllImageFiles(dir, relPrefix = '') {
   const list = [];
@@ -48,14 +55,34 @@ function parseArgs() {
     jpegQuality: 82,
     pngLevel: 9,
     maxDim: 1920,
+    includes: [],
+    excludes: [],
   };
   for (const a of args) {
     if (a === '--dry-run') opts.dryRun = true;
     else if (a.startsWith('--quality=')) opts.jpegQuality = Math.max(1, Math.min(100, parseInt(a.slice(10), 10) || 82));
     else if (a.startsWith('--png-level=')) opts.pngLevel = Math.max(0, Math.min(9, parseInt(a.slice(11), 10) ?? 9));
     else if (a.startsWith('--max-dim=')) opts.maxDim = Math.max(320, Math.min(4096, parseInt(a.slice(10), 10) || 1920));
+    else if (a.startsWith('--include=')) {
+      const v = a.slice(10).trim().toLowerCase();
+      if (v) opts.includes.push(v);
+    } else if (a.startsWith('--exclude=')) {
+      const v = a.slice(10).trim().toLowerCase();
+      if (v) opts.excludes.push(v);
+    }
   }
   return opts;
+}
+
+function matchesFilters(relPath, opts) {
+  const lower = relPath.toLowerCase();
+  if (opts.includes.length > 0 && !opts.includes.some((sub) => lower.includes(sub))) {
+    return false;
+  }
+  if (opts.excludes.some((sub) => lower.includes(sub))) {
+    return false;
+  }
+  return true;
 }
 
 async function compressWithSharp(opts) {
@@ -72,17 +99,23 @@ async function compressWithSharp(opts) {
     process.exit(1);
   }
 
-  const images = collectAllImageFiles(imagesBase);
+  const allImages = collectAllImageFiles(imagesBase);
+  const images = allImages.filter((img) => matchesFilters(img.path, opts));
   if (images.length === 0) {
-    console.log('No images found in', imagesBase);
+    console.log('No images matched filters in', imagesBase);
+    if (opts.includes.length) console.log('  include:', opts.includes.join(', '));
+    if (opts.excludes.length) console.log('  exclude:', opts.excludes.join(', '));
     return;
   }
 
-  console.log('Found', images.length, 'images in src/lelever-next/images');
+  console.log('Found', images.length, 'images' + (images.length !== allImages.length ? ` (of ${allImages.length} total)` : ''));
   console.log('Resize: max dimension', opts.maxDim, 'px (images larger will be scaled down)');
+  if (opts.includes.length) console.log('Include:', opts.includes.join(', '));
+  if (opts.excludes.length) console.log('Exclude:', opts.excludes.join(', '));
   let totalOriginal = 0;
   let totalNew = 0;
   let resizedCount = 0;
+  let changedCount = 0;
   const tempDir = path.join(os.tmpdir(), 'lelever-compress-' + Date.now());
 
   if (!opts.dryRun) {
@@ -138,13 +171,22 @@ async function compressWithSharp(opts) {
       const newMeta = await sharp(tempPath).metadata();
       const newW = newMeta.width || w;
       const newH = newMeta.height || h;
+
+      // Keep original if recompression grew the file and we did not resize
+      if (!needsResize && newSize >= originalSize) {
+        fs.unlinkSync(tempPath);
+        totalOriginal += originalSize;
+        totalNew += originalSize;
+        continue;
+      }
+
       fs.renameSync(tempPath, img.absolutePath);
       totalOriginal += originalSize;
       totalNew += newSize;
-      // Log when dimensions or file size changed so you see images being modified
       const sizeChange = originalSize !== newSize;
       const dimChange = needsResize && (w !== newW || h !== newH);
       if (sizeChange || dimChange) {
+        changedCount++;
         const parts = [img.path];
         if (dimChange) parts.push(` ${w}x${h} → ${newW}x${newH}`);
         if (sizeChange) parts.push(` ${(originalSize / 1024).toFixed(1)}KB → ${(newSize / 1024).toFixed(1)}KB`);
@@ -171,7 +213,13 @@ async function compressWithSharp(opts) {
   const saved = totalOriginal - totalNew;
   const pct = totalOriginal ? ((saved / totalOriginal) * 100).toFixed(1) : 0;
   console.log('');
-  console.log('Done. Processed', images.length, 'images in place' + (resizedCount ? ' (' + resizedCount + ' resized)' : ''));
+  console.log(
+    'Done. Processed',
+    images.length,
+    'images in place' +
+      (resizedCount ? ' (' + resizedCount + ' resized)' : '') +
+      (changedCount ? ', ' + changedCount + ' changed' : '')
+  );
   console.log('Before:', (totalOriginal / 1024 / 1024).toFixed(2), 'MB');
   console.log('After: ', (totalNew / 1024 / 1024).toFixed(2), 'MB');
   console.log('Saved:  ', (saved / 1024 / 1024).toFixed(2), 'MB (' + pct + '%)');

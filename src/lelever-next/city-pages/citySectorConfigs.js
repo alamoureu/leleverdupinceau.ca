@@ -37,11 +37,7 @@ import laprairie0860 from '../images/3-ville/st-lambert/avant-apres/IMG_0860.web
 import laprairie0861 from '../images/3-ville/laprairie/avant-apres/IMG_0861.webp';
 import laprairie0862 from '../images/3-ville/laprairie/avant-apres/IMG_0862.webp';
 
-import interieureHeroImg from '../images/2-services/Page peinture intérieure/Photo header/Rolling_Door.webp';
-import exterieureHeroImg from '../images/2-services/Page peinture extérieure/Photo header/IMG_0989.webp';
-import residentielleHeroImg from '../images/2-services/Page peinture résidentielle/Photo header/IMG_7844.webp';
-import commercialeHeroImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
-import platreHeroImg from '../images/L2 Services specialise/Photo page -plâtre/header _plaster.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
 
 function baseInternalLinks(cityLabelFr, cityLabelEn, siblingLinks = []) {
   return [
@@ -75,11 +71,11 @@ function baseInternalLinks(cityLabelFr, cityLabelEn, siblingLinks = []) {
 }
 
 const sharedServiceImages = {
-  interior: interieureHeroImg,
-  exterior: exterieureHeroImg,
-  residential: residentielleHeroImg,
-  commercial: commercialeHeroImg,
-  plaster: platreHeroImg,
+  interior: thumbnailForRoute('/services/peinture-interieure'),
+  exterior: thumbnailForRoute('/services/peinture-exterieure'),
+  residential: thumbnailForRoute('/services/peinture-residentielle'),
+  commercial: thumbnailForRoute('/services/peinture-commerciale'),
+  plaster: thumbnailForRoute('/services/reparation-de-platre-et-gypse'),
 };
 
 export const brossardCityConfig = {

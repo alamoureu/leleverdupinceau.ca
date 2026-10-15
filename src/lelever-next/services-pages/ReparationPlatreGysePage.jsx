@@ -295,7 +295,6 @@ export default function ReparationPlatreGysePage() {
           imageBackground={platreHeroImg}
           imageAlt='Réparation de plâtre et gypse à Montréal - correction de fissures et trous avant peinture'
           imagePosition='center 30%'
-          overlayBg='rgba(0, 0, 0, 0.55)'
           title='Réparation de plâtre et gypse à Montréal'
           subtitle='Fissures, trous et joints.'
           description='Des surfaces abîmées corrigées proprement pour un fini lisse, droit et prêt à peindre.'

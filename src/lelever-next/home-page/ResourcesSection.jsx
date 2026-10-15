@@ -15,6 +15,11 @@ import {
 import { ArrowForwardIcon } from '@chakra-ui/icons';
 import { useTranslation } from '../i18n';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
+import {
+  columnsForCount,
+  CENTER_LAST_ODD_MD_SX,
+  DESKTOP_THREE_PLUS_TWO_SX,
+} from '../constants/responsiveGrid';
 import commentChoisirPeintre from '../images/5-landing-page/Photo/louis_Consultation.webp';
 import prixProjetPeinture from '../images/1-page-principale/blog hub/prix-projet-montreal.webp';
 import erreursEviterImage from '../images/1-page-principale/blog hub/erreurs-eviter-peindre.webp';
@@ -59,6 +64,10 @@ export default function ResourcesSection({
 
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : SECTION_PY;
   const pb = sectionPaddingBottom !== undefined ? sectionPaddingBottom : SECTION_PY;
+  const isFive = articles.length === 5;
+  const gridColumns = isFive
+    ? { ...columnsForCount(5), lg: 6 }
+    : { base: 1, md: 3 };
 
   return (
     <Box pt={pt} pb={pb} bg={sectionBg}>
@@ -76,11 +85,16 @@ export default function ResourcesSection({
           </Stack>
 
           <SimpleGrid
-            columns={{ base: 1, md: 3 }}
+            columns={gridColumns}
             spacing={{ base: 4, md: 5, lg: 6 }}
             w="100%"
             maxW={{ base: '100%', md: '1100px', lg: '1200px' }}
             mx="auto"
+            sx={
+              isFive
+                ? { ...CENTER_LAST_ODD_MD_SX, ...DESKTOP_THREE_PLUS_TWO_SX }
+                : undefined
+            }
           >
             {articles.map((article) => (
               <Link

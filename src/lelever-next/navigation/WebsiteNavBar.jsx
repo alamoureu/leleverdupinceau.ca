@@ -23,8 +23,16 @@ import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 import ShakeButton from '../home-page/ShakeButton';
+import LanguageToggle from '../components/LanguageToggle';
 import { showsNavReviewBadge } from '../constants/navReviewBadge';
 import whiteLogo from '../images/whitelogo.webp';
+import {
+  NAV_BAR_H,
+  NAV_BAR_PY,
+  NAV_LOGO_H,
+  NAV_LOGO_W,
+  TOP_BAR_H,
+} from './navBarSizes';
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();
@@ -36,7 +44,6 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
     isNewLandingProp !== undefined
       ? isNewLandingProp
       : location.pathname === '/fr/peintre-montreal' ||
-        location.pathname === '/en/peintre-montreal' ||
         location.pathname === '/en/painter-montreal';
   const showsReviewBadge = showsNavReviewBadge(location.pathname);
 
@@ -61,19 +68,23 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
         <Box
           position="relative"
           w="100%"
+          h={TOP_BAR_H}
           zIndex={1}
           bg="black"
           pointerEvents="auto"
+          display="flex"
+          alignItems="center"
+          boxSizing="border-box"
         >
           <Box
             maxW="1440px"
+            w="100%"
             mx="auto"
-            py={{ base: 1.5, sm: 1.5, md: 1 }}
-            px={{ base: 4, sm: 6, lg: 8, xl: 8, '2xl': 0 }}
+            px={{ base: 4, sm: 6, lg: 8 }}
           >
-            <HStack justify="space-between" spacing={4}>
+            <HStack justify="space-between" spacing={4} h="100%" alignItems="center">
               <HStack spacing={4}>
-                <HStack spacing={2} h={{ base: '22px', md: '18px' }} alignItems="center">
+                <HStack spacing={2} alignItems="center">
                   <Text
                     fontSize={{ base: 'xs', sm: 'sm' }}
                     color="white"
@@ -107,23 +118,26 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 </HStack>
               </HStack>
 
-              <HStack spacing={2} alignItems="center">
-                <Icon
-                  as={FontAwesomeIcon}
-                  icon={faPhoneAlt}
-                  color="white"
-                  fontSize={{ base: 'xs', sm: 'sm' }}
-                />
-                <a href="tel:+14388680772">
-                  <Text
-                    fontSize={{ base: 'xs', sm: 'sm' }}
+              <HStack spacing={3} alignItems="center">
+                <HStack spacing={2} alignItems="center">
+                  <Icon
+                    as={FontAwesomeIcon}
+                    icon={faPhoneAlt}
                     color="white"
-                    fontWeight="medium"
-                    _hover={{ textDecoration: 'underline' }}
-                  >
-                    (438) 868-0772
-                  </Text>
-                </a>
+                    fontSize={{ base: 'xs', sm: 'sm' }}
+                  />
+                  <a href="tel:+14388680772">
+                    <Text
+                      fontSize={{ base: 'xs', sm: 'sm' }}
+                      color="white"
+                      fontWeight="medium"
+                      _hover={{ textDecoration: 'underline' }}
+                    >
+                      (438) 868-0772
+                    </Text>
+                  </a>
+                </HStack>
+                <LanguageToggle variant="bar" />
               </HStack>
             </HStack>
           </Box>
@@ -132,16 +146,26 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
 
       <Box
         w="100%"
+        h={NAV_BAR_H}
         bg={isNewLanding ? 'white' : 'brand.700'}
-        py={{ base: 3.5, sm: 3, md: 3, lg: 4 }}
-        px={{ base: 4, sm: 6, lg: 8 }}
+        py={NAV_BAR_PY}
         shadow="md"
         position="relative"
         zIndex={2}
         pointerEvents="auto"
         margin={0}
+        boxSizing="border-box"
+        display="flex"
+        alignItems="center"
       >
-        <Box maxW="1440px" w="100%" mx="auto" position="relative" zIndex={1}>
+        <Box
+          maxW="1440px"
+          w="100%"
+          mx="auto"
+          px={{ base: 4, sm: 6, lg: 8 }}
+          position="relative"
+          zIndex={1}
+        >
           <HStack
             spacing={{ base: 3, sm: 4 }}
             alignItems="center"
@@ -163,9 +187,9 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               aria-label={currentLang === 'fr' ? 'Accueil' : 'Home'}
               display="flex"
               alignItems="center"
-              h={{ base: '58px', sm: '60px', md: '64px', lg: '68px' }}
+              h={NAV_LOGO_H}
               // Explicit width from 1409×873 so the logo never expands on decode (CLS)
-              w={{ base: '94px', sm: '97px', md: '103px', lg: '110px' }}
+              w={NAV_LOGO_W}
               maxW={{ base: '160px', sm: '180px', md: 'none' }}
             >
               <Image
@@ -193,7 +217,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
 
             {isNewLanding && (
               <HStack
-                spacing={2}
+                spacing={3}
                 alignItems="center"
                 flexShrink={0}
                 ml={{ base: 2, lg: 4 }}
@@ -210,6 +234,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                     (438) 868-0772
                   </Text>
                 </a>
+                <LanguageToggle variant="nav" />
               </HStack>
             )}
 

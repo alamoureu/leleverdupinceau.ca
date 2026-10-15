@@ -45,11 +45,8 @@ import FinalCTASection from '../home-page/FinalCTASection';
 import { RBQ_LICENSE } from '../constants/company';
 
 import heroImg from '../images/L3 Sous services/Photo page appartement/header.webp';
-import condoImg from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
-import appartementImg from '../images/L3 Sous services/Photo page appartement/Avant après/IMG_7983 2.webp';
 import reventeImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, pièce double après.webp';
 import emmenagementImg from '../images/L2 Services principaux/Photo page -peinture-résidentielle/avant après/Peinture résidentielle Montréal, chambre après.webp';
-import commercialImg from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
 import escalierAvant from '../images/L3 Quartiers/Avant apres plateau/IMG_7975 3.webp';
 import escalierApres from '../images/L3 Quartiers/Avant apres plateau/IMG_7974 3.webp';
 import plAdd1b from "../images/L2 Services principaux/Photo page -peinture-extérieure/+Photo avant après/Peinture extérieure Montréal, porte d'entrée avant.webp";
@@ -64,6 +61,11 @@ import plAdd5b from '../images/3-ville/Montréal/avant-apres/IMG_1405.webp';
 import plAdd5a from '../images/3-ville/Montréal/avant-apres/IMG_1406.webp';
 import plAdd6b from '../images/L3 Quartiers/Avant après outremont/IMG_5971 2.webp';
 import plAdd6a from '../images/L3 Quartiers/Avant après outremont/IMG_5972 2.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const condoImg = thumbnailForRoute('/services/peinture-residentielle/condo');
+const appartementImg = thumbnailForRoute('/services/peinture-residentielle/appartement');
+const commercialImg = thumbnailForRoute('/services/peinture-commerciale');
 
 const CAROUSEL_IMAGES = [
   { before: escalierAvant, after: escalierApres, description: 'Escalier en colimaçon - décapage et peinture' },
@@ -150,33 +152,6 @@ const CONTEXTES = [
     image: commercialImg,
     title: 'Bureau créatif ou commerce léger de quartier',
     text: 'Certaines interventions demandent un chantier discret, bien planifié et compatible avec l\'image du lieu - sans perturber l\'ambiance du quartier.',
-  },
-];
-
-const SERVICES = [
-  {
-    title: 'Peinture intérieure à Montréal',
-    text: 'Pour les condos, plex et appartements du Plateau où la finition, la protection et la logistique urbaine comptent autant que le résultat.',
-    to: '/services/peinture-interieure',
-    cta: 'Voir la page',
-  },
-  {
-    title: 'Peinture extérieure à Montréal',
-    text: 'Pour les balcons, escaliers, boiseries extérieures, façades et autres surfaces exposées au climat montréalais.',
-    to: '/services/peinture-exterieure',
-    cta: 'Voir la page',
-  },
-  {
-    title: 'Peinture résidentielle',
-    text: 'Pour un chantier simple à vivre, bien coordonné et sans stress dans votre condo, appartement ou maison.',
-    to: '/services/peinture-residentielle',
-    cta: 'Voir la page',
-  },
-  {
-    title: 'Nos réalisations',
-    text: 'Pour montrer des résultats concrets et renforcer la crédibilité dans un contexte très visuel comme le Plateau.',
-    to: '/realisations',
-    cta: 'Voir les projets',
   },
 ];
 
@@ -440,62 +415,7 @@ export default function PlateauMontRoyalPage() {
 
         <ContactFormSection sectionPaddingTop={{ base: 12, md: 16 }} sectionPaddingBottom={{ base: 12, md: 16 }} />
 
-        {/* ===== SECTION 5 - SERVICES LES PLUS DEMANDÉS ===== */}
-        <Box py={{ base: 16, md: 20, lg: 24 }} bg="white">
-          <Container maxW="1440px" px={{ base: 4, md: 6 }}>
-            <Stack spacing={{ base: 10, md: 14 }}>
-              <Stack spacing={4} textAlign="center" maxW={{ base: '100%', md: '960px', lg: '1100px' }} mx="auto">
-                <Heading
-                  as="h2"
-                  fontSize={{ base: '2xl', md: '3xl', lg: '4xl' }}
-                  fontWeight="bold"
-                  color="gray.800"
-                >
-                  Les services les plus demandés dans le Plateau Mont-Royal
-                </Heading>
-                <Text fontSize={{ base: 'md', md: 'lg' }} color="gray.600" lineHeight="1.7">
-                  Trouvez rapidement le bon service selon votre type d&apos;espace dans le Plateau.
-                </Text>
-              </Stack>
-
-              <SimpleGrid columns={{ base: 1, sm: 2, lg: 4 }} spacing={5}>
-                {SERVICES.map((service, i) => (
-                  <Link key={i} as={RouterLink} to={service.to} _hover={{ textDecoration: 'none' }}>
-                    <Box
-                      bg="white"
-                      border="1px solid"
-                      borderColor="gray.200"
-                      borderRadius="xl"
-                      p={{ base: 6, md: 7 }}
-                      h="100%"
-                      display="flex"
-                      flexDirection="column"
-                      _hover={{ borderColor: 'brand.500', transform: 'translateY(-2px)', boxShadow: 'md' }}
-                      transition="all 0.2s"
-                    >
-                      <Stack spacing={4} flex={1} justify="space-between">
-                        <Box>
-                          <Heading as="h3" fontSize={{ base: 'md', md: 'lg' }} fontWeight="700" color="gray.800" lineHeight="1.3" mb={3}>
-                            {service.title}
-                          </Heading>
-                          <Text color="gray.600" fontSize={{ base: 'sm', md: 'md' }} lineHeight="1.7">
-                            {service.text}
-                          </Text>
-                        </Box>
-                        <HStack spacing={1} color="brand.500">
-                          <Text fontSize="sm" fontWeight="600">{service.cta}</Text>
-                          <ArrowForwardIcon boxSize={3} />
-                        </HStack>
-                      </Stack>
-                    </Box>
-                  </Link>
-                ))}
-              </SimpleGrid>
-            </Stack>
-          </Container>
-        </Box>
-
-        {/* ===== SECTION 6 - PREUVE DE CRÉDIBILITÉ LOCALE ===== */}
+        {/* ===== SECTION 5 - PREUVE DE CRÉDIBILITÉ LOCALE ===== */}
         <Box py={{ base: 16, md: 20, lg: 24 }} bg="gray.50">
           <Container maxW="1440px" px={{ base: 4, md: 6 }}>
             <Stack spacing={{ base: 10, md: 14 }}>

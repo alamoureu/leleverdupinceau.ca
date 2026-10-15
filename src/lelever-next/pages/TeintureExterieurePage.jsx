@@ -276,7 +276,6 @@ export default function TeintureExterieurePage() {
           pageContext='Teinture extérieure'
           imageBackground={teintureHeroImg}
           imageAlt='Teinture extérieure bois à Montréal - patio, clôture et revêtement'
-          overlayBg='rgba(0, 0, 0, 0.45)'
           title='Teinture extérieure à Montréal'
           subtitle='Patio · Clôture · Revêtement bois'
           description="Protégez et ravivez vos surfaces en bois avec une finition adaptée au climat québécois et à l'exposition réelle de votre propriété."

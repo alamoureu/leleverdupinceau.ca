@@ -284,9 +284,10 @@ export default function App() {
             />
           </Route>
           <Route path="/en" element={<NewWebsiteLayout />}>
+            {/* Canonical EN ads landing; /en/peintre-montreal redirects to avoid dual EN URLs */}
             <Route
               path="peintre-montreal"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="en" indexable={false} /></Suspense>}
+              element={<Navigate to="/en/painter-montreal" replace />}
             />
             <Route
               path="painter-montreal"

@@ -252,7 +252,6 @@ export default function PeintureArmoiresCuisinePage() {
           pageContext='Armoires de cuisine'
           imageBackground={armoiresHeroImg}
           imageAlt='Peinture armoires cuisine Montréal - transformation fini net et uniforme'
-          overlayBg='rgba(0, 0, 0, 0.45)'
           title="Peinture d'armoires de cuisine à Montréal"
           subtitle='Transformez-les sans les remplacer - fini net et durable.'
           description='Portes, façades et caissons visibles - rendu uniforme.'

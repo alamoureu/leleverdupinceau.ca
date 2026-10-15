@@ -21,8 +21,8 @@ const useChrome = process.argv.includes('--chrome');
 
 const MODIFIED_PAGES = [
   ['/', 'Accueil – ControlSection, Projets récents, TeamSection (Danny Wrapping), Ressources'],
-  ['/fr/peintre-montreal', 'Landing FR – peintre-montreal'],
-  ['/en/peintre-montreal', 'Landing EN – peintre-montreal (English)'],
+  ['/fr/peintre-montreal', 'Landing FR - peintre-montreal'],
+  ['/en/painter-montreal', 'Landing EN - painter-montreal'],
   ['/blog', 'Blog – Photo header + cartes (louis_Consultation pour Blog 1)'],
   ['/contact', 'Contact – Photo header'],
   ['/avis-clients', 'Avis – Photo header'],

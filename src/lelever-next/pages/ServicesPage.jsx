@@ -24,20 +24,22 @@ import CtaButton from '../home-page/CtaButton';
 import SubmissionModal from '../home-page/SubmissionModal';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import serviceHubPhotoHeader from '../images/5-landing-page/Photo/spray man 3000.webp';
-import imgResidentielle from '../images/1-page-principale/service hub/Peinture résidentielle/IMG_6768.webp';
-import imgCommerciale from '../images/2-services/Page peinture commerciale/1. réalisations/IMG_6760.webp';
-import imgInterieure from '../images/1-page-principale/service hub/Peinture intérieure/IMG_6758.webp';
-import imgExterieure from '../images/2-services/Page peinture extérieure/1. réalisations/IMG_6755.webp';
-import imgIndustrielle from '../images/1-page-principale/service hub/Peinture industrielle/IMG_6757.webp';
-import imgTeinture from '../images/L2 Services specialise/Photo page teinture/Header.webp';
-import imgSurfaces from '../images/Moses&Dany_Wraping.webp';
-import imgPistolet from '../images/L2 Services specialise/Photo page -pistolet/header-spray-le-lever.webp';
-import imgPlatre from '../images/L2 Services specialise/Photo page -surfaces/IMG_8099.webp';
-import imgSinistre from '../images/L2 Services specialise/Photo page -après-sinitre/header.webp';
-import imgArmoires from '../images/L3 Sous services/Photo page armoires de cuisine/header-IMG_1429.webp';
-import imgMaison from '../images/2-services/Page peinture résidentielle/Peinture résidentielle extérieure/IMG_6763.webp';
-import imgCondo from '../images/L3 Sous services/Photo page -peinture condo/header.webp';
-import imgAppartement from '../images/L3 Sous services/Photo page appartement/header.webp';
+import { thumbnailForRoute } from '../constants/routeThumbnails';
+
+const imgResidentielle = thumbnailForRoute('/services/peinture-residentielle');
+const imgCommerciale = thumbnailForRoute('/services/peinture-commerciale');
+const imgInterieure = thumbnailForRoute('/services/peinture-interieure');
+const imgExterieure = thumbnailForRoute('/services/peinture-exterieure');
+const imgIndustrielle = thumbnailForRoute('/services/peinture-industrielle');
+const imgTeinture = thumbnailForRoute('/services/teinture-exterieure');
+const imgSurfaces = thumbnailForRoute('/services/preparation-de-surfaces');
+const imgPistolet = thumbnailForRoute('/services/peinture-au-pistolet');
+const imgPlatre = thumbnailForRoute('/services/reparation-de-platre-et-gypse');
+const imgSinistre = thumbnailForRoute('/services/peinture-apres-sinistre');
+const imgArmoires = thumbnailForRoute('/services/peinture-interieure/armoires-de-cuisine');
+const imgMaison = thumbnailForRoute('/services/peinture-residentielle/maison');
+const imgCondo = thumbnailForRoute('/services/peinture-residentielle/condo');
+const imgAppartement = thumbnailForRoute('/services/peinture-residentielle/appartement');
 
 function MainHubCard({
   image,
@@ -493,7 +495,6 @@ export default function ServicesPage() {
           description={heroDescription}
           buttonText={isFr ? 'Obtenir ma soumission gratuite' : 'Get my free quote'}
           imageBackground={serviceHubPhotoHeader}
-          overlayBg="linear-gradient(155deg, rgba(18, 38, 74, 0.92) 0%, rgba(18, 38, 74, 0.62) 42%, rgba(18, 38, 74, 0.38) 100%)"
           breadcrumb={[
             { label: isFr ? 'Accueil' : 'Home', to: '/' },
             { label: isFr ? 'Services' : 'Services' },
