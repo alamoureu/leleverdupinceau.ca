@@ -1,6 +1,7 @@
 import React from 'react';
-import { Box, Image, Heading, Text } from '@chakra-ui/react';
+import { Box, Heading, Text } from '@chakra-ui/react';
 import CardCaptionStrip from './CardCaptionStrip';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 /**
  * Reusable service card: image with title overlay, white fade, subtitle in white strip below.
@@ -114,8 +115,8 @@ export default function ServiceCard({
         h={imageHeights}
         flexShrink={0}
       >
-        <Image
-          src={image}
+        <ResponsiveImage
+          image={image}
           alt={alt || title}
           w="100%"
           h="100%"
@@ -125,6 +126,7 @@ export default function ServiceCard({
           loading={priority ? 'eager' : 'lazy'}
           fetchpriority={priority ? 'low' : undefined}
           decoding="async"
+                          sizes="(min-width: 48em) 380px, 85vw"
           htmlWidth={800}
           htmlHeight={600}
           sx={

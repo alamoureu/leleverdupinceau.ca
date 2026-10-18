@@ -8,7 +8,6 @@ import {
   Link,
   HStack,
   Flex,
-  Image,
   Icon,
   useDisclosure,
 } from '@chakra-ui/react';
@@ -27,6 +26,7 @@ import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection'
 import FinalCTASection from '../home-page/FinalCTASection';
 import avisPhotoHeader from '../images/home/moses-dany-wrapping.webp';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const imgInterieure = thumbnailForRoute('/services/peinture-interieure');
 const imgExterieure = thumbnailForRoute('/services/peinture-exterieure');
@@ -270,8 +270,9 @@ export default function AvisPage() {
                           overflow="hidden"
                           bg="gray.100"
                         >
-                          <Image
-                            src={service.image}
+                          <ResponsiveImage
+                            image={service.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                             alt={service.title}
                             w="100%"
                             h="100%"

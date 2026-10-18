@@ -24,42 +24,43 @@ import { AVIS_AVANT_APRES_PAIRS } from '../constants/avisAvantApres';
 import { avisPhoto } from '../constants/avantApresById';
 import FadedScroller from '../components/FadedScroller';
 import CardCaptionStrip from './CardCaptionStrip';
+import ResponsiveImage, { imageKey } from '../components/ResponsiveImage';
 
-import img7922 from '../images/villes/montreal/avant-apres/IMG_7922.webp';
-import img7924 from '../images/home/avant-apres/IMG_7924.webp';
-import img7971 from '../images/home/avant-apres/IMG_7971.webp';
-import img7974 from '../images/sous-services/appartement/avant-apres/IMG_7974.webp';
-import img7975 from '../images/sous-services/appartement/avant-apres/IMG_7975.webp';
-import img7985 from '../images/home/avant-apres/IMG_7985.webp';
-import img7988 from '../images/services/apres-sinistre/avant-apres/IMG_7988.webp';
-import img7990 from '../images/services/apres-sinistre/avant-apres/IMG_7990.webp';
-import img7992 from '../images/sous-services/appartement/avant-apres/IMG_7992.webp';
-import img7994 from '../images/sous-services/appartement/avant-apres/IMG_7994.webp';
-import img7997 from '../images/sous-services/appartement/avant-apres/IMG_7997.webp';
-import img7999 from '../images/sous-services/appartement/avant-apres/IMG_7999.webp';
-import img6755 from '../images/home/avant-apres/IMG_6755.webp';
-import img6757 from '../images/home/avant-apres/IMG_6757.webp';
+import img7922 from '../images/villes/montreal/avant-apres/IMG_7922.webp?responsive=ba';
+import img7924 from '../images/home/avant-apres/IMG_7924.webp?responsive=ba';
+import img7971 from '../images/home/avant-apres/IMG_7971.webp?responsive=ba';
+import img7974 from '../images/sous-services/appartement/avant-apres/IMG_7974.webp?responsive=ba';
+import img7975 from '../images/sous-services/appartement/avant-apres/IMG_7975.webp?responsive=ba';
+import img7985 from '../images/home/avant-apres/IMG_7985.webp?responsive=ba';
+import img7988 from '../images/services/apres-sinistre/avant-apres/IMG_7988.webp?responsive=ba';
+import img7990 from '../images/services/apres-sinistre/avant-apres/IMG_7990.webp?responsive=ba';
+import img7992 from '../images/sous-services/appartement/avant-apres/IMG_7992.webp?responsive=ba';
+import img7994 from '../images/sous-services/appartement/avant-apres/IMG_7994.webp?responsive=ba';
+import img7997 from '../images/sous-services/appartement/avant-apres/IMG_7997.webp?responsive=ba';
+import img7999 from '../images/sous-services/appartement/avant-apres/IMG_7999.webp?responsive=ba';
+import img6755 from '../images/home/avant-apres/IMG_6755.webp?responsive=ba';
+import img6757 from '../images/home/avant-apres/IMG_6757.webp?responsive=ba';
 
-import img5969 from '../images/home/avant-apres/IMG_5969.webp';
-import img5970 from '../images/home/avant-apres/IMG_5970.webp';
-import img5973 from '../images/services/teinture/avant-apres/IMG_5973.webp';
-import img5974 from '../images/services/teinture/avant-apres/IMG_5974.webp';
-import img5975 from '../images/sous-services/armoires/avant-apres/IMG_5975.webp';
-import img5976 from '../images/sous-services/armoires/avant-apres/IMG_5976.webp';
-import img5977 from '../images/services/pistolet/avant-apres/IMG_5977.webp';
-import img5978 from '../images/services/pistolet/avant-apres/IMG_5978.webp';
-import img5982 from '../images/sous-services/appartement/avant-apres/IMG_5982.webp';
-import img5984 from '../images/sous-services/appartement/avant-apres/IMG_5984.webp';
-import imgStaircaseBefore from '../images/sous-services/maison/avant-apres/IMG_7678.webp';
-import imgStaircaseAfter from '../images/sous-services/maison/avant-apres/IMG_5873.webp';
-import home0855 from '../images/villes/brossard/avant-apres/IMG_0855.webp';
-import home0856 from '../images/villes/brossard/avant-apres/IMG_0856.webp';
-import home0861 from '../images/villes/laprairie/avant-apres/IMG_0861.webp';
-import home0862 from '../images/villes/laprairie/avant-apres/IMG_0862.webp';
-import home0842 from '../images/villes/st-lambert/avant-apres/IMG_0842.webp';
-import home0843 from '../images/villes/st-lambert/avant-apres/IMG_0843.webp';
-import armoiresMileEndAvant from '../images/sous-services/armoires/avant-apres/IMG_8114.webp';
-import armoiresMileEndApres from '../images/sous-services/armoires/avant-apres/IMG_8120.webp';
+import img5969 from '../images/home/avant-apres/IMG_5969.webp?responsive=ba';
+import img5970 from '../images/home/avant-apres/IMG_5970.webp?responsive=ba';
+import img5973 from '../images/services/teinture/avant-apres/IMG_5973.webp?responsive=ba';
+import img5974 from '../images/services/teinture/avant-apres/IMG_5974.webp?responsive=ba';
+import img5975 from '../images/sous-services/armoires/avant-apres/IMG_5975.webp?responsive=ba';
+import img5976 from '../images/sous-services/armoires/avant-apres/IMG_5976.webp?responsive=ba';
+import img5977 from '../images/services/pistolet/avant-apres/IMG_5977.webp?responsive=ba';
+import img5978 from '../images/services/pistolet/avant-apres/IMG_5978.webp?responsive=ba';
+import img5982 from '../images/sous-services/appartement/avant-apres/IMG_5982.webp?responsive=ba';
+import img5984 from '../images/sous-services/appartement/avant-apres/IMG_5984.webp?responsive=ba';
+import imgStaircaseBefore from '../images/sous-services/maison/avant-apres/IMG_7678.webp?responsive=ba';
+import imgStaircaseAfter from '../images/sous-services/maison/avant-apres/IMG_5873.webp?responsive=ba';
+import home0855 from '../images/villes/brossard/avant-apres/IMG_0855.webp?responsive=ba';
+import home0856 from '../images/villes/brossard/avant-apres/IMG_0856.webp?responsive=ba';
+import home0861 from '../images/villes/laprairie/avant-apres/IMG_0861.webp?responsive=ba';
+import home0862 from '../images/villes/laprairie/avant-apres/IMG_0862.webp?responsive=ba';
+import home0842 from '../images/villes/st-lambert/avant-apres/IMG_0842.webp?responsive=ba';
+import home0843 from '../images/villes/st-lambert/avant-apres/IMG_0843.webp?responsive=ba';
+import armoiresMileEndAvant from '../images/sous-services/armoires/avant-apres/IMG_8114.webp?responsive=ba';
+import armoiresMileEndApres from '../images/sous-services/armoires/avant-apres/IMG_8120.webp?responsive=ba';
 
 function splitCaption(description) {
   if (!description) return { title: '', subtitle: '' };
@@ -86,12 +87,14 @@ export function dedupeBeforeAfterPairs(pairs) {
       dropped += 1;
       continue;
     }
-    if (seen.has(pair.before) || seen.has(pair.after)) {
+    const beforeKey = imageKey(pair.before);
+    const afterKey = imageKey(pair.after);
+    if (seen.has(beforeKey) || seen.has(afterKey)) {
       dropped += 1;
       continue;
     }
-    seen.add(pair.before);
-    seen.add(pair.after);
+    seen.add(beforeKey);
+    seen.add(afterKey);
     out.push(pair);
   }
   if (dropped > 0 && typeof console !== 'undefined') {
@@ -213,13 +216,15 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
         <Box overflow="hidden" borderTopRadius="xl">
           <Stack spacing={0}>
             <Box position="relative" w="100%">
-              <img
-                src={pair.before}
+              <ResponsiveImage
+                as="img"
+                image={pair.before}
                 alt={beforeAlt}
                 width={1200}
                 height={800}
                 loading={imgLoading}
                 decoding="async"
+                sizes="(min-width: 48em) 600px, 90vw"
                 style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
               />
               <Box
@@ -244,13 +249,15 @@ function BeforeAfterPairCard({ pair, isFr, t, priority = false }) {
               w="100%"
               borderTop="2px solid white"
             >
-              <img
-                src={pair.after}
+              <ResponsiveImage
+                as="img"
+                image={pair.after}
                 alt={afterAlt}
                 width={1200}
                 height={800}
                 loading={imgLoading}
                 decoding="async"
+                sizes="(min-width: 48em) 600px, 90vw"
                 style={{ width: '100%', height: 'auto', aspectRatio: '3 / 2', objectFit: 'cover', display: 'block' }}
               />
               <Box

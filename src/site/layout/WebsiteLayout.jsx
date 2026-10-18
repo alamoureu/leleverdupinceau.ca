@@ -89,8 +89,8 @@ export default function WebsiteLayout() {
                       decoding="async"
                       src={whiteLogo}
                       alt="Logo Le Lever du Pinceau"
-                      htmlWidth={1409}
-                      htmlHeight={873}
+                      htmlWidth={300}
+                      htmlHeight={186}
                       h={{ base: '60px', md: '70px' }}
                       w={{ base: '97px', md: '113px' }}
                       objectFit="contain"

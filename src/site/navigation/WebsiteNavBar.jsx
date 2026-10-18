@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { Suspense, useContext, useEffect, useState } from 'react';
 import {
   HStack,
   ButtonGroup,
@@ -13,8 +13,7 @@ import {
   Stack,
 } from '@chakra-ui/react';
 import { FaStar as StarIcon, FaFacebook, FaInstagram, FaPhoneAlt } from 'react-icons/fa';
-import { ServicesPopover } from './ServicesPopover';
-import { MobileDrawer } from './MobileDrawer';
+import { ToggleButton } from './ToggleButton';
 import { useNavigate, useLocation } from 'react-router-dom';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
@@ -23,6 +22,7 @@ import ShakeButton from '../home-page/ShakeButton';
 import LanguageToggle from '../components/LanguageToggle';
 import { showsNavReviewBadge } from '../constants/navReviewBadge';
 import whiteLogo from '../images/shared/whitelogo.webp';
+import { runWhenIdle } from '../../utils/runWhenIdle';
 import {
   NAV_BAR_H,
   NAV_BAR_PY,
@@ -30,6 +30,102 @@ import {
   NAV_LOGO_W,
   TOP_BAR_H,
 } from './navBarSizes';
+
+const ServicesPopover = React.lazy(() =>
+  import('./ServicesPopover').then((m) => ({ default: m.ServicesPopover })),
+);
+const MobileDrawer = React.lazy(() =>
+  import('./MobileDrawer').then((m) => ({ default: m.MobileDrawer })),
+);
+
+const menuBtnProps = {
+  display: { base: 'inline-flex', xl: 'none' },
+  variant: 'ghost',
+  color: 'white',
+  minW: { base: '44px', sm: '48px' },
+  minH: { base: '44px', sm: '48px' },
+  _hover: { bg: 'whiteAlpha.200' },
+  _active: { bg: 'whiteAlpha.300' },
+  pointerEvents: 'auto',
+  position: 'relative',
+  zIndex: 10,
+};
+
+/** Loads drawer chunk on idle or first tap (opens after load when tapped early). */
+function LazyMobileDrawer() {
+  const { currentLang } = useContext(appContext);
+  const isFr = currentLang === 'fr';
+  const [load, setLoad] = useState(false);
+  const [openOnMount, setOpenOnMount] = useState(false);
+
+  useEffect(() => {
+    if (load) return undefined;
+    return runWhenIdle(() => setLoad(true), { timeout: 1500 });
+  }, [load]);
+
+  const label = isFr ? 'Ouvrir le menu' : 'Open menu';
+
+  if (!load) {
+    return (
+      <IconButton
+        aria-label={label}
+        icon={<ToggleButton />}
+        onClick={() => {
+          setOpenOnMount(true);
+          setLoad(true);
+        }}
+        {...menuBtnProps}
+      />
+    );
+  }
+
+  return (
+    <Suspense
+      fallback={
+        <IconButton
+          aria-label={label}
+          icon={<ToggleButton />}
+          isDisabled
+          {...menuBtnProps}
+        />
+      }
+    >
+      <MobileDrawer defaultIsOpen={openOnMount} />
+    </Suspense>
+  );
+}
+
+/** Loads services popover after idle; fallback links to /services. */
+function LazyServicesPopover() {
+  const { currentLang } = useContext(appContext);
+  const navigate = useNavigate();
+  const [load, setLoad] = useState(false);
+  const label = currentLang === 'fr' ? 'Services' : 'Services';
+
+  useEffect(() => {
+    if (load) return undefined;
+    return runWhenIdle(() => setLoad(true), { timeout: 1500 });
+  }, [load]);
+
+  const fallbackButton = (
+    <Button
+      onClick={() => navigate('/services')}
+      onMouseEnter={() => setLoad(true)}
+      onFocus={() => setLoad(true)}
+      textStyle="nav"
+      px={3}
+      color="white"
+      whiteSpace="nowrap"
+      _hover={{ color: 'gray.200', bg: 'whiteAlpha.200' }}
+    >
+      {label}
+    </Button>
+  );
+
+  if (!load) return fallbackButton;
+
+  return <Suspense fallback={fallbackButton}><ServicesPopover /></Suspense>;
+}
 
 export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const navigate = useNavigate();
@@ -193,8 +289,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 decoding="async"
                 src={whiteLogo}
                 alt="Logo Le Lever du Pinceau"
-                htmlWidth={1409}
-                htmlHeight={873}
+                htmlWidth={300}
+                htmlHeight={186}
                 h="100%"
                 w="100%"
                 objectFit="contain"
@@ -243,7 +339,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               display={{ base: 'none', xl: isNewLanding ? 'none' : 'flex' }}
               flexShrink={0}
             >
-              <ServicesPopover />
+              <LazyServicesPopover />
               <Button
                 onClick={() => navigate('/secteurs')}
                 textStyle="nav"
@@ -314,7 +410,7 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               zIndex={10}
               pointerEvents="auto"
             >
-              <MobileDrawer />
+              <LazyMobileDrawer />
             </Box>
           </HStack>
         </Box>

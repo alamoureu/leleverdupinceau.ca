@@ -7,6 +7,9 @@ import { useEffect } from 'react';
  * Pauses on hover/focus/touch/wheel and when off-screen.
  * Resumes after the gesture settles (debounced), unless still hovered/focused.
  * Respects reduced motion.
+ *
+ * Geometry (scrollWidth/clientWidth) is measured only on resize / content size
+ * changes - never inside the rAF loop - to avoid forced reflows.
  */
 export default function useAutoScroll(
   scrollerRef,
@@ -34,11 +37,22 @@ export default function useAutoScroll(
     let hoverPaused = false;
     let focusPaused = false;
     let interactionPaused = false;
-    const rect = el.getBoundingClientRect();
-    let inView =
-      rect.bottom > 0 && rect.top < (window.innerHeight || 0);
+    let inView = false;
+    let maxScroll = 0;
+    let pos = isVertical ? el.scrollTop : el.scrollLeft;
 
     const isPaused = () => hoverPaused || focusPaused || interactionPaused;
+
+    const measure = () => {
+      maxScroll = isVertical
+        ? el.scrollHeight - el.clientHeight
+        : el.scrollWidth - el.clientWidth;
+      if (isPaused()) {
+        pos = isVertical ? el.scrollTop : el.scrollLeft;
+      } else if (maxScroll > 4 && pos > maxScroll) {
+        pos = 0;
+      }
+    };
 
     const clearResume = () => {
       if (resumeTimer) {
@@ -61,33 +75,31 @@ export default function useAutoScroll(
       scheduleResume();
     };
 
-    const wrapLoop = () => {
-      if (isVertical) {
-        const max = el.scrollHeight - el.clientHeight;
-        if (max > 4 && el.scrollTop >= max - 1) {
-          el.scrollTop = 0;
-        }
-      } else {
-        const max = el.scrollWidth - el.clientWidth;
-        if (max > 4 && el.scrollLeft >= max - 1) {
-          el.scrollLeft = 0;
-        }
+    const syncPosFromDom = () => {
+      pos = isVertical ? el.scrollTop : el.scrollLeft;
+    };
+
+    const stopLoop = () => {
+      if (rafId) {
+        window.cancelAnimationFrame(rafId);
+        rafId = 0;
       }
     };
 
     const step = () => {
-      if (inView && !isPaused()) {
-        if (isVertical) {
-          if (el.scrollHeight > el.clientHeight + 4) {
-            el.scrollTop += speed;
-            wrapLoop();
-          }
-        } else if (el.scrollWidth > el.clientWidth + 4) {
-          el.scrollLeft += speed;
-          wrapLoop();
-        }
+      rafId = 0;
+      if (!inView) return;
+      if (!isPaused() && maxScroll > 4) {
+        pos += speed;
+        if (pos >= maxScroll - 1) pos = 0;
+        if (isVertical) el.scrollTop = pos;
+        else el.scrollLeft = pos;
       }
       rafId = window.requestAnimationFrame(step);
+    };
+
+    const startLoop = () => {
+      if (!rafId) rafId = window.requestAnimationFrame(step);
     };
 
     const onPointerEnter = () => {
@@ -125,13 +137,28 @@ export default function useAutoScroll(
       pauseInteraction();
     };
 
+    const onScroll = () => {
+      if (isPaused()) syncPosFromDom();
+    };
+
     const io = new IntersectionObserver(
       ([entry]) => {
         inView = entry.isIntersecting;
+        if (inView) startLoop();
+        else stopLoop();
       },
       { threshold: 0.2 },
     );
     io.observe(el);
+
+    const ro =
+      typeof ResizeObserver !== 'undefined'
+        ? new ResizeObserver(() => {
+            measure();
+          })
+        : null;
+    ro?.observe(el);
+    if (el.firstElementChild) ro?.observe(el.firstElementChild);
 
     el.addEventListener('pointerenter', onPointerEnter);
     el.addEventListener('pointerleave', onPointerLeave);
@@ -140,13 +167,15 @@ export default function useAutoScroll(
     el.addEventListener('wheel', onWheel, { passive: true });
     el.addEventListener('focusin', onFocusIn);
     el.addEventListener('focusout', onFocusOut);
+    el.addEventListener('scroll', onScroll, { passive: true });
 
-    rafId = window.requestAnimationFrame(step);
+    measure();
 
     return () => {
-      window.cancelAnimationFrame(rafId);
+      stopLoop();
       clearResume();
       io.disconnect();
+      ro?.disconnect();
       el.removeEventListener('pointerenter', onPointerEnter);
       el.removeEventListener('pointerleave', onPointerLeave);
       el.removeEventListener('touchstart', onTouchStart);
@@ -154,6 +183,7 @@ export default function useAutoScroll(
       el.removeEventListener('wheel', onWheel);
       el.removeEventListener('focusin', onFocusIn);
       el.removeEventListener('focusout', onFocusOut);
+      el.removeEventListener('scroll', onScroll);
     };
   }, [scrollerRef, speed, enabled, resumeDelay, axis]);
 }

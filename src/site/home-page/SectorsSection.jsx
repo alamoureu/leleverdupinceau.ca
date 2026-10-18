@@ -10,17 +10,17 @@ import {
   Button,
   Link,
   Icon,
-  Image,
 } from '@chakra-ui/react';
 import { FaArrowRight as ArrowForwardIcon, FaMapMarkerAlt } from 'react-icons/fa';
 import { useTranslation } from '../i18n';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
-import montrealSecteur from '../images/shared/city-thumbs/montreal.webp';
-import lavalSecteur from '../images/shared/city-thumbs/laval.webp';
-import longueuilSecteur from '../images/shared/city-thumbs/longueuil.webp';
-import brossardSecteur from '../images/shared/city-thumbs/brossard.webp';
-import stLambertSecteur from '../images/shared/city-thumbs/st-lambert.webp';
-import laprairieSecteur from '../images/shared/city-thumbs/laprairie.webp';
+import ResponsiveImage from '../components/ResponsiveImage';
+import montrealSecteur from '../images/shared/city-thumbs/montreal.webp?responsive=sector';
+import lavalSecteur from '../images/shared/city-thumbs/laval.webp?responsive=sector';
+import longueuilSecteur from '../images/shared/city-thumbs/longueuil.webp?responsive=sector';
+import brossardSecteur from '../images/shared/city-thumbs/brossard.webp?responsive=sector';
+import stLambertSecteur from '../images/shared/city-thumbs/st-lambert.webp?responsive=sector';
+import laprairieSecteur from '../images/shared/city-thumbs/laprairie.webp?responsive=sector';
 // Export images for reuse
 export { montrealSecteur, lavalSecteur, longueuilSecteur, brossardSecteur };
 
@@ -147,8 +147,8 @@ export default function SectorsSection({
                         }
                   }
                 >
-                  <Image
-                    src={sector.image}
+                  <ResponsiveImage
+                    image={sector.image}
                     alt={
                       isFr
                         ? `Secteur desservi : ${sector.name}${
@@ -169,6 +169,7 @@ export default function SectorsSection({
                     {...imgProps}
                     loading="lazy"
                     decoding="async"
+                    sizes="(min-width: 62em) 610px, (min-width: 30em) 45vw, 90vw"
                     htmlWidth={600}
                     htmlHeight={400}
                   />

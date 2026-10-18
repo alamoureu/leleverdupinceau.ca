@@ -6,14 +6,14 @@ import {
   Text,
   Stack,
   Flex,
-  Image,
 } from '@chakra-ui/react';
 import { useTranslation } from '../i18n';
 import CtaButton from './CtaButton';
-import method1 from '../images/home/method-1.webp';
-import method2 from '../images/home/method-2.webp';
-import method3 from '../images/home/method-3.webp';
-import method4 from '../images/home/method-4.webp';
+import ResponsiveImage from '../components/ResponsiveImage';
+import method1 from '../images/home/method-1.webp?responsive=method';
+import method2 from '../images/home/method-2.webp?responsive=method';
+import method3 from '../images/home/method-3.webp?responsive=method';
+import method4 from '../images/home/method-4.webp?responsive=method';
 
 const stepImages = [method1, method2, method3, method4];
 
@@ -153,8 +153,8 @@ export default function MethodSection({
                   borderRadius={{ base: 'md', md: 'lg' }}
                   h="100%"
                 >
-                  <Image
-                    src={images[index] || images[0]}
+                  <ResponsiveImage
+                    image={images[index] || images[0]}
                     alt={step.title}
                     w="100%"
                     h={{
@@ -169,6 +169,7 @@ export default function MethodSection({
                     display="block"
                     loading="lazy"
                     decoding="async"
+                    sizes="(min-width: 48em) 440px, 45vw"
                     htmlWidth={800}
                     htmlHeight={600}
                   />

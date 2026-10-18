@@ -5,15 +5,17 @@ import {
   Heading,
   Text,
   Stack,
-  Image,
   Flex,
 } from '@chakra-ui/react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { useTranslation } from '../i18n';
-import heroImage from '../images/shared/heroImage.webp';
+import heroImage from '../images/shared/heroImage.webp?responsive=hero';
 import CtaButton from './CtaButton';
 import HeroBreadcrumb from '../components/HeroBreadcrumb';
+import ResponsiveImage, {
+  resolveResponsiveImage,
+} from '../components/ResponsiveImage';
 import TrustBanner, { TRUST_BANNER_ABOVE_PB } from './TrustBanner';
 import { showsNavReviewBadge } from '../constants/navReviewBadge';
 import {
@@ -78,12 +80,21 @@ export default function HeroSection({
   const resolvedAlt =
     imageAlt ||
     `${t.heroImageAlt}${pageContext ? ' - ' + pageContext : ''}`;
-  const heroSrc = imageBackground || heroImage;
+  const heroResolved = resolveResponsiveImage(imageBackground || heroImage);
+  const heroSizes = '100vw';
 
   return (
     <>
     <Helmet>
-      <link rel="preload" href={heroSrc} as="image" fetchpriority="high" />
+      <link
+        rel="preload"
+        as="image"
+        href={heroResolved.src}
+        {...(heroResolved.srcSet
+          ? { imagesrcset: heroResolved.srcSet, imagesizes: heroSizes }
+          : {})}
+        fetchPriority="high"
+      />
     </Helmet>
     <Box
       position="relative"
@@ -98,8 +109,8 @@ export default function HeroSection({
       overflow="visible"
     >
       <>
-        <Image
-          src={heroSrc}
+        <ResponsiveImage
+          image={imageBackground || heroImage}
           alt={resolvedAlt}
           position="absolute"
           top={0}
@@ -110,8 +121,9 @@ export default function HeroSection({
           objectPosition={imagePosition}
           zIndex={0}
           loading="eager"
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
+          sizes={heroSizes}
           htmlWidth={1920}
           htmlHeight={1266}
         />

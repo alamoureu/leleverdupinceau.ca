@@ -92,3 +92,26 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* CTA pulse (replaces framer-motion on the critical path) */
+@keyframes shake-button-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.025);
+  }
+}
+
+.shake-button-pulse {
+  animation: shake-button-pulse 3s ease-in-out infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shake-button-pulse {
+    animation: none;
+    will-change: auto;
+  }
+}

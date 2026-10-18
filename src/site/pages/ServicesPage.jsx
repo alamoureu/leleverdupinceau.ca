@@ -11,7 +11,6 @@ import {
   Link,
   Button,
   HStack,
-  Image,
   useDisclosure,
   Icon
 } from '@chakra-ui/react';
@@ -26,6 +25,7 @@ import SubmissionModal from '../home-page/SubmissionModal';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import serviceHubPhotoHeader from '../images/home/control-3.webp';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const imgResidentielle = thumbnailForRoute('/services/peinture-residentielle');
 const imgCommerciale = thumbnailForRoute('/services/peinture-commerciale');
@@ -68,8 +68,9 @@ function MainHubCard({
     >
       <Link as={RouterLink} to={titleHref} _hover={{ textDecoration: 'none' }}>
         <Box position="relative" h={{ base: '200px', md: '220px', lg: '240px' }} overflow="hidden">
-          <Image
-            src={image}
+          <ResponsiveImage
+            image={image}
+                          sizes="(min-width: 48em) 380px, 85vw"
             alt={imageAlt || title}
             w="100%"
             h="100%"
@@ -174,8 +175,9 @@ function PhotoLinkCard({ image, title, description, href, isFr }) {
         overflow="hidden"
         bg="gray.100"
       >
-        <Image
-          src={image}
+        <ResponsiveImage
+          image={image}
+                          sizes="(min-width: 48em) 380px, 85vw"
           alt={title}
           position="absolute"
           inset={0}

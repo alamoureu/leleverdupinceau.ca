@@ -13,7 +13,6 @@ import {
   HStack,
   SimpleGrid,
   useDisclosure,
-  Image,
 } from '@chakra-ui/react';
 import SEOHead from '../seo/SEOHead';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
@@ -38,6 +37,7 @@ import blogErreurs from '../images/blog/erreurs-eviter-peindre.webp';
 import blogArmoires from '../images/blog/blog-armoires-cuisine.webp';
 import blogComparatif from '../images/blog/blog-comparatif-peinture.webp';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const interieureImg = thumbnailForRoute('/services/peinture-interieure');
 const exterieureImg = thumbnailForRoute('/services/peinture-exterieure');
@@ -361,8 +361,9 @@ export default function VilleMariePage() {
                     display="flex"
                     flexDirection="column"
                   >
-                    <Image
-                      src={item.image}
+                    <ResponsiveImage
+                      image={item.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                       alt={`${item.title} à Ville-Marie`}
                       w="100%"
                       h={{ base: '180px', md: '200px' }}
@@ -463,8 +464,9 @@ export default function VilleMariePage() {
                       }}
                       transition="all 0.2s"
                     >
-                      <Image
-                        src={service.image}
+                      <ResponsiveImage
+                        image={service.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                         alt={`${service.title} - Ville-Marie`}
                         w="100%"
                         h="180px"

@@ -54,8 +54,8 @@ export default class ErrorBoundary extends React.Component {
               <Image
                 src={blackLogo}
                 alt="Le Lever du Pinceau"
-                htmlWidth={1409}
-                htmlHeight={873}
+                htmlWidth={300}
+                htmlHeight={186}
                 h={{ base: '72px', md: '88px' }}
                 w={{ base: '116px', md: '142px' }}
                 objectFit="contain"

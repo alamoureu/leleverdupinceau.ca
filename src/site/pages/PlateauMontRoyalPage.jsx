@@ -13,7 +13,6 @@ import {
   HStack,
   SimpleGrid,
   useDisclosure,
-  Image,
 } from '@chakra-ui/react';
 import SEOHead from '../seo/SEOHead';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
@@ -47,6 +46,7 @@ import plAdd5a from '../images/villes/montreal/avant-apres/IMG_1406.webp';
 import plAdd6b from '../images/villes/montreal/outremont/avant-apres/IMG_5971.webp';
 import plAdd6a from '../images/villes/montreal/outremont/avant-apres/IMG_5972.webp';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const condoImg = thumbnailForRoute('/services/peinture-residentielle/condo');
 const appartementImg = thumbnailForRoute('/services/peinture-residentielle/appartement');
@@ -354,8 +354,9 @@ export default function PlateauMontRoyalPage() {
                     display="flex"
                     flexDirection="column"
                   >
-                    <Image
-                      src={item.image}
+                    <ResponsiveImage
+                      image={item.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                       alt={`${item.title} dans le Plateau Mont-Royal`}
                       w="100%"
                       h={{ base: '180px', md: '200px' }}

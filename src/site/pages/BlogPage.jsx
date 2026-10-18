@@ -11,7 +11,6 @@ import {
   Link,
   Button,
   HStack,
-  Image,
   useDisclosure,
   Icon
 } from '@chakra-ui/react';
@@ -29,6 +28,7 @@ import imgArmoiresCuisine from '../images/blog/blog-armoires-cuisine.webp';
 import imgComparatifPeinture from '../images/blog/blog-comparatif-peinture.webp';
 import ResourcesSection from '../home-page/ResourcesSection';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const imgResidentielle = thumbnailForRoute('/services/peinture-residentielle');
 const imgCommerciale = thumbnailForRoute('/services/peinture-commerciale');
@@ -178,8 +178,9 @@ export default function BlogPage() {
                       transition='all 0.2s'
                     >
                       <Box h={{ base: '200px', md: '240px' }} bg='gray.100' overflow='hidden'>
-                        <Image
-                          src={article.image}
+                        <ResponsiveImage
+                          image={article.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                           alt={article.title}
                           w='100%'
                           h='100%'
@@ -225,8 +226,9 @@ export default function BlogPage() {
               align='center'
             >
               <Box>
-                <Image
-                  src={heroImage}
+                <ResponsiveImage
+                  image={heroImage}
+                          sizes="(min-width: 48em) 380px, 85vw"
                   alt={
                     isFr
                       ? 'conseils peinture Montréal'
@@ -335,8 +337,9 @@ export default function BlogPage() {
                           overflow='hidden'
                           bg='gray.100'
                         >
-                          <Image
-                            src={service.image}
+                          <ResponsiveImage
+                            image={service.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                             alt={service.title}
                             w='100%'
                             h='100%'

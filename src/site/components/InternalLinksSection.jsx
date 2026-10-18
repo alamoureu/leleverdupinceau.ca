@@ -9,12 +9,12 @@ import {
   Flex,
   Link,
   HStack,
-  Image,
   Icon
 } from '@chakra-ui/react';
 import { FaArrowRight as ArrowForwardIcon } from 'react-icons/fa';
 import { columnsForCount, GRID_HOVER_PAD } from '../constants/responsiveGrid';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from './ResponsiveImage';
 
 const DEFAULT_SECTION_PY = { base: 16, md: 20, lg: 24 };
 
@@ -106,8 +106,8 @@ export default function InternalLinksSection({
                         overflow="hidden"
                         flexShrink={0}
                       >
-                        <Image
-                          src={image}
+                        <ResponsiveImage
+                          image={image}
                           alt=""
                           w="100%"
                           h="100%"
@@ -115,6 +115,7 @@ export default function InternalLinksSection({
                           objectPosition="center"
                           loading="lazy"
                           decoding="async"
+                          sizes="(min-width: 62em) 320px, (min-width: 48em) 45vw, 90vw"
                           htmlWidth={640}
                           htmlHeight={400}
                         />

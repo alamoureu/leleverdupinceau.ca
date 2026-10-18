@@ -192,8 +192,8 @@ export default function GuaranteeSection({
                   loading={hideCta ? 'eager' : 'lazy'}
                   decoding="async"
                   draggable={false}
-                  htmlWidth={743}
-                  htmlHeight={763}
+                  htmlWidth={420}
+                  htmlHeight={431}
                   onError={() => setBadgeError(true)}
                 />
               ) : (

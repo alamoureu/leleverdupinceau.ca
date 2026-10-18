@@ -11,9 +11,9 @@ import { useTranslation } from '../i18n';
 import { MOBILE_CENTERED_CARD_SX } from '../constants/responsiveGrid';
 import { SECTION_PY, TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import ServiceCard from './ServiceCard';
-import control1 from '../images/services/residentielle/header/IMG_7844.webp';
-import control2 from '../images/home/control-2-min.webp';
-import control3 from '../images/home/control-3.webp';
+import control1 from '../images/services/residentielle/header/IMG_7844.webp?responsive=card';
+import control2 from '../images/home/control-2-min.webp?responsive=card';
+import control3 from '../images/home/control-3.webp?responsive=card';
 import { TRUST_BANNER_BELOW_PT } from './TrustBanner';
 
 const cardImages = [control1, control2, control3];

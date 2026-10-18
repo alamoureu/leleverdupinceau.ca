@@ -8,7 +8,6 @@ import {
   Stack,
   Link,
   HStack,
-  Image,
   SimpleGrid,
   Flex,
   Button,
@@ -25,6 +24,7 @@ import ReviewsSection from '../home-page/ReviewsSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
+import ResponsiveImage from '../components/ResponsiveImage';
 import ControlSection from '../home-page/ControlSection';
 import SEOHead from '../seo/SEOHead';
 import { SITE_URL } from '../seo/config';
@@ -315,8 +315,9 @@ export default function CitySectorPage({ config }) {
                     >
                       {card.image && (
                         <Box overflow="hidden" aspectRatio="16/10">
-                          <Image
-                            src={card.image}
+                          <ResponsiveImage
+                            image={card.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                             alt={card.title}
                             w="100%"
                             h="100%"

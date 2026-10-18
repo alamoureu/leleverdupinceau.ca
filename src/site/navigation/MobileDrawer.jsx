@@ -75,12 +75,12 @@ function NavItem({ icon, label, onClick }) {
   );
 }
 
-export const MobileDrawer = () => {
+export const MobileDrawer = ({ defaultIsOpen = false } = {}) => {
   const navigate = useNavigate();
   const { currentLang } = useContext(appContext);
   const isFr = currentLang === 'fr';
 
-  const { isOpen, onToggle, onClose } = useDisclosure();
+  const { isOpen, onToggle, onClose } = useDisclosure({ defaultIsOpen });
 
   function handleNav(location) {
     navigate(location);
@@ -169,8 +169,8 @@ export const MobileDrawer = () => {
               h={NAV_LOGO_H}
               w={NAV_LOGO_W}
               objectFit="contain"
-              htmlWidth={1409}
-              htmlHeight={873}
+              htmlWidth={300}
+              htmlHeight={186}
             />
             <IconButton
               icon={<FaTimes />}

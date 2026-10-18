@@ -27,11 +27,15 @@ const serviceImages = [
 ];
 
 function ServiceLinkCard({ service }) {
+  const label = service.subtitle
+    ? `${service.title}. ${service.subtitle}`
+    : service.title;
+
   return (
     <Box
       as={RouterLink}
       to={service.link}
-      role="group"
+      aria-label={label}
       display="block"
       h="100%"
       textDecoration="none"
@@ -52,6 +56,7 @@ function ServiceLinkCard({ service }) {
         titleInStrip
         fluid
         noHoverBorder
+        alt=""
       />
     </Box>
   );

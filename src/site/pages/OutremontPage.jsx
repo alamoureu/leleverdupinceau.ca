@@ -13,7 +13,6 @@ import {
   HStack,
   SimpleGrid,
   useDisclosure,
-  Image,
 } from '@chakra-ui/react';
 import SEOHead from '../seo/SEOHead';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
@@ -49,6 +48,7 @@ import ouAdd6a from '../images/villes/laprairie/avant-apres/IMG_0862.webp';
 import ouAdd7b from '../images/villes/montreal/avant-apres/IMG_1405.webp';
 import ouAdd7a from '../images/villes/montreal/avant-apres/IMG_1406.webp';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const maisonImg = thumbnailForRoute('/services/peinture-residentielle');
 const condoImg = thumbnailForRoute('/services/peinture-residentielle/condo');
@@ -346,8 +346,9 @@ export default function OutremontPage() {
                     display="flex"
                     flexDirection="column"
                   >
-                    <Image
-                      src={item.image}
+                    <ResponsiveImage
+                      image={item.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                       alt={`${item.title} - peinture à Outremont`}
                       w="100%"
                       h={{ base: '180px', md: '200px' }}
@@ -413,8 +414,9 @@ export default function OutremontPage() {
                       _hover={{ borderColor: 'brand.500', transform: 'translateY(-2px)', boxShadow: 'md' }}
                       transition="all 0.2s"
                     >
-                      <Image
-                        src={service.image}
+                      <ResponsiveImage
+                        image={service.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                         alt={`${service.title} - Outremont`}
                         w="100%"
                         h="180px"

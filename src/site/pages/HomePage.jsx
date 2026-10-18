@@ -7,26 +7,46 @@ import React, {
   useState,
 } from 'react';
 import { Box, useDisclosure } from '@chakra-ui/react';
-import MicrosoftClarity from '../components/MicrosoftClarity';
 import HeroSection from '../home-page/HeroSection';
 import { useTranslation } from '../i18n';
-import ControlSection from '../home-page/ControlSection';
-import GuaranteeSection from '../home-page/GuaranteeSection';
-import MethodSection from '../home-page/MethodSection';
-import ServicesSection from '../home-page/ServicesSection';
-import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
-import TeamSection from '../home-page/TeamSection';
-import ReviewsSection from '../home-page/ReviewsSection';
-import SectorsSection from '../home-page/SectorsSection';
-import FAQSection from '../home-page/FAQSection';
-import ResourcesSection from '../home-page/ResourcesSection';
-import FinalCTASection from '../home-page/FinalCTASection';
 import appContext from '../../AppProvider';
 import SEOHead from '../seo/SEOHead';
 import { KEYWORDS } from '../seo/config';
 import { GOOGLE_REVIEW_COUNT, GOOGLE_REVIEWS_LABEL } from '../constants/googleReviews';
-import { SECTION_PY } from '../constants/sectionSpacing';
+import DeferredMount, { isPrerenderCrawl } from '../components/DeferredMount';
 
+const MicrosoftClarity = React.lazy(() =>
+  import('../components/MicrosoftClarity'),
+);
+const ControlSection = React.lazy(() =>
+  import('../home-page/ControlSection'),
+);
+const GuaranteeSection = React.lazy(() =>
+  import('../home-page/GuaranteeSection'),
+);
+const MethodSection = React.lazy(() =>
+  import('../home-page/MethodSection'),
+);
+const ServicesSection = React.lazy(() =>
+  import('../home-page/ServicesSection'),
+);
+const BeforeAfterCarouselSection = React.lazy(() =>
+  import('../home-page/BeforeAfterCarouselSection'),
+);
+const TeamSection = React.lazy(() => import('../home-page/TeamSection'));
+const ReviewsSection = React.lazy(() =>
+  import('../home-page/ReviewsSection'),
+);
+const SectorsSection = React.lazy(() =>
+  import('../home-page/SectorsSection'),
+);
+const FAQSection = React.lazy(() => import('../home-page/FAQSection'));
+const ResourcesSection = React.lazy(() =>
+  import('../home-page/ResourcesSection'),
+);
+const FinalCTASection = React.lazy(() =>
+  import('../home-page/FinalCTASection'),
+);
 const ContactFormSection = React.lazy(() =>
   import('../home-page/ContactFormSection'),
 );
@@ -34,38 +54,102 @@ const SubmissionModal = React.lazy(() =>
   import('../home-page/SubmissionModal'),
 );
 
+function useNearViewport(enabled = true, rootMargin = '200px 0px') {
+  const ref = useRef(null);
+  // Prerender must emit full HTML without scrolling; live visits stay lazy.
+  const [near, setNear] = useState(() => !enabled || isPrerenderCrawl());
+
+  useEffect(() => {
+    if (!enabled || near) return undefined;
+    const el = ref.current;
+    if (!el || typeof IntersectionObserver === 'undefined') {
+      setNear(true);
+      return undefined;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNear(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [enabled, near, rootMargin]);
+
+  return [ref, near];
+}
+
+function LateBelowFold({ onSubmissionOpen, pageContext, faqTitle }) {
+  return (
+    <Suspense fallback={<Box minH="50vh" aria-hidden />}>
+      <Box bg="gray.50">
+        <ServicesSection sectionBg="transparent" />
+        <BeforeAfterCarouselSection
+          sectionBg="gray.50"
+          sectionPaddingTop={{ base: 2, md: 4 }}
+          sectionPaddingBottom={{ base: 8, md: 10, lg: 12 }}
+        />
+      </Box>
+
+      <TeamSection pageContext={pageContext} />
+
+      <ReviewsSection />
+
+      <SectorsSection pageContext={pageContext} />
+
+      <FAQSection title={faqTitle} />
+
+      <ResourcesSection />
+
+      <FinalCTASection onSubmissionOpen={onSubmissionOpen} />
+    </Suspense>
+  );
+}
+
+function EarlyBelowFold({ onSubmissionOpen, pageContext, faqTitle }) {
+  const [formSentinelRef, formNear] = useNearViewport(true, '240px 0px');
+  const [lateSentinelRef, lateNear] = useNearViewport(true, '200px 0px');
+
+  return (
+    <Suspense fallback={<Box minH="70vh" aria-hidden />}>
+      <ControlSection />
+
+      <GuaranteeSection onSubmissionOpen={onSubmissionOpen} />
+
+      <MethodSection onSubmissionOpen={onSubmissionOpen} hideCta />
+
+      <Box ref={formSentinelRef} minH="1px" aria-hidden />
+      {formNear ? (
+        <Suspense fallback={<Box minH={{ base: '320px', md: '280px' }} />}>
+          <ContactFormSection />
+        </Suspense>
+      ) : (
+        <Box minH={{ base: '320px', md: '280px' }} />
+      )}
+
+      <Box ref={lateSentinelRef} minH="1px" aria-hidden />
+      {lateNear ? (
+        <LateBelowFold
+          onSubmissionOpen={onSubmissionOpen}
+          pageContext={pageContext}
+          faqTitle={faqTitle}
+        />
+      ) : (
+        <Box minH="50vh" aria-hidden />
+      )}
+    </Suspense>
+  );
+}
+
 export default function HomePage() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
   const isFr = currentLang === 'fr';
   const pageContext = isFr ? 'Accueil' : 'Home';
-  const [loadForm, setLoadForm] = useState(false);
-  const formSentinelRef = useRef(null);
-
-  useEffect(() => {
-    if (loadForm) return undefined;
-    const el = formSentinelRef.current;
-    if (!el || typeof IntersectionObserver === 'undefined') {
-      setLoadForm(true);
-      return undefined;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setLoadForm(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: '240px 0px' },
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, [loadForm]);
-
-  useEffect(() => {
-    if (isOpen) setLoadForm(true);
-  }, [isOpen]);
 
   const title = isFr
     ? 'Peintre professionnel à Montréal | Le Lever du Pinceau'
@@ -86,7 +170,6 @@ export default function HomePage() {
         canonicalPath="/"
         keywords={KEYWORDS[currentLang] || KEYWORDS.fr}
       />
-      <MicrosoftClarity />
 
       <Box w="100%" minW={0} maxW="100%" bg="white" overflowX="hidden">
         <HeroSection
@@ -95,48 +178,26 @@ export default function HomePage() {
           description={t.heroDescription}
         />
 
-        <ControlSection />
-
-        <GuaranteeSection onSubmissionOpen={onOpen} />
-
-        <MethodSection onSubmissionOpen={onOpen} hideCta />
-
-        <Box ref={formSentinelRef} minH="1px" aria-hidden />
-        {loadForm ? (
-          <Suspense fallback={<Box minH={{ base: '320px', md: '280px' }} />}>
-            <ContactFormSection />
-          </Suspense>
-        ) : (
-          <Box minH={{ base: '320px', md: '280px' }} />
-        )}
-
-        <Box bg="gray.50">
-          <ServicesSection sectionBg="transparent" sectionPy={SECTION_PY} />
-          <BeforeAfterCarouselSection
-            sectionBg="gray.50"
-            sectionPaddingTop={{ base: 2, md: 4 }}
-            sectionPaddingBottom={{ base: 8, md: 10, lg: 12 }}
+        <DeferredMount fallback={<Box minH="70vh" aria-hidden />}>
+          <EarlyBelowFold
+            onSubmissionOpen={onOpen}
+            pageContext={pageContext}
+            faqTitle={faqTitle}
           />
-        </Box>
-
-        <TeamSection pageContext={pageContext} />
-
-        <ReviewsSection />
-
-        <SectorsSection pageContext={pageContext} />
-
-        <FAQSection title={faqTitle} />
-
-        <ResourcesSection />
-
-        <FinalCTASection onSubmissionOpen={onOpen} />
+        </DeferredMount>
       </Box>
 
-      {loadForm && (
+      {isOpen && (
         <Suspense fallback={null}>
           <SubmissionModal isOpen={isOpen} onClose={onClose} />
         </Suspense>
       )}
+
+      <DeferredMount fallback={null}>
+        <Suspense fallback={null}>
+          <MicrosoftClarity />
+        </Suspense>
+      </DeferredMount>
     </Fragment>
   );
 }

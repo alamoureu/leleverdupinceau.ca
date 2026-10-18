@@ -52,13 +52,16 @@ export default function FadedScroller({
   resumeDelay = 1400,
   fadeSize = DEFAULT_FADE_SIZE,
   // Kept for call-site compat; masks use alpha, not a surface color.
-  fadeFrom: _fadeFrom = 'white',
+  fadeFrom = 'white',
   // Discarded: restart-only scroll; must not reach the DOM via ...wrapperProps.
-  loopMode: _loopMode,
+  loopMode,
   hideScrollbar = true,
   scrollerProps,
   ...wrapperProps
 }) {
+  void fadeFrom;
+  void loopMode;
+
   const scrollerRef = useRef(null);
   const isVertical = axis === 'vertical';
   const { sx: scrollerSx, ...restScrollerProps } = scrollerProps || {};
@@ -77,37 +80,52 @@ export default function FadedScroller({
     const el = scrollerRef.current;
     if (!el) return undefined;
 
-    const updateFades = () => {
-      const threshold = 2;
-      if (isVertical) {
-        const max = el.scrollHeight - el.clientHeight;
-        setShowStartFade(el.scrollTop > threshold);
-        setShowEndFade(max > threshold && el.scrollTop < max - threshold);
-      } else {
-        const max = el.scrollWidth - el.clientWidth;
-        setShowStartFade(el.scrollLeft > threshold);
-        setShowEndFade(max > threshold && el.scrollLeft < max - threshold);
-      }
+    // Cache max scroll extent; remeasure only on resize/content size change.
+    // Reading scrollWidth/clientWidth on every scroll (auto-scroll fires often)
+    // forces layout after mask style updates.
+    let maxScroll = 0;
+
+    const measureMax = () => {
+      maxScroll = isVertical
+        ? el.scrollHeight - el.clientHeight
+        : el.scrollWidth - el.clientWidth;
     };
 
-    const updateFadeSize = () => setFadePx(resolveFadeSize(fadeSize));
+    const updateFades = () => {
+      const threshold = 2;
+      const scrollPos = isVertical ? el.scrollTop : el.scrollLeft;
+      const nextStart = scrollPos > threshold;
+      const nextEnd = maxScroll > threshold && scrollPos < maxScroll - threshold;
+      setShowStartFade((prev) => (prev === nextStart ? prev : nextStart));
+      setShowEndFade((prev) => (prev === nextEnd ? prev : nextEnd));
+    };
 
+    const updateFadeSize = () => {
+      const next = resolveFadeSize(fadeSize);
+      setFadePx((prev) => (prev === next ? prev : next));
+    };
+
+    const onResize = () => {
+      measureMax();
+      updateFades();
+      updateFadeSize();
+    };
+
+    measureMax();
     updateFades();
     updateFadeSize();
     el.addEventListener('scroll', updateFades, { passive: true });
     const ro = typeof ResizeObserver !== 'undefined'
-      ? new ResizeObserver(() => {
-        updateFades();
-        updateFadeSize();
-      })
+      ? new ResizeObserver(onResize)
       : null;
     ro?.observe(el);
-    window.addEventListener('resize', updateFadeSize);
+    if (el.firstElementChild) ro?.observe(el.firstElementChild);
+    window.addEventListener('resize', onResize);
 
     return () => {
       el.removeEventListener('scroll', updateFades);
       ro?.disconnect();
-      window.removeEventListener('resize', updateFadeSize);
+      window.removeEventListener('resize', onResize);
     };
   }, [isVertical, children, fadeSize]);
 

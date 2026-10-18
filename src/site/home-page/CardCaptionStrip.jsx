@@ -35,7 +35,13 @@ export default function CardCaptionStrip({
             lineHeight="1.3"
             noOfLines={1}
             transition="color 0.15s"
-            _groupHover={{ color: 'brand.500', textDecoration: 'underline' }}
+            // Parent card links must stay role=link (not role=group) for a11y.
+            sx={{
+              'a:hover &, a:focus-visible &': {
+                color: 'var(--chakra-colors-brand-500)',
+                textDecoration: 'underline',
+              },
+            }}
           >
             {title}
           </Text>

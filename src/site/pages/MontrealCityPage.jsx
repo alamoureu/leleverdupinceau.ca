@@ -8,7 +8,6 @@ import {
   Stack,
   Link,
   HStack,
-  Image,
   SimpleGrid,
   Flex,
   Button,
@@ -31,6 +30,7 @@ import { COMPANY_PHONE_E164 } from '../constants/company';
 
 import headerMontreal from '../images/villes/montreal/ville-marie/header.webp';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 import quartierPlateau from '../images/landing/secteur-hub/IMG_7900.webp';
 import quartierVilleMarie from '../images/landing/secteur-hub/IMG_7902.webp';
 import quartierOutremont from '../images/landing/secteur-hub/IMG_7898.webp';
@@ -526,8 +526,9 @@ export default function MontrealCityPage() {
                     transition="all 0.2s"
                   >
                     <Box overflow="hidden" aspectRatio="16/10">
-                      <Image
-                        src={serviceCardImages[card.to]}
+                      <ResponsiveImage
+                        image={serviceCardImages[card.to]}
+                          sizes="(min-width: 48em) 380px, 85vw"
                         alt={card.title}
                         w="100%"
                         h="100%"
@@ -620,8 +621,9 @@ export default function MontrealCityPage() {
                     _hover={{ borderColor: 'brand.500', boxShadow: 'md', transform: 'translateY(-2px)' }}
                     transition="all 0.2s"
                   >
-                    <Image
-                      src={image}
+                    <ResponsiveImage
+                      image={image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                       alt={isFr ? `Peintre ${label}, Montréal` : `Painter ${label}, Montreal`}
                       w="100%"
                       aspectRatio="4/3"

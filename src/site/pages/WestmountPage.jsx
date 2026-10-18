@@ -14,7 +14,6 @@ import {
   HStack,
   SimpleGrid,
   useDisclosure,
-  Image,
 } from '@chakra-ui/react';
 import SEOHead from '../seo/SEOHead';
 import { LOCAL_BUSINESS_SCHEMA } from '../seo/config';
@@ -46,6 +45,7 @@ import wmAdd5a from '../images/villes/laprairie/avant-apres/IMG_0862.webp';
 import wmAdd6b from '../images/sous-services/appartement/avant-apres/IMG_5984.webp';
 import wmAdd6a from '../images/sous-services/appartement/avant-apres/IMG_5982.webp';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import ResponsiveImage from '../components/ResponsiveImage';
 
 const maisonImg = thumbnailForRoute('/services/peinture-residentielle/maison');
 const condoImg = thumbnailForRoute('/services/peinture-residentielle/condo');
@@ -386,8 +386,9 @@ export default function WestmountPage() {
                     display="flex"
                     flexDirection="column"
                   >
-                    <Image
-                      src={item.image}
+                    <ResponsiveImage
+                      image={item.image}
+                          sizes="(min-width: 48em) 380px, 85vw"
                       alt={`${item.title} à Westmount`}
                       w="100%"
                       h={{ base: '180px', md: '200px' }}
