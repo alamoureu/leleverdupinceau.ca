@@ -154,7 +154,10 @@ function PhotoLinkCard({ image, title, description, href, isFr }) {
       bg="white"
       display="flex"
       flexDirection="column"
-      h="100%"
+      // Avoid h="100%": iOS Safari + CSS grid collapses percentage height, then
+      // overflow:hidden clips the card to a thin image strip.
+      alignSelf="stretch"
+      h="auto"
       transition="border-color 0.2s, box-shadow 0.2s"
       _hover={{
         textDecoration: 'none',
@@ -162,16 +165,20 @@ function PhotoLinkCard({ image, title, description, href, isFr }) {
         boxShadow: 'md',
       }}
     >
-      {/* iOS Safari collapses <img> height when it is a direct flex-column child */}
+      {/* Absolute img inside aspect-ratio box: survives iOS flex/grid height bugs */}
       <Box
+        position="relative"
         w="100%"
-        h={{ base: '180px', md: '200px' }}
+        aspectRatio={3 / 2}
         flexShrink={0}
         overflow="hidden"
+        bg="gray.100"
       >
         <Image
           src={image}
           alt={title}
+          position="absolute"
+          inset={0}
           w="100%"
           h="100%"
           objectFit="cover"
@@ -180,7 +187,7 @@ function PhotoLinkCard({ image, title, description, href, isFr }) {
           decoding="async"
         />
       </Box>
-      <Stack spacing={1} p={{ base: 4, md: 5 }} flex={1} minH={0}>
+      <Stack spacing={1} p={{ base: 4, md: 5 }} flex={1}>
         <Heading as="h3" size="subsection" color="gray.800">
           {title}
         </Heading>
