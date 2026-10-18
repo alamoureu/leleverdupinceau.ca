@@ -3,11 +3,11 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Navigate,
 } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 import WebsiteLayout from './site/layout/WebsiteLayout';
 import ScrollToTop from './site/components/ScrollToTop';
+import RedirectKeepQuery from './site/components/RedirectKeepQuery';
 import LegacyTripleSegmentRedirect from './site/services-pages/LegacyTripleSegmentRedirect';
 import PageSkeleton from './PageSkeleton';
 
@@ -82,31 +82,31 @@ export default function App() {
       <AppProvider>
         <ScrollToTop />
         <Routes>
-          <Route path="/new-home" element={<Navigate to="/" replace />} />
+          <Route path="/new-home" element={<RedirectKeepQuery to="/" />} />
           <Route
             path="/new-home/contact"
-            element={<Navigate to="/contact" replace />}
+            element={<RedirectKeepQuery to="/contact" />}
           />
           <Route
             path="/new-home/a-propos"
-            element={<Navigate to="/a-propos" replace />}
+            element={<RedirectKeepQuery to="/a-propos" />}
           />
           <Route
             path="/new-contact"
-            element={<Navigate to="/contact" replace />}
+            element={<RedirectKeepQuery to="/contact" />}
           />
 
           <Route
             path="/politiques/confidentialite"
-            element={<Navigate to="/politique-de-confidentialite" replace />}
+            element={<RedirectKeepQuery to="/politique-de-confidentialite" />}
           />
           <Route
             path="/politiques/termes-conditions"
-            element={<Navigate to="/mentions-legales" replace />}
+            element={<RedirectKeepQuery to="/mentions-legales" />}
           />
-          <Route path="/soumission" element={<Navigate to="/contact" replace />} />
-          <Route path="/avis" element={<Navigate to="/avis-clients" replace />} />
-          <Route path="/brossard" element={<Navigate to="/secteurs/brossard" replace />} />
+          <Route path="/soumission" element={<RedirectKeepQuery to="/contact" />} />
+          <Route path="/avis" element={<RedirectKeepQuery to="/avis-clients" />} />
+          <Route path="/brossard" element={<RedirectKeepQuery to="/secteurs/brossard" />} />
 
           <Route path="/" element={<WebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><HomePage /></Suspense>} />
@@ -129,14 +129,14 @@ export default function App() {
           <Route path="/realisations" element={<WebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><RealisationsPage /></Suspense>} />
           </Route>
-          <Route path="/peinture-interieure-montreal" element={<Navigate to="/services/peinture-interieure" replace />} />
-          <Route path="/peinture-exterieure-montreal" element={<Navigate to="/services/peinture-exterieure" replace />} />
+          <Route path="/peinture-interieure-montreal" element={<RedirectKeepQuery to="/services/peinture-interieure" />} />
+          <Route path="/peinture-exterieure-montreal" element={<RedirectKeepQuery to="/services/peinture-exterieure" />} />
           {/* Redirects 301 depuis les anciennes URLs /secteurs-desservis vers /secteurs */}
-          <Route path="/secteurs-desservis" element={<Navigate to="/secteurs" replace />} />
-          <Route path="/secteurs-desservis/montreal" element={<Navigate to="/secteurs/montreal" replace />} />
-          <Route path="/secteurs-desservis/laval" element={<Navigate to="/secteurs/laval" replace />} />
-          <Route path="/secteurs-desservis/longueuil" element={<Navigate to="/secteurs/longueuil" replace />} />
-          <Route path="/secteurs-desservis/brossard" element={<Navigate to="/secteurs/brossard" replace />} />
+          <Route path="/secteurs-desservis" element={<RedirectKeepQuery to="/secteurs" />} />
+          <Route path="/secteurs-desservis/montreal" element={<RedirectKeepQuery to="/secteurs/montreal" />} />
+          <Route path="/secteurs-desservis/laval" element={<RedirectKeepQuery to="/secteurs/laval" />} />
+          <Route path="/secteurs-desservis/longueuil" element={<RedirectKeepQuery to="/secteurs/longueuil" />} />
+          <Route path="/secteurs-desservis/brossard" element={<RedirectKeepQuery to="/secteurs/brossard" />} />
 
           {/* /secteurs - URLs canoniques pour toutes les pages de ville */}
           <Route path="/secteurs" element={<WebsiteLayout />}>
@@ -161,7 +161,7 @@ export default function App() {
             <Route
               path="new-peinture-exterieure"
               element={
-                <Navigate to="/services/peinture-exterieure" replace />
+                <RedirectKeepQuery to="/services/peinture-exterieure" />
               }
             />
             <Route
@@ -174,7 +174,7 @@ export default function App() {
             />
             <Route
               path="new-peinture-interieure"
-              element={<Navigate to="/services/peinture-interieure" replace />}
+              element={<RedirectKeepQuery to="/services/peinture-interieure" />}
             />
             <Route
               path="peinture-interieure"
@@ -206,19 +206,19 @@ export default function App() {
             />
             <Route
               path="peinture-residentielle/interieure"
-              element={<Navigate to="/services/peinture-residentielle" replace />}
+              element={<RedirectKeepQuery to="/services/peinture-residentielle" />}
             />
             <Route
               path="peinture-residentielle/exterieure"
-              element={<Navigate to="/services/peinture-residentielle" replace />}
+              element={<RedirectKeepQuery to="/services/peinture-residentielle" />}
             />
             <Route
               path="peinture-commerciale/interieure"
-              element={<Navigate to="/services/peinture-commerciale" replace />}
+              element={<RedirectKeepQuery to="/services/peinture-commerciale" />}
             />
             <Route
               path="peinture-commerciale/exterieure"
-              element={<Navigate to="/services/peinture-commerciale" replace />}
+              element={<RedirectKeepQuery to="/services/peinture-commerciale" />}
             />
             <Route
               path="peinture-residentielle/maison"
@@ -271,7 +271,7 @@ export default function App() {
 
           <Route
             path="/peintre-montreal"
-            element={<Navigate to="/fr/peintre-montreal" replace />}
+            element={<RedirectKeepQuery to="/fr/peintre-montreal" />}
           />
           <Route path="/fr" element={<WebsiteLayout />}>
             <Route
@@ -283,7 +283,7 @@ export default function App() {
             {/* Canonical EN ads landing; /en/peintre-montreal redirects to avoid dual EN URLs */}
             <Route
               path="peintre-montreal"
-              element={<Navigate to="/en/painter-montreal" replace />}
+              element={<RedirectKeepQuery to="/en/painter-montreal" />}
             />
             <Route
               path="painter-montreal"
@@ -291,17 +291,17 @@ export default function App() {
             />
           </Route>
 
-          <Route path="/admin" element={<Navigate to="/admin/dashboard" replace />} />
+          <Route path="/admin" element={<RedirectKeepQuery to="/admin/dashboard" />} />
           <Route path="/admin">
             <Route path="dashboard" element={<Suspense fallback={<PageSkeleton />}><AdminDashboard /></Suspense>} />
             <Route path="soumissions" element={<Suspense fallback={<PageSkeleton />}><SoumissionDashboard /></Suspense>} />
             <Route path="emplois" element={<Suspense fallback={<PageSkeleton />}><EmploisDashboard /></Suspense>} />
             <Route path="contact" element={<Suspense fallback={<PageSkeleton />}><ContactDashboard /></Suspense>} />
-            <Route path="timesheets" element={<Navigate to="/admin/dashboard" replace />} />
-            <Route path="employees" element={<Navigate to="/admin/dashboard" replace />} />
-            <Route path="employee-details" element={<Navigate to="/admin/dashboard" replace />} />
+            <Route path="timesheets" element={<RedirectKeepQuery to="/admin/dashboard" />} />
+            <Route path="employees" element={<RedirectKeepQuery to="/admin/dashboard" />} />
+            <Route path="employee-details" element={<RedirectKeepQuery to="/admin/dashboard" />} />
           </Route>
-          <Route path="/timesheet" element={<Navigate to="/" replace />} />
+          <Route path="/timesheet" element={<RedirectKeepQuery to="/" />} />
           <Route path="/404" element={<WebsiteLayout />}>
             <Route index element={<Suspense fallback={<PageSkeleton />}><NotFoundPage /></Suspense>} />
           </Route>

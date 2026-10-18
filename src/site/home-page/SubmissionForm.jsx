@@ -17,7 +17,6 @@ import { FaCheck as CheckIcon } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 import { useTranslation } from '../i18n';
 import CtaButton from './CtaButton';
-import { sendToGoHighLevel } from '../../utils/gohighlevelWebhook';
 import { sendWebsiteLeadToErp } from '../../utils/erpWebsiteWebhook';
 import { trackFormCompletion } from '../constants/analytics';
 import { theme as appTheme } from '../../theme';
@@ -151,12 +150,6 @@ export default function SubmissionForm({
         .join(' ');
 
       const leadData = { ...formData, terms_and_conditions: termsText };
-      try {
-        await sendToGoHighLevel(leadData, { language: currentLang });
-      } catch (webhookError) {
-        if (import.meta.env?.DEV)
-          console.error('GoHighLevel webhook error:', webhookError);
-      }
       try {
         await sendWebsiteLeadToErp(leadData, { language: currentLang });
       } catch (erpError) {

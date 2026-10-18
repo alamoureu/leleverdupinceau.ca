@@ -4,7 +4,10 @@ import { ChakraProvider } from '@chakra-ui/react';
 import App from './App';
 import { theme } from './theme';
 import ErrorBoundary from './ErrorBoundary';
+import { captureLandingPage } from './utils/erpWebsiteWebhook';
 import './index.css';
+
+captureLandingPage();
 
 const container = document.getElementById('root');
 const tree = (
