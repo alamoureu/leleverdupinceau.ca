@@ -23,13 +23,12 @@ import { COMPANY_EMAIL } from '../constants/company';
 import whiteLogo from '../images/shared/whitelogo.webp';
 import { HEADER_OFFSET } from '../navigation/navBarSizes';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { isLocaleLandingPath } from '../landing/paths';
 export default function WebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
   const location = useLocation();
-  const isLocaleLanding =
-    location.pathname === '/fr/peintre-montreal' ||
-    location.pathname === '/en/painter-montreal';
+  const isLocaleLanding = isLocaleLandingPath(location.pathname);
 
   return (
     <Fragment>

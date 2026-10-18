@@ -11,6 +11,8 @@ const REVIEW_BADGE_PATHS = new Set([
   '/contact',
   '/fr/peintre-montreal',
   '/en/painter-montreal',
+  '/fr/stlp-peinture-inc',
+  '/en/stlp-peinture-inc',
 ]);
 
 export function showsNavReviewBadge(pathname = '') {

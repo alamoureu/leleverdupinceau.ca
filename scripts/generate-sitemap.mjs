@@ -33,6 +33,8 @@ export const OFFICIAL_SITE_LP_ROUTES = [
   { path: '/contact', label: 'Contact' },
   { path: '/a-propos', label: 'À Propos' },
   { path: '/peintre-professionnel', label: 'Peintre Professionnel' },
+  { path: '/fr/stlp-peinture-inc', label: 'STLP Peinture Inc (FR)' },
+  { path: '/en/stlp-peinture-inc', label: 'STLP Peinture Inc (EN)' },
   // Secteurs desservis
   { path: '/secteurs', label: 'Secteurs desservis' },
   { path: '/secteurs/montreal', label: 'Montréal' },

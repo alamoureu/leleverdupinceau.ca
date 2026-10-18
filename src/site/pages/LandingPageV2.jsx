@@ -36,8 +36,9 @@ import MicrosoftClarity from '../components/MicrosoftClarity';
 const CLARITY_PROJECT_ID = 'w4hw2yfvew';
 
 const HERO_CONTENT_PT = {
-  base: `calc(5.5rem + ${PROMO_BANNER_HEIGHT.base})`,
-  sm: `calc(5.75rem + ${PROMO_BANNER_HEIGHT.sm})`,
+  // Mobile: clear fixed promo + nav + hanging Google badge before the title.
+  base: `calc(6.75rem + ${PROMO_BANNER_HEIGHT.base})`,
+  sm: `calc(7rem + ${PROMO_BANNER_HEIGHT.sm})`,
   md: `calc(7rem + ${PROMO_BANNER_HEIGHT.md})`,
   lg: `calc(7.5rem + ${PROMO_BANNER_HEIGHT.lg})`,
   xl: `calc(8rem + ${PROMO_BANNER_HEIGHT.xl})`,

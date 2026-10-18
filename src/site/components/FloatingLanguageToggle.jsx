@@ -1,11 +1,22 @@
 import React, { useContext } from 'react';
 import { Button, Text } from '@chakra-ui/react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import appContext from '../../AppProvider';
+import { LANDING_LOCALE_PAIRS } from '../landing/paths';
 
-/** Fixed FR/EN control - bottom-right (landing ads pages). */
+/** Fixed FR/EN control - bottom-right (landing ads + STLP pages). */
 export default function FloatingLanguageToggle() {
   const { currentLang, setCurrentLang } = useContext(appContext);
+  const navigate = useNavigate();
+  const location = useLocation();
   const label = currentLang === 'fr' ? 'Switch to English' : 'Passer en français';
+
+  const toggleLanguage = () => {
+    const newLang = currentLang === 'fr' ? 'en' : 'fr';
+    const targetPath = LANDING_LOCALE_PAIRS[location.pathname];
+    setCurrentLang(newLang);
+    if (targetPath) navigate(targetPath);
+  };
 
   return (
     <Button
@@ -40,7 +51,7 @@ export default function FloatingLanguageToggle() {
         outlineOffset: '2px',
       }}
       transition="all 0.2s"
-      onClick={() => setCurrentLang(currentLang === 'fr' ? 'en' : 'fr')}
+      onClick={toggleLanguage}
     >
       <Text as="span" textStyle="nav" fontWeight="bold" color="brand.500" lineHeight="1">
         {currentLang === 'fr' ? 'EN' : 'FR'}

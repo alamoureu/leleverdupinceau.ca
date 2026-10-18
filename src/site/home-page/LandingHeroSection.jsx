@@ -37,6 +37,7 @@ export default function LandingHeroSection({
   subtitle,
   buttonText,
   imageBackground,
+  imageObjectPosition,
   contentPt,
   children,
 }) {
@@ -48,8 +49,8 @@ export default function LandingHeroSection({
 
   /** pb plus grand que pt pour compenser le clip en V (~20 % du bas coupé) → remonte le contenu vers le centre visuel. */
   const heroPb = {
-    base: '9rem',
-    sm: '9.5rem',
+    base: '8.5rem',
+    sm: '9rem',
     md: '12rem',
     lg: '13rem',
     xl: '14rem',
@@ -86,6 +87,7 @@ export default function LandingHeroSection({
           w="100%"
           h="100%"
           objectFit="cover"
+          objectPosition={imageObjectPosition ?? 'center center'}
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -106,17 +108,19 @@ export default function LandingHeroSection({
         position="relative"
         display="flex"
         flexDirection="column"
+        // Mobile: no low max-height cap (was crushing title/CTA under nav + badge).
+        // h auto lets content grow; minH keeps the V + trust overlap stable.
         minH={{
-          base: 'min(76vh, 440px)',
-          sm: 'min(74vh, 460px)',
+          base: '36rem',
+          sm: '38rem',
           md: 'min(88vh, 700px)',
           lg: 'min(92vh, 820px)',
           xl: 'min(94vh, 920px)',
           '2xl': 'min(96vh, 1020px)',
         }}
         h={{
-          base: 'min(76vh, 520px)',
-          sm: 'min(74vh, 540px)',
+          base: 'auto',
+          sm: 'auto',
           md: '92vh',
           lg: '100vh',
           xl: '100vh',
@@ -148,10 +152,12 @@ export default function LandingHeroSection({
             alignItems="center"
           >
             <Stack
-              spacing={{ base: 3, sm: 4, md: 7, lg: 8, xl: 8 }}
+              spacing={{ base: 3.5, sm: 4, md: 7, lg: 8, xl: 8 }}
               minW={0}
               maxW={{ base: '100%', md: '900px', lg: '960px', xl: '1100px' }}
               w="100%"
+              // Clear the Google review badge that hangs under the landing nav.
+              pr={{ base: '5rem', sm: '6rem', md: 0 }}
               align="flex-start"
               alignSelf="center"
               flexShrink={0}

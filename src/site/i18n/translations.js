@@ -218,6 +218,8 @@ export const translations = {
 
     landingHeroTitle: 'Redonnez vie à votre maison\nsans lever le petit doigt',
     landingHeroSubtitle: 'Un service rapide, propre et garanti à Montréal',
+    stlpLandingHeroSubtitle:
+      'Service de peinture intérieure et extérieur à prix compétitif dans le Grand Montréal',
     landingHeroButton: 'Obtenir ma soumission en 24h',
 
     guaranteeTitle: 'Notre engagement',
@@ -457,6 +459,8 @@ export const translations = {
 
     landingHeroTitle: 'Professional Painters\nin Montreal',
     landingHeroSubtitle: 'Interior and exterior painting services at competitive prices in Greater Montreal',
+    stlpLandingHeroSubtitle:
+      'Interior and exterior painting services at competitive prices in Greater Montreal',
     landingHeroButton: 'Free quote in 24h',
 
     guaranteeTitle: 'Our commitment',

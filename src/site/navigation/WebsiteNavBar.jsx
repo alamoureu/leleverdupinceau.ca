@@ -24,6 +24,11 @@ import LanguageToggle from '../components/LanguageToggle';
 import { showsNavReviewBadge } from '../constants/navReviewBadge';
 import whiteLogo from '../images/shared/whitelogo.webp';
 import {
+  isLocaleLandingPath,
+  isStlpLandingPath,
+} from '../landing/paths';
+import stlpLogo from '../images/stlp/logo.webp';
+import {
   NAV_BAR_H,
   NAV_BAR_PY,
   NAV_LOGO_H,
@@ -40,8 +45,8 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
   const isNewLanding =
     isNewLandingProp !== undefined
       ? isNewLandingProp
-      : location.pathname === '/fr/peintre-montreal' ||
-        location.pathname === '/en/painter-montreal';
+      : isLocaleLandingPath(location.pathname);
+  const isStlpLanding = isStlpLandingPath(location.pathname);
   const showsReviewBadge = showsNavReviewBadge(location.pathname);
 
   return (
@@ -191,17 +196,18 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
                 loading="eager"
                 fetchpriority="low"
                 decoding="async"
-                src={whiteLogo}
-                alt="Logo Le Lever du Pinceau"
-                htmlWidth={1409}
-                htmlHeight={873}
+                src={isStlpLanding ? stlpLogo : whiteLogo}
+                alt={isStlpLanding ? 'Logo STLP' : 'Logo Le Lever du Pinceau'}
+                htmlWidth={isStlpLanding ? 300 : 1409}
+                htmlHeight={isStlpLanding ? 300 : 873}
                 h="100%"
                 w="100%"
                 objectFit="contain"
                 display="block"
                 pointerEvents="none"
                 style={{
-                  filter: isNewLanding ? 'invert(1)' : undefined,
+                  filter:
+                    isNewLanding && !isStlpLanding ? 'invert(1)' : undefined,
                 }}
               />
             </Box>
@@ -303,19 +309,18 @@ export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
               </ShakeButton>
             </ButtonGroup>
 
-            <Box
-              display={{
-                base: isNewLanding ? 'none' : 'flex',
-                xl: 'none',
-              }}
-              alignItems="center"
-              flexShrink={0}
-              position="relative"
-              zIndex={10}
-              pointerEvents="auto"
-            >
-              <MobileDrawer />
-            </Box>
+            {!isNewLanding && (
+              <Box
+                display={{ base: 'flex', xl: 'none' }}
+                alignItems="center"
+                flexShrink={0}
+                position="relative"
+                zIndex={10}
+                pointerEvents="auto"
+              >
+                <MobileDrawer />
+              </Box>
+            )}
           </HStack>
         </Box>
 
