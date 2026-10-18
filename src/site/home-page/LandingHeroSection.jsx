@@ -149,17 +149,15 @@ export default function LandingHeroSection({
             display="flex"
             flexDirection="column"
             justifyContent="center"
-            alignItems="center"
+            alignItems="stretch"
           >
             <Stack
               spacing={{ base: 3.5, sm: 4, md: 7, lg: 8, xl: 8 }}
               minW={0}
-              maxW={{ base: '100%', md: '900px', lg: '960px', xl: '1100px' }}
+              maxW="100%"
               w="100%"
-              // Clear the Google review badge that hangs under the landing nav.
-              pr={{ base: '5rem', sm: '6rem', md: 0 }}
               align="flex-start"
-              alignSelf="center"
+              alignSelf="stretch"
               flexShrink={0}
             >
               {children}
@@ -168,8 +166,11 @@ export default function LandingHeroSection({
                 size="hero"
                 color="white"
                 minW={0}
+                w="100%"
                 textAlign="left"
                 textShadow="0 2px 24px rgba(0,0,0,0.35)"
+                layerStyle="clearReviewBadge"
+                sx={{ textWrap: 'balance' }}
               >
                 {typeof heroTitle === 'string'
                   ? heroTitle.includes(', ') && heroTitle === t.heroTitle
@@ -207,9 +208,11 @@ export default function LandingHeroSection({
                 variant="heroSubtitle"
                 color="white"
                 minW={0}
+                w="100%"
                 overflowWrap="break-word"
                 textAlign="left"
                 textShadow="0 1px 12px rgba(0,0,0,0.35)"
+                layerStyle="clearReviewBadge"
               >
                 {heroSubtitle}
               </Text>
