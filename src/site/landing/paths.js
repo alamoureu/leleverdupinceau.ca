@@ -18,15 +18,27 @@ export const LANDING_LOCALE_PAIRS = {
   '/en/stlp-peinture-inc': '/fr/stlp-peinture-inc',
 };
 
+/** Strip trailing slash (except `/`) so path checks stay stable. */
+export function normalizePathname(pathname = '') {
+  if (!pathname) return '/';
+  if (pathname.length > 1 && pathname.endsWith('/')) {
+    return pathname.slice(0, -1);
+  }
+  return pathname;
+}
+
 export function isAdsLandingPath(pathname) {
-  return ADS_LANDING_PATHS.includes(pathname);
+  return ADS_LANDING_PATHS.includes(normalizePathname(pathname));
 }
 
 export function isStlpLandingPath(pathname) {
-  return STLP_LANDING_PATHS.includes(pathname);
+  return STLP_LANDING_PATHS.includes(normalizePathname(pathname));
 }
 
-/** Ads + STLP: minimal chrome (no hamburger, no site footer). */
+/**
+ * Ads + STLP paths. Prefer LandingLayout in the router over branching on this
+ * inside WebsiteLayout - chrome must be locked by route layout, not pathname.
+ */
 export function isLocaleLandingPath(pathname) {
   return isAdsLandingPath(pathname) || isStlpLandingPath(pathname);
 }

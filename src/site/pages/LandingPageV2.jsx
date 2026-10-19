@@ -11,7 +11,7 @@ import {
   buildLandingFaqs,
 } from '../landing';
 import heroImage from '../images/shared/heroImage.webp';
-import PromoBanner, { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
+import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 
 import LandingHeroSection from '../home-page/LandingHeroSection';
 import TrustBanner from '../home-page/TrustBanner';
@@ -133,9 +133,6 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {!indexable && <meta name="googlebot" content="noindex, nofollow" />}
       </Helmet>
       <MicrosoftClarity />
-
-      {/* Promo bar pinned at viewport top (zIndex 10000, above the fixed navbar) */}
-      <PromoBanner />
 
       <Box
         w="100%"

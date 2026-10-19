@@ -106,10 +106,7 @@ export default function LandingHeroSection({
 
       <Box
         position="relative"
-        display="flex"
-        flexDirection="column"
-        // Mobile: no low max-height cap (was crushing title/CTA under nav + badge).
-        // h auto lets content grow; minH keeps the V + trust overlap stable.
+        // Definite height (not h:auto) so the content band can truly vertical-center.
         minH={{
           base: '36rem',
           sm: '38rem',
@@ -119,8 +116,8 @@ export default function LandingHeroSection({
           '2xl': 'min(96vh, 1020px)',
         }}
         h={{
-          base: 'auto',
-          sm: 'auto',
+          base: '36rem',
+          sm: '38rem',
           md: '92vh',
           lg: '100vh',
           xl: '100vh',
@@ -128,38 +125,32 @@ export default function LandingHeroSection({
         }}
         w="100%"
       >
+        {/* Absolute band between nav clearance and V padding = true vertical center */}
         <Container
           maxW="1440px"
-          position="relative"
+          position="absolute"
           zIndex={2}
+          left={0}
+          right={0}
+          mx="auto"
+          top={contentPt ?? LANDING_MAIN_CONTENT_PT}
+          bottom={heroPb}
           minW={0}
-          flex="1"
+          h="auto"
           display="flex"
           flexDirection="column"
-          minH="0"
+          justifyContent="center"
+          alignItems="stretch"
           px={{ base: 4, sm: 4, md: 6, lg: 8 }}
-          pt={contentPt ?? LANDING_MAIN_CONTENT_PT}
-          pb={heroPb}
         >
-          <Box
-            flex="1"
-            minH={0}
+          <Stack
+            spacing={{ base: 3.5, sm: 4, md: 7, lg: 8, xl: 8 }}
             minW={0}
+            maxW="100%"
             w="100%"
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="stretch"
+            align="flex-start"
+            flexShrink={0}
           >
-            <Stack
-              spacing={{ base: 3.5, sm: 4, md: 7, lg: 8, xl: 8 }}
-              minW={0}
-              maxW="100%"
-              w="100%"
-              align="flex-start"
-              alignSelf="stretch"
-              flexShrink={0}
-            >
               {children}
               <Heading
                 as="h1"
@@ -222,8 +213,7 @@ export default function LandingHeroSection({
                   {heroButton}
                 </CtaButton>
               </Box>
-            </Stack>
-          </Box>
+          </Stack>
         </Container>
       </Box>
     </Box>

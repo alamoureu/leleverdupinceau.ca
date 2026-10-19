@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom';
 import { AppProvider } from './AppProvider';
 import WebsiteLayout from './site/layout/WebsiteLayout';
+import LandingLayout from './site/layout/LandingLayout';
 import ScrollToTop from './site/components/ScrollToTop';
 import RedirectKeepQuery from './site/components/RedirectKeepQuery';
 import LegacyTripleSegmentRedirect from './site/services-pages/LegacyTripleSegmentRedirect';
@@ -279,7 +280,8 @@ export default function App() {
             element={<RedirectKeepQuery to="/fr/stlp-peinture-inc" />}
           />
           <Route path="/stlp" element={<RedirectKeepQuery to="/fr/stlp-peinture-inc" />} />
-          <Route path="/fr" element={<WebsiteLayout />}>
+          {/* Dedicated layout: white landing chrome only - never WebsiteLayout blue nav */}
+          <Route path="/fr" element={<LandingLayout />}>
             <Route
               path="peintre-montreal"
               element={<Suspense fallback={<PageSkeleton />}><LandingPageV2 lang="fr" indexable={false} /></Suspense>}
@@ -293,7 +295,7 @@ export default function App() {
               element={<RedirectKeepQuery to="/fr/stlp-peinture-inc" />}
             />
           </Route>
-          <Route path="/en" element={<WebsiteLayout />}>
+          <Route path="/en" element={<LandingLayout />}>
             {/* Canonical EN ads landing; /en/peintre-montreal redirects to avoid dual EN URLs */}
             <Route
               path="peintre-montreal"

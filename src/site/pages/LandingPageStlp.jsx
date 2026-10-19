@@ -13,7 +13,7 @@ import {
 } from '../landing/stlpAssets';
 import { buildLandingFaqsStlp } from '../landing/landingFaqsStlp';
 import { buildStlpBreadcrumbSchema } from '../landing/stlpCluster';
-import PromoBanner, { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
+import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 
 import LandingHeroSection from '../home-page/LandingHeroSection';
 import TrustBanner from '../home-page/TrustBanner';
@@ -169,8 +169,6 @@ function LandingPageStlp({ lang: langProp, indexable = true }) {
           </script>
         )}
       </Helmet>
-
-      <PromoBanner />
 
       <Box
         w="100%"

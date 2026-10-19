@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Button, Text } from '@chakra-ui/react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import appContext from '../../AppProvider';
-import { LANDING_LOCALE_PAIRS } from '../landing/paths';
+import { LANDING_LOCALE_PAIRS, normalizePathname } from '../landing/paths';
 
 /** Fixed FR/EN control - bottom-right (landing ads + STLP pages). */
 export default function FloatingLanguageToggle() {
@@ -13,7 +13,7 @@ export default function FloatingLanguageToggle() {
 
   const toggleLanguage = () => {
     const newLang = currentLang === 'fr' ? 'en' : 'fr';
-    const targetPath = LANDING_LOCALE_PAIRS[location.pathname];
+    const targetPath = LANDING_LOCALE_PAIRS[normalizePathname(location.pathname)];
     setCurrentLang(newLang);
     if (targetPath) navigate(targetPath);
   };

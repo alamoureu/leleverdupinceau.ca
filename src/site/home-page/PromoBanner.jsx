@@ -29,7 +29,7 @@ function getTomorrow(lang) {
 
 /**
  * Thin promo bar pinned at the very top of the viewport (above the fixed navbar).
- * Rendered directly in LandingPageV2 (not inside WebsiteNavBar).
+ * Rendered in LandingLayout with the white nav (not inside the lazy page).
  */
 export default function PromoBanner() {
   const { currentLang } = useContext(appContext); 

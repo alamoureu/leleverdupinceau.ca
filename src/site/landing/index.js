@@ -31,4 +31,5 @@ export {
   isAdsLandingPath,
   isLocaleLandingPath,
   isStlpLandingPath,
+  normalizePathname,
 } from './paths';

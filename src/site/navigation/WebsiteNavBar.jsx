@@ -23,10 +23,7 @@ import ShakeButton from '../home-page/ShakeButton';
 import LanguageToggle from '../components/LanguageToggle';
 import { showsNavReviewBadge } from '../constants/navReviewBadge';
 import whiteLogo from '../images/shared/whitelogo.webp';
-import {
-  isLocaleLandingPath,
-  isStlpLandingPath,
-} from '../landing/paths';
+import { isStlpLandingPath } from '../landing/paths';
 import stlpLogo from '../images/stlp/logo.webp';
 import {
   NAV_BAR_H,
@@ -36,17 +33,19 @@ import {
   TOP_BAR_H,
 } from './navBarSizes';
 
-export default function WebsiteNavBar({ isNewLanding: isNewLandingProp }) {
+/**
+ * @param {object} props
+ * @param {boolean} [props.isNewLanding=false] Locked by the parent layout.
+ *   LandingLayout passes true; WebsiteLayout never does. Do not derive from pathname
+ *   here - that caused the white landing chrome to flip to the blue site nav.
+ */
+export default function WebsiteNavBar({ isNewLanding = false }) {
   const navigate = useNavigate();
   const location = useLocation();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
 
-  const isNewLanding =
-    isNewLandingProp !== undefined
-      ? isNewLandingProp
-      : isLocaleLandingPath(location.pathname);
-  const isStlpLanding = isStlpLandingPath(location.pathname);
+  const isStlpLanding = isNewLanding && isStlpLandingPath(location.pathname);
   const showsReviewBadge = showsNavReviewBadge(location.pathname);
 
   return (

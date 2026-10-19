@@ -12,9 +12,8 @@ import {
   Divider,
   HStack,
 } from '@chakra-ui/react';
-import { Outlet, Link as RouterLink, useLocation } from 'react-router-dom';
+import { Outlet, Link as RouterLink } from 'react-router-dom';
 import WebsiteNavBar from '../navigation/WebsiteNavBar';
-import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
 import { Helmet } from 'react-helmet';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
@@ -23,12 +22,11 @@ import { COMPANY_EMAIL } from '../constants/company';
 import whiteLogo from '../images/shared/whitelogo.webp';
 import { HEADER_OFFSET } from '../navigation/navBarSizes';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
-import { isLocaleLandingPath } from '../landing/paths';
+
+/** Site chrome only (blue nav + footer). Landings use LandingLayout. */
 export default function WebsiteLayout() {
   const { currentLang, footerData } = useContext(appContext);
   const { t } = useTranslation();
-  const location = useLocation();
-  const isLocaleLanding = isLocaleLandingPath(location.pathname);
 
   return (
     <Fragment>
@@ -49,8 +47,7 @@ export default function WebsiteLayout() {
           gap={0}
           flex="1"
         >
-          <WebsiteNavBar isNewLanding={isLocaleLanding} />
-          {isLocaleLanding && <FloatingLanguageToggle />}
+          <WebsiteNavBar />
 
           <Stack
             as="main"
@@ -61,21 +58,20 @@ export default function WebsiteLayout() {
             minW={0}
             tabIndex={-1}
             flex="1"
-            pt={isLocaleLanding ? 0 : HEADER_OFFSET}
+            pt={HEADER_OFFSET}
             mt={0}
           >
             <Outlet />
           </Stack>
 
-          {!isLocaleLanding && (
-            <Box
-              position="static"
-              bottom="0"
-              w="100%"
-              bg="brand.700"
-              py={{ base: 8, md: 12 }}
-              px={{ base: 4, md: 6 }}
-            >
+          <Box
+            position="static"
+            bottom="0"
+            w="100%"
+            bg="brand.700"
+            py={{ base: 8, md: 12 }}
+            px={{ base: 4, md: 6 }}
+          >
               <Box maxW="1440px" mx="auto">
                 <Stack
                   spacing={{ base: 4, md: 6 }}
@@ -386,7 +382,6 @@ export default function WebsiteLayout() {
                 </HStack>
               </Box>
             </Box>
-          )}
         </Flex>
       </Box>
     </Fragment>
