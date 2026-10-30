@@ -1,7 +1,7 @@
-import React, { useMemo } from 'react';
-import { Box, Text } from '@chakra-ui/react';
-import { useContext } from 'react';
+import React, { useMemo, useContext, Fragment } from 'react';
+import { Box, Text, useDisclosure } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
+import SubmissionModal from './SubmissionModal';
 
 /**
  * Height of the promo banner at each breakpoint.
@@ -30,9 +30,11 @@ function getTomorrow(lang) {
 /**
  * Thin promo bar pinned at the very top of the viewport (above the fixed navbar).
  * Rendered in LandingLayout with the white nav (not inside the lazy page).
+ * Click opens the submission form modal.
  */
 export default function PromoBanner() {
-  const { currentLang } = useContext(appContext); 
+  const { currentLang } = useContext(appContext);
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const tomorrow = useMemo(() => getTomorrow(currentLang), [currentLang]);
 
   const text =
@@ -41,30 +43,40 @@ export default function PromoBanner() {
       : `10\u00A0% de rabais - remplissez le formulaire avant le ${tomorrow}`;
 
   return (
-    <Box
-      position="fixed"
-      top={0}
-      left={0}
-      right={0}
-      zIndex={10000}
-      h={PROMO_BANNER_HEIGHT}
-      bgGradient="linear(to-r, brand.700, brand.600)"
-      display="flex"
-      alignItems="center"
-      justifyContent="center"
-      color="white"
-      w="100%"
-    >
-      <Text
-        textAlign="center"
-        fontSize={{ base: '11px', sm: 'xs', md: 'sm' }}
-        fontWeight="semibold"
-        lineHeight="1.3"
-        noOfLines={1}
-        px={{ base: 4, md: 8 }}
+    <Fragment>
+      <Box
+        as="button"
+        type="button"
+        onClick={onOpen}
+        position="fixed"
+        top={0}
+        left={0}
+        right={0}
+        zIndex={10000}
+        h={PROMO_BANNER_HEIGHT}
+        bgGradient="linear(to-r, brand.700, brand.600)"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="white"
+        w="100%"
+        cursor="pointer"
+        _hover={{ bgGradient: 'linear(to-r, brand.800, brand.700)' }}
+        _focusVisible={{ outline: '2px solid white', outlineOffset: '-2px' }}
+        aria-label={text}
       >
-        {text}
-      </Text>
-    </Box>
+        <Text
+          textAlign="center"
+          fontSize={{ base: '11px', sm: 'xs', md: 'sm' }}
+          fontWeight="semibold"
+          lineHeight="1.3"
+          noOfLines={1}
+          px={{ base: 4, md: 8 }}
+        >
+          {text}
+        </Text>
+      </Box>
+      <SubmissionModal isOpen={isOpen} onClose={onClose} />
+    </Fragment>
   );
 }
