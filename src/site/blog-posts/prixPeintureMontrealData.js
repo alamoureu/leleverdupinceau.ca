@@ -1,4 +1,6 @@
 // Blog post data: Prix peinture Montréal 2026
+import { DEFAULT_OG_IMAGE } from '../seo/config';
+
 export const prixPeintureMontrealData = {
   slug: 'prix-peinture-montreal',
   url: 'https://leleverdupinceau.ca/blog/prix-peinture-montreal',
@@ -635,7 +637,7 @@ export const prixPeintureMontrealData = {
         },
         image: {
           '@type': 'ImageObject',
-          url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
+          url: DEFAULT_OG_IMAGE,
         },
         author: {
           '@id': 'https://leleverdupinceau.ca#organization',

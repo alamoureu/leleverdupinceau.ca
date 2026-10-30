@@ -14,7 +14,7 @@ import {
 /** Canonical host = apex (Netlify 301s www → apex). */
 export const SITE_URL = 'https://leleverdupinceau.ca';
 
-export const DEFAULT_OG_IMAGE = 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg';
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg`;
 
 export const SITE_NAME = 'Le Lever du Pinceau';
 
@@ -121,7 +121,7 @@ export const LOCAL_BUSINESS_SCHEMA = {
     worstRating: '1',
     ratingCount: String(GOOGLE_REVIEW_COUNT),
   },
-  image: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
+  image: DEFAULT_OG_IMAGE,
   sameAs: [
     'https://www.facebook.com/profile.php?id=100094900160859',
     'https://www.instagram.com/leleverdupinceau',

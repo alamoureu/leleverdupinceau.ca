@@ -1,3 +1,5 @@
+import { DEFAULT_OG_IMAGE } from '../seo/config';
+
 export const commentChoisirPeintreProfessionnelData = {
   slug: 'comment-choisir-un-peintre-professionnel',
   url: 'https://leleverdupinceau.ca/blog/comment-choisir-un-peintre-professionnel',
@@ -832,8 +834,7 @@ export const commentChoisirPeintreProfessionnelData = {
       fr: 'Guide complet pour choisir un peintre professionnel fiable à Montréal : expérience, avis, garanties, comparaison de soumissions, questions à poser et erreurs à éviter.',
       en: 'Complete guide to choosing a reliable professional painter in Montreal: experience, reviews, guarantees, quote comparison, questions to ask and mistakes to avoid.',
     },
-    image:
-      'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
+    image: DEFAULT_OG_IMAGE,
     author: {
       '@type': 'Organization',
       name: 'Le Lever du Pinceau',

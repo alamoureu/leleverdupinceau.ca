@@ -1,5 +1,6 @@
 // Blog post data: Bétonel vs Benjamin Moore
 import heroImage from '../images/blog/blog-comparatif-peinture.webp';
+import { DEFAULT_OG_IMAGE } from '../seo/config';
 
 export const betonelVsBenjaminMooreData = {
   slug: 'betonel-vs-benjamin-moore',
@@ -396,8 +397,7 @@ export const betonelVsBenjaminMooreData = {
       fr: 'Comparatif complet entre Bétonel et Benjamin Moore : prix, produits similaires, couleurs, qualité et avis de peintres professionnels à Montréal.',
       en: 'Complete comparison between Bétonel and Benjamin Moore: price, similar products, colors, quality and reviews from professional painters in Montreal.',
     },
-    image:
-      'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
+    image: DEFAULT_OG_IMAGE,
     author: {
       '@type': 'Organization',
       name: 'Le Lever du Pinceau',

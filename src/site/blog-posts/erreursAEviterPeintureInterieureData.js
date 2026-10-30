@@ -1,4 +1,6 @@
 // Blog post data: Erreurs à éviter avant de repeindre votre intérieur
+import { DEFAULT_OG_IMAGE } from '../seo/config';
+
 export const erreursAEviterPeintureInterieureData = {
   slug: 'erreurs-a-eviter-peinture-interieure',
   url: 'https://leleverdupinceau.ca/blog/erreurs-a-eviter-peinture-interieure',
@@ -777,7 +779,7 @@ export const erreursAEviterPeintureInterieureData = {
         },
         image: {
           '@type': 'ImageObject',
-          url: 'https://leleverdupinceau-file-system.s3.us-east-2.amazonaws.com/photo_lever_1.jpg',
+          url: DEFAULT_OG_IMAGE,
         },
         author: {
           '@id': 'https://leleverdupinceau.ca#organization',
