@@ -92,6 +92,7 @@ export default function HomePage() {
         <HeroSection
           onSubmissionOpen={onOpen}
           pageContext={pageContext}
+          description={t.heroDescription}
         />
 
         <ControlSection />
