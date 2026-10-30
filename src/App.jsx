@@ -288,7 +288,7 @@ export default function App() {
             />
             <Route
               path="stlp-peinture-inc"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="fr" indexable /></Suspense>}
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="fr" indexable={false} /></Suspense>}
             />
             <Route
               path="stlp"
@@ -307,7 +307,7 @@ export default function App() {
             />
             <Route
               path="stlp-peinture-inc"
-              element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="en" indexable /></Suspense>}
+              element={<Suspense fallback={<PageSkeleton />}><LandingPageStlp lang="en" indexable={false} /></Suspense>}
             />
             <Route
               path="stlp"

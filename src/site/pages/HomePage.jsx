@@ -92,7 +92,6 @@ export default function HomePage() {
         <HeroSection
           onSubmissionOpen={onOpen}
           pageContext={pageContext}
-          description={t.heroDescription}
         />
 
         <ControlSection />
@@ -100,6 +99,20 @@ export default function HomePage() {
         <GuaranteeSection onSubmissionOpen={onOpen} />
 
         <MethodSection onSubmissionOpen={onOpen} hideCta />
+
+        <Box bg="gray.50">
+          <ServicesSection sectionBg="transparent" sectionPy={SECTION_PY} />
+          <BeforeAfterCarouselSection
+            sectionBg="gray.50"
+            sectionPaddingTop={{ base: 2, md: 4 }}
+            sectionPaddingBottom={{ base: 8, md: 10, lg: 12 }}
+            onSubmissionOpen={onOpen}
+          />
+        </Box>
+
+        <TeamSection pageContext={pageContext} />
+
+        <ReviewsSection />
 
         <Box ref={formSentinelRef} minH="1px" aria-hidden />
         {loadForm ? (
@@ -109,19 +122,6 @@ export default function HomePage() {
         ) : (
           <Box minH={{ base: '320px', md: '280px' }} />
         )}
-
-        <Box bg="gray.50">
-          <ServicesSection sectionBg="transparent" sectionPy={SECTION_PY} />
-          <BeforeAfterCarouselSection
-            sectionBg="gray.50"
-            sectionPaddingTop={{ base: 2, md: 4 }}
-            sectionPaddingBottom={{ base: 8, md: 10, lg: 12 }}
-          />
-        </Box>
-
-        <TeamSection pageContext={pageContext} />
-
-        <ReviewsSection />
 
         <SectorsSection pageContext={pageContext} />
 

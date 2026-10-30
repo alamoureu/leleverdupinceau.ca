@@ -6,7 +6,7 @@ import useAutoScroll from './useAutoScroll';
  * Short edge masks so cards AND their box-shadows dissolve together.
  * Keep just long enough to hide the overflow hard-cut; short = rougher feel.
  */
-const DEFAULT_FADE_SIZE = { base: '12px', md: '16px', lg: '18px' };
+const DEFAULT_FADE_SIZE = { base: '6px', md: '16px', lg: '18px' };
 
 function resolveFadeSize(fadeSize) {
   if (typeof fadeSize === 'string') return fadeSize;

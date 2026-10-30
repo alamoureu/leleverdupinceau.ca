@@ -12,7 +12,7 @@ import {
   HStack,
   SimpleGrid,
   useDisclosure,
-  Icon
+  Icon,
 } from '@chakra-ui/react';
 import { FaArrowRight as ArrowForwardIcon } from 'react-icons/fa';
 import appContext from '../../AppProvider';

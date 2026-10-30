@@ -10,7 +10,6 @@ export const translations = {
     heroTitle: 'Peintre à Montréal',
     heroTitleSecondLine: '',
     heroSubtitle: 'Un\u00A0résultat\u00A0impeccable,\u00A0rien\u00A0de\u00A0moins.',
-    heroDescription: 'Intérieur, extérieur, résidentiel et commercial: service clé en main.',
     heroButton: 'Obtenir ma soumission gratuite',
     heroImageAlt: 'Services de peinture résidentielle et commerciale',
 
@@ -216,11 +215,12 @@ export const translations = {
     faqRbqAnswer: 'Oui. Le Lever du Pinceau détient la licence RBQ #5864-1481-01 et une assurance responsabilité de 5 millions de dollars. De plus, tous nos peintres de métier ont plus de 10 ans d\'expérience.',
     faqPricingLink: 'Voir notre article sur les prix.',
 
-    landingHeroTitle: 'Redonnez vie à votre maison sans lever le petit doigt',
-    landingHeroSubtitle: 'Un service rapide, propre et garanti à Montréal',
+    landingHeroTitle: 'Peintres Professionnels\nà Montréal',
+    landingHeroSubtitle:
+      'Service de peinture intérieure et extérieure à prix compétitif dans le Grand Montréal',
     stlpLandingHeroSubtitle:
       'Service de peinture intérieure et extérieur à prix compétitif dans le Grand Montréal',
-    landingHeroButton: 'Obtenir ma soumission en 24h',
+    landingHeroButton: 'Soumission gratuite en 24h',
 
     guaranteeTitle: 'Notre engagement',
     guaranteeBody:
@@ -254,7 +254,6 @@ export const translations = {
     heroTitle: 'Painter in Montreal',
     heroTitleSecondLine: '',
     heroSubtitle: 'An\u00A0impeccable\u00A0result,\u00A0nothing\u00A0less.',
-    heroDescription: 'Interior, exterior, residential and commercial: turnkey service.',
     heroButton: 'Get my free quote',
     heroImageAlt: 'Residential and commercial painting services',
 
@@ -457,8 +456,9 @@ export const translations = {
     faqRbqAnswer: 'Yes. Le Lever du Pinceau holds RBQ license #5864-1481-01 and $5M liability insurance. All our professional painters have over 10 years of experience.',
     faqPricingLink: 'See our article on pricing.',
 
-    landingHeroTitle: 'Professional Painters in Montreal',
-    landingHeroSubtitle: 'Interior and exterior painting services at competitive prices in Greater Montreal',
+    landingHeroTitle: 'Professional Painters\nin Montreal',
+    landingHeroSubtitle:
+      'Interior and exterior painting services at competitive prices in Greater Montreal',
     stlpLandingHeroSubtitle:
       'Interior and exterior painting services at competitive prices in Greater Montreal',
     landingHeroButton: 'Free quote in 24h',

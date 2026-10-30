@@ -12,8 +12,8 @@ import { TRUST_BANNER_AIR_SPACE } from '../constants/sectionSpacing';
 import { TRUST_BANNER_BELOW_PT } from './TrustBanner';
 import ServiceCard from './ServiceCard';
 import { thumbnailForRoute } from '../constants/routeThumbnails';
+import formInteriorImage from '../images/landing/form-interior.webp';
 
-const peintureInterieureImg = thumbnailForRoute('/services/peinture-interieure');
 const peintureExterieureImg = thumbnailForRoute('/services/peinture-exterieure');
 
 const DEFAULT_SECTION_PB = {
@@ -36,7 +36,11 @@ const translations = {
   },
 };
 
-export default function LandingServicesSection({ sectionPy, sectionPaddingTop }) {
+export default function LandingServicesSection({
+  sectionPy,
+  sectionPaddingTop,
+  onServiceClick,
+}) {
   const { t, currentLang } = useTranslation();
   const pb = sectionPy ?? DEFAULT_SECTION_PB;
   const pt = sectionPaddingTop !== undefined ? sectionPaddingTop : TRUST_BANNER_BELOW_PT;
@@ -44,12 +48,14 @@ export default function LandingServicesSection({ sectionPy, sectionPaddingTop })
 
   const services = [
     {
-      image: peintureInterieureImg,
+      key: 'interior',
+      image: formInteriorImage,
       title: t.serviceInterior,
       subtitle: t.serviceInteriorDesc,
       stripText: t.serviceInteriorStrip,
     },
     {
+      key: 'exterior',
       image: peintureExterieureImg,
       title: t.serviceExterior,
       subtitle: t.serviceExteriorDesc,
@@ -85,22 +91,46 @@ export default function LandingServicesSection({ sectionPy, sectionPaddingTop })
             maxW={{ md: '780px', lg: '860px', xl: '920px' }}
             mx="auto"
           >
-            {services.map((service, idx) => (
-              <Box
-                key={idx}
-                w={{ base: '85%', sm: '300px', md: '50%' }}
-                maxW={{ base: '340px', md: 'none' }}
-                flex={{ md: '1 1 0' }}
-              >
-                <ServiceCard
-                  image={service.image}
-                  title={service.title}
-                  subtitle={service.subtitle}
-                  stripText={service.stripText}
-                  noHoverBorder
-                />
-              </Box>
-            ))}
+            {services.map((service) => {
+              const clickable = typeof onServiceClick === 'function';
+              return (
+                <Box
+                  key={service.key}
+                  w={{ base: '85%', sm: '300px', md: '50%' }}
+                  maxW={{ base: '340px', md: 'none' }}
+                  flex={{ md: '1 1 0' }}
+                  {...(clickable
+                    ? {
+                        as: 'button',
+                        type: 'button',
+                        onClick: () => onServiceClick(service.key),
+                        cursor: 'pointer',
+                        textAlign: 'left',
+                        appearance: 'none',
+                        bg: 'transparent',
+                        border: 0,
+                        p: 0,
+                        m: 0,
+                        outline: 'none',
+                        _focusVisible: {
+                          outline: '2px solid',
+                          outlineColor: 'brand.500',
+                          outlineOffset: '3px',
+                          borderRadius: 'xl',
+                        },
+                      }
+                    : {})}
+                >
+                  <ServiceCard
+                    image={service.image}
+                    title={service.title}
+                    subtitle={service.subtitle}
+                    stripText={service.stripText}
+                    noHoverBorder
+                  />
+                </Box>
+              );
+            })}
           </Flex>
         </Stack>
       </Container>

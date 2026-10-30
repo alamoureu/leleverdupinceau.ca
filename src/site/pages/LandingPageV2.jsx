@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useMemo, useRef, useEffect, useCallback } from 'react';
+import React, { Fragment, useContext, useMemo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
@@ -11,77 +11,48 @@ import {
   buildLandingFaqs,
 } from '../landing';
 import heroImage from '../images/shared/heroImage.webp';
-import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
 
-import LandingHeroSection from '../home-page/LandingHeroSection';
-import TrustBanner from '../home-page/TrustBanner';
+import HeroSection from '../home-page/HeroSection';
+import { TRUST_BANNER_BELOW_PT } from '../home-page/TrustBanner';
 import ReviewsSection from '../home-page/ReviewsSection';
 import LandingServicesSection from '../home-page/LandingServicesSection';
-import BeforeAfterCarouselSection, { buildLandingPagePairs } from '../home-page/BeforeAfterCarouselSection';
+import BeforeAfterCarouselSection from '../home-page/BeforeAfterCarouselSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import MethodSection from '../home-page/MethodSection';
 import GuaranteeSection from '../home-page/GuaranteeSection';
-import ServiceGuaranteeSection from '../home-page/ServiceGuaranteeSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import MicrosoftClarity from '../components/MicrosoftClarity';
 
-/**
- * The hero content pt must clear: fixed promo banner + fixed navbar.
- * Banner heights come from PROMO_BANNER_HEIGHT; navbar heights from LANDING_MAIN_CONTENT_PT.
- * We use CSS calc() to combine them.
- */
 /** Microsoft Clarity project - loaded only on /fr/peintre-montreal */
 const CLARITY_PROJECT_ID = 'w4hw2yfvew';
-
-const HERO_CONTENT_PT = {
-  // Mobile: clear fixed promo + nav + hanging Google badge before the title.
-  base: `calc(6.75rem + ${PROMO_BANNER_HEIGHT.base})`,
-  sm: `calc(7rem + ${PROMO_BANNER_HEIGHT.sm})`,
-  md: `calc(7rem + ${PROMO_BANNER_HEIGHT.md})`,
-  lg: `calc(7.5rem + ${PROMO_BANNER_HEIGHT.lg})`,
-  xl: `calc(8rem + ${PROMO_BANNER_HEIGHT.xl})`,
-  '2xl': `calc(8.25rem + ${PROMO_BANNER_HEIGHT['2xl']})`,
-};
 
 function LandingPageV2({ lang: langProp, indexable = false }) {
   const location = useLocation();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [paintingType, setPaintingType] = useState(null);
+
+  const openSubmission = () => {
+    setPaintingType(null);
+    onOpen();
+  };
+
+  const openServiceSubmission = (type) => {
+    setPaintingType(type);
+    onOpen();
+  };
+
+  const closeSubmission = () => {
+    onClose();
+    setPaintingType(null);
+  };
 
   const lang = currentLang || langProp || 'fr';
   const meta = LANDING_META[lang] ?? LANDING_META.fr;
   const landingFaqs = useMemo(() => buildLandingFaqs(t), [t]);
-  const landingPairs = useMemo(() => buildLandingPagePairs(lang === 'fr'), [lang]);
-
-  // Popup fires once, 1s after the user scrolls past the end of the method section.
-  const methodEndRef = useRef(null);
-  const hasTriggered = useRef(false);
-  const popupTimerRef = useRef(null);
-
-  const handleMethodEndIntersect = useCallback(
-    ([entry], observer) => {
-      if (entry.isIntersecting && !hasTriggered.current) {
-        hasTriggered.current = true;
-        observer.disconnect();
-        popupTimerRef.current = setTimeout(onOpen, 1000);
-      }
-    },
-    [onOpen],
-  );
-
-  useEffect(() => {
-    const el = methodEndRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(handleMethodEndIntersect, { threshold: 0 });
-    observer.observe(el);
-    return () => {
-      observer.disconnect();
-      if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
-    };
-  }, [handleMethodEndIntersect]);
 
   useEffect(() => {
     if (location.pathname !== '/fr/peintre-montreal') return;
@@ -134,6 +105,7 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
       </Helmet>
       <MicrosoftClarity />
 
+      {/* Promo + white nav live in LandingLayout (not the blue WebsiteLayout chrome). */}
       <Box
         w="100%"
         minW={0}
@@ -142,72 +114,68 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         overflowX="hidden"
         position="relative"
       >
-        {/* 1. Hero - contentPt clears the fixed promo banner + fixed navbar */}
-        <LandingHeroSection
-          onSubmissionOpen={onOpen}
+        {/* 1. Rectangular hero (same HeroSection as the rest of the site) + TrustBanner */}
+        <HeroSection
+          onSubmissionOpen={openSubmission}
           pageContext={t.pageContextName}
           title={t.landingHeroTitle}
           titleSecondLine=""
           subtitle={t.landingHeroSubtitle}
           buttonText={t.landingHeroButton}
-          contentPt={HERO_CONTENT_PT}
         />
 
-        {/* 2. Barre de confiance */}
-        <TrustBanner />
-
-        {/* 3. Services (2 cartes : intérieure + extérieure) */}
-        <LandingServicesSection sectionPy={LANDING_SECTION_PY} />
-
-        {/* 4. Section garantie - CTA + badge + engagement */}
-        <GuaranteeSection
-          onSubmissionOpen={onOpen}
-          sectionPy={LANDING_SECTION_PY}
+        {/* 2. Reviews - keep the updated review banner / carousel */}
+        <ReviewsSection
+          hideButton
+          sectionBg="white"
+          sectionPaddingTop={TRUST_BANNER_BELOW_PT}
+          sectionPaddingBottom={LANDING_SECTION_PY}
         />
 
-        {/* 5. Méthode en 4 étapes - sentinel déclenche le popup après 1s */}
-        <MethodSection
-          onSubmissionOpen={onOpen}
-          hideCta
-          sectionPy={LANDING_SECTION_PY}
-        />
-        <Box ref={methodEndRef} h={0} aria-hidden="true" />
-
-        {/* 6. Formulaire de contact - fond bleu */}
+        {/* 3. Contact form - blue background, right under reviews */}
         <ContactFormSection
           sectionPy={LANDING_SECTION_PY}
           sectionBg="app.ctaBg"
         />
 
-        {/* 7. Avis clients - même carrousel que le site principal */}
-        <ReviewsSection
-          sectionBg="white"
-          sectionPaddingTop={LANDING_SECTION_PY}
-          sectionPaddingBottom={LANDING_SECTION_PY}
+        {/* 4. Services (2 cards: intérieure + extérieure) */}
+        <LandingServicesSection
+          sectionPy={LANDING_SECTION_PY}
+          onServiceClick={openServiceSubmission}
         />
 
-        {/* 8. Avant/Après - 6 paires, carousel swipe mobile */}
+        {/* 5. Before/After - form CTA instead of link to /realisations */}
         <BeforeAfterCarouselSection
-          images={landingPairs}
           sectionPy={LANDING_SECTION_PY}
           sectionPaddingTop={LANDING_SECTION_PY}
           sectionPaddingBottom={LANDING_SECTION_PY}
+          onSubmissionOpen={openSubmission}
         />
 
-        {/* 9. Satisfaction 100% - même section que les pages services */}
-        <ServiceGuaranteeSection onCtaClick={onOpen} />
+        {/* 6. Method */}
+        <MethodSection hideCta sectionPy={LANDING_SECTION_PY} />
 
-        {/* 10. FAQ */}
+        {/* 7. 100% satisfaction guarantee + CTA */}
+        <GuaranteeSection
+          onSubmissionOpen={openSubmission}
+          sectionPy={LANDING_SECTION_PY}
+        />
+
+        {/* 8. FAQ */}
         <FAQSection faqsOverride={landingFaqs} sectionPy={LANDING_SECTION_PY} />
 
-        {/* 11. Final CTA */}
+        {/* 9. Final CTA */}
         <FinalCTASection
-          onSubmissionOpen={onOpen}
+          onSubmissionOpen={openSubmission}
           sectionPy={LANDING_SECTION_PY}
         />
       </Box>
 
-      <SubmissionModal isOpen={isOpen} onClose={onClose} />
+      <SubmissionModal
+        isOpen={isOpen}
+        onClose={closeSubmission}
+        paintingType={paintingType}
+      />
     </Fragment>
   );
 }

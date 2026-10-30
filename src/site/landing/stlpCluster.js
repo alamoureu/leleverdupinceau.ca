@@ -1,6 +1,6 @@
 import { CANONICAL_BASE } from './constants';
 
-/** Breadcrumb schema for the indexable STLP landing - cluster signal without visible links sitewide. */
+/** Breadcrumb schema for the STLP landing (only emitted when indexable). */
 export function buildStlpBreadcrumbSchema(lang) {
   const isFr = lang !== 'en';
   const path = isFr ? '/fr/stlp-peinture-inc' : '/en/stlp-peinture-inc';

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useMemo, useRef, useEffect, useCallback } from 'react';
+import React, { Fragment, useContext, useMemo, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
@@ -13,8 +13,6 @@ import {
 } from '../landing/stlpAssets';
 import { buildLandingFaqsStlp } from '../landing/landingFaqsStlp';
 import { buildStlpBreadcrumbSchema } from '../landing/stlpCluster';
-import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
-
 import LandingHeroSection from '../home-page/LandingHeroSection';
 import TrustBanner from '../home-page/TrustBanner';
 import ControlSection from '../home-page/ControlSection';
@@ -24,27 +22,36 @@ import BeforeAfterCarouselSection, {
 } from '../home-page/BeforeAfterCarouselSection';
 import ContactFormSection from '../home-page/ContactFormSection';
 import MethodSection from '../home-page/MethodSection';
+import GuaranteeSection from '../home-page/GuaranteeSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
+import { PAGE_HERO_CONTENT_PT } from '../constants/sectionSpacing';
 
 /** Microsoft Clarity project for ads / STLP landings */
 const CLARITY_PROJECT_ID = 'w4hw2yfvew';
 
-const HERO_CONTENT_PT = {
-  base: `calc(6.75rem + ${PROMO_BANNER_HEIGHT.base})`,
-  sm: `calc(7rem + ${PROMO_BANNER_HEIGHT.sm})`,
-  md: `calc(7rem + ${PROMO_BANNER_HEIGHT.md})`,
-  lg: `calc(7.5rem + ${PROMO_BANNER_HEIGHT.lg})`,
-  xl: `calc(8rem + ${PROMO_BANNER_HEIGHT.xl})`,
-  '2xl': `calc(8.25rem + ${PROMO_BANNER_HEIGHT['2xl']})`,
-};
-
-function LandingPageStlp({ lang: langProp, indexable = true }) {
+function LandingPageStlp({ lang: langProp, indexable = false }) {
   const location = useLocation();
   const { setCurrentLang } = useContext(appContext);
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [paintingType, setPaintingType] = useState(null);
+
+  const openSubmission = () => {
+    setPaintingType(null);
+    onOpen();
+  };
+
+  const openServiceSubmission = (type) => {
+    setPaintingType(type);
+    onOpen();
+  };
+
+  const closeSubmission = () => {
+    onClose();
+    setPaintingType(null);
+  };
 
   const lang = langProp || 'fr';
   const isFr = lang === 'fr';
@@ -65,34 +72,6 @@ function LandingPageStlp({ lang: langProp, indexable = true }) {
   useEffect(() => {
     if (langProp) setCurrentLang(langProp);
   }, [langProp, setCurrentLang]);
-
-  const methodEndRef = useRef(null);
-  const hasTriggered = useRef(false);
-  const popupTimerRef = useRef(null);
-
-  const handleMethodEndIntersect = useCallback(
-    ([entry], observer) => {
-      if (entry.isIntersecting && !hasTriggered.current) {
-        hasTriggered.current = true;
-        observer.disconnect();
-        popupTimerRef.current = setTimeout(onOpen, 1000);
-      }
-    },
-    [onOpen],
-  );
-
-  useEffect(() => {
-    const el = methodEndRef.current;
-    if (!el) return undefined;
-    const observer = new IntersectionObserver(handleMethodEndIntersect, {
-      threshold: 0,
-    });
-    observer.observe(el);
-    return () => {
-      observer.disconnect();
-      if (popupTimerRef.current) clearTimeout(popupTimerRef.current);
-    };
-  }, [handleMethodEndIntersect]);
 
   useEffect(() => {
     if (!STLP_LANDING_PATHS.includes(location.pathname)) return;
@@ -179,13 +158,13 @@ function LandingPageStlp({ lang: langProp, indexable = true }) {
         position="relative"
       >
         <LandingHeroSection
-          onSubmissionOpen={onOpen}
+          onSubmissionOpen={openSubmission}
           pageContext={t.pageContextName}
           title={t.landingHeroTitle}
           titleSecondLine=""
           subtitle={t.stlpLandingHeroSubtitle}
           buttonText={t.landingHeroButton}
-          contentPt={HERO_CONTENT_PT}
+          contentPt={PAGE_HERO_CONTENT_PT}
           imageBackground={STLP_HERO}
           imageObjectPosition={{ base: '78% center', md: '65% center' }}
         />
@@ -194,7 +173,10 @@ function LandingPageStlp({ lang: langProp, indexable = true }) {
 
         <ControlSection cards={controlCards} pt={LANDING_SECTION_PY} />
 
-        <LandingServicesSection sectionPy={LANDING_SECTION_PY} />
+        <LandingServicesSection
+          sectionPy={LANDING_SECTION_PY}
+          onServiceClick={openServiceSubmission}
+        />
 
         <BeforeAfterCarouselSection
           images={beforeAfterImages}
@@ -209,22 +191,29 @@ function LandingPageStlp({ lang: langProp, indexable = true }) {
         />
 
         <MethodSection
-          onSubmissionOpen={onOpen}
           hideCta
           images={STLP_METHOD_IMAGES}
           sectionPy={LANDING_SECTION_PY}
         />
-        <Box ref={methodEndRef} h={0} aria-hidden="true" />
+
+        <GuaranteeSection
+          onSubmissionOpen={openSubmission}
+          sectionPy={LANDING_SECTION_PY}
+        />
 
         <FAQSection faqsOverride={landingFaqs} sectionPy={LANDING_SECTION_PY} />
 
         <FinalCTASection
-          onSubmissionOpen={onOpen}
+          onSubmissionOpen={openSubmission}
           sectionPy={LANDING_SECTION_PY}
         />
       </Box>
 
-      <SubmissionModal isOpen={isOpen} onClose={onClose} />
+      <SubmissionModal
+        isOpen={isOpen}
+        onClose={closeSubmission}
+        paintingType={paintingType}
+      />
     </Fragment>
   );
 }

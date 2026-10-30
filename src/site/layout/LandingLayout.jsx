@@ -4,11 +4,13 @@ import { Outlet } from 'react-router-dom';
 import WebsiteNavBar from '../navigation/WebsiteNavBar';
 import FloatingLanguageToggle from '../components/FloatingLanguageToggle';
 import PromoBanner from '../home-page/PromoBanner';
+import { LANDING_HEADER_OFFSET } from '../landing/constants';
 
 /**
  * Chrome for ads/STLP landings only: promo + white minimal nav, no site footer.
  * Used as its own route layout so the blue site navbar can never mount here
  * (unlike toggling a flag inside WebsiteLayout from pathname).
+ * `#main` pt matches WebsiteLayout + HEADER_OFFSET so heroes stay rectangular below the chrome.
  */
 export default function LandingLayout() {
   return (
@@ -36,7 +38,7 @@ export default function LandingLayout() {
             minW={0}
             tabIndex={-1}
             flex="1"
-            pt={0}
+            pt={LANDING_HEADER_OFFSET}
             mt={0}
           >
             <Outlet />

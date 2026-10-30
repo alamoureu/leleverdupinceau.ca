@@ -83,6 +83,7 @@ export default function SubmissionForm({
   isModal = false,
   formId,
   initialFocusRef,
+  paintingType,
 }) {
   const { t, currentLang } = useTranslation();
   const toast = useToast();
@@ -133,8 +134,16 @@ export default function SubmissionForm({
         import('firebase/firestore'),
       ]);
 
+      const typePeinture =
+        paintingType === 'interior'
+          ? t.formInteriorPainting
+          : paintingType === 'exterior'
+            ? t.formExteriorPainting
+            : undefined;
+
       await addDoc(collection(db, 'Soumission'), {
         ...formData,
+        ...(typePeinture ? { paintingType, typePeinture } : {}),
         date: Timestamp.now(),
         source: 'Website Form',
       });
@@ -149,7 +158,12 @@ export default function SubmissionForm({
         .filter(Boolean)
         .join(' ');
 
-      const leadData = { ...formData, terms_and_conditions: termsText };
+      const leadData = {
+        ...formData,
+        ...(paintingType ? { paintingType } : {}),
+        ...(typePeinture ? { typePeinture } : {}),
+        terms_and_conditions: termsText,
+      };
       try {
         await sendWebsiteLeadToErp(leadData, { language: currentLang });
       } catch (erpError) {

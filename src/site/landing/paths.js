@@ -4,7 +4,7 @@ export const ADS_LANDING_PATHS = [
   '/en/painter-montreal',
 ];
 
-/** STLP landing (indexable Montreal cluster). */
+/** STLP landing (Google Ads, noindex). */
 export const STLP_LANDING_PATHS = [
   '/fr/stlp-peinture-inc',
   '/en/stlp-peinture-inc',

@@ -1,5 +1,6 @@
 import { AVIS_AVANT_APRES_PAIRS } from './avisAvantApres';
 import { avisPhoto } from './avantApresById';
+import { buildDefaultImages } from '../home-page/BeforeAfterCarouselSection';
 
 import monImg7924 from '../images/services-villes/peinture-interieure-montreal/avant-apres/Griffintown avant.webp';
 import monImg7922 from '../images/villes/montreal/avant-apres/IMG_7922.webp';
@@ -17,6 +18,50 @@ import lavalImg5975 from '../images/sous-services/armoires/avant-apres/IMG_5975.
 import lavalImg5976 from '../images/sous-services/armoires/avant-apres/IMG_5976.webp';
 import armoiresMileEndAvant from '../images/sous-services/armoires/avant-apres/IMG_8114.webp';
 import armoiresMileEndApres from '../images/sous-services/armoires/avant-apres/IMG_8120.webp';
+
+/** Paires accueil absentes des dossiers featured / avis (même scène = même image). */
+const HOME_ONLY_PROJECT_META = {
+  'Salon - murs plâtre et peinture': {
+    service: 'interieur',
+    propertyFr: 'Maison',
+    propertyEn: 'House',
+    tags: ['Intérieur', 'Résidentiel'],
+  },
+  'Terrasse en bois - teinture et protection': {
+    service: 'teinture',
+    propertyFr: 'Terrasse',
+    propertyEn: 'Deck',
+    tags: ['Extérieur', 'Résidentiel'],
+  },
+  'Espace industriel - plafond steel deck et murs peints': {
+    service: 'interieur',
+    propertyFr: 'Commercial',
+    propertyEn: 'Commercial',
+    tags: ['Intérieur', 'Commercial'],
+    projectTypeFr: 'Commercial',
+    projectTypeEn: 'Commercial',
+  },
+  'Maison - murs rafraîchis (protection et peinture)': {
+    service: 'interieur',
+    propertyFr: 'Maison',
+    propertyEn: 'House',
+    tags: ['Intérieur', 'Résidentiel'],
+  },
+  'Maison - extérieur rafraîchi': {
+    service: 'exterieur',
+    propertyFr: 'Maison',
+    propertyEn: 'House',
+    tags: ['Extérieur', 'Résidentiel'],
+  },
+  'Espace industriel - préparation et peinture': {
+    service: 'interieur',
+    propertyFr: 'Commercial',
+    propertyEn: 'Commercial',
+    tags: ['Intérieur', 'Commercial'],
+    projectTypeFr: 'Commercial',
+    projectTypeEn: 'Commercial',
+  },
+};
 
 const SERVICE_META = {
   interieur: {
@@ -307,7 +352,67 @@ function featuredProjects(isFr) {
   ];
 }
 
-/** 28 projets : 8 dossiers documentés + 20 paires avis (sans doublons de scène). */
+function collectUsedImages(projects) {
+  const used = new Set();
+  for (const project of projects) {
+    if (project.beforeImg) used.add(project.beforeImg);
+    if (project.afterImg) used.add(project.afterImg);
+  }
+  return used;
+}
+
+/**
+ * Paires du carrousel accueil pas encore couvertes par featured/avis.
+ * La landing ads (6 paires) reste inchangée via buildLandingPagePairs.
+ */
+function homeOnlyProjects(isFr, usedImages) {
+  return buildDefaultImages(isFr)
+    .filter((pair) => !usedImages.has(pair.before) && !usedImages.has(pair.after))
+    .map((pair, index) => {
+      const metaKey = pair.description;
+      // buildDefaultImages already localized description; match FR keys for meta
+      const frDescription = buildDefaultImages(true).find(
+        (p) => p.before === pair.before && p.after === pair.after,
+      )?.description;
+      const homeMeta = HOME_ONLY_PROJECT_META[frDescription] || HOME_ONLY_PROJECT_META[metaKey];
+      const serviceKey = homeMeta?.service || 'interieur';
+      const meta = SERVICE_META[serviceKey];
+      const title = pair.description;
+      return {
+        id: `home-${index}-${frDescription || title}`,
+        title,
+        district: isFr ? 'Grand Montréal' : 'Greater Montreal',
+        serviceType: isFr ? meta.serviceType.fr : meta.serviceType.en,
+        projectType: isFr
+          ? homeMeta?.projectTypeFr || 'Résidentiel'
+          : homeMeta?.projectTypeEn || 'Residential',
+        propertyType: isFr
+          ? homeMeta?.propertyFr || 'Projet'
+          : homeMeta?.propertyEn || 'Project',
+        context: isFr
+          ? 'Projet réalisé dans le Grand Montréal. Préparation des surfaces, protection des zones adjacentes et finition adaptée au support.'
+          : 'Project completed in Greater Montreal. Surface prep, protection of adjacent areas and a finish suited to the substrate.',
+        result: isFr
+          ? 'Transformation visible, finition propre et chantier remis en ordre à la livraison.'
+          : 'Visible transformation, clean finish and a tidy site at handover.',
+        serviceLink: meta.serviceLink,
+        serviceLinkLabel: isFr ? meta.serviceLinkLabel.fr : meta.serviceLinkLabel.en,
+        sectorLink: '/secteurs',
+        sectorLinkLabel: isFr ? 'Nos secteurs desservis' : 'Our service areas',
+        beforeImg: pair.before,
+        afterImg: pair.after,
+        beforeAlt: isFr ? `Avant - ${title}` : `Before - ${title}`,
+        afterAlt: isFr ? `Après - ${title}` : `After - ${title}`,
+        tags: homeMeta?.tags || meta.tags,
+      };
+    });
+}
+
+/** Dossiers documentés + paires accueil manquantes + paires avis (sans doublons de scène). */
 export function getRealisationsProjects(isFr) {
-  return [...featuredProjects(isFr), ...avisProjects(isFr)];
+  const featured = featuredProjects(isFr);
+  const avis = avisProjects(isFr);
+  const used = collectUsedImages([...featured, ...avis]);
+  const fromHome = homeOnlyProjects(isFr, used);
+  return [...featured, ...fromHome, ...avis];
 }

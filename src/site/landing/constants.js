@@ -2,11 +2,27 @@
  * Landing page SEO and config. Single source of truth for meta and URLs.
  */
 
+import { PROMO_BANNER_HEIGHT } from '../home-page/PromoBanner';
+import { NAV_BAR_H } from '../navigation/navBarSizes';
+
 export const CANONICAL_BASE = 'https://leleverdupinceau.ca';
 
 /**
- * Padding-top du contenu hero sous la nav fixe (landing : pas de bandeau noir, une seule rangée).
- * Valeurs calées sur `WebsiteNavBar` (py + logo ~52-68px) + petite marge, pas sur l’accueil `#main`+hero.
+ * Fixed landing chrome height (promo + white nav) - use as `#main` `pt`
+ * so heroes sit below the header like WebsiteLayout + HEADER_OFFSET.
+ */
+export const LANDING_HEADER_OFFSET = {
+  base: `calc(${PROMO_BANNER_HEIGHT.base} + ${NAV_BAR_H.base})`,
+  sm: `calc(${PROMO_BANNER_HEIGHT.sm} + ${NAV_BAR_H.sm})`,
+  md: `calc(${PROMO_BANNER_HEIGHT.md} + ${NAV_BAR_H.md})`,
+  lg: `calc(${PROMO_BANNER_HEIGHT.lg} + ${NAV_BAR_H.lg})`,
+  xl: `calc(${PROMO_BANNER_HEIGHT.xl} + ${NAV_BAR_H.lg})`,
+  '2xl': `calc(${PROMO_BANNER_HEIGHT['2xl']} + ${NAV_BAR_H.lg})`,
+};
+
+/**
+ * Padding-top du contenu hero quand le hero chevauche encore la nav fixe
+ * (ex. STLP en clip V). Préférer `LANDING_HEADER_OFFSET` + `HeroSection` sur les ads.
  */
 export const LANDING_MAIN_CONTENT_PT = {
   base: '9.75rem',
@@ -85,7 +101,7 @@ export const LANDING_META = {
   },
 };
 
-/** Meta landing STLP - indexable Montreal landing, Google Ads + main SEO cluster. */
+/** Meta landing STLP - Google Ads, noindex. */
 export const LANDING_META_STLP = {
   fr: {
     title: 'Entreprise de Peinture à Montréal | STLP',

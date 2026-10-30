@@ -24,6 +24,7 @@ import { AVIS_AVANT_APRES_PAIRS } from '../constants/avisAvantApres';
 import { avisPhoto } from '../constants/avantApresById';
 import FadedScroller from '../components/FadedScroller';
 import CardCaptionStrip from './CardCaptionStrip';
+import CtaButton from './CtaButton';
 
 import img7922 from '../images/villes/montreal/avant-apres/IMG_7922.webp';
 import img7924 from '../images/home/avant-apres/IMG_7924.webp';
@@ -345,6 +346,7 @@ export default function BeforeAfterCarouselSection({
   sectionBg = 'white',
   layout = 'carousel',
   hideCta = false,
+  onSubmissionOpen,
 }) {
   const { t, currentLang } = useTranslation();
   const isFr = isFrProp ?? currentLang === 'fr';
@@ -455,25 +457,30 @@ export default function BeforeAfterCarouselSection({
             </FadedScroller>
           )}
 
-          {!hideCta && (
-            <Link
-              as={RouterLink}
-              to="/realisations"
-              _hover={{ textDecoration: 'none' }}
-            >
-              <Button
-                variant="ctaOutline"
-                rightIcon={<ArrowForwardIcon />}
-                borderRadius="full"
-                textStyle="nav"
-                px={{ base: 5, md: 7 }}
-                py={{ base: 3, md: 4 }}
-                minW={{ base: '269px', md: '285px' }}
+          {!hideCta &&
+            (onSubmissionOpen ? (
+              <CtaButton onClick={onSubmissionOpen} rightIcon={<ArrowForwardIcon />}>
+                {t.freeSubmission}
+              </CtaButton>
+            ) : (
+              <Link
+                as={RouterLink}
+                to="/realisations"
+                _hover={{ textDecoration: 'none' }}
               >
-                {isFr ? 'Voir toutes nos réalisations' : 'View all our projects'}
-              </Button>
-            </Link>
-          )}
+                <Button
+                  variant="ctaOutline"
+                  rightIcon={<ArrowForwardIcon />}
+                  borderRadius="full"
+                  textStyle="nav"
+                  px={{ base: 5, md: 7 }}
+                  py={{ base: 3, md: 4 }}
+                  minW={{ base: '269px', md: '285px' }}
+                >
+                  {isFr ? 'Voir toutes nos réalisations' : 'View all our projects'}
+                </Button>
+              </Link>
+            ))}
         </Stack>
       </Container>
     </Box>
