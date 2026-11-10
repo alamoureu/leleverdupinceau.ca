@@ -1,11 +1,9 @@
 import React, { Fragment, useContext, useMemo, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
 import { useTranslation } from '../i18n';
 import { CANONICAL_BASE, LANDING_META_STLP, LANDING_SECTION_PY } from '../landing/constants';
-import { STLP_LANDING_PATHS } from '../landing/paths';
 import {
   STLP_CONTROL_IMAGES,
   STLP_HERO,
@@ -26,13 +24,11 @@ import GuaranteeSection from '../home-page/GuaranteeSection';
 import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
+import MicrosoftClarity from '../components/MicrosoftClarity';
+import { LANDING_CLARITY_PROJECT_ID } from '../constants/analytics';
 import { PAGE_HERO_CONTENT_PT } from '../constants/sectionSpacing';
 
-/** Microsoft Clarity project for ads / STLP landings */
-const CLARITY_PROJECT_ID = 'w4hw2yfvew';
-
 function LandingPageStlp({ lang: langProp, indexable = false }) {
-  const location = useLocation();
   const { setCurrentLang } = useContext(appContext);
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -72,24 +68,6 @@ function LandingPageStlp({ lang: langProp, indexable = false }) {
   useEffect(() => {
     if (langProp) setCurrentLang(langProp);
   }, [langProp, setCurrentLang]);
-
-  useEffect(() => {
-    if (!STLP_LANDING_PATHS.includes(location.pathname)) return;
-    const src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
-    if (document.querySelector(`script[src="${src}"]`)) return;
-    (function (c, l, a, r, i, t, y) {
-      c[a] =
-        c[a] ||
-        function () {
-          (c[a].q = c[a].q || []).push(arguments);
-        };
-      t = l.createElement(r);
-      t.async = 1;
-      t.src = 'https://www.clarity.ms/tag/' + i;
-      y = l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t, y);
-    })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
-  }, [location.pathname]);
 
   const landingPath =
     lang === 'en' ? '/en/stlp-peinture-inc' : '/fr/stlp-peinture-inc';
@@ -148,6 +126,8 @@ function LandingPageStlp({ lang: langProp, indexable = false }) {
           </script>
         )}
       </Helmet>
+
+      <MicrosoftClarity projectId={LANDING_CLARITY_PROJECT_ID} />
 
       <Box
         w="100%"

@@ -92,3 +92,76 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/*
+ * FOUC-safe heights (mirror Chakra tokens). Emotion overrides these once loaded.
+ * Prevents htmlWidth/htmlHeight attrs from exploding layout before CSS-in-JS applies,
+ * without locking desktop to mobile sizes via inline style.
+ */
+.page-hero-band {
+  position: relative;
+  width: 100%;
+  min-height: max(360px, 50svh);
+  background-color: #4a5568;
+}
+@media (min-width: 30em) {
+  .page-hero-band {
+    min-height: max(380px, 48svh);
+  }
+}
+@media (min-width: 48em) {
+  .page-hero-band {
+    min-height: max(560px, calc(100svh - 11rem));
+  }
+}
+@media (min-width: 62em) {
+  .page-hero-band {
+    min-height: max(600px, calc(100svh - 11rem));
+  }
+}
+@media (min-width: 80em) {
+  .page-hero-band {
+    min-height: max(680px, calc(100svh - 10.5rem));
+  }
+}
+@media (min-width: 96em) {
+  .page-hero-band {
+    min-height: max(740px, calc(100svh - 10.5rem));
+  }
+}
+
+.landing-hero-band {
+  position: relative;
+  width: 100%;
+  min-height: 36rem;
+}
+@media (min-width: 30em) {
+  .landing-hero-band {
+    min-height: 38rem;
+  }
+}
+@media (min-width: 48em) {
+  .landing-hero-band {
+    min-height: min(88vh, 700px);
+    height: 92vh;
+  }
+}
+@media (min-width: 62em) {
+  .landing-hero-band {
+    min-height: min(92vh, 820px);
+    height: 100vh;
+  }
+}
+
+.fouc-max-logo {
+  max-width: 160px;
+  max-height: 68px;
+  overflow: hidden;
+}
+
+.fouc-max-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  display: block;
+}

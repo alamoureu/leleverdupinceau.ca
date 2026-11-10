@@ -137,6 +137,12 @@ export default function SectorsSection({
                   minH={{ base: '150px', md: '170px' }}
                   h="100%"
                   w="100%"
+                  style={{
+                    position: 'relative',
+                    aspectRatio: '3 / 2',
+                    maxHeight: 220,
+                    overflow: 'hidden',
+                  }}
                   _hover={
                     disableLinks
                       ? {}
@@ -171,6 +177,15 @@ export default function SectorsSection({
                     decoding="async"
                     htmlWidth={600}
                     htmlHeight={400}
+                    style={{
+                      position: 'absolute',
+                      inset: 0,
+                      width: '100%',
+                      height: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'cover',
+                      zIndex: 0,
+                    }}
                   />
                   <Box
                     position="absolute"
@@ -180,6 +195,7 @@ export default function SectorsSection({
                     bottom={0}
                     bgGradient="linear(to-b, rgba(2, 42, 104, 0.3), rgba(2, 42, 104, 0.85))"
                     zIndex={1}
+                    style={{ position: 'absolute', inset: 0, zIndex: 1 }}
                   />
 
                   {/* Content */}

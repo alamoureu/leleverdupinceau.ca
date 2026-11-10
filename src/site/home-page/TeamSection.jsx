@@ -29,6 +29,7 @@ export default function TeamSection({ pageContext = '' }) {
             overflow='hidden'
             boxShadow='lg'
             order={{ base: 1, md: 1 }}
+            style={{ aspectRatio: '3 / 2', maxHeight: 520 }}
           >
             <Image
               src={teamSectionImg}
@@ -41,9 +42,17 @@ export default function TeamSection({ pageContext = '' }) {
               h='auto'
               loading="lazy"
               decoding="async"
-            htmlWidth={1600}
-            htmlHeight={1067}
+              htmlWidth={1600}
+              htmlHeight={1067}
               objectFit='cover'
+              style={{
+                width: '100%',
+                height: 'auto',
+                maxHeight: '100%',
+                aspectRatio: '3 / 2',
+                objectFit: 'cover',
+                display: 'block',
+              }}
             />
           </Box>
 

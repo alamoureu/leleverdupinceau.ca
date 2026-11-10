@@ -140,6 +140,13 @@ export default function ResourcesSection({
                     overflow="hidden"
                     h={{ base: '190px', md: '200px' }}
                     bg="gray.100"
+                    style={{
+                      position: 'relative',
+                      maxHeight: 200,
+                      aspectRatio: '16 / 9',
+                      overflow: 'hidden',
+                      background: '#EDF2F7',
+                    }}
                   >
                     <Image
                       className="resource-image"
@@ -153,6 +160,13 @@ export default function ResourcesSection({
                       htmlWidth={1600}
                       htmlHeight={1067}
                       transition="transform 0.35s ease"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        maxHeight: '100%',
+                        objectFit: 'cover',
+                        display: 'block',
+                      }}
                     />
                   </Box>
 

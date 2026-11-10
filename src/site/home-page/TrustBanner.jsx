@@ -79,6 +79,18 @@ export default function TrustBanner() {
         border="1px solid"
         borderColor="gray.200"
         boxShadow="0 4px 20px rgba(0,0,0,0.08)"
+        // Ceiling only - Chakra h={CARD_HEIGHT} keeps real sizes once Emotion loads.
+        style={{
+          maxWidth: 960,
+          maxHeight: 136,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          background: '#fff',
+          borderRadius: 16,
+          border: '1px solid #E2E8F0',
+          boxShadow: '0 4px 20px rgba(0,0,0,0.08)',
+          overflow: 'hidden',
+        }}
       >
         {items.map((item, index) => (
           <React.Fragment key={item.label}>
@@ -113,6 +125,12 @@ export default function TrustBanner() {
                   loading="eager"
                   fetchpriority="low"
                   decoding="async"
+                  // Cap only - Chakra ICON_H restores desktop size after Emotion.
+                  style={{
+                    width: 'auto',
+                    maxHeight: 40,
+                    objectFit: 'contain',
+                  }}
                 />
               )}
               <Text

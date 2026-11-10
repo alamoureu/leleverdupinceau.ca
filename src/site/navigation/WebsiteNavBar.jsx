@@ -190,6 +190,7 @@ export default function WebsiteNavBar({ isNewLanding = false }) {
               // Explicit width from 1409×873 so the logo never expands on decode (CLS)
               w={NAV_LOGO_W}
               maxW={{ base: '160px', sm: '180px', md: 'none' }}
+              className="fouc-max-logo"
             >
               <Image
                 loading="eager"
@@ -205,6 +206,11 @@ export default function WebsiteNavBar({ isNewLanding = false }) {
                 display="block"
                 pointerEvents="none"
                 style={{
+                  width: '100%',
+                  height: '100%',
+                  maxWidth: '100%',
+                  maxHeight: '100%',
+                  objectFit: 'contain',
                   filter:
                     isNewLanding && !isStlpLanding ? 'invert(1)' : undefined,
                 }}
@@ -398,6 +404,14 @@ export default function WebsiteNavBar({ isNewLanding = false }) {
                       }
                     : { base: '72px', sm: '80px', md: '88px' }
                 }
+                // Keep badge compact if Emotion has not applied yet (html 128² G otherwise blows it up).
+                style={{
+                  maxWidth: 116,
+                  maxHeight: 120,
+                  overflow: 'hidden',
+                  background: '#fff',
+                  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+                }}
               >
                 <Stack spacing={0} align="center" overflow="visible">
                   <Text
@@ -482,8 +496,13 @@ export default function WebsiteNavBar({ isNewLanding = false }) {
                     objectFit="contain"
                     loading="lazy"
                     decoding="async"
-            htmlWidth={128}
-            htmlHeight={128}
+                    htmlWidth={128}
+                    htmlHeight={128}
+                    style={{
+                      maxWidth: 40,
+                      maxHeight: 40,
+                      objectFit: 'contain',
+                    }}
                   />
                 </Stack>
               </Box>

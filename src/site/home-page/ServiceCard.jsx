@@ -113,6 +113,9 @@ export default function ServiceCard({
         minW="100%"
         h={imageHeights}
         flexShrink={0}
+        // Inline aspect-ratio survives Emotion FOUC / hydrate remount. Without it,
+        // htmlHeight={600} paints a ~600px image and the card overlaps the next section.
+        style={{ aspectRatio: '4 / 3', maxHeight: 360 }}
       >
         <Image
           src={image}
@@ -127,6 +130,15 @@ export default function ServiceCard({
           decoding="async"
           htmlWidth={800}
           htmlHeight={600}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: 'center center',
+            display: 'block',
+            // Beat the HTML height="600" attr when Chakra CSS is not applied yet.
+            maxHeight: '100%',
+          }}
           sx={
             titleInStrip
               ? {

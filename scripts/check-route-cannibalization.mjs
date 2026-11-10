@@ -2,7 +2,7 @@
 /**
  * Guardrail: no competing public URLs for the same intent.
  * - Unique sitemap / content paths
- * - Exactly one FR + one EN ads landing (noindex)
+ * - Ads landings (peintre + STLP) are the only noindex prerenders
  * - Alias /en/peintre-montreal must redirect to /en/painter-montreal
  * - Legacy service×city URLs must redirect (not stay as content)
  * - No content path that is also a redirect source
@@ -36,12 +36,17 @@ for (const p of content) {
   if (redirects[p]) fail(`Content path also has a redirect: ${p} → ${redirects[p]}`);
 }
 
-const expectedLandings = ['/fr/peintre-montreal', '/en/painter-montreal'];
+const expectedLandings = [
+  '/fr/peintre-montreal',
+  '/en/painter-montreal',
+  '/fr/stlp-peinture-inc',
+  '/en/stlp-peinture-inc',
+];
 const landingSorted = [...noindexPrerender].sort();
 const expectedSorted = [...expectedLandings].sort();
 if (landingSorted.join('|') !== expectedSorted.join('|')) {
   fail(
-    `Ads landings must be exactly ${expectedLandings.join(', ')} (got ${noindexPrerender.join(', ') || 'none'})`
+    `Noindex landings must be exactly ${expectedLandings.join(', ')} (got ${noindexPrerender.join(', ') || 'none'})`
   );
 }
 

@@ -26,7 +26,12 @@ const CONTENT_ROUTES = [
 ];
 
 /** Ads landings: prerendered noindex (empty #root OK if SPA-only). */
-const SPA_NOINDEX_ROUTES = ['/fr/peintre-montreal', '/en/painter-montreal'];
+const SPA_NOINDEX_ROUTES = [
+  '/fr/peintre-montreal',
+  '/en/painter-montreal',
+  '/fr/stlp-peinture-inc',
+  '/en/stlp-peinture-inc',
+];
 
 /** Legacy URLs that must 301 (or redirect stub) to a content page. */
 const REDIRECT_ROUTES = [

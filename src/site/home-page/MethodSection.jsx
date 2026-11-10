@@ -152,6 +152,7 @@ export default function MethodSection({
                   overflow="hidden"
                   borderRadius={{ base: 'md', md: 'lg' }}
                   h="100%"
+                  style={{ aspectRatio: '4 / 3', maxHeight: 360 }}
                 >
                   <Image
                     src={images[index] || images[0]}
@@ -171,6 +172,13 @@ export default function MethodSection({
                     decoding="async"
                     htmlWidth={800}
                     htmlHeight={600}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      maxHeight: '100%',
+                      objectFit: 'cover',
+                      display: 'block',
+                    }}
                   />
                 </Box>
                 <Flex

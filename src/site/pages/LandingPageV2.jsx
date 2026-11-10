@@ -1,5 +1,4 @@
-import React, { Fragment, useContext, useMemo, useEffect, useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import React, { Fragment, useContext, useMemo, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Box, useDisclosure } from '@chakra-ui/react';
 import appContext from '../../AppProvider';
@@ -24,12 +23,10 @@ import FAQSection from '../home-page/FAQSection';
 import FinalCTASection from '../home-page/FinalCTASection';
 import SubmissionModal from '../home-page/SubmissionModal';
 import MicrosoftClarity from '../components/MicrosoftClarity';
-
-/** Microsoft Clarity project - loaded only on /fr/peintre-montreal */
-const CLARITY_PROJECT_ID = 'w4hw2yfvew';
+import GoogleTagManager from '../components/GoogleTagManager';
+import { LANDING_CLARITY_PROJECT_ID } from '../constants/analytics';
 
 function LandingPageV2({ lang: langProp, indexable = false }) {
-  const location = useLocation();
   const { currentLang } = useContext(appContext);
   const { t } = useTranslation();
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -53,24 +50,6 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
   const lang = currentLang || langProp || 'fr';
   const meta = LANDING_META[lang] ?? LANDING_META.fr;
   const landingFaqs = useMemo(() => buildLandingFaqs(t), [t]);
-
-  useEffect(() => {
-    if (location.pathname !== '/fr/peintre-montreal') return;
-    const src = `https://www.clarity.ms/tag/${CLARITY_PROJECT_ID}`;
-    if (document.querySelector(`script[src="${src}"]`)) return;
-    (function (c, l, a, r, i, t, y) {
-      c[a] =
-        c[a] ||
-        function () {
-          (c[a].q = c[a].q || []).push(arguments);
-        };
-      t = l.createElement(r);
-      t.async = 1;
-      t.src = 'https://www.clarity.ms/tag/' + i;
-      y = l.getElementsByTagName(r)[0];
-      y.parentNode.insertBefore(t, y);
-    })(window, document, 'clarity', 'script', CLARITY_PROJECT_ID);
-  }, [location.pathname]);
 
   const landingPath =
     lang === 'en' ? '/en/painter-montreal' : '/fr/peintre-montreal';
@@ -103,7 +82,8 @@ function LandingPageV2({ lang: langProp, indexable = false }) {
         {!indexable && <meta name="robots" content="noindex, nofollow" />}
         {!indexable && <meta name="googlebot" content="noindex, nofollow" />}
       </Helmet>
-      <MicrosoftClarity />
+      <GoogleTagManager />
+      <MicrosoftClarity projectId={LANDING_CLARITY_PROJECT_ID} />
 
       {/* Promo + white nav live in LandingLayout (not the blue WebsiteLayout chrome). */}
       <Box

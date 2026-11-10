@@ -91,6 +91,11 @@ export default function WebsiteLayout() {
                       objectFit="contain"
                       display="block"
                       cursor="pointer"
+                      style={{
+                        maxWidth: 113,
+                        maxHeight: 70,
+                        objectFit: 'contain',
+                      }}
                     />
                   </RouterLink>
                   <Box

@@ -2,9 +2,10 @@ import React from 'react';
 import { Box } from '@chakra-ui/react';
 
 /**
- * Pendant le premier paint d'une page pré-rendue, un fallback court remonte le
- * footer dans le viewport (CLS ~0.40). On réserve une grande hauteur tant que
- * `data-prerender="1"` est présent sur <html> (retiré après hydratation).
+ * Fallback Suspense pour navigations client (lazy routes).
+ * Sur le premier paint pré-rendu, index.jsx attend le chunk via routePreload
+ * avant hydrateRoot - ce skeleton ne doit plus remplacer le HTML statique.
+ * Si ça arrive quand même, on réserve la hauteur pour éviter un CLS footer.
  */
 export default function PageSkeleton() {
   const reservePrerender =

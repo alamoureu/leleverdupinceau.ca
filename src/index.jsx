@@ -5,9 +5,13 @@ import App from './App';
 import { theme } from './theme';
 import ErrorBoundary from './ErrorBoundary';
 import { captureLandingPage } from './utils/erpWebsiteWebhook';
+import { preloadRoute } from './routePreload';
 import './index.css';
 
 captureLandingPage();
+
+// Kick off as early as possible (parallel with remaining setup).
+const routeReady = preloadRoute(window.location.pathname);
 
 const container = document.getElementById('root');
 const tree = (
@@ -25,20 +29,29 @@ function clearPrerenderFlag() {
   if (container.style.minHeight) container.style.minHeight = '';
 }
 
-if (hasPrerender) {
-  // Keep page height while React recovers from hydration mismatches.
-  const reservedHeight = container.offsetHeight;
-  if (reservedHeight > 0) {
-    container.style.minHeight = `${reservedHeight}px`;
+async function mount() {
+  if (hasPrerender) {
+    // Keep page height while React recovers from hydration mismatches.
+    const reservedHeight = container.offsetHeight;
+    if (reservedHeight > 0) {
+      container.style.minHeight = `${reservedHeight}px`;
+    }
+
+    // Must finish before hydrateRoot: otherwise React.lazy suspends and
+    // PageSkeleton replaces the prerendered main content (white flash + Safari banner).
+    await routeReady;
+
+    hydrateRoot(container, tree, {
+      onRecoverableError: () => {},
+    });
+
+    // Drop guards once the client tree has had time to settle.
+    [500, 1500, 3000].forEach((ms) => setTimeout(clearPrerenderFlag, ms));
+    return;
   }
 
-  hydrateRoot(container, tree, {
-    onRecoverableError: () => {},
-  });
-
-  // Drop guards once the client tree has had time to settle.
-  [500, 1500, 3000].forEach((ms) => setTimeout(clearPrerenderFlag, ms));
-} else {
   clearPrerenderFlag();
   createRoot(container).render(tree);
 }
+
+mount();

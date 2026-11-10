@@ -67,10 +67,12 @@ export const CONTENT_ROUTES = OFFICIAL_SITE_LP_ROUTES.map((r) => r.path);
  * Landings pubs : pré-rendues avec noindex dans le HTML (pas de Disallow robots.txt),
  * hors sitemap. Google peut crawler et voir noindex plutôt qu'une fiche fantôme.
  */
-/** One FR + one EN ads landing only (no duplicate EN peintre/painter URLs). */
+/** Ads + STLP landings: prerendered with noindex (pas de Disallow robots.txt). */
 export const NOINDEX_PRERENDER_ROUTES = [
   '/fr/peintre-montreal',
   '/en/painter-montreal',
+  '/fr/stlp-peinture-inc',
+  '/en/stlp-peinture-inc',
 ];
 
 /** Routes app hors Site LP - shell SPA uniquement (pas de HTML SSR). */

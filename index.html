@@ -13,6 +13,8 @@
     <meta name="google-site-verification" content="xdVErgrnqzYXoys2InThSH-Vlwy9R6hjCjibXD7Ci7Q" />
     <!-- GSC - propriété existante (conserver tant que l’autre compte reste propriétaire) -->
     <meta name="google-site-verification" content="N5FaA7rVVWKjku53ezIKZmaZD5XcucLfvyD-cAqdF8g" />
+    <!-- GSC - nouvelle propriété -->
+    <meta name="google-site-verification" content="a3rCq-Xanhe8oIMKB03_qViCLRZmO0J0y156JOCVEOA" />
     <link rel="manifest" href="/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,12 +34,21 @@
     </style>
     <title>Peintre professionnel à Montréal | Le Lever du Pinceau</title>
 
-    <!-- GA4 deferred until idle / first interaction to cut main-thread JS on load -->
+    <!-- GA4 deferred until idle / first interaction to cut main-thread JS on load.
+         Ads landings (`ADS_LANDING_PATHS`) skip this and use GTM only (see GoogleTagManager.jsx). -->
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       window.gtag = gtag;
       (function () {
+        var path = location.pathname;
+        if (path.length > 1 && path.charAt(path.length - 1) === '/') {
+          path = path.slice(0, -1);
+        }
+        // Keep in sync with ADS_LANDING_PATHS in src/site/landing/paths.js
+        var gtmOnlyPaths = ['/fr/peintre-montreal', '/en/painter-montreal'];
+        if (gtmOnlyPaths.indexOf(path) !== -1) return;
+
         var loaded = false;
         function loadGtag() {
           if (loaded) return;

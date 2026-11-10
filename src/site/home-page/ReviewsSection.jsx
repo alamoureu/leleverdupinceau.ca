@@ -101,6 +101,7 @@ function ReviewCard({ review, index, isActive }) {
             decoding='async'
             htmlWidth={128}
             htmlHeight={128}
+            style={{ maxWidth: 28, maxHeight: 28, objectFit: 'contain' }}
           />
         </HStack>
         <Box mt={3}>
@@ -272,7 +273,16 @@ export default function ReviewsSection({
               py={2}
               boxShadow='0 2px 8px rgba(0,0,0,0.06)'
             >
-              <Image src={GOOGLE_G_SRC} alt='Google' boxSize='20px' loading='lazy' decoding='async' htmlWidth={128} htmlHeight={128} />
+              <Image
+                src={GOOGLE_G_SRC}
+                alt='Google'
+                boxSize='20px'
+                loading='lazy'
+                decoding='async'
+                htmlWidth={128}
+                htmlHeight={128}
+                style={{ maxWidth: 20, maxHeight: 20, objectFit: 'contain' }}
+              />
               <Text fontWeight='bold' color='gray.800'>
                 {GOOGLE_RATING_LABEL[currentLang]}
               </Text>

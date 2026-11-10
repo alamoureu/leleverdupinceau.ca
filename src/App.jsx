@@ -11,27 +11,12 @@ import ScrollToTop from './site/components/ScrollToTop';
 import RedirectKeepQuery from './site/components/RedirectKeepQuery';
 import LegacyTripleSegmentRedirect from './site/services-pages/LegacyTripleSegmentRedirect';
 import PageSkeleton from './PageSkeleton';
-
-// Always resolve to a component with a string displayName so React never hits "Cannot convert object to primitive value" in lazyInitializer/printWarning.
-function lazyRoute(importFn, displayName) {
-  return React.lazy(async () => {
-    const mod = await importFn();
-    const Component = mod?.default;
-    const name = typeof displayName === 'string' ? displayName : 'LazyRoute';
-    const Wrapper = function LazyRouteWrapper(props) {
-      if (typeof Component !== 'function') return null;
-      return React.createElement(Component, props);
-    };
-    Wrapper.displayName = name;
-    return { default: Wrapper };
-  });
-}
+import { lazyRoute } from './lazyRoute';
 
 const LandingPageV2 = lazyRoute(() => import('./site/pages/LandingPageV2'), 'LandingPageV2');
 const LandingPageStlp = lazyRoute(() => import('./site/pages/LandingPageStlp'), 'LandingPageStlp');
-// Start the home chunk as soon as App loads so "/" does not wait on a second waterfall.
-const homePageImport = import('./site/pages/HomePage');
-const HomePage = lazyRoute(() => homePageImport, 'HomePage');
+// Current-route chunk is also awaited in index.jsx via routePreload before hydrateRoot.
+const HomePage = lazyRoute(() => import('./site/pages/HomePage'), 'HomePage');
 const ContactPage = lazyRoute(() => import('./site/pages/ContactPage'), 'ContactPage');
 const AvisPage = lazyRoute(() => import('./site/pages/AvisPage'), 'AvisPage');
 const AboutPage = lazyRoute(() => import('./site/pages/AboutPage'), 'AboutPage');

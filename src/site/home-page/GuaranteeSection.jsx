@@ -177,6 +177,11 @@ export default function GuaranteeSection({
               alignItems="center"
               justifyContent="center"
               mx={{ base: 'auto', md: 0 }}
+              style={{
+                maxWidth: 236,
+                maxHeight: 236,
+                aspectRatio: '1 / 1',
+              }}
             >
               {!badgeError && badgeSrc ? (
                 <Image
@@ -194,6 +199,13 @@ export default function GuaranteeSection({
                   draggable={false}
                   htmlWidth={743}
                   htmlHeight={763}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    maxWidth: '100%',
+                    maxHeight: '100%',
+                    objectFit: 'contain',
+                  }}
                   onError={() => setBadgeError(true)}
                 />
               ) : (

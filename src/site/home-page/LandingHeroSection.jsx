@@ -77,6 +77,7 @@ export default function LandingHeroSection({
         clipPath={CLIP_POLYGON}
         overflow="hidden"
         aria-hidden
+        style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden' }}
       >
         <Image
           src={imageBackground || heroImage}
@@ -93,6 +94,14 @@ export default function LandingHeroSection({
           decoding="async"
           htmlWidth={1600}
           htmlHeight={1067}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            maxHeight: '100%',
+            objectFit: 'cover',
+          }}
         />
         <Box
           position="absolute"
@@ -101,6 +110,7 @@ export default function LandingHeroSection({
           right={0}
           bottom={0}
           bg={HERO_OVERLAY_BG}
+          style={{ position: 'absolute', inset: 0 }}
         />
       </Box>
 
@@ -124,6 +134,7 @@ export default function LandingHeroSection({
           '2xl': '100vh',
         }}
         w="100%"
+        className="landing-hero-band"
       >
         {/* Absolute band between nav clearance and V padding = true vertical center */}
         <Container

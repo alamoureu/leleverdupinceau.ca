@@ -86,6 +86,7 @@ export default function HeroSection({
       <link rel="preload" href={heroSrc} as="image" fetchpriority="high" />
     </Helmet>
     <Box
+      className="page-hero-band"
       position="relative"
       w="100%"
       minW={0}
@@ -114,6 +115,15 @@ export default function HeroSection({
           decoding="async"
           htmlWidth={1920}
           htmlHeight={1266}
+          style={{
+            position: 'absolute',
+            inset: 0,
+            width: '100%',
+            height: '100%',
+            maxHeight: '100%',
+            objectFit: 'cover',
+            zIndex: 0,
+          }}
         />
         <Box
           position="absolute"
@@ -123,6 +133,7 @@ export default function HeroSection({
           bottom={0}
           bg={overlayBg}
           zIndex={1}
+          style={{ position: 'absolute', inset: 0, zIndex: 1 }}
         />
       </>
       {/* Left-aligned; vertically centered in the hero (mobile + desktop). */}

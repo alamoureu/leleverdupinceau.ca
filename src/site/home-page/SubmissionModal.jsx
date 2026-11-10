@@ -101,6 +101,11 @@ export default function SubmissionModal({ isOpen, onClose, paintingType }) {
               htmlWidth={1409}
               htmlHeight={873}
               zIndex={1}
+              style={{
+                maxWidth: 90,
+                maxHeight: 56,
+                objectFit: 'contain',
+              }}
             />
             <Stack
               position="absolute"

@@ -171,6 +171,8 @@ export const MobileDrawer = () => {
               objectFit="contain"
               htmlWidth={1409}
               htmlHeight={873}
+              className="fouc-max-logo"
+              style={{ objectFit: 'contain' }}
             />
             <IconButton
               icon={<FaTimes />}
